@@ -171,10 +171,11 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 @media (min-width: 768px) {
 	/* Text sits low over a bottom-up shade; the photo stays visible above it (no dark empty top-left). */
 	.v-hero--full { grid-template-rows: auto 1fr auto; }
-	.v-hero--full::before { background: linear-gradient(0deg, rgb(20 20 20 / .92) 0%, rgb(20 20 20 / .78) 34%, rgb(20 20 20 / .28) 64%, rgb(20 20 20 / .1) 82%, rgb(20 20 20 / .5) 100%); }
+	.v-hero--full::before { background: linear-gradient(0deg, rgb(20 20 20 / .93) 0%, rgb(20 20 20 / .86) 46%, rgb(20 20 20 / .62) 62%, rgb(20 20 20 / .18) 82%, rgb(20 20 20 / .5) 100%); }
+	.v-hero--home::before { background: linear-gradient(0deg, rgb(20 20 20 / .93) 0%, rgb(20 20 20 / .86) 62%, rgb(20 20 20 / .55) 78%, rgb(20 20 20 / .5) 100%); }
 	.v-hero.v-hero--full .v-hero__body > * { max-width: min(760px, 100%); }
 }
-.v-hero--full .v-hero__title, .v-hero--full .v-hero__lead { text-shadow: 0 1px 12px rgb(0 0 0 / .35); }
+.v-hero--full :is(.v-hero__title, .v-hero__lead, .v-eyebrow) { text-shadow: 0 1px 12px rgb(0 0 0 / .45); }
 .v-hero--full .v-hero__body { position: relative; z-index: 2; align-self: end; width: min(100% - 2 * var(--v-gutter), 1200px); margin: 0 auto; padding-block: 40px; }
 .v-hero--full .v-hero__lead { color: #ececec; max-width: 46ch; }
 .v-hero--full.is-empty { min-height: 420px; background: linear-gradient(135deg, #1f1f1f, #141414); }

@@ -25,3 +25,15 @@ gì · **C** có sản phẩm gì · **D** làm gì tiếp theo. "Đạt" = tr�
 Lỗi tìm thấy khi soát và đã sửa trong vòng này: ảnh bài nổi bật /blog/ bị JS gỡ nhầm (ảnh lazy chưa tải bị coi là ảnh hỏng –
 sửa điều kiện `currentSrc`), bản đồ Liên hệ để lazy dù nằm trong màn hình đầu (→ eager), thanh điều hướng mục bị cắt ở mép phải
 mobile không có dấu hiệu cuộn (→ mờ dần mép phải), Liên hệ / Giới thiệu chưa nói Velis bán gì (→ dòng dự án).
+
+## Kiểm tra tự động (sau khi sửa)
+
+| Kiểm tra | Kết quả |
+|---|---|
+| `check_ui.mjs` 12 khung + 1536 (tràn ngang, ảnh rỗng, tương phản, vùng bấm, **khoảng trống > 30 % quá 1 màn hình** ở ≥ 1024 px) | 21 trang × 13 khung: 0 lỗi – báo cáo từng trang `screenshots/phase4-r5/kiem-tra/` |
+| 25 tương tác (gồm lăn chuột trên thư viện, thanh mục không hở khi header ẩn/hiện) | 25/25 đạt – `screenshots/phase4-r5/kiem-tra/tuong-tac.txt` |
+| On-page toàn staging | 173 trang · lỗi template 0 · lỗi nội dung 0 · link hỏng 0 |
+| Schema | 20 trang · 0 lỗi · 0 cảnh báo |
+| Lighthouse mobile 1 trang/loại | perf 95–99 · a11y 100 · JS 14 KB · CSS 48 KB · 3 font |
+
+Lần chạy đầu của kiểm tra khoảng trống báo sai trên trang có cột dính (chưa tính cột dính kéo theo người đọc) → sửa trong `contentBands`, có test `tools/tests/ui-gaps.test.mjs`. Lần chạy 12 khung đầu tiên có lỗi tương phản ở eyebrow trên ảnh (vùng lớp phủ còn sáng) → tăng lớp phủ, chạy lại đạt.
