@@ -34,6 +34,28 @@ add_action( 'wp_head', function () {
 	}
 }, 1 );
 
+// Site verification + GA4, moved from the "Header and Footer Scripts" plugin (phase 4). Production host only:
+// staging must not send hits or claim the domain.
+const VELIS_GA4 = 'G-QSJ8EH9CWB';
+add_action( 'wp_head', function () {
+	if ( 'velisrealty.vn' !== wp_parse_url( home_url(), PHP_URL_HOST ) ) {
+		return;
+	}
+	echo '<meta name="p:domain_verify" content="61c508b8fea6f53c5988fd9613d8bc5d">' . "\n"
+		. '<meta name="facebook-domain-verification" content="n0tenm1utob7tp7q6fe7h7r03v505p">' . "\n"
+		. '<script async src="https://www.googletagmanager.com/gtag/js?id=' . VELIS_GA4 . '"></script>' . "\n"
+		. "<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','" . VELIS_GA4 . "');</script>\n";
+}, 2 );
+
+// YouTube embeds load nothing from YouTube until the reader clicks (BRIEF: video "bấm mới tải").
+add_filter( 'render_block_core/embed', function ( $html, $block ) {
+	$id = 'youtube' === ( $block['attrs']['providerNameSlug'] ?? '' ) ? velis_youtube_id( (string) ( $block['attrs']['url'] ?? '' ) ) : '';
+	if ( '' === $id ) {
+		return $html;
+	}
+	return velis_youtube_facade( $id, preg_match( '#<figcaption[^>]*>(.*?)</figcaption>#s', $html, $m ) ? wp_kses_post( $m[1] ) : '' );
+}, 10, 2 );
+
 // Theme block styles: secondary (outline) and text buttons.
 add_action( 'init', function () {
 	register_block_style( 'core/button', array( 'name' => 'secondary', 'label' => 'Phụ (viền)' ) );

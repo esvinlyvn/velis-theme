@@ -343,3 +343,16 @@ $$('[data-form]').forEach((form) => form.addEventListener('submit', (e) => {
 	data.set('_wpcf7_locale', 'vi');
 	fetch(form.action, { method: 'POST', body: data }).then((r) => r.json()).then((r) => done(r.status === 'mail_sent')).catch(() => done(false));
 }));
+
+// YouTube click-to-load: swap the thumbnail link for the player (privacy-enhanced domain).
+document.addEventListener('click', (e) => {
+	const a = e.target.closest('[data-yt]');
+	if (!a || e.ctrlKey || e.metaKey) return;
+	e.preventDefault();
+	const f = document.createElement('iframe');
+	f.src = `https://www.youtube-nocookie.com/embed/${a.dataset.yt}?autoplay=1`;
+	f.title = 'Video YouTube';
+	f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+	f.allowFullscreen = true;
+	a.replaceWith(f);
+});

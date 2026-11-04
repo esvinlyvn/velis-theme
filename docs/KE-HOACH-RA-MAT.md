@@ -29,7 +29,13 @@ Ma trận redirect và bản đồ từ khóa dựng từ ảnh chụp site ngà
 7a. Tạo form Contact Form 7 "Velis – Nhận tư vấn" trên site thật (cùng trường như staging: your-name, your-phone, need, interest,
     note, consent) và gửi thử 1 lần; kiểm tra sự kiện `generate_lead` trong GA4 DebugView.
 7b. Chạy `tools/copy_featured_images.py` phiên bản cho site thật (chỉ khi được duyệt) hoặc gắn ảnh đại diện dự án bằng tay.
-7c. Gỡ font Merriweather khỏi Header and Footer Scripts (theme dùng 3 font riêng).
+7c. Tắt plugin **Header and Footer Scripts**. Mã cần giữ đã chuyển vào theme (`functions.php`, hook `wp_head`, chỉ in khi
+    host là `velisrealty.vn`): GA4 `G-QSJ8EH9CWB` (gtag.js), Pinterest `p:domain_verify` `61c508b8fea6f53c5988fd9613d8bc5d`,
+    Facebook `facebook-domain-verification` `n0tenm1utob7tp7q6fe7h7r03v505p`. Bỏ: font Merriweather (theme dùng 3 font riêng).
+    Sau khi đổi theme: xem nguồn trang chủ có đúng 1 thẻ gtag (không trùng với plugin) và GA4 Realtime nhận lượt xem.
+7e. Chuyển nội dung (giai đoạn 4) trên site thật: chạy `tools/run_convert.py`, `tools/shorten_meta.py` và chép nội dung bài trụ
+    cột vào 7 bản ghi dự án **phiên bản cho site thật, chỉ khi được duyệt**; sau đó tắt WPBakery Page Builder, Ultimate Addons
+    for WPBakery, Easy Table of Contents, Buttonizer, Header and Footer Scripts (đã thử trên staging – bảng dưới).
 7d. Sau ra mắt chạy `tools/check_onpage.mjs` trên site thật: canonical chỉ kiểm được khi trang được index.
 8. **Không** cài `velis-staging-guard` lên site thật.
 9. Kiểm tra sau ra mắt: 32 URL có lượt nhấp GSC trả đúng đích 1 bước; sitemap không có trang noindex; Search Console gửi sitemap.

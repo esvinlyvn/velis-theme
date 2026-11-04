@@ -34,4 +34,8 @@ $check( false !== strpos( $c['tong-quan']['html'], 'CĂN HỘ X' ) && false !== 
 $words = fn( $s ) => count( preg_split( '/\s+/u', trim( strip_tags( $s ) ), -1, PREG_SPLIT_NO_EMPTY ) );
 $check( $words( $src ) === array_sum( array_map( fn( $x ) => $words( $x['title'] ) + $words( $x['html'] ), $c ) ), 'no word lost or added' );
 $check( array() === velis_chunks( '' ), 'empty content, no slot' );
+$check( 'a0cXs21Ib9Q' === velis_youtube_id( 'https://youtu.be/a0cXs21Ib9Q' ) && 'a0cXs21Ib9Q' === velis_youtube_id( 'https://www.youtube.com/watch?feature=x&v=a0cXs21Ib9Q' ), 'youtube id from short and watch URLs' );
+$check( '' === velis_youtube_id( 'https://vimeo.com/123' ), 'not youtube' );
+$yt = velis_youtube_facade( 'a0cXs21Ib9Q' );
+$check( false === strpos( $yt, '<iframe' ) && false !== strpos( $yt, 'href="https://www.youtube.com/watch?v=a0cXs21Ib9Q"' ) && false !== strpos( $yt, 'width="480"' ), 'facade: link + sized thumbnail, no iframe' );
 echo "components: all checks passed\n";
