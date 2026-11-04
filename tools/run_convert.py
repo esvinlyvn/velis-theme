@@ -6,7 +6,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import convert_content as cc
 from import_staging import api, D  # noqa: E402 – staging-only helper
 
-PAGES = ('gioi-thieu', 'lien-he', 'tuyen-dung', 'chinh-sach-bao-mat', 'dieu-khoan-su-dung')
+PAGES = ('gioi-thieu', 'lien-he', 'tuyen-dung', 'chinh-sach-bao-mat', 'dieu-khoan-su-dung',
+         # old pages whose URL now belongs to a theme template / redirect: content not shown, converted so no shortcode is left
+         'trang-chu', 'blog', 'du-an', 'vinhomes', 'gamuda-land', 'sun-group', 'masterise-homes')
 
 
 def fetch(kind, extra=''):
@@ -29,7 +31,8 @@ def main(write):
             break
     office = next((m for m in media if 'ban-do-van-phong-velis' in m['url']), None)
     ctx = cc.Ctx(media, cc.load_urlmap(), office)
-    targets = [('posts', p) for p in fetch('posts')] + [('pages', p) for p in fetch('pages') if p['slug'] in PAGES]
+    # drafts too; private doc pages (20538–20544) are never touched
+    targets = [('posts', p) for p in fetch('posts', '&status=publish,draft')] + [('pages', p) for p in fetch('pages') if p['slug'] in PAGES]
     rows = []
     for kind, p in targets:
         raw = p['content']['raw']

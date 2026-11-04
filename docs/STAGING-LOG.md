@@ -99,3 +99,16 @@ Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng th
 | Tiêu đề trang | Trang chủ, Blog, Liên hệ, Giới thiệu, Dự án: chữ HOA → chữ thường |
 | Media mới | 5 bản đồ tĩnh OpenStreetMap (ID 20817–20821): 4 khu vực + văn phòng |
 | Theme cũ tạm thời | cài lại bản PR cũ vài phút để chụp ảnh TRƯỚC cho 3 mục, rồi cài lại 0.7.0 |
+
+## 2026-11-04 – Giai đoạn 4, chuyển nội dung
+
+| Mục | Thay đổi |
+|---|---|
+| Theme velis | 0.8.0 → 0.9.0 (nội dung bài trụ cột theo ô, YouTube bấm mới tải, FAQ chuyển đổi có kiểu, GA4 chỉ site thật) |
+| Nội dung | 133 bài/trang chuyển WPBakery → khối (`tools/run_convert.py --write`): 102 bài đăng + 12 bài nháp + 7 bài trụ cột, 5 trang chính, 7 trang cũ không hiển thị (trang chủ cũ, blog, du-an, 4 trang chủ đầu tư cũ). Bản gốc: revision WordPress + JSON ngoài repo |
+| Trang dự án | Nội dung đã chuyển của 7 bài trụ cột chép vào nội dung 7 bản ghi dự án (The Privé, VSP, TGC, Palm River, Spring Ville, Persa Place, Ansana) |
+| Ảnh phân khu | 8 phân khu (VSP ×5, TGC ×3) nhận ảnh đại diện = ảnh nằm dưới mục của phân khu trong bài trụ cột |
+| Title/meta | 33 title + 69 meta viết tay rút gọn qua Rank Math (`tools/shorten_meta.py --write`) |
+| Plugin tắt | Ultimate Addons for WPBakery, WPBakery Page Builder, Easy Table of Contents, Header and Footer Scripts (Buttonizer ×2 đã tắt từ trước). Không xóa plugin nào |
+| Bài trụ cột cũ | 7 bài chuyển sang **nháp** sau khi chữ đã vào trang dự án (không còn hiện trong blog/thẻ bài; URL cũ 301 về trang dự án khi ra mắt) |
+| Không đụng | Trang tài liệu riêng tư 20538–20544 (20543 còn shortcode, vẫn private + noindex) |

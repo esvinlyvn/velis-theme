@@ -515,7 +515,7 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 .v-dd--mega .v-mega__zones { list-style: none; padding: 0 0 4px 12px; margin: 0; border-left: 1px solid var(--v-line); }
 .v-dd--mega .v-mega__zones a { font-weight: 400; min-height: 44px; padding-block: 4px; font-size: 15px; }
 .v-sechead.has-action { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px; }
-.v-sechead.has-action > .v-btn { margin-bottom: 4px; }
+.v-sechead.has-action > .v-btn { margin-bottom: 4px; white-space: normal; max-width: 100%; } /* long project names wrap on 360px */
 .v-facts__more { font-weight: 400; font-size: 13px; margin-left: 4px; min-height: 0 !important; color: var(--v-red); }
 .v-overview { display: grid; gap: 0; margin: 24px 0 0; border-top: 1px solid var(--v-line); }
 .v-overview > div { display: grid; gap: 4px 24px; padding: 12px 0; border-bottom: 1px solid var(--v-line); }
