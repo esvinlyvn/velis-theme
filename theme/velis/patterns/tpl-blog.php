@@ -7,7 +7,8 @@
  * /blog/: latest posts, entry by cluster (project / topic) and by post kind, search box.
  */
 $latest   = get_posts( array( 'numberposts' => 9 ) );
-$clusters = get_categories( array( 'hide_empty' => true, 'parent' => 0, 'orderby' => 'count', 'order' => 'DESC' ) );
+// Clusters = categories named after a project or a developer (old categories wait for their redirect).
+$clusters = array_filter( get_categories( array( 'hide_empty' => true, 'parent' => 0, 'orderby' => 'count', 'order' => 'DESC' ) ), fn( $c ) => velis_cluster_project( $c ) || get_posts( array( 'post_type' => 'chu-dau-tu', 'name' => $c->slug, 'numberposts' => 1, 'fields' => 'ids' ) ) );
 $out      = velis_breadcrumb_html( velis_trail() ) . velis_hero_b( array(
 	'eyebrow' => 'Blog Velis',
 	'title'   => 'Blog bất động sản: phân tích dự án và thị trường',
