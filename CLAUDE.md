@@ -50,6 +50,13 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
 - `data/gsc/` — export Search Console; `data/baseline/` — mốc crawl site thật (bản tóm tắt; dữ liệu thô bị ignore).
 - `tools/` — script crawl/kiểm tra; `screenshots/` — ảnh chụp đã nén dùng trong báo cáo.
 
+## Lệnh hay dùng
+
+- Sinh `theme.json` từ DESIGN.md: `python3 -I tools/build_theme_json.py` (không sửa tay theme.json).
+- Sinh logo SVG: `python3 -I tools/build_logo.py`.
+- Đóng gói theme: `cd theme && zip -qr ../dist/velis.zip velis` → tải lên staging qua wp-admin.
+- Crawl mốc (chỉ đọc, không đăng nhập): `REQUESTS_CA_BUNDLE=/root/.ccr/ca-bundle.crt python3 -I tools/crawl_baseline.py https://velisrealty.vn data/baseline`.
+
 ## Ponytail – AGENTS.md (nguyên văn)
 
 # Ponytail, lazy senior dev mode
