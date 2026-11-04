@@ -539,3 +539,4 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 @media (max-width: 767px) { .v-main > .v-wrap + .v-hero--full { min-height: min(68svh, 560px); } } /* title + buttons stay above the sticky CTA bar */
 .v-clusters a { display: inline-flex; align-items: center; min-height: 44px; }
 .v-prose #ez-toc-container, .v-prose .ez-toc-v2_0_80 { display: none; } /* Easy TOC from old content; the theme builds its own TOC */
+.v-prose :is(iframe, video, embed) { max-width: 100%; }
