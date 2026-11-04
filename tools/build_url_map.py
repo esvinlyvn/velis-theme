@@ -12,7 +12,7 @@ from urllib.parse import urlsplit
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 D = lambda *p: os.path.join(ROOT, 'data', *p)
 APPS = ('/check-can-the-prive', '/check-sdt', '/cmgd', '/lucky-lead', '/meta-check', '/tao-qr-bank', '/thi')
-PER_PAGE = 10  # live posts_per_page (REST settings, 2026-11-04)
+PER_PAGE = 12  # posts per listing page on the new site (theme pre_get_posts); old site used 10
 
 # Old blog/project categories -> new target. Blog categories become clusters /blog/{cum}/.
 CAT_TO_CLUSTER = {

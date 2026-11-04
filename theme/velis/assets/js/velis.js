@@ -111,6 +111,58 @@ $$('[data-listing]').forEach((box) => {
 	apply();
 });
 
+// Broken image (e.g. a corrupt original): try the other size in data-alt once, then show the neutral frame with the name.
+const broken = (img) => {
+	if (img.dataset.alt && !img.dataset.tried) {
+		img.dataset.tried = '1';
+		img.removeAttribute('srcset');
+		img.src = img.dataset.alt;
+		return;
+	}
+	const box = img.closest('[data-name]');
+	const hero = img.closest('.v-hero--full');
+	const li = img.closest('.v-gallery__track > li');
+	if (li) return li.remove();
+	if (hero) {
+		hero.classList.add('is-empty');
+		img.outerHTML = `<span class="v-hero__fallback" aria-hidden="true">${hero.dataset.name || ''}</span>`;
+	} else if (box) {
+		box.classList.add('v-media--empty');
+		box.innerHTML = '<span></span>';
+		box.firstChild.textContent = box.dataset.name;
+	}
+};
+$$('img[data-alt]').forEach((img) => {
+	img.addEventListener('error', () => broken(img));
+	if (img.complete && img.naturalWidth === 0 && img.src) broken(img); // failed before this script ran
+});
+
+// Mega menu / submenus: also open on mouse hover; close 200 ms after the pointer leaves. Click and keyboard keep working.
+$$('[data-hover]').forEach((d) => {
+	let t;
+	let hovered = 0;
+	d.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse' && wide()) { clearTimeout(t); if (!d.open) hovered = Date.now(); d.open = true; } });
+	// a click right after hover-opening must not close it again
+	d.querySelector('summary').addEventListener('click', (e) => { if (Date.now() - hovered < 800) { e.preventDefault(); hovered = 0; } });
+	d.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse' && wide()) t = setTimeout(() => (d.open = false), 200); });
+});
+
+// Section nav (project pages): highlight the last section whose top has passed 35 % of the viewport.
+document.querySelectorAll('[data-secnav]').forEach((nav) => {
+	const links = [...nav.querySelectorAll('a[href^="#"]')];
+	const targets = links.map((a) => document.getElementById(a.hash.slice(1)));
+	const mark = () => {
+		let cur = -1;
+		targets.forEach((t, i) => { if (t && t.getBoundingClientRect().top <= innerHeight * 0.35) cur = i; });
+		links.forEach((a, i) => {
+			if (i === cur && !a.hasAttribute('aria-current')) a.closest('ul').scrollTo({ left: a.offsetLeft - 16 }); // only the strip, never the page
+			i === cur ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current');
+		});
+	};
+	addEventListener('scroll', mark, { passive: true });
+	mark();
+});
+
 // Header dropdowns (<details data-dd>): one open at a time; close on outside click or Esc.
 const dds = $$('[data-dd]');
 dds.forEach((d) => d.addEventListener('toggle', () => d.open && dds.forEach((o) => o !== d && (o.open = false))));

@@ -19,6 +19,9 @@ add_action( 'wp_enqueue_scripts', function () {
 	$ver = wp_get_theme()->get( 'Version' );
 	wp_enqueue_style( 'velis', get_stylesheet_uri(), array(), $ver );
 	wp_enqueue_script( 'velis', get_theme_file_uri( 'assets/js/velis.js' ), array(), $ver, array( 'strategy' => 'defer', 'in_footer' => true ) );
+	if ( is_page( 'velis-style-guide' ) ) { // internal showcase only
+		wp_enqueue_style( 'velis-style-guide', get_theme_file_uri( 'assets/style-guide.css' ), array( 'velis' ), $ver );
+	}
 } );
 
 // Preload the two above-the-fold fonts (DESIGN.md: preload 2 of 3 files).
@@ -43,7 +46,7 @@ add_action( 'init', function () {
  */
 add_action( 'wp_enqueue_scripts', function () {
 	$keep_js  = array( 'velis', 'admin-bar' );
-	$keep_css = array( 'velis', 'global-styles', 'wp-block-library', 'admin-bar', 'dashicons', 'core-block-supports' );
+	$keep_css = array( 'velis', 'velis-style-guide', 'global-styles', 'wp-block-library', 'admin-bar', 'dashicons', 'core-block-supports' );
 	foreach ( wp_scripts()->queue as $h ) {
 		in_array( $h, $keep_js, true ) || wp_dequeue_script( $h );
 	}

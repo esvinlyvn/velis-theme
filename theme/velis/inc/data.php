@@ -214,3 +214,45 @@ function velis_image_id( $post ): int {
 	}
 	return $id;
 }
+
+/** Lower case without Vietnamese diacritics: "Căn hộ Palm River" → "can ho palm river". */
+function velis_fold( string $s ): string {
+	$s = remove_accents( mb_strtolower( $s ) );
+	return trim( preg_replace( '/[^a-z0-9]+/', ' ', str_replace( 'đ', 'd', $s ) ) );
+}
+
+/** A blog cluster is a category named after a project or a developer (old categories wait for their redirect). */
+function velis_is_cluster( $cat ): bool {
+	static $slugs = null;
+	$slugs ??= array_merge( wp_list_pluck( velis_top_projects(), 'post_name' ), wp_list_pluck( get_posts( array( 'post_type' => 'chu-dau-tu', 'numberposts' => 100, 'post_status' => 'any' ) ), 'post_name' ) );
+	return $cat instanceof WP_Term && in_array( $cat->slug, $slugs, true );
+}
+
+/**
+ * Project search: records whose name (full, after "Khu n –", or trade name) is contained in the query come first –
+ * longest name first – then WordPress' own search results.
+ */
+function velis_search_projects( string $s ): array {
+	if ( ! velis_has_data() ) {
+		return array();
+	}
+	$q     = ' ' . velis_fold( $s ) . ' ';
+	$score = array();
+	foreach ( get_posts( array( 'post_type' => VELIS_CPT_PROJECT, 'numberposts' => 200 ) ) as $p ) {
+		$names = array_filter( array( $p->post_title, preg_replace( '/^.*–\s*/u', '', $p->post_title ), (string) get_post_meta( $p->ID, 'velis_trade_name', true ) ) );
+		foreach ( $names as $n ) {
+			$f = velis_fold( $n );
+			if ( mb_strlen( $f ) >= 4 && str_contains( $q, ' ' . $f . ' ' ) ) {
+				$score[ $p->ID ] = max( $score[ $p->ID ] ?? 0, mb_strlen( $f ) + ( 'thap-tang' === velis_level( $p ) ? 0 : 100 ) );
+			}
+		}
+	}
+	arsort( $score );
+	$found = array_map( 'get_post', array_keys( $score ) );
+	foreach ( get_posts( array( 's' => $s, 'post_type' => VELIS_CPT_PROJECT, 'numberposts' => 12 ) ) as $p ) {
+		if ( ! isset( $score[ $p->ID ] ) ) {
+			$found[] = $p;
+		}
+	}
+	return array_slice( $found, 0, 12 );
+}

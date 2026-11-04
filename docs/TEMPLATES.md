@@ -64,3 +64,27 @@ giai đoạn 4.
 - Bài viết, trang chính: nội dung WPBakery → khối; title/meta viết tay quá dài (danh sách trong báo cáo on-page).
 - Trang tác giả: ảnh chân dung thật, tiểu sử, mạng xã hội cá nhân.
 - 28 trang phân khu / dòng thấp tầng đang noindex chờ ảnh và thông số (`docs/AUDIT-NOI-DUNG.md`).
+
+## Vòng sửa 2 (2026-11-04)
+
+- **Trang dự án**: bỏ cột mục lục; thanh điều hướng mục dính ngang dưới hero (chỉ mục có nội dung, tô mục đang xem, mobile cuộn
+  ngang). Thứ tự: Tổng quan (hộp "Nằm trong" có ảnh, tóm tắt, phần đầy đủ của ô bị rút gọn, nội dung) · Phân khu / Dòng sản phẩm
+  · So sánh · Vị trí (bản đồ tĩnh; thiếu tọa độ dùng bản đồ khu vực, ghi "khu vực") · Tiện ích · Quy hoạch · Thư viện (ảnh của bài
+  dự án cũ) · Bài viết · Nhận tư vấn.
+- **Thông tin nhanh**: giá trị ≤ ~45 ký tự, dài thì rút gọn + "Chi tiết"; số cột tự chọn để không có ô lẻ; mobile 2 cột.
+- **So sánh**: chỉ khi ≥ 2 đối tượng có dữ liệu; bỏ hàng giống hệt; căn hộ so với căn hộ, thấp tầng với thấp tầng; ô thiếu
+  "Chưa công bố"; rộng hết khung, cuộn ngang chỉ khi > 5 cột.
+- **Thẻ**: không còn dòng "Giá: chưa công bố"; thứ tự giá (nếu có) → số phân khu / loại SP → trạng thái → bàn giao; thẻ phân khu
+  dùng dữ liệu riêng (quy mô, dòng sản phẩm, bàn giao).
+- **Ảnh**: mọi ảnh dùng `--focus: 100% 0%; --zoom` để khuất huy hiệu in chìm; ảnh hỏng thử cỡ khác rồi chuyển khung dự phòng.
+- **Trang chủ**: 6 dự án nổi bật + "Xem tất cả dự án"; chủ đầu tư dạng danh sách tên khi chưa đủ logo; khối "Vì sao chọn Velis",
+  giới thiệu CEO, cảm nhận khách hàng đọc từ trường tùy chỉnh của trang chủ (`velis_why`, `velis_ceo`, `velis_testimonials`,
+  mỗi dòng một mục) và tự ẩn khi trống.
+- **Bài viết**: ô Tóm tắt (excerpt); "Nhận định tại thời điểm …" trong dòng meta; ngày cập nhật = ngày sửa trên site thật
+  (`velis_modified`, bỏ ngày sửa hàng loạt 04/11/2026 của 106 bài); ảnh đầu nội dung trùng ảnh đại diện bị ẩn; thẻ dự án ngang gọn;
+  cột phải dính: mục lục (nếu có) + dự án trong bài + nhận tư vấn; 3–6 bài cùng cụm.
+- **Giới thiệu**: template riêng (`page-gioi-thieu.html`): câu chuyện (nội dung trang), CEO (hồ sơ tác giả), cách làm việc / giá
+  trị / pháp nhân từ trường `velis_steps`, `velis_values`, `velis_company` – tự ẩn khi trống.
+- **Header**: chữ menu/nút không xuống dòng; hotline chỉ hiện từ 1280 px; mega menu mở khi rê chuột (đóng trễ 200 ms) và khi
+  bấm/bàn phím, có tối đa 4 phân khu mỗi đại đô thị. Tắt View Transitions.
+- **Tìm kiếm**: khớp tên dự án/phân khu trong câu ("căn hộ palm river" → Palm River).

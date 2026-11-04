@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Velis Data
  * Description: Mô hình dữ liệu Velis: Chủ đầu tư, Dự án (đại đô thị → phân khu → dòng thấp tầng, dự án độc lập), dòng căn hộ, loại sản phẩm, khu vực 2 cấp, trạng thái. Form nhập liệu trong wp-admin.
- * Version: 0.2.4
+ * Version: 0.2.6
  * Author: Velis Realty
  * Requires PHP: 8.0
  *
@@ -110,8 +110,9 @@ add_filter( 'rank_math/sitemap/entry', fn( $url, $type, $object ) => ( 'post' ==
 add_action( 'rest_api_init', fn() => register_rest_field( VELIS_CPT_PROJECT, 'velis_missing', array( 'get_callback' => fn( $p ) => velis_missing( $p['id'] ) ) ) );
 
 /**
- * Header menu data: Chủ đầu tư → dự án (top-level projects only; phân khu are reached from their đại đô thị).
- * Returns [ developer title => [ project title => url ] ], projects without a developer under "Dự án khác".
+ * Header menu data: Chủ đầu tư → dự án → up to 4 phân khu (published). Returns
+ * [ developer title => [ project title => [ 'url' => …, 'zones' => [ title => url ], 'more' => bool ] ] ],
+ * projects without a developer under "Dự án khác".
  */
 function velis_project_menu(): array {
 	$out = array();
@@ -119,7 +120,12 @@ function velis_project_menu(): array {
 	foreach ( $projects as $p ) {
 		$devs = array_filter( array_map( 'get_post', (array) get_post_meta( $p->ID, 'velis_developers', true ) ) );
 		$key  = $devs ? reset( $devs )->post_title : 'Dự án khác';
-		$out[ $key ][ $p->post_title ] = get_permalink( $p );
+		$zones = get_posts( array( 'post_type' => VELIS_CPT_PROJECT, 'post_parent' => $p->ID, 'numberposts' => 5, 'orderby' => 'menu_order title', 'order' => 'ASC', 'meta_key' => 'velis_level', 'meta_value' => 'phan-khu' ) );
+		$out[ $key ][ $p->post_title ] = array(
+			'url'   => get_permalink( $p ),
+			'zones' => array_combine( wp_list_pluck( array_slice( $zones, 0, 4 ), 'post_title' ), array_map( 'get_permalink', array_slice( $zones, 0, 4 ) ) ),
+			'more'  => count( $zones ) > 4,
+		);
 	}
 	uksort( $out, fn( $a, $b ) => ( 'Dự án khác' === $a ) <=> ( 'Dự án khác' === $b ) ?: strcmp( $a, $b ) );
 	return $out;

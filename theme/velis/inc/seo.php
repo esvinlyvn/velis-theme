@@ -49,15 +49,19 @@ function velis_trail(): array {
 	return $t;
 }
 
-/** Primary category: Rank Math primary term if set, else the first category. */
+/**
+ * Primary category: Rank Math's primary term only when the post is still in it (after the migration it often points to
+ * an old, emptied category), else the first assigned category.
+ */
 function velis_primary_category( $post ): ?WP_Term {
-	$id  = (int) get_post_meta( get_post( $post )->ID, 'rank_math_primary_category', true );
-	$cat = $id ? get_term( $id, 'category' ) : null;
-	if ( ! $cat instanceof WP_Term ) {
-		$cats = get_the_category( get_post( $post )->ID );
-		$cat  = $cats ? $cats[0] : null;
+	$cats = get_the_category( get_post( $post )->ID );
+	$id   = (int) get_post_meta( get_post( $post )->ID, 'rank_math_primary_category', true );
+	foreach ( $cats as $c ) {
+		if ( $c->term_id === $id ) {
+			return $c;
+		}
 	}
-	return $cat;
+	return $cats ? $cats[0] : null;
 }
 
 /** Fit a title into 60 characters by dropping trailing " – …" / ", …" parts. */
@@ -330,3 +334,10 @@ add_filter( 'rank_math/json_ld', function ( $data ) {
 	}
 	return $data;
 }, 20 );
+
+// Listings show 12 posts per page (3 or 4 columns); the main query must agree or page N would 404.
+add_action( 'pre_get_posts', function ( WP_Query $q ) {
+	if ( ! is_admin() && $q->is_main_query() && ( $q->is_category() || $q->is_author() ) ) {
+		$q->set( 'posts_per_page', 12 );
+	}
+} );
