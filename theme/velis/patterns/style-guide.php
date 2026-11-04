@@ -13,6 +13,7 @@ $up    = fn( $path ) => esc_url( content_url( 'uploads/' . $path ) );
 $theme = fn( $path ) => esc_url( get_theme_file_uri( $path ) );
 $e     = fn( $s ) => esc_html( $s );
 $filled = fn( $v ) => '' !== trim( (string) $v );
+$more  = fn( $t ) => '<span class="v-card__link" aria-hidden="true">' . esc_html( $t ) . ' →</span>'; // whole card is the link (stretched title)
 $price = fn( $p ) => '' === $p ? '<p class="v-price is-missing">Giá: chưa công bố</p>' : '<p class="v-price">Giá từ ' . esc_html( $p ) . '</p>';
 
 // Regions: Vùng → Tiểu khu. Cards show the most specific level; filters accept both.
@@ -33,14 +34,14 @@ $region_label = function ( $slugs ) use ( $regions ) {
 
 $prive = array(
 	'name' => 'The Privé', 'dev' => 'Tập đoàn Đất Xanh', 'khu' => array( 'khu-dong', 'nam-rach-chiec' ), 'status' => '', 'price' => '',
-	'img' => '2026/04/can-ho-the-prive.webp', 'url' => '/can-ho-the-prive/', 'updated' => '09/04/2026',
+	'img' => '2026/04/can-ho-the-prive.webp', 'url' => '/can-ho-the-prive/', 'updated' => '09/04/2026', 'types' => array( 'can-ho' ),
 	'address' => 'Khu dân cư Nam Rạch Chiếc, phường Bình Trưng (trước đây phường An Phú, Quận 2), TP.HCM',
 );
 $projects = array(
 	$prive,
-	array( 'name' => 'Vinhomes Saigon Park', 'dev' => 'Vinhomes', 'khu' => array( 'tay-bac' ), 'status' => '', 'price' => '', 'img' => '2026/05/vinhomes-saigon-park-2.webp', 'url' => '/vinhomes-saigon-park/' ),
-	array( 'name' => 'The Global City', 'dev' => 'Masterise Homes', 'khu' => array( 'khu-dong', 'nam-rach-chiec' ), 'status' => '', 'price' => '', 'img' => '', 'url' => '/the-global-city/' ),
-	array( 'name' => 'Spring Ville', 'dev' => 'Gamuda Land', 'khu' => array( 've-tinh', 'nhon-trach-long-thanh' ), 'status' => '', 'price' => '', 'img' => '', 'url' => '/spring-ville/' ),
+	array( 'name' => 'Vinhomes Saigon Park', 'dev' => 'Vinhomes', 'khu' => array( 'tay-bac' ), 'status' => '', 'price' => '', 'img' => '2026/05/vinhomes-saigon-park-2.webp', 'url' => '/vinhomes-saigon-park/', 'types' => array( 'can-ho', 'nha-pho', 'shophouse', 'biet-thu', 'dinh-thu' ) ),
+	array( 'name' => 'The Global City', 'dev' => 'Masterise Homes', 'khu' => array( 'khu-dong', 'nam-rach-chiec' ), 'status' => '', 'price' => '', 'img' => '', 'url' => '/the-global-city/', 'types' => array( 'can-ho', 'nha-pho', 'shophouse', 'biet-thu' ) ),
+	array( 'name' => 'Spring Ville', 'dev' => 'Gamuda Land', 'khu' => array( 've-tinh', 'nhon-trach-long-thanh' ), 'status' => '', 'price' => '', 'img' => '', 'url' => '/spring-ville/', 'types' => array( 'can-ho' ) ),
 );
 $facts = array( // empty value → item hidden; price always shown (muted when missing)
 	'Vị trí' => 'Nam Rạch Chiếc, phường Bình Trưng', 'Quy mô' => '6,7 ha · 12 tháp · hơn 3.000 căn', 'Sản phẩm' => 'Căn hộ 1–3 PN',
@@ -101,6 +102,7 @@ $distinct = function ( $key ) use ( $zones ) {
 	return count( $vals );
 };
 $show = fn( $key ) => $distinct( $key ) >= 2;
+$filter_groups = count( array_filter( array_map( $show, array( 'types', 'pn', 'gia', 'dt', 'tt', 'bg' ) ) ) );
 $sorts = array_filter( array( 'gia' => 'Giá từ thấp đến cao', 'bg' => 'Bàn giao sớm nhất' ), fn( $k ) => $show( $k ), ARRAY_FILTER_USE_KEY );
 ?>
 <!-- wp:group {"className":"v-sg","layout":{"type":"constrained","contentSize":"1200px"}} -->
@@ -188,43 +190,70 @@ $sorts = array_filter( array( 'gia' => 'Giá từ thấp đến cao', 'bg' => 'B
 		<div class="v-card__body"><p class="v-card__kicker">Dự án</p>
 		<h3 class="v-card__title"><a href="<?php echo esc_url( $prive['url'] ); ?>">The Privé</a></h3>
 		<p class="v-card__meta"><?php echo $e( $prive['dev'] . ' · ' . $region_label( $prive['khu'] ) ); ?></p>
-		<?php echo $price( $prive['price'] ); // phpcs:ignore -- escaped in $price ?></div>
+		<?php echo $price( $prive['price'] ) . $more( 'Xem dự án' ); // phpcs:ignore -- escaped in helpers ?></div>
 	</article>
 	<article class="v-card">
 		<div class="v-card__media v-card__logo"><svg class="v-logo-ph" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4"/></svg></div>
 		<div class="v-card__body"><p class="v-card__kicker">Chủ đầu tư</p>
 		<h3 class="v-card__title"><a href="/chu-dau-tu/">Tập đoàn Đất Xanh</a></h3>
 		<p class="v-card__meta">1 dự án đang tư vấn · Khu Đông</p>
-		<span class="v-card__link" aria-hidden="true">Xem chủ đầu tư →</span></div>
+		<?php echo $more( 'Xem chủ đầu tư' ); // phpcs:ignore ?></div>
 	</article>
 	<article class="v-card">
 		<div class="v-card__media"><img src="<?php echo $up( '2026/04/penthouse-duplex-the-prive.webp' ); ?>" alt="Phòng khách căn penthouse The Privé" width="1200" height="675" loading="lazy" style="--focus: 100% 0%; --zoom: 1.15"></div>
 		<div class="v-card__body"><p class="v-card__kicker">Phân tích sản phẩm</p>
 		<h3 class="v-card__title"><a href="/penthouse-garden-duplex-the-prive-quan-2/">Penthouse &amp; Garden Duplex The Privé: tài sản truyền đời bên sông</a></h3>
-		<p class="v-card__meta">Vũ Xuân · 13/04/2026 · 9 phút đọc</p></div>
+		<p class="v-card__meta">Vũ Xuân · 13/04/2026 · 9 phút đọc</p>
+		<?php echo $more( 'Đọc bài' ); // phpcs:ignore ?></div>
 	</article>
 	<article class="v-card">
 		<div class="v-card__media"><img src="<?php echo $up( $zones[0]['img'] ); ?>" alt="Phố shophouse Vinhomes Saigon Park" width="1200" height="675" loading="lazy" style="--focus: 100% 0%; --zoom: 1.15"></div>
 		<div class="v-card__body"><p class="v-card__kicker">Phân khu · Vinhomes Saigon Park</p>
 		<h3 class="v-card__title"><a href="/vinhomes-saigon-park/">Khu 1 – Ivy Park</a></h3>
 		<ul class="v-chips"><li>Căn hộ</li><li>Nhà phố liền kề</li><li>Shophouse</li></ul>
-		<?php echo $price( '' ); // phpcs:ignore ?></div>
+		<?php echo $price( '' ) . $more( 'Xem phân khu' ); // phpcs:ignore ?></div>
 	</article>
 </div></section>
 
-<section class="v-sg__section" id="listing-du-an"><header class="v-sechead"><p class="v-eyebrow">Listing dự án</p><h2>Lọc khu vực hai cấp</h2><p class="v-sechead__lead">Chọn Vùng là chọn mọi Tiểu khu bên trong; thẻ chỉ hiện cấp cụ thể nhất.</p></header>
+<section class="v-sg__section" id="listing-du-an"><header class="v-sechead"><p class="v-eyebrow">Listing dự án</p><h2>Thanh lọc ngang</h2><p class="v-sechead__lead">Desktop: ô thả xuống Khu vực (Vùng → Tiểu khu), Chủ đầu tư, Loại sản phẩm + số kết quả + xóa lọc. Mobile: ngăn kéo.</p></header>
+<?php
+$devs   = array_values( array_unique( array_column( $projects, 'dev' ) ) );
+$ptypes = array_keys( array_intersect_key( $types, array_flip( array_merge( ...array_column( $projects, 'types' ) ) ) ) );
+$pkhu   = array_unique( array_map( fn( $p ) => $p['khu'][0], $projects ) );
+?>
 <div class="v-plist" data-plist>
-	<fieldset class="v-regions" data-regions><legend>Khu vực</legend>
-	<?php foreach ( $regions as $k => list( $vung, $subs ) ) : ?>
-		<div class="v-regions__group"><label><input type="checkbox" value="<?php echo esc_attr( $k ); ?>" data-parent> <?php echo $e( $vung ); ?></label>
-		<?php foreach ( $subs as $sk => $sl ) : ?><label class="v-regions__sub"><input type="checkbox" value="<?php echo esc_attr( $sk ); ?>" data-child="<?php echo esc_attr( $k ); ?>"> <?php echo $e( $sl ); ?></label><?php endforeach; ?>
-		</div>
-	<?php endforeach; ?>
-	</fieldset>
-	<p class="v-listing__count" role="status" data-plist-count>Hiển thị <?php echo count( $projects ); ?>/<?php echo count( $projects ); ?> dự án</p>
+	<div class="v-plist__top">
+		<button class="v-btn v-btn--secondary v-listing__open" type="button" data-open aria-haspopup="dialog">Bộ lọc</button>
+		<dialog class="v-drawer v-drawer--bar" aria-labelledby="v-pfilter-title"><form method="dialog" class="v-filter v-fbar" data-pfilter>
+			<div class="v-drawer__head"><p class="v-filter__title" id="v-pfilter-title">Bộ lọc dự án</p><button class="v-drawer__close" type="button" data-close><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="v-sr">Đóng bộ lọc</span></button></div>
+			<div class="v-drawer__body v-fbar__groups">
+			<?php if ( count( $pkhu ) >= 2 ) : ?>
+				<details class="v-fdrop" data-fdrop><summary>Khu vực <span data-n></span></summary><div class="v-fdrop__panel v-regions" data-regions>
+				<?php foreach ( $regions as $k => list( $vung, $subs ) ) : ?>
+					<div class="v-regions__group"><label><input type="checkbox" name="khu" value="<?php echo esc_attr( $k ); ?>" data-parent> <?php echo $e( $vung ); ?></label>
+					<?php foreach ( $subs as $sk => $sl ) : ?><label class="v-regions__sub"><input type="checkbox" name="khu" value="<?php echo esc_attr( $sk ); ?>" data-child="<?php echo esc_attr( $k ); ?>"> <?php echo $e( $sl ); ?></label><?php endforeach; ?>
+					</div>
+				<?php endforeach; ?>
+				</div></details>
+			<?php endif; ?>
+			<?php if ( count( $devs ) >= 2 ) : ?>
+				<details class="v-fdrop" data-fdrop><summary>Chủ đầu tư <span data-n></span></summary><div class="v-fdrop__panel">
+				<?php foreach ( $devs as $d ) : ?><label><input type="checkbox" name="cdt" value="<?php echo esc_attr( sanitize_title( $d ) ); ?>"> <?php echo $e( $d ); ?></label><?php endforeach; ?>
+				</div></details>
+			<?php endif; ?>
+			<?php if ( count( $ptypes ) >= 2 ) : ?>
+				<details class="v-fdrop" data-fdrop><summary>Loại sản phẩm <span data-n></span></summary><div class="v-fdrop__panel">
+				<?php foreach ( $ptypes as $t ) : ?><label><input type="checkbox" name="loai" value="<?php echo esc_attr( $t ); ?>"> <?php echo $e( $types[ $t ] ); ?></label><?php endforeach; ?>
+				</div></details>
+			<?php endif; ?>
+			</div>
+			<div class="v-drawer__foot"><button class="v-btn v-btn--secondary" type="reset">Xóa lọc</button><button class="v-btn" value="apply" data-apply>Xem <?php echo count( $projects ); ?> kết quả</button></div>
+		</form></dialog>
+		<p class="v-listing__count" role="status" data-plist-count>Hiển thị <?php echo count( $projects ); ?>/<?php echo count( $projects ); ?> dự án</p>
+	</div>
 	<div class="v-grid v-grid--4">
 	<?php foreach ( $projects as $p ) : ?>
-		<article class="v-card" data-khu="<?php echo esc_attr( implode( ' ', $p['khu'] ) ); ?>">
+		<article class="v-card" data-card data-khu="<?php echo esc_attr( implode( ' ', $p['khu'] ) ); ?>" data-cdt="<?php echo esc_attr( sanitize_title( $p['dev'] ) ); ?>" data-loai="<?php echo esc_attr( implode( ' ', $p['types'] ) ); ?>">
 			<?php if ( $p['img'] ) : ?>
 			<div class="v-card__media"><img src="<?php echo $up( $p['img'] ); ?>" alt="<?php echo esc_attr( 'Phối cảnh ' . $p['name'] ); ?>" width="1200" height="675" loading="lazy" style="--focus: 100% 0%; --zoom: 1.15"></div>
 			<?php else : ?>
@@ -234,10 +263,11 @@ $sorts = array_filter( array( 'gia' => 'Giá từ thấp đến cao', 'bg' => 'B
 			<?php if ( $p['status'] ) : ?><span class="v-badge"><?php echo $e( $p['status'] ); ?></span><?php endif; ?>
 			<h3 class="v-card__title"><a href="<?php echo esc_url( $p['url'] ); ?>"><?php echo $e( $p['name'] ); ?></a></h3>
 			<p class="v-card__meta"><?php echo $e( implode( ' · ', array_filter( array( $p['dev'], $region_label( $p['khu'] ) ) ) ) ); ?></p>
-			<?php echo $price( $p['price'] ); // phpcs:ignore ?></div>
+			<?php echo $price( $p['price'] ) . $more( 'Xem dự án' ); // phpcs:ignore ?></div>
 		</article>
 	<?php endforeach; ?>
 	</div>
+	<div class="v-empty" hidden data-plist-empty><p><b>Chưa có dự án phù hợp.</b></p><button class="v-btn v-btn--secondary" type="button" data-plist-reset>Xóa lọc</button></div>
 </div></section>
 
 <section class="v-sg__section" id="thong-tin"><header class="v-sechead"><p class="v-eyebrow">Dữ liệu dự án</p><h2>Thanh thông tin nhanh</h2><p class="v-sechead__lead">Ô trống bị ẩn (ví dụ "Hướng"); giá luôn hiện.</p></header>
@@ -293,14 +323,21 @@ echo velis_table( array( // phpcs:ignore -- cells escaped below
 	<?php endforeach; ?>
 </div></section>
 
-<section class="v-sg__section" id="listing"><header class="v-sechead"><p class="v-eyebrow">Listing phân khu</p><h2>Các phân khu Vinhomes Saigon Park</h2><p class="v-sechead__lead">Nhóm lọc chỉ hiện khi có ít nhất 2 giá trị khác nhau; nhóm "Hỗn hợp" cho phân khu có cả cao tầng và thấp tầng.</p></header>
+<section class="v-sg__section" id="listing"><header class="v-sechead"><p class="v-eyebrow">Listing phân khu</p><h2>Các phân khu Vinhomes Saigon Park</h2><p class="v-sechead__lead">Chỉ có 1 nhóm lọc có dữ liệu → hàng chip phía trên lưới, không cột bộ lọc. Nhóm "Hỗn hợp" cho phân khu có cả cao tầng và thấp tầng.</p></header>
 <div class="v-listing" data-listing>
 	<div class="v-listing__bar">
 		<div class="v-seg" role="group" aria-label="Chế độ xem"><button type="button" aria-pressed="true" data-view="zones">Theo phân khu</button><button type="button" aria-pressed="false" data-view="types">Theo loại sản phẩm</button></div>
 		<p class="v-listing__count" role="status" data-count>Hiển thị <?php echo count( $zones ); ?>/<?php echo count( $zones ); ?> phân khu</p>
 		<?php if ( $sorts ) : ?><label class="v-sort">Sắp xếp <select data-sort><option value="n">Thứ tự phân khu</option><?php foreach ( $sorts as $k => $label ) : ?><option value="<?php echo esc_attr( $k ); ?>"><?php echo $e( $label ); ?></option><?php endforeach; ?></select></label><?php endif; ?>
-		<button class="v-btn v-btn--secondary v-listing__open" type="button" data-open="v-filter" aria-haspopup="dialog">Bộ lọc</button>
+		<?php if ( $filter_groups > 1 ) : ?><button class="v-btn v-btn--secondary v-listing__open" type="button" data-open="v-filter" aria-haspopup="dialog">Bộ lọc</button><?php endif; ?>
 	</div>
+	<?php if ( 1 === $filter_groups ) : // a single group: chip row above the grid, no sidebar ?>
+	<form class="v-chipbar" data-filter aria-label="Lọc theo loại sản phẩm">
+		<?php foreach ( $types as $k => $label ) : ?><label class="v-chip"><input type="checkbox" name="loai" value="<?php echo esc_attr( $k ); ?>"> <?php echo $e( $label ); ?></label><?php endforeach; ?>
+		<button class="v-btn v-btn--text" type="reset">Xóa lọc</button>
+	</form>
+	<div class="v-listing__layout is-single">
+	<?php else : ?>
 	<div class="v-listing__layout">
 	<dialog class="v-drawer" id="v-filter" aria-labelledby="v-filter-title"><form method="dialog" class="v-filter" data-filter>
 		<div class="v-drawer__head"><p class="v-filter__title" id="v-filter-title">Bộ lọc</p><button class="v-drawer__close" type="button" data-close><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="v-sr">Đóng bộ lọc</span></button></div>
@@ -317,6 +354,7 @@ echo velis_table( array( // phpcs:ignore -- cells escaped below
 		</div>
 		<div class="v-drawer__foot"><button class="v-btn v-btn--secondary" type="reset">Xóa lọc</button><button class="v-btn" value="apply" data-apply>Xem <?php echo count( $zones ); ?> kết quả</button></div>
 	</form></dialog>
+	<?php endif; ?>
 	<div class="v-listing__results">
 	<div data-panel="zones">
 	<?php foreach ( $groups as $gname => $gzones ) : ?>
@@ -332,7 +370,7 @@ echo velis_table( array( // phpcs:ignore -- cells escaped below
 			<ul class="v-chips"><?php foreach ( $z['types'] as $t ) : ?><li><?php echo $e( $types[ $t ] ); ?></li><?php endforeach; ?></ul>
 			<p class="v-card__meta"><?php echo $e( $z['core'] ); ?></p>
 			<?php echo $price( $z['price'] ); // phpcs:ignore ?>
-			<div class="v-cta-pair"><a class="v-btn" href="#tu-van" data-interest="Vinhomes Saigon Park – <?php echo esc_attr( $z['name'] ); ?>">Nhận bảng giá</a><a class="v-cta-pair__alt" href="/vinhomes-saigon-park/">Xem phân khu</a></div></div>
+			<div class="v-card__actions"><a class="v-btn" href="#tu-van" data-interest="Vinhomes Saigon Park – <?php echo esc_attr( $z['name'] ); ?>">Nhận bảng giá</a><?php echo $more( 'Xem phân khu' ); // phpcs:ignore ?></div></div>
 		</article>
 	<?php endforeach; ?>
 	</div></div>

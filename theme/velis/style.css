@@ -6,7 +6,7 @@ Description: Theme khối nhẹ cho Velis Realty. Token sinh từ DESIGN.md (the
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 8.0
-Version: 0.3.3
+Version: 0.4.4
 License: Proprietary
 Text Domain: velis
 */
@@ -165,13 +165,18 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 
 /* Hero */
 .v-hero__title { font: 600 var(--wp--preset--font-size--heading-1)/1.2 var(--wp--preset--font-family--heading); margin: 0 0 16px; max-width: 18ch; }
-.v-hero--split .v-hero__title { text-wrap: balance; max-width: 20ch; }
+.v-hero__title { text-wrap: balance; }
+.v-hero__lead { text-wrap: pretty; }
+.v-hero--split .v-hero__title { max-width: 20ch; }
 .v-hero__lead { font-size: var(--wp--preset--font-size--heading-4); margin: 0 0 32px; }
 .v-hero--full { position: relative; display: grid; min-height: min(84svh, 680px); color: #fff; background: var(--wp--preset--color--surface-dark); overflow: hidden; }
 .v-hero--full > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, 50% 50%); }
 @media (max-width: 767px) { .v-hero--full > img { object-position: var(--focus-m, var(--focus, 50% 50%)); transform-origin: var(--focus-m, var(--focus, 50% 50%)); } }
 .v-hero--full::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(0deg, rgb(20 20 20 / .9) 0%, rgb(20 20 20 / .74) 70%, rgb(20 20 20 / .45) 100%); }
-@media (min-width: 1024px) { .v-hero--full::before { background: linear-gradient(90deg, rgb(20 20 20 / .9) 0%, rgb(20 20 20 / .8) 55%, rgb(20 20 20 / .18) 90%), linear-gradient(0deg, rgb(20 20 20 / .5), transparent 45%); } }
+@media (min-width: 1024px) {
+	.v-hero--full::before { background: linear-gradient(90deg, rgb(20 20 20 / .9) 0%, rgb(20 20 20 / .84) 40%, rgb(20 20 20 / .55) 50%, rgb(20 20 20 / 0) 60%); }
+	.v-hero.v-hero--full .v-hero__body > * { width: fit-content; max-width: min(520px, 40vw); } /* text stays inside the dark half */
+}
 .v-hero--full .v-hero__title, .v-hero--full .v-hero__lead { text-shadow: 0 1px 12px rgb(0 0 0 / .35); }
 .v-hero--full .v-hero__body { position: relative; z-index: 2; align-self: end; width: min(100% - 2 * var(--v-gutter), 1200px); margin: 0 auto; padding-block: 64px; }
 .v-hero--full .v-hero__lead { color: #ececec; max-width: 46ch; }
@@ -220,7 +225,8 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 .v-media--empty { display: grid; place-items: center; padding: 16px; text-align: center; background: repeating-linear-gradient(135deg, var(--wp--preset--color--surface-sunken) 0 12px, #ece7df 12px 13px); }
 .v-media--empty span { font: 600 clamp(20px, 2.2vw, 26px)/1.2 var(--wp--preset--font-family--heading); color: var(--v-muted); }
 .v-logo-ph { width: 56px; height: 56px; fill: none; stroke: var(--wp--preset--color--hairline-strong); stroke-width: 1.2; }
-.v-card__link { margin-top: auto !important; padding-top: 8px; font-weight: 600; color: var(--v-red); }
+.v-card__link { margin-top: auto !important; padding-top: 8px; display: inline-flex; align-items: center; min-height: 32px; font-weight: 600; color: var(--v-red); }
+.v-card:hover .v-card__link { text-decoration: underline; text-underline-offset: 4px; }
 .v-card:hover .v-card__media img { transform: scale(calc(var(--zoom, 1) * 1.03)); }
 .v-card__body { flex: 1; display: flex; flex-direction: column; gap: 8px; padding: 20px 24px 24px; }
 .v-card__body > * { margin: 0; }
@@ -228,16 +234,10 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 .v-card__title { font: 600 var(--wp--preset--font-size--heading-4)/1.35 var(--wp--preset--font-family--body); }
 .v-card__title a { color: var(--v-ink); text-decoration: none; }
 .v-card__title a::after { content: ""; position: absolute; inset: 0; z-index: 0; } /* whole card clickable */
-.v-card { container-type: inline-size; }
-/* Listing card CTAs: side by side when the card is wide enough; otherwise primary full width + text link */
-.v-cta-pair { margin-top: auto !important; padding-top: 8px; position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.v-cta-pair .v-btn { width: 100%; }
-.v-cta-pair__alt { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; color: var(--v-red); }
-@container (min-width: 380px) {
-	.v-cta-pair { flex-direction: row; gap: 12px; }
-	.v-cta-pair .v-btn { width: auto; }
-	.v-cta-pair__alt { min-height: 48px; padding: 12px 20px; border: 1px solid var(--v-ink); border-radius: var(--v-r); color: var(--v-ink); text-decoration: none; }
-}
+.v-card__actions { margin-top: auto !important; padding-top: 8px; position: relative; z-index: 1; display: grid; gap: 4px; justify-items: start; }
+.v-card__actions .v-btn { width: 100%; }
+.v-card__actions .v-card__link { margin-top: 0 !important; }
+
 .v-card__logo { display: grid; place-items: center; background: var(--wp--preset--color--surface-sunken); border-bottom: 1px solid var(--v-line); }
 .v-badge { align-self: flex-start; padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; background: var(--wp--preset--color--surface-sunken); color: var(--v-muted); }
 .v-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; }
@@ -439,3 +439,40 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 @media (prefers-reduced-motion: reduce) {
 	*, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; scroll-behavior: auto !important; }
 }
+
+/* Listing with a single filter group: chip row above the grid, no sidebar */
+.v-chipbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 24px; }
+.v-chip { position: relative; display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid var(--wp--preset--color--hairline-strong); border-radius: 999px; background: #fff; font-size: 15px; cursor: pointer; }
+.v-chip input { position: absolute; opacity: 0; pointer-events: none; }
+.v-chip:has(input:checked) { background: var(--v-ink); border-color: var(--v-ink); color: #fff; }
+.v-chip:has(input:focus-visible) { outline: 2px solid var(--v-ink); outline-offset: 2px; }
+.v-listing__layout.is-single { display: block; }
+
+/* Project listing: horizontal dropdown bar (desktop) / bottom sheet (mobile) */
+.v-plist__top { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-bottom: 24px; }
+.v-plist__top .v-listing__count { margin: 0; }
+.v-fdrop summary { list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 48px; font-weight: 600; cursor: pointer; }
+.v-fdrop summary::-webkit-details-marker { display: none; }
+.v-fdrop summary::after { content: ""; width: 7px; height: 7px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-2px) rotate(45deg); }
+.v-fdrop[open] summary::after { transform: translateY(2px) rotate(225deg); }
+.v-fdrop [data-n] { color: var(--v-red); font-weight: 600; margin-right: auto; }
+.v-fdrop__panel { display: grid; padding-bottom: 12px; }
+.v-fdrop__panel label { display: flex; align-items: center; gap: 10px; min-height: 44px; }
+.v-fdrop__panel input, .v-regions input { flex: none; }
+.v-fdrop__panel.v-regions { display: grid; margin: 0; }
+@media (min-width: 1024px) {
+	.v-drawer--bar:not([open]) { display: block; border: 0; background: none; overflow: visible; }
+	.v-drawer--bar:not([open]) .v-drawer__head { display: none; }
+	.v-drawer--bar:not([open]) form { flex-direction: row; align-items: center; gap: 12px; }
+	.v-drawer--bar:not([open]) .v-drawer__body { display: flex; gap: 8px; padding: 0; overflow: visible; }
+	.v-drawer--bar:not([open]) .v-drawer__foot { display: flex; padding: 0; background: none; border: 0; }
+	.v-drawer--bar:not([open]) .v-drawer__foot .v-btn--secondary { white-space: nowrap; border: 0; color: var(--v-red); padding-inline: 8px; }
+	.v-drawer--bar:not([open]) .v-drawer__foot .v-btn--secondary:hover { background: none; text-decoration: underline; }
+	.v-drawer--bar .v-fdrop { position: relative; }
+	.v-drawer--bar .v-fdrop summary { white-space: nowrap; padding: 0 16px; border: 1px solid var(--v-ink); border-radius: var(--v-r); background: #fff; }
+	.v-drawer--bar .v-fdrop__panel { position: absolute; top: calc(100% + 6px); left: 0; z-index: 20; min-width: 300px; padding: 12px 16px; background: #fff; border: 1px solid var(--v-line); box-shadow: var(--wp--preset--shadow--card-hover); }
+	.v-plist__top .v-listing__open { display: none; }
+}
+
+/* Mobile menu: "Xem tất cả dự án" closes the project list */
+.v-menu__all a { color: var(--v-red) !important; font-weight: 600; }

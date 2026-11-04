@@ -38,6 +38,8 @@ $$('[data-tabs]').forEach((box) => {
 	select(tabs.find((t) => '#' + t.getAttribute('aria-controls') === location.hash) || tabs[0]);
 });
 
+const wide = () => matchMedia('(min-width: 1024px)').matches;
+
 // Listing filter. Items carry data-loai (space list), data-pn, data-gia (tỷ), data-dt (m²), data-tt, data-bg (year).
 // An empty data value never matches an active filter. State is kept in the URL (?loai=a,b&gia=5-10) for sharing.
 const inRange = (v, range) => {
@@ -69,8 +71,7 @@ $$('[data-listing]').forEach((box) => {
 	};
 	const applyBtn = form.querySelector('[data-apply]');
 	const preview = () => { // live "Xem N kết quả" in the mobile sheet
-		const w = want();
-		applyBtn.textContent = `Xem ${items.filter((el) => matches(el, w)).length} kết quả`;
+		if (applyBtn) applyBtn.textContent = `Xem ${items.filter((el) => matches(el, want())).length} kết quả`;
 	};
 	const apply = () => {
 		const w = want();
@@ -91,16 +92,18 @@ $$('[data-listing]').forEach((box) => {
 			.sort((a, b) => (a.dataset[key] === '' ? Infinity : +a.dataset[key]) - (b.dataset[key] === '' ? Infinity : +b.dataset[key]) || a.dataset.n - b.dataset.n)
 			.forEach((el) => grid.append(el)));
 	};
-	const wide = () => matchMedia('(min-width: 1024px)').matches;
 	const dialog = box.querySelector('dialog');
-	form.addEventListener('change', () => (wide() ? apply() : preview()));
-	form.addEventListener('submit', apply);
-	form.addEventListener('reset', () => setTimeout(wide() ? apply : preview));
+	const live = () => wide() || !dialog; // chip row applies at once; the mobile sheet waits for "Xem N kết quả"
+	form.addEventListener('change', () => (live() ? apply() : preview()));
+	form.addEventListener('submit', (e) => { if (!dialog) e.preventDefault(); apply(); });
+	form.addEventListener('reset', () => setTimeout(live() ? apply : preview));
 	sortSel?.addEventListener('change', sort);
 	box.querySelector('[data-reset]').addEventListener('click', () => { form.reset(); setTimeout(apply); });
-	box.querySelector('[data-open]').addEventListener('click', () => dialog.showModal());
-	dialog.querySelector('[data-close]').addEventListener('click', () => dialog.close());
-	dialog.addEventListener('click', (e) => e.target === dialog && dialog.close()); // tap on the backdrop
+	if (dialog) {
+		box.querySelector('[data-open]').addEventListener('click', () => dialog.showModal());
+		dialog.querySelector('[data-close]').addEventListener('click', () => dialog.close());
+		dialog.addEventListener('click', (e) => e.target === dialog && dialog.close()); // tap on the backdrop
+	}
 	$$('[data-view]', box).forEach((b) => b.addEventListener('click', () => {
 		$$('[data-view]', box).forEach((x) => x.setAttribute('aria-pressed', x === b));
 		$$('[data-panel]', box).forEach((p) => (p.hidden = p.dataset.panel !== b.dataset.view));
@@ -119,24 +122,54 @@ const menu = document.getElementById('v-menu');
 document.querySelector('[data-menu-open]')?.addEventListener('click', () => menu.showModal());
 $$('[data-menu-close]').forEach((a) => a.addEventListener('click', () => menu.close()));
 
-// Region filter: Vùng (parent) ↔ Tiểu khu (children); a card matches when any checked slug is in its data-khu.
+// Project listing filter: Khu vực (Vùng → Tiểu khu tree), Chủ đầu tư, Loại sản phẩm. Within a group any checked value
+// matches; across groups all must match. Desktop: dropdowns apply at once; mobile: sheet with "Xem N kết quả".
 $$('[data-plist]').forEach((box) => {
-	const boxes = $$('[data-regions] input', box);
-	const cards = $$('[data-khu]', box);
-	box.querySelector('[data-regions]').addEventListener('change', (e) => {
+	const form = box.querySelector('[data-pfilter]');
+	const dialog = box.querySelector('dialog');
+	const boxes = $$('input[type=checkbox]', form);
+	const drops = $$('[data-fdrop]', form);
+	const cards = $$('[data-card]', box);
+	const applyBtn = form.querySelector('[data-apply]');
+	const want = () => {
+		const w = {};
+		boxes.filter((c) => c.checked).forEach((c) => (w[c.name] ||= []).push(c.value));
+		return w;
+	};
+	const ok = (card, w) => Object.entries(w).every(([k, vals]) => vals.some((v) => (card.dataset[k] || '').split(' ').includes(v)));
+	const label = () => drops.forEach((d) => { // "(n)" = chosen items; a parent with children counts through its children
+		const n = $$('input:checked', d).filter((i) => !(i.hasAttribute('data-parent') && $$(`[data-child="${i.value}"]`, d).length)).length;
+		d.querySelector('[data-n]').textContent = n ? `(${n})` : '';
+	});
+	const preview = () => { applyBtn.textContent = `Xem ${cards.filter((c) => ok(c, want())).length} kết quả`; label(); };
+	const apply = () => {
+		const w = want();
+		let shown = 0;
+		cards.forEach((c) => { c.hidden = !ok(c, w); shown += !c.hidden; });
+		box.querySelector('[data-plist-count]').textContent = `Hiển thị ${shown}/${cards.length} dự án`;
+		box.querySelector('[data-plist-empty]').hidden = shown > 0;
+		preview();
+	};
+	form.addEventListener('change', (e) => {
 		const t = e.target;
-		if (t.matches('[data-parent]')) boxes.filter((c) => c.dataset.child === t.value).forEach((c) => (c.checked = t.checked));
-		else {
-			const parent = boxes.find((p) => p.value === t.dataset.child);
+		if (t.hasAttribute('data-parent')) boxes.filter((c) => c.dataset.child === t.value).forEach((c) => (c.checked = t.checked));
+		else if (t.dataset.child) {
+			const parent = boxes.find((p) => p.value === t.dataset.child && p.hasAttribute('data-parent'));
 			const kids = boxes.filter((c) => c.dataset.child === t.dataset.child);
 			parent.checked = kids.every((c) => c.checked);
 			parent.indeterminate = !parent.checked && kids.some((c) => c.checked);
 		}
-		const on = boxes.filter((c) => c.checked).map((c) => c.value);
-		let shown = 0;
-		cards.forEach((c) => { c.hidden = on.length > 0 && !c.dataset.khu.split(' ').some((k) => on.includes(k)); shown += !c.hidden; });
-		box.querySelector('[data-plist-count]').textContent = `Hiển thị ${shown}/${cards.length} dự án`;
+		wide() ? apply() : preview();
 	});
+	form.addEventListener('submit', apply);
+	form.addEventListener('reset', () => setTimeout(() => { boxes.forEach((b) => (b.indeterminate = false)); wide() ? apply() : preview(); }));
+	box.querySelector('[data-plist-reset]').addEventListener('click', () => form.reset());
+	box.querySelector('[data-open]').addEventListener('click', () => { drops.forEach((d) => (d.open = true)); dialog.showModal(); });
+	dialog.addEventListener('close', () => drops.forEach((d) => (d.open = false)));
+	dialog.querySelector('[data-close]').addEventListener('click', () => dialog.close());
+	dialog.addEventListener('click', (e) => e.target === dialog && dialog.close());
+	document.addEventListener('click', (e) => wide() && drops.forEach((d) => !d.contains(e.target) && (d.open = false)));
+	drops.forEach((d) => d.addEventListener('toggle', () => wide() && d.open && drops.forEach((o) => o !== d && (o.open = false))));
 });
 
 // Table of contents: highlight the section being read.

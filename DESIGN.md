@@ -188,8 +188,10 @@ Chính (đỏ, chữ trắng) · Phụ (viền đen, hover nền đen) · Viền
 Cao tối thiểu 48 px (vùng bấm ≥ 44 × 44). Đổi màu 150–200 ms.
 
 ### Hero (đã chốt)
-- **A** – trang chủ, trang dự án, trang phân khu. Ảnh tràn màn hình, lớp phủ `#141414` (mobile từ dưới lên 90 % → 45 %;
-  desktop từ trái 90 % → 18 %); eyebrow màu `#EADBC0`; chữ trên ảnh ≥ 4,5:1 (đo bằng điểm ảnh, xem `tools/check_ui.mjs`).
+- **A** – trang chủ, trang dự án, trang phân khu. Ảnh tràn màn hình. Desktop: lớp phủ `#141414` chỉ ở nửa trái, sau khối
+  chữ (90 % → 55 % ở 50 % chiều rộng → 0 ở 60 %), nửa phải giữ ảnh sáng tự nhiên; khối chữ ≤ min(520 px, 40vw).
+  Mobile: lớp phủ từ dưới lên 90 % → 45 % vì chữ chiếm cả chiều ngang. Eyebrow `#EADBC0`; chữ trên ảnh ≥ 4,5:1 (đo bằng
+  điểm ảnh, xem `tools/check_ui.mjs`). Tiêu đề hero mọi khung `text-wrap: balance`, đoạn dẫn `text-wrap: pretty`.
   Chưa có ảnh: nền tối trung tính + tên dự án chìm phía sau.
 - **B** – trang tổng (Dự án, Chủ đầu tư, Blog, cụm blog). Chia đôi 5:6, chữ trên nền ngà, tiêu đề `text-wrap: balance`.
 
@@ -207,13 +209,14 @@ Mặt bằng và bản đồ dùng `contain`/không cắt nội dung. Chú thíc
 Logo 44 px (40 px khi thu gọn) desktop, 36 px mobile; hotline bấm gọi được; nút "Nhận tư vấn". Một điểm chuyển 1024 px.
 Desktop: "Dự án" mở mega menu (chủ đầu tư → dự án, `<details>`), "Về Velis" mở menu con; một menu mở một lúc, đóng
 khi bấm ra ngoài hoặc Esc. Dưới 1024 px: menu toàn màn hình `<dialog>` – hàng đầu logo + nút đóng; "Dự án" mở ra theo
-chủ đầu tư; hotline + "Nhận tư vấn" ở cuối.
+chủ đầu tư, cuối danh sách có "Xem tất cả dự án →"; hotline + "Nhận tư vấn" ở cuối menu.
 
 ### Thẻ (dự án, chủ đầu tư, bài viết, phân khu)
-Cùng ảnh 4:3; cao bằng nhau trong một hàng; nút ghim đáy; cả thẻ bấm được. Không có trạng thái → không nhãn. Thiếu giá →
+Cùng ảnh 4:3; cao bằng nhau trong một hàng; **cả thẻ bấm được** + **một link chữ ở đáy cùng một kiểu** ("Xem dự án →",
+"Xem chủ đầu tư →", "Đọc bài →", "Xem phân khu →"). Thẻ phân khu trong listing có thêm nút "Nhận bảng giá" phía trên link.
+Không có trạng thái → không nhãn. Thiếu giá →
 một dòng "Giá: chưa công bố" chữ mờ, không đậm, không lặp "chưa công bố" lần nào khác trong thẻ. Khu vực hiện cấp cụ thể
-nhất. Thẻ chủ đầu tư: khung logo trung tính dùng chung (biểu tượng tòa nhà) khi chưa có logo. Thẻ listing: hai nút cạnh
-nhau khi thẻ rộng ≥ 380 px (container query); hẹp hơn thì nút chính rộng hết thẻ + "Xem phân khu" dạng link chữ.
+nhất. Thẻ chủ đầu tư: khung logo trung tính dùng chung (biểu tượng tòa nhà) khi chưa có logo.
 
 ### Khi thiếu dữ liệu
 - Trường trống → ẩn cả khối (ô thông tin, dòng trong bảng nhỏ, "phù hợp với ai", ảnh tác giả), không chữ giữ chỗ.
@@ -231,12 +234,14 @@ nhau khi thẻ rộng ≥ 380 px (container query); hẹp hơn thì nút chính 
 - **Tab dòng sản phẩm**: cột thông tin (bảng nhỏ: diện tích, phòng ngủ, hướng/số lượng nếu có, bàn giao, giá từ + ngày;
   "phù hợp với ai"; CTA) + ảnh mặt bằng ≤ 50 % chiều rộng, cao ≤ 520 px, `contain`, bấm phóng to (`<dialog>`).
   Mobile: thông tin và CTA trước, ảnh sau. Không JS vẫn hiện đủ các mục nối tiếp.
-- **Listing phân khu**: ≥ 1280 px 3 cột, tablet 2, mobile 1. Desktop: bộ lọc hiện sẵn bên trái + sắp xếp + số kết quả +
-  xóa lọc. Dưới 1024 px: ngăn kéo trượt từ dưới lên, có đầu (tiêu đề + đóng) và chân dính ("Xóa lọc" | "Xem N kết quả",
+- **Listing phân khu**: ≥ 1280 px 3 cột, tablet 2, mobile 1. **Chỉ 1 nhóm lọc có dữ liệu → hàng chip phía trên lưới,
+  không cột bộ lọc** (mọi khung). Từ 2 nhóm trở lên: desktop cột bộ lọc bên trái + sắp xếp + số kết quả + xóa lọc. Dưới 1024 px: ngăn kéo trượt từ dưới lên, có đầu (tiêu đề + đóng) và chân dính ("Xóa lọc" | "Xem N kết quả",
   N cập nhật khi chọn). Nhóm theo loại sản phẩm: chỉ căn hộ → Cao tầng; có cả căn hộ và thấp tầng → Hỗn hợp; còn lại →
   Thấp tầng. Giá trị trống không khớp bộ lọc đang bật.
-- **Lọc khu vực 2 cấp**: Vùng → Tiểu khu; chọn Vùng là chọn mọi Tiểu khu; Tiểu khu chọn một phần thì Vùng ở trạng thái
-  "một phần".
+- **Listing dự án**: desktop là thanh lọc ngang gồm các ô thả xuống – Khu vực ▾ (cây Vùng → Tiểu khu), Chủ đầu tư ▾,
+  Loại sản phẩm ▾ – kèm "(n)" số mục đã chọn, "Xóa lọc" và số kết quả; mỗi lúc mở một ô, đóng khi bấm ra ngoài. Mobile:
+  cùng các nhóm trong ngăn kéo. Trong nhóm: khớp bất kỳ; giữa các nhóm: khớp tất cả. Chọn Vùng là chọn mọi Tiểu khu;
+  Tiểu khu chọn một phần thì Vùng ở trạng thái "một phần".
   Trạng thái lọc trong URL (`?loai=can-ho`), canonical về trang đại đô thị, noindex.
 - **Thư viện ảnh**: desktop có mũi tên + bộ đếm "1/12", mobile lộ một phần ảnh kế tiếp + bộ đếm.
 - **Bản đồ**: ảnh tĩnh OpenStreetMap tông xám + ghim đỏ Velis, giữ ghi công; cao tối đa 420 px desktop / 320 px mobile;

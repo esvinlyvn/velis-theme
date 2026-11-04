@@ -57,7 +57,7 @@ $link  = function ( $label, $url ) {
 		<?php foreach ( $projects as $dev => $list ) : ?>
 			<p class="v-eyebrow"><?php echo esc_html( $dev ); ?></p><ul><?php foreach ( $list as $label => $url ) : ?><li><?php echo $link( $label, $url ); ?></li><?php endforeach; ?></ul>
 		<?php endforeach; ?>
-			<p><a href="/du-an/">Xem tất cả dự án</a></p>
+			<p class="v-menu__all"><a href="/du-an/">Xem tất cả dự án →</a></p>
 		</details>
 		<?php echo $link( 'Chủ đầu tư', '/chu-dau-tu/' ); ?>
 		<?php echo $link( 'Blog', '/blog/' ); ?>

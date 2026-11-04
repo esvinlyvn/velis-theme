@@ -1,10 +1,16 @@
 # Ghi chú chuyển tiếp giữa các giai đoạn
 
+## Giai đoạn 1 hoàn tất
+
+Giai đoạn 1 – Nhận diện & design system hoàn tất ngày 2026-11-04 (4 vòng duyệt; PR esvinlyvn/velis-theme#1).
+Bàn giao: `DESIGN.md` → `theme/velis/theme.json`, theme `velis` 0.4.4 trên staging, style guide `/velis-style-guide/`,
+bộ logo SVG, `tools/check_ui.mjs` (kiểm tra tự động 9 khung: 0 lỗi). Giai đoạn 2 chưa bắt đầu – chờ người dùng.
+
 ## Cho giai đoạn dựng template (chưa làm)
 
 - Trang chủ dựng mới theo brief, **không dùng lại nội dung WPBakery cũ**; không hiện tiêu đề "Trang chủ".
 - Con số render sẵn giá trị cuối trong HTML, dấu "+" đặt **sau** số (10+, 50+), không bộ đếm JS.
-- Chọn 1 trong 2 phương án hero ở style guide.
+- Hero A cho trang chủ, dự án, phân khu; hero B cho trang tổng (đã chốt).
 - Header: một điểm chuyển 1024 px (đã làm trong theme); hotline + CTA trên desktop.
 - Form tư vấn nối Contact Form 7 (giữ đúng trường của style guide) + sự kiện GA4; trên staging email đang tắt.
 

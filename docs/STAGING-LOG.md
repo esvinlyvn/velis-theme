@@ -51,4 +51,4 @@ Kiểm chứng: `/robots.txt` trả `User-agent: * / Disallow: /`; `/sitemap_ind
 | Mục | Thay đổi |
 |---|---|
 | Media | tải lên ID 20691 `2026/11/ban-do-the-prive-xam.webp` (bản đồ OpenStreetMap tông xám + ghim) |
-| Theme velis | 0.2.7 → 0.3.3 |
+| Theme velis | 0.2.7 → 0.3.3 → 0.4.4 (vòng cuối Giai đoạn 1) |
