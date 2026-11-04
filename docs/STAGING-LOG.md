@@ -45,3 +45,10 @@ lên thanh CTA mới ở góc trái.
 
 Kiểm chứng: `/robots.txt` trả `User-agent: * / Disallow: /`; `/sitemap_index.xml`, `/post-sitemap.xml`, `/page-sitemap.xml`,
 `/locations.kml`, `/main-sitemap.xsl` trả 403 cho khách.
+
+## 2026-11-04 – Giai đoạn 1, vòng 3
+
+| Mục | Thay đổi |
+|---|---|
+| Media | tải lên ID 20691 `2026/11/ban-do-the-prive-xam.webp` (bản đồ OpenStreetMap tông xám + ghim) |
+| Theme velis | 0.2.7 → 0.3.3 |

@@ -5,6 +5,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+require __DIR__ . '/inc/components.php';
+
 add_action( 'after_setup_theme', function () {
 	add_theme_support( 'editor-styles' );
 	add_editor_style( 'style.css' );

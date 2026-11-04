@@ -187,27 +187,40 @@ và bản mobile. Tất cả được trưng bày ở trang style guide trên st
 Chính (đỏ, chữ trắng) · Phụ (viền đen, hover nền đen) · Viền trắng (trên ảnh hero) · Dạng chữ (đỏ, gạch chân khi hover).
 Cao tối thiểu 48 px (vùng bấm ≥ 44 × 44). Đổi màu 150–200 ms.
 
-### Hero (2 phương án chờ chọn)
-A – ảnh tràn màn hình, lớp phủ `#141414` (mobile: từ dưới lên 85 % → 25 %; desktop: từ trái 86 % → 10 %), chữ trắng.
-B – chia đôi 5:6, chữ trên nền ngà, ảnh 4:3 góc vuông có chú thích nguồn. Cả hai: eyebrow, tiêu đề Playfair, đoạn dẫn, 2 nút.
+### Hero (đã chốt)
+- **A** – trang chủ, trang dự án, trang phân khu. Ảnh tràn màn hình, lớp phủ `#141414` (mobile từ dưới lên 90 % → 45 %;
+  desktop từ trái 90 % → 18 %); eyebrow màu `#EADBC0`; chữ trên ảnh ≥ 4,5:1 (đo bằng điểm ảnh, xem `tools/check_ui.mjs`).
+  Chưa có ảnh: nền tối trung tính + tên dự án chìm phía sau.
+- **B** – trang tổng (Dự án, Chủ đầu tư, Blog, cụm blog). Chia đôi 5:6, chữ trên nền ngà, tiêu đề `text-wrap: balance`.
 
 ### Đầu mục section
 Eyebrow → tiêu đề Playfair (H2) → đoạn dẫn ≤ 2 dòng màu `body-muted` → đường kẻ champagne 48 × 1 px. Nhịp: 96/64 px giữa
 section, 32 px từ đầu mục tới nội dung, 24 px giữa các khối, 8 px eyebrow → tiêu đề.
 
 ### Ảnh
-16:9 hero/ảnh đầu bài/thư viện/bản đồ · 4:3 mọi loại thẻ · 1:1 đại diện. Góc vuông. `cover` chỉ cho ảnh không chứa thông tin;
-mặt bằng và bản đồ dùng `contain`. Chú thích 14 px: nội dung · nguồn · ngày chụp. Lớp phủ chỉ dùng cho hero.
+16:9 hero/ảnh đầu bài · 3:2 thư viện (21:10 desktop) và ảnh tiến độ · 4:3 mọi loại thẻ · 1:1 đại diện. Góc vuông.
+Mọi khung ảnh nhận `--focus` (object-position) và `--zoom` (phóng nhẹ neo theo điểm lấy nét) để đẩy huy hiệu in chìm ra
+ngoài khung. Ảnh minh họa không có chữ đè (không infographic). Thiếu ảnh: khung trung tính sọc mảnh + tên dự án.
+Mặt bằng và bản đồ dùng `contain`/không cắt nội dung. Chú thích 14 px: nội dung · nguồn · ngày chụp.
 
-### Header & mega menu
-Logo ngang SVG cao 44 px (40 px khi thu gọn) trên desktop, 36 px mobile; menu; hotline bấm gọi được; nút "Nhận tư vấn".
-**Một điểm chuyển duy nhất 1024 px**: dưới 1024 px menu ở chế độ toàn màn hình (khối Navigation của core), hotline và
-nút chuyển xuống thanh CTA đáy. Mega menu Dự án: chủ đầu tư → đại đô thị → phân khu, bằng `<details>`.
+### Header & menu
+Logo 44 px (40 px khi thu gọn) desktop, 36 px mobile; hotline bấm gọi được; nút "Nhận tư vấn". Một điểm chuyển 1024 px.
+Desktop: "Dự án" mở mega menu (chủ đầu tư → dự án, `<details>`), "Về Velis" mở menu con; một menu mở một lúc, đóng
+khi bấm ra ngoài hoặc Esc. Dưới 1024 px: menu toàn màn hình `<dialog>` – hàng đầu logo + nút đóng; "Dự án" mở ra theo
+chủ đầu tư; hotline + "Nhận tư vấn" ở cuối.
 
 ### Thẻ (dự án, chủ đầu tư, bài viết, phân khu)
-Cùng ảnh 4:3; thẻ trong một hàng cao bằng nhau; nút ghim đáy thẻ; cả thẻ bấm được (link tiêu đề phủ thẻ). Thiếu giá vẫn giữ
-dòng "Giá: chưa công bố" để thẳng hàng. Thẻ chủ đầu tư: vùng logo cố định 4:3 phía trên (chưa có logo thì chữ viết tắt),
-tên, số dự án, khu vực, link ở đáy. Lưới 4 → 2 → 1 cột.
+Cùng ảnh 4:3; cao bằng nhau trong một hàng; nút ghim đáy; cả thẻ bấm được. Không có trạng thái → không nhãn. Thiếu giá →
+một dòng "Giá: chưa công bố" chữ mờ, không đậm, không lặp "chưa công bố" lần nào khác trong thẻ. Khu vực hiện cấp cụ thể
+nhất. Thẻ chủ đầu tư: khung logo trung tính dùng chung (biểu tượng tòa nhà) khi chưa có logo. Thẻ listing: hai nút cạnh
+nhau khi thẻ rộng ≥ 380 px (container query); hẹp hơn thì nút chính rộng hết thẻ + "Xem phân khu" dạng link chữ.
+
+### Khi thiếu dữ liệu
+- Trường trống → ẩn cả khối (ô thông tin, dòng trong bảng nhỏ, "phù hợp với ai", ảnh tác giả), không chữ giữ chỗ.
+- Bảng (`velis_table()`): cột/hàng mà mọi ô trống → ẩn, thay bằng một dòng ghi chú dưới bảng.
+- Bộ lọc/sắp xếp: chỉ hiện nhóm có ít nhất 2 giá trị khác nhau trong danh sách.
+- Giá là ngoại lệ: luôn hiện, chữ mờ khi chưa công bố.
+- Diện tích (`velis_area()`): thông thủy là số chính, tim tường là số phụ; chỉ có một loại thì ghi rõ loại.
 
 ### Dữ liệu dự án
 - **Thanh thông tin nhanh**: đủ 6 ô (vị trí · quy mô · sản phẩm · bàn giao · pháp lý · giá tham khảo), 2 cột mobile,
@@ -218,32 +231,38 @@ tên, số dự án, khu vực, link ở đáy. Lưới 4 → 2 → 1 cột.
 - **Tab dòng sản phẩm**: cột thông tin (bảng nhỏ: diện tích, phòng ngủ, hướng/số lượng nếu có, bàn giao, giá từ + ngày;
   "phù hợp với ai"; CTA) + ảnh mặt bằng ≤ 50 % chiều rộng, cao ≤ 520 px, `contain`, bấm phóng to (`<dialog>`).
   Mobile: thông tin và CTA trước, ảnh sau. Không JS vẫn hiện đủ các mục nối tiếp.
-- **Listing phân khu**: ≥ 1280 px 3 cột, tablet 2, mobile 1. Desktop: bộ lọc hiện sẵn bên trái (loại sản phẩm, phòng ngủ,
-  giá, diện tích, trạng thái, bàn giao) + sắp xếp + số kết quả + xóa lọc; dưới 1024 px bộ lọc là ngăn kéo `<dialog>`.
-  Nhóm Cao tầng / Thấp tầng tính từ loại sản phẩm (có căn hộ → cao tầng). Giá trị trống không khớp bộ lọc đang bật.
+- **Listing phân khu**: ≥ 1280 px 3 cột, tablet 2, mobile 1. Desktop: bộ lọc hiện sẵn bên trái + sắp xếp + số kết quả +
+  xóa lọc. Dưới 1024 px: ngăn kéo trượt từ dưới lên, có đầu (tiêu đề + đóng) và chân dính ("Xóa lọc" | "Xem N kết quả",
+  N cập nhật khi chọn). Nhóm theo loại sản phẩm: chỉ căn hộ → Cao tầng; có cả căn hộ và thấp tầng → Hỗn hợp; còn lại →
+  Thấp tầng. Giá trị trống không khớp bộ lọc đang bật.
+- **Lọc khu vực 2 cấp**: Vùng → Tiểu khu; chọn Vùng là chọn mọi Tiểu khu; Tiểu khu chọn một phần thì Vùng ở trạng thái
+  "một phần".
   Trạng thái lọc trong URL (`?loai=can-ho`), canonical về trang đại đô thị, noindex.
-- **Thư viện ảnh**: 16:9, desktop có mũi tên + bộ đếm "1/12", mobile lộ một phần ảnh kế tiếp + bộ đếm.
-- **Bản đồ**: ảnh tĩnh là bản đồ vị trí thật (OpenStreetMap, ghi nguồn), nút "Xem trên Google Maps" ở giữa ảnh.
-- **Timeline tiến độ**: dòng dọc, mốc có ngày, ảnh thực tế có nguồn.
+- **Thư viện ảnh**: desktop có mũi tên + bộ đếm "1/12", mobile lộ một phần ảnh kế tiếp + bộ đếm.
+- **Bản đồ**: ảnh tĩnh OpenStreetMap tông xám + ghim đỏ Velis, giữ ghi công; cao tối đa 420 px desktop / 320 px mobile;
+  nút "Xem trên Google Maps" ở giữa cạnh dưới.
+- **Timeline tiến độ**: dòng dọc, mốc có ngày, ảnh có chú thích ngày chụp + nguồn.
 
 ### Nội dung & tin cậy
-Bố cục bài: cột đọc 720 px + mục lục dính bên phải (≥ 1280 px); dưới đó mục lục nằm trong cột đọc, 2 cột khi > 6 mục.
-FAQ (`<details>`) · Hộp tác giả (ảnh chân dung thật, link mạng xã hội cá nhân, "Xem tất cả bài viết") · Hộp công bố
+Bố cục bài: cột đọc 720 px + mục lục dính bên phải (≥ 1280 px), cao theo nội dung, tô đậm mục đang đọc; dưới đó mục lục
+nằm trong cột đọc, 2 cột khi > 6 mục. FAQ (`<details>`) · Hộp tác giả (ảnh chân dung thật – chưa có thì ẩn khung ảnh;
+link mạng xã hội cá nhân; "Xem tất cả bài viết") · Hộp công bố
 (15 px, rộng bằng cột đọc, chữ `ink` trên `surface-sunken`) · Breadcrumb · Phân trang · Trang 404.
 
 ### Inputs & Forms
-Trường: Họ tên · Số điện thoại (`inputmode="numeric"`) · Nhu cầu (Mua ở / Đầu tư / Cho thuê) · Dự án/phân khu (tự điền
+Trường: Họ tên · Số điện thoại (`inputmode="numeric"`) · Nhu cầu (Mua ở / Đầu tư / Cho thuê, không chọn sẵn) · Dự án/phân khu (tự điền
 theo trang, sửa được) · Ghi chú (không bắt buộc) · ô đồng ý xử lý dữ liệu cá nhân (Nghị định 13/2023). Nhãn luôn hiển thị,
 lỗi ngay dưới ô. Desktop: form cạnh khối thông tin liên hệ (2 cột).
 
 ### CTA dính đáy (mobile) & Footer
-Thanh 64 px: Gọi · Zalo · Nhận tư vấn, có `env(safe-area-inset-bottom)`. Footer nền `surface-dark`, **không có khối pháp lý**:
+Thanh 64 px: Gọi · Zalo (zalo.me) · Nhận tư vấn, có `env(safe-area-inset-bottom)`; ẩn khi menu hoặc bộ lọc đang mở;
+footer chừa khoảng đệm cuối bằng chiều cao thanh. Footer nền `surface-dark`, **không có khối pháp lý**:
 giới thiệu ngắn + liên hệ, Khám phá, Ứng dụng (chỉ ứng dụng), mạng xã hội dạng hàng icon SVG có `aria-label`; hàng cuối:
 bản quyền + "Chính sách bảo mật", thẳng lưới. Chữ trên nền tối ≥ 4,5:1.
 
 ### Khu vực
-TP.HCM bỏ cấp quận/thành phố trực thuộc từ 01/07/2025. Địa chỉ dùng phường/xã mới, có thể kèm "(trước đây …)".
-Bộ lọc và thẻ dùng tên khu vực thị trường (danh sách ở `docs/KHU-VUC.md`).
+Hai cấp Vùng → Tiểu khu (danh sách ở `docs/KHU-VUC.md`). Thẻ hiện cấp cụ thể nhất; bộ lọc chọn được cả hai cấp.
+Địa chỉ dùng phường/xã mới, có thể kèm "(trước đây …)".
 
 ## Do's and Don'ts
 

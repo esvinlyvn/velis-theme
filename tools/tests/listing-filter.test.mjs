@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 
 const code = readFileSync(new URL('../../theme/velis/assets/js/velis.js', import.meta.url), 'utf8');
 const stub = { classList: { add() {} } };
-const ctx = vm.createContext({ document: { documentElement: stub, querySelector: () => null, querySelectorAll: () => [], addEventListener() {} }, addEventListener() {}, location: { search: '', hash: '' }, window: {} });
+const ctx = vm.createContext({ document: { documentElement: stub, querySelector: () => null, querySelectorAll: () => [], getElementById: () => null, addEventListener() {} }, addEventListener() {}, location: { search: '', hash: '' }, window: {} });
 const { matches, inRange } = vm.runInContext(code + '\n;({ matches, inRange })', ctx);
 const el = (d) => ({ dataset: d });
 

@@ -6,7 +6,7 @@ Description: Theme khối nhẹ cho Velis Realty. Token sinh từ DESIGN.md (the
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 8.0
-Version: 0.2.7
+Version: 0.3.3
 License: Proprietary
 Text Domain: velis
 */
@@ -32,8 +32,10 @@ Text Domain: velis
 @media (min-width: 1024px) { :root { --v-header-h: 80px; } }
 
 *, *::before, *::after { box-sizing: border-box; }
+/* Photo framing: --focus = object-position, --zoom = slight crop anchored at the focus (pushes a printed badge out of frame) */
+img[style*="--focus"] { object-position: var(--focus); transform: scale(var(--zoom, 1)); transform-origin: var(--focus); }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--v-header-h) + 16px); }
-body { overflow-wrap: break-word; padding-bottom: var(--v-cta-h); }
+body { overflow-wrap: break-word; }
 p, li { max-width: 68ch; }
 img { max-width: 100%; height: auto; }
 h1, h2, .v-serif { line-height: 1.2; } /* ≥ 1.2 so stacked Vietnamese diacritics (Ể, Ỗ, Ữ, Ặ) never clip */
@@ -44,11 +46,13 @@ h1, h2, .v-serif { line-height: 1.2; } /* ≥ 1.2 so stacked Vietnamese diacriti
 
 /* Type helpers */
 .v-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--wp--preset--color--champagne-text); margin: 0 0 8px; }
-.has-surface-dark-background-color .v-eyebrow, .v-hero--full .v-eyebrow { color: var(--v-gold); }
+.has-surface-dark-background-color .v-eyebrow { color: var(--v-gold); }
+.v-hero--full .v-eyebrow { color: #EADBC0; } /* light champagne: ≥ 4.5:1 over the hero overlay */
 .v-serif { font-family: var(--wp--preset--font-family--heading); font-weight: 600; }
 .v-strong { font-weight: 600; line-height: 1.35; }
 .v-lead { font-size: var(--wp--preset--font-size--heading-4); color: var(--v-muted); }
 .v-price { font-variant-numeric: tabular-nums lining-nums; font-weight: 600; }
+.v-price.is-missing, .is-missing { font-weight: 400 !important; color: var(--v-muted); }
 .v-source, .v-card__meta, .v-price small { font-size: var(--wp--preset--font-size--caption); color: var(--v-muted); font-weight: 400; }
 .v-list { padding-left: 20px; display: grid; gap: 6px; }
 
@@ -76,38 +80,62 @@ h1, h2, .v-serif { line-height: 1.2; } /* ≥ 1.2 so stacked Vietnamese diacriti
 .v-iconbtn { width: 48px; height: 48px; border: 1px solid var(--v-ink); border-radius: var(--v-r); background: #fff; font-size: 24px; line-height: 1; cursor: pointer; color: var(--v-ink); }
 .v-iconbtn:hover { background: var(--v-ink); color: #fff; }
 
-/* Header */
+/* Header: custom nav ≥1024px, <dialog> menu below */
 .v-header { position: sticky; top: 0; z-index: 50; background: var(--wp--preset--color--canvas); border-bottom: 1px solid transparent; transition: border-color .2s; }
-.v-header__bar { min-height: var(--v-header-h); gap: 24px; transition: min-height .2s var(--v-ease); }
+.v-header__bar { display: flex; align-items: center; gap: 24px; min-height: var(--v-header-h); transition: min-height .2s var(--v-ease); }
 .v-header.is-scrolled { border-bottom-color: var(--v-line); }
 .v-header.is-scrolled .v-header__bar { min-height: 60px; }
-.v-logo { display: block; line-height: 0; padding-block: 4px; }
+.v-logo { display: block; line-height: 0; padding-block: 4px; flex: none; }
 .v-logo img { height: 36px; width: auto; transition: height .2s var(--v-ease); }
-@media (min-width: 1024px) { .v-logo img { height: 44px; } .v-header.is-scrolled .v-logo img { height: 40px; } }
-.v-nav { margin-left: auto; font-weight: 600; font-size: 16px; }
-.v-nav a { color: var(--v-ink); text-decoration: none; }
-.v-nav :is(.wp-block-navigation-item__content, .wp-block-navigation-submenu__toggle) { min-height: 44px; min-width: 44px; justify-content: center; display: inline-flex; align-items: center; padding-block: 8px; }
-.v-nav :is(.wp-block-navigation__responsive-container-open, .wp-block-navigation__responsive-container-close) { min-width: 44px; min-height: 44px; justify-content: center; align-items: center; }
-.v-nav a:hover { color: var(--v-red); }
-.v-header__phone { display: none; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; color: var(--v-ink); text-decoration: none; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.v-header__phone svg { width: 20px; height: 20px; fill: none; stroke: var(--v-red); stroke-width: 1.5; }
-.v-header__phone:hover { color: var(--v-red); }
-.v-header .v-header__cta { display: none; }
-/* Overlay menu (below 1024px): full screen, left aligned, large tap rows */
-.v-nav .wp-block-navigation__responsive-container.is-menu-open { padding: 24px var(--v-gutter); background: var(--wp--preset--color--canvas); }
-.v-nav .is-menu-open :is(.wp-block-navigation__responsive-container-content, .wp-block-navigation__container, .wp-block-navigation-item, .wp-block-navigation__submenu-container) { align-items: flex-start !important; text-align: left; }
-.v-nav .is-menu-open .wp-block-navigation__container { gap: 4px; width: 100%; padding-top: 32px; }
-.v-nav .is-menu-open .wp-block-navigation-item__content { font-size: 22px; padding-block: 10px; }
-.v-nav .is-menu-open .wp-block-navigation__submenu-container .wp-block-navigation-item__content { font-size: 18px; font-weight: 400; }
-/* One header breakpoint (1024px): below it the core navigation stays in its overlay ("hamburger") mode, not only < 600px. */
-@media (max-width: 1023px) {
-	.v-nav .wp-block-navigation__responsive-container-open:not(.always-shown) { display: flex; }
-	.v-nav .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) { display: none; }
+.v-nav, .v-header__phone, .v-header__cta { display: none !important; }
+.v-menu-open, .v-menu-close { display: grid; place-items: center; width: 48px; height: 48px; margin-left: auto; border: 0; background: none; color: var(--v-ink); cursor: pointer; }
+.v-menu-open svg, .v-menu-close svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+@media (min-width: 1024px) {
+	.v-logo img { height: 44px; } .v-header.is-scrolled .v-logo img { height: 40px; }
+	.v-nav { display: block !important; margin-left: auto; }
+	.v-header__phone { display: inline-flex !important; } .v-header__cta { display: inline-flex !important; }
+	.v-menu-open { display: none; }
 }
-@media (min-width: 1024px) { .v-header__phone { display: inline-flex; } .v-header .v-header__cta { display: flex; } }
+.v-nav > ul { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
+.v-nav li { max-width: none; }
+.v-nav a, .v-nav summary { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 12px; font-weight: 600; color: var(--v-ink); text-decoration: none; cursor: pointer; }
+.v-nav a:hover, .v-nav summary:hover { color: var(--v-red); }
+.v-dd { position: relative; }
+.v-dd summary { list-style: none; gap: 6px; }
+.v-dd summary::-webkit-details-marker { display: none; }
+.v-dd summary::after { content: ""; width: 7px; height: 7px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-2px) rotate(45deg); }
+.v-dd[open] summary::after { transform: translateY(2px) rotate(225deg); }
+.v-dd__panel { position: absolute; top: 100%; left: 0; z-index: 60; min-width: 220px; margin: 8px 0 0; padding: 8px; list-style: none; background: #fff; border: 1px solid var(--v-line); box-shadow: var(--wp--preset--shadow--card-hover); }
+.v-dd__panel a { display: flex; font-weight: 400; }
+.v-dd--mega .v-dd__panel { left: -120px; width: min(880px, 80vw); display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px 32px; padding: 24px 28px; }
+.v-mega__panel ul { list-style: none; margin: 0; padding: 0; }
+.v-mega__panel a { padding-inline: 0; }
+.v-mega__all { grid-column: 1 / -1; margin: 8px 0 0; border-top: 1px solid var(--v-line); padding-top: 16px; }
+.v-mega__panel .v-mega__all a { display: inline-flex; width: auto; padding-inline: 20px; font-weight: 600; }
+.v-header__phone { align-items: center; gap: 8px; min-height: 44px; font-weight: 600; color: var(--v-ink); text-decoration: none; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.v-header__phone svg, .v-menu__phone svg { width: 20px; height: 20px; fill: none; stroke: var(--v-red); stroke-width: 1.5; }
+.v-header__phone:hover { color: var(--v-red); }
+/* Mobile menu: full-screen dialog */
+.v-menu { width: 100%; max-width: none; height: 100dvh; max-height: none; margin: 0; padding: 0 var(--v-gutter); border: 0; background: var(--wp--preset--color--canvas); color: var(--v-ink); }
+.v-menu[open] { display: flex; flex-direction: column; }
+.v-menu::backdrop { background: var(--wp--preset--color--canvas); }
+.v-menu__top { display: flex; align-items: center; justify-content: space-between; min-height: var(--v-header-h); border-bottom: 1px solid var(--v-line); }
+.v-menu__top .v-menu-close { margin: 0; }
+.v-menu__nav { flex: 1; overflow-y: auto; padding-block: 8px; }
+.v-menu__nav > a, .v-menu__nav summary { display: flex; align-items: center; justify-content: space-between; min-height: 56px; font: 600 20px/1.3 var(--wp--preset--font-family--body); color: var(--v-ink); text-decoration: none; border-bottom: 1px solid var(--v-line); cursor: pointer; list-style: none; }
+.v-menu__nav summary::-webkit-details-marker { display: none; }
+.v-menu__nav summary::after { content: "+"; font-size: 26px; font-weight: 400; color: var(--v-red); }
+.v-menu__nav details[open] summary::after { content: "–"; }
+.v-menu__nav details { border-bottom: 1px solid var(--v-line); }
+.v-menu__nav details summary { border-bottom: 0; }
+.v-menu__nav details .v-eyebrow { margin: 16px 0 0; }
+.v-menu__nav ul { list-style: none; margin: 0; padding: 0 0 8px; }
+.v-menu__nav details a { display: flex; align-items: center; min-height: 44px; color: var(--v-ink); text-decoration: none; font-size: 17px; }
+.v-menu__bottom { display: grid; gap: 12px; padding-block: 16px calc(16px + env(safe-area-inset-bottom)); border-top: 1px solid var(--v-line); }
+.v-menu__phone { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; font: 600 20px var(--wp--preset--font-family--body); color: var(--v-ink); text-decoration: none; font-variant-numeric: tabular-nums; }
 
 /* Footer */
-.v-footer { padding-block: 64px 0; margin-top: var(--v-section); }
+.v-footer { padding-block: 64px var(--v-cta-h); margin-top: var(--v-section); } /* bottom padding = sticky CTA height so nothing hides under it */
 .v-footer a { color: #fff; text-decoration: none; }
 .v-footer a:hover { text-decoration: underline; }
 .v-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
@@ -133,17 +161,22 @@ h1, h2, .v-serif { line-height: 1.2; } /* ≥ 1.2 so stacked Vietnamese diacriti
 .v-sticky-cta svg { width: 20px; height: 20px; }
 .v-sticky-cta a:first-child svg { fill: none; stroke: currentColor; stroke-width: 1.5; }
 @media (min-width: 768px) { .v-sticky-cta { display: none; } }
+body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open */
 
 /* Hero */
 .v-hero__title { font: 600 var(--wp--preset--font-size--heading-1)/1.2 var(--wp--preset--font-family--heading); margin: 0 0 16px; max-width: 18ch; }
+.v-hero--split .v-hero__title { text-wrap: balance; max-width: 20ch; }
 .v-hero__lead { font-size: var(--wp--preset--font-size--heading-4); margin: 0 0 32px; }
-.v-hero--full { position: relative; display: grid; min-height: min(88svh, 760px); color: #fff; }
-.v-hero--full > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.v-hero--full::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(0deg, rgb(20 20 20 / .85) 0%, rgb(20 20 20 / .55) 60%, rgb(20 20 20 / .25) 100%); }
-@media (min-width: 1024px) { .v-hero--full::before { background: linear-gradient(90deg, rgb(20 20 20 / .86) 0%, rgb(20 20 20 / .7) 40%, rgb(20 20 20 / .1) 75%), linear-gradient(0deg, rgb(20 20 20 / .5), transparent 45%); } }
+.v-hero--full { position: relative; display: grid; min-height: min(84svh, 680px); color: #fff; background: var(--wp--preset--color--surface-dark); overflow: hidden; }
+.v-hero--full > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, 50% 50%); }
+@media (max-width: 767px) { .v-hero--full > img { object-position: var(--focus-m, var(--focus, 50% 50%)); transform-origin: var(--focus-m, var(--focus, 50% 50%)); } }
+.v-hero--full::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(0deg, rgb(20 20 20 / .9) 0%, rgb(20 20 20 / .74) 70%, rgb(20 20 20 / .45) 100%); }
+@media (min-width: 1024px) { .v-hero--full::before { background: linear-gradient(90deg, rgb(20 20 20 / .9) 0%, rgb(20 20 20 / .8) 55%, rgb(20 20 20 / .18) 90%), linear-gradient(0deg, rgb(20 20 20 / .5), transparent 45%); } }
 .v-hero--full .v-hero__title, .v-hero--full .v-hero__lead { text-shadow: 0 1px 12px rgb(0 0 0 / .35); }
 .v-hero--full .v-hero__body { position: relative; z-index: 2; align-self: end; width: min(100% - 2 * var(--v-gutter), 1200px); margin: 0 auto; padding-block: 64px; }
-.v-hero--full .v-hero__lead { color: #ececec; max-width: 52ch; }
+.v-hero--full .v-hero__lead { color: #ececec; max-width: 46ch; }
+.v-hero--full.is-empty { min-height: 420px; background: linear-gradient(135deg, #1f1f1f, #141414); }
+.v-hero__fallback { position: absolute; right: 4%; top: 12%; font: 600 clamp(48px, 9vw, 120px)/1 var(--wp--preset--font-family--heading); color: rgb(255 255 255 / .06); white-space: nowrap; }
 .v-hero--split { display: grid; gap: 32px; align-items: center; }
 .v-hero--split figure { margin: 0; }
 .v-hero--split img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
@@ -156,7 +189,7 @@ h1, h2, .v-serif { line-height: 1.2; } /* ≥ 1.2 so stacked Vietnamese diacriti
 .v-imgrules figure { margin: 0; }
 .v-imgrules figcaption { font-size: 14px; color: var(--v-muted); margin-top: 8px; }
 .v-ratio { position: relative; aspect-ratio: var(--r); overflow: hidden; background: var(--wp--preset--color--surface-sunken); }
-.v-ratio img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.v-ratio img { width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, 50% 50%); display: block; }
 .v-ratio--overlay::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(20 20 20 / .72), rgb(20 20 20 / 0)); }
 .v-ratio--overlay span { position: absolute; z-index: 1; left: 16px; bottom: 12px; color: #fff; font: 600 20px/1.2 var(--wp--preset--font-family--heading); }
 
@@ -182,18 +215,30 @@ h1, h2, .v-serif { line-height: 1.2; } /* ≥ 1.2 so stacked Vietnamese diacriti
 .v-card { position: relative; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--v-line); border-radius: var(--v-r); overflow: hidden; transition: box-shadow .2s var(--v-ease); }
 .v-card:hover { box-shadow: var(--wp--preset--shadow--card-hover); }
 .v-card__media { aspect-ratio: 4 / 3; overflow: hidden; background: var(--wp--preset--color--surface-sunken); }
-.v-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s var(--v-ease); }
-.v-card:hover .v-card__media img { transform: scale(1.03); }
+.v-card__media img { width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, 50% 50%); display: block; transition: transform .4s var(--v-ease); }
+/* No image: neutral frame + project name (also used when a photo is missing in hero/thumbnails) */
+.v-media--empty { display: grid; place-items: center; padding: 16px; text-align: center; background: repeating-linear-gradient(135deg, var(--wp--preset--color--surface-sunken) 0 12px, #ece7df 12px 13px); }
+.v-media--empty span { font: 600 clamp(20px, 2.2vw, 26px)/1.2 var(--wp--preset--font-family--heading); color: var(--v-muted); }
+.v-logo-ph { width: 56px; height: 56px; fill: none; stroke: var(--wp--preset--color--hairline-strong); stroke-width: 1.2; }
+.v-card__link { margin-top: auto !important; padding-top: 8px; font-weight: 600; color: var(--v-red); }
+.v-card:hover .v-card__media img { transform: scale(calc(var(--zoom, 1) * 1.03)); }
 .v-card__body { flex: 1; display: flex; flex-direction: column; gap: 8px; padding: 20px 24px 24px; }
 .v-card__body > * { margin: 0; }
 .v-card__kicker { font-size: 13px; font-weight: 600; color: var(--wp--preset--color--champagne-text); text-transform: uppercase; letter-spacing: .08em; }
 .v-card__title { font: 600 var(--wp--preset--font-size--heading-4)/1.35 var(--wp--preset--font-family--body); }
 .v-card__title a { color: var(--v-ink); text-decoration: none; }
 .v-card__title a::after { content: ""; position: absolute; inset: 0; z-index: 0; } /* whole card clickable */
-.v-card__cta { margin-top: auto !important; padding-top: 8px; position: relative; z-index: 1; }
-.v-card__body > .v-card__cta.v-btn { align-self: flex-start; }
-.v-card__logo { display: grid; place-items: center; background: var(--wp--preset--color--surface-sunken); }
-.v-monogram { display: grid; place-items: center; width: 96px; height: 96px; border: 1px solid var(--v-gold); font: 600 32px/1 var(--wp--preset--font-family--heading); color: var(--wp--preset--color--champagne-text); background: #fff; }
+.v-card { container-type: inline-size; }
+/* Listing card CTAs: side by side when the card is wide enough; otherwise primary full width + text link */
+.v-cta-pair { margin-top: auto !important; padding-top: 8px; position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.v-cta-pair .v-btn { width: 100%; }
+.v-cta-pair__alt { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; color: var(--v-red); }
+@container (min-width: 380px) {
+	.v-cta-pair { flex-direction: row; gap: 12px; }
+	.v-cta-pair .v-btn { width: auto; }
+	.v-cta-pair__alt { min-height: 48px; padding: 12px 20px; border: 1px solid var(--v-ink); border-radius: var(--v-r); color: var(--v-ink); text-decoration: none; }
+}
+.v-card__logo { display: grid; place-items: center; background: var(--wp--preset--color--surface-sunken); border-bottom: 1px solid var(--v-line); }
 .v-badge { align-self: flex-start; padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; background: var(--wp--preset--color--surface-sunken); color: var(--v-muted); }
 .v-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; }
 .v-chips li { padding: 4px 12px; border: 1px solid var(--v-line); border-radius: 999px; font-size: 14px; }
@@ -232,7 +277,9 @@ h1, h2, .v-serif { line-height: 1.2; } /* ≥ 1.2 so stacked Vietnamese diacriti
 	.v-table-wrap--cards tr { background: #fff; border: 1px solid var(--v-line); margin-bottom: 12px; padding: 4px 0; }
 	.v-table-wrap--cards th { font-size: 18px; border-bottom: 1px solid var(--v-line); }
 	.v-table-wrap--cards td { display: flex; justify-content: space-between; gap: 16px; text-align: right; border: 0; padding-block: 8px; }
-	.v-table-wrap--cards td::before { content: attr(data-label); color: var(--v-muted); text-align: left; font-size: 14px; }
+	.v-table-wrap--cards td::before { content: attr(data-label); color: var(--v-muted); text-align: left; font-size: 14px; flex: none; }
+	.v-table-wrap--cards td.is-text { display: block; text-align: left; }
+	.v-table-wrap--cards td.is-text::before { display: block; margin-bottom: 2px; }
 	.v-table-wrap--cards caption { padding: 0 0 8px; }
 }
 
@@ -250,6 +297,9 @@ h1, h2, .v-serif { line-height: 1.2; } /* ≥ 1.2 so stacked Vietnamese diacriti
 .v-mini > div { padding: 10px 0; border-bottom: 1px solid var(--v-line); }
 .v-mini dt { font-size: 13px; color: var(--v-muted); }
 .v-mini dd { margin: 2px 0 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.v-area b { font-weight: 600; } .v-area small { font-size: 13px; font-weight: 400; color: var(--v-muted); }
+.v-area__alt { display: block; }
+.v-area-demo p { margin: 0 32px 0 0; }
 
 /* Listing: desktop filters visible, mobile drawer */
 .v-listing__bar { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; margin-bottom: 24px; }
@@ -259,19 +309,36 @@ h1, h2, .v-serif { line-height: 1.2; } /* ≥ 1.2 so stacked Vietnamese diacriti
 .v-seg button { min-height: 44px; padding: 0 16px; border: 0; background: none; font: 600 15px var(--wp--preset--font-family--body); cursor: pointer; color: var(--v-ink); }
 .v-seg [aria-pressed="true"] { background: var(--v-ink); color: #fff; }
 .v-listing__group + .v-listing__group { margin-top: 40px; }
-.v-drawer { border: 0; padding: 24px; width: min(100%, 480px); max-height: 85dvh; margin: auto auto 0; border-radius: var(--v-r) var(--v-r) 0 0; }
+/* Filter: bottom sheet below 1024px (head + scrolling body + sticky foot), static sidebar above */
+.v-drawer { width: 100%; max-width: 560px; max-height: 88dvh; margin: auto auto 0; padding: 0; border: 0; border-radius: 12px 12px 0 0; overflow: hidden; }
+.v-drawer[open] { display: flex; animation: v-sheet-up .28s var(--v-ease); }
+@keyframes v-sheet-up { from { transform: translateY(100%); } }
 .v-drawer::backdrop { background: rgb(20 20 20 / .45); }
+.v-drawer form { display: flex; flex-direction: column; width: 100%; max-height: 88dvh; }
+.v-drawer__head { display: flex; align-items: center; justify-content: space-between; padding: 8px 8px 8px 20px; border-bottom: 1px solid var(--v-line); }
+.v-drawer__head .v-filter__title { margin: 0; font-size: 18px; }
+.v-drawer__close { display: grid; place-items: center; width: 48px; height: 48px; border: 0; background: none; cursor: pointer; color: var(--v-ink); }
+.v-drawer__close svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.v-drawer__body { flex: 1; overflow-y: auto; padding: 16px 20px; }
+.v-drawer__foot { position: sticky; bottom: 0; display: grid; grid-template-columns: 1fr 1.4fr; gap: 12px; padding: 12px 20px calc(12px + env(safe-area-inset-bottom)); background: #fff; border-top: 1px solid var(--v-line); }
 .v-filter fieldset { border: 0; padding: 0; margin: 0 0 20px; display: grid; gap: 0; }
 .v-filter legend, .v-filter__title { font-weight: 600; margin: 0 0 8px; }
 .v-filter label { display: flex; gap: 10px; align-items: center; min-height: 44px; }
 .v-filter__field { flex-direction: column; align-items: stretch !important; gap: 6px !important; margin-bottom: 16px; font-weight: 600; }
-.v-filter input[type=checkbox] { width: 20px; height: 20px; accent-color: var(--v-red); }
+.v-filter input[type=checkbox], .v-regions input { width: 20px; height: 20px; accent-color: var(--v-red); }
 @media (min-width: 1024px) {
 	.v-listing__open { display: none; }
 	.v-listing__layout { display: grid; grid-template-columns: 260px 1fr; gap: 32px; align-items: start; }
-	.v-drawer:not([open]) { display: block; position: static; padding: 20px; width: auto; max-height: none; margin: 0; background: #fff; border: 1px solid var(--v-line); border-radius: var(--v-r); }
-	.v-filter__apply { display: none; }
+	.v-drawer:not([open]) { display: block; position: static; width: auto; max-height: none; margin: 0; background: #fff; border: 1px solid var(--v-line); border-radius: var(--v-r); overflow: visible; }
+	.v-drawer:not([open]) form { max-height: none; }
+	.v-drawer:not([open]) .v-drawer__close, .v-drawer:not([open]) [data-apply] { display: none; }
+	.v-drawer:not([open]) .v-drawer__foot { position: static; grid-template-columns: 1fr; padding: 12px 20px 20px; border: 0; }
 }
+/* Region filter: Vùng → Tiểu khu */
+.v-regions { border: 0; padding: 0; margin: 0 0 16px; display: flex; flex-wrap: wrap; gap: 8px 32px; }
+.v-regions legend { font-weight: 600; margin-bottom: 8px; }
+.v-regions label { display: flex; align-items: center; gap: 10px; min-height: 44px; font-weight: 600; }
+.v-regions .v-regions__sub { padding-left: 30px; font-weight: 400; }
 @media (min-width: 1024px) and (max-width: 1279px) { .v-grid--zones { grid-template-columns: repeat(2, 1fr); } }
 .v-empty { padding: 32px; border: 1px dashed var(--wp--preset--color--hairline-strong); text-align: center; display: grid; justify-items: center; gap: 12px; margin-top: 24px; }
 [hidden] { display: none !important; }
@@ -281,7 +348,8 @@ h1, h2, .v-serif { line-height: 1.2; } /* ≥ 1.2 so stacked Vietnamese diacriti
 @media (min-width: 1024px) { .v-gallery__track { grid-auto-columns: 100%; } }
 .v-gallery__track li { scroll-snap-align: start; max-width: none; }
 .v-gallery__track button, [data-zoom] { padding: 0; border: 0; background: var(--wp--preset--color--surface-sunken); display: block; width: 100%; cursor: zoom-in; }
-.v-gallery__track img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.v-gallery__track img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: var(--focus, 50% 50%); }
+@media (min-width: 1024px) { .v-gallery__track img { aspect-ratio: 21 / 10; } }
 .v-gallery__nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 12px; }
 .v-gallery__count { min-width: 5ch; text-align: center; font-variant-numeric: tabular-nums; font-weight: 600; }
 .v-gallery__nav .v-iconbtn { display: none; }
@@ -292,9 +360,10 @@ h1, h2, .v-serif { line-height: 1.2; } /* ≥ 1.2 so stacked Vietnamese diacriti
 .v-lightbox__close { position: absolute; top: 8px; right: 8px; width: 48px; height: 48px; border: 0; background: rgb(0 0 0 / .6); color: #fff; font-size: 28px; cursor: pointer; }
 
 /* Map: real location image + centred button */
-.v-map { position: relative; display: grid; place-items: center; aspect-ratio: 16 / 9; background: var(--wp--preset--color--surface-sunken); overflow: hidden; }
-.v-map img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.v-map .v-btn { position: relative; box-shadow: 0 4px 16px rgb(20 20 20 / .25); }
+.v-map { position: relative; display: grid; place-items: center; height: clamp(220px, 60vw, 320px); background: var(--wp--preset--color--surface-sunken); overflow: hidden; }
+@media (min-width: 768px) { .v-map { height: clamp(320px, 36vw, 420px); } }
+.v-map img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, 50% 50%); }
+.v-map .v-btn { position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%); white-space: nowrap; box-shadow: 0 4px 16px rgb(20 20 20 / .25); }
 
 /* Timeline */
 .v-timeline { list-style: none; padding: 0 0 0 24px; border-left: 2px solid var(--v-line); display: grid; gap: 24px; }
@@ -303,25 +372,29 @@ h1, h2, .v-serif { line-height: 1.2; } /* ≥ 1.2 so stacked Vietnamese diacriti
 .v-timeline li.is-next::before { background: #fff; border: 2px solid var(--v-gold); }
 .v-timeline time { font-size: 14px; font-weight: 600; color: var(--wp--preset--color--champagne-text); }
 .v-timeline p { margin: 4px 0 8px; }
-.v-timeline img { width: min(100%, 480px); aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.v-timeline figure { margin: 8px 0 0; width: min(100%, 480px); }
+.v-timeline img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: var(--focus, 50% 50%); display: block; }
+.v-timeline figcaption { font-size: 14px; color: var(--v-muted); margin-top: 6px; }
 
 /* Article layout: reading column + sticky TOC on desktop */
 .v-article { display: grid; gap: 32px; max-width: 720px; }
-@media (min-width: 1280px) { .v-article { grid-template-columns: minmax(0, 720px) 280px; max-width: none; justify-content: space-between; } .v-article > .v-toc { grid-column: 2; grid-row: 1; position: sticky; top: calc(var(--v-header-h) + 24px); } .v-article__body { grid-column: 1; grid-row: 1; } }
+@media (min-width: 1280px) { .v-article { grid-template-columns: minmax(0, 720px) 280px; max-width: none; justify-content: space-between; } .v-article > .v-toc { grid-column: 2; grid-row: 1; align-self: start; position: sticky; top: calc(var(--v-header-h) + 24px); } .v-article__body { grid-column: 1; grid-row: 1; } }
 .v-toc { border: 1px solid var(--v-line); background: #fff; padding: 8px 20px 16px; }
 .v-toc ol { margin: 8px 0 0; padding-left: 20px; display: grid; gap: 0; }
 .v-toc li { padding-block: 8px; }
 @media (min-width: 600px) and (max-width: 1279px) { .v-toc:has(li:nth-child(7)) ol { grid-template-columns: 1fr 1fr; column-gap: 40px; } }
-.v-toc a { color: var(--v-ink); }
+.v-toc a { color: var(--v-ink); text-decoration: none; }
+.v-toc a[aria-current] { color: var(--v-red); font-weight: 600; }
+.v-toc li:has(a[aria-current])::marker { color: var(--v-red); font-weight: 600; }
 .v-toc a:hover { color: var(--v-red); }
-.v-toc summary, .v-faq summary, .v-mega summary { cursor: pointer; font-weight: 600; min-height: 48px; display: flex; align-items: center; }
+.v-toc summary, .v-faq summary { cursor: pointer; font-weight: 600; min-height: 48px; display: flex; align-items: center; }
 .v-faq details { border-bottom: 1px solid var(--v-line); padding: 4px 0; }
 .v-faq summary { list-style: none; justify-content: space-between; gap: 16px; }
 .v-faq summary::-webkit-details-marker { display: none; }
 .v-faq summary::after { content: "+"; font-size: 24px; color: var(--v-red); }
 .v-faq details[open] summary::after { content: "–"; }
 .v-author { display: flex; gap: 20px; align-items: flex-start; padding: 24px; background: #fff; border: 1px solid var(--v-line); margin-block: 32px; }
-.v-author__photo { flex: none; display: grid; place-items: center; width: 88px; height: 88px; background: var(--wp--preset--color--surface-sunken); border: 1px dashed var(--wp--preset--color--hairline-strong); font: 600 24px var(--wp--preset--font-family--heading); color: var(--wp--preset--color--champagne-text); }
+.v-author__photo { flex: none; width: 88px; height: 88px; object-fit: cover; }
 .v-author p { margin: 0 0 6px; }
 .v-author__name { font-weight: 600; }
 .v-disclosure { max-width: 720px; background: var(--wp--preset--color--surface-sunken); border-left: 2px solid var(--v-gold); padding: 16px 20px; font-size: 15px; line-height: 1.6; color: var(--v-ink); }
@@ -329,16 +402,6 @@ h1, h2, .v-serif { line-height: 1.2; } /* ≥ 1.2 so stacked Vietnamese diacriti
 .v-pagination { display: flex; gap: 8px; margin-top: 32px; }
 .v-pagination a { display: grid; place-items: center; min-width: 44px; min-height: 44px; border: 1px solid var(--v-line); color: var(--v-ink); text-decoration: none; border-radius: var(--v-r); }
 .v-pagination [aria-current="page"] { background: var(--v-ink); color: #fff; border-color: var(--v-ink); }
-
-/* Mega menu */
-.v-mega { border: 1px solid var(--v-line); background: #fff; }
-.v-mega summary { padding: 0 20px; }
-.v-mega__panel { display: grid; gap: 24px; padding: 24px; border-top: 1px solid var(--v-line); }
-@media (min-width: 768px) { .v-mega__panel { grid-template-columns: repeat(3, 1fr); } }
-.v-mega ul { list-style: none; padding: 0; margin: 0 0 16px; display: grid; }
-.v-mega ul ul { padding: 0 0 0 16px; margin: 0; }
-.v-mega a { display: inline-block; padding-block: 10px; color: var(--v-ink); text-decoration: none; }
-.v-mega a:hover { color: var(--v-red); }
 
 /* Contact block + form (also styles Contact Form 7 markup) */
 .v-contact { display: grid; gap: 32px; }

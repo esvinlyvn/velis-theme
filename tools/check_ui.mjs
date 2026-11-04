@@ -77,6 +77,39 @@ await login.fill('input[type=password]', pw);
 await Promise.all([login.waitForNavigation(), login.locator('input[type=submit], button[type=submit]').first().click()]);
 await login.close();
 
+// Text drawn over a photo (hero A): hide the text, screenshot its box, take the 98th-percentile background
+// luminance (ignores a few stray bright pixels) and compare with the text colour.
+async function photoContrast(p) {
+	const out = [];
+	for (const el of await p.$$('.v-hero--full :is(.v-eyebrow, .v-hero__title, .v-hero__lead)')) {
+		const info = await el.evaluate((e) => {
+			const s = getComputedStyle(e);
+			e.dataset.prevStyle = e.getAttribute('style') || '';
+			const res = { color: s.color, size: parseFloat(s.fontSize), bold: +s.fontWeight >= 600, text: e.innerText.trim().slice(0, 40) };
+			e.style.color = 'transparent'; e.style.textShadow = 'none';
+			return res;
+		});
+		await el.scrollIntoViewIfNeeded();
+		const buf = await el.screenshot();
+		await el.evaluate((e) => e.setAttribute('style', e.dataset.prevStyle));
+		const ratio = await p.evaluate(async ({ b64, color }) => {
+			const img = new Image(); img.src = 'data:image/png;base64,' + b64; await img.decode();
+			const c = document.createElement('canvas'); c.width = img.width; c.height = img.height;
+			const x = c.getContext('2d'); x.drawImage(img, 0, 0);
+			const d = x.getImageData(0, 0, c.width, c.height).data;
+			const lum = (r, g, b) => [r, g, b].map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }).reduce((s, v, i) => s + v * [0.2126, 0.7152, 0.0722][i], 0);
+			const ls = []; for (let i = 0; i < d.length; i += 16) ls.push(lum(d[i], d[i + 1], d[i + 2]));
+			ls.sort((a, b) => a - b);
+			const bg = ls[Math.floor(ls.length * 0.98)];
+			const fg = lum(...color.match(/[\d.]+/g).map(Number));
+			return (Math.max(fg, bg) + 0.05) / (Math.min(fg, bg) + 0.05);
+		}, { b64: buf.toString('base64'), color: info.color });
+		const need = info.size >= 24 || (info.size >= 18.66 && info.bold) ? 3 : 4.5;
+		out.push({ text: info.text, ratio: +ratio.toFixed(2), need, ok: ratio >= need });
+	}
+	return out;
+}
+
 const report = {};
 for (const w of WIDTHS) {
 	const p = await ctx.newPage();
@@ -94,6 +127,10 @@ for (const w of WIDTHS) {
 	await p.evaluate(() => Promise.all([...document.images].map((i) => { i.loading = 'eager'; return i.decode().catch(() => {}); })));
 	await p.waitForLoadState('networkidle');
 	report[w] = { ...(await p.evaluate(audit)), cls };
+	const photo = await photoContrast(p);
+	report[w].photo = photo;
+	report[w].contrast.push(...photo.filter((x) => !x.ok).map((x) => `chữ trên ảnh "${x.text}" ${x.ratio} < ${x.need}`));
+	await p.evaluate(() => scrollTo(0, 0));
 	await p.screenshot({ path: `${out}/page-${w}.png`, fullPage: true });
 	if (w === 390 || w === 1366) { // header collapsed state
 		await p.evaluate(() => scrollTo(0, 900)); await p.waitForTimeout(400);
@@ -105,7 +142,8 @@ for (const w of WIDTHS) {
 }
 await browser.close();
 
+const photoLine = WIDTHS.map((w) => `${w}px: ` + report[w].photo.map((x) => `${x.text.slice(0, 18)}… ${x.ratio}`).join(' · ')).join('\n- ');
 const rows = WIDTHS.map((w) => { const r = report[w]; return `| ${w} | ${r.overflow.length ? 'CÓ' : 'không'} | ${r.images.length} | ${r.contrast.length} | ${r.targets.length} | ${r.cls} |`; });
 const details = WIDTHS.flatMap((w) => { const r = report[w]; return [...r.overflow.map((x) => `- ${w}px tràn ngang: ${x}`), ...r.images.map((x) => `- ${w}px ảnh rỗng: ${x}`), ...r.contrast.map((x) => `- ${w}px tương phản: ${x}`), ...r.targets.map((x) => `- ${w}px vùng bấm: ${x}`)]; });
 writeFileSync(`${out}/report.json`, JSON.stringify(report, null, 1));
-writeFileSync(`${out}/report.md`, `# Kiểm tra tự động – ${path}\n\n| Khung | Tràn ngang | Ảnh rỗng | Tương phản lỗi | Vùng bấm < 44px | CLS |\n|---|---|---|---|---|---|\n${rows.join('\n')}\n\n${details.length ? details.join('\n') : 'Không có lỗi.'}\n`);
+writeFileSync(`${out}/report.md`, `# Kiểm tra tự động – ${path}\n\n| Khung | Tràn ngang | Ảnh rỗng | Tương phản lỗi | Vùng bấm < 44px | CLS |\n|---|---|---|---|---|---|\n${rows.join('\n')}\n\n${details.length ? details.join('\n') : 'Không có lỗi.'}\n\n## Tương phản chữ trên ảnh hero (nền sáng nhất phân vị 98)\n- ${photoLine}\n`);

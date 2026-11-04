@@ -26,3 +26,10 @@ lightbox, form). Kèm plugin chặn robots/sitemap chỉ chạy trên staging v�
 - Escape đầu ra trong pattern (`esc_html`, `esc_attr`, `esc_url`); SVG in thẳng chỉ là file tĩnh của theme.
 - Plugin staging thoát ngay nếu host khác `staging.velisrealty.vn`.
 - Không thêm thư viện JS; CSS 31 KB chưa nén (< 50 KB), JS ~6 KB chưa nén.
+
+## Vòng 3
+- Logic mới có test: `velis_table()` / `velis_area()` → `php tools/tests/components-test.php`; lọc listing →
+  `node tools/tests/listing-filter.test.mjs` (stub thêm `getElementById`).
+- Header bỏ khối Navigation của core, thay bằng `<details>` + `<dialog>` (ít CSS ghi đè hơn, có hàng logo/nút đóng và
+  hotline cuối menu theo yêu cầu). `shortcut:` menu đang viết cứng theo site hiện tại – chuyển sang dữ liệu ở giai đoạn template.
+- `tools/check_ui.mjs` thêm đo tương phản chữ trên ảnh bằng điểm ảnh; đã bắt được lỗi thật ở 1024–1025 px (đã sửa).

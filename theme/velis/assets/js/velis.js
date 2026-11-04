@@ -62,18 +62,28 @@ $$('[data-listing]').forEach((box) => {
 		if (f.type === 'checkbox') f.checked = vals.includes(f.value);
 		else if (params.has(f.name)) f.value = vals[0];
 	});
+	const want = () => {
+		const w = {};
+		new FormData(form).forEach((v, k) => v !== '' && (w[k] ||= []).push(v));
+		return w;
+	};
+	const applyBtn = form.querySelector('[data-apply]');
+	const preview = () => { // live "Xem N kết quả" in the mobile sheet
+		const w = want();
+		applyBtn.textContent = `Xem ${items.filter((el) => matches(el, w)).length} kết quả`;
+	};
 	const apply = () => {
-		const want = {};
-		new FormData(form).forEach((v, k) => v !== '' && (want[k] ||= []).push(v));
+		const w = want();
 		let shown = 0;
-		items.forEach((el) => { el.hidden = !matches(el, want); shown += !el.hidden; });
+		items.forEach((el) => { el.hidden = !matches(el, w); shown += !el.hidden; });
 		$$('[data-group]', box).forEach((g) => (g.hidden = !$$('.v-zone:not([hidden])', g).length));
 		box.querySelector('[data-empty]').hidden = shown > 0;
 		box.querySelector('[data-count]').textContent = `Hiển thị ${shown}/${items.length} phân khu`;
 		const url = new URL(location.href);
 		fields.forEach((f) => url.searchParams.delete(f.name));
-		Object.entries(want).forEach(([k, v]) => url.searchParams.set(k, v.join(',')));
+		Object.entries(w).forEach(([k, v]) => url.searchParams.set(k, v.join(',')));
 		history.replaceState(null, '', url);
+		preview();
 	};
 	const sort = () => {
 		const key = sortSel.value; // missing values sort last
@@ -81,17 +91,65 @@ $$('[data-listing]').forEach((box) => {
 			.sort((a, b) => (a.dataset[key] === '' ? Infinity : +a.dataset[key]) - (b.dataset[key] === '' ? Infinity : +b.dataset[key]) || a.dataset.n - b.dataset.n)
 			.forEach((el) => grid.append(el)));
 	};
-	form.addEventListener('change', () => matchMedia('(min-width: 1024px)').matches && apply());
+	const wide = () => matchMedia('(min-width: 1024px)').matches;
+	const dialog = box.querySelector('dialog');
+	form.addEventListener('change', () => (wide() ? apply() : preview()));
 	form.addEventListener('submit', apply);
-	form.addEventListener('reset', () => setTimeout(apply));
-	sortSel.addEventListener('change', sort);
-	box.querySelector('[data-reset]').addEventListener('click', () => form.reset());
-	box.querySelector('[data-open]').addEventListener('click', () => box.querySelector('dialog').showModal());
+	form.addEventListener('reset', () => setTimeout(wide() ? apply : preview));
+	sortSel?.addEventListener('change', sort);
+	box.querySelector('[data-reset]').addEventListener('click', () => { form.reset(); setTimeout(apply); });
+	box.querySelector('[data-open]').addEventListener('click', () => dialog.showModal());
+	dialog.querySelector('[data-close]').addEventListener('click', () => dialog.close());
+	dialog.addEventListener('click', (e) => e.target === dialog && dialog.close()); // tap on the backdrop
 	$$('[data-view]', box).forEach((b) => b.addEventListener('click', () => {
 		$$('[data-view]', box).forEach((x) => x.setAttribute('aria-pressed', x === b));
 		$$('[data-panel]', box).forEach((p) => (p.hidden = p.dataset.panel !== b.dataset.view));
 	}));
 	apply();
+});
+
+// Header dropdowns (<details data-dd>): one open at a time; close on outside click or Esc.
+const dds = $$('[data-dd]');
+dds.forEach((d) => d.addEventListener('toggle', () => d.open && dds.forEach((o) => o !== d && (o.open = false))));
+document.addEventListener('click', (e) => dds.forEach((d) => !d.contains(e.target) && (d.open = false)));
+document.addEventListener('keydown', (e) => e.key === 'Escape' && dds.forEach((d) => d.open && ((d.open = false), d.querySelector('summary').focus())));
+
+// Mobile menu (<dialog>).
+const menu = document.getElementById('v-menu');
+document.querySelector('[data-menu-open]')?.addEventListener('click', () => menu.showModal());
+$$('[data-menu-close]').forEach((a) => a.addEventListener('click', () => menu.close()));
+
+// Region filter: Vùng (parent) ↔ Tiểu khu (children); a card matches when any checked slug is in its data-khu.
+$$('[data-plist]').forEach((box) => {
+	const boxes = $$('[data-regions] input', box);
+	const cards = $$('[data-khu]', box);
+	box.querySelector('[data-regions]').addEventListener('change', (e) => {
+		const t = e.target;
+		if (t.matches('[data-parent]')) boxes.filter((c) => c.dataset.child === t.value).forEach((c) => (c.checked = t.checked));
+		else {
+			const parent = boxes.find((p) => p.value === t.dataset.child);
+			const kids = boxes.filter((c) => c.dataset.child === t.dataset.child);
+			parent.checked = kids.every((c) => c.checked);
+			parent.indeterminate = !parent.checked && kids.some((c) => c.checked);
+		}
+		const on = boxes.filter((c) => c.checked).map((c) => c.value);
+		let shown = 0;
+		cards.forEach((c) => { c.hidden = on.length > 0 && !c.dataset.khu.split(' ').some((k) => on.includes(k)); shown += !c.hidden; });
+		box.querySelector('[data-plist-count]').textContent = `Hiển thị ${shown}/${cards.length} dự án`;
+	});
+});
+
+// Table of contents: highlight the section being read.
+$$('[data-toc]').forEach((toc) => {
+	const links = $$('a[href^="#"]', toc);
+	const targets = links.map((a) => document.getElementById(a.hash.slice(1))).filter(Boolean);
+	const seen = new Set();
+	const mark = () => {
+		const cur = [...seen].sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top)[0];
+		links.forEach((a) => (cur && a.hash === '#' + cur.id ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current')));
+	};
+	const obs = new IntersectionObserver((es) => { es.forEach((e) => (e.isIntersecting ? seen.add(e.target) : seen.delete(e.target))); mark(); }, { rootMargin: '-15% 0px -55% 0px' });
+	targets.forEach((t) => obs.observe(t));
 });
 
 // Gallery: arrows + "n/total" counter; swipe is native scroll-snap.

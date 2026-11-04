@@ -1,4 +1,4 @@
-# Khu vực thị trường – đề xuất (Giai đoạn 1, chờ duyệt)
+# Khu vực thị trường – hai cấp Vùng → Tiểu khu
 
 Từ 01/07/2025 TP.HCM bỏ cấp quận/huyện/thành phố trực thuộc (Nghị quyết 1685/NQ-UBTVQH15); Bình Dương và Bà Rịa – Vũng Tàu
 nhập vào TP.HCM. Vì vậy:
@@ -22,3 +22,17 @@ nhập vào TP.HCM. Vì vậy:
 
 Việc cần làm ở giai đoạn kiến trúc: gán đúng một khu vực cho mỗi dự án (taxonomy `khu-vuc`), tra phường/xã mới theo địa chỉ
 pháp lý trong tài liệu chủ đầu tư, và thay mọi chữ "Quận 2", "TP. Thủ Đức" dùng như đơn vị hành chính trong nội dung.
+
+## Cấu trúc hai cấp (đã chốt 2026-11-04)
+
+Thẻ chỉ hiện cấp cụ thể nhất (có Tiểu khu thì hiện Tiểu khu, không thì hiện Vùng); bộ lọc chọn được cả hai cấp.
+
+| Vùng | Tiểu khu |
+|---|---|
+| Trung tâm | – |
+| Khu Đông | Thủ Thiêm · Thảo Điền – An Phú · Nam Rạch Chiếc |
+| Khu Nam | Nam Sài Gòn |
+| Tây Bắc | – |
+| Vùng vệ tinh | Bình Dương · Nhơn Trạch – Long Thành |
+
+Gán Vùng/Tiểu khu cho từng dự án làm ở giai đoạn kiến trúc & dữ liệu.
