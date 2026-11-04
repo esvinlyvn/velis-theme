@@ -27,7 +27,7 @@ colors:
 typography:
   font-heading: "Playfair Display, Playfair Fallback, Georgia, 'Times New Roman', serif"
   font-body: "Be Vietnam Pro, Be Vietnam Pro Fallback, Arial, sans-serif"
-  h1: { fontFamily: heading, fontWeight: 600, desktop: 48px, mobile: 32px, lineHeight: 1.15 }
+  h1: { fontFamily: heading, fontWeight: 600, desktop: 48px, mobile: 32px, lineHeight: 1.2 }
   h2: { fontFamily: heading, fontWeight: 600, desktop: 36px, mobile: 26px, lineHeight: 1.2 }
   h3: { fontFamily: body, fontWeight: 600, desktop: 24px, mobile: 20px, lineHeight: 1.35 }
   h4: { fontFamily: body, fontWeight: 600, desktop: 20px, mobile: 18px, lineHeight: 1.4 }
@@ -143,7 +143,7 @@ bằng `prefers-reduced-motion`; WCAG 2.2 AA.
 
 | Token | Font | Cỡ | Dòng |
 |---|---|---|---|
-| h1 | Playfair 600 | 48 / 32 px | 1,15 |
+| h1 | Playfair 600 | 48 / 32 px | 1,2 |
 | h2 | Playfair 600 | 36 / 26 px | 1,2 |
 | h3 | Be Vietnam Pro 600 | 24 / 20 px | 1,35 |
 | h4 | Be Vietnam Pro 600 | 20 / 18 px | 1,4 |
@@ -180,54 +180,77 @@ không kính mờ.
 - Tỉ lệ ảnh cố định: 16:9 hero và ảnh bài viết, 4:3 thẻ, 1:1 ảnh đại diện; luôn khai báo `width`/`height`.
 
 ## Components
-Mỗi thành phần có trạng thái hover, focus (viền 2 px `ink`, lệch 2 px), disabled (độ mờ 0,45, con trỏ mặc định) và bản mobile.
-Tất cả được trưng bày ở trang style guide trên staging.
+Mỗi thành phần có trạng thái hover, focus (viền 2 px `ink`, lệch 2 px), disabled (nền `hairline`, chữ `body-muted`, ≥ 3:1)
+và bản mobile. Tất cả được trưng bày ở trang style guide trên staging, với dữ liệu thật của site (The Privé, Vinhomes Saigon Park).
 
 ### Buttons
-Chính (đỏ, chữ trắng) · Phụ (viền đen, hover nền đen) · Dạng chữ (đỏ, gạch chân khi hover). Cao tối thiểu 48 px
-(vùng bấm ≥ 44 × 44). Đổi màu 150–200 ms.
+Chính (đỏ, chữ trắng) · Phụ (viền đen, hover nền đen) · Viền trắng (trên ảnh hero) · Dạng chữ (đỏ, gạch chân khi hover).
+Cao tối thiểu 48 px (vùng bấm ≥ 44 × 44). Đổi màu 150–200 ms.
+
+### Hero (2 phương án chờ chọn)
+A – ảnh tràn màn hình, lớp phủ `#141414` (mobile: từ dưới lên 85 % → 25 %; desktop: từ trái 86 % → 10 %), chữ trắng.
+B – chia đôi 5:6, chữ trên nền ngà, ảnh 4:3 góc vuông có chú thích nguồn. Cả hai: eyebrow, tiêu đề Playfair, đoạn dẫn, 2 nút.
+
+### Đầu mục section
+Eyebrow → tiêu đề Playfair (H2) → đoạn dẫn ≤ 2 dòng màu `body-muted` → đường kẻ champagne 48 × 1 px. Nhịp: 96/64 px giữa
+section, 32 px từ đầu mục tới nội dung, 24 px giữa các khối, 8 px eyebrow → tiêu đề.
+
+### Ảnh
+16:9 hero/ảnh đầu bài/thư viện/bản đồ · 4:3 mọi loại thẻ · 1:1 đại diện. Góc vuông. `cover` chỉ cho ảnh không chứa thông tin;
+mặt bằng và bản đồ dùng `contain`. Chú thích 14 px: nội dung · nguồn · ngày chụp. Lớp phủ chỉ dùng cho hero.
 
 ### Header & mega menu
-Logo ngang SVG (cao 40 px desktop / 32 px mobile), menu, nút "Nhận tư vấn". Thu gọn khi cuộn. Mega menu Dự án nhóm theo
-chủ đầu tư → đại đô thị → phân khu, dùng `<details>`/`<button aria-expanded>`. Mobile: menu toàn màn hình bằng `<dialog>`.
+Logo ngang SVG cao 44 px (40 px khi thu gọn) trên desktop, 36 px mobile; menu; hotline bấm gọi được; nút "Nhận tư vấn".
+**Một điểm chuyển duy nhất 1024 px**: dưới 1024 px menu ở chế độ toàn màn hình (khối Navigation của core), hotline và
+nút chuyển xuống thanh CTA đáy. Mega menu Dự án: chủ đầu tư → đại đô thị → phân khu, bằng `<details>`.
 
-### Thẻ
-- **Thẻ dự án**: ảnh 4:3, nhãn trạng thái, tên (H3 khi trong lưới), chủ đầu tư, khu vực, "Giá từ … (cập nhật dd/mm/yyyy)".
-- **Thẻ chủ đầu tư**: logo cao 48 px, tên, số dự án đang tư vấn, khu vực.
-- **Thẻ bài viết**: ảnh 16:9, cụm (eyebrow), tiêu đề, ngày, thời gian đọc.
+### Thẻ (dự án, chủ đầu tư, bài viết, phân khu)
+Cùng ảnh 4:3; thẻ trong một hàng cao bằng nhau; nút ghim đáy thẻ; cả thẻ bấm được (link tiêu đề phủ thẻ). Thiếu giá vẫn giữ
+dòng "Giá: chưa công bố" để thẳng hàng. Thẻ chủ đầu tư: vùng logo cố định 4:3 phía trên (chưa có logo thì chữ viết tắt),
+tên, số dự án, khu vực, link ở đáy. Lưới 4 → 2 → 1 cột.
 
 ### Dữ liệu dự án
-- **Thanh thông tin nhanh**: 6 ô (vị trí · quy mô · loại sản phẩm · bàn giao · pháp lý · giá tham khảo + ngày), viền trên
-  champagne 2 px; mobile cuộn ngang có scroll-snap.
-- **Bảng giá/thông số**: đầu bảng `surface-sunken`, số tabular, căn phải cột số; nguồn + ngày dưới bảng.
-- **Bảng so sánh**: cột đầu ghim (`position: sticky`), mobile cuộn ngang trong khung riêng có bóng mép báo còn nội dung.
-- **Tab dòng sản phẩm**: danh sách tab có neo riêng (`#penthouse`); không JS vẫn hiện toàn bộ dưới dạng các mục nối tiếp;
-  có JS thì thành tab (ARIA tablist), nút "Nhận bảng giá {dòng}".
-- **Listing phân khu**: hai chế độ "Theo phân khu" (thẻ phân khu có chip dòng sản phẩm, diện tích, giá từ + ngày, bàn giao,
-  2 nút) và "Theo loại sản phẩm" (bảng gom). Bộ lọc giữ trạng thái trong URL (`?loai=shophouse`), mobile mở dạng ngăn
-  kéo từ dưới (`<dialog>`). Trạng thái rỗng: thông báo + "Bỏ lọc" + form để lại nhu cầu.
-- **Timeline tiến độ**: dòng dọc, mốc có ngày + ảnh. **Thư viện ảnh**: scroll-snap + lightbox `<dialog>`.
-  **Bản đồ**: ảnh tĩnh, bấm mới tải iframe.
+- **Thanh thông tin nhanh**: đủ 6 ô (vị trí · quy mô · sản phẩm · bàn giao · pháp lý · giá tham khảo), 2 cột mobile,
+  3 tablet, 6 desktop (≥ 1280 px); không bao giờ cắt ngang.
+- **Bảng thông số**: chữ căn trái, số căn phải, đệm ô ≥ 16 px; mobile thành danh sách thẻ (nhãn – giá trị).
+- **Bảng so sánh**: cột "Tiêu chí" ghim; dưới 1024 px có bóng mép phải và chữ "Vuốt để xem thêm"; ô thiếu ghi
+  "Chưa công bố" (không dùng "—"); hàng cuối là nút "Xem phân khu".
+- **Tab dòng sản phẩm**: cột thông tin (bảng nhỏ: diện tích, phòng ngủ, hướng/số lượng nếu có, bàn giao, giá từ + ngày;
+  "phù hợp với ai"; CTA) + ảnh mặt bằng ≤ 50 % chiều rộng, cao ≤ 520 px, `contain`, bấm phóng to (`<dialog>`).
+  Mobile: thông tin và CTA trước, ảnh sau. Không JS vẫn hiện đủ các mục nối tiếp.
+- **Listing phân khu**: ≥ 1280 px 3 cột, tablet 2, mobile 1. Desktop: bộ lọc hiện sẵn bên trái (loại sản phẩm, phòng ngủ,
+  giá, diện tích, trạng thái, bàn giao) + sắp xếp + số kết quả + xóa lọc; dưới 1024 px bộ lọc là ngăn kéo `<dialog>`.
+  Nhóm Cao tầng / Thấp tầng tính từ loại sản phẩm (có căn hộ → cao tầng). Giá trị trống không khớp bộ lọc đang bật.
+  Trạng thái lọc trong URL (`?loai=can-ho`), canonical về trang đại đô thị, noindex.
+- **Thư viện ảnh**: 16:9, desktop có mũi tên + bộ đếm "1/12", mobile lộ một phần ảnh kế tiếp + bộ đếm.
+- **Bản đồ**: ảnh tĩnh là bản đồ vị trí thật (OpenStreetMap, ghi nguồn), nút "Xem trên Google Maps" ở giữa ảnh.
+- **Timeline tiến độ**: dòng dọc, mốc có ngày, ảnh thực tế có nguồn.
 
 ### Nội dung & tin cậy
-FAQ (`<details>`) · Mục lục (dính desktop, thu gọn mobile) · Hộp tác giả · Hộp công bố đầu tư (nền `surface-sunken`, viền trái
-champagne) · Breadcrumb · Phân trang · Trang 404.
+Bố cục bài: cột đọc 720 px + mục lục dính bên phải (≥ 1280 px); dưới đó mục lục nằm trong cột đọc, 2 cột khi > 6 mục.
+FAQ (`<details>`) · Hộp tác giả (ảnh chân dung thật, link mạng xã hội cá nhân, "Xem tất cả bài viết") · Hộp công bố
+(15 px, rộng bằng cột đọc, chữ `ink` trên `surface-sunken`) · Breadcrumb · Phân trang · Trang 404.
 
 ### Inputs & Forms
-Nhãn luôn hiển thị (không dùng placeholder thay nhãn), viền `hairline-strong`, focus viền `ink` 2 px, lỗi hiện ngay dưới ô
-(màu `error` + icon + chữ), `inputmode="tel"` cho điện thoại, ô đồng ý xử lý dữ liệu cá nhân bắt buộc kèm link chính sách
-bảo mật (Nghị định 13/2023).
+Trường: Họ tên · Số điện thoại (`inputmode="numeric"`) · Nhu cầu (Mua ở / Đầu tư / Cho thuê) · Dự án/phân khu (tự điền
+theo trang, sửa được) · Ghi chú (không bắt buộc) · ô đồng ý xử lý dữ liệu cá nhân (Nghị định 13/2023). Nhãn luôn hiển thị,
+lỗi ngay dưới ô. Desktop: form cạnh khối thông tin liên hệ (2 cột).
 
 ### CTA dính đáy (mobile) & Footer
-Thanh 64 px: Gọi · Zalo · Nhận tư vấn, có `padding-bottom: env(safe-area-inset-bottom)`, trang chừa chỗ để không che nội dung.
-Footer nền `surface-dark`: khối pháp nhân, liên kết chính, ứng dụng nội bộ, mạng xã hội, chính sách; tiêu đề cột là `eyebrow`.
+Thanh 64 px: Gọi · Zalo · Nhận tư vấn, có `env(safe-area-inset-bottom)`. Footer nền `surface-dark`, **không có khối pháp lý**:
+giới thiệu ngắn + liên hệ, Khám phá, Ứng dụng (chỉ ứng dụng), mạng xã hội dạng hàng icon SVG có `aria-label`; hàng cuối:
+bản quyền + "Chính sách bảo mật", thẳng lưới. Chữ trên nền tối ≥ 4,5:1.
+
+### Khu vực
+TP.HCM bỏ cấp quận/thành phố trực thuộc từ 01/07/2025. Địa chỉ dùng phường/xã mới, có thể kèm "(trước đây …)".
+Bộ lọc và thẻ dùng tên khu vực thị trường (danh sách ở `docs/KHU-VUC.md`).
 
 ## Do's and Don'ts
 
 ### Do
 - Ảnh thật/phối cảnh có bản quyền, ghi "Ảnh phối cảnh minh họa – nguồn: CĐT".
 - Mỗi con số giá/tiến độ/pháp lý đi kèm ngày cập nhật và nguồn.
-- Icon nét mảnh SVG (Lucide), cùng độ dày 1,5 px.
+- Icon nét mảnh SVG (Lucide), cùng độ dày 1,5 px; icon thương hiệu mạng xã hội từ Simple Icons (CC0).
 - Hiệu ứng hiện dần 250–400 ms một lần mỗi khối; ảnh phóng 1,03 khi rê thẻ; View Transitions khi trình duyệt hỗ trợ.
 
 ### Don't
@@ -239,14 +262,15 @@ Footer nền `surface-dark`: khối pháp nhân, liên kết chính, ứng dụn
 ## Responsive Behavior
 
 ### Breakpoints
-375 (mobile) · 768 (tablet) · 1024 (desktop nhỏ) · 1440 (desktop). Kiểm thử ở 360, 390, 430, 768, 1024, 1366, 1920 px.
+375 (mobile) · 768 (tablet) · 1024 (desktop nhỏ, điểm chuyển header) · 1280 (lưới 3–4 cột, mục lục bên cạnh) · 1440.
+Kiểm thử ở 360, 390, 430, 768, 1024, 1366, 1920 px + 1023/1025 quanh điểm chuyển header.
 
 ### Touch Targets
 ≥ 44 × 44 px; khoảng cách giữa hai vùng bấm ≥ 8 px.
 
 ### Collapsing Strategy
-Lưới thẻ 3 → 2 → 1 cột; thanh thông tin nhanh và bảng so sánh cuộn ngang; mục lục và bộ lọc thu vào `<details>`/`<dialog>`;
-form dính bên phải (desktop) chuyển thành thanh CTA đáy (mobile).
+Lưới thẻ 4/3 → 2 → 1 cột; thông tin nhanh 6 → 3 → 2 cột; bảng thông số thành thẻ; bảng so sánh cuộn ngang; bộ lọc thu vào
+`<dialog>`; form dính bên phải (desktop) chuyển thành thanh CTA đáy (mobile).
 
 ### Image Behavior
 `srcset` nhiều kích thước, AVIF/WebP, lazy-load trừ ảnh đầu trang (`fetchpriority="high"`), ảnh đầu trang ≤ 150 KB.
@@ -259,7 +283,7 @@ Sửa token ở phần đầu file này rồi chạy `python3 -I tools/build_the
 Không sửa tay màu/cỡ chữ/khoảng cách trong `theme.json` hay CSS.
 
 ## Known Gaps
-- Be Vietnam Pro 500 bị lược để giữ giới hạn 3 file font; chữ "medium" dùng 600. Cần bạn xác nhận.
+- Be Vietnam Pro 500 bị lược để giữ giới hạn 3 file font (đã chốt 400/600).
 - Playfair Display không có ký tự ₫; giá luôn viết bằng Be Vietnam Pro.
 - Đối chiếu ui-ux-pro-max: gợi ý Glassmorphism, bảng màu teal và Cinzel/Josefin Sans bị loại (không hợp nhận diện; Cinzel
   không có tiếng Việt). Giữ checklist trước khi giao: không emoji làm icon, hover 150–300 ms, tương phản 4,5:1, focus rõ,

@@ -1,7 +1,18 @@
 # velis-theme — tái thiết kế velisrealty.vn
 
 Repo riêng tư chứa theme khối WordPress "velis" (Phương án 2A trong `BRIEF.md`), tài liệu thiết kế,
-dữ liệu mốc SEO và công cụ kiểm tra. Lộ trình 7 ngày, 4 cổng duyệt; chưa qua cổng thì không sang giai đoạn sau.
+dữ liệu mốc SEO và công cụ kiểm tra.
+
+## Quy tắc làm việc (người dùng chốt 2026-11-04)
+
+- **Không chia theo ngày.** Làm tuần tự từng giai đoạn trong BRIEF.md (1. Nhận diện & design system → 2. Kiến trúc
+  & dữ liệu → 3. Dựng template → 4. Kiểm thử & ra mắt).
+- Giai đoạn chỉ kết thúc khi **đạt tiêu chí và người dùng duyệt**; không bắt đầu giai đoạn sau khi chưa được duyệt.
+- Kết thúc mỗi giai đoạn: tạo **Pull Request vào `main`** kèm tóm tắt; người dùng tự merge.
+- Dữ liệu minh họa phải là dữ liệu thật đang có trên site (kèm ngày, nguồn), không bịa.
+- Khu vực: TP.HCM bỏ cấp quận/TP trực thuộc từ 01/07/2025 → dùng phường/xã mới (có thể kèm "trước đây Quận 2");
+  bộ lọc dùng tên khu vực thị trường (Thủ Thiêm, Khu Đông…).
+- Kế hoạch ra mắt (đã chốt): tắt Buttonizer trên site thật.
 Nguồn sự thật: `BRIEF.md` (brief đã chốt) → `DESIGN.md` (giao diện) → `docs/` (SCOPE, BRAND, VOICE, CONTENT-MAP,
 CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của site thật).
 

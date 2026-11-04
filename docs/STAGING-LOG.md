@@ -33,3 +33,15 @@ Kiểm chứng (khách chưa đăng nhập):
 Ghi chú: nội dung cũ dựng bằng shortcode The7 (`[dt_default_button]`, `[dt_blog_masonry]`…) hiện hiển thị dạng chữ thô
 trên staging vì The7 đã tắt; sẽ chuyển sang khối ở các ngày sau. Buttonizer (nút nổi Zalo/Gọi cũ) vẫn bật nên còn chồng
 lên thanh CTA mới ở góc trái.
+
+## 2026-11-04 – Giai đoạn 1 (sửa theo duyệt)
+
+| Mục | Thay đổi |
+|---|---|
+| Buttonizer | tắt (plugin inactive). Kế hoạch ra mắt: tắt trên site thật |
+| robots.txt / sitemap | plugin riêng **velis-staging-guard 1.0.0** (mã trong `staging/`), chỉ chạy khi host là staging: robots.txt = `Disallow: /`; `*sitemap*.xml/.xsl`, `.kml` trả 403 cho khách chưa đăng nhập. Không ghi `.htaccess` |
+| Media | tải lên ID 20682 `2026/11/ban-do-vi-tri-the-prive-osm.webp` (bản đồ OpenStreetMap khu Nam Rạch Chiếc) |
+| Theme velis | 0.1.1 → 0.2.7 (tải lại qua wp-admin) |
+
+Kiểm chứng: `/robots.txt` trả `User-agent: * / Disallow: /`; `/sitemap_index.xml`, `/post-sitemap.xml`, `/page-sitemap.xml`,
+`/locations.kml`, `/main-sitemap.xsl` trả 403 cho khách.

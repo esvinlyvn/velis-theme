@@ -334,7 +334,7 @@
 					"fontFamily": "var(--wp--preset--font-family--heading)",
 					"fontSize": "var(--wp--preset--font-size--heading-1)",
 					"fontWeight": "600",
-					"lineHeight": "1.15"
+					"lineHeight": "1.2"
 				}
 			},
 			"h2": {
