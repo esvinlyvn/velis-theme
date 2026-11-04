@@ -35,13 +35,14 @@ $out .= velis_hero_a( array(
 // Quick facts + answer-first summary.
 $price  = velis_price( $p );
 $source = (string) get_post_meta( $p->ID, 'velis_price_source', true );
-$intro  = '<div class="v-wrap v-projhead">' . velis_facts_html( velis_facts( $p ), $price, $source ? 'Nguồn giá: ' . $source : '' );
+$intro  = '<div class="v-wrap v-projhead">';
 if ( $parent && in_array( $level, array( 'phan-khu', 'thap-tang' ), true ) ) {
 	// "Nằm trong …" box right under the hero (phân khu → đại đô thị; dòng thấp tầng → phân khu).
 	$intro .= '<aside class="v-within" aria-label="Nằm trong"><p class="v-eyebrow">' . ( 'phan-khu' === $level ? 'Nằm trong đại đô thị' : 'Thuộc phân khu' ) . '</p><p><a href="' . esc_url( get_permalink( $parent ) ) . '">' . esc_html( $parent->post_title ) . '</a>'
 		. ( 'thap-tang' === $level && $parent->post_parent ? ' · ' . esc_html( get_the_title( $parent->post_parent ) ) : '' ) . '</p>'
 		. ( $parent->post_excerpt ? '<p>' . esc_html( $parent->post_excerpt ) . '</p>' : '' ) . '</aside>';
 }
+$intro .= velis_facts_html( velis_facts( $p ), $price, $source ? 'Nguồn giá: ' . $source : '' ); // after the "Nằm trong" box (brief: box right under the hero)
 if ( $p->post_excerpt ) {
 	$intro .= '<p class="v-lead v-answer">' . esc_html( $p->post_excerpt ) . '</p>';
 }

@@ -29,7 +29,8 @@ Ma trận redirect và bản đồ từ khóa dựng từ ảnh chụp site ngà
 7a. Tạo form Contact Form 7 "Velis – Nhận tư vấn" trên site thật (cùng trường như staging: your-name, your-phone, need, interest,
     note, consent) và gửi thử 1 lần; kiểm tra sự kiện `generate_lead` trong GA4 DebugView.
 7b. Chạy `tools/copy_featured_images.py` phiên bản cho site thật (chỉ khi được duyệt) hoặc gắn ảnh đại diện dự án bằng tay.
-7c. Sau ra mắt chạy `tools/check_onpage.mjs` trên site thật: canonical chỉ kiểm được khi trang được index.
+7c. Gỡ font Merriweather khỏi Header and Footer Scripts (theme dùng 3 font riêng).
+7d. Sau ra mắt chạy `tools/check_onpage.mjs` trên site thật: canonical chỉ kiểm được khi trang được index.
 8. **Không** cài `velis-staging-guard` lên site thật.
 9. Kiểm tra sau ra mắt: 32 URL có lượt nhấp GSC trả đúng đích 1 bước; sitemap không có trang noindex; Search Console gửi sitemap.
 
