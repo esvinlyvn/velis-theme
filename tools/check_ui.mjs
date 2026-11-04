@@ -1,10 +1,12 @@
 // Automated UI check + screenshots for a staging page (guest view behind the staging password).
 // Usage: VIEW_PASSWORD_FILE=/path/to/file node tools/check_ui.mjs <url-path> <out-dir> [widths]
-// Reports per width: horizontal overflow, empty images, text contrast < WCAG AA, tap targets < 44px, CLS.
+// Reports per width: horizontal overflow, images not loaded (after a real scroll), text contrast < WCAG AA, tap targets < 44px,
+// gaps beside content (tools/ui_gaps.mjs), layout errors (tools/ui_layout.mjs), CLS.
 import { createRequire } from 'node:module';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 const { chromium } = createRequire(import.meta.url)('playwright');
 import { gapRuns } from './ui_gaps.mjs';
+import { layoutAudit } from './ui_layout.mjs';
 
 const BASE = 'https://staging.velisrealty.vn';
 const [path = '/velis-style-guide/', out = 'screenshots/check', widthArg] = process.argv.slice(2);
@@ -131,7 +133,7 @@ function contentBands() {
 		if (s.position === 'fixed') continue;
 		for (let i = Math.max(0, Math.floor(top / step)); i < Math.min(bands.length, Math.ceil(bottom / step)); i++) bands[i].push([r.left, r.right]);
 	}
-	const wrap = Math.min(1200, innerWidth - 2 * parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--v-gutter') || 24));
+	const wrap = Math.min(parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--v-wide')) || 1200, innerWidth - 2 * parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--v-gutter') || 24));
 	const left = (document.documentElement.clientWidth - wrap) / 2;
 	return { bands, left, right: left + wrap, step };
 }
@@ -152,7 +154,12 @@ for (const w of WIDTHS) {
 	// switched to eager so every <img> on the page is actually fetched and verified.
 	await p.evaluate(() => Promise.all([...document.images].map((i) => { i.loading = 'eager'; return i.decode().catch(() => {}); })));
 	await p.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
+	await p.waitForFunction(() => [...document.images].every((i) => i.complete), null, { timeout: 15000 }).catch(() => {}); // every picture settled (loaded or failed)
+	const lay = await p.evaluate(layoutAudit);
 	report[w] = { ...(await p.evaluate(audit)), cls, gaps: [] };
+	report[w].images = [...new Set([...report[w].images, ...lay.images])];
+	report[w].layout = [...lay.grid.map((x) => `hàng lưới 1 thẻ ≤ 50%: ${x}`), ...lay.empty.map((x) => `khung trống > 40px: ${x}`), ...lay.media.map((x) => `khung ảnh/bản đồ không có ảnh: ${x}`),
+		...lay.fallback.map((x) => `khung dự phòng không tên: ${x}`), ...lay.contact.map((x) => `khối liên hệ lặp: ${x}`)];
 	if (w >= 1024) {
 		const g = await p.evaluate(contentBands);
 		const at = async (y) => p.evaluate((y) => { const el = [...document.querySelectorAll('main section, main .v-wrap, main article, main aside')].find((e) => { const r = e.getBoundingClientRect(); return r.top + scrollY <= y && r.bottom + scrollY > y; }); return el ? el.tagName.toLowerCase() + (el.id ? '#' + el.id : '') + (el.className ? '.' + String(el.className).trim().split(/\s+/).slice(0, 2).join('.') : '') : 'body'; }, y);
@@ -169,12 +176,12 @@ for (const w of WIDTHS) {
 	}
 	await p.close();
 	const r = report[w];
-	console.log(`${w}px overflow:${r.overflow.length} emptyImg:${r.images.length} contrast:${r.contrast.length} tap<44:${r.targets.length} gap:${r.gaps.length} CLS:${r.cls}`);
+	console.log(`${w}px overflow:${r.overflow.length} emptyImg:${r.images.length} contrast:${r.contrast.length} tap<44:${r.targets.length} gap:${r.gaps.length} layout:${r.layout.length} CLS:${r.cls}`);
 }
 await browser.close();
 
 const photoLine = WIDTHS.map((w) => `${w}px: ` + report[w].photo.map((x) => `${x.text.slice(0, 18)}… ${x.ratio}`).join(' · ')).join('\n- ');
-const rows = WIDTHS.map((w) => { const r = report[w]; return `| ${w} | ${r.overflow.length ? 'CÓ' : 'không'} | ${r.images.length} | ${r.contrast.length} | ${r.targets.length} | ${r.gaps.length} | ${r.cls} |`; });
-const details = WIDTHS.flatMap((w) => { const r = report[w]; return [...r.overflow.map((x) => `- ${w}px tràn ngang: ${x}`), ...r.images.map((x) => `- ${w}px ảnh rỗng: ${x}`), ...r.contrast.map((x) => `- ${w}px tương phản: ${x}`), ...r.targets.map((x) => `- ${w}px vùng bấm: ${x}`), ...r.gaps.map((x) => `- ${w}px ${x}`)]; });
+const rows = WIDTHS.map((w) => { const r = report[w]; return `| ${w} | ${r.overflow.length ? 'CÓ' : 'không'} | ${r.images.length} | ${r.contrast.length} | ${r.targets.length} | ${r.gaps.length} | ${r.layout.length} | ${r.cls} |`; });
+const details = WIDTHS.flatMap((w) => { const r = report[w]; return [...r.overflow.map((x) => `- ${w}px tràn ngang: ${x}`), ...r.images.map((x) => `- ${w}px ảnh rỗng: ${x}`), ...r.contrast.map((x) => `- ${w}px tương phản: ${x}`), ...r.targets.map((x) => `- ${w}px vùng bấm: ${x}`), ...r.gaps.map((x) => `- ${w}px ${x}`), ...r.layout.map((x) => `- ${w}px ${x}`)]; });
 writeFileSync(`${out}/report.json`, JSON.stringify(report, null, 1));
-writeFileSync(`${out}/report.md`, `# Kiểm tra tự động – ${path}\n\n| Khung | Tràn ngang | Ảnh rỗng | Tương phản lỗi | Vùng bấm < 44px | Khoảng trống > 30% | CLS |\n|---|---|---|---|---|---|---|\n${rows.join('\n')}\n\n${details.length ? details.join('\n') : 'Không có lỗi.'}\n\n## Tương phản chữ trên ảnh hero (nền sáng nhất phân vị 98)\n- ${photoLine}\n`);
+writeFileSync(`${out}/report.md`, `# Kiểm tra tự động – ${path}\n\n| Khung | Tràn ngang | Ảnh rỗng | Tương phản lỗi | Vùng bấm < 44px | Khoảng trống > 30% | Bố cục | CLS |\n|---|---|---|---|---|---|---|---|\n${rows.join('\n')}\n\n${details.length ? details.join('\n') : 'Không có lỗi.'}\n\n## Tương phản chữ trên ảnh hero (nền sáng nhất phân vị 98)\n- ${photoLine}\n`);

@@ -25,7 +25,7 @@ $out   = velis_breadcrumb_html( velis_trail() ) . velis_hero_b( array(
 	'after'   => velis_project_links(),
 ) );
 if ( trim( $pg->post_content ) ) {
-	$out .= velis_section( velis_sechead( 'Câu chuyện Velis', 'Về chúng tôi' ) . '<div class="v-page--2col"><div class="v-page__main v-prose">' . velis_content( $pg->post_content ) . '</div>' . velis_contact_card() . '</div>' );
+	$out .= velis_section( velis_sechead( 'Câu chuyện Velis', 'Về chúng tôi' ) . '<div class="v-page--2col"><div class="v-page__main v-prose">' . velis_strip_contact( velis_content( $pg->post_content ) ) . '</div>' . velis_highlight_card() . '</div>' );
 }
 if ( $ceo && $ceo->description ) {
 	$out .= velis_section( velis_sechead( $ceo->display_name . ' – CEO Velis Realty', 'Người sáng lập' ) . '<p class="v-lead">' . esc_html( $ceo->description ) . '</p>' . velis_btn( 'Bài viết của ' . $ceo->display_name, get_author_posts_url( $ceo->ID ), 'secondary' ), '', 'v-section--dark' );

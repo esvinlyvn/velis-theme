@@ -202,7 +202,9 @@ $$('[data-plist]').forEach((box) => {
 	const dialog = box.querySelector('dialog');
 	const boxes = $$('input[type=checkbox]', form);
 	const drops = $$('[data-fdrop]', form);
-	const cards = $$('[data-card]', box);
+	const views = $$('[data-view]', box);
+	const current = () => views.find((v) => !v.hidden) || box;
+	let cards = $$('[data-card]', current());
 	const applyBtn = form.querySelector('[data-apply]');
 	const want = () => {
 		const w = {};
@@ -219,7 +221,7 @@ $$('[data-plist]').forEach((box) => {
 		const w = want();
 		let shown = 0;
 		cards.forEach((c) => { c.hidden = !ok(c, w); shown += !c.hidden; });
-		box.querySelector('[data-plist-count]').textContent = `Hiển thị ${shown}/${cards.length} dự án`;
+		box.querySelector('[data-plist-count]').textContent = `Hiển thị ${shown}/${cards.length} ${current().dataset.noun || 'dự án'}`;
 		box.querySelector('[data-plist-empty]').hidden = shown > 0;
 		preview();
 	};
@@ -237,6 +239,13 @@ $$('[data-plist]').forEach((box) => {
 	form.addEventListener('submit', apply);
 	form.addEventListener('reset', () => setTimeout(() => { boxes.forEach((b) => (b.indeterminate = false)); wide() ? apply() : preview(); }));
 	box.querySelector('[data-plist-reset]').addEventListener('click', () => form.reset());
+	// "Theo dự án" / "Theo phân khu & sản phẩm": same filters, other cards
+	$$('[data-view-btn]', box).forEach((b) => b.addEventListener('click', () => {
+		views.forEach((v) => (v.hidden = v.dataset.view !== b.dataset.viewBtn));
+		$$('[data-view-btn]', box).forEach((o) => o.setAttribute('aria-pressed', String(o === b)));
+		cards = $$('[data-card]', current());
+		apply();
+	}));
 	box.querySelector('[data-open]').addEventListener('click', () => { drops.forEach((d) => (d.open = true)); dialog.showModal(); });
 	dialog.addEventListener('close', () => drops.forEach((d) => (d.open = false)));
 	dialog.querySelector('[data-close]').addEventListener('click', () => dialog.close());
@@ -287,7 +296,7 @@ if (lightbox) {
 }
 
 // Tab row and section nav: a fade on the right edge while more items are hidden to the right.
-document.querySelectorAll('.v-tabs__list, .v-secnav ul').forEach((l) => {
+document.querySelectorAll('.v-tabs__list, .v-secnav ul, .v-feats ul').forEach((l) => {
 	const fade = () => l.classList.toggle('has-more', l.scrollLeft + l.clientWidth < l.scrollWidth - 4);
 	l.addEventListener('scroll', fade, { passive: true });
 	addEventListener('resize', fade);
@@ -311,9 +320,23 @@ $$('[data-chipbox]').forEach((box) => {
 
 // Form: inline validation; "Nhận bảng giá …" pre-fills the project/subzone field (still editable).
 $$('[data-interest]').forEach((a) => a.addEventListener('click', () => {
-	const f = document.querySelector('[name=interest]');
+	const f = document.querySelector('#tu-van [name=interest]');
 	if (f) f.value = a.dataset.interest;
 }));
+// Side card "Nhận bảng giá": opens the short form in place (the link to #tu-van stays the no-JS path).
+$$('[data-open-form]').forEach((a) => a.addEventListener('click', (e) => {
+	const box = a.nextElementSibling;
+	if (!box?.matches('.v-pricecard__form')) return;
+	e.preventDefault();
+	box.hidden = !box.hidden;
+	a.setAttribute('aria-expanded', String(!box.hidden));
+	if (!box.hidden) box.querySelector('input')?.focus();
+}));
+// utm_* of the landing URL, kept for the visit; sent with the lead.
+const utm = (() => {
+	const q = [...new URLSearchParams(location.search)].filter(([k]) => k.startsWith('utm_')).map(([k, v]) => `${k}=${v}`).join('&');
+	try { if (q) sessionStorage.setItem('velis-utm', q); return q || sessionStorage.getItem('velis-utm') || ''; } catch { return q; }
+})();
 $$('[data-form]').forEach((form) => form.addEventListener('submit', (e) => {
 	e.preventDefault();
 	let ok = true;
@@ -337,6 +360,8 @@ $$('[data-form]').forEach((form) => form.addEventListener('submit', (e) => {
 		form.querySelector('[type=submit]').disabled = true;
 	};
 	if (!form.dataset.cf7) return done(true); // no receiver configured (style guide demo)
+	if (form.elements['page-url']) form.elements['page-url'].value = location.href.split('#')[0];
+	if (form.elements.utm) form.elements.utm.value = utm;
 	const data = new FormData(form);
 	data.set('_wpcf7', form.dataset.cf7);
 	data.set('_wpcf7_unit_tag', `wpcf7-f${form.dataset.cf7}-velis`);
@@ -357,21 +382,32 @@ document.addEventListener('click', (e) => {
 	a.replaceWith(f);
 });
 
-// Long CEO analysis / developer text on project pages: shown in part, "Đọc tiếp" opens the rest (all text stays in the page).
-$$('.v-sub--accent').forEach((box) => {
-	const prose = box.querySelector('.v-prose');
-	if (!prose || prose.scrollHeight < 900) return;
-	box.classList.add('is-clamped');
+// Long text from the old pillar posts (every project section): shown in part, "Đọc tiếp" opens the rest (all text stays in the page).
+$$('.v-long').forEach((prose) => {
+	if (prose.scrollHeight < (prose.matches('.v-long--short') ? 420 : 640) + 160) return; // short enough: nothing to fold
+	prose.classList.add('is-clamped');
 	const btn = document.createElement('button');
 	btn.type = 'button';
 	btn.className = 'v-btn v-btn--secondary v-more';
 	btn.textContent = 'Đọc tiếp';
 	btn.setAttribute('aria-expanded', 'false');
 	btn.addEventListener('click', () => {
-		const open = box.classList.toggle('is-clamped') === false;
+		const open = !prose.classList.toggle('is-clamped');
 		btn.textContent = open ? 'Thu gọn' : 'Đọc tiếp';
 		btn.setAttribute('aria-expanded', String(open));
-		if (!open) box.scrollIntoView({ block: 'start' });
+		if (!open) prose.scrollIntoView({ block: 'start' });
 	});
 	prose.after(btn);
 });
+
+// Mobile CTA bar: hidden while the hero's own buttons are on screen (and at the top of the page), shown once they scroll away.
+(() => {
+	const bar = document.querySelector('.v-sticky-cta');
+	if (!bar) return;
+	const btns = document.querySelector('.v-hero .v-row, .v-pagehead .v-row, .v-pagehead .v-channels');
+	let seen = !!btns;
+	const set = () => bar.classList.toggle('is-on', !seen && scrollY > 120);
+	if (btns) new IntersectionObserver(([e]) => { seen = e.isIntersecting || e.boundingClientRect.top > 0; set(); }).observe(btns);
+	addEventListener('scroll', set, { passive: true });
+	set();
+})();

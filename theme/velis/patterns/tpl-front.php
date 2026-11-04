@@ -17,7 +17,7 @@ foreach ( $projects as $p ) {
 		$hero = velis_image_id( $p );
 	}
 }
-$featured = array_slice( $projects, 0, 4 );
+$featured = $projects; // every project with a photo; the strip scrolls sideways when there are more than 4
 $field    = fn( $k ) => $front ? array_values( array_filter( array_map( 'trim', explode( "\n", (string) get_post_meta( $front->ID, $k, true ) ) ) ) ) : array();
 $devs     = array_values( array_filter( get_posts( array( 'post_type' => 'chu-dau-tu', 'numberposts' => 50, 'orderby' => 'title', 'order' => 'ASC' ) ), fn( $d ) => velis_developer_projects( $d ) ) );
 // CEO analyses: newest posts whose featured image is a real project image (velis_image_kind), one per project cluster.
@@ -47,10 +47,6 @@ foreach ( $nums as $label => $n ) {
 	$dl .= '<div><dt>' . esc_html( $label ) . '</dt><dd>' . esc_html( $n >= 10 ? floor( $n / 10 ) * 10 . '+' : (string) $n ) . '</dd></div>';
 }
 $out .= velis_section( '<dl class="v-numbers" aria-label="Velis bằng con số">' . $dl . '</dl>', '', 'v-section--strip' );
-$all  = velis_btn( 'Xem tất cả dự án', get_post_type_archive_link( 'du-an' ), 'secondary' );
-if ( $rest = array_slice( $projects, 4, 6 ) ) { // the first four are already in the hero
-	$out .= velis_section( velis_sechead( 'Dự án khác Velis đang tư vấn', 'Dự án', 'Mỗi dự án có trang riêng với giá, pháp lý, tiến độ.', 'du-an', $all ) . velis_grid( array_map( 'velis_card_project', $rest ), ( count( $rest ) <= 2 ? '2' : 'zones' ) . ' v-rail' ) );
-}
 if ( $devs ) {
 	$logos = array_filter( $devs, fn( $d ) => get_post_meta( $d->ID, 'velis_logo', true ) );
 	$list  = count( $logos ) === count( $devs ) ? velis_grid( array_map( 'velis_card_developer', $devs ) )
@@ -62,7 +58,7 @@ if ( $why = $field( 'velis_why' ) ) {
 }
 $ceo = $field( 'velis_ceo' );
 if ( $ceo || $posts ) {
-	$out .= velis_section( velis_sechead( 'Góc nhìn CEO Vũ Xuân', 'Phân tích mới', '', '', velis_btn( 'Đọc blog Velis', '/blog/', 'secondary' ) ) . ( $ceo ? '<div class="v-prose">' . wpautop( esc_html( implode( "\n\n", $ceo ) ) ) . '</div>' : '' ) . velis_grid( array_map( 'velis_card_post', $posts ), '3' ), '', 'v-section--dark' );
+	$out .= velis_section( velis_sechead( 'Góc nhìn CEO Vũ Xuân', 'Phân tích mới', '', '', velis_btn( 'Đọc blog Velis', '/blog/', 'secondary' ) ) . ( $ceo ? '<div class="v-prose">' . wpautop( esc_html( implode( "\n\n", $ceo ) ) ) . '</div>' : '' ) . velis_grid( array_map( 'velis_card_post', $posts ), '3 v-rail' ), '', 'v-section--dark' );
 }
 if ( $quotes = $field( 'velis_testimonials' ) ) {
 	$out .= velis_section( velis_sechead( 'Khách hàng nói gì', 'Cảm nhận' ) . '<div class="v-quotes">' . implode( '', array_map( fn( $q ) => '<blockquote><p>' . esc_html( $q ) . '</p></blockquote>', $quotes ) ) . '</div>' );

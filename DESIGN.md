@@ -188,13 +188,16 @@ Chính (đỏ, chữ trắng) · Phụ (viền đen, hover nền đen) · Viền
 Cao tối thiểu 48 px (vùng bấm ≥ 44 × 44). Đổi màu 150–200 ms.
 
 ### Hero (đã chốt)
-- **A** – trang chủ, trang dự án, trang phân khu (vòng 5, 2026-11-04). Ảnh tràn rộng; desktop/tablet: lớp phủ từ **dưới lên**
-  (92 % → 78 % ở 34 % → 28 % ở 64 % → 10 %; mép trên 50 % cho breadcrumb), khối chữ canh **dưới**, rộng ≤ 760 px – không còn
-  vùng tối trống ở góc trái trên. Trong hero: breadcrumb (chữ sáng, trên cùng), eyebrow chủ đầu tư · khu vực, tên (H1),
-  3–4 chip pill viền trắng (trạng thái, loại sản phẩm, bàn giao, giá nếu có), 2 nút. Cao: trang dự án ~60vh (≥ 440 px) để
-  1366×768 thấy hero + đầu thanh thông tin nhanh; trang chủ = màn hình trừ header, đáy hero là **dải 4 dự án nổi bật**
-  (ảnh thật, tên, khu vực, trạng thái). Mobile: ảnh 4:3 ở trên, chữ trên dải tối bên dưới, dải dự án cuộn ngang ngay dưới.
-  Eyebrow `#EADBC0`; chữ trên ảnh ≥ 4,5:1 (đo bằng điểm ảnh, `tools/check_ui.mjs`). Chưa có ảnh: nền tối + tên chìm.
+- **A** – trang chủ, trang dự án, trang phân khu (vòng 6). Ảnh tràn rộng. **Desktop (≥ 1024 px): không phủ cả ảnh** – chỉ
+  một lớp nền mờ cục bộ (#141414 82 %, blur 36 px) sau khối chữ ở góc trái dưới (khối chữ ≤ min(600 px, 46vw)), ≥ 60 % diện tích
+  ảnh giữ độ sáng gốc; breadcrumb có nền nhỏ riêng; chữ ≥ 4,5:1 (đo bằng điểm ảnh, `tools/check_ui.mjs`). Tablet: lớp phủ từ dưới
+  lên; mobile: ảnh 4:3 ở trên, chữ trên dải tối. Trong hero: breadcrumb, eyebrow chủ đầu tư · khu vực, H1, 3–4 chip, 2 nút.
+  Trang dự án cao ~60vh; trang chủ: đáy hero là dải **mọi dự án có ảnh thật** (4 thẻ trong khung, nhiều hơn thì trượt ngang).
+  Chưa có ảnh: dải tối + tên chìm.
+- **Form** (mọi nơi): chỉ Họ tên + Số điện thoại (cùng hàng từ 768 px), ô đồng ý, nút Gửi; dự án / URL trang / utm là trường
+  ẩn gửi kèm email. Khối "Nhận tư vấn" 2 cột cân: trái tiêu đề + kênh liên hệ, phải form. Thẻ "Nhận bảng giá" ở cột phải
+  trang dự án mở form gọn tại chỗ.
+- **Khung**: 1200 px; từ 1600 px là 1320 px. Thanh CTA đáy (mobile/tablet) chỉ hiện sau khi cuộn qua nút của hero.
 - **B** – trang tổng (Dự án, Chủ đầu tư, Blog, cụm blog). Chia đôi 5:6, chữ trên nền ngà, tiêu đề `text-wrap: balance`.
 
 ### Bố cục 2 cột & nhịp thị giác (vòng 5)
@@ -204,10 +207,13 @@ Cao tối thiểu 48 px (vùng bấm ≥ 44 × 44). Đổi màu 150–200 ms.
   Không có gì hữu ích cho cột phải → một cột đọc 760 px canh giữa. < 1024 px: một cột + thanh CTA đáy (kể cả tablet).
 - Khối rộng (danh sách phân khu, so sánh, thư viện, bản đồ) **vừa cột nội dung**: phân khu 2 cột, bảng so sánh cuộn ngang
   có cột tên ghim – để cột phải dính liên tục suốt trang (đẹp và nhất quán hơn việc ngắt cột cho một khối full-width).
-- **Nhịp**: không lặp một khuôn suốt trang. Trang dự án: nhóm mục xen kẽ nền ngà / bảng trắng có viền, Thư viện trên nền tối;
-  góc nhìn CEO và chủ đầu tư là khối nhấn có vạch champagne bên trái (dài thì hiện một phần + "Đọc tiếp"). Trang khác: nền
-  ngà, dải trắng toàn chiều ngang, **mỗi trang ít nhất một khối nhấn tối** (Góc nhìn CEO ở trang chủ, Giới thiệu, chủ đầu tư)
-  hoặc dải số liệu / ảnh tràn rộng.
+- **Nhịp**: không lặp một khuôn suốt trang. Trang dự án (vòng 6): các section cùng một kiểu nền ngà (không khung trắng có
+  viền), Thư viện trên nền tối, bảng so sánh là **vùng full-width riêng** thoát khỏi 2 cột (không cuộn ngang khi ≤ 5 cột).
+  Thứ tự: Tổng quan → [Phân khu] → Sản phẩm → So sánh → Vị trí & tiện ích → Thư viện → Tiến độ & pháp lý → Góc nhìn CEO →
+  Hỏi đáp → Bài viết → Tư vấn. Văn bản dài của bài trụ cột cũ nằm sau dữ liệu của section, thu gọn sau ~250 từ (Tổng quan
+  ~150 từ) với "Đọc tiếp". Trang khác: nền ngà, dải trắng toàn chiều ngang, **mỗi trang ít nhất một khối nhấn tối**.
+- Thông tin liên hệ (điện thoại + email + địa chỉ) chỉ một lần trong thân trang (khối "Nhận tư vấn"); thẻ cột phải của
+  Giới thiệu là dự án đang tư vấn, của Tuyển dụng là "Gửi CV".
 - Danh sách ≤ 2 mục: 1 mục = thẻ ngang rộng hết khung (ảnh trái, chữ phải), 2 mục = 2 cột; không để hàng có ô trống.
 - **Thanh điều hướng mục** tối đa 8 mục: Tổng quan · Sản phẩm · Phân khu · Vị trí & tiện ích · Thư viện · Tiến độ & pháp lý ·
   Hỏi đáp · Tư vấn (mục không có nội dung tự ẩn); mobile cuộn ngang, mục đầu luôn thấy.

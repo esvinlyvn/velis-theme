@@ -37,3 +37,20 @@
 	.v-table-wrap--cards td.is-text::before { display: block; margin-bottom: 2px; }
 	.v-table-wrap--cards caption { padding: 0 0 8px; }
 }
+
+/* Moved from style.css (round 6): only the style guide uses these. */
+.v-timeline { list-style: none; padding: 0 0 0 24px; border-left: 2px solid var(--v-line); display: grid; gap: 24px; }
+.v-timeline li { position: relative; }
+.v-timeline li::before { content: ""; position: absolute; left: -31px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--v-gold); }
+.v-timeline li.is-next::before { background: #fff; border: 2px solid var(--v-gold); }
+.v-timeline time { font-size: 14px; font-weight: 600; color: var(--wp--preset--color--champagne-text); }
+.v-timeline p { margin: 4px 0 8px; }
+.v-timeline figure { margin: 8px 0 0; width: min(100%, 480px); }
+.v-timeline img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: var(--focus, 50% 50%); display: block; }
+.v-timeline figcaption { font-size: 14px; color: var(--v-muted); margin-top: 6px; }
+.v-author__photo { flex: none; width: 88px; height: 88px; object-fit: cover; }
+.v-optional { font-weight: 400; color: var(--v-muted); }
+.v-choice { border: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.v-choice legend { width: 100%; margin-bottom: 6px; }
+.v-choice label { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 400; }
+.v-choice input { width: 20px; height: 20px; accent-color: var(--v-red); }

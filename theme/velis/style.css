@@ -176,7 +176,7 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 	.v-hero.v-hero--full .v-hero__body > * { max-width: min(760px, 100%); }
 }
 .v-hero--full :is(.v-hero__title, .v-hero__lead, .v-eyebrow) { text-shadow: 0 1px 12px rgb(0 0 0 / .45); }
-.v-hero--full .v-hero__body { position: relative; z-index: 2; align-self: end; width: min(100% - 2 * var(--v-gutter), 1200px); margin: 0 auto; padding-block: 40px; }
+.v-hero--full .v-hero__body { position: relative; z-index: 2; align-self: end; width: min(100% - 2 * var(--v-gutter), var(--v-wide)); margin: 0 auto; padding-block: 40px; }
 .v-hero--full .v-hero__lead { color: #ececec; max-width: 46ch; }
 .v-hero--full.is-empty { min-height: 420px; background: linear-gradient(135deg, #1f1f1f, #141414); }
 .v-hero__fallback { position: absolute; right: 4%; top: 12%; font: 600 clamp(48px, 9vw, 120px)/1 var(--wp--preset--font-family--heading); color: rgb(255 255 255 / .06); white-space: nowrap; }
@@ -337,15 +337,6 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 .v-map .v-btn { position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%); white-space: nowrap; box-shadow: 0 4px 16px rgb(20 20 20 / .25); }
 
 /* Timeline */
-.v-timeline { list-style: none; padding: 0 0 0 24px; border-left: 2px solid var(--v-line); display: grid; gap: 24px; }
-.v-timeline li { position: relative; }
-.v-timeline li::before { content: ""; position: absolute; left: -31px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--v-gold); }
-.v-timeline li.is-next::before { background: #fff; border: 2px solid var(--v-gold); }
-.v-timeline time { font-size: 14px; font-weight: 600; color: var(--wp--preset--color--champagne-text); }
-.v-timeline p { margin: 4px 0 8px; }
-.v-timeline figure { margin: 8px 0 0; width: min(100%, 480px); }
-.v-timeline img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: var(--focus, 50% 50%); display: block; }
-.v-timeline figcaption { font-size: 14px; color: var(--v-muted); margin-top: 6px; }
 
 /* Article layout: reading column + sticky TOC on desktop */
 /* Article: reading column + side column (TOC, project in the text, contact) – never a reading column pushed left with empty space. */
@@ -369,7 +360,6 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 .v-faq summary::after, .v-prose .wp-block-details > summary::after { content: "+"; font-size: 24px; color: var(--v-red); flex: none; }
 .v-faq details[open] summary::after, .v-prose .wp-block-details[open] > summary::after { content: "–"; }
 .v-author { display: flex; gap: 20px; align-items: flex-start; padding: 24px; background: #fff; border: 1px solid var(--v-line); margin-block: 32px; }
-.v-author__photo { flex: none; width: 88px; height: 88px; object-fit: cover; }
 .v-author p { margin: 0 0 6px; }
 .v-author__name { font-weight: 600; }
 .v-disclosure { max-width: 720px; background: var(--wp--preset--color--surface-sunken); border-left: 2px solid var(--v-gold); padding: 16px 20px; font-size: 15px; line-height: 1.6; color: var(--v-ink); }
@@ -388,13 +378,8 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 .v-form { display: grid; gap: 16px; padding: 24px; background: #fff; border: 1px solid var(--v-line); }
 .v-field { display: grid; gap: 6px; margin: 0; }
 .v-field label, .v-field legend { font-weight: 600; font-size: 15px; }
-.v-optional { font-weight: 400; color: var(--v-muted); }
 .v-form :is(input:not([type=checkbox]):not([type=radio]), select, textarea), .v-filter select, .v-sort select, .wpcf7 :is(input:not([type=checkbox]):not([type=submit]), select, textarea) { min-height: 48px; padding: 10px 14px; border: 1px solid var(--wp--preset--color--hairline-strong); border-radius: var(--v-r); background: #fff; font: 400 17px var(--wp--preset--font-family--body); color: var(--v-ink); width: 100%; }
 .v-form :is(input, select, textarea):focus-visible { border-color: var(--v-ink); outline: 2px solid var(--v-ink); outline-offset: 0; }
-.v-choice { border: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 20px; }
-.v-choice legend { width: 100%; margin-bottom: 6px; }
-.v-choice label { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 400; }
-.v-choice input { width: 20px; height: 20px; accent-color: var(--v-red); }
 .v-field.is-invalid :is(input, textarea) { border-color: var(--wp--preset--color--error); }
 .v-field__error { color: var(--wp--preset--color--error); font-size: 14px; }
 .v-field__error::before { content: "! "; font-weight: 600; }
@@ -452,7 +437,7 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 .v-menu__all a { color: var(--v-red) !important; font-weight: 600; }
 
 /* ---------- Page templates (phase 3) ---------- */
-.v-wrap { max-width: calc(1200px + 2 * var(--v-gutter)); margin-inline: auto; padding-inline: var(--v-gutter); }
+.v-wrap { max-width: calc(var(--v-wide) + 2 * var(--v-gutter)); margin-inline: auto; padding-inline: var(--v-gutter); }
 .v-main > .v-wrap:first-child { padding-top: 8px; }
 .v-section { margin-block: var(--v-section); }
 .v-section--form { background: var(--wp--preset--color--surface); border-top: 1px solid var(--v-line); padding-block: var(--v-section); margin-bottom: 0; }
@@ -470,7 +455,7 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 .v-block:first-child { border-top: 0; }
 .v-prose { max-width: 720px; }
 .v-prose img { height: auto; }
-.v-prose table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
+.v-prose table { border-collapse: collapse; width: 100%; } .v-prose .wp-block-table { overflow-x: auto; margin-inline: 0; } /* full column width, scroll only when needed */
 .v-prose :is(td, th) { border: 1px solid var(--v-line); padding: 8px 12px; }
 .v-posthead { max-width: 720px; padding-block: 24px 8px; }
 .v-meta { color: var(--v-muted); font-size: var(--wp--preset--font-size--caption); }
@@ -595,7 +580,7 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 .v-gallery__track figcaption { font-size: 14px; color: var(--v-muted); margin-top: 6px; }
 /* Tabs: no scrollbar; a fade on the right edge says more tabs follow. */
 .v-tabs__list { scrollbar-width: none; }
-.v-tabs__list.has-more, .v-secnav ul.has-more { mask-image: linear-gradient(90deg, #000 80%, transparent); -webkit-mask-image: linear-gradient(90deg, #000 80%, transparent); }
+.v-tabs__list.has-more, .v-secnav ul.has-more, .v-feats ul.has-more { mask-image: linear-gradient(90deg, #000 80%, transparent); -webkit-mask-image: linear-gradient(90deg, #000 80%, transparent); }
 /* Floor plans: whole drawing, never cropped. */
 .v-line__plan img { object-fit: contain; transform: none !important; height: auto; background: #fff; }
 /* Hero A on phones: photo on top, text below on the dark band – the project stays visible, text contrast is solid. */
@@ -632,7 +617,7 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 
 /* Round 5 – first screen. Hero parts: breadcrumb on the photo, chips, featured projects strip. */
 .v-hero__top { grid-row: 1; } .v-hero--full .v-hero__body { grid-row: 2; } .v-hero__after { grid-row: 3; }
-.v-hero__top, .v-hero__after { position: relative; z-index: 2; width: min(100% - 2 * var(--v-gutter), 1200px); margin: 0 auto; }
+.v-hero__top, .v-hero__after { position: relative; z-index: 2; width: min(100% - 2 * var(--v-gutter), var(--v-wide)); margin: 0 auto; }
 .v-hero__top .v-breadcrumb ol { margin: 0; padding-block: 16px; color: rgb(255 255 255 / .86); }
 .v-hero__top .v-breadcrumb a { color: #fff; }
 .v-hero__chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0 0 24px; }
@@ -678,14 +663,15 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 .v-pricecard__row { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
 .v-pricecard .v-btn { width: 100%; padding-inline: 12px; }
 /* Section rhythm on project pages: ivory / white panel / dark gallery; accent for the CEO view and the developer. */
-.v-block--panel { background: #fff; border: 1px solid var(--v-line); padding: 32px clamp(16px, 3vw, 40px); }
 .v-block--dark { background: var(--wp--preset--color--surface-dark); color: #fff; padding: 32px clamp(16px, 3vw, 40px); }
 .v-block--dark .v-sechead h2, .v-block--dark figcaption { color: #fff; }
 .v-block--dark .v-eyebrow { color: #EADBC0; }
 .v-block--dark :focus-visible { outline-color: #fff; }
 .v-sub + .v-sub { margin-top: 48px; }
 .v-sub--accent { border-left: 3px solid var(--v-gold); padding-left: clamp(16px, 2.5vw, 32px); }
-.v-sub--accent.is-clamped .v-prose { max-height: 640px; overflow: hidden; mask-image: linear-gradient(#000 75%, transparent); -webkit-mask-image: linear-gradient(#000 75%, transparent); }
+.v-long.is-clamped { max-height: 640px; overflow: hidden; mask-image: linear-gradient(#000 70%, transparent); -webkit-mask-image: linear-gradient(#000 70%, transparent); } /* ~250 words */
+.v-long--short.is-clamped { max-height: 420px; } /* tổng quan: ~150 words */
+.v-block--wide { margin-top: var(--v-section); }
 .v-more { margin-top: 16px; }
 /* ≤ 2 cards: one wide horizontal card or two columns. Text pages: 2 columns or a centred reading column. */
 .v-grid--2 { display: grid; gap: 24px; }
@@ -715,3 +701,40 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 .v-section--dark .v-btn--secondary { color: #fff; border-color: #fff; }
 .v-section--dark :focus-visible { outline-color: #fff; }
 .v-projlinks { margin: 16px 0 0; font-size: 15px; color: var(--v-muted); } .v-projlinks a { display: inline-block; padding-block: 10px; }
+
+/* Container: 1200 px, 1320 px from 1600 px wide screens (round 6). */
+:root { --v-wide: 1200px; }
+@media (min-width: 1600px) { :root { --v-wide: 1320px; } }
+/* Hero A on desktop (round 6): no full-width shade – only a soft local scrim behind the text block (bottom left), so most of
+   the photo keeps its own brightness; the breadcrumb gets its own small backdrop. */
+@media (min-width: 1024px) {
+	.v-hero--full::before, .v-hero--home::before { background: none; }
+	.v-hero--full .v-hero__body { width: auto; max-width: min(600px, 46vw); margin-left: max(var(--v-gutter), (100% - var(--v-wide)) / 2); justify-self: start; }
+	.v-hero--full .v-hero__body::before { content: ""; position: absolute; z-index: -1; inset: -40px -64px -24px -96px; background: rgb(20 20 20 / .82); filter: blur(36px); border-radius: 48px; }
+	.v-hero__top .v-breadcrumb { display: inline-block; margin-top: 12px; padding: 0 12px; border-radius: 2px; background: rgb(20 20 20 / .58); }
+	.v-hero__top .v-breadcrumb ol { padding-block: 6px; }
+	.v-feat { background: rgb(20 20 20 / .74); }
+}
+/* Mobile CTA bar appears after the hero buttons scroll away (round 6). Breadcrumb on phones: first, …, parent, current. */
+.v-sticky-cta { transform: translateY(110%); transition: transform .25s var(--v-ease); }
+.v-sticky-cta.is-on { transform: none; }
+@media (max-width: 767px) {
+	.v-breadcrumb li:not(:first-child):not(:nth-last-child(-n+2)) { display: none; }
+	.v-breadcrumb li:nth-last-child(2):not(:nth-child(-n+2))::before { content: "… ›"; }
+	.v-breadcrumb li[aria-current] { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+}
+/* Short form (round 6): name + phone in one row on wide screens; the "Nhận tư vấn" block balances heading/channels and form. */
+.v-form__row { display: grid; gap: 16px; }
+@media (min-width: 768px) { .v-form__row { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .v-contact { grid-template-columns: 1fr 1fr; align-items: center; } }
+.v-contact__info .v-sechead { margin-bottom: 24px; }
+.v-form--mini { padding: 16px 0 0; border: 0; gap: 12px; }
+.v-form--mini .v-form__row { grid-template-columns: 1fr; }
+.v-pricecard img { transform: none !important; }
+.v-section--band + .v-section--form, .v-section--dark + .v-section--form { margin-top: 0; }
+@media (min-width: 1024px) { .v-feats ul { grid-auto-columns: calc((100% - 36px) / 4); } } /* 4 in view, more slide in */
+.v-highlights { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.v-feat--light { background: none !important; color: var(--v-ink); border-color: var(--v-line); padding: 6px; min-height: 64px; }
+.v-feat--light img { width: 72px; height: 52px; }
+.v-feat--light small { color: var(--v-muted); }
+.v-feats .v-eyebrow, .v-hero--full .v-hero__body > .v-eyebrow { display: inline-block; padding: 2px 8px; background: rgb(20 20 20 / .72); } /* small text over the photo keeps 4.5:1 */

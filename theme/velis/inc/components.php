@@ -81,8 +81,8 @@ function velis_chunks( string $html ): array {
 		$text = trim( html_entity_decode( wp_strip_all_tags( $head ), ENT_QUOTES ) );
 		$low  = mb_strtolower( $text );
 		if ( '3' === $parts[ $i + 1 ] ) {
-			if ( preg_match( '/^(bài viết liên quan|những bài phân tích)/u', $low ) ) {
-				$add( 'bai-viet', '', $head . $parts[ $i + 2 ] );
+			if ( preg_match( '/^(bài viết liên quan|những bài phân tích|bài phân tích chuyên sâu)/u', $low ) ) {
+				$add( 'bai-viet', '', $head . $parts[ $i + 2 ] ); // kept apart; templates do not print it (own related posts block)
 			} else {
 				$add( $slot, '', $head . $parts[ $i + 2 ] );
 			}
@@ -95,8 +95,12 @@ function velis_chunks( string $html ): array {
 				break;
 			}
 		}
-		// tổng quan keeps its H2s inside the text; other slots use the first H2 as the section title, later ones stay in the text
-		if ( 'tong-quan' === $slot || isset( $out[ $slot ] ) ) {
+		// The "Thông tin tổng quan …" H2 becomes the Tổng quan title (no second "Tổng quan" heading, round 6); other H2 of
+		// tổng quan stay in the text; other slots use their first H2 as the section title, later ones stay in the text.
+		if ( 'tong-quan' === $slot && '' === $out['tong-quan']['title'] && preg_match( '/tổng quan|^thông tin/u', $low ) ) {
+			$out['tong-quan']['title'] = $text;
+			$out['tong-quan']['html'] .= $parts[ $i + 2 ];
+		} elseif ( 'tong-quan' === $slot || isset( $out[ $slot ] ) ) {
 			$add( $slot, '', $head . $parts[ $i + 2 ] );
 		} else {
 			$add( $slot, $text, $parts[ $i + 2 ] );
@@ -120,5 +124,23 @@ function velis_youtube_facade( string $id, string $caption = '' ): string {
 /** Caption that is only a file name or an auto title ("The Privé 2", "the-prive-1024x683.webp"): not shown. */
 function velis_auto_caption( string $c ): bool {
 	$c = trim( html_entity_decode( wp_strip_all_tags( $c ), ENT_QUOTES ) );
-	return '' === $c || (bool) preg_match( '/^[\w.-]+\.(jpe?g|png|webp|gif)$|^[\w-]*[-_][\w-]*$/ui', $c ) || ( str_word_count( $c ) <= 5 && preg_match( '/^\D+\s\d{1,3}$/u', $c ) && false === strpos( $c, ',' ) );
+	return '' === $c || (bool) preg_match( '/^[\w.-]+\.(jpe?g|png|webp|gif)$|^[\w-]*[-_][\w-]*$/ui', $c ) || ( count( preg_split( '/\s+/u', $c ) ) <= 8 && preg_match( '/^\D+\s\d{1,2}$/u', $c ) && false === strpos( $c, ',' ) );
+}
+
+/** Old "Bài viết liên quan" lists left in migrated text: heading + everything up to the next heading (templates show their own). */
+function velis_strip_related( string $html ): string {
+	return preg_replace( '#<h([2-4])[^>]*>\s*(?:<[^>]+>\s*)*(bài viết liên quan|những bài phân tích chuyên sâu|bài phân tích chuyên sâu)\s*(?:<[^>]+>\s*)*</h\1>.*?(?=<h[2-4][\s>]|$)#siu', '', $html );
+}
+
+/** Contact list left in migrated page text (address / hotline / email) and its lead-in line: dropped – the page shows
+ *  the contact details once, in the "Nhận tư vấn" block (round 6). */
+function velis_strip_contact( string $html ): string {
+	$html = preg_replace( '#(?:<(p|h[2-6])[^>]*>(?:(?!</\1>).)*:\s*(?:</strong>)?\s*</\1>\s*)?<ul[^>]*>(?:(?!</ul>).)*Hotline(?:(?!</ul>).)*</ul>#siu', '', $html );
+	$html = preg_replace( '#<(h[2-6])[^>]*>(?:(?!</\1>).)*Liên hệ ngay(?:(?!</\1>).)*</\1>#siu', '', $html ); // lead-in heading left alone
+	return preg_replace( '#<figure[^>]*>(?:(?!</figure>).)*ban-do-van-phong-velis(?:(?!</figure>).)*</figure>#siu', '', $html ); // office map: shown on Liên hệ
+}
+
+/** Captions that are only a file name / auto title, also those added after the block filters (Rank Math). */
+function velis_strip_auto_captions( string $html ): string {
+	return preg_replace_callback( '#<figcaption[^>]*>(.*?)</figcaption>#s', fn( $m ) => velis_auto_caption( $m[1] ) ? '' : $m[0], $html );
 }

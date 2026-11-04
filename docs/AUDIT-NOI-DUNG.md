@@ -99,3 +99,13 @@ Chỉ ghép khi ảnh ghi rõ đúng loại căn (đã xem từng ảnh, `data/a
 
 - `phoi-canh-masteri-cosmo-1-1024x576.webp` (bài The Global City, mục Masteri Cosmo Central): trả 404 cả trên site thật → bỏ khi
   chuyển; Masteri Cosmo Central chưa có ảnh nào.
+
+## 7. Ghi cho đợt nội dung (vòng sửa tổng, 2026-11-04)
+
+- **The Privé** còn mục "Bảng giá dự kiến theo diện tích (**Giá Rumor**)" trong phần Giá (chữ của bài trụ cột cũ, giữ nguyên
+  khi chuyển). Brief cấm giá tin đồn → đợt nội dung quyết định bỏ / thay bằng giá có nguồn.
+- **Heading Title Case** trong nội dung cũ ("Tầm Nhìn & Sứ Mệnh", "Chúng Tôi Là Ai?", "Giá Trị Khác Biệt Tại Velis Realty",
+  "Cập Nhật Quỹ Căn Và Chính Sách"…): vòng này chỉ đổi heading viết HOA toàn bộ (`data/heading-case-changes.csv`);
+  Title Case để chuẩn hóa ở đợt nội dung.
+- Ảnh đại diện cần thay: `docs/ANH-CAN-THAY.md` (43 bài). Phân khu Vinhomes Saigon Park: ảnh duy nhất là poster có chữ đè →
+  đã bỏ khỏi thẻ, cần ảnh phối cảnh thật từng phân khu.

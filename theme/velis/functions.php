@@ -61,6 +61,16 @@ add_filter( 'render_block_core/image', function ( $html ) {
 	return preg_replace_callback( '#<figcaption[^>]*>(.*?)</figcaption>#s', fn( $m ) => velis_auto_caption( $m[1] ) ? '' : $m[0], $html );
 } );
 
+// STAGING only: emails are switched off there, so the last CF7 email (subject + body after field replacement) is kept in
+// an option that admins can read at /wp-json/velis/v1/last-lead – used to check that the hidden fields reach the sales email.
+if ( 'staging.velisrealty.vn' === wp_parse_url( home_url(), PHP_URL_HOST ) ) {
+	add_filter( 'wpcf7_mail_components', function ( $c ) {
+		update_option( 'velis_cf7_last_mail', array( 'time' => current_time( 'mysql' ), 'subject' => $c['subject'] ?? '', 'body' => $c['body'] ?? '' ), false );
+		return $c;
+	} );
+	add_action( 'rest_api_init', fn() => register_rest_route( 'velis/v1', '/last-lead', array( 'methods' => 'GET', 'callback' => fn() => get_option( 'velis_cf7_last_mail', array() ), 'permission_callback' => fn() => current_user_can( 'manage_options' ) ) ) );
+}
+
 // Theme block styles: secondary (outline) and text buttons.
 add_action( 'init', function () {
 	register_block_style( 'core/button', array( 'name' => 'secondary', 'label' => 'Phụ (viền)' ) );
