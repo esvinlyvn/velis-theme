@@ -1,0 +1,1045 @@
+[
+ {
+  "type": "page",
+  "slug": "trang-chu",
+  "link": "/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "page",
+  "slug": "du-an",
+  "link": "/du-an/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "page",
+  "slug": "blog",
+  "link": "/blog/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "page",
+  "slug": "tuyen-dung",
+  "link": "/tuyen-dung/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "page",
+  "slug": "lien-he",
+  "link": "/lien-he/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "page",
+  "slug": "gioi-thieu",
+  "link": "/gioi-thieu/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "page",
+  "slug": "vinhomes",
+  "link": "/du-an/vinhomes/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "page",
+  "slug": "sun-group",
+  "link": "/du-an/sun-group/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "page",
+  "slug": "masterise-homes",
+  "link": "/du-an/masterise-homes/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "page",
+  "slug": "gamuda-land",
+  "link": "/du-an/gamuda-land/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "page",
+  "slug": "dieu-khoan-su-dung",
+  "link": "/dieu-khoan-su-dung/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "page",
+  "slug": "chinh-sach-bao-mat",
+  "link": "/chinh-sach-bao-mat/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "vinhomes-2026-bds-xanh-hay-greenwashing",
+  "link": "/blog/vinhomes/vinhomes-2026-bds-xanh-hay-greenwashing/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "vi-sao-nguoi-ta-than-phien-ve-vinhomes-nhung-van-mua",
+  "link": "/blog/vinhomes/vi-sao-nguoi-ta-than-phien-ve-vinhomes-nhung-van-mua/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "he-sinh-thai-vingroup-tien-loi-toi-da-hay-chiec-long-vang",
+  "link": "/blog/vinhomes/he-sinh-thai-vingroup-tien-loi-toi-da-hay-chiec-long-vang/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "vinfast-tram-sac-cu-hich-hay-ganh-nang-cho-bds-vinhomes-2026",
+  "link": "/blog/vinhomes/vinfast-tram-sac-cu-hich-hay-ganh-nang-cho-bds-vinhomes-2026/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "vinhomes-smart-city-hay-big-brother-quyen-rieng-tu-cua-cu-dan-o-dau",
+  "link": "/blog/vinhomes/vinhomes-smart-city-hay-big-brother-quyen-rieng-tu-cua-cu-dan-o-dau/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "vinhomes-2026-va-su-troi-day-cua-do-thi-vi-nhan-sinh",
+  "link": "/blog/vinhomes/vinhomes-2026-va-su-troi-day-cua-do-thi-vi-nhan-sinh/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "bds-vinhomes-2026-kenh-tru-an-chong-lam-phat",
+  "link": "/blog/vinhomes/bds-vinhomes-2026-kenh-tru-an-chong-lam-phat/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "roi-cho-thue-can-ho-vinhomes-2026-4-6-co-phai-con-so-vang",
+  "link": "/blog/vinhomes/roi-cho-thue-can-ho-vinhomes-2026-4-6-co-phai-con-so-vang/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "tich-san-bang-bds-vinhomes-an-toan-phap-ly-la-uu-tien-so-1",
+  "link": "/blog/vinhomes/tich-san-bang-bds-vinhomes-an-toan-phap-ly-la-uu-tien-so-1/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "cau-truc-danh-muc-dau-tu-2026-nen-phan-bo-bao-nhieu-cho-vinhomes",
+  "link": "/blog/vinhomes/cau-truc-danh-muc-dau-tu-2026-nen-phan-bo-bao-nhieu-cho-vinhomes/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "spring-ville",
+  "link": "/blog/du-an-bds/du-an-gamuda-land/spring-ville/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "can-ho-spring-ville-co-gi-dang-chu-y-voi-nguoi-mua-o-thuc",
+  "link": "/blog/spring-ville/can-ho-spring-ville-co-gi-dang-chu-y-voi-nguoi-mua-o-thuc/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "can-ho-persa-place",
+  "link": "/blog/du-an-bds/du-an-gamuda-land/du-an-spring-ville/can-ho-persa-place/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "vi-tri-can-ho-spring-ville-co-thuan-tien-di-san-bay-long-thanh",
+  "link": "/blog/spring-ville/vi-tri-can-ho-spring-ville-co-thuan-tien-di-san-bay-long-thanh/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "he-tien-ich-can-ho-spring-ville-co-du-cho-nhu-cau-song-hang-ngay-khong",
+  "link": "/blog/spring-ville/he-tien-ich-can-ho-spring-ville-co-du-cho-nhu-cau-song-hang-ngay-khong/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "co-nen-mua-can-ho-spring-ville-o-thoi-diem-nay",
+  "link": "/blog/spring-ville/co-nen-mua-can-ho-spring-ville-o-thoi-diem-nay/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "phap-ly-can-ho-spring-ville-co-gi",
+  "link": "/blog/spring-ville/phap-ly-can-ho-spring-ville-co-gi/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "spring-ville-hop-o-thuc-hay-dau-tu-dai-han",
+  "link": "/blog/spring-ville/spring-ville-hop-o-thuc-hay-dau-tu-dai-han/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "spring-ville-huong-loi-gi-tu-ha-tang-nhon-trach-long-thanh",
+  "link": "/blog/spring-ville/spring-ville-huong-loi-gi-tu-ha-tang-nhon-trach-long-thanh/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "spring-ville-co-hop-khai-thac-cho-thue-khong",
+  "link": "/blog/spring-ville/spring-ville-co-hop-khai-thac-cho-thue-khong/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "vi-tri-ansana-by-kita-vo-van-kiet-tiem-nang-rui-ro",
+  "link": "/blog/ansana-by-kita/vi-tri-ansana-by-kita-vo-van-kiet-tiem-nang-rui-ro/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "vo-van-kiet-noi-dai-don-bay-ansana-by-kita",
+  "link": "/blog/ansana-by-kita/vo-van-kiet-noi-dai-don-bay-ansana-by-kita/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "thoi-gian-di-chuyen-tu-ansana-by-kita-vao-quan-1",
+  "link": "/blog/ansana-by-kita/thoi-gian-di-chuyen-tu-ansana-by-kita-vao-quan-1/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "ha-tang-nut-giao-vo-van-kiet-ql1a-ansana-by-kita",
+  "link": "/blog/ansana-by-kita/ha-tang-nut-giao-vo-van-kiet-ql1a-ansana-by-kita/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "loi-the-y-te-ansana-by-kita-dau-tu-cho-thue",
+  "link": "/blog/ansana-by-kita/loi-the-y-te-ansana-by-kita-dau-tu-cho-thue/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "puzzle-parking-ansana-by-kita-giai-phap-thong-minh",
+  "link": "/blog/ansana-by-kita/puzzle-parking-ansana-by-kita-giai-phap-thong-minh/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "review-can-ho-studio-ansana-by-kita-tich-san",
+  "link": "/blog/ansana-by-kita/review-can-ho-studio-ansana-by-kita-tich-san/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "can-ho-2pn-1-ansana-by-kita-102m2",
+  "link": "/blog/ansana-by-kita/can-ho-2pn-1-ansana-by-kita-102m2/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "smart-living-4-0-ansana-by-kita-trai-nghiem-thuc-te",
+  "link": "/blog/ansana-by-kita/smart-living-4-0-ansana-by-kita-trai-nghiem-thuc-te/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "he-thong-tien-ich-ansana-by-kita-one-stop-living-hub",
+  "link": "/blog/ansana-by-kita/he-thong-tien-ich-ansana-by-kita-one-stop-living-hub/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "ansana-by-kita",
+  "link": "/blog/du-an-bds/ansana-by-kita/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "can-ho-the-prive",
+  "link": "/blog/du-an-bds/can-ho-the-prive/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "vi-tri-the-prive-quan-2-3-mat-song",
+  "link": "/blog/the-prive/vi-tri-the-prive-quan-2-3-mat-song/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "khoang-cach-thuc-te-the-prive-quan-2-di-lam-bao-lau",
+  "link": "/blog/the-prive/khoang-cach-thuc-te-the-prive-quan-2-di-lam-bao-lau/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "bat-dong-san-ban-dao-quan-2-the-prive-khan-hiem",
+  "link": "/blog/the-prive/bat-dong-san-ban-dao-quan-2-the-prive-khan-hiem/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "dau-tu-the-prive-don-bay-nut-giao-an-phu",
+  "link": "/blog/the-prive/dau-tu-the-prive-don-bay-nut-giao-an-phu/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "luc-keo-nam-rach-chiec-the-prive-quan-2",
+  "link": "/blog/the-prive/luc-keo-nam-rach-chiec-the-prive-quan-2/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "metro-thu-thiem-long-thanh-khoi-cong-the-prive",
+  "link": "/blog/the-prive/metro-thu-thiem-long-thanh-khoi-cong-the-prive/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "so-sanh-gia-the-prive-voi-thu-thiem",
+  "link": "/blog/the-prive/so-sanh-gia-the-prive-voi-thu-thiem/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "chien-luoc-chon-thap-the-prive-theo-giai-doan",
+  "link": "/blog/the-prive/chien-luoc-chon-thap-the-prive-theo-giai-doan/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "chinh-sach-ban-hang-the-prive-phase-2",
+  "link": "/blog/the-prive/chinh-sach-ban-hang-the-prive-phase-2/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "thanh-toan-the-prive-1-phan-tram-dong-tien",
+  "link": "/blog/the-prive/thanh-toan-the-prive-1-phan-tram-dong-tien/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "an-han-no-goc-60-thang-the-prive-chien-luoc-dong-tien",
+  "link": "/blog/the-prive/an-han-no-goc-60-thang-the-prive-chien-luoc-dong-tien/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "mua-the-prive-quan-2-von-tu-co-10-phan-tram",
+  "link": "/blog/the-prive/mua-the-prive-quan-2-von-tu-co-10-phan-tram/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "the-global-city",
+  "link": "/blog/du-an-bds/the-global-city/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "tac-dong-rach-chiec-sun-group-den-gia-the-global-city",
+  "link": "/blog/the-global-city/tac-dong-rach-chiec-sun-group-den-gia-the-global-city/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "dung-doi-thong-xe-lien-phuong-mua-the-global-city",
+  "link": "/blog/the-global-city/dung-doi-thong-xe-lien-phuong-mua-the-global-city/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "loi-nhuan-the-global-city-nut-giao-an-phu",
+  "link": "/blog/the-global-city/loi-nhuan-the-global-city-nut-giao-an-phu/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "the-global-city-co-vuot-mat-quan-1-khong",
+  "link": "/blog/the-global-city/the-global-city-co-vuot-mat-quan-1-khong/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "gioi-giau-gam-hang-the-global-city-vi-can-kiet-dat-quan-2",
+  "link": "/blog/the-global-city/gioi-giau-gam-hang-the-global-city-vi-can-kiet-dat-quan-2/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "dong-tien-sieu-nhe-2029-the-global-city",
+  "link": "/blog/the-global-city/dong-tien-sieu-nhe-2029-the-global-city/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "cach-dung-don-bay-the-global-city-khong-lo-ngop",
+  "link": "/blog/the-global-city/cach-dung-don-bay-the-global-city-khong-lo-ngop/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "shophouse-soho-the-global-city-co-nen-dau-tu",
+  "link": "/blog/the-global-city/shophouse-soho-the-global-city-co-nen-dau-tu/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "the-global-city-bat-day-hay-du-dinh",
+  "link": "/blog/the-global-city/the-global-city-bat-day-hay-du-dinh/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "rui-ro-dau-tu-the-global-city",
+  "link": "/blog/the-global-city/rui-ro-dau-tu-the-global-city/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "gia-ban-the-prive-quan-2-2026",
+  "link": "/blog/the-prive/gia-ban-the-prive-quan-2-2026/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "chinh-sach-mua-si-cloud-9-tower-the-prive",
+  "link": "/blog/the-prive/chinh-sach-mua-si-cloud-9-tower-the-prive/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "nha-dau-tu-ha-noi-mua-the-prive-tich-san",
+  "link": "/blog/the-prive/nha-dau-tu-ha-noi-mua-the-prive-tich-san/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "nen-mua-shophouse-biet-thu-hay-can-ho-the-global-city",
+  "link": "/blog/the-global-city/nen-mua-shophouse-biet-thu-hay-can-ho-the-global-city/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "dinh-thu-the-global-city-tam-the-dac-quyen",
+  "link": "/blog/the-global-city/dinh-thu-the-global-city-tam-the-dac-quyen/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "metro-vanh-dai-anh-huong-gia-the-global-city",
+  "link": "/blog/the-global-city/metro-vanh-dai-anh-huong-gia-the-global-city/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "kich-ban-luot-song-the-prive-loi-nhuan-15-20-phan-tram",
+  "link": "/blog/the-prive/kich-ban-luot-song-the-prive-loi-nhuan-15-20-phan-tram/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "the-prive-quan-2-tich-san-cho-gioi-sieu-giau",
+  "link": "/blog/the-prive/the-prive-quan-2-tich-san-cho-gioi-sieu-giau/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "bai-hoc-phu-my-hung-den-the-global-city",
+  "link": "/blog/the-global-city/bai-hoc-phu-my-hung-den-the-global-city/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "lai-suat-2026-vay-bank-hay-tra-thang-the-global-city",
+  "link": "/blog/the-global-city/lai-suat-2026-vay-bank-hay-tra-thang-the-global-city/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "von-1-ty-nen-mua-the-prive-hay-dat-nen-vung-ven",
+  "link": "/blog/the-prive/von-1-ty-nen-mua-the-prive-hay-dat-nen-vung-ven/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "thanh-khoan-1pn-vs-2pn-the-prive-quan-2",
+  "link": "/blog/the-prive/thanh-khoan-1pn-vs-2pn-the-prive-quan-2/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "penthouse-garden-duplex-the-prive-quan-2",
+  "link": "/blog/the-prive/penthouse-garden-duplex-the-prive-quan-2/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "bi-quyet-chia-nho-mat-bang-shophouse-soho",
+  "link": "/blog/the-global-city/bi-quyet-chia-nho-mat-bang-shophouse-soho/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "chon-can-goc-hay-mat-tien-the-global-city-thanh-khoan",
+  "link": "/blog/the-global-city/chon-can-goc-hay-mat-tien-the-global-city-thanh-khoan/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "bi-an-dong-von-trieu-do-the-global-city",
+  "link": "/blog/the-global-city/bi-an-dong-von-trieu-do-the-global-city/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "persa-place-tang-gia-khi-van-hanh-san-bay-long-thanh",
+  "link": "/blog/spring-ville/persa-place-tang-gia-khi-van-hanh-san-bay-long-thanh/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "giai-ma-khoang-cach-persa-place-tphcm",
+  "link": "/blog/spring-ville/giai-ma-khoang-cach-persa-place-tphcm/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "nhon-trach-2026-diem-roi-ha-tang-persa-place",
+  "link": "/blog/spring-ville/nhon-trach-2026-diem-roi-ha-tang-persa-place/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "gamuda-land-chien-luoc-kien-tao-do-thi-persa-place",
+  "link": "/blog/spring-ville/gamuda-land-chien-luoc-kien-tao-do-thi-persa-place/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "xu-huong-ly-tam-nhon-trach-can-ho-cao-cap",
+  "link": "/blog/spring-ville/xu-huong-ly-tam-nhon-trach-can-ho-cao-cap/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "kiem-chung-thuc-te-ban-giao-gamuda-land-persa-place",
+  "link": "/blog/spring-ville/kiem-chung-thuc-te-ban-giao-gamuda-land-persa-place/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "dau-tu-f0-persa-place-von-it-loi-nhuan-cao",
+  "link": "/blog/spring-ville/dau-tu-f0-persa-place-von-it-loi-nhuan-cao/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "persa-place-kenh-tru-an-an-toan-dong-tien-2026",
+  "link": "/blog/spring-ville/persa-place-kenh-tru-an-an-toan-dong-tien-2026/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "vi-sao-chon-persa-place-thay-vi-dat-nen-nhon-trach",
+  "link": "/blog/spring-ville/vi-sao-chon-persa-place-thay-vi-dat-nen-nhon-trach/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "cong-thuc-tich-san-persa-place-gamuda-land",
+  "link": "/blog/spring-ville/cong-thuc-tich-san-persa-place-gamuda-land/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "mua-nha-bang-luong-persa-place-nhon-trach",
+  "link": "/blog/spring-ville/mua-nha-bang-luong-persa-place-nhon-trach/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "don-bay-tai-chinh-thong-minh-dau-tu-persa-place",
+  "link": "/blog/spring-ville/don-bay-tai-chinh-thong-minh-dau-tu-persa-place/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "so-sanh-lai-suat-tiet-kiem-va-dau-tu-persa-place",
+  "link": "/blog/spring-ville/so-sanh-lai-suat-tiet-kiem-va-dau-tu-persa-place/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "dac-quyen-booking-dot-1-persa-place-nhon-trach",
+  "link": "/blog/spring-ville/dac-quyen-booking-dot-1-persa-place-nhon-trach/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "can-ho-1pn-cong-persa-place-dau-tu-cho-thue",
+  "link": "/blog/spring-ville/can-ho-1pn-cong-persa-place-dau-tu-cho-thue/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "layout-can-ho-2pn-persa-place-chuyen-gia-san-bay",
+  "link": "/blog/spring-ville/layout-can-ho-2pn-persa-place-chuyen-gia-san-bay/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "can-ho-mat-tien-ton-duc-thang-persa-place",
+  "link": "/blog/spring-ville/can-ho-mat-tien-ton-duc-thang-persa-place/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "tieu-chuan-ban-giao-persa-place-gamuda-land",
+  "link": "/blog/spring-ville/tieu-chuan-ban-giao-persa-place-gamuda-land/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "thiet-ke-biophilic-persa-place-thu-hut-gioi-tri-thuc",
+  "link": "/blog/spring-ville/thiet-ke-biophilic-persa-place-thu-hut-gioi-tri-thuc/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "loi-nhuan-kep-dau-tu-the-prive-quan-2",
+  "link": "/blog/the-prive/loi-nhuan-kep-dau-tu-the-prive-quan-2/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "loi-nhuan-kep-tu-the-rui-ro-tai-chinh-the-prive-lai-suat-tha-noiprive",
+  "link": "/blog/the-prive/loi-nhuan-kep-tu-the-rui-ro-tai-chinh-the-prive-lai-suat-tha-noiprive/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "the-global-city-cua-de-danh-cho-the-he-f2",
+  "link": "/blog/the-global-city/the-global-city-cua-de-danh-cho-the-he-f2/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "lan-song-fb-do-bo-soho-the-global-city",
+  "link": "/blog/the-global-city/lan-song-fb-do-bo-soho-the-global-city/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "cho-thue-the-prive",
+  "link": "/blog/the-prive/cho-thue-the-prive/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "vinhomes-saigon-park",
+  "link": "/blog/du-an-bds/vinhomes-saigon-park/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "tiem-nang-kinh-doanh-shophouse-vinhomes-saigon-park",
+  "link": "/blog/vinhomes-saigon-park/tiem-nang-kinh-doanh-shophouse-vinhomes-saigon-park/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "dac-quyen-dinh-thu-san-golf-vinhomes-saigon-park",
+  "link": "/blog/vinhomes-saigon-park/dac-quyen-dinh-thu-san-golf-vinhomes-saigon-park/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "thiet-ke-cong-nang-nha-pho-lien-ke-vinhomes-saigon-park",
+  "link": "/blog/vinhomes-saigon-park/thiet-ke-cong-nang-nha-pho-lien-ke-vinhomes-saigon-park/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "gia-tri-doc-ban-biet-thu-ven-kenh-vinhomes-saigon-park",
+  "link": "/blog/vinhomes-saigon-park/gia-tri-doc-ban-biet-thu-ven-kenh-vinhomes-saigon-park/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "tai-sao-dau-tu-thap-tang-vinhomes-saigon-park-dot-1",
+  "link": "/blog/vinhomes-saigon-park/tai-sao-dau-tu-thap-tang-vinhomes-saigon-park-dot-1/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "loi-suat-cho-thue-the-prive",
+  "link": "/blog/the-prive/loi-suat-cho-thue-the-prive/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "huong-viet-holdings-la-ai",
+  "link": "/blog/palm-city/huong-viet-holdings-la-ai/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "can-ho-palm-river",
+  "link": "/blog/du-an-bds/can-ho-palm-river/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "tai-sao-gioi-tinh-hoa-chon-tich-san-tai-palm-river",
+  "link": "/blog/palm-city/tai-sao-gioi-tinh-hoa-chon-tich-san-tai-palm-river/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "loi-giai-bai-toan-bao-ve-tai-san-truoc-lam-phat-voi-palm-river",
+  "link": "/blog/palm-city/loi-giai-bai-toan-bao-ve-tai-san-truoc-lam-phat-voi-palm-river/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "danh-gia-chu-ky-tang-gia-bat-dong-san-ven-song-giong-ong-to",
+  "link": "/blog/palm-city/danh-gia-chu-ky-tang-gia-bat-dong-san-ven-song-giong-ong-to/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "velis-realty-phan-phoi-doc-quyen-thap-9-the-prive",
+  "link": "/blog/the-prive/velis-realty-phan-phoi-doc-quyen-thap-9-the-prive/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "post",
+  "slug": "su-dich-chuyen-dong-von-dau-tu-tu-loi-trung-tam-ve-nam-rach-chiec",
+  "link": "/blog/palm-city/su-dich-chuyen-dong-von-dau-tu-tu-loi-trung-tam-ve-nam-rach-chiec/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "page",
+  "slug": "velis-style-guide",
+  "link": "/velis-style-guide/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "chu-dau-tu",
+  "slug": "vinhomes",
+  "link": "/chu-dau-tu/vinhomes/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "chu-dau-tu",
+  "slug": "berjaya-viet-nam",
+  "link": "/chu-dau-tu/berjaya-viet-nam/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "chu-dau-tu",
+  "slug": "masterise-homes",
+  "link": "/chu-dau-tu/masterise-homes/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "chu-dau-tu",
+  "slug": "gamuda-land",
+  "link": "/chu-dau-tu/gamuda-land/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "chu-dau-tu",
+  "slug": "sun-group",
+  "link": "/chu-dau-tu/sun-group/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "chu-dau-tu",
+  "slug": "dat-xanh",
+  "link": "/chu-dau-tu/dat-xanh/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "chu-dau-tu",
+  "slug": "huong-viet-holdings",
+  "link": "/chu-dau-tu/huong-viet-holdings/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "chu-dau-tu",
+  "slug": "kita-group",
+  "link": "/chu-dau-tu/kita-group/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "du-an",
+  "slug": "vinhomes-saigon-park",
+  "link": "/du-an/vinhomes-saigon-park/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "du-an",
+  "slug": "the-global-city",
+  "link": "/du-an/the-global-city/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "du-an",
+  "slug": "the-prive",
+  "link": "/du-an/the-prive/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "du-an",
+  "slug": "palm-city",
+  "link": "/du-an/palm-city/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "du-an",
+  "slug": "spring-ville",
+  "link": "/du-an/spring-ville/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "du-an",
+  "slug": "ansana-by-kita",
+  "link": "/du-an/ansana-by-kita/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "du-an",
+  "slug": "ivy-park",
+  "link": "/du-an/vinhomes-saigon-park/ivy-park/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "du-an",
+  "slug": "global-park",
+  "link": "/du-an/vinhomes-saigon-park/global-park/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "du-an",
+  "slug": "laguna-park",
+  "link": "/du-an/vinhomes-saigon-park/laguna-park/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "du-an",
+  "slug": "zen-park",
+  "link": "/du-an/vinhomes-saigon-park/zen-park/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "du-an",
+  "slug": "golf-park",
+  "link": "/du-an/vinhomes-saigon-park/golf-park/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "du-an",
+  "slug": "masteri-grand-view",
+  "link": "/du-an/the-global-city/masteri-grand-view/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "du-an",
+  "slug": "lumiere-midtown",
+  "link": "/du-an/the-global-city/lumiere-midtown/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "du-an",
+  "slug": "masteri-cosmo-central",
+  "link": "/du-an/the-global-city/masteri-cosmo-central/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "du-an",
+  "slug": "masteri-park-place",
+  "link": "/du-an/the-global-city/masteri-park-place/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "du-an",
+  "slug": "thap-tang",
+  "link": "/du-an/the-global-city/thap-tang/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "du-an",
+  "slug": "palm-river",
+  "link": "/du-an/palm-city/palm-river/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "du-an",
+  "slug": "persa-place",
+  "link": "/du-an/spring-ville/persa-place/",
+  "focus": "",
+  "rm_title": ""
+ },
+ {
+  "type": "du-an",
+  "slug": "stella-69",
+  "link": "/du-an/ansana-by-kita/stella-69/",
+  "focus": "",
+  "rm_title": ""
+ }
+]

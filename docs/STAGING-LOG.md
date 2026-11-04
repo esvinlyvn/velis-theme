@@ -52,3 +52,14 @@ Kiểm chứng: `/robots.txt` trả `User-agent: * / Disallow: /`; `/sitemap_ind
 |---|---|
 | Media | tải lên ID 20691 `2026/11/ban-do-the-prive-xam.webp` (bản đồ OpenStreetMap tông xám + ghim) |
 | Theme velis | 0.2.7 → 0.3.3 → 0.4.4 (vòng cuối Giai đoạn 1) |
+
+## 2026-11-04 – Giai đoạn 2: kiến trúc & dữ liệu
+
+| Mục | Thay đổi |
+|---|---|
+| Plugin `velis-data` 0.1.0 | cài + kích hoạt (mã trong `plugins/velis-data/`); tạo post type Chủ đầu tư, Dự án; taxonomy loại SP, khu vực, trạng thái (+ term mặc định) |
+| Dữ liệu | nhập 8 chủ đầu tư, 19 dự án/phân khu, 27 dòng sản phẩm từ `data/architecture/*.csv` (`tools/import_staging.py`) |
+| Rank Math | tắt "Loại bỏ cơ sở danh mục" |
+| Permalink | `/blog/%category%/%postname%/`, tiền tố chuyên mục `blog` (khối WordPress trong .htaccess không đổi nội dung) |
+| Bài viết | tạo 7 chuyên mục cụm; 102 bài chuyển sang đúng 1 cụm + trường "dự án liên quan" |
+| Theme velis | 0.4.5 → 0.5.0 (menu và listing dự án lấy từ dữ liệu) |

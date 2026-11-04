@@ -7,15 +7,8 @@
  * Desktop (≥1024px): links + "Dự án" mega menu + "Về Velis" submenu (<details>), hotline, CTA.
  * Below 1024px: full-screen <dialog> menu (logo + close, Dự án expandable by developer, hotline at the bottom).
  */
-// shortcut: menu is hard-coded from the current site; move to a Navigation post / CPT query in the template phase.
-$projects = array(
-	'Vinhomes'        => array( 'Vinhomes Saigon Park' => '/vinhomes-saigon-park/' ),
-	'Masterise Homes' => array( 'The Global City' => '/the-global-city/' ),
-	'Đất Xanh'        => array( 'The Privé' => '/can-ho-the-prive/' ),
-	'Gamuda Land'     => array( 'Spring Ville' => '/spring-ville/', 'Persa Place' => '/can-ho-persa-place/' ),
-	'Keppel Land'     => array( 'Palm City / Palm River' => '/can-ho-palm-river/' ),
-	'Dự án khác'      => array( 'Ansana by Kita' => '/ansana-by-kita/' ),
-);
+// Chủ đầu tư → dự án from the velis-data plugin (empty when the plugin is inactive).
+$projects = function_exists( 'velis_project_menu' ) ? velis_project_menu() : array();
 $about = array( 'Giới thiệu' => '/gioi-thieu/', 'Tuyển dụng' => '/tuyen-dung/' );
 $logo  = esc_url( get_theme_file_uri( 'assets/brand/velis-logo-horizontal.svg' ) );
 $phone = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>';

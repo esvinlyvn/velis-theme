@@ -1,0 +1,17 @@
+.velis-form .velis-row { display: grid; grid-template-columns: 200px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0f0f1; }
+.velis-form .velis-row > label { font-weight: 600; padding-top: 6px; }
+.velis-form input[type=text], .velis-form input[type=url], .velis-form input[type=number], .velis-form input[type=date], .velis-form textarea, .velis-form select { width: 100%; max-width: 560px; }
+.velis-form .description { margin: 4px 0 0; }
+.velis-inherit { display: inline-block; margin-top: 4px; padding: 2px 8px; background: #f0f6fc; border-radius: 3px; color: #1d4f91; font-size: 12px; }
+.velis-checks { display: flex; flex-wrap: wrap; gap: 4px 16px; max-height: 160px; overflow: auto; }
+.velis-media__thumbs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.velis-media__thumbs img { width: 64px; height: 64px; object-fit: cover; border: 1px solid #dcdcde; }
+.velis-line { border: 1px solid #dcdcde; background: #fff; margin: 0 0 10px; }
+.velis-line > summary { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #f6f7f7; cursor: pointer; font-weight: 600; }
+.velis-line__tools { display: flex; gap: 12px; }
+.velis-danger { color: #b32d2e !important; }
+.velis-line__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px 14px; padding: 12px; }
+.velis-line__grid label { display: grid; gap: 4px; font-size: 12px; }
+.velis-line__grid label > span { font-weight: 600; color: #50575e; }
+.velis-line__grid input, .velis-line__grid select { width: 100%; }
+@media (max-width: 782px) { .velis-form .velis-row { grid-template-columns: 1fr; } }

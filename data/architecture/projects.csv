@@ -1,0 +1,20 @@
+slug,ten,cap,cha,chu_dau_tu,vung,tieu_khu,loai_sp,url_cu,url_moi,trang_rieng,ly_do,can_xac_minh
+vinhomes-saigon-park,Vinhomes Saigon Park,dai-do-thi,,vinhomes|berjaya-viet-nam,tay-bac,,can-ho|nha-pho|shophouse|biet-thu|dinh-thu,/vinhomes-saigon-park/,/du-an/vinhomes-saigon-park/,co,"trang trụ cột 8.176 từ","vai trò Berjaya/Vinhomes; địa chỉ xã Xuân Thới Sơn"
+vsp-ivy-park,Khu 1 – Ivy Park,phan-khu,vinhomes-saigon-park,,tay-bac,,can-ho|nha-pho|shophouse,,/du-an/vinhomes-saigon-park/#ivy-park,khong,"chỉ là mục trên trang đại đô thị; chưa có giá/mặt bằng/pháp lý riêng","tên và loại SP theo bài VSP"
+vsp-global-park,Khu 2 – Global Park,phan-khu,vinhomes-saigon-park,,tay-bac,,shophouse|nha-pho,,/du-an/vinhomes-saigon-park/#global-park,khong,như trên,
+vsp-laguna-park,Khu 3 – Laguna Park,phan-khu,vinhomes-saigon-park,,tay-bac,,can-ho|biet-thu,,/du-an/vinhomes-saigon-park/#laguna-park,khong,như trên,
+vsp-zen-park,Khu 4 – Zen Park,phan-khu,vinhomes-saigon-park,,tay-bac,,biet-thu|nha-pho,,/du-an/vinhomes-saigon-park/#zen-park,khong,như trên,
+vsp-golf-park,Khu 5 – Golf Park,phan-khu,vinhomes-saigon-park,,tay-bac,,biet-thu|dinh-thu,,/du-an/vinhomes-saigon-park/#golf-park,khong,như trên,
+the-global-city,The Global City,dai-do-thi,,masterise-homes,khu-dong,nam-rach-chiec,can-ho|nha-pho|shophouse|biet-thu,/the-global-city/,/du-an/the-global-city/,co,"trang trụ cột 5.784 từ","tiểu khu (Nam Rạch Chiếc hay An Phú); địa chỉ phường mới"
+tgc-masteri-grand-view,Masteri Grand View,phan-khu,the-global-city,,khu-dong,nam-rach-chiec,can-ho,,/du-an/the-global-city/#masteri-grand-view,khong,"mục h3 trên trang TGC; chưa đủ 3/4 tiêu chí",
+tgc-lumiere-midtown,Lumière Midtown,phan-khu,the-global-city,,khu-dong,nam-rach-chiec,can-ho,,/du-an/the-global-city/#lumiere-midtown,khong,như trên,
+tgc-masteri-cosmo-central,Masteri Cosmo Central,phan-khu,the-global-city,,khu-dong,nam-rach-chiec,can-ho,,/du-an/the-global-city/#masteri-cosmo-central,khong,như trên,
+tgc-masteri-park-place,Masteri Park Place,phan-khu,the-global-city,,khu-dong,nam-rach-chiec,can-ho,,/du-an/the-global-city/#masteri-park-place,khong,như trên,
+tgc-thap-tang,Thấp tầng (SOHO; biệt thự & dinh thự),phan-khu,the-global-city,,khu-dong,nam-rach-chiec,shophouse|biet-thu|dinh-thu,,/du-an/the-global-city/#thap-tang,khong,"site chỉ có nhóm sản phẩm, chưa có tên phân khu thấp tầng","tên phân khu thấp tầng"
+the-prive,The Privé,du-an,,dat-xanh,khu-dong,nam-rach-chiec,can-ho,/can-ho-the-prive/,/du-an/the-prive/,co,"trang trụ cột 5.291 từ; Tháp 9, Cloud 9 Tower là tòa – mục có neo","ngày bàn giao: trang ghi cả 2027 và Quý 1/2028"
+palm-city,Palm City,dai-do-thi,,huong-viet-holdings,khu-dong,nam-rach-chiec,can-ho|shophouse,,/du-an/palm-city/,can-tao,"chưa có trang đại đô thị; Palm River cần cha nếu giữ cấu trúc phân khu","chủ đầu tư; có tạo trang Palm City không"
+palm-river,Palm River,phan-khu,palm-city,huong-viet-holdings,khu-dong,nam-rach-chiec,can-ho|shophouse,/can-ho-palm-river/,/du-an/palm-city/palm-river/,co,"trang riêng 6.134 từ: giá, mặt bằng, pháp lý, tiến độ, ảnh riêng (4/4)","chủ đầu tư"
+spring-ville,Spring Ville,dai-do-thi,,gamuda-land,ve-tinh,nhon-trach-long-thanh,nha-pho|shophouse|can-ho,/spring-ville/,/du-an/spring-ville/,co,"trang trụ cột 7.211 từ",
+persa-place,Persa Place,phan-khu,spring-ville,,ve-tinh,nhon-trach-long-thanh,can-ho|shophouse,/can-ho-persa-place/,/du-an/spring-ville/persa-place/,co,"trang riêng 5.680 từ: giá, mặt bằng, pháp lý, tiến độ (4/4)",
+ansana-by-kita,Ansana by Kita,du-an,,kita-group,khu-tay,,can-ho|shophouse,/ansana-by-kita/,/du-an/ansana-by-kita/,co,"trang trụ cột 4.687 từ; Stella 69 là 'phân khu đầu tiên' – mục có neo","có thêm phân khu ngoài Stella 69 không (nếu có thì chuyển thành đại đô thị)"
+ansana-stella-69,Stella 69,phan-khu,ansana-by-kita,,khu-tay,,can-ho|shophouse,,/du-an/ansana-by-kita/#stella-69,khong,"mục h3 trên trang Ansana",
