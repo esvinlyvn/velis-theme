@@ -46,8 +46,8 @@ if (process.argv[1]?.endsWith('check_schema.mjs')) {
 		const blocks = [...html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((m) => m[1]);
 		const nodes = blocks.flatMap((j) => { const d = JSON.parse(j); return d['@graph'] || [d]; });
 		let body = '';
-		for (let i = 0; i < 4 && !body.startsWith(")]}'"); i++) { // the public validator sometimes answers with an HTML error page
-			if (i) await new Promise((r) => setTimeout(r, 5000 * i));
+		for (let i = 0; i < 7 && !body.startsWith(")]}'"); i++) { // the public validator sometimes answers with an HTML error page
+			if (i) await new Promise((r) => setTimeout(r, 10000 * i));
 			const res = await fetch('https://validator.schema.org/validate', { method: 'POST', body: new URLSearchParams({ html: blocks.map((j) => `<script type="application/ld+json">${j}</script>`).join('') }) });
 			body = await res.text();
 		}
