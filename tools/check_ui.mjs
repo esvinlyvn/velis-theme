@@ -7,7 +7,7 @@ const { chromium } = createRequire(import.meta.url)('playwright');
 
 const BASE = 'https://staging.velisrealty.vn';
 const [path = '/velis-style-guide/', out = 'screenshots/check', widthArg] = process.argv.slice(2);
-const WIDTHS = widthArg ? widthArg.split(',').map(Number) : [360, 390, 430, 768, 1024, 1366, 1920];
+const WIDTHS = widthArg ? widthArg.split(',').map(Number) : [360, 390, 430, 600, 768, 1023, 1024, 1100, 1180, 1280, 1366, 1920]; // 12 frames: phones, tablet, breakpoint edges, common laptops
 mkdirSync(out, { recursive: true });
 
 // Runs in the page. Kept dependency-free on purpose.
@@ -89,8 +89,9 @@ async function photoContrast(p) {
 			e.style.color = 'transparent'; e.style.textShadow = 'none';
 			return res;
 		});
-		await el.scrollIntoViewIfNeeded();
-		const buf = await el.screenshot();
+		await el.evaluate((e) => e.scrollIntoView({ block: 'center' })); // the hero image zoom keeps Playwright's "stable" check waiting
+		await p.waitForTimeout(150);
+		const buf = await el.screenshot({ timeout: 10000 });
 		await el.evaluate((e) => e.setAttribute('style', e.dataset.prevStyle));
 		const ratio = await p.evaluate(async ({ b64, color }) => {
 			const img = new Image(); img.src = 'data:image/png;base64,' + b64; await img.decode();
@@ -121,11 +122,11 @@ for (const w of WIDTHS) {
 		scrollTo(0, 0);
 		document.querySelectorAll('.v-reveal').forEach((e) => e.classList.add('is-in'));
 	});
-	await p.waitForLoadState('networkidle');
+	await p.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {}); // embedded maps/videos in old content may never go idle
 	// "after loading finishes": lazy images that a visitor has not reached yet (e.g. gallery slides off to the right) are
 	// switched to eager so every <img> on the page is actually fetched and verified.
 	await p.evaluate(() => Promise.all([...document.images].map((i) => { i.loading = 'eager'; return i.decode().catch(() => {}); })));
-	await p.waitForLoadState('networkidle');
+	await p.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
 	report[w] = { ...(await p.evaluate(audit)), cls };
 	const photo = await photoContrast(p);
 	report[w].photo = photo;

@@ -34,6 +34,7 @@ $check( '' === $lines[0]['qty'], 'non-numeric number cleared' );
 $check( '' === $lines[0]['price_month'], 'invalid month cleared' );
 $check( 'can-1pn' === $lines[0]['anchor'], 'anchor without repeated words: ' . $lines[0]['anchor'] );
 $check( 'can-1pn-2' === $lines[1]['anchor'], 'duplicate anchor suffixed' );
+$check( '19970' === velis_clean_lines( array( array( 'name' => 'x', 'plan' => 19970 ) ) )[0]['plan'], 'image id stored as a string (REST schema)' );
 $check( 'can-1pn-plus' === velis_line_anchor( 'Căn 1 PN+' ), '"+" kept apart: ' . velis_line_anchor( 'Căn 1 PN+' ) );
 $check( 'shophouse-khoi-de' === $lines[2]['anchor'], 'anchor drops page name words: ' . $lines[2]['anchor'] );
 $check( 'can-ho' === $lines[0]['type'] && 'shophouse' === $lines[2]['type'], 'type guessed from name' );

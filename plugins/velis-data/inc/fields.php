@@ -160,7 +160,7 @@ function velis_clean_lines( $rows, string $page_slug = '' ): array {
 	foreach ( (array) $rows as $row ) {
 		$clean = array();
 		foreach ( velis_line_fields() as $k => $def ) {
-			$clean[ $k ] = velis_clean( in_array( $def[1], array( 'select', 'type' ), true ) ? 'text' : $def[1], $row[ $k ] ?? '' );
+			$clean[ $k ] = (string) velis_clean( in_array( $def[1], array( 'select', 'type' ), true ) ? 'text' : $def[1], $row[ $k ] ?? '' ); // REST schema: every cell is a string
 		}
 		if ( ! array_filter( $clean, fn( $v ) => '' !== $v && array() !== $v ) ) {
 			continue;
@@ -241,6 +241,11 @@ function velis_register_meta() {
 		'sanitize_callback' => fn( $v ) => velis_clean_lines( $v ),
 		'auth_callback'     => fn() => current_user_can( 'edit_posts' ),
 	) );
+	// Last real content edit on the live site (staging "modified" dates were reset by the migration).
+	register_post_meta( 'post', 'velis_modified', array( 'type' => 'string', 'single' => true, 'show_in_rest' => true, 'sanitize_callback' => fn( $v ) => velis_clean( 'date', substr( (string) $v, 0, 10 ) ), 'auth_callback' => fn() => current_user_can( 'edit_posts' ) ) );
+	// Static map image of a region (used when a project has no coordinates of its own).
+	register_term_meta( 'khu-vuc', 'velis_map', array( 'type' => 'integer', 'single' => true, 'show_in_rest' => true, 'sanitize_callback' => 'absint', 'auth_callback' => fn() => current_user_can( 'edit_posts' ) ) );
+	register_post_meta( 'post', 'velis_post_kind', array( 'type' => 'string', 'single' => true, 'show_in_rest' => true, 'sanitize_callback' => 'sanitize_key', 'auth_callback' => fn() => current_user_can( 'edit_posts' ) ) );
 	// Blog post → the project / subzone it is about (brief: bài về phân khu link về đúng phân khu).
 	register_post_meta( 'post', 'velis_projects', array(
 		'type'              => 'array',

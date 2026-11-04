@@ -76,3 +76,26 @@ Kiểm chứng: `/robots.txt` trả `User-agent: * / Disallow: /`; `/sitemap_ind
 
 Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng thấp tầng) trả 200 với phiên đăng nhập
 (`data/architecture/url-samples-staging.json`); 29 trang thiếu dữ liệu có `follow, noindex`.
+
+## 2026-11-04 – Giai đoạn 3: dựng template
+
+| Mục | Thay đổi |
+|---|---|
+| Theme velis | 0.5.0 → 0.6.0 (tải lại qua wp-admin): template cho mọi loại trang, SEO/schema qua bộ lọc Rank Math, form gửi CF7 |
+| Plugin velis-data | 0.2.3 → 0.2.4: ô "Loại bài" (5 biến thể) ở màn hình sửa bài |
+| Ảnh đại diện dự án | 7 bản ghi nhận ảnh đại diện của bài dự án cũ (`tools/copy_featured_images.py`, không sửa bài cũ) |
+| Contact Form 7 | tạo form ID 20800 "Velis – Nhận tư vấn" (gửi tới lienhe@velisrealty.vn; staging đang tắt email) |
+| Ảnh chia sẻ | file `*-1200x630.*` được tạo trong uploads khi một trang được chia sẻ/crawl lần đầu (cỡ `velis-og`) |
+| Thử form | 1 lần gửi dữ liệu thử ("Kiểm thử hệ thống", 0900000000) → CF7 nhận, trả `mail_failed` vì email tắt |
+
+## 2026-11-04 – Giai đoạn 3, vòng sửa 2
+
+| Mục | Thay đổi |
+|---|---|
+| Theme velis | 0.6.x → 0.7.0 |
+| Plugin velis-data | 0.2.4 → 0.2.6 (meta `velis_modified` cho bài, `velis_map` cho khu vực, menu có phân khu; ô dòng căn hộ lưu dạng chuỗi) |
+| Thư viện ảnh dự án | 6 dự án nhận ảnh đính kèm bài dự án cũ (`tools/staging_fill.py`); ảnh mặt bằng 8 dòng căn hộ khớp theo tên file |
+| Ngày cập nhật bài | `velis_modified` từ site thật; 106 bài có ngày sửa hàng loạt 04/11/2026 → để trống |
+| Tiêu đề trang | Trang chủ, Blog, Liên hệ, Giới thiệu, Dự án: chữ HOA → chữ thường |
+| Media mới | 5 bản đồ tĩnh OpenStreetMap (ID 20817–20821): 4 khu vực + văn phòng |
+| Theme cũ tạm thời | cài lại bản PR cũ vài phút để chụp ảnh TRƯỚC cho 3 mục, rồi cài lại 0.7.0 |

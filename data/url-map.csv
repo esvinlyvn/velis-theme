@@ -145,6 +145,33 @@ url_cu,url_moi,hanh_dong,loai,gsc_nhap,gsc_hien_thi,uu_tien,ghi_chu
 /blog-bds/page/9/,/blog/,301,phân trang chuyên mục,0,0,,
 /blog-bds/palm-city/,/blog/palm-city/,301,redirect cũ Rank Math,0,1,,"gộp vào ma trận, 1 bước"
 /blog/,/blog/,giữ nguyên,trang,0,89,,
+/blog/blog-bds/,/blog/,301,chuyên mục cũ dưới tiền tố mới,0,0,,chuyên mục cũ rỗng sau khi chuyển bài
+/blog/blog-bds/blog-ansana/,/blog/ansana-by-kita/,301,chuyên mục cũ dưới tiền tố mới,0,0,,chuyên mục cũ rỗng sau khi chuyển bài
+/blog/blog-bds/blog-gamuda-land/,/chu-dau-tu/gamuda-land/,301,chuyên mục cũ dưới tiền tố mới,0,0,,chuyên mục cũ rỗng sau khi chuyển bài
+/blog/blog-bds/blog-gamuda-land/blog-spring-ville/,/blog/spring-ville/,301,chuyên mục cũ dưới tiền tố mới,0,0,,chuyên mục cũ rỗng sau khi chuyển bài
+/blog/blog-bds/blog-gamuda-land/blog-spring-ville/blog-can-ho-spring-ville/,/blog/spring-ville/,301,chuyên mục cũ dưới tiền tố mới,0,0,,chuyên mục cũ rỗng sau khi chuyển bài
+/blog/blog-bds/blog-masterise-homes/,/chu-dau-tu/masterise-homes/,301,chuyên mục cũ dưới tiền tố mới,0,0,,chuyên mục cũ rỗng sau khi chuyển bài
+/blog/blog-bds/blog-masterise-homes/blog-the-global-city/,/blog/the-global-city/,301,chuyên mục cũ dưới tiền tố mới,0,0,,chuyên mục cũ rỗng sau khi chuyển bài
+/blog/blog-bds/blog-palm-city/,/blog/palm-city/,301,chuyên mục cũ dưới tiền tố mới,0,0,,chuyên mục cũ rỗng sau khi chuyển bài
+/blog/blog-bds/blog-the-prive/,/blog/the-prive/,301,chuyên mục cũ dưới tiền tố mới,0,0,,chuyên mục cũ rỗng sau khi chuyển bài
+/blog/blog-bds/blog-vinhomes/,/blog/vinhomes/,301,chuyên mục cũ dưới tiền tố mới,0,0,,chuyên mục cũ rỗng sau khi chuyển bài
+/blog/blog-bds/blog-vinhomes/blog-vinhomes-saigon-park/,/blog/vinhomes-saigon-park/,301,chuyên mục cũ dưới tiền tố mới,0,0,,chuyên mục cũ rỗng sau khi chuyển bài
+/blog/du-an-bds/,/du-an/,301,chuyên mục cũ dưới tiền tố mới,0,0,,chuyên mục cũ rỗng sau khi chuyển bài
+/blog/du-an-bds/ansana-by-kita/,/du-an/ansana-by-kita/,301,dự án (trụ cột) dưới permalink mới,0,0,,bài trụ cột cũ
+/blog/du-an-bds/can-ho-palm-river/,/du-an/palm-city/palm-river/,301,dự án (trụ cột) dưới permalink mới,0,0,,bài trụ cột cũ
+/blog/du-an-bds/can-ho-the-prive/,/du-an/the-prive/,301,dự án (trụ cột) dưới permalink mới,0,0,,bài trụ cột cũ
+/blog/du-an-bds/du-an-ecopark/,/chu-dau-tu/,301,chuyên mục cũ dưới tiền tố mới,0,0,,chuyên mục cũ rỗng sau khi chuyển bài
+/blog/du-an-bds/du-an-gamuda-land/,/chu-dau-tu/gamuda-land/,301,chuyên mục cũ dưới tiền tố mới,0,0,,chuyên mục cũ rỗng sau khi chuyển bài
+/blog/du-an-bds/du-an-gamuda-land/du-an-spring-ville/,/du-an/spring-ville/,301,chuyên mục cũ dưới tiền tố mới,0,0,,chuyên mục cũ rỗng sau khi chuyển bài
+/blog/du-an-bds/du-an-gamuda-land/du-an-spring-ville/can-ho-persa-place/,/du-an/spring-ville/persa-place/,301,dự án (trụ cột) dưới permalink mới,0,0,,bài trụ cột cũ
+/blog/du-an-bds/du-an-gamuda-land/spring-ville/,/du-an/spring-ville/,301,dự án (trụ cột) dưới permalink mới,0,0,,bài trụ cột cũ
+/blog/du-an-bds/du-an-masterise-homes/,/chu-dau-tu/masterise-homes/,301,chuyên mục cũ dưới tiền tố mới,0,0,,chuyên mục cũ rỗng sau khi chuyển bài
+/blog/du-an-bds/du-an-sungroup/,/chu-dau-tu/sun-group/,301,chuyên mục cũ dưới tiền tố mới,0,0,,chuyên mục cũ rỗng sau khi chuyển bài
+/blog/du-an-bds/du-an-vinhomes/,/chu-dau-tu/vinhomes/,301,chuyên mục cũ dưới tiền tố mới,0,0,,chuyên mục cũ rỗng sau khi chuyển bài
+/blog/du-an-bds/du-an-vinhomes/du-an-vinhomes-saigon-park/,/du-an/vinhomes-saigon-park/,301,chuyên mục cũ dưới tiền tố mới,0,0,,chuyên mục cũ rỗng sau khi chuyển bài
+/blog/du-an-bds/the-global-city/,/du-an/the-global-city/,301,dự án (trụ cột) dưới permalink mới,0,0,,bài trụ cột cũ
+/blog/du-an-bds/vinhomes-saigon-park/,/du-an/vinhomes-saigon-park/,301,dự án (trụ cột) dưới permalink mới,0,0,,bài trụ cột cũ
+/blog/uncategorized/,/blog/,301,chuyên mục cũ dưới tiền tố mới,0,0,,chuyên mục cũ rỗng sau khi chuyển bài
 /cach-dung-don-bay-the-global-city-khong-lo-ngop/,/blog/the-global-city/cach-dung-don-bay-the-global-city-khong-lo-ngop/,301,bài viết,0,1,,
 /cach-dung-don-bay-the-global-city-khong-lo-ngop/don-bay-tai-chinh-mua-nha/,/blog/the-global-city/cach-dung-don-bay-the-global-city-khong-lo-ngop/,301,trang ảnh đính kèm,0,0,,
 /can-ho-1pn-cong-persa-place-dau-tu-cho-thue/,/blog/spring-ville/can-ho-1pn-cong-persa-place-dau-tu-cho-thue/,301,bài viết,0,6,,

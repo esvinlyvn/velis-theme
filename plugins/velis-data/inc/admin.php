@@ -183,6 +183,9 @@ function velis_box_developer( $post ) {
 function velis_box_post_projects( $post ) {
 	wp_nonce_field( 'velis_save', 'velis_nonce' );
 	echo velis_field_html( 'velis_projects', array( 'Bài viết nói về', 'posts', false, 'Bài về một phân khu: chọn đúng phân khu.' ), get_post_meta( $post->ID, 'velis_projects', true ), $post ); // phpcs:ignore
+	if ( defined( 'VELIS_KINDS' ) ) { // labels belong to the theme (5 post template variants)
+		echo velis_field_html( 'velis_post_kind', array( 'Loại bài', 'select', false, 'Để trống: tự đoán theo tiêu đề.', array( '' => '— Tự đoán —' ) + VELIS_KINDS ), get_post_meta( $post->ID, 'velis_post_kind', true ) ); // phpcs:ignore
+	}
 }
 
 add_action( 'save_post', function ( $post_id, $post ) {
@@ -193,7 +196,7 @@ add_action( 'save_post', function ( $post_id, $post ) {
 	$fields = array(
 		VELIS_CPT_PROJECT   => 'thap-tang' === $level ? velis_lowrise_fields() : velis_project_fields(),
 		VELIS_CPT_DEVELOPER => velis_developer_fields(),
-		'post'              => array( 'velis_projects' => array( '', 'posts' ) ),
+		'post'              => array( 'velis_projects' => array( '', 'posts' ), 'velis_post_kind' => array( '', 'text' ) ),
 	)[ $post->post_type ] ?? array();
 	foreach ( $fields as $key => $def ) {
 		$raw = wp_unslash( $_POST[ $key ] ?? ( in_array( $def[1], array( 'posts', 'ids' ), true ) ? array() : '' ) ); // phpcs:ignore -- sanitized by velis_clean

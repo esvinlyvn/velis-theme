@@ -4,7 +4,27 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
 // Header shrinks after scrolling.
 const header = document.querySelector('.v-header');
-if (header) addEventListener('scroll', () => header.classList.toggle('is-scrolled', scrollY > 8), { passive: true });
+// Header: hides while scrolling down, returns on the way up (border once scrolled). The sticky section nav follows it:
+// --v-stick is the header's visible height (0 when hidden), so the nav is never separated from it by a gap.
+if (header) {
+	const bar = header.closest('.wp-block-template-part') || header; // the sticky element (see style.css)
+	let lastY = scrollY;
+	const root = document.documentElement;
+	const secnav = document.querySelector('[data-secnav]');
+	const sync = () => {
+		const y = scrollY;
+		header.classList.toggle('is-scrolled', y > 8);
+		if (y > lastY + 4 && y > header.offsetHeight * 2) bar.classList.add('is-hidden');
+		else if (y < lastY - 4 || y < header.offsetHeight) bar.classList.remove('is-hidden');
+		if (Math.abs(y - lastY) > 4) lastY = y;
+		root.style.setProperty('--v-stick', bar.classList.contains('is-hidden') ? '0px' : header.offsetHeight + 'px');
+		if (secnav) secnav.classList.toggle('is-stuck', secnav.getBoundingClientRect().top <= header.offsetHeight + 1);
+	};
+	addEventListener('scroll', sync, { passive: true });
+	addEventListener('resize', sync);
+	header.addEventListener('focusin', () => bar.classList.remove('is-hidden')); // keyboard users always see where focus is
+	sync();
+}
 
 // Reveal blocks once.
 const io = 'IntersectionObserver' in window && new IntersectionObserver((es) => es.forEach((e) => {
@@ -111,6 +131,58 @@ $$('[data-listing]').forEach((box) => {
 	apply();
 });
 
+// Broken image (e.g. a corrupt original): try the other size in data-alt once, then show the neutral frame with the name.
+const broken = (img) => {
+	if (img.dataset.alt && !img.dataset.tried) {
+		img.dataset.tried = '1';
+		img.removeAttribute('srcset');
+		img.src = img.dataset.alt;
+		return;
+	}
+	const box = img.closest('[data-name]');
+	const hero = img.closest('.v-hero--full');
+	const li = img.closest('.v-gallery__track > li');
+	if (li) return li.remove();
+	if (hero) {
+		hero.classList.add('is-empty');
+		img.outerHTML = `<span class="v-hero__fallback" aria-hidden="true">${hero.dataset.name || ''}</span>`;
+	} else if (box) {
+		box.classList.add('v-media--empty');
+		box.innerHTML = '<span></span>';
+		box.firstChild.textContent = box.dataset.name;
+	}
+};
+$$('img[data-alt]').forEach((img) => {
+	img.addEventListener('error', () => broken(img));
+	if (img.complete && img.naturalWidth === 0 && img.src) broken(img); // failed before this script ran
+});
+
+// Mega menu / submenus: also open on mouse hover; close 200 ms after the pointer leaves. Click and keyboard keep working.
+$$('[data-hover]').forEach((d) => {
+	let t;
+	let hovered = 0;
+	d.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse' && wide()) { clearTimeout(t); if (!d.open) hovered = Date.now(); d.open = true; } });
+	// a click right after hover-opening must not close it again
+	d.querySelector('summary').addEventListener('click', (e) => { if (Date.now() - hovered < 800) { e.preventDefault(); hovered = 0; } });
+	d.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse' && wide()) t = setTimeout(() => (d.open = false), 200); });
+});
+
+// Section nav (project pages): highlight the last section whose top has passed 35 % of the viewport.
+document.querySelectorAll('[data-secnav]').forEach((nav) => {
+	const links = [...nav.querySelectorAll('a[href^="#"]')];
+	const targets = links.map((a) => document.getElementById(a.hash.slice(1)));
+	const mark = () => {
+		let cur = -1;
+		targets.forEach((t, i) => { if (t && t.getBoundingClientRect().top <= innerHeight * 0.35) cur = i; });
+		links.forEach((a, i) => {
+			if (i === cur && !a.hasAttribute('aria-current')) a.closest('ul').scrollTo({ left: a.offsetLeft - 16 }); // only the strip, never the page
+			i === cur ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current');
+		});
+	};
+	addEventListener('scroll', mark, { passive: true });
+	mark();
+});
+
 // Header dropdowns (<details data-dd>): one open at a time; close on outside click or Esc.
 const dds = $$('[data-dd]');
 dds.forEach((d) => d.addEventListener('toggle', () => d.open && dds.forEach((o) => o !== d && (o.open = false))));
@@ -126,6 +198,7 @@ $$('[data-menu-close]').forEach((a) => a.addEventListener('click', () => menu.cl
 // matches; across groups all must match. Desktop: dropdowns apply at once; mobile: sheet with "Xem N kết quả".
 $$('[data-plist]').forEach((box) => {
 	const form = box.querySelector('[data-pfilter]');
+	if (!form) return; // fewer than 2 values in every group: no filter bar
 	const dialog = box.querySelector('dialog');
 	const boxes = $$('input[type=checkbox]', form);
 	const drops = $$('[data-fdrop]', form);
@@ -174,6 +247,7 @@ $$('[data-plist]').forEach((box) => {
 
 // Table of contents: highlight the section being read.
 $$('[data-toc]').forEach((toc) => {
+	if (matchMedia('(min-width: 1280px)').matches) toc.open = true; // side column on desktop; collapsed on mobile
 	const links = $$('a[href^="#"]', toc);
 	const targets = links.map((a) => document.getElementById(a.hash.slice(1))).filter(Boolean);
 	const seen = new Set();
@@ -212,6 +286,29 @@ if (lightbox) {
 	lightbox.addEventListener('click', (e) => e.target === lightbox && lightbox.close());
 }
 
+// Tab row: a fade on the right edge while more tabs are hidden to the right.
+document.querySelectorAll('.v-tabs__list').forEach((l) => {
+	const fade = () => l.classList.toggle('has-more', l.scrollLeft + l.clientWidth < l.scrollWidth - 4);
+	l.addEventListener('scroll', fade, { passive: true });
+	addEventListener('resize', fade);
+	requestAnimationFrame(fade);
+});
+
+// Chip filter over a card grid ([data-chipbox]): any checked value per group, all groups must match.
+$$('[data-chipbox]').forEach((box) => {
+	const forms = $$('[data-chipfilter]', box);
+	const cards = $$('[data-card]', box);
+	const empty = box.querySelector('[data-chip-empty]');
+	const apply = () => {
+		const w = {};
+		forms.forEach((f) => new FormData(f).forEach((v, k) => (w[k] ||= []).push(v)));
+		let shown = 0;
+		cards.forEach((c) => { c.hidden = !Object.entries(w).every(([k, vals]) => vals.some((v) => (c.dataset[k] || '').split(' ').includes(v))); shown += !c.hidden; });
+		if (empty) empty.hidden = shown > 0;
+	};
+	forms.forEach((f) => { f.addEventListener('change', apply); f.addEventListener('reset', () => setTimeout(apply)); f.addEventListener('submit', (e) => e.preventDefault()); });
+});
+
 // Form: inline validation; "Nhận bảng giá …" pre-fills the project/subzone field (still editable).
 $$('[data-interest]').forEach((a) => a.addEventListener('click', () => {
 	const f = document.querySelector('[name=interest]');
@@ -228,5 +325,21 @@ $$('[data-form]').forEach((form) => form.addEventListener('submit', (e) => {
 		if (err) err.hidden = !bad;
 		if (bad && ok) { i.focus(); ok = false; }
 	});
-	form.querySelector('.v-form__ok').hidden = !ok;
+	if (!ok) return;
+	const done = (sent) => {
+		form.querySelector('.v-form__ok').hidden = !sent;
+		const fail = form.querySelector('.v-form__fail');
+		if (fail) fail.hidden = sent;
+		if (!sent) return;
+		const detail = { form_id: 'tu-van', interest: form.elements.interest?.value || '' };
+		(window.dataLayer ||= []).push({ event: 'generate_lead', ...detail }); // GA4 conversion (GTM or gtag)
+		window.gtag?.('event', 'generate_lead', detail);
+		form.querySelector('[type=submit]').disabled = true;
+	};
+	if (!form.dataset.cf7) return done(true); // no receiver configured (style guide demo)
+	const data = new FormData(form);
+	data.set('_wpcf7', form.dataset.cf7);
+	data.set('_wpcf7_unit_tag', `wpcf7-f${form.dataset.cf7}-velis`);
+	data.set('_wpcf7_locale', 'vi');
+	fetch(form.action, { method: 'POST', body: data }).then((r) => r.json()).then((r) => done(r.status === 'mail_sent')).catch(() => done(false));
 }));

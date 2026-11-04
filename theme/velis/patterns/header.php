@@ -23,16 +23,17 @@ $link  = function ( $label, $url ) {
 	<a class="v-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo $logo; ?>" width="191" height="44" alt="Velis Realty – trang chủ"></a>
 	<nav class="v-nav" aria-label="Menu chính">
 		<ul>
-			<li><details class="v-dd v-dd--mega" data-dd><summary>Dự án</summary>
+			<li><details class="v-dd v-dd--mega" data-dd data-hover><summary>Dự án</summary>
 				<div class="v-dd__panel v-mega__panel">
 				<?php foreach ( $projects as $dev => $list ) : ?>
-					<div><p class="v-eyebrow"><?php echo esc_html( $dev ); ?></p><ul><?php foreach ( $list as $label => $url ) : ?><li><?php echo $link( $label, $url ); ?></li><?php endforeach; ?></ul></div>
+					<div><p class="v-eyebrow"><?php echo esc_html( $dev ); ?></p><ul><?php foreach ( $list as $label => $item ) : ?><li><?php echo $link( $label, $item['url'] ); ?>
+					<?php if ( $item['zones'] ) : ?><ul class="v-mega__zones"><?php foreach ( $item['zones'] as $zl => $zu ) : ?><li><?php echo $link( $zl, $zu ); ?></li><?php endforeach; ?><?php if ( $item['more'] ) : ?><li><?php echo $link( 'Xem tất cả phân khu', $item['url'] . '#phan-khu' ); ?></li><?php endif; ?></ul><?php endif; ?></li><?php endforeach; ?></ul></div>
 				<?php endforeach; ?>
 					<p class="v-mega__all"><a class="v-btn v-btn--secondary" href="/du-an/">Xem tất cả dự án</a></p>
 				</div></details></li>
 			<li><?php echo $link( 'Chủ đầu tư', '/chu-dau-tu/' ); ?></li>
 			<li><?php echo $link( 'Blog', '/blog/' ); ?></li>
-			<li><details class="v-dd" data-dd><summary>Về Velis</summary><ul class="v-dd__panel"><?php foreach ( $about as $label => $url ) : ?><li><?php echo $link( $label, $url ); ?></li><?php endforeach; ?></ul></details></li>
+			<li><details class="v-dd" data-dd data-hover><summary>Về Velis</summary><ul class="v-dd__panel"><?php foreach ( $about as $label => $url ) : ?><li><?php echo $link( $label, $url ); ?></li><?php endforeach; ?></ul></details></li>
 			<li><?php echo $link( 'Liên hệ', '/lien-he/' ); ?></li>
 		</ul>
 	</nav>
@@ -48,7 +49,7 @@ $link  = function ( $label, $url ) {
 	<nav class="v-menu__nav" aria-label="Menu chính">
 		<details><summary>Dự án</summary>
 		<?php foreach ( $projects as $dev => $list ) : ?>
-			<p class="v-eyebrow"><?php echo esc_html( $dev ); ?></p><ul><?php foreach ( $list as $label => $url ) : ?><li><?php echo $link( $label, $url ); ?></li><?php endforeach; ?></ul>
+			<p class="v-eyebrow"><?php echo esc_html( $dev ); ?></p><ul><?php foreach ( $list as $label => $item ) : ?><li><?php echo $link( $label, $item['url'] ); ?></li><?php endforeach; ?></ul>
 		<?php endforeach; ?>
 			<p class="v-menu__all"><a href="/du-an/">Xem tất cả dự án →</a></p>
 		</details>
