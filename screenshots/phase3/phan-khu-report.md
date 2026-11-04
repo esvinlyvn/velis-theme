@@ -2,15 +2,18 @@
 
 | Khung | Tràn ngang | Ảnh rỗng | Tương phản lỗi | Vùng bấm < 44px | CLS |
 |---|---|---|---|---|---|
-| 360 | không | 0 | 0 | 0 | 0.00022208333333333336 |
-| 390 | không | 0 | 0 | 0 | 0.00022375 |
-| 430 | không | 0 | 0 | 0 | 0.00022561046511627907 |
-| 600 | không | 0 | 0 | 0 | 0.00023075 |
-| 768 | không | 0 | 0 | 0 | 0.00015347222222222222 |
-| 1023 | không | 0 | 0 | 0 | 0.00010136365069673177 |
-| 1024 | không | 0 | 0 | 0 | 0.00005322774251302083 |
-| 1366 | không | 0 | 0 | 0 | 0.000029911387692600112 |
-| 1920 | không | 0 | 0 | 0 | 0.00001514033564814815 |
+| 360 | không | 0 | 0 | 0 | 0 |
+| 390 | không | 0 | 0 | 0 | 0.000265 |
+| 430 | không | 0 | 0 | 0 | 0.00033104651162790697 |
+| 600 | không | 0 | 0 | 0 | 0.0003745625 |
+| 768 | không | 0 | 0 | 0 | 0.0015686399860146607 |
+| 1023 | không | 0 | 0 | 0 | 0 |
+| 1024 | không | 0 | 0 | 0 | 0.0003699906667073568 |
+| 1100 | không | 0 | 0 | 0 | 0 |
+| 1180 | không | 0 | 0 | 0 | 0 |
+| 1280 | không | 0 | 0 | 0 | 0.01606428229014079 |
+| 1366 | không | 0 | 0 | 0 | 0 |
+| 1920 | không | 0 | 0 | 0 | 0 |
 
 Không có lỗi.
 
@@ -22,5 +25,8 @@ Không có lỗi.
 - 768px: MASTERISE HOMES · … 13.26 · Masteri Grand View… 18.1
 - 1023px: MASTERISE HOMES · … 13.26 · Masteri Grand View… 18.1
 - 1024px: MASTERISE HOMES · … 13.38 · Masteri Grand View… 18.26
+- 1100px: MASTERISE HOMES · … 13.38 · Masteri Grand View… 18.26
+- 1180px: MASTERISE HOMES · … 13.38 · Masteri Grand View… 18.1
+- 1280px: MASTERISE HOMES · … 13.38 · Masteri Grand View… 18.26
 - 1366px: MASTERISE HOMES · … 13.26 · Masteri Grand View… 18.1
 - 1920px: MASTERISE HOMES · … 13.38 · Masteri Grand View… 18.26

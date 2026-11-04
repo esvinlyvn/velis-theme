@@ -1,6 +1,6 @@
 # Kiểm tra on-page – staging.velisrealty.vn
 
-Ngày: 2026-11-04 · Trang đã quét: 174 · Link nội bộ hỏng: 0 · link tới URL cũ có trong ma trận redirect (chạy khi ra mắt): 115
+Ngày: 2026-11-04 · Trang đã quét: 174 · Link nội bộ hỏng: 0 · link tới URL cũ có trong ma trận redirect (chạy khi ra mắt): 110
 
 **Lỗi template: 0** (0)
 
@@ -8,7 +8,7 @@ Lỗi trong nội dung cũ (chờ giai đoạn 4): 103 (title: 33, meta: 67, hea
 
 Ghi chú: staging chặn index toàn site (`nofollow, noindex`) nên Rank Math không in canonical; quy tắc canonical chỉ kiểm được trên trang được index.
 
-URL cũ có trong ma trận redirect (bỏ qua, chuyển hướng khi ra mắt): 13
+URL cũ có trong ma trận redirect (bỏ qua, chuyển hướng khi ra mắt): 9
 
 ## Lỗi template
 

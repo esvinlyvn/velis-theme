@@ -1,0 +1,22 @@
+PASS mega menu mở khi rê chuột
+PASS mega menu đóng sau ~200 ms khi rời chuột – sau 80 ms vẫn mở: true
+PASS mega menu mở khi bấm
+PASS mega menu có phân khu – 13 link phân khu
+PASS mega menu mở bằng bàn phím (Enter)
+PASS tab có dữ liệu: bảng thông số + mặt bằng
+PASS tab chưa có dữ liệu: câu hướng dẫn + nút
+PASS "Nhận bảng giá" cuộn tới form – top=110
+PASS "Nhận bảng giá" điền sẵn dòng sản phẩm
+PASS thanh điều hướng mục: bấm cuộn tới Vị trí
+PASS thanh điều hướng mục: tô mục đang xem
+PASS thư viện ảnh: nút "ảnh sau" – 1/13 → 2/13
+PASS thư viện ảnh: phóng to (lightbox)
+PASS không còn ảnh vỡ hiển thị (The Privé)
+PASS form báo lỗi khi bỏ trống, không gửi đi – 3 ô lỗi, 0 lần gửi
+PASS bộ lọc dự án: lọc Khu Đông – Hiển thị 3/6 dự án
+PASS không còn ảnh vỡ (/du-an/)
+PASS lọc phân khu theo loại (chip) – Hiển thị 1/5 phân khu
+PASS chuyển chế độ "Theo loại sản phẩm"
+PASS tìm "căn hộ palm river" ra Palm River đầu tiên – Palm River
+PASS mobile: menu mở
+PASS mobile: thanh điều hướng mục cuộn ngang – {"sw":601,"cw":358,"ox":"auto"}

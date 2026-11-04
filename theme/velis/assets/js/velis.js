@@ -4,7 +4,8 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
 // Header shrinks after scrolling.
 const header = document.querySelector('.v-header');
-if (header) addEventListener('scroll', () => header.classList.toggle('is-scrolled', scrollY > 8), { passive: true });
+// Hysteresis: the shrink moves the page by 20 px, so one threshold would flip it back and forth near the top.
+if (header) addEventListener('scroll', () => { if (scrollY > 80) header.classList.add('is-scrolled'); else if (scrollY < 8) header.classList.remove('is-scrolled'); }, { passive: true });
 
 // Reveal blocks once.
 const io = 'IntersectionObserver' in window && new IntersectionObserver((es) => es.forEach((e) => {
