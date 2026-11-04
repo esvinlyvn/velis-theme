@@ -13,6 +13,7 @@ function wp_parse_url( $u, $c = -1 ) { return parse_url( $u, $c ); }
 function wp_get_attachment_url( $id ) { return 'https://x.vn/wp-content/uploads/2026/04/the-prive.webp'; }
 function remove_accents( $s ) { return strtr( $s, array( 'ă' => 'a', 'ộ' => 'o', 'é' => 'e', 'ư' => 'u' ) ); }
 require __DIR__ . '/../../theme/velis/inc/data.php';
+require __DIR__ . '/../../theme/velis/inc/components.php';
 require __DIR__ . '/../../theme/velis/inc/ui.php';
 require __DIR__ . '/../../theme/velis/inc/seo.php';
 $check = function ( $ok, $msg ) { if ( ! $ok ) { fwrite( STDERR, "FAIL: $msg\n" ); exit( 1 ); } };
