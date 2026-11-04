@@ -56,6 +56,11 @@ class RealData(unittest.TestCase):
         self.assertEqual(len(gone), 43)  # media with post == 0; the other 2 media → "/" are attached to the home page
         self.assertTrue(all(self.kind[k] == 'trang ảnh đính kèm' for k in gone))
 
+    def test_old_paths_under_new_base(self):
+        self.assertEqual(self.m['/blog/blog-bds/blog-masterise-homes/blog-the-global-city/'], '/blog/the-global-city/')
+        self.assertEqual(self.m['/blog/du-an-bds/can-ho-the-prive/'], '/du-an/the-prive/')
+        self.assertNotIn('/blog/the-prive/', [k for k, v in self.m.items() if k != v])  # a cluster never redirects
+
     def test_collapse_keeps_gone(self):
         self.assertEqual(u.collapse({'/a/': u.GONE}), {'/a/': u.GONE})
 

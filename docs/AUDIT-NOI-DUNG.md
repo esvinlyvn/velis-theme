@@ -10,8 +10,9 @@ Quy tắc (brief, "Trang thiếu dữ liệu"): phân khu và dòng thấp tần
 kể cả thừa kế từ cha) thì trang tự `noindex, follow` và ra khỏi sitemap. Nhập đủ trong wp-admin → trang tự index, không cần sửa mã.
 Cột "Index" trong danh sách Dự án ở wp-admin luôn hiện trạng thái này.
 
-Hiện **29/29** trang (13 phân khu + 16 dòng thấp tầng) đang noindex – lý do chung: chưa nhập ảnh (ảnh trên site thật sẽ chuyển
-ở giai đoạn 4).
+Hiện **28/29** trang (12/13 phân khu + 16/16 dòng thấp tầng) đang noindex – lý do chung: chưa nhập ảnh (ảnh trên site thật sẽ
+chuyển ở giai đoạn 4). Giai đoạn 3 đã gắn ảnh đại diện của bài dự án cũ cho 7 bản ghi (`tools/copy_featured_images.py`) →
+**Persa Place** đủ dữ liệu và đã index; Palm River chỉ còn thiếu vị trí.
 
 | Trang | Cấp | Thiếu |
 |---|---|---|
@@ -36,9 +37,8 @@ Hiện **29/29** trang (13 phân khu + 16 dòng thấp tầng) đang noindex –
 | /du-an/the-global-city/thap-tang/ | Phân khu | ảnh, thông số cơ bản |
 | /du-an/the-global-city/thap-tang/shophouse-soho/ | Dòng thấp tầng | ảnh, thông số cơ bản |
 | /du-an/the-global-city/thap-tang/biet-thu-dinh-thu-ven-song/ | Dòng thấp tầng | ảnh, thông số cơ bản |
-| /du-an/palm-city/palm-river/ | Phân khu | ảnh, vị trí |
+| /du-an/palm-city/palm-river/ | Phân khu | vị trí |
 | /du-an/palm-city/palm-river/shophouse/ | Dòng thấp tầng | ảnh, thông số cơ bản, vị trí |
-| /du-an/spring-ville/persa-place/ | Phân khu | ảnh |
 | /du-an/spring-ville/persa-place/shophouse-khoi-de/ | Dòng thấp tầng | ảnh, thông số cơ bản |
 | /du-an/spring-ville/nha-pho/ | Dòng thấp tầng | ảnh, thông số cơ bản |
 | /du-an/spring-ville/shophouse/ | Dòng thấp tầng | ảnh, thông số cơ bản |

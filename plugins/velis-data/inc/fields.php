@@ -241,6 +241,7 @@ function velis_register_meta() {
 		'sanitize_callback' => fn( $v ) => velis_clean_lines( $v ),
 		'auth_callback'     => fn() => current_user_can( 'edit_posts' ),
 	) );
+	register_post_meta( 'post', 'velis_post_kind', array( 'type' => 'string', 'single' => true, 'show_in_rest' => true, 'sanitize_callback' => 'sanitize_key', 'auth_callback' => fn() => current_user_can( 'edit_posts' ) ) );
 	// Blog post → the project / subzone it is about (brief: bài về phân khu link về đúng phân khu).
 	register_post_meta( 'post', 'velis_projects', array(
 		'type'              => 'array',

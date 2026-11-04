@@ -26,6 +26,10 @@ Ma trận redirect và bản đồ từ khóa dựng từ ảnh chụp site ngà
 6. **Tắt Classic Editor**. Dự án, Chủ đầu tư, bài viết dùng block editor (plugin velis-data bật riêng cho 3 loại này, vì
    WPBakery đang bật "Disable Gutenberg Editor"); trang (page) vẫn WPBakery tới khi chuyển xong nội dung.
 7. Tắt Buttonizer (thay bằng thanh CTA của theme).
+7a. Tạo form Contact Form 7 "Velis – Nhận tư vấn" trên site thật (cùng trường như staging: your-name, your-phone, need, interest,
+    note, consent) và gửi thử 1 lần; kiểm tra sự kiện `generate_lead` trong GA4 DebugView.
+7b. Chạy `tools/copy_featured_images.py` phiên bản cho site thật (chỉ khi được duyệt) hoặc gắn ảnh đại diện dự án bằng tay.
+7c. Sau ra mắt chạy `tools/check_onpage.mjs` trên site thật: canonical chỉ kiểm được khi trang được index.
 8. **Không** cài `velis-staging-guard` lên site thật.
 9. Kiểm tra sau ra mắt: 32 URL có lượt nhấp GSC trả đúng đích 1 bước; sitemap không có trang noindex; Search Console gửi sitemap.
 

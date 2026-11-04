@@ -6,7 +6,7 @@
 trang, dòng thấp tầng là bản ghi con có trang, dòng căn hộ là tab (bài blog theo loại căn), trang thiếu dữ liệu tự noindex,
 43 trang ảnh không gắn bài → 410, Classic Editor tắt trên staging. Bàn giao: plugin `velis-data` 0.2.3 trên staging,
 `docs/DATA-MODEL.md`, `PROJECT-MAP.md`, `AUDIT-NOI-DUNG.md`, `KE-HOACH-RA-MAT.md`, `data/url-map.csv`, `data/keyword-map.csv`.
-Giai đoạn 3 (dựng template) bắt đầu trên nhánh `claude/giai-doan-3-template`.
+Giai đoạn 3 (dựng template) bắt đầu trên nhánh `claude/upbeat-fermat-04eevu` (tạo lại từ main).
 
 ## Giai đoạn 1 hoàn tất – đã merge vào main
 

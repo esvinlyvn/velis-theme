@@ -126,6 +126,7 @@ $$('[data-menu-close]').forEach((a) => a.addEventListener('click', () => menu.cl
 // matches; across groups all must match. Desktop: dropdowns apply at once; mobile: sheet with "Xem N kết quả".
 $$('[data-plist]').forEach((box) => {
 	const form = box.querySelector('[data-pfilter]');
+	if (!form) return; // fewer than 2 values in every group: no filter bar
 	const dialog = box.querySelector('dialog');
 	const boxes = $$('input[type=checkbox]', form);
 	const drops = $$('[data-fdrop]', form);
@@ -174,6 +175,7 @@ $$('[data-plist]').forEach((box) => {
 
 // Table of contents: highlight the section being read.
 $$('[data-toc]').forEach((toc) => {
+	if (matchMedia('(min-width: 1280px)').matches) toc.open = true; // side column on desktop; collapsed on mobile
 	const links = $$('a[href^="#"]', toc);
 	const targets = links.map((a) => document.getElementById(a.hash.slice(1))).filter(Boolean);
 	const seen = new Set();
@@ -212,6 +214,21 @@ if (lightbox) {
 	lightbox.addEventListener('click', (e) => e.target === lightbox && lightbox.close());
 }
 
+// Chip filter over a card grid ([data-chipbox]): any checked value per group, all groups must match.
+$$('[data-chipbox]').forEach((box) => {
+	const forms = $$('[data-chipfilter]', box);
+	const cards = $$('[data-card]', box);
+	const empty = box.querySelector('[data-chip-empty]');
+	const apply = () => {
+		const w = {};
+		forms.forEach((f) => new FormData(f).forEach((v, k) => (w[k] ||= []).push(v)));
+		let shown = 0;
+		cards.forEach((c) => { c.hidden = !Object.entries(w).every(([k, vals]) => vals.some((v) => (c.dataset[k] || '').split(' ').includes(v))); shown += !c.hidden; });
+		if (empty) empty.hidden = shown > 0;
+	};
+	forms.forEach((f) => { f.addEventListener('change', apply); f.addEventListener('reset', () => setTimeout(apply)); f.addEventListener('submit', (e) => e.preventDefault()); });
+});
+
 // Form: inline validation; "Nhận bảng giá …" pre-fills the project/subzone field (still editable).
 $$('[data-interest]').forEach((a) => a.addEventListener('click', () => {
 	const f = document.querySelector('[name=interest]');
@@ -228,5 +245,21 @@ $$('[data-form]').forEach((form) => form.addEventListener('submit', (e) => {
 		if (err) err.hidden = !bad;
 		if (bad && ok) { i.focus(); ok = false; }
 	});
-	form.querySelector('.v-form__ok').hidden = !ok;
+	if (!ok) return;
+	const done = (sent) => {
+		form.querySelector('.v-form__ok').hidden = !sent;
+		const fail = form.querySelector('.v-form__fail');
+		if (fail) fail.hidden = sent;
+		if (!sent) return;
+		const detail = { form_id: 'tu-van', interest: form.elements.interest?.value || '' };
+		(window.dataLayer ||= []).push({ event: 'generate_lead', ...detail }); // GA4 conversion (GTM or gtag)
+		window.gtag?.('event', 'generate_lead', detail);
+		form.querySelector('[type=submit]').disabled = true;
+	};
+	if (!form.dataset.cf7) return done(true); // no receiver configured (style guide demo)
+	const data = new FormData(form);
+	data.set('_wpcf7', form.dataset.cf7);
+	data.set('_wpcf7_unit_tag', `wpcf7-f${form.dataset.cf7}-velis`);
+	data.set('_wpcf7_locale', 'vi');
+	fetch(form.action, { method: 'POST', body: data }).then((r) => r.json()).then((r) => done(r.status === 'mail_sent')).catch(() => done(false));
 }));

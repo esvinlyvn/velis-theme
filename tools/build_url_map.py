@@ -65,6 +65,11 @@ def page_target(base_new, n, total_items):
     return base_new if n <= 1 or n > pages else '%spage/%d/' % (base_new, n)
 
 
+def cat_path(c, cats):
+    """Full category path as WordPress builds it: parent-slug/child-slug."""
+    return (cat_path(cats[c['parent']], cats) + '/' if c['parent'] else '') + c['slug']
+
+
 def collapse(mapping):
     """Resolve chains so every redirect is one step: a -> b, b -> c  =>  a -> c."""
     out = {}
@@ -106,6 +111,8 @@ def build():
         old = path(p['link'])
         if old in pillar:
             put(old, pillar[old]['url_moi'], 'dự án (trụ cột)')
+            # the old pillar post keeps its category, so the new permalink structure would also serve it here
+            put('/blog/%s/%s/' % (cat_path(cats[p['categories'][0]], cats), p['slug']), pillar[old]['url_moi'], 'dự án (trụ cột) dưới permalink mới', 'bài trụ cột cũ')
             continue
         slugs = [cats[c]['slug'] for c in p['categories']]
         cluster = next((CAT_TO_CLUSTER[s] for s in slugs if s in CAT_TO_CLUSTER), '')
@@ -123,6 +130,10 @@ def build():
         new = '/blog/%s/' % CAT_TO_CLUSTER[c['slug']] if c['slug'] in CAT_TO_CLUSTER else CAT_OTHER[c['slug']]
         cat_new[path(c['link'])] = (new, clusters.get(CAT_TO_CLUSTER.get(c['slug'], ''), 0))
         put(c['link'], new, 'chuyên mục')
+        # Old categories stay in WordPress (emptied); under the new "blog" base they would answer at /blog/{path}/.
+        tail = cat_path(c, cats)
+        if '/blog/' + tail + '/' != new:
+            put('/blog/%s/' % tail, new, 'chuyên mục cũ dưới tiền tố mới', 'chuyên mục cũ rỗng sau khi chuyển bài')
     # crawl baseline: pagination, date archives, author, others
     for r in csv.DictReader(open(D('baseline', 'baseline.csv'))):
         old = path(r['url'])

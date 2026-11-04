@@ -76,3 +76,14 @@ Kiểm chứng: `/robots.txt` trả `User-agent: * / Disallow: /`; `/sitemap_ind
 
 Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng thấp tầng) trả 200 với phiên đăng nhập
 (`data/architecture/url-samples-staging.json`); 29 trang thiếu dữ liệu có `follow, noindex`.
+
+## 2026-11-04 – Giai đoạn 3: dựng template
+
+| Mục | Thay đổi |
+|---|---|
+| Theme velis | 0.5.0 → 0.6.0 (tải lại qua wp-admin): template cho mọi loại trang, SEO/schema qua bộ lọc Rank Math, form gửi CF7 |
+| Plugin velis-data | 0.2.3 → 0.2.4: ô "Loại bài" (5 biến thể) ở màn hình sửa bài |
+| Ảnh đại diện dự án | 7 bản ghi nhận ảnh đại diện của bài dự án cũ (`tools/copy_featured_images.py`, không sửa bài cũ) |
+| Contact Form 7 | tạo form ID 20800 "Velis – Nhận tư vấn" (gửi tới lienhe@velisrealty.vn; staging đang tắt email) |
+| Ảnh chia sẻ | file `*-1200x630.*` được tạo trong uploads khi một trang được chia sẻ/crawl lần đầu (cỡ `velis-og`) |
+| Thử form | 1 lần gửi dữ liệu thử ("Kiểm thử hệ thống", 0900000000) → CF7 nhận, trả `mail_failed` vì email tắt |
