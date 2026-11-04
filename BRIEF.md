@@ -130,6 +130,7 @@ Cấu trúc mới có 3 silo nội dung cộng hệ thống trang chính: **Ch�
 | Dự án độc lập | `/du-an/` | `/du-an/{du-an}/` | `/can-ho-the-prive/` → `/du-an/the-prive/` |
 | Đại đô thị | `/du-an/` | `/du-an/{dai-do-thi}/` | → `/du-an/the-global-city/` |
 | Phân khu | trang đại đô thị | `/du-an/{dai-do-thi}/{phan-khu}/` | → `/du-an/the-global-city/{phan-khu}/` |
+| Dòng thấp tầng | trang phân khu / dự án độc lập | `/du-an/{dai-do-thi}/{phan-khu}/{dong-san-pham}/` (dự án độc lập: `/du-an/{du-an}/{dong-san-pham}/`) | mới |
 | Blog | `/blog/` | `/blog/{cum}/{bai-viet}/` | `/rui-ro-dau-tu-the-global-city/` → `/blog/the-global-city/rui-ro-dau-tu-the-global-city/` |
 | Cụm blog | `/blog/{cum}/` | — | `/blog-bds/blog-the-prive/` → `/blog/the-prive/` |
 | Tác giả | `/chuyen-gia/` | `/chuyen-gia/{ten}/` | giữ `/chuyen-gia/vu-xuan/` |
@@ -243,28 +244,29 @@ Trang dự án là trang kiếm khách: người xem đã có ý định mua, c�
 
 **Schema**: `ApartmentComplex` (hoặc `Place`/`Residence` cho biệt thự, nhà phố) với địa chỉ, tọa độ, `amenityFeature`, ảnh; `BreadcrumbList`; `FAQPage` chỉ khi FAQ hiển thị trên trang. `RealEstateListing` chỉ dùng khi có trang cho từng căn cụ thể đang bán.
 
-**Trang con của dự án** (`/du-an/{du-an}/mat-bang/`, `/bang-gia/`…) chỉ tạo khi đủ nội dung riêng (trên 600 từ hoặc tài liệu riêng), tránh trang mỏng.
+**Trang con của dự án** theo chủ đề (`/du-an/{du-an}/mat-bang/`, `/bang-gia/`…) chỉ tạo khi đủ nội dung riêng (trên 600 từ hoặc tài liệu riêng), tránh trang mỏng. Quy tắc này không áp cho phân khu và dòng thấp tầng (luôn có trang, xem mục dưới).
 
 ## Đại đô thị và phân khu
 
-Mỗi phân khu mở bán riêng (ví dụ các cụm cao tầng Masteri, Lumière trong The Global City) được xử lý **như một dự án**: có trang riêng, từ khóa riêng, giá – pháp lý – mặt bằng riêng, nằm dưới trang đại đô thị. Khách tìm theo tên phân khu, so sánh các phân khu với nhau, và mỗi phân khu có hàng, giá, tiến độ khác nhau, nên gộp chung một trang là mất cả thứ hạng lẫn khách.
+**Phân khu** = sản phẩm cuối được mở bán riêng (Palm River, Persa Place, các cụm của The Global City, 5 khu của Vinhomes Saigon Park). **Mọi phân khu** được xử lý **như một dự án**: luôn có trang riêng, từ khóa riêng, giá – pháp lý – mặt bằng riêng, nằm dưới trang đại đô thị. Khách tìm theo tên phân khu, so sánh các phân khu với nhau, và mỗi phân khu có hàng, giá, tiến độ khác nhau, nên gộp chung một trang là mất cả thứ hạng lẫn khách.
 
 > [Sơ đồ trong doc gốc: phân cấp chủ đầu tư → đại đô thị → phân khu — node/c963e8a7-9a88]
 
-URL của phân khu lồng dưới đại đô thị vì quan hệ này không đổi (khác với chủ đầu tư, có thể liên doanh hay đổi chủ, nên không lồng). Nhóm cao tầng / thấp tầng mặc định chỉ là mục trên trang đại đô thị.
+URL của phân khu lồng dưới đại đô thị vì quan hệ này không đổi (khác với chủ đầu tư, có thể liên doanh hay đổi chủ, nên không lồng). Nhóm cao tầng / thấp tầng chỉ là mục trên trang đại đô thị.
 
-**4 cấp và cách xử lý**
+**Các cấp và cách xử lý**
 
 | Cấp | Ví dụ | Trang riêng? | URL | Từ khóa chính |
 |---|---|---|---|---|
 | Đại đô thị | The Global City | Có | `/du-an/the-global-city/` | {đại đô thị}, khu đô thị {đại đô thị} |
 | Nhóm sản phẩm | Cao tầng, thấp tầng (nhà phố, biệt thự, shophouse) | Chỉ khi có nhu cầu tìm kiếm rõ và ≥ 2 phân khu cùng loại | `/du-an/the-global-city/nha-pho/` (khi đủ điều kiện) | căn hộ / nhà phố {đại đô thị} |
-| Phân khu | Cụm cao tầng Masteri, Lumière; cụm nhà phố | Có, nếu đủ nội dung riêng | `/du-an/the-global-city/{phan-khu}/` | {phân khu}, {phân khu} {đại đô thị} |
-| Tòa, loại căn | Tháp A, căn 2PN | Không; là mục trong trang phân khu (có neo `#thap-a`) | — | — |
+| Phân khu | Cụm cao tầng Masteri, Lumière; cụm nhà phố | **Luôn có** | `/du-an/the-global-city/{phan-khu}/` | {phân khu}, {phân khu} {đại đô thị} |
+| Dòng thấp tầng | Nhà phố, shophouse, biệt thự, dinh thự của một phân khu | **Luôn có** (bản ghi con của phân khu / dự án độc lập) | `/du-an/{dai-do-thi}/{phan-khu}/{dong-san-pham}/`; dự án độc lập `/du-an/{du-an}/{dong-san-pham}/` | {dòng} {phân khu} |
+| Dòng căn hộ, tòa | 1PN, 2PN, 3PN, duplex, penthouse; Tháp A | Không; là tab trong trang phân khu (neo `#can-2pn`, `#thap-a`). Mỗi loại căn chính có 1 bài blog trong cụm, link về tab | — | — |
 
 Tên phân khu chính xác (kể cả cách viết, dấu) lấy theo tài liệu chủ đầu tư; Claude Code lập bảng phân loại để bạn duyệt ở cổng 2.
 
-**Điều kiện để một phân khu có trang riêng** (tránh trang mỏng): có ít nhất 3 trong 4 thứ riêng: giá/chính sách, mặt bằng/loại căn, pháp lý/tiến độ, ảnh riêng; và khoảng 800 từ nội dung không trùng trang đại đô thị. Chưa đủ thì là một mục có neo trên trang đại đô thị, đủ rồi mới tách trang.
+**Trang thiếu dữ liệu** (tránh trang mỏng): phân khu hoặc dòng thấp tầng chưa có dữ liệu tối thiểu (ảnh, thông số cơ bản, vị trí) vẫn được tạo trang nhưng **noindex tạm thời** và nằm trong danh sách `docs/AUDIT-NOI-DUNG.md`; đủ dữ liệu thì bỏ noindex. Không dùng redirect phân khu → neo trên trang đại đô thị.
 
 **Dữ liệu**
 
@@ -294,39 +296,44 @@ Tên phân khu chính xác (kể cả cách viết, dấu) lấy theo tài liệ
 
 **Listing phân khu và dòng sản phẩm**
 
-Một phân khu thường có nhiều dòng sản phẩm (ví dụ căn hộ 1–3PN, duplex, penthouse, shophouse khối đế; hoặc nhà phố, biệt thự, shophouse trong cùng một cụm thấp tầng). Vì vậy thêm cấp dữ liệu **dòng sản phẩm**; cấp này là mục trong trang phân khu, nhưng được gom lên listing của đại đô thị.
+Một phân khu thường có nhiều dòng sản phẩm (ví dụ căn hộ 1–3PN, duplex, penthouse, shophouse khối đế; hoặc nhà phố, biệt thự, shophouse trong cùng một cụm thấp tầng). Vì vậy thêm cấp dữ liệu **dòng sản phẩm**, chia hai loại: **dòng căn hộ** là tab trong trang phân khu; **dòng thấp tầng** là bản ghi con có trang riêng. Cả hai được gom lên listing của đại đô thị.
 
-*Dữ liệu dòng sản phẩm* (mỗi phân khu hoặc dự án độc lập có 1–n dòng): loại (căn hộ, duplex, penthouse, sky villa, nhà phố, biệt thự, shophouse...), số phòng ngủ, diện tích từ–đến, giá từ–đến + ngày + nguồn, số lượng (nếu công bố), hướng/vị trí tòa, mặt bằng mẫu, bàn giao (thô/hoàn thiện), hình thức sở hữu, trạng thái hàng (còn hàng / sắp mở / hết hàng CDT). Trường để trống thì không hiển thị, không điền "đang cập nhật".
+*Dữ liệu dòng căn hộ* (dòng lặp trong form phân khu / dự án độc lập; diện tích và giá nhập dạng số): loại (căn hộ, duplex, penthouse, sky villa, nhà phố, biệt thự, shophouse...), số phòng ngủ, diện tích từ–đến, giá từ–đến + ngày + nguồn, số lượng (nếu công bố), hướng/vị trí tòa, mặt bằng mẫu, bàn giao (thô/hoàn thiện), hình thức sở hữu, trạng thái hàng (còn hàng / sắp mở / hết hàng CDT). Trường để trống thì không hiển thị, không điền "đang cập nhật".
+
+*Dữ liệu dòng thấp tầng* (bản ghi con): diện tích đất, diện tích xây dựng/sàn, số tầng, mặt tiền, chiều sâu, hướng, hình thức sở hữu, mặt bằng từng tầng, giá từ/đến + đơn vị + tháng/năm + nguồn, trạng thái hàng, ảnh.
 
 *Listing trên trang đại đô thị*
 
 - **Chế độ "Theo phân khu"** (mặc định): thẻ phân khu gồm ảnh, tên, nhãn trạng thái, các dòng sản phẩm (chip), diện tích từ–đến, giá từ (kèm ngày), bàn giao, 2 nút "Xem phân khu" · "Nhận bảng giá". Nhóm theo Cao tầng / Thấp tầng.
-- **Chế độ "Theo loại sản phẩm"**: gom mọi dòng sản phẩm của cả đại đô thị thành bảng, ví dụ "Tất cả căn 2PN" so sánh giữa các phân khu (diện tích, giá từ, bàn giao, trạng thái), mỗi dòng link tới đúng mục trên trang phân khu (`#can-2pn`).
+- **Chế độ "Theo loại sản phẩm"**: gom mọi dòng sản phẩm của cả đại đô thị thành bảng, ví dụ "Tất cả căn 2PN" so sánh giữa các phân khu (diện tích, giá từ, bàn giao, trạng thái), mỗi dòng căn hộ link tới đúng tab trên trang phân khu (`#can-2pn`), mỗi dòng thấp tầng link tới trang riêng của dòng.
 - **Bộ lọc**: loại sản phẩm, số phòng ngủ, khoảng giá, khoảng diện tích, trạng thái, thời điểm bàn giao; sắp xếp theo giá từ, bàn giao, mới mở bán.
 - Lọc chạy trên trang (không tải lại), trạng thái lọc giữ trong URL dạng `?loai=shophouse` để chia sẻ được, nhưng canonical về trang đại đô thị và noindex. Toàn bộ listing có sẵn trong HTML (không phụ thuộc JS) để Google và AI đọc được.
 - Trạng thái rỗng: "Chưa có sản phẩm phù hợp" + nút bỏ lọc + form "Để lại nhu cầu, Velis báo khi có hàng".
 - Mobile: bộ lọc mở dạng ngăn kéo từ dưới lên; bảng so sánh cuộn ngang trong khung riêng, cột tên phân khu ghim cố định.
 
-*Trong trang phân khu* (và trang dự án độc lập): mục **Dòng sản phẩm** dạng tab, mỗi dòng một tab có neo riêng (`#penthouse`, `#shophouse`): bảng thông số, mặt bằng mẫu phóng to được, giá từ + ngày, điểm khác biệt, "phù hợp với ai" (góc nhìn CEO), nút "Nhận bảng giá {dòng}" gắn sẵn tên phân khu + dòng sản phẩm vào form.
+*Trong trang phân khu* (và trang dự án độc lập): **dòng căn hộ** dạng tab, mỗi dòng một tab có neo riêng (`#penthouse`, `#can-2pn`): bảng thông số, mặt bằng mẫu phóng to được, giá từ + ngày, điểm khác biệt, "phù hợp với ai" (góc nhìn CEO), nút "Nhận bảng giá {dòng}" gắn sẵn tên phân khu + dòng sản phẩm vào form.
 
-*Trang riêng cho một dòng sản phẩm* (ví dụ shophouse hoặc penthouse của một phân khu): mặc định **không**. Chỉ tách khi có nhu cầu tìm kiếm rõ cho đúng cụm từ đó (Search Console hoặc nghiên cứu từ khóa) và đủ nội dung riêng (≥ 800 từ, mặt bằng, giá, chính sách riêng); khi đó URL `/du-an/{dai-do-thi}/{phan-khu}/{dong-san-pham}/`, từ khóa "{dòng} {phân khu}".
+**Dòng thấp tầng** hiện dạng thẻ link tới trang riêng.
 
-*Schema*: mỗi dòng sản phẩm là một mục `Accommodation` (`Apartment` / `SingleFamilyResidence`) với `floorSize`, `numberOfRooms`, nằm trong phân khu bằng `containedInPlace`; chỉ khai báo giá (`offers`) khi có giá công bố và ngày cụ thể. Trang đại đô thị khai báo `ItemList` các phân khu theo đúng thứ tự hiển thị.
+*Trang dòng thấp tầng* (nhà phố, shophouse, biệt thự, dinh thự…): **luôn có**, URL `/du-an/{dai-do-thi}/{phan-khu}/{dong-san-pham}/` (dự án độc lập: `/du-an/{du-an}/{dong-san-pham}/`), từ khóa "{dòng} {phân khu}", breadcrumb 5 cấp. Nội dung: thông số thấp tầng, mặt bằng từng tầng, giá, so sánh với các dòng thấp tầng khác trong cùng phân khu, CTA. Dòng căn hộ (1PN, 2PN, 3PN, duplex, penthouse…) **không** có trang riêng; nội dung theo loại căn viết thành bài blog trong cụm (`docs/CONTENT-PLAN.md`), link về tab trên trang phân khu.
+
+*Schema*: dòng căn hộ là mục `Accommodation` (`Apartment`) trên trang phân khu; trang dòng thấp tầng là `SingleFamilyResidence` / `House`; cả hai có `floorSize`, `numberOfRooms` (nếu có), nằm trong phân khu bằng `containedInPlace`; chỉ khai báo giá (`offers`) khi có giá công bố và ngày cụ thể. Trang đại đô thị khai báo `ItemList` các phân khu theo đúng thứ tự hiển thị.
 
 **Silo và link nội bộ**
 
-- Đại đô thị ↔ mọi phân khu (hai chiều); phân khu ↔ phân khu anh em (khối so sánh); chủ đầu tư → đại đô thị (không liệt kê lại từng phân khu, tránh loãng).
+- Đại đô thị ↔ mọi phân khu (hai chiều); phân khu ↔ phân khu anh em (khối so sánh); phân khu ↔ dòng thấp tầng của nó, dòng thấp tầng ↔ dòng thấp tầng cùng phân khu; chủ đầu tư → đại đô thị (không liệt kê lại từng phân khu, tránh loãng).
 - Blog: cụm = đại đô thị (`/blog/the-global-city/{bai}/`), không tạo URL blog 3 cấp. Mỗi bài gắn thêm trường quan hệ tới đúng cấp nó nói tới: bài về một phân khu bắt buộc link về trang phân khu đó (không chỉ về đại đô thị); bài chung link về đại đô thị.
 - Trang cụm blog của đại đô thị có bộ lọc theo phân khu (lọc trên trang, không tạo URL index).
 - Mega menu Dự án: chủ đầu tư → đại đô thị → các phân khu đang bán.
+- Bài blog theo loại căn (1PN, 2PN…) của một phân khu link về đúng tab `#neo` trên trang phân khu.
 
 **Từ khóa, tránh ăn thịt lẫn nhau**
 
-- Đại đô thị nhận từ khóa tổng ("the global city", "khu đô thị the global city"); phân khu nhận từ khóa tên riêng ("{phân khu}", "{phân khu} the global city", "giá {phân khu}"); nhóm sản phẩm nhận "căn hộ / nhà phố the global city" (trên mục của trang đại đô thị, hoặc trang riêng khi đủ điều kiện).
+- Đại đô thị nhận từ khóa tổng ("the global city", "khu đô thị the global city"); phân khu nhận từ khóa tên riêng ("{phân khu}", "{phân khu} the global city", "giá {phân khu}"); dòng thấp tầng nhận "{dòng} {phân khu}" (ví dụ "shophouse persa place"); loại căn hộ ("căn 2PN {phân khu}") thuộc bài blog; nhóm sản phẩm nhận "căn hộ / nhà phố the global city" (trên mục của trang đại đô thị, hoặc trang riêng khi đủ điều kiện).
 - Title phân khu: "{Phân khu} – {đại đô thị}: giá, mặt bằng, pháp lý"; title đại đô thị: "{Đại đô thị}: các phân khu, vị trí, giá tham khảo".
 - Bộ kiểm tra on-page báo lỗi nếu hai cấp dùng chung từ khóa chính.
 
-**Schema**: đại đô thị là `Place` (kèm `containsPlace` → các phân khu); phân khu là `ApartmentComplex` (cao tầng) hoặc `Residence`/`Place` (thấp tầng) với `containedInPlace` → đại đô thị; `BreadcrumbList` 4 cấp.
+**Schema**: đại đô thị là `Place` (kèm `containsPlace` → các phân khu); phân khu là `ApartmentComplex` (cao tầng) hoặc `Residence`/`Place` (thấp tầng) với `containedInPlace` → đại đô thị; dòng thấp tầng là `SingleFamilyResidence`/`House` với `containedInPlace` → phân khu; `BreadcrumbList` 4 cấp (phân khu), 5 cấp (dòng thấp tầng).
 
 **Áp vào site hiện tại (ngày 2)**: Claude Code phân loại toàn bộ dự án hiện có thành đại đô thị / phân khu / dự án độc lập (ví dụ cần xác minh: Vinhomes Saigon Park với các cụm thấp tầng; Palm City và Palm River; Spring Ville và Persa Place của Gamuda Land), đối chiếu tài liệu chủ đầu tư, đề xuất URL mới cho từng cái và cập nhật ma trận redirect. Bạn duyệt bảng này ở cổng 2.
 
@@ -423,7 +430,8 @@ Cấu trúc mới phải ra mắt mà không mất những gì đã làm ở cá
 | Toàn site | `Organization` + `RealEstateAgent` Velis Realty, `WebSite` | `@id` cố định, `sameAs` 8 hồ sơ thật, `founder` → Vũ Xuân |
 | Trang tác giả | `ProfilePage` + `Person` | `worksFor` → Velis, `sameAs` mạng xã hội cá nhân |
 | Chủ đầu tư | `CollectionPage` | `about` → `Organization` chủ đầu tư |
-| Dự án | `ApartmentComplex` / `Residence` | `containedInPlace`, địa chỉ, tọa độ |
+| Dự án, phân khu | `ApartmentComplex` / `Residence` (đại đô thị: `Place`); dòng căn hộ `Accommodation` | `containedInPlace`, địa chỉ, tọa độ |
+| Dòng thấp tầng | `SingleFamilyResidence` / `House` | `containedInPlace` → phân khu |
 | Bài viết | `BlogPosting` | `author`, `publisher`, `about`/`mentions` dự án |
 | Tuyển dụng | `JobPosting` | `hiringOrganization` → Velis |
 | Mọi trang con | `BreadcrumbList` | theo silo |
@@ -485,13 +493,14 @@ Công thức chỉ là mặc định; trang có title viết tay trong Rank Math
 
 | Loại trang | Robots | Canonical / xử lý |
 |---|---|---|
-| Trang chủ, trang chính, chủ đầu tư, dự án, bài viết, cụm blog trang 1 | index, follow | Trỏ chính nó |
+| Trang chủ, trang chính, chủ đầu tư, dự án, phân khu, dòng thấp tầng, bài viết, cụm blog trang 1 | index, follow | Trỏ chính nó |
+| Phân khu / dòng thấp tầng thiếu dữ liệu tối thiểu | noindex, follow (tạm thời, danh sách ở `docs/AUDIT-NOI-DUNG.md`) | Trỏ chính nó; không vào sitemap |
 | Trang tác giả Vũ Xuân | index, follow (khi đã có tiểu sử đầy đủ) | Trỏ chính nó |
 | Phân trang từ trang 2 | noindex, follow | Trỏ chính nó |
 | Tìm kiếm nội bộ, URL lọc dự án | noindex, follow | URL lọc canonical về `/du-an/` |
 | Thẻ (tag) | Tắt tính năng tag hoặc noindex | Không đưa vào sitemap |
 | Lưu trữ theo ngày | Tắt lại (theme mới không còn link ngày) | `/YYYY/MM/DD/` chuyển 301 về `/blog/` |
-| Trang ảnh đính kèm | Không index | Chuyển về bài cha (Rank Math), đặt slug ảnh có hậu tố "-anh" để không chiếm slug trang |
+| Trang ảnh đính kèm | Không index | Chuyển về bài cha (Rank Math); ảnh không gắn bài nào → 410. Đặt slug ảnh có hậu tố "-anh" để không chiếm slug trang |
 | Trang tài liệu riêng tư 20538–20544 | Giữ private, noindex | Không đổi |
 
 URL: chữ thường, luôn có dấu `/` cuối, bản không `/` chuyển 301 sang bản có `/`.
