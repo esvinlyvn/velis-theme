@@ -31,10 +31,16 @@ class RealData(unittest.TestCase):
     def test_top_post_keeps_ranking_query(self):
         self.assertEqual(self.rows['/blog/palm-city/huong-viet-holdings-la-ai/']['tu_khoa_chinh'], 'hướng việt holding')
 
-    def test_known_conflicts_reported(self):
-        kinds = {c[0] for c in self.conflicts}
-        self.assertIn('gần trùng (số ít/số nhiều)', kinds)
-        self.assertIn('trùng từ khóa chính', kinds)
+    def test_gate2_decisions_resolve_conflicts(self):
+        self.assertEqual(self.rows['/blog/the-prive/cho-thue-the-prive/']['tu_khoa_chinh'], 'cho thuê căn hộ the prive')
+        self.assertEqual(self.rows['/blog/the-prive/loi-suat-cho-thue-the-prive/']['tu_khoa_chinh'], 'lợi suất cho thuê the prive')
+        self.assertNotIn('/chu-dau-tu/huong-viet-holdings/', self.rows)  # no developer page (keeps the top post's query)
+        self.assertEqual(self.conflicts, [])
+
+    def test_subzone_and_lowrise_keywords(self):
+        self.assertEqual(self.rows['/du-an/vinhomes-saigon-park/ivy-park/']['tu_khoa_chinh'], 'ivy park')
+        self.assertEqual(self.rows['/du-an/spring-ville/persa-place/shophouse-khoi-de/']['tu_khoa_chinh'], 'shophouse khối đế persa place')
+        self.assertEqual(k.proper_name('Thấp tầng (SOHO; biệt thự & dinh thự)', 'the global city'), 'thấp tầng the global city')
 
 
 if __name__ == '__main__':

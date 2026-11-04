@@ -15,3 +15,10 @@
 .velis-line__grid label > span { font-weight: 600; color: #50575e; }
 .velis-line__grid input, .velis-line__grid select { width: 100%; }
 @media (max-width: 782px) { .velis-form .velis-row { grid-template-columns: 1fr; } }
+.velis-line > summary .velis-line__title { font-weight: 600; }
+.velis-line:not([open]) > summary { background: #fff; }
+.velis-radio { display: block; margin: 4px 0; }
+.velis-noindex { color: #8a4b00; background: #fcf9e8; padding: 4px 8px; border-left: 3px solid #dba617; }
+#velis-lowrise[hidden], #velis-project[hidden], #velis-lines[hidden] { display: none !important; }
+.wpb-notice, [id^="wpb-notice"] { display: none !important; }
+#velis-level select { max-width: 100%; box-sizing: border-box; }

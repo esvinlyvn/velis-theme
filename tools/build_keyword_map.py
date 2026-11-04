@@ -1,6 +1,7 @@
 """Build data/keyword-map.csv: one main keyword per new URL (BRIEF.md "Bản đồ từ khóa" + "Từ khóa, tránh ăn thịt lẫn nhau")
 and report every conflict.  Usage: python3 -I tools/build_keyword_map.py
-Sources, in order: rule of the URL's level (dự án / phân khu / đại đô thị / chủ đầu tư / cụm / trang chính),
+Sources, in order: rule of the URL's level (dự án / phân khu / dòng thấp tầng / đại đô thị / chủ đầu tư / cụm / trang chính),
+decisions taken at a gate,
 a Search Console query whose words all appear in the post slug, else the post title (proposal – needs review).
 Rank Math focus keywords on the live site are empty (checked 2026-11-04), so none are reused.
 """
@@ -22,6 +23,12 @@ FIXED = {
 }
 # Posts that already earn clicks keep the query they rank for (brief: "Trang đang có lượt nhấp giữ nguyên từ khóa").
 RANKING = {'/blog/palm-city/huong-viet-holdings-la-ai/': ('hướng việt holding', 'hướng việt holdings; chủ đầu tư hướng việt là ai', 'Search Console – đang xếp hạng (17 nhấp, 449 hiển thị)')}
+# Decisions at gate 2 (2026-11-04): two Privé rental posts used to share "cho thuê the prive".
+DECIDED = {
+    '/blog/the-prive/cho-thue-the-prive/': ('cho thuê căn hộ the prive', 'tiềm năng cho thuê the privé', 'chốt cổng 2'),
+    '/blog/the-prive/loi-suat-cho-thue-the-prive/': ('lợi suất cho thuê the prive', 'tỷ suất lợi nhuận cho thuê the privé', 'chốt cổng 2'),
+}
+DRAFT = 'nháp – đề xuất từ tiêu đề, chưa duyệt'
 NO_KEYWORD = ('/chinh-sach-bao-mat/', '/dieu-khoan-su-dung/', '/locations.kml')
 
 
@@ -50,6 +57,12 @@ def gsc_for_slug(slug, queries, names=frozenset()):
     return best
 
 
+def proper_name(name, parent):
+    """Phân khu keyword = its own name: "Khu 1 – Ivy Park" → "ivy park"; a generic name gets the parent's."""
+    n = re.sub(r'\s*\(.*\)', '', name.split('–')[-1]).strip().lower()
+    return n if n not in ('thấp tầng', 'cao tầng') else '%s %s' % (n, parent)
+
+
 def build():
     projects = {r['slug']: r for r in csv.DictReader(open(D('architecture', 'projects.csv')))}
     devs = {r['slug']: r for r in csv.DictReader(open(D('architecture', 'developers.csv')))}
@@ -72,16 +85,16 @@ def build():
     for url, (kw, sec, intent) in FIXED.items():
         add(url, kw, sec, intent, 'quy tắc trang chính')
     for p in projects.values():
-        if p['trang_rieng'] == 'khong':
-            continue
-        name = p['ten'].lower()
         parent = projects[p['cha']]['ten'].lower() if p['cha'] else ''
+        name = proper_name(p['ten'], parent) if p['cap'] == 'phan-khu' else p['ten'].lower()
         if p['cap'] == 'dai-do-thi':
             add(p['url_moi'], name, 'khu đô thị %s; giá %s' % (name, name), 'tổng quan đại đô thị', 'quy tắc đại đô thị')
         elif p['cap'] == 'phan-khu':
             add(p['url_moi'], name, '%s %s; giá %s' % (name, parent, name), 'mua – phân khu', 'quy tắc phân khu')
         else:
             add(p['url_moi'], name, 'giá %s; căn hộ %s' % (name, name), 'mua – dự án', 'quy tắc dự án')
+    for r in csv.DictReader(open(D('architecture', 'lowrise.csv'), encoding='utf-8')):  # "{dòng} {phân khu}"
+        add(r['url_moi'], r['tu_khoa'], 'giá %s' % r['tu_khoa'], 'mua – dòng thấp tầng', 'quy tắc dòng thấp tầng')
     for d in devs.values():
         if d['url_moi'].startswith('/chu-dau-tu/') and d['url_moi'] != '/chu-dau-tu/':
             n = d['ten'].lower()
@@ -95,12 +108,13 @@ def build():
     for u, title in titles.items():
         slug = u.strip('/').split('/')[-1]
         g = gsc_for_slug(slug, queries, names)
-        if u in RANKING:
-            add(u, RANKING[u][0], RANKING[u][1], 'thông tin', RANKING[u][2])
+        if u in RANKING or u in DECIDED:
+            kw, sec, src = RANKING.get(u) or DECIDED[u]
+            add(u, kw, sec, 'thông tin', src)
         elif g:
             add(u, g[0], title_keyword(title), 'thông tin', 'Search Console (%d nhấp, %d hiển thị)' % (g[1], g[2]))
         else:
-            add(u, title_keyword(title), '', 'thông tin', 'đề xuất từ tiêu đề – cần duyệt')
+            add(u, title_keyword(title), '', 'thông tin', DRAFT)
 
     # conflicts: same main keyword on two URLs; a post targeting a project / subzone / developer keyword or "giá {dự án}"
     by_kw = defaultdict(list)

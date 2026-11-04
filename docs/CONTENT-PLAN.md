@@ -184,3 +184,21 @@ Rank Math: title ≤60 ký tự ("Căn hộ {Dự án}: giá, pháp lý, tiến 
 - [ ] Phối cảnh/ảnh thực tế được phép sử dụng (quyền hình ảnh) + chú thích nguồn
 - [ ] Hợp đồng/văn bản xác nhận Velis Realty là đơn vị phân phối (nếu muốn ghi "phân phối" hoặc "độc quyền")
 - [ ] Dữ liệu thị trường so sánh: báo cáo CBRE/Savills/JLL/DKRA (tên báo cáo, quý/năm, trang)
+
+## Bài blog theo loại căn hộ (thêm 2026-11-04, theo brief cập nhật)
+
+Dòng căn hộ (Studio, 1 PN, 2 PN, 3 PN, Duplex, Penthouse…) **không có trang riêng**; là tab trên trang phân khu / dự án độc
+lập, mỗi tab một neo tự sinh. Nội dung chuyên sâu theo loại căn viết thành **một bài blog cho mỗi loại căn chính của mỗi
+phân khu**, nằm trong cụm của đại đô thị / dự án, link về đúng tab. Từ khóa bài: "căn {loại} {phân khu}" (không trùng từ khóa
+trang phân khu "{phân khu}").
+
+| Phân khu / dự án | Loại căn chính (dữ liệu đang có) | Cụm blog | Link về tab |
+|---|---|---|---|
+| The Privé | 1 PN+, 2 PN, 3 PN, Penthouse, Garden Duplex | `the-prive` | `/du-an/the-prive/#can-1pn-plus`, `#can-2pn`, `#can-3pn`, `#penthouse`, `#garden-duplex` |
+| Palm River | Studio, 1 PN+, 2 PN, 3 PN | `palm-city` | `/du-an/palm-city/palm-river/#studio`, `#can-1pn-plus`, `#can-2pn`, `#can-3pn` |
+| Persa Place | 1 PN, 1 PN+, 2 PN, 3 PN | `spring-ville` | `/du-an/spring-ville/persa-place/#can-1pn`, `#can-1pn-plus`, `#can-2pn`, `#can-3pn` |
+| Ansana by Kita | Studio, 1 PN, 2 PN, 2 PN+1, 3 PN | `ansana-by-kita` | `/du-an/ansana-by-kita/#studio`, `#can-1pn`, `#can-2pn`, `#can-2pn-plus-1`, `#can-3pn` |
+| Masteri Grand View, Lumière Midtown, Masteri Cosmo Central, Masteri Park Place | 1 PN – 4 PN, Duplex, Penthouse (site chỉ ghi khoảng) | `the-global-city` | tạo dòng căn hộ trong form trước, rồi mới viết bài |
+
+Bài đã có trên site nói về một loại căn (ví dụ `/blog/spring-ville/can-ho-1pn-persa-place-dau-tu/`) giữ nguyên URL, chỉ thêm
+link về tab. Neo xem trong form "Dòng căn hộ" (ô "Neo (#)").

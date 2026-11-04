@@ -51,6 +51,14 @@ class RealData(unittest.TestCase):
         self.assertEqual(self.m['/can-ho-spring-ville/'], '/du-an/spring-ville/')
         self.assertEqual(self.m['/blog-bds/palm-city/'], '/blog/palm-city/')
 
+    def test_unattached_media_gone(self):
+        gone = [k for k, v in self.m.items() if v == u.GONE]
+        self.assertEqual(len(gone), 43)  # media with post == 0; the other 2 media → "/" are attached to the home page
+        self.assertTrue(all(self.kind[k] == 'trang ảnh đính kèm' for k in gone))
+
+    def test_collapse_keeps_gone(self):
+        self.assertEqual(u.collapse({'/a/': u.GONE}), {'/a/': u.GONE})
+
     def test_slug_tail_kept(self):
         for r in self.rows:
             self.assertEqual(r['url_cu'].strip('/').split('/')[-1], r['url_moi'].strip('/').split('/')[-1])

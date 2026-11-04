@@ -19,9 +19,33 @@
 			if (e.target.matches('[data-line-down]') && card.nextElementSibling) card.before(card.nextElementSibling);
 			if (e.target.closest('[data-line-remove],[data-line-up],[data-line-down]')) { e.preventDefault(); renumber(); }
 		});
-		list.addEventListener('input', (e) => { // keep the card title in sync with "Tên dòng"
-			if (e.target.name?.endsWith('[name]')) e.target.closest('.velis-line').querySelector('.velis-line__title').textContent = e.target.value || 'Dòng mới';
+		// Collapsed-row summary "tên · diện tích · giá" (mirrors velis_line_summary() in PHP).
+		const num = (v) => (v === '' ? '' : (+v).toLocaleString('vi-VN', { maximumFractionDigits: 2 }));
+		const range = (f, t, u) => { f = num(f); t = num(t); return f && t && f !== t ? `${f}–${t} ${u}` : f ? (t ? `${f} ${u}` : `từ ${f} ${u}`) : t ? `đến ${t} ${u}` : ''; };
+		list.addEventListener('input', (e) => {
+			const card = e.target.closest('.velis-line');
+			if (!card) return;
+			const v = (k) => card.querySelector(`[name$="[${k}]"]`)?.value ?? '';
+			const unit = card.querySelector('[name$="[price_unit]"]');
+			const price = range(v('price_from'), v('price_to'), unit?.value ? unit.selectedOptions[0].text : '').trim();
+			card.querySelector('.velis-line__title').textContent = [v('name') || 'Dòng mới', range(v('net_from'), v('net_to'), 'm²') || range(v('gross_from'), v('gross_to'), 'm²'), price].filter(Boolean).join(' · ');
 		});
+	}
+
+	// Level decides which boxes apply; hidden boxes are disabled so their inputs are not submitted.
+	const level = document.querySelector('[data-level]');
+	if (level) {
+		const sync = () => {
+			const low = level.value === 'thap-tang';
+			[['velis-project', !low], ['velis-lines', !low], ['velis-lowrise', low]].forEach(([id, on]) => {
+				const el = document.getElementById(id);
+				if (!el) return;
+				el.hidden = !on;
+				el.querySelectorAll('input, select, textarea, button').forEach((i) => (i.disabled = !on));
+			});
+		};
+		level.addEventListener('change', sync);
+		sync();
 	}
 
 	document.addEventListener('click', (e) => {

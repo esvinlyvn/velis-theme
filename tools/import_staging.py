@@ -1,9 +1,9 @@
-"""Import data/architecture/*.csv into STAGING (never the live site): developers, projects (parents first), product lines,
-taxonomies; blog clusters (new top-level categories) + post → project relations from data/blog-clusters.csv.
-Idempotent: existing items are matched by slug and updated.  Usage: python3 -I tools/import_staging.py [--blog]
+"""Import data/architecture/*.csv into STAGING (never the live site): developers, projects (parents first) with apartment
+lines and facts copied from the live pages (project-facts.csv), dòng thấp tầng records (lowrise.csv), taxonomies; blog clusters (new top-level categories) + post → project relations from data/blog-clusters.csv.
+Idempotent: existing items are matched by slug (+ parent for projects) and updated; nothing is deleted.  Usage: python3 -I tools/import_staging.py [--blog]
 Credentials come from the environment and are passed to curl on stdin.
 """
-import csv, json, os, re, subprocess, sys
+import csv, json, os, subprocess, sys
 
 BASE = 'https://staging.velisrealty.vn/wp-json/wp/v2/'
 assert 'staging.' in BASE  # writes only on staging
@@ -34,44 +34,56 @@ def upsert(rest, slug, body):
     return res['id']
 
 
-def num(s):
-    m = re.search(r'[\d.,]+', s or '')
-    return m.group(0).replace(',', '.') if m else ''
+def by_path(rest, slug, parent):
+    """Hierarchical slugs are unique only among siblings (two phân khu can both have "nha-pho")."""
+    found = api('GET', '%s?slug=%s&parent=%d&status=any&_fields=id' % (rest, slug, parent))
+    return found[0]['id'] if found else None
+
+
+def upsert_child(rest, slug, parent, body):
+    pid = by_path(rest, slug, parent)
+    return api('POST', '%s/%d' % (rest, pid) if pid else rest, dict(body, slug=slug, parent=parent))['id']
 
 
 def main(with_blog):
     terms = {t: {x['slug']: x['id'] for x in api('GET', t + '?per_page=100&_fields=id,slug')} for t in ('khu-vuc', 'loai-san-pham')}
     dev_ids = {}
-    for d in csv.DictReader(open(D('architecture', 'developers.csv'))):
-        if not d['url_moi'].startswith('/chu-dau-tu/') or d['url_moi'] == '/chu-dau-tu/':
-            continue
-        dev_ids[d['slug']] = upsert('chu-dau-tu', d['slug'], {'title': d['ten'], 'status': 'publish',
+    for d in csv.DictReader(open(D('architecture', 'developers.csv'), encoding='utf-8')):
+        if d['url_moi'] == '/chu-dau-tu/':
+            continue  # no record (e.g. Ecopark: empty category → developer index)
+        status = 'publish' if d['url_moi'] else 'draft'  # no URL = record without a public page (Hướng Việt Holdings)
+        dev_ids[d['slug']] = upsert('chu-dau-tu', d['slug'], {'title': d['ten'], 'status': status,
                                     'meta': {'velis_sources': 'Nhập từ data/architecture/developers.csv. ' + d['ghi_chu']}})
+    # Apartment lines: numbers only; prices on the live site are all "dự kiến/Rumor" → never imported (brief).
+    # Type and anchor are filled by the plugin (velis_clean_lines) from the line name.
     lines = {}
-    for r in csv.DictReader(open(D('architecture', 'product-lines.csv'))):
-        low = r['dong'].lower()
-        kind = next((t for k, t in (('shophouse', 'shophouse'), ('nhà phố', 'nha-pho'), ('biệt thự', 'biet-thu'), ('dinh thự', 'dinh-thu'),
-                                    ('căn', 'can-ho'), ('studio', 'can-ho'), ('penthouse', 'can-ho'), ('duplex', 'can-ho')) if k in low), '')
-        if ',' in r['dong']:
-            kind = ''  # a row naming several types is a summary, not one line
-        lines.setdefault(r['du_an'], []).append({'name': r['dong'], 'type': kind, 'beds': num(r['phong_ngu']) if r['phong_ngu'] else '',
-                                                  'net': r['dt_thong_thuy'], 'gross': r['dt_tim_tuong'], 'source': ''})
-    projects = list(csv.DictReader(open(D('architecture', 'projects.csv'))))
+    for r in csv.DictReader(open(D('architecture', 'product-lines.csv'), encoding='utf-8')):
+        lines.setdefault(r['du_an'], []).append({'name': r['dong'], 'beds': r['phong_ngu'], 'net_from': r['tt_tu'], 'net_to': r['tt_den'],
+                                                  'gross_from': r['tim_tu'], 'gross_to': r['tim_den']})
+    facts = {}
+    for r in csv.DictReader(open(D('architecture', 'project-facts.csv'), encoding='utf-8')):
+        facts.setdefault(r['du_an'], {})[r['truong']] = r['gia_tri']
+        facts[r['du_an']]['velis_source_url'] = 'https://velisrealty.vn' + r['nguon']
+    projects = list(csv.DictReader(open(D('architecture', 'projects.csv'), encoding='utf-8')))
     ids = {}
     for r in sorted(projects, key=lambda r: bool(r['cha'])):  # parents first
         regions = [terms['khu-vuc'][s] for s in (r['vung'], r['tieu_khu']) if s]
         body = {
-            'title': r['ten'], 'status': 'publish', 'parent': ids.get(r['cha'], 0),
+            'title': r['ten'], 'status': 'publish',
             'khu-vuc': regions, 'loai-san-pham': [terms['loai-san-pham'][s] for s in r['loai_sp'].split('|') if s],
-            'meta': {
-                'velis_level': r['cap'], 'velis_own_page': 'khong' if r['trang_rieng'] == 'khong' else 'co',
+            'meta': dict({
+                'velis_level': r['cap'],
                 'velis_developers': [dev_ids[s] for s in r['chu_dau_tu'].split('|') if s in dev_ids],
                 'velis_lines': lines.get(r['slug'], []),
-            },
+            }, **facts.get(r['slug'], {})),
         }
-        slug = r['url_moi'].rstrip('/').split('/')[-1] if r['trang_rieng'] != 'khong' else r['url_moi'].split('#')[-1]
-        ids[r['slug']] = upsert('du-an', slug, body)
+        ids[r['slug']] = upsert_child('du-an', r['url_moi'].rstrip('/').split('/')[-1], ids.get(r['cha'], 0), body)
         print('dự án', r['slug'], '→', ids[r['slug']])
+    for r in csv.DictReader(open(D('architecture', 'lowrise.csv'), encoding='utf-8')):
+        body = {'title': r['ten'], 'status': 'publish', 'loai-san-pham': [terms['loai-san-pham'][r['loai']]],
+                'khu-vuc': [], 'meta': {'velis_level': 'thap-tang', 'velis_source_url': 'https://velisrealty.vn' + r['nguon']}}
+        ids[r['key']] = upsert_child('du-an', r['slug'], ids[r['cha']], body)
+        print('thấp tầng', r['key'], '→', ids[r['key']])
     if with_blog:
         cat_ids = {}
         for r in csv.DictReader(open(D('blog-clusters.csv'))):

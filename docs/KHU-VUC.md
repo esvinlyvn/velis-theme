@@ -32,7 +32,7 @@ Thẻ chỉ hiện cấp cụ thể nhất (có Tiểu khu thì hiện Tiểu kh
 | Trung tâm | – |
 | Khu Đông | Thủ Thiêm · Thảo Điền – An Phú · Nam Rạch Chiếc |
 | Khu Nam | Nam Sài Gòn |
-| Khu Tây | – (Ansana by Kita, Bình Tân cũ) |
+| Khu Tây (đã duyệt cổng 2) | – (Ansana by Kita, Bình Tân cũ) |
 | Tây Bắc | – |
 | Vùng vệ tinh | Bình Dương · Nhơn Trạch – Long Thành |
 

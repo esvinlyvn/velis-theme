@@ -63,3 +63,16 @@ Kiểm chứng: `/robots.txt` trả `User-agent: * / Disallow: /`; `/sitemap_ind
 | Permalink | `/blog/%category%/%postname%/`, tiền tố chuyên mục `blog` (khối WordPress trong .htaccess không đổi nội dung) |
 | Bài viết | tạo 7 chuyên mục cụm; 102 bài chuyển sang đúng 1 cụm + trường "dự án liên quan" |
 | Theme velis | 0.4.5 → 0.5.0 (menu và listing dự án lấy từ dữ liệu) |
+
+## 2026-11-04 – Giai đoạn 2, vòng sửa (phân khu & dòng sản phẩm)
+
+| Mục | Thay đổi |
+|---|---|
+| Plugin `velis-data` | 0.1.0 → 0.2.3 (tải lại qua wp-admin): cấp "Dòng thấp tầng", bỏ redirect phân khu → neo, noindex tự động khi thiếu dữ liệu, dòng căn hộ dạng số, trạng thái chọn một, block editor cho Dự án / Chủ đầu tư / bài viết |
+| Classic Editor | **tắt** (plugin inactive, REST) |
+| Dữ liệu | 19 dự án cập nhật tại chỗ (cùng ID); tạo 16 bản ghi dòng thấp tầng (ID 20762–20777); chép dữ kiện từ trang thật (`project-facts.csv`) |
+| Hướng Việt Holdings (chủ đầu tư, ID 20711) | publish → **nháp** (không xóa) |
+| Thử lưu | sửa ô "Hướng" dòng 1 của Persa Place trong block editor → REST thấy giá trị → nhập lại để trả về trống |
+
+Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng thấp tầng) trả 200 với phiên đăng nhập
+(`data/architecture/url-samples-staging.json`); 29 trang thiếu dữ liệu có `follow, noindex`.

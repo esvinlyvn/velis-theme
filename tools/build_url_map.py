@@ -48,6 +48,9 @@ def is_app(p):
     return any(p == a + '/' or p.startswith(a + '/') or p.startswith(a + '.') for a in APPS)
 
 
+GONE = '410'  # target meaning "content removed": no redirect, answer 410 Gone
+
+
 def relation(slug, cluster):
     """Most specific project a post talks about: keyword in slug wins, else the cluster's project."""
     for key, proj in RELATION_KEYS:
@@ -137,11 +140,12 @@ def build():
             put(old, old, 'tác giả')
         else:
             put(old, old, 'khác', 'giữ nguyên')
-    # attachments: Rank Math sends attachment pages to the parent; unattached -> home
+    # attachments: Rank Math sends attachment pages to the parent; unattached ones have no parent to go to -> 410
+    # (a 301 to the home page would be a soft 404)
     post_new = {p['id']: m[path(p['link'])] for p in inv('posts') + inv('pages') if path(p['link']) in m}
     for a in inv('media'):
         parent = post_new.get(a['post'])
-        put(a['link'], parent or '/', 'trang ảnh đính kèm', '' if parent else 'ảnh không gắn bài -> trang chủ (cần xác minh)')
+        put(a['link'], parent or GONE, 'trang ảnh đính kèm', '' if parent else 'ảnh không gắn bài -> 410')
     # old Rank Math redirects + GSC URLs not seen elsewhere
     for r in csv.DictReader(open(D('inventory', 'rankmath-redirects.csv'))):
         put(r['tu'], m.get(path(r['toi']), path(r['toi'])), 'redirect cũ Rank Math', 'gộp vào ma trận, 1 bước')
@@ -165,7 +169,7 @@ def validate(m):
             errs.append('ứng dụng bị đụng: ' + k)
         if k != v and v in srcs:
             errs.append('chuỗi redirect: %s -> %s' % (k, v))
-        if not v.startswith('/') or ' ' in v:
+        if v != GONE and (not v.startswith('/') or ' ' in v):
             errs.append('đích sai: %s -> %s' % (k, v))
     return errs
 
@@ -182,14 +186,16 @@ def main():
         w.writerow(['url_cu', 'url_moi', 'hanh_dong', 'loai', 'gsc_nhap', 'gsc_hien_thi', 'uu_tien', 'ghi_chu'])
         for k in sorted(m, key=lambda k: (-gsc.get(k, (0, 0))[0], k)):
             c, i = gsc.get(k, (0, 0))
-            w.writerow([k, m[k], '301' if k != m[k] else 'giữ nguyên', kind[k], c, i, 'cao' if c > 0 else '', note.get(k, '')])
+            act = '410' if m[k] == GONE else '301' if k != m[k] else 'giữ nguyên'
+            w.writerow([k, '' if m[k] == GONE else m[k], act, kind[k], c, i, 'cao' if c > 0 else '', note.get(k, '')])
     with open(D('blog-clusters.csv'), 'w', newline='') as f:
         w = csv.DictWriter(f, ['url_cu', 'url_moi', 'cum', 'du_an_lien_quan', 'cach_gan', 'tieu_de'])
         w.writeheader()
         w.writerows(sorted(rows, key=lambda r: (r['cum'], r['url_cu'])))
-    n301 = sum(1 for k in m if k != m[k])
-    print('URL cũ: %d · 301: %d · giữ nguyên: %d · có lượt nhấp GSC: %d · bài gán cụm: %d · lỗi: %d'
-          % (len(m), n301, len(m) - n301, sum(1 for k in m if gsc.get(k, (0,))[0] > 0), len(rows), len(errs)))
+    n301 = sum(1 for k in m if k != m[k] and m[k] != GONE)
+    n410 = sum(1 for k in m if m[k] == GONE)
+    print('URL cũ: %d · 301: %d · 410: %d · giữ nguyên: %d · có lượt nhấp GSC: %d · bài gán cụm: %d · lỗi: %d'
+          % (len(m), n301, n410, len(m) - n301 - n410, sum(1 for k in m if gsc.get(k, (0,))[0] > 0), len(rows), len(errs)))
     for e in errs:
         print('  ' + e)
     return 1 if errs else 0

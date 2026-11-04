@@ -1,0 +1,17 @@
+key,cha,slug,ten,dong,loai,url_moi,tu_khoa,nguon,ghi_chu
+vsp-ivy-park/nha-pho,vsp-ivy-park,nha-pho,Nhà phố Ivy Park,Nhà phố,nha-pho,/du-an/vinhomes-saigon-park/ivy-park/nha-pho/,nhà phố ivy park,/vinhomes-saigon-park/,loại SP theo bài VSP
+vsp-ivy-park/shophouse,vsp-ivy-park,shophouse,Shophouse Ivy Park,Shophouse,shophouse,/du-an/vinhomes-saigon-park/ivy-park/shophouse/,shophouse ivy park,/vinhomes-saigon-park/,
+vsp-global-park/shophouse,vsp-global-park,shophouse,Shophouse Global Park,Shophouse,shophouse,/du-an/vinhomes-saigon-park/global-park/shophouse/,shophouse global park,/vinhomes-saigon-park/,
+vsp-global-park/nha-pho,vsp-global-park,nha-pho,Nhà phố Global Park,Nhà phố,nha-pho,/du-an/vinhomes-saigon-park/global-park/nha-pho/,nhà phố global park,/vinhomes-saigon-park/,
+vsp-laguna-park/biet-thu,vsp-laguna-park,biet-thu,Biệt thự Laguna Park,Biệt thự,biet-thu,/du-an/vinhomes-saigon-park/laguna-park/biet-thu/,biệt thự laguna park,/vinhomes-saigon-park/,
+vsp-zen-park/biet-thu,vsp-zen-park,biet-thu,Biệt thự Zen Park,Biệt thự,biet-thu,/du-an/vinhomes-saigon-park/zen-park/biet-thu/,biệt thự zen park,/vinhomes-saigon-park/,
+vsp-zen-park/nha-pho,vsp-zen-park,nha-pho,Nhà phố Zen Park,Nhà phố,nha-pho,/du-an/vinhomes-saigon-park/zen-park/nha-pho/,nhà phố zen park,/vinhomes-saigon-park/,
+vsp-golf-park/biet-thu,vsp-golf-park,biet-thu,Biệt thự Golf Park,Biệt thự,biet-thu,/du-an/vinhomes-saigon-park/golf-park/biet-thu/,biệt thự golf park,/vinhomes-saigon-park/,
+vsp-golf-park/dinh-thu,vsp-golf-park,dinh-thu,Dinh thự Golf Park,Dinh thự,dinh-thu,/du-an/vinhomes-saigon-park/golf-park/dinh-thu/,dinh thự golf park,/vinhomes-saigon-park/,
+tgc-thap-tang/shophouse-soho,tgc-thap-tang,shophouse-soho,Shophouse SOHO The Global City,Shophouse SOHO,shophouse,/du-an/the-global-city/thap-tang/shophouse-soho/,shophouse soho the global city,/the-global-city/,tên phân khu thấp tầng cần xác minh
+tgc-thap-tang/biet-thu-dinh-thu-ven-song,tgc-thap-tang,biet-thu-dinh-thu-ven-song,Biệt thự & dinh thự ven sông The Global City,Biệt thự & dinh thự ven sông,biet-thu,/du-an/the-global-city/thap-tang/biet-thu-dinh-thu-ven-song/,biệt thự ven sông the global city,/the-global-city/,site gộp biệt thự và dinh thự
+palm-river/shophouse,palm-river,shophouse,Shophouse Palm River,Shophouse,shophouse,/du-an/palm-city/palm-river/shophouse/,shophouse palm river,/can-ho-palm-river/,117 căn TMDV + shophouse
+persa-place/shophouse-khoi-de,persa-place,shophouse-khoi-de,Shophouse khối đế Persa Place,Shophouse khối đế,shophouse,/du-an/spring-ville/persa-place/shophouse-khoi-de/,shophouse khối đế persa place,/can-ho-persa-place/,9 căn; bàn giao thô
+ansana-by-kita/shophouse-khoi-de,ansana-by-kita,shophouse-khoi-de,Shophouse khối đế Ansana by Kita,Shophouse khối đế,shophouse,/du-an/ansana-by-kita/shophouse-khoi-de/,shophouse khối đế ansana by kita,/ansana-by-kita/,dự án độc lập → /du-an/{du-an}/{dong}/
+spring-ville/nha-pho,spring-ville,nha-pho,Nhà phố Spring Ville,Nhà phố,nha-pho,/du-an/spring-ville/nha-pho/,nhà phố spring ville,/spring-ville/,gắn tạm vào đại đô thị: chưa có tên phân khu thấp tầng
+spring-ville/shophouse,spring-ville,shophouse,Shophouse Spring Ville,Shophouse,shophouse,/du-an/spring-ville/shophouse/,shophouse spring ville,/spring-ville/,như trên

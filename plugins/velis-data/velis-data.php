@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Velis Data
- * Description: Mô hình dữ liệu Velis: Chủ đầu tư, Dự án (đại đô thị → phân khu, dự án độc lập), dòng sản phẩm, loại sản phẩm, khu vực 2 cấp, trạng thái. Form nhập liệu trong wp-admin.
- * Version: 0.1.0
+ * Description: Mô hình dữ liệu Velis: Chủ đầu tư, Dự án (đại đô thị → phân khu → dòng thấp tầng, dự án độc lập), dòng căn hộ, loại sản phẩm, khu vực 2 cấp, trạng thái. Form nhập liệu trong wp-admin.
+ * Version: 0.2.3
  * Author: Velis Realty
  * Requires PHP: 8.0
  *
@@ -33,7 +33,7 @@ function velis_register() {
 	register_post_type( VELIS_CPT_PROJECT, array(
 		'labels'       => array( 'name' => 'Dự án', 'singular_name' => 'Dự án', 'add_new_item' => 'Thêm dự án / phân khu', 'edit_item' => 'Sửa dự án', 'all_items' => 'Tất cả dự án', 'parent_item_colon' => 'Thuộc đại đô thị:' ),
 		'public'       => true,
-		'hierarchical' => true, // phân khu = trang con của đại đô thị → /du-an/{dai-do-thi}/{phan-khu}/
+		'hierarchical' => true, // /du-an/{dai-do-thi}/{phan-khu}/{dong-thap-tang}/
 		'has_archive'  => 'du-an',
 		'rewrite'      => array( 'slug' => 'du-an', 'with_front' => false ),
 		'menu_icon'    => 'dashicons-location-alt',
@@ -99,19 +99,15 @@ function velis_seed_terms() {
 	}
 }
 
-// Phân khu without its own page: send visitors to the anchored section of the đại đô thị; keep it out of the sitemap.
-add_action( 'template_redirect', function () {
-	if ( is_singular( VELIS_CPT_PROJECT ) && velis_is_section( get_queried_object() ) ) {
-		$p = get_queried_object();
-		wp_safe_redirect( get_permalink( $p->post_parent ) . '#' . $p->post_name, 301 );
-		exit;
-	}
-} );
-add_filter( 'rank_math/sitemap/entry', fn( $url, $type, $object ) => ( 'post' === $type && $object instanceof WP_Post && velis_is_section( $object ) ) ? false : $url, 10, 3 );
-
-function velis_is_section( $post ): bool {
-	return $post && $post->post_parent && 'khong' === get_post_meta( $post->ID, 'velis_own_page', true );
+// Every phân khu and dòng thấp tầng has its own page. Pages missing minimum data stay noindex (and out of the
+// sitemap) until filled in – brief "Trang thiếu dữ liệu".
+function velis_is_noindex( $post ): bool {
+	return $post instanceof WP_Post && VELIS_CPT_PROJECT === $post->post_type && (bool) velis_missing( $post );
 }
+add_filter( 'wp_robots', fn( $r ) => is_singular( VELIS_CPT_PROJECT ) && velis_is_noindex( get_queried_object() ) ? array_merge( $r, array( 'noindex' => true, 'follow' => true ) ) : $r );
+add_filter( 'rank_math/frontend/robots', fn( $r ) => is_singular( VELIS_CPT_PROJECT ) && velis_is_noindex( get_queried_object() ) ? array_merge( $r, array( 'index' => 'noindex', 'follow' => 'follow' ) ) : $r );
+add_filter( 'rank_math/sitemap/entry', fn( $url, $type, $object ) => ( 'post' === $type && velis_is_noindex( $object ) ) ? false : $url, 10, 3 );
+add_action( 'rest_api_init', fn() => register_rest_field( VELIS_CPT_PROJECT, 'velis_missing', array( 'get_callback' => fn( $p ) => velis_missing( $p['id'] ) ) ) );
 
 /**
  * Header menu data: Chủ đầu tư → dự án (top-level projects only; phân khu are reached from their đại đô thị).
