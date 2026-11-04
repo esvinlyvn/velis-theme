@@ -591,3 +591,8 @@ function velis_strip_dup_image( string $html, int $thumb ): string {
 	}
 	return $html;
 }
+
+/** The first image of a block above the fold is the page's LCP: load it now, not lazily. */
+function velis_first_eager( string $html ): string {
+	return preg_replace( '/loading="lazy"/', 'loading="eager" fetchpriority="high"', $html, 1 );
+}

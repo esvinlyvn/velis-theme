@@ -4,12 +4,12 @@
 |---|---|---|---|---|---|
 | 360 | không | 0 | 0 | 0 | 0 |
 | 390 | không | 0 | 0 | 0 | 0 |
-| 430 | không | 0 | 0 | 0 | 0.014964581781431686 |
+| 430 | không | 0 | 0 | 0 | 0.01127399425417878 |
 | 600 | không | 0 | 0 | 0 | 0 |
 | 768 | không | 0 | 0 | 0 | 0 |
 | 1023 | không | 0 | 0 | 0 | 0 |
 | 1024 | không | 0 | 0 | 0 | 0.00007304953204260932 |
-| 1100 | không | 0 | 0 | 0 | 0.00006198542240587696 |
+| 1100 | không | 0 | 0 | 0 | 0 |
 | 1180 | không | 0 | 0 | 0 | 0.00005746283395575984 |
 | 1280 | không | 0 | 0 | 0 | 0 |
 | 1366 | không | 0 | 0 | 0 | 0 |
@@ -18,10 +18,10 @@
 Không có lỗi.
 
 ## Tương phản chữ trên ảnh hero (nền sáng nhất phân vị 98)
-- 360px: VELIS REALTY · TƯ … 7.46 · Chọn đúng dự án bằ… 10.23 · Velis đồng hành cù… 9.05
-- 390px: VELIS REALTY · TƯ … 7.41 · Chọn đúng dự án bằ… 10.25 · Velis đồng hành cù… 9.05
-- 430px: VELIS REALTY · TƯ … 7.62 · Chọn đúng dự án bằ… 10.5 · Velis đồng hành cù… 9.41
-- 600px: VELIS REALTY · TƯ … 7.71 · Chọn đúng dự án bằ… 11.74 · Velis đồng hành cù… 9.54
+- 360px: VELIS REALTY · TƯ … 13.5 · Chọn đúng dự án bằ… 18.42 · Velis đồng hành cù… 15.59
+- 390px: VELIS REALTY · TƯ … 13.5 · Chọn đúng dự án bằ… 18.42 · Velis đồng hành cù… 15.59
+- 430px: VELIS REALTY · TƯ … 13.5 · Chọn đúng dự án bằ… 18.42 · Velis đồng hành cù… 15.59
+- 600px: VELIS REALTY · TƯ … 13.5 · Chọn đúng dự án bằ… 18.42 · Velis đồng hành cù… 15.59
 - 768px: VELIS REALTY · TƯ … 7.69 · Chọn đúng dự án bằ… 10.72 · Velis đồng hành cù… 9.53
 - 1023px: VELIS REALTY · TƯ … 7.34 · Chọn đúng dự án bằ… 11.6 · Velis đồng hành cù… 10.26
 - 1024px: VELIS REALTY · TƯ … 9.32 · Chọn đúng dự án bằ… 13.87 · Velis đồng hành cù… 12.49
