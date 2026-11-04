@@ -1,9 +1,12 @@
 # Ghi chú chuyển tiếp giữa các giai đoạn
 
-## Giai đoạn 3 – chờ duyệt (Cổng 3)
+## Giai đoạn 3 hoàn tất – đã merge vào main
 
-Template cho mọi loại trang trên staging (theme 0.6.x, plugin velis-data 0.2.4). Tài liệu `docs/TEMPLATES.md`; báo cáo
-`docs/reports/{onpage,schema,lighthouse}-giai-doan-3.md`; ảnh `screenshots/phase3/` (390 và 1366 px, kèm báo cáo 9 khung).
+Đã merge vào `main` (merge thường `--no-ff`, commit 23f12bb) ngày 2026-11-04 sau 3 vòng duyệt (PR esvinlyvn/velis-theme#3).
+Bàn giao: theme `velis` 0.8.x (template mọi loại trang, `inc/{data,ui,seo}.php`, CSS rút gọn `assets/velis.min.css`), plugin
+`velis-data` 0.2.6, công cụ `tools/check_onpage.mjs`, `check_schema.mjs`, `check_ui.mjs` (12 khung), `build_css.py`,
+`build_static_map.py`, `staging_fill.py`; tài liệu `docs/TEMPLATES.md`; báo cáo `docs/reports/*-giai-doan-3.md`.
+Giai đoạn 4 (chuyển nội dung) bắt đầu trên nhánh `claude/upbeat-fermat-04eevu` (tạo lại từ main).
 
 ## Giai đoạn 2 hoàn tất – đã merge vào main
 
