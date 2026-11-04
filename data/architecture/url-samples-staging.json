@@ -1,0 +1,247 @@
+[
+ {
+  "cap": "dai-do-thi",
+  "url": "/du-an/vinhomes-saigon-park/",
+  "status": 200,
+  "robots": "nofollow, noindex",
+  "title": "Vinhomes Saigon Park - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "phan-khu",
+  "url": "/du-an/vinhomes-saigon-park/ivy-park/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Khu 1 – Ivy Park - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "phan-khu",
+  "url": "/du-an/vinhomes-saigon-park/global-park/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Khu 2 – Global Park - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "phan-khu",
+  "url": "/du-an/vinhomes-saigon-park/laguna-park/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Khu 3 – Laguna Park - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "phan-khu",
+  "url": "/du-an/vinhomes-saigon-park/zen-park/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Khu 4 – Zen Park - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "phan-khu",
+  "url": "/du-an/vinhomes-saigon-park/golf-park/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Khu 5 – Golf Park - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "dai-do-thi",
+  "url": "/du-an/the-global-city/",
+  "status": 200,
+  "robots": "nofollow, noindex",
+  "title": "The Global City - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "phan-khu",
+  "url": "/du-an/the-global-city/masteri-grand-view/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Masteri Grand View - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "phan-khu",
+  "url": "/du-an/the-global-city/lumiere-midtown/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Lumière Midtown - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "phan-khu",
+  "url": "/du-an/the-global-city/masteri-cosmo-central/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Masteri Cosmo Central - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "phan-khu",
+  "url": "/du-an/the-global-city/masteri-park-place/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Masteri Park Place - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "phan-khu",
+  "url": "/du-an/the-global-city/thap-tang/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Thấp tầng (SOHO; biệt thự &amp; dinh thự) - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "du-an",
+  "url": "/du-an/the-prive/",
+  "status": 200,
+  "robots": "nofollow, noindex",
+  "title": "The Privé - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "dai-do-thi",
+  "url": "/du-an/palm-city/",
+  "status": 200,
+  "robots": "nofollow, noindex",
+  "title": "Palm City - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "phan-khu",
+  "url": "/du-an/palm-city/palm-river/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Palm River - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "dai-do-thi",
+  "url": "/du-an/spring-ville/",
+  "status": 200,
+  "robots": "nofollow, noindex",
+  "title": "Spring Ville - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "phan-khu",
+  "url": "/du-an/spring-ville/persa-place/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Persa Place - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "du-an",
+  "url": "/du-an/ansana-by-kita/",
+  "status": 200,
+  "robots": "nofollow, noindex",
+  "title": "Ansana by Kita - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "phan-khu",
+  "url": "/du-an/ansana-by-kita/stella-69/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Stella 69 - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "thap-tang",
+  "url": "/du-an/vinhomes-saigon-park/ivy-park/nha-pho/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Nhà phố Ivy Park - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "thap-tang",
+  "url": "/du-an/vinhomes-saigon-park/ivy-park/shophouse/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Shophouse Ivy Park - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "thap-tang",
+  "url": "/du-an/vinhomes-saigon-park/global-park/shophouse/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Shophouse Global Park - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "thap-tang",
+  "url": "/du-an/vinhomes-saigon-park/global-park/nha-pho/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Nhà phố Global Park - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "thap-tang",
+  "url": "/du-an/vinhomes-saigon-park/laguna-park/biet-thu/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Biệt thự Laguna Park - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "thap-tang",
+  "url": "/du-an/vinhomes-saigon-park/zen-park/biet-thu/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Biệt thự Zen Park - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "thap-tang",
+  "url": "/du-an/vinhomes-saigon-park/zen-park/nha-pho/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Nhà phố Zen Park - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "thap-tang",
+  "url": "/du-an/vinhomes-saigon-park/golf-park/biet-thu/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Biệt thự Golf Park - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "thap-tang",
+  "url": "/du-an/vinhomes-saigon-park/golf-park/dinh-thu/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Dinh thự Golf Park - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "thap-tang",
+  "url": "/du-an/the-global-city/thap-tang/shophouse-soho/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Shophouse SOHO The Global City - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "thap-tang",
+  "url": "/du-an/the-global-city/thap-tang/biet-thu-dinh-thu-ven-song/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Biệt thự &amp; dinh thự ven sông The Global City - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "thap-tang",
+  "url": "/du-an/palm-city/palm-river/shophouse/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Shophouse Palm River - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "thap-tang",
+  "url": "/du-an/spring-ville/persa-place/shophouse-khoi-de/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Shophouse khối đế Persa Place - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "thap-tang",
+  "url": "/du-an/ansana-by-kita/shophouse-khoi-de/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Shophouse khối đế Ansana by Kita - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "thap-tang",
+  "url": "/du-an/spring-ville/nha-pho/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Nhà phố Spring Ville - Velis Realty (STAGING)"
+ },
+ {
+  "cap": "thap-tang",
+  "url": "/du-an/spring-ville/shophouse/",
+  "status": 200,
+  "robots": "follow, noindex",
+  "title": "Shophouse Spring Ville - Velis Realty (STAGING)"
+ }
+]

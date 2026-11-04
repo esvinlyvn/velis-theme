@@ -17,11 +17,11 @@ $more  = fn( $t ) => '<span class="v-card__link" aria-hidden="true">' . esc_html
 $price = fn( $p ) => '' === $p ? '<p class="v-price is-missing">Giá: chưa công bố</p>' : '<p class="v-price">Giá từ ' . esc_html( $p ) . '</p>';
 
 // Regions: Vùng → Tiểu khu. Cards show the most specific level; filters accept both.
-$regions = array(
-	'khu-dong' => array( 'Khu Đông', array( 'thu-thiem' => 'Thủ Thiêm', 'thao-dien-an-phu' => 'Thảo Điền – An Phú', 'nam-rach-chiec' => 'Nam Rạch Chiếc' ) ),
-	'tay-bac'  => array( 'Tây Bắc', array() ),
-	've-tinh'  => array( 'Vùng vệ tinh', array( 'nhon-trach-long-thanh' => 'Nhơn Trạch – Long Thành' ) ),
-);
+$terms   = fn( $tax, $args = array() ) => ( $t = get_terms( array( 'taxonomy' => $tax, 'hide_empty' => false, 'orderby' => 'term_id' ) + $args ) ) instanceof WP_Error ? array() : $t;
+$regions = array();
+foreach ( $terms( 'khu-vuc', array( 'parent' => 0 ) ) as $vung ) {
+	$regions[ $vung->slug ] = array( $vung->name, wp_list_pluck( $terms( 'khu-vuc', array( 'parent' => $vung->term_id ) ), 'name', 'slug' ) );
+}
 $region_label = function ( $slugs ) use ( $regions ) {
 	foreach ( array_reverse( $slugs ) as $s ) { // most specific first
 		foreach ( $regions as $k => list( $vung, $subs ) ) {
@@ -37,12 +37,23 @@ $prive = array(
 	'img' => '2026/04/can-ho-the-prive.webp', 'url' => '/can-ho-the-prive/', 'updated' => '09/04/2026', 'types' => array( 'can-ho' ),
 	'address' => 'Khu dân cư Nam Rạch Chiếc, phường Bình Trưng (trước đây phường An Phú, Quận 2), TP.HCM',
 );
-$projects = array(
-	$prive,
-	array( 'name' => 'Vinhomes Saigon Park', 'dev' => 'Vinhomes', 'khu' => array( 'tay-bac' ), 'status' => '', 'price' => '', 'img' => '2026/05/vinhomes-saigon-park-2.webp', 'url' => '/vinhomes-saigon-park/', 'types' => array( 'can-ho', 'nha-pho', 'shophouse', 'biet-thu', 'dinh-thu' ) ),
-	array( 'name' => 'The Global City', 'dev' => 'Masterise Homes', 'khu' => array( 'khu-dong', 'nam-rach-chiec' ), 'status' => '', 'price' => '', 'img' => '', 'url' => '/the-global-city/', 'types' => array( 'can-ho', 'nha-pho', 'shophouse', 'biet-thu' ) ),
-	array( 'name' => 'Spring Ville', 'dev' => 'Gamuda Land', 'khu' => array( 've-tinh', 'nhon-trach-long-thanh' ), 'status' => '', 'price' => '', 'img' => '', 'url' => '/spring-ville/', 'types' => array( 'can-ho' ) ),
-);
+$projects = array();
+foreach ( get_posts( array( 'post_type' => 'du-an', 'post_parent' => 0, 'numberposts' => 50, 'orderby' => 'title', 'order' => 'ASC' ) ) as $pp ) {
+	$devs       = array_filter( array_map( 'get_post', (array) ( function_exists( 'velis_project_field' ) ? velis_project_field( $pp, 'velis_developers' ) : array() ) ) );
+	$khu        = wp_get_post_terms( $pp->ID, 'khu-vuc' );
+	usort( $khu, fn( $a, $b ) => $a->parent <=> $b->parent ); // Vùng before Tiểu khu
+	$status     = wp_get_post_terms( $pp->ID, 'trang-thai', array( 'fields' => 'names' ) );
+	$projects[] = array(
+		'name'   => $pp->post_title,
+		'dev'    => $devs ? reset( $devs )->post_title : '',
+		'khu'    => wp_list_pluck( $khu, 'slug' ),
+		'types'  => wp_get_post_terms( $pp->ID, 'loai-san-pham', array( 'fields' => 'slugs' ) ),
+		'status' => $status ? $status[0] : '',
+		'price'  => (string) get_post_meta( $pp->ID, 'velis_price_from', true ),
+		'img'    => (string) get_the_post_thumbnail_url( $pp, 'large' ),
+		'url'    => get_permalink( $pp ),
+	);
+}
 $facts = array( // empty value → item hidden; price always shown (muted when missing)
 	'Vị trí' => 'Nam Rạch Chiếc, phường Bình Trưng', 'Quy mô' => '6,7 ha · 12 tháp · hơn 3.000 căn', 'Sản phẩm' => 'Căn hộ 1–3 PN',
 	'Bàn giao' => 'Quý 1/2028', 'Pháp lý' => 'Đủ điều kiện bán (04/2026)', 'Hướng' => '',
@@ -68,7 +79,7 @@ $gallery = array(
 );
 
 // Vinhomes Saigon Park subzones. Group: has apartments + low-rise → Hỗn hợp; only apartments → Cao tầng; else Thấp tầng.
-$types = array( 'can-ho' => 'Căn hộ', 'nha-pho' => 'Nhà phố liền kề', 'shophouse' => 'Shophouse', 'biet-thu' => 'Biệt thự', 'dinh-thu' => 'Dinh thự' );
+$types = wp_list_pluck( $terms( 'loai-san-pham' ), 'name', 'slug' );
 $zones = array(
 	array( 'n' => 1, 'name' => 'Khu 1 – Ivy Park', 'theme' => 'Công viên tri thức', 'types' => array( 'can-ho', 'nha-pho', 'shophouse' ), 'core' => 'Làng Đại học quốc tế, ga Metro số 2', 'fit' => 'Nhà đầu tư dòng tiền cho thuê', 'img' => '2026/05/shophouse-vinhomes-saigon-park.webp' ),
 	array( 'n' => 2, 'name' => 'Khu 2 – Global Park', 'theme' => 'Công viên quốc tế', 'types' => array( 'shophouse', 'nha-pho' ), 'core' => 'Bệnh viện Vinmec 13,6 ha, Vincom Mega Mall 46 ha', 'fit' => 'Nhà đầu tư lợi suất kinh doanh', 'img' => '2026/05/thiet-ke-nha-pho-vinhomes-1.webp' ),
@@ -255,7 +266,7 @@ $pkhu   = array_unique( array_map( fn( $p ) => $p['khu'][0], $projects ) );
 	<?php foreach ( $projects as $p ) : ?>
 		<article class="v-card" data-card data-khu="<?php echo esc_attr( implode( ' ', $p['khu'] ) ); ?>" data-cdt="<?php echo esc_attr( sanitize_title( $p['dev'] ) ); ?>" data-loai="<?php echo esc_attr( implode( ' ', $p['types'] ) ); ?>">
 			<?php if ( $p['img'] ) : ?>
-			<div class="v-card__media"><img src="<?php echo $up( $p['img'] ); ?>" alt="<?php echo esc_attr( 'Phối cảnh ' . $p['name'] ); ?>" width="1200" height="675" loading="lazy" style="--focus: 100% 0%; --zoom: 1.15"></div>
+			<div class="v-card__media"><img src="<?php echo esc_url( $p['img'] ); ?>" alt="<?php echo esc_attr( 'Phối cảnh ' . $p['name'] ); ?>" width="1200" height="675" loading="lazy" style="--focus: 100% 0%; --zoom: 1.15"></div>
 			<?php else : ?>
 			<div class="v-card__media v-media--empty"><span><?php echo $e( $p['name'] ); ?></span></div>
 			<?php endif; ?>

@@ -7,7 +7,7 @@ Lỗi cuối (thanh lọc dự án chồng chữ) đã sửa trước khi merge:
 
 Giai đoạn 1 – Nhận diện & design system hoàn tất ngày 2026-11-04 (4 vòng duyệt; PR esvinlyvn/velis-theme#1).
 Bàn giao: `DESIGN.md` → `theme/velis/theme.json`, theme `velis` 0.4.5 trên staging, style guide `/velis-style-guide/`,
-bộ logo SVG, `tools/check_ui.mjs` (kiểm tra tự động 9 khung: 0 lỗi). Giai đoạn 2 chưa bắt đầu – chờ người dùng.
+bộ logo SVG, `tools/check_ui.mjs` (kiểm tra tự động 9 khung: 0 lỗi). Giai đoạn 2 (kiến trúc & dữ liệu) bắt đầu trên nhánh `claude/giai-doan-2-kien-truc`.
 
 ## Cho giai đoạn dựng template (chưa làm)
 
