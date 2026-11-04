@@ -142,7 +142,7 @@ $posts = velis_project_posts( $p, 'thap-tang' === $level ? 3 : 6 );
 if ( $posts ) {
 	$cat = velis_cluster( $p );
 	$all = $cat ? '<a class="v-btn v-btn--secondary" href="' . esc_url( get_category_link( $cat ) ) . '">Tất cả bài ' . esc_html( $cat->name ) . '</a>' : '';
-	$sections['bai-viet'] = array( 'Bài viết', velis_sechead( 'Phân tích ' . $root->post_title, 'Bài viết của Vũ Xuân', '', '', $all ) . velis_grid( array_map( 'velis_card_post', $posts ), '3' ) );
+	$sections['bai-viet'] = array( 'Bài viết', velis_sechead( 'Phân tích ' . $root->post_title, 'Bài viết của Vũ Xuân', '', '', $all ) . velis_grid( array_map( 'velis_card_post', $posts ), '3 v-rail' ) );
 }
 
 $nav  = array_map( fn( $s ) => $s[0], $sections ) + array( 'tu-van' => 'Nhận tư vấn' );
@@ -152,7 +152,7 @@ foreach ( $sections as $id => $s ) {
 }
 $price = velis_price( $p );
 $src   = (string) get_post_meta( $p->ID, 'velis_price_source', true );
-$out  .= velis_section_nav( $nav ) . '<div class="v-wrap v-projhead">' . velis_facts_html( $facts, $price, $src ? 'Nguồn giá: ' . $src : '', array( 'Vị trí' => '#vi-tri' ) ) . '</div>'
+$out  .= velis_section_nav( $nav ) . '<div class="v-wrap v-projhead">' . velis_facts_html( $facts, '' === $price ? null : $price, $src ? 'Nguồn giá: ' . $src : '', array( 'Vị trí' => '#vi-tri' ) ) . '</div>'
 	. '<div class="v-wrap v-page">' . $body . velis_disclosure() . '</div>';
 
 // Consultation form pre-filled with this record; đại đô thị offers its phân khu.

@@ -17,7 +17,7 @@ add_action( 'after_setup_theme', function () {
 
 add_action( 'wp_enqueue_scripts', function () {
 	$ver = wp_get_theme()->get( 'Version' );
-	wp_enqueue_style( 'velis', get_stylesheet_uri(), array(), $ver );
+	wp_enqueue_style( 'velis', get_theme_file_uri( 'assets/velis.min.css' ), array(), $ver ); // minified style.css (tools/build_css.py)
 	wp_enqueue_script( 'velis', get_theme_file_uri( 'assets/js/velis.js' ), array(), $ver, array( 'strategy' => 'defer', 'in_footer' => true ) );
 	if ( is_page( 'velis-style-guide' ) ) { // internal showcase only
 		wp_enqueue_style( 'velis-style-guide', get_theme_file_uri( 'assets/style-guide.css' ), array( 'velis' ), $ver );

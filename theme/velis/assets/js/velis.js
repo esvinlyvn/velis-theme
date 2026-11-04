@@ -4,8 +4,27 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
 // Header shrinks after scrolling.
 const header = document.querySelector('.v-header');
-// Hysteresis: the shrink moves the page by 20 px, so one threshold would flip it back and forth near the top.
-if (header) addEventListener('scroll', () => { if (scrollY > 80) header.classList.add('is-scrolled'); else if (scrollY < 8) header.classList.remove('is-scrolled'); }, { passive: true });
+// Header: hides while scrolling down, returns on the way up (border once scrolled). The sticky section nav follows it:
+// --v-stick is the header's visible height (0 when hidden), so the nav is never separated from it by a gap.
+if (header) {
+	const bar = header.closest('.wp-block-template-part') || header; // the sticky element (see style.css)
+	let lastY = scrollY;
+	const root = document.documentElement;
+	const secnav = document.querySelector('[data-secnav]');
+	const sync = () => {
+		const y = scrollY;
+		header.classList.toggle('is-scrolled', y > 8);
+		if (y > lastY + 4 && y > header.offsetHeight * 2) bar.classList.add('is-hidden');
+		else if (y < lastY - 4 || y < header.offsetHeight) bar.classList.remove('is-hidden');
+		if (Math.abs(y - lastY) > 4) lastY = y;
+		root.style.setProperty('--v-stick', bar.classList.contains('is-hidden') ? '0px' : header.offsetHeight + 'px');
+		if (secnav) secnav.classList.toggle('is-stuck', secnav.getBoundingClientRect().top <= header.offsetHeight + 1);
+	};
+	addEventListener('scroll', sync, { passive: true });
+	addEventListener('resize', sync);
+	header.addEventListener('focusin', () => bar.classList.remove('is-hidden')); // keyboard users always see where focus is
+	sync();
+}
 
 // Reveal blocks once.
 const io = 'IntersectionObserver' in window && new IntersectionObserver((es) => es.forEach((e) => {
@@ -266,6 +285,14 @@ if (lightbox) {
 	});
 	lightbox.addEventListener('click', (e) => e.target === lightbox && lightbox.close());
 }
+
+// Tab row: a fade on the right edge while more tabs are hidden to the right.
+document.querySelectorAll('.v-tabs__list').forEach((l) => {
+	const fade = () => l.classList.toggle('has-more', l.scrollLeft + l.clientWidth < l.scrollWidth - 4);
+	l.addEventListener('scroll', fade, { passive: true });
+	addEventListener('resize', fade);
+	requestAnimationFrame(fade);
+});
 
 // Chip filter over a card grid ([data-chipbox]): any checked value per group, all groups must match.
 $$('[data-chipbox]').forEach((box) => {

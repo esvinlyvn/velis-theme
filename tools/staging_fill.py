@@ -3,7 +3,7 @@
 2. blog posts get velis_modified = last edit date on the LIVE site (data/inventory/posts.json), because the migration
    reset WordPress' own modified date on staging; bulk-update days (> 10 posts) do not count as edits;
 3. main page titles written in capitals on the old theme become sentence case;
-4. an apartment line without a plan image gets the gallery photo whose file name names that line (e.g. "-1pn-").
+4. apartment line plan images from data/architecture/line-plans.csv (pairs verified by looking at each image).
 Idempotent. Usage: python3 -I tools/staging_fill.py"""
 import csv, json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -14,6 +14,7 @@ TITLES = {'trang-chu': 'Trang chủ', 'blog': 'Blog', 'lien-he': 'Liên hệ', '
 
 def main():
     ids = json.load(open(D('architecture', 'staging-ids.json')))
+    plans = {(r['du_an'], r['dong']): r['file_anh'] for r in csv.DictReader(open(D('architecture', 'line-plans.csv'), encoding='utf-8'))}
     for r in csv.DictReader(open(D('architecture', 'projects.csv'), encoding='utf-8')):
         if not r['url_cu']:
             continue
@@ -26,19 +27,14 @@ def main():
         body = {'meta': {'velis_gallery': gallery}}
         if feat:
             body['featured_media'] = feat
-        # 4. apartment line image: a gallery file named after the line ("can-ho-1pn-the-prive.webp" → Căn 1 PN)
+        # 4. apartment line image: only pairs checked by eye in data/architecture/line-plans.csv (file names and alt texts
+        # on the site are not reliable, e.g. "persa-place-1pn-1.webp" shows the 1 PN+ layout); every other line has none.
         rec = api('GET', 'du-an/%d?context=edit&_fields=meta' % ids[r['slug']])
         lines = rec['meta'].get('velis_lines') or []
-        files = {m['id']: m['source_url'].rsplit('/', 1)[-1].lower() for m in api('GET', 'media?include=%s&per_page=100&_fields=id,source_url' % ','.join(map(str, gallery)))} if gallery else {}
+        files = {m['source_url'].rsplit('/', 1)[-1].lower(): m['id'] for m in api('GET', 'media?include=%s&per_page=100&_fields=id,source_url' % ','.join(map(str, gallery)))} if gallery else {}
         for l in lines:
-            key = re.sub(r'^can-', '', l.get('anchor', ''))  # can-2pn → 2pn; "1 PN+" keeps "1pn-plus" (its own layout)
-            if '/' in l.get('name', ''):
-                key = key.split('-plus')[0]  # "Căn 1 PN / 1 PN+" is one line covering both: the 1 PN image fits
-            elif key.endswith('-plus') and l.get('plan') and files.get(int(l['plan']), '').find(key) < 0:
-                l['plan'] = ''  # undo an earlier match of the plain 1 PN image
-            hit = next((i for i, f in sorted(files.items()) if key and re.search(r'(^|-)' + re.escape(key) + r'(-|\.)', f)), None)
-            if hit and not l.get('plan'):
-                l['plan'] = str(hit)
+            f = plans.get((r['slug'], l['name']))
+            l['plan'] = str(files[f]) if f in files else ''
         if lines:
             body['meta']['velis_lines'] = lines
         api('POST', 'du-an/%d' % ids[r['slug']], body)

@@ -6,7 +6,7 @@ Description: Theme khối nhẹ cho Velis Realty. Token sinh từ DESIGN.md (the
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 8.0
-Version: 0.7.1
+Version: 0.8.0
 License: Proprietary
 Text Domain: velis
 */
@@ -78,7 +78,7 @@ h1, h2, .v-serif { line-height: 1.2; } /* ≥ 1.2 so stacked Vietnamese diacriti
 .v-header { position: sticky; top: 0; z-index: 50; background: var(--wp--preset--color--canvas); border-bottom: 1px solid transparent; transition: border-color .2s; }
 .v-header__bar { display: flex; align-items: center; gap: 24px; min-height: var(--v-header-h); transition: min-height .2s var(--v-ease); }
 .v-header.is-scrolled { border-bottom-color: var(--v-line); }
-.v-header.is-scrolled .v-header__bar { min-height: 60px; }
+
 .v-logo { display: block; line-height: 0; padding-block: 4px; flex: none; }
 .v-logo img { height: 36px; width: auto; transition: height .2s var(--v-ease); }
 .v-nav, .v-header__phone, .v-header__cta { display: none !important; }
@@ -573,3 +573,52 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 /* Small inline links keep a 44 px tap area without changing the line height. */
 .v-devnames a { display: inline-flex; align-items: center; min-height: 44px; }
 .v-facts__more, .v-overview dd a { display: inline-block; padding-block: 11px; margin-block: -11px; }
+/* ---------- Round 3 ---------- */
+:focus:not(:focus-visible) { outline: none; } /* rings only for keyboard users */
+@media (min-width: 768px) { :root { --v-gutter: 24px; } }
+@media (min-width: 1280px) { :root { --v-gutter: 32px; } }
+/* Header hides while scrolling down, comes back on the way up; the section nav follows it (velis.js sets --v-stick). */
+.v-header { transition: transform .2s ease, border-color .2s; }
+.v-header.is-hidden { transform: translateY(-100%); }
+.v-header.is-scrolled .v-header__bar { min-height: var(--v-header-h); }
+.v-secnav { top: var(--v-stick, var(--v-header-h)); transition: top .2s ease, box-shadow .2s; background: var(--wp--preset--color--canvas); }
+.v-secnav.is-stuck { box-shadow: 0 6px 12px -8px rgb(0 0 0 / .25); }
+.v-secnav a { font-size: 15px; min-height: 48px; }
+/* Gallery: horizontal only, never traps vertical scrolling; fixed frame, full image on click. */
+.v-gallery__track { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; overscroll-behavior-x: contain; }
+.v-gallery__track::-webkit-scrollbar, .v-tabs__list::-webkit-scrollbar, .v-rail::-webkit-scrollbar { display: none; }
+.v-gallery__track img { aspect-ratio: 3 / 2; max-height: 70vh; object-fit: cover; }
+@media (min-width: 1024px) { .v-gallery__track img { aspect-ratio: 16 / 9; } }
+.v-gallery__track figure { margin: 0; }
+.v-gallery__track figcaption { font-size: 14px; color: var(--v-muted); margin-top: 6px; }
+/* Tabs: no scrollbar; a fade on the right edge says more tabs follow. */
+.v-tabs__list { scrollbar-width: none; }
+.v-tabs__list.has-more { mask-image: linear-gradient(90deg, #000 80%, transparent); -webkit-mask-image: linear-gradient(90deg, #000 80%, transparent); }
+/* Floor plans: whole drawing, never cropped. */
+.v-line__plan img { object-fit: contain; transform: none !important; height: auto; background: #fff; }
+/* Hero A on phones: photo on top, text below on the dark band – the project stays visible, text contrast is solid. */
+@media (max-width: 767px) {
+	.v-hero--full:not(.is-empty) { display: block; min-height: 0; }
+	.v-hero--full:not(.is-empty) > img { position: static; display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+	.v-hero--full:not(.is-empty)::before { display: none; }
+	.v-hero--full:not(.is-empty) .v-hero__body { padding-block: 24px 32px; background: var(--wp--preset--color--surface-dark); width: 100%; padding-inline: var(--v-gutter); } /* covers the zoomed photo edge */
+	.v-main > .v-wrap + .v-hero--full { min-height: 0; }
+}
+/* Cards on phones: rails (1.2 cards visible) for teaser lists; full listings keep a column with shorter images. */
+@media (max-width: 767px) {
+	.v-grid.v-rail { grid-auto-flow: column; grid-auto-columns: 82%; grid-template-columns: none; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
+	.v-grid.v-rail > * { scroll-snap-align: start; }
+	.v-grid:not(.v-rail) .v-card__media { aspect-ratio: auto; height: 200px; }
+	.v-grid:not(.v-rail) .v-card__media img { height: 100%; }
+}
+/* Numbers: a thin 3-column strip right under the hero. */
+.v-numbers { grid-template-columns: repeat(3, 1fr) !important; gap: 12px; }
+.v-numbers div { padding-top: 8px; }
+.v-numbers dd { font-size: clamp(24px, 4vw, 36px); }
+.v-numbers dt { font-size: 13px; line-height: 1.35; }
+.v-section--strip { margin-block: 24px; }
+/* The header template part wraps .v-header, so sticky must sit on the wrapper (sticky inside a same-height parent never sticks). */
+.wp-site-blocks > .wp-block-template-part:has(> .v-header) { position: sticky; top: 0; z-index: 50; transition: transform .2s ease; }
+.wp-site-blocks > .wp-block-template-part.is-hidden { transform: translateY(-100%); }
+.v-header { position: relative; }
+.v-header.is-hidden { transform: none; }

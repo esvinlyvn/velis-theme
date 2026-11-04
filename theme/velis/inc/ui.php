@@ -231,7 +231,7 @@ function velis_lines_html( $post ): string {
 			'Giá' => $price ? esc_html( $price ) . ( ! empty( $l['source'] ) ? ' <small>· ' . esc_html( $l['source'] ) . '</small>' : '' ) : '',
 		), fn( $v ) => '' !== $v );
 		$btn  = '<a class="v-btn" href="#tu-van" data-interest="' . esc_attr( $name . ' – ' . $l['name'] ) . '">Nhận bảng giá ' . esc_html( $l['name'] ) . '</a>';
-		$plan = ! empty( $l['plan'] ) ? '<button class="v-line__plan" type="button" data-zoom="' . esc_url( wp_get_attachment_image_url( (int) $l['plan'], 'large' ) ) . '" aria-label="' . esc_attr( 'Phóng to mặt bằng ' . $l['name'] ) . '">' . velis_img( (int) $l['plan'], 'Mặt bằng ' . $l['name'] . ' ' . $name ) . '</button>' : '';
+		$plan = ! empty( $l['plan'] ) ? '<button class="v-line__plan" type="button" data-zoom="' . esc_url( wp_get_attachment_image_url( (int) $l['plan'], 'large' ) ) . '" aria-label="' . esc_attr( 'Phóng to mặt bằng ' . $l['name'] ) . '">' . velis_img( (int) $l['plan'], 'Mặt bằng ' . $l['name'] . ' ' . $name, 'large', array( 'style' => '' ) ) . '</button>' : '';
 		if ( $mini ) {
 			$rows = '';
 			foreach ( $mini as $k => $v ) {
@@ -288,10 +288,17 @@ function velis_compare_html( array $posts, array $crit, string $caption, $curren
 }
 
 function velis_gallery_html( array $ids, string $name, string $label = 'Thư viện ảnh' ): string {
-	$ids = array_values( array_filter( array_map( 'intval', $ids ) ) );
+	$ids = array_values( array_unique( array_filter( array_map( 'intval', $ids ) ) ) );
 	if ( ! $ids ) {
 		return '';
 	}
+	// Renderings and finished views first, then maps / plans, construction and progress photos last (stable in each group).
+	$late = function ( $id ) {
+		$t = mb_strtolower( basename( (string) get_attached_file( $id ) ) . ' ' . get_post_meta( $id, '_wp_attachment_image_alt', true ) );
+		return preg_match( '/tien-do|tiến độ|cong-truong|công trường|thi-cong|thi công/u', $t ) ? 2 : ( preg_match( '/ban-do|bản đồ|vi-tri|vị trí|khoang-cach|khoảng cách|mat-bang|mặt bằng|layout/u', $t ) ? 1 : 0 );
+	};
+	$pos  = array_flip( $ids );
+	usort( $ids, fn( $a, $b ) => $late( $a ) <=> $late( $b ) ?: $pos[ $a ] <=> $pos[ $b ] );
 	$li = '';
 	foreach ( $ids as $id ) {
 		$alt = trim( (string) get_post_meta( $id, '_wp_attachment_image_alt', true ) ) ?: $name;
