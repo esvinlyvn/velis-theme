@@ -4,10 +4,11 @@
 import { createRequire } from 'node:module';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 const { chromium } = createRequire(import.meta.url)('playwright');
+import { gapRuns } from './ui_gaps.mjs';
 
 const BASE = 'https://staging.velisrealty.vn';
 const [path = '/velis-style-guide/', out = 'screenshots/check', widthArg] = process.argv.slice(2);
-const WIDTHS = widthArg ? widthArg.split(',').map(Number) : [360, 390, 430, 600, 768, 1023, 1024, 1100, 1180, 1280, 1366, 1920]; // 12 frames: phones, tablet, breakpoint edges, common laptops
+const WIDTHS = widthArg ? widthArg.split(',').map(Number) : [360, 390, 430, 600, 768, 1023, 1024, 1100, 1180, 1280, 1366, 1536, 1920]; // 12 frames + 1536 (gap rule): phones, tablet, breakpoint edges, common laptops
 mkdirSync(out, { recursive: true });
 
 // Runs in the page. Kept dependency-free on purpose.
@@ -111,6 +112,30 @@ async function photoContrast(p) {
 	return out;
 }
 
+// In the page: content boxes per 40 px strip (text, media, controls, boxes with a background or border); a sticky box
+// covers its whole parent (it travels with the reader).
+function contentBands() {
+	const step = 40, H = document.documentElement.scrollHeight, bands = Array.from({ length: Math.ceil(H / step) }, () => []);
+	const bodyBg = getComputedStyle(document.body).backgroundColor;
+	for (const el of document.querySelectorAll('body *')) {
+		const s = getComputedStyle(el);
+		if (s.display === 'none' || s.visibility === 'hidden' || el.closest('dialog:not([open]), .v-sr, [hidden]')) continue;
+		const text = [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim());
+		const media = el.matches('img, video, iframe, svg, canvas, input, select, textarea, button');
+		const box = (s.backgroundColor !== 'rgba(0, 0, 0, 0)' && s.backgroundColor !== bodyBg) || s.backgroundImage !== 'none' || parseFloat(s.borderTopWidth) > 0 || parseFloat(s.borderLeftWidth) > 0;
+		if (!text && !media && !box && s.position !== 'sticky') continue;
+		let r = el.getBoundingClientRect();
+		if (!r.width || !r.height) continue;
+		let top = r.top + scrollY, bottom = r.bottom + scrollY;
+		if (s.position === 'sticky' && el.parentElement) { const pr = el.parentElement.getBoundingClientRect(); top = pr.top + scrollY; bottom = pr.bottom + scrollY; }
+		if (s.position === 'fixed') continue;
+		for (let i = Math.max(0, Math.floor(top / step)); i < Math.min(bands.length, Math.ceil(bottom / step)); i++) bands[i].push([r.left, r.right]);
+	}
+	const wrap = Math.min(1200, innerWidth - 2 * parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--v-gutter') || 24));
+	const left = (document.documentElement.clientWidth - wrap) / 2;
+	return { bands, left, right: left + wrap, step };
+}
+
 const report = {};
 for (const w of WIDTHS) {
 	const p = await ctx.newPage();
@@ -127,7 +152,12 @@ for (const w of WIDTHS) {
 	// switched to eager so every <img> on the page is actually fetched and verified.
 	await p.evaluate(() => Promise.all([...document.images].map((i) => { i.loading = 'eager'; return i.decode().catch(() => {}); })));
 	await p.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
-	report[w] = { ...(await p.evaluate(audit)), cls };
+	report[w] = { ...(await p.evaluate(audit)), cls, gaps: [] };
+	if (w >= 1024) {
+		const g = await p.evaluate(contentBands);
+		const at = async (y) => p.evaluate((y) => { const el = [...document.querySelectorAll('main section, main .v-wrap, main article, main aside')].find((e) => { const r = e.getBoundingClientRect(); return r.top + scrollY <= y && r.bottom + scrollY > y; }); return el ? el.tagName.toLowerCase() + (el.id ? '#' + el.id : '') + (el.className ? '.' + String(el.className).trim().split(/\s+/).slice(0, 2).join('.') : '') : 'body'; }, y);
+		for (const run of gapRuns(g.bands, g.left, g.right, g.step, w < 768 ? 800 : 900)) report[w].gaps.push(`khoảng trống ${run.pct}% từ y=${run.from} đến y=${run.to} (${await at(run.from)})`);
+	}
 	const photo = await photoContrast(p);
 	report[w].photo = photo;
 	report[w].contrast.push(...photo.filter((x) => !x.ok).map((x) => `chữ trên ảnh "${x.text}" ${x.ratio} < ${x.need}`));
@@ -139,12 +169,12 @@ for (const w of WIDTHS) {
 	}
 	await p.close();
 	const r = report[w];
-	console.log(`${w}px overflow:${r.overflow.length} emptyImg:${r.images.length} contrast:${r.contrast.length} tap<44:${r.targets.length} CLS:${r.cls}`);
+	console.log(`${w}px overflow:${r.overflow.length} emptyImg:${r.images.length} contrast:${r.contrast.length} tap<44:${r.targets.length} gap:${r.gaps.length} CLS:${r.cls}`);
 }
 await browser.close();
 
 const photoLine = WIDTHS.map((w) => `${w}px: ` + report[w].photo.map((x) => `${x.text.slice(0, 18)}… ${x.ratio}`).join(' · ')).join('\n- ');
-const rows = WIDTHS.map((w) => { const r = report[w]; return `| ${w} | ${r.overflow.length ? 'CÓ' : 'không'} | ${r.images.length} | ${r.contrast.length} | ${r.targets.length} | ${r.cls} |`; });
-const details = WIDTHS.flatMap((w) => { const r = report[w]; return [...r.overflow.map((x) => `- ${w}px tràn ngang: ${x}`), ...r.images.map((x) => `- ${w}px ảnh rỗng: ${x}`), ...r.contrast.map((x) => `- ${w}px tương phản: ${x}`), ...r.targets.map((x) => `- ${w}px vùng bấm: ${x}`)]; });
+const rows = WIDTHS.map((w) => { const r = report[w]; return `| ${w} | ${r.overflow.length ? 'CÓ' : 'không'} | ${r.images.length} | ${r.contrast.length} | ${r.targets.length} | ${r.gaps.length} | ${r.cls} |`; });
+const details = WIDTHS.flatMap((w) => { const r = report[w]; return [...r.overflow.map((x) => `- ${w}px tràn ngang: ${x}`), ...r.images.map((x) => `- ${w}px ảnh rỗng: ${x}`), ...r.contrast.map((x) => `- ${w}px tương phản: ${x}`), ...r.targets.map((x) => `- ${w}px vùng bấm: ${x}`), ...r.gaps.map((x) => `- ${w}px ${x}`)]; });
 writeFileSync(`${out}/report.json`, JSON.stringify(report, null, 1));
-writeFileSync(`${out}/report.md`, `# Kiểm tra tự động – ${path}\n\n| Khung | Tràn ngang | Ảnh rỗng | Tương phản lỗi | Vùng bấm < 44px | CLS |\n|---|---|---|---|---|---|\n${rows.join('\n')}\n\n${details.length ? details.join('\n') : 'Không có lỗi.'}\n\n## Tương phản chữ trên ảnh hero (nền sáng nhất phân vị 98)\n- ${photoLine}\n`);
+writeFileSync(`${out}/report.md`, `# Kiểm tra tự động – ${path}\n\n| Khung | Tràn ngang | Ảnh rỗng | Tương phản lỗi | Vùng bấm < 44px | Khoảng trống > 30% | CLS |\n|---|---|---|---|---|---|---|\n${rows.join('\n')}\n\n${details.length ? details.join('\n') : 'Không có lỗi.'}\n\n## Tương phản chữ trên ảnh hero (nền sáng nhất phân vị 98)\n- ${photoLine}\n`);

@@ -154,7 +154,8 @@ h1, h2, .v-serif { line-height: 1.2; } /* ≥ 1.2 so stacked Vietnamese diacriti
 .v-sticky-cta a.is-primary { background: var(--v-red); color: #fff; }
 .v-sticky-cta svg { width: 20px; height: 20px; }
 .v-sticky-cta a:first-child svg { fill: none; stroke: currentColor; stroke-width: 1.5; }
-@media (min-width: 768px) { .v-sticky-cta { display: none; } }
+@media (min-width: 1024px) { .v-sticky-cta { display: none; } }
+@media (min-width: 768px) and (max-width: 1023px) { :root { --v-cta-h: 64px; } } /* tablets keep the bottom CTA bar (no side column) */
 body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open */
 
 /* Hero */
@@ -167,12 +168,14 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 .v-hero--full > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, 50% 50%); }
 @media (max-width: 767px) { .v-hero--full > img { object-position: var(--focus-m, var(--focus, 50% 50%)); transform-origin: var(--focus-m, var(--focus, 50% 50%)); } }
 .v-hero--full::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(0deg, rgb(20 20 20 / .9) 0%, rgb(20 20 20 / .74) 70%, rgb(20 20 20 / .45) 100%); }
-@media (min-width: 1024px) {
-	.v-hero--full::before { background: linear-gradient(90deg, rgb(20 20 20 / .9) 0%, rgb(20 20 20 / .84) 40%, rgb(20 20 20 / .55) 50%, rgb(20 20 20 / 0) 60%); }
-	.v-hero.v-hero--full .v-hero__body > * { width: fit-content; max-width: min(520px, 40vw); } /* text stays inside the dark half */
+@media (min-width: 768px) {
+	/* Text sits low over a bottom-up shade; the photo stays visible above it (no dark empty top-left). */
+	.v-hero--full { grid-template-rows: auto 1fr auto; }
+	.v-hero--full::before { background: linear-gradient(0deg, rgb(20 20 20 / .92) 0%, rgb(20 20 20 / .78) 34%, rgb(20 20 20 / .28) 64%, rgb(20 20 20 / .1) 82%, rgb(20 20 20 / .5) 100%); }
+	.v-hero.v-hero--full .v-hero__body > * { max-width: min(760px, 100%); }
 }
 .v-hero--full .v-hero__title, .v-hero--full .v-hero__lead { text-shadow: 0 1px 12px rgb(0 0 0 / .35); }
-.v-hero--full .v-hero__body { position: relative; z-index: 2; align-self: end; width: min(100% - 2 * var(--v-gutter), 1200px); margin: 0 auto; padding-block: 64px; }
+.v-hero--full .v-hero__body { position: relative; z-index: 2; align-self: end; width: min(100% - 2 * var(--v-gutter), 1200px); margin: 0 auto; padding-block: 40px; }
 .v-hero--full .v-hero__lead { color: #ececec; max-width: 46ch; }
 .v-hero--full.is-empty { min-height: 420px; background: linear-gradient(135deg, #1f1f1f, #141414); }
 .v-hero__fallback { position: absolute; right: 4%; top: 12%; font: 600 clamp(48px, 9vw, 120px)/1 var(--wp--preset--font-family--heading); color: rgb(255 255 255 / .06); white-space: nowrap; }
@@ -451,7 +454,6 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 .v-wrap { max-width: calc(1200px + 2 * var(--v-gutter)); margin-inline: auto; padding-inline: var(--v-gutter); }
 .v-main > .v-wrap:first-child { padding-top: 8px; }
 .v-section { margin-block: var(--v-section); }
-.v-section--tight { margin-block: 32px; }
 .v-section--form { background: var(--wp--preset--color--surface); border-top: 1px solid var(--v-line); padding-block: var(--v-section); margin-bottom: 0; }
 .v-breadcrumb { padding-block: 12px; }
 .v-hero--split { padding-block: 32px 8px; }
@@ -503,7 +505,6 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 /* Templates own their spacing: no flow-layout gap above main, the breadcrumb or a hero. */
 .v-main, .v-main > .v-wrap, .v-main > .v-hero { margin-block-start: 0; }
 .v-breadcrumb ol { margin-block: 0; }
-@media (max-width: 767px) { .v-main > .v-wrap + .v-hero--full { min-height: min(68svh, 560px); } } /* title + buttons stay above the sticky CTA bar */
 .v-clusters a { display: inline-flex; align-items: center; min-height: 44px; }
 .v-prose #ez-toc-container, .v-prose .ez-toc-v2_0_80 { display: none; } /* Easy TOC from old content; the theme builds its own TOC */
 .v-prose :is(iframe, video, embed) { max-width: 100%; }
@@ -593,7 +594,7 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 .v-gallery__track figcaption { font-size: 14px; color: var(--v-muted); margin-top: 6px; }
 /* Tabs: no scrollbar; a fade on the right edge says more tabs follow. */
 .v-tabs__list { scrollbar-width: none; }
-.v-tabs__list.has-more { mask-image: linear-gradient(90deg, #000 80%, transparent); -webkit-mask-image: linear-gradient(90deg, #000 80%, transparent); }
+.v-tabs__list.has-more, .v-secnav ul.has-more { mask-image: linear-gradient(90deg, #000 80%, transparent); -webkit-mask-image: linear-gradient(90deg, #000 80%, transparent); }
 /* Floor plans: whole drawing, never cropped. */
 .v-line__plan img { object-fit: contain; transform: none !important; height: auto; background: #fff; }
 /* Hero A on phones: photo on top, text below on the dark band – the project stays visible, text contrast is solid. */
@@ -627,3 +628,89 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 .v-yt .v-yt__btn, .v-yt iframe { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; height: auto; border: 0; background: #000; }
 .v-yt .v-yt__btn img { width: 100%; height: 100%; object-fit: cover; }
 .v-yt .v-yt__btn::after { content: ""; position: absolute; inset: 50% auto auto 50%; width: 68px; height: 48px; margin: -24px 0 0 -34px; border-radius: 12px; background: var(--v-red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M9 7v10l8-5z'/%3E%3C/svg%3E") center / 32px no-repeat; }
+
+/* Round 5 – first screen. Hero parts: breadcrumb on the photo, chips, featured projects strip. */
+.v-hero__top { grid-row: 1; } .v-hero--full .v-hero__body { grid-row: 2; } .v-hero__after { grid-row: 3; }
+.v-hero__top, .v-hero__after { position: relative; z-index: 2; width: min(100% - 2 * var(--v-gutter), 1200px); margin: 0 auto; }
+.v-hero__top .v-breadcrumb ol { margin: 0; padding-block: 16px; color: rgb(255 255 255 / .86); }
+.v-hero__top .v-breadcrumb a { color: #fff; }
+.v-hero__chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0 0 24px; }
+.v-hero__chips li { padding: 6px 12px; border: 1px solid rgb(255 255 255 / .45); border-radius: 999px; font-size: 14px; font-weight: 600; background: rgb(20 20 20 / .35); }
+.v-hero--full .v-hero__title { max-width: 22ch; }
+.v-hero--home .v-hero__lead { max-width: 60ch; margin-bottom: 24px; }
+.v-hero--home .v-hero__body { padding-block: 32px 24px; }
+@media (min-width: 1024px) {
+	.v-hero--project { min-height: max(60svh, 440px); }
+	.v-hero--home { min-height: min(calc(100svh - 80px), 900px); }
+}
+.v-feats { padding-bottom: 24px; }
+.v-feats .v-eyebrow { margin: 0 0 8px; }
+.v-feats ul { list-style: none; margin: 0; padding: 0; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(240px, 1fr); gap: 12px; overflow-x: auto; scrollbar-width: none; scroll-snap-type: x mandatory; }
+.v-feat { display: flex; gap: 12px; align-items: center; padding: 8px; min-height: 88px; border: 1px solid rgb(255 255 255 / .22); border-radius: var(--v-r); background: rgb(20 20 20 / .55); color: #fff; text-decoration: none; scroll-snap-align: start; transition: border-color .18s var(--v-ease); }
+.v-feat:hover { border-color: var(--v-gold); }
+.v-feat img { width: 104px; height: 72px; object-fit: cover; border-radius: 2px; flex: none; }
+.v-feat b { display: block; font-size: 17px; line-height: 1.3; }
+.v-feat small { display: block; font-size: 14px; color: #ddd; margin-top: 2px; }
+@media (max-width: 767px) {
+	.v-hero__top, .v-hero__after { width: 100%; padding-inline: var(--v-gutter); background: var(--wp--preset--color--surface-dark); }
+	.v-feats ul { grid-auto-columns: 78%; }
+}
+
+/* Two columns for long pages (round 5): text ~2/3 + sticky side card 340 px from 1024 px. */
+.v-page__side { display: none; }
+@media (min-width: 1024px) {
+	.v-page--2col { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 48px; align-items: start; }
+	.v-page__side { display: block; position: sticky; top: calc(var(--v-stick, 0px) + 96px); }
+	.v-page > .v-page__side { margin-top: var(--v-section); top: calc(var(--v-stick, 0px) + 72px); }
+	.v-page__main .v-grid--zones, .v-page__main .v-grid--4 { grid-template-columns: repeat(2, 1fr); }
+	.v-page__main .v-table--compare th[scope="row"] { position: sticky; left: 0; z-index: 1; background: var(--wp--preset--color--surface); }
+}
+.v-pricecard { overflow: hidden; border: 1px solid var(--v-line); border-top: 2px solid var(--v-gold); background: #fff; }
+.v-pricecard img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.v-pricecard__body { padding: 20px; display: grid; gap: 12px; }
+.v-pricecard__body .v-eyebrow { margin: 0; }
+.v-pricecard__title { margin: 0; font: 600 24px/1.25 var(--wp--preset--font-family--heading); }
+.v-pricecard dl { margin: 0; display: grid; gap: 6px; font-size: 15px; }
+.v-pricecard dl div { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--v-line); padding-bottom: 6px; }
+.v-pricecard dt { color: var(--v-muted); }
+.v-pricecard dd { margin: 0; font-weight: 600; text-align: right; }
+.v-pricecard__row { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+.v-pricecard .v-btn { width: 100%; padding-inline: 12px; }
+/* Section rhythm on project pages: ivory / white panel / dark gallery; accent for the CEO view and the developer. */
+.v-block--panel { background: #fff; border: 1px solid var(--v-line); padding: 32px clamp(16px, 3vw, 40px); }
+.v-block--dark { background: var(--wp--preset--color--surface-dark); color: #fff; padding: 32px clamp(16px, 3vw, 40px); }
+.v-block--dark .v-sechead h2, .v-block--dark figcaption { color: #fff; }
+.v-block--dark .v-eyebrow { color: #EADBC0; }
+.v-block--dark :focus-visible { outline-color: #fff; }
+.v-sub + .v-sub { margin-top: 48px; }
+.v-sub--accent { border-left: 3px solid var(--v-gold); padding-left: clamp(16px, 2.5vw, 32px); }
+.v-sub--accent.is-clamped .v-prose { max-height: 640px; overflow: hidden; mask-image: linear-gradient(#000 75%, transparent); -webkit-mask-image: linear-gradient(#000 75%, transparent); }
+.v-more { margin-top: 16px; }
+/* ≤ 2 cards: one wide horizontal card or two columns. Text pages: 2 columns or a centred reading column. */
+.v-grid--2 { display: grid; gap: 24px; }
+@media (min-width: 768px) { .v-grid--2 { grid-template-columns: repeat(2, 1fr); } }
+.v-grid--wide { display: grid; }
+@media (min-width: 768px) {
+	.v-grid--wide > .v-card { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: stretch; }
+	.v-grid--wide > .v-card .v-card__media { height: 100%; }
+	.v-grid--wide > .v-card .v-card__media img { height: 100%; aspect-ratio: auto; }
+	.v-grid--wide > .v-card .v-card__body { align-self: center; padding: 32px; }
+}
+.v-read > .v-page__main { max-width: 760px; margin-inline: auto; }
+.v-page__side--toc .v-toc { position: static; }
+.v-pricecard .v-pricecard__contact dd { text-align: left; }
+.v-pricecard .v-pricecard__contact div { display: grid; gap: 2px; }
+.v-pricecard__contact a { display: inline-flex; min-height: 44px; align-items: center; }
+@media (min-width: 1024px) { .v-profile.has-side { grid-template-columns: minmax(0, 1fr) 360px; gap: 64px; } }
+.v-numbers--side { display: grid; gap: 16px; margin: 0; padding: 24px; background: #fff; border: 1px solid var(--v-line); border-top: 2px solid var(--v-gold); }
+.v-numbers.v-numbers--side { grid-template-columns: 1fr !important; }
+/* Section rhythm (round 5): ivory page, white bands, one dark accent block per page (DESIGN.md "Nhịp thị giác"). */
+.v-section--band, .v-section--dark { margin-block: 0; padding-block: var(--v-section); }
+.v-section--band { background: #fff; border-block: 1px solid var(--v-line); }
+.v-section--dark { background: var(--wp--preset--color--surface-dark); color: #fff; }
+.v-section--dark :is(h2, .v-lead, .v-prose) { color: #fff; }
+.v-section--dark .v-eyebrow { color: #EADBC0; }
+.v-section--dark .v-card { color: var(--v-ink); }
+.v-section--dark .v-btn--secondary { color: #fff; border-color: #fff; }
+.v-section--dark :focus-visible { outline-color: #fff; }
+.v-projlinks { margin: 16px 0 0; font-size: 15px; color: var(--v-muted); } .v-projlinks a { display: inline-block; padding-block: 10px; }

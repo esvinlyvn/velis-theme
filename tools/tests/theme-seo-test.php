@@ -17,11 +17,6 @@ require __DIR__ . '/../../theme/velis/inc/ui.php';
 require __DIR__ . '/../../theme/velis/inc/seo.php';
 $check = function ( $ok, $msg ) { if ( ! $ok ) { fwrite( STDERR, "FAIL: $msg\n" ); exit( 1 ); } };
 
-$check( 'so-sanh' === velis_guess_kind( 'So sánh The Privé và Palm River' ), 'so sánh' );
-$check( 'phan-tich' === velis_guess_kind( 'Shophouse SOHO có nên đầu tư hay không' ), '"hay" alone is not a comparison' );
-$check( 'huong-dan' === velis_guess_kind( 'Thủ tục mua căn hộ cho người nước ngoài' ), 'hướng dẫn' );
-$check( 'tin' === velis_guess_kind( 'Cập nhật tiến độ Persa Place tháng 10' ), 'tin tiến độ' );
-$check( 'nhan-dinh' === velis_guess_kind( 'Thị trường căn hộ khu Đông 2027' ), 'nhận định' );
 
 $t = velis_fit( 'Masteri Cosmo Central – The Global City: giá, mặt bằng, pháp lý' );
 $check( mb_strlen( $t ) <= 60 && str_starts_with( $t, 'Masteri Cosmo Central' ), 'title fitted: ' . $t );

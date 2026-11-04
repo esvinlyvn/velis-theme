@@ -112,3 +112,12 @@ Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng th
 | Plugin tắt | Ultimate Addons for WPBakery, WPBakery Page Builder, Easy Table of Contents, Header and Footer Scripts (Buttonizer ×2 đã tắt từ trước). Không xóa plugin nào |
 | Bài trụ cột cũ | 7 bài chuyển sang **nháp** sau khi chữ đã vào trang dự án (không còn hiện trong blog/thẻ bài; URL cũ 301 về trang dự án khi ra mắt) |
 | Không đụng | Trang tài liệu riêng tư 20538–20544 (20543 còn shortcode, vẫn private + noindex) |
+
+## 2026-11-04 – Giai đoạn 4, vòng "ấn tượng đầu tiên"
+
+| Mục | Thay đổi |
+|---|---|
+| Theme velis | 0.9.x (chưa đổi số phiên bản): hero mới, bố cục 2 cột, thanh mục ≤ 8, nhịp nền, sửa ảnh lazy bị gỡ nhầm |
+| Plugin velis-data | 0.2.6 → 0.2.7: ô "Ảnh đại diện là" (`velis_image_kind`) cho bài viết; "Loại bài" để trống = không hiện nhãn |
+| Phân loại ảnh đại diện | 102 bài (`tools/post_image_kinds.py --write`): 35 ảnh dự án, 24 khu vực, 34 minh họa, 9 nước ngoài |
+| Heading viết HOA | 198 heading ở 19 bài/trang/dự án → chữ thường kiểu câu (`tools/heading_case.py --write`, chỉ đổi hoa/thường) |

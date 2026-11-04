@@ -116,3 +116,9 @@ function velis_youtube_facade( string $id, string $caption = '' ): string {
 		. '<img src="https://i.ytimg.com/vi/' . esc_attr( $id ) . '/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"></a>'
 		. ( '' !== $caption ? '<figcaption>' . $caption . '</figcaption>' : '' ) . '</figure>';
 }
+
+/** Caption that is only a file name or an auto title ("The Privé 2", "the-prive-1024x683.webp"): not shown. */
+function velis_auto_caption( string $c ): bool {
+	$c = trim( html_entity_decode( wp_strip_all_tags( $c ), ENT_QUOTES ) );
+	return '' === $c || (bool) preg_match( '/^[\w.-]+\.(jpe?g|png|webp|gif)$|^[\w-]*[-_][\w-]*$/ui', $c ) || ( str_word_count( $c ) <= 5 && preg_match( '/^\D+\s\d{1,3}$/u', $c ) && false === strpos( $c, ',' ) );
+}

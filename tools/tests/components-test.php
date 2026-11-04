@@ -38,4 +38,6 @@ $check( 'a0cXs21Ib9Q' === velis_youtube_id( 'https://youtu.be/a0cXs21Ib9Q' ) && 
 $check( '' === velis_youtube_id( 'https://vimeo.com/123' ), 'not youtube' );
 $yt = velis_youtube_facade( 'a0cXs21Ib9Q' );
 $check( false === strpos( $yt, '<iframe' ) && false !== strpos( $yt, 'href="https://www.youtube.com/watch?v=a0cXs21Ib9Q"' ) && false !== strpos( $yt, 'width="480"' ), 'facade: link + sized thumbnail, no iframe' );
+$check( velis_auto_caption( 'The Privé 2' ) && velis_auto_caption( 'the-prive-1024x683.webp' ) && velis_auto_caption( 'phoi-canh_1' ), 'auto captions hidden' );
+$check( ! velis_auto_caption( 'Phối cảnh tòa Cloud 9 nhìn từ sông Giồng Ông Tố' ) && ! velis_auto_caption( 'Tiến độ tháng 4/2026' ), 'real captions kept' );
 echo "components: all checks passed\n";

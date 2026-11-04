@@ -48,10 +48,10 @@ if ( $projs ) {
 			$st[ sanitize_title( $s ) ] = $s;
 		}
 	}
-	$sections .= velis_section( velis_sechead( 'Dự án ' . $d->post_title . ' Velis đang tư vấn', count( $projs ) . ' dự án' ) . '<div data-chipbox>' . velis_chipbar( 'tt', $st, 'Lọc theo trạng thái' ) . velis_grid( array_map( fn( $p ) => velis_card_project( $p, '', true ), $projs ) ) . '</div>', 'du-an' );
+	$sections .= velis_section( velis_sechead( 'Dự án ' . $d->post_title . ' Velis đang tư vấn', count( $projs ) . ' dự án' ) . '<div data-chipbox>' . velis_chipbar( 'tt', $st, 'Lọc theo trạng thái' ) . velis_grid( array_map( fn( $p ) => velis_card_project( $p, '', true ), $projs ) ) . '</div>', 'du-an', '', 'v-section--band' );
 }
 if ( trim( $d->post_content ) ) {
-	$sections .= velis_section( velis_sechead( 'Góc nhìn của CEO Vũ Xuân về ' . $d->post_title, 'Nhận định' ) . '<div class="v-prose">' . velis_content( $d->post_content ) . '</div>', 'nhan-dinh' ); // phpcs:ignore
+	$sections .= velis_section( velis_sechead( 'Góc nhìn của CEO Vũ Xuân về ' . $d->post_title, 'Nhận định' ) . '<div class="v-prose">' . velis_content( $d->post_content ) . '</div>', 'nhan-dinh', 'v-section--dark' ); // phpcs:ignore
 }
 $posts = array();
 foreach ( $projs as $p ) {

@@ -154,7 +154,7 @@ const broken = (img) => {
 };
 $$('img[data-alt]').forEach((img) => {
 	img.addEventListener('error', () => broken(img));
-	if (img.complete && img.naturalWidth === 0 && img.src) broken(img); // failed before this script ran
+	if (img.complete && img.naturalWidth === 0 && img.currentSrc) broken(img); // failed before this script ran (a lazy image not fetched yet has no currentSrc)
 });
 
 // Mega menu / submenus: also open on mouse hover; close 200 ms after the pointer leaves. Click and keyboard keep working.
@@ -286,8 +286,8 @@ if (lightbox) {
 	lightbox.addEventListener('click', (e) => e.target === lightbox && lightbox.close());
 }
 
-// Tab row: a fade on the right edge while more tabs are hidden to the right.
-document.querySelectorAll('.v-tabs__list').forEach((l) => {
+// Tab row and section nav: a fade on the right edge while more items are hidden to the right.
+document.querySelectorAll('.v-tabs__list, .v-secnav ul').forEach((l) => {
 	const fade = () => l.classList.toggle('has-more', l.scrollLeft + l.clientWidth < l.scrollWidth - 4);
 	l.addEventListener('scroll', fade, { passive: true });
 	addEventListener('resize', fade);
@@ -355,4 +355,23 @@ document.addEventListener('click', (e) => {
 	f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
 	f.allowFullscreen = true;
 	a.replaceWith(f);
+});
+
+// Long CEO analysis / developer text on project pages: shown in part, "Đọc tiếp" opens the rest (all text stays in the page).
+$$('.v-sub--accent').forEach((box) => {
+	const prose = box.querySelector('.v-prose');
+	if (!prose || prose.scrollHeight < 900) return;
+	box.classList.add('is-clamped');
+	const btn = document.createElement('button');
+	btn.type = 'button';
+	btn.className = 'v-btn v-btn--secondary v-more';
+	btn.textContent = 'Đọc tiếp';
+	btn.setAttribute('aria-expanded', 'false');
+	btn.addEventListener('click', () => {
+		const open = box.classList.toggle('is-clamped') === false;
+		btn.textContent = open ? 'Thu gọn' : 'Đọc tiếp';
+		btn.setAttribute('aria-expanded', String(open));
+		if (!open) box.scrollIntoView({ block: 'start' });
+	});
+	prose.after(btn);
 });

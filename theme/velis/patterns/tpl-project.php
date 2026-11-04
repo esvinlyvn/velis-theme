@@ -18,15 +18,19 @@ $name   = $p->post_title;
 $parent = $p->post_parent ? get_post( $p->post_parent ) : null;
 $root   = velis_root( $p );
 $devs   = velis_developers( $p );
-$out    = velis_breadcrumb_html( velis_trail() );
+$out    = '';
 
 // Hero A: name (H1), developer (link), region, 2 buttons.
 $eyebrow = implode( ' · ', array_filter( array(
 	implode( ', ', array_map( fn( $d ) => 'publish' === $d->post_status ? '<a href="' . esc_url( get_permalink( $d ) ) . '">' . esc_html( $d->post_title ) . '</a>' : esc_html( $d->post_title ), $devs ) ),
 	esc_html( velis_region_label( $p ) ),
 ) ) );
-$out .= velis_hero_a( array(
-	'img' => velis_image_id( $p ), 'title' => $name, 'h1' => true, 'eyebrow' => $eyebrow, 'alt' => 'Phối cảnh ' . $name,
+$hand  = (string) get_post_meta( $p->ID, 'velis_handover', true );
+$price = velis_price( $p );
+$out  .= velis_hero_a( array(
+	'img' => velis_image_id( $p ), 'title' => $name, 'h1' => true, 'eyebrow' => $eyebrow, 'alt' => 'Phối cảnh ' . $name, 'mod' => 'project',
+	'crumbs' => velis_breadcrumb_html( velis_trail(), false ),
+	'chips' => array( velis_status( $p ), implode( ', ', velis_type_names( $p ) ), $hand ? 'Bàn giao ' . velis_short( $hand, 28 ) : '', '' !== $price ? 'Giá từ ' . $price : '' ),
 	'buttons' => velis_btn( 'thap-tang' === $level ? 'Nhận bảng giá ' . mb_strtolower( velis_short_name( $p ) ) : 'Nhận bảng giá', '#tu-van', '', ' data-interest="' . esc_attr( $name ) . '"' ) . velis_call_btn(),
 ) );
 
@@ -46,7 +50,8 @@ if ( $p->post_excerpt ) {
 	$over .= '<p class="v-lead v-answer">' . esc_html( $p->post_excerpt ) . '</p>';
 }
 // Full text of the quick facts that the bar had to shorten ("Chi tiết" links here); the rest is already readable above.
-$over .= velis_overview_html( array_filter( $facts, fn( $v ) => velis_short( (string) $v ) !== trim( preg_replace( '/\s+/u', ' ', (string) $v ) ) ) );
+// Old content with its own overview table already repeats the facts: show them once (round 5).
+$over .= false !== strpos( $chunks['tong-quan']['html'] ?? '', '<table' ) ? '' : velis_overview_html( array_filter( $facts, fn( $v ) => velis_short( (string) $v ) !== trim( preg_replace( '/\s+/u', ' ', (string) $v ) ) ) );
 $over .= $cb( 'tong-quan' );
 if ( $over ) {
 	$sections['tong-quan'] = array( 'Tổng quan', velis_sechead( 'Tổng quan ' . $name, 'Tổng quan' ) . $over );
@@ -155,18 +160,38 @@ if ( $posts || isset( $chunks['bai-viet'] ) ) {
 	$all = $cat ? '<a class="v-btn v-btn--secondary" href="' . esc_url( get_category_link( $cat ) ) . '">Tất cả bài ' . esc_html( $cat->name ) . '</a>' : '';
 	$sections['bai-viet'] = array( 'Bài viết', velis_sechead( 'Phân tích ' . $root->post_title, 'Bài viết của Vũ Xuân', '', '', $all ) . ( $posts ? velis_grid( array_map( 'velis_card_post', $posts ), '3 v-rail' ) : '' ) . $cb( 'bai-viet' ) );
 }
-$order = array_flip( array( 'tong-quan', 'dong-san-pham', 'gia', 'mat-bang', 'phan-khu', 'thap-tang', 'so-sanh', 'tien-do', 'vi-tri', 'tien-ich', 'quy-hoach', 'thu-vien', 'goc-nhin', 'chu-dau-tu', 'hoi-dap', 'bai-viet' ) );
-uksort( $sections, fn( $a, $b ) => $order[ $a ] <=> $order[ $b ] );
-
-$nav  = array_map( fn( $s ) => $s[0], $sections ) + array( 'tu-van' => 'Nhận tư vấn' );
+// Section nav: at most 8 entries (round 5). Sections are grouped; a group keeps the ids of its parts for deep links.
+$groups = array(
+	'tong-quan' => array( 'Tổng quan', array( 'tong-quan', 'goc-nhin' ) ),
+	'san-pham'  => array( 'Sản phẩm', array( 'dong-san-pham', 'gia', 'mat-bang', 'thap-tang', 'dai-do-thi' === $level ? '' : 'so-sanh' ) ),
+	'phan-khu'  => array( 'Phân khu', array( 'phan-khu', 'dai-do-thi' === $level ? 'so-sanh' : '' ) ),
+	'vi-tri'    => array( 'Vị trí & tiện ích', array( 'vi-tri', 'tien-ich', 'quy-hoach' ) ),
+	'thu-vien'  => array( 'Thư viện', array( 'thu-vien' ) ),
+	'tien-do'   => array( isset( $sections['tien-do'] ) ? 'Tiến độ & pháp lý' : 'Chủ đầu tư', array( 'tien-do', 'chu-dau-tu' ) ),
+	'hoi-dap'   => array( isset( $sections['hoi-dap'] ) ? 'Hỏi đáp' : 'Bài viết', array( 'hoi-dap', 'bai-viet' ) ),
+);
+$nav  = array();
 $body = '';
-foreach ( $sections as $id => $s ) {
-	$body .= '<section class="v-block" id="' . esc_attr( $id ) . '">' . $s[1] . '</section>';
+$tone = 0;
+foreach ( $groups as $gid => list( $label, $parts ) ) {
+	$parts = array_values( array_filter( $parts, fn( $id ) => $id && isset( $sections[ $id ] ) ) );
+	if ( ! $parts ) {
+		continue;
+	}
+	$gid         = in_array( $gid, $parts, true ) ? $gid : $parts[0]; // the group answers to its first part's id
+	$nav[ $gid ] = $label;
+	$inner       = '';
+	foreach ( $parts as $id ) {
+		$inner .= '<div class="v-sub' . ( 'goc-nhin' === $id || 'chu-dau-tu' === $id ? ' v-sub--accent' : '' ) . '"' . ( $id === $gid ? '' : ' id="' . esc_attr( $id ) . '"' ) . '>' . $sections[ $id ][1] . '</div>';
+	}
+	// rhythm: ivory / white panel alternate, the gallery sits on dark
+	$class = 'thu-vien' === $gid ? 'v-block--dark' : ( $tone++ % 2 ? 'v-block--panel' : '' );
+	$body .= '<section class="v-block ' . $class . '" id="' . esc_attr( $gid ) . '">' . $inner . '</section>';
 }
-$price = velis_price( $p );
+$nav['tu-van'] = 'Tư vấn';
 $src   = (string) get_post_meta( $p->ID, 'velis_price_source', true );
 $out  .= velis_section_nav( $nav ) . '<div class="v-wrap v-projhead">' . velis_facts_html( $facts, '' === $price ? null : $price, $src ? 'Nguồn giá: ' . $src : '', array( 'Vị trí' => '#vi-tri' ) ) . '</div>'
-	. '<div class="v-wrap v-page">' . $body . velis_disclosure() . '</div>';
+	. '<div class="v-wrap v-page v-page--2col"><div class="v-page__main">' . $body . velis_disclosure() . '</div>' . velis_price_card( $p ) . '</div>';
 
 // Consultation form pre-filled with this record; đại đô thị offers its phân khu.
 $opts = 'dai-do-thi' === $level ? array_map( fn( $z ) => $name . ' – ' . $z->post_title, velis_children( $p, 'phan-khu' ) ) : array();

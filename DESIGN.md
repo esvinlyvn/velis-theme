@@ -188,12 +188,31 @@ Chính (đỏ, chữ trắng) · Phụ (viền đen, hover nền đen) · Viền
 Cao tối thiểu 48 px (vùng bấm ≥ 44 × 44). Đổi màu 150–200 ms.
 
 ### Hero (đã chốt)
-- **A** – trang chủ, trang dự án, trang phân khu. Ảnh tràn màn hình. Desktop: lớp phủ `#141414` chỉ ở nửa trái, sau khối
-  chữ (90 % → 55 % ở 50 % chiều rộng → 0 ở 60 %), nửa phải giữ ảnh sáng tự nhiên; khối chữ ≤ min(520 px, 40vw).
-  Mobile: lớp phủ từ dưới lên 90 % → 45 % vì chữ chiếm cả chiều ngang. Eyebrow `#EADBC0`; chữ trên ảnh ≥ 4,5:1 (đo bằng
-  điểm ảnh, xem `tools/check_ui.mjs`). Tiêu đề hero mọi khung `text-wrap: balance`, đoạn dẫn `text-wrap: pretty`.
-  Chưa có ảnh: nền tối trung tính + tên dự án chìm phía sau.
+- **A** – trang chủ, trang dự án, trang phân khu (vòng 5, 2026-11-04). Ảnh tràn rộng; desktop/tablet: lớp phủ từ **dưới lên**
+  (92 % → 78 % ở 34 % → 28 % ở 64 % → 10 %; mép trên 50 % cho breadcrumb), khối chữ canh **dưới**, rộng ≤ 760 px – không còn
+  vùng tối trống ở góc trái trên. Trong hero: breadcrumb (chữ sáng, trên cùng), eyebrow chủ đầu tư · khu vực, tên (H1),
+  3–4 chip pill viền trắng (trạng thái, loại sản phẩm, bàn giao, giá nếu có), 2 nút. Cao: trang dự án ~60vh (≥ 440 px) để
+  1366×768 thấy hero + đầu thanh thông tin nhanh; trang chủ = màn hình trừ header, đáy hero là **dải 4 dự án nổi bật**
+  (ảnh thật, tên, khu vực, trạng thái). Mobile: ảnh 4:3 ở trên, chữ trên dải tối bên dưới, dải dự án cuộn ngang ngay dưới.
+  Eyebrow `#EADBC0`; chữ trên ảnh ≥ 4,5:1 (đo bằng điểm ảnh, `tools/check_ui.mjs`). Chưa có ảnh: nền tối + tên chìm.
 - **B** – trang tổng (Dự án, Chủ đầu tư, Blog, cụm blog). Chia đôi 5:6, chữ trên nền ngà, tiêu đề `text-wrap: balance`.
+
+### Bố cục 2 cột & nhịp thị giác (vòng 5)
+- **Trang có văn bản dài** (dự án mọi cấp; Giới thiệu, Tuyển dụng; chính sách có mục lục): từ 1024 px là cột nội dung
+  (phần còn lại) + **cột phải dính 340 px** – dự án: thẻ "Nhận bảng giá {tên}" (ảnh, trạng thái, giá nếu có, bàn giao,
+  Nhận bảng giá → form điền sẵn, Gọi, Zalo); Giới thiệu: thẻ liên hệ; Tuyển dụng: thẻ "Gửi CV"; chính sách: mục lục.
+  Không có gì hữu ích cho cột phải → một cột đọc 760 px canh giữa. < 1024 px: một cột + thanh CTA đáy (kể cả tablet).
+- Khối rộng (danh sách phân khu, so sánh, thư viện, bản đồ) **vừa cột nội dung**: phân khu 2 cột, bảng so sánh cuộn ngang
+  có cột tên ghim – để cột phải dính liên tục suốt trang (đẹp và nhất quán hơn việc ngắt cột cho một khối full-width).
+- **Nhịp**: không lặp một khuôn suốt trang. Trang dự án: nhóm mục xen kẽ nền ngà / bảng trắng có viền, Thư viện trên nền tối;
+  góc nhìn CEO và chủ đầu tư là khối nhấn có vạch champagne bên trái (dài thì hiện một phần + "Đọc tiếp"). Trang khác: nền
+  ngà, dải trắng toàn chiều ngang, **mỗi trang ít nhất một khối nhấn tối** (Góc nhìn CEO ở trang chủ, Giới thiệu, chủ đầu tư)
+  hoặc dải số liệu / ảnh tràn rộng.
+- Danh sách ≤ 2 mục: 1 mục = thẻ ngang rộng hết khung (ảnh trái, chữ phải), 2 mục = 2 cột; không để hàng có ô trống.
+- **Thanh điều hướng mục** tối đa 8 mục: Tổng quan · Sản phẩm · Phân khu · Vị trí & tiện ích · Thư viện · Tiến độ & pháp lý ·
+  Hỏi đáp · Tư vấn (mục không có nội dung tự ẩn); mobile cuộn ngang, mục đầu luôn thấy.
+- **Khoảng trống**: từ 1024 px không vùng nào có khoảng trống ngang cạnh nội dung > 30 % khung kéo dài quá 1 màn hình
+  (`tools/check_ui.mjs` tự kiểm ở 1100 / 1366 / 1536 / 1920).
 
 ### Đầu mục section
 Eyebrow → tiêu đề Playfair (H2) → đoạn dẫn ≤ 2 dòng màu `body-muted` → đường kẻ champagne 48 × 1 px. Nhịp: 96/64 px giữa

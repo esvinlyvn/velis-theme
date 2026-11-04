@@ -56,6 +56,11 @@ add_filter( 'render_block_core/embed', function ( $html, $block ) {
 	return velis_youtube_facade( $id, preg_match( '#<figcaption[^>]*>(.*?)</figcaption>#s', $html, $m ) ? wp_kses_post( $m[1] ) : '' );
 }, 10, 2 );
 
+// Image captions that are only a file name / auto title are dropped (round 5).
+add_filter( 'render_block_core/image', function ( $html ) {
+	return preg_replace_callback( '#<figcaption[^>]*>(.*?)</figcaption>#s', fn( $m ) => velis_auto_caption( $m[1] ) ? '' : $m[0], $html );
+} );
+
 // Theme block styles: secondary (outline) and text buttons.
 add_action( 'init', function () {
 	register_block_style( 'core/button', array( 'name' => 'secondary', 'label' => 'Phụ (viền)' ) );
