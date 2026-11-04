@@ -1,5 +1,13 @@
 # Ghi chú chuyển tiếp giữa các giai đoạn
 
+## Giai đoạn 2 hoàn tất – đã merge vào main
+
+Đã merge vào `main` (merge thường `--no-ff`, commit e4faa8c) ngày 2026-11-04 sau vòng sửa theo duyệt cổng 2: mọi phân khu có
+trang, dòng thấp tầng là bản ghi con có trang, dòng căn hộ là tab (bài blog theo loại căn), trang thiếu dữ liệu tự noindex,
+43 trang ảnh không gắn bài → 410, Classic Editor tắt trên staging. Bàn giao: plugin `velis-data` 0.2.3 trên staging,
+`docs/DATA-MODEL.md`, `PROJECT-MAP.md`, `AUDIT-NOI-DUNG.md`, `KE-HOACH-RA-MAT.md`, `data/url-map.csv`, `data/keyword-map.csv`.
+Giai đoạn 3 (dựng template) bắt đầu trên nhánh `claude/giai-doan-3-template`.
+
 ## Giai đoạn 1 hoàn tất – đã merge vào main
 
 Đã merge vào `main` (merge thường `--no-ff`, commit b1052f4) ngày 2026-11-04; PR esvinlyvn/velis-theme#1 đã đóng ở trạng thái merged.
@@ -19,6 +27,7 @@ bộ logo SVG, `tools/check_ui.mjs` (kiểm tra tự động 9 khung: 0 lỗi). 
 
 ## Cho giai đoạn kiến trúc & dữ liệu
 
+- (Đã làm ở giai đoạn 2; câu hỏi còn mở chuyển sang `docs/AUDIT-NOI-DUNG.md`.)
 - Rank Math Analytics: người dùng sẽ kết nối Google; dùng dữ liệu truy vấn theo URL để lập keyword map.
 - Gán khu vực thị trường theo `docs/KHU-VUC.md`.
 - Dữ liệu dự án trên site có chỗ mâu thuẫn, cần chủ site chốt trước khi đưa vào trường dữ liệu:
