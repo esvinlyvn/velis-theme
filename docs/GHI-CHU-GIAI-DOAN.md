@@ -1,9 +1,12 @@
 # Ghi chú chuyển tiếp giữa các giai đoạn
 
-## Giai đoạn 1 hoàn tất
+## Giai đoạn 1 hoàn tất – đã merge vào main
+
+Đã merge vào `main` (merge thường `--no-ff`, commit b1052f4) ngày 2026-11-04; PR esvinlyvn/velis-theme#1 đã đóng ở trạng thái merged.
+Lỗi cuối (thanh lọc dự án chồng chữ) đã sửa trước khi merge: theme 0.4.5, ảnh kiểm chứng `screenshots/phase1-fix/`.
 
 Giai đoạn 1 – Nhận diện & design system hoàn tất ngày 2026-11-04 (4 vòng duyệt; PR esvinlyvn/velis-theme#1).
-Bàn giao: `DESIGN.md` → `theme/velis/theme.json`, theme `velis` 0.4.4 trên staging, style guide `/velis-style-guide/`,
+Bàn giao: `DESIGN.md` → `theme/velis/theme.json`, theme `velis` 0.4.5 trên staging, style guide `/velis-style-guide/`,
 bộ logo SVG, `tools/check_ui.mjs` (kiểm tra tự động 9 khung: 0 lỗi). Giai đoạn 2 chưa bắt đầu – chờ người dùng.
 
 ## Cho giai đoạn dựng template (chưa làm)
