@@ -24,4 +24,14 @@ $check( false === strpos( $all, 'v-source' ), 'no note when nothing hidden' );
 $check( '' === velis_area( '', '' ), 'empty area renders nothing' );
 $check( false !== strpos( velis_area( '75,8 m²', '84,9 m²' ), '84,9 m² tim tường' ), 'secondary gross area' );
 $check( false !== strpos( velis_area( '', '49 m²' ), 'tim tường' ), 'gross only is labelled' );
+$h = fn( $l, $t ) => '<!-- wp:heading' . ( 3 === $l ? ' {"level":3}' : '' ) . " -->\n<h$l class=\"wp-block-heading\">$t</h$l>\n<!-- /wp:heading -->\n";
+$src = '<p>Mở đầu.</p>' . $h( 2, 'CĂN HỘ X' ) . '<p>Giới thiệu.</p>' . $h( 2, 'VỊ TRÍ X Ở ĐÂU? VÌ SAO NÊN MUA' ) . '<p>Gần sông.</p>' . $h( 3, 'Kết nối' ) . '<p>10 phút.</p>'
+	. $h( 2, 'TẠI SAO NÊN MUA X' ) . '<p>Vì A.</p>' . $h( 2, 'VÌ SAO X PHÙ HỢP VỚI NGƯỜI MUA Ở?' ) . '<p>Vì B.</p>' . $h( 2, 'CÂU HỎI THƯỜNG GẶP' ) . '<details><summary>Hỏi?</summary><p>Đáp.</p></details>' . $h( 3, 'Bài viết liên quan' ) . '<ul><li>a</li></ul>';
+$c = velis_chunks( $src );
+$check( array( 'tong-quan', 'vi-tri', 'goc-nhin', 'hoi-dap', 'bai-viet' ) === array_keys( $c ), 'slots by heading' );
+$check( 'VỊ TRÍ X Ở ĐÂU? VÌ SAO NÊN MUA' === $c['vi-tri']['title'] && false !== strpos( $c['vi-tri']['html'], 'Kết nối' ), 'location heading wins, H3 stays in its slot' );
+$check( false !== strpos( $c['tong-quan']['html'], 'CĂN HỘ X' ) && false !== strpos( $c['goc-nhin']['html'], 'PHÙ HỢP VỚI' ), 'unmatched H2 to tổng quan; second H2 of a slot kept' );
+$words = fn( $s ) => count( preg_split( '/\s+/u', trim( strip_tags( $s ) ), -1, PREG_SPLIT_NO_EMPTY ) );
+$check( $words( $src ) === array_sum( array_map( fn( $x ) => $words( $x['title'] ) + $words( $x['html'] ), $c ) ), 'no word lost or added' );
+$check( array() === velis_chunks( '' ), 'empty content, no slot' );
 echo "components: all checks passed\n";

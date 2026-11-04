@@ -56,3 +56,51 @@ function velis_area( string $net, string $gross ): string {
 	return '<span class="v-area"><b>' . esc_html( $net ) . '</b> <small>thông thủy</small>'
 		. ( '' !== $gross ? '<small class="v-area__alt">' . esc_html( $gross ) . ' tim tường</small>' : '' ) . '</span>';
 }
+
+/**
+ * Old pillar post text (phase 4) split into project template slots by its H2 (and the trailing "Bài viết liên quan"
+ * H3). Words are not changed: each H2 text becomes the section title, the rest stays as editor HTML.
+ * Returns [slot => ['title' => first H2 text or '', 'html' => body]]; unmatched headings go to 'tong-quan'.
+ */
+function velis_chunks( string $html ): array {
+	$slots = array( // first match wins; "vị trí … vì sao nên mua" is a location heading
+		'vi-tri' => 'vị trí', 'tien-do' => 'tiến độ', 'tien-ich' => 'tiện ích', 'mat-bang' => 'mặt bằng', 'gia' => 'giá bán',
+		'hoi-dap' => 'câu hỏi thường gặp', 'chu-dau-tu' => 'chủ đầu tư', 'dong-san-pham' => 'loại hình sản phẩm|loại sản phẩm',
+		'phan-khu' => 'phân khu', 'goc-nhin' => 'nên mua|phù hợp|lý do|đầu tư|nơi nhiều người',
+	);
+	$parts = preg_split( '#(<!-- wp:heading[^>]*-->\s*<h([23])[^>]*>.*?</h\2>\s*<!-- /wp:heading -->)#s', $html, -1, PREG_SPLIT_DELIM_CAPTURE );
+	$out   = array();
+	$slot  = 'tong-quan';
+	$add   = function ( $slot, $title, $body ) use ( &$out ) {
+		$out[ $slot ] ??= array( 'title' => $title, 'html' => '' );
+		$out[ $slot ]['html'] .= $body;
+	};
+	$add( 'tong-quan', '', $parts[0] );
+	for ( $i = 1; $i < count( $parts ); $i += 3 ) {
+		$head = $parts[ $i ];
+		$text = trim( html_entity_decode( wp_strip_all_tags( $head ), ENT_QUOTES ) );
+		$low  = mb_strtolower( $text );
+		if ( '3' === $parts[ $i + 1 ] ) {
+			if ( preg_match( '/^(bài viết liên quan|những bài phân tích)/u', $low ) ) {
+				$add( 'bai-viet', '', $head . $parts[ $i + 2 ] );
+			} else {
+				$add( $slot, '', $head . $parts[ $i + 2 ] );
+			}
+			continue;
+		}
+		$slot = 'tong-quan';
+		foreach ( $slots as $k => $re ) {
+			if ( preg_match( '/' . $re . '/u', $low ) ) {
+				$slot = $k;
+				break;
+			}
+		}
+		// tổng quan keeps its H2s inside the text; other slots use the first H2 as the section title, later ones stay in the text
+		if ( 'tong-quan' === $slot || isset( $out[ $slot ] ) ) {
+			$add( $slot, '', $head . $parts[ $i + 2 ] );
+		} else {
+			$add( $slot, $text, $parts[ $i + 2 ] );
+		}
+	}
+	return array_filter( $out, fn( $c ) => '' !== trim( $c['html'] ) || '' !== $c['title'] );
+}

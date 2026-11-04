@@ -6,7 +6,7 @@ Description: Theme khối nhẹ cho Velis Realty. Token sinh từ DESIGN.md (the
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 8.0
-Version: 0.8.0
+Version: 0.9.0
 License: Proprietary
 Text Domain: velis
 */
@@ -358,12 +358,12 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 .v-toc a[aria-current] { color: var(--v-red); font-weight: 600; }
 .v-toc li:has(a[aria-current])::marker { color: var(--v-red); font-weight: 600; }
 .v-toc a:hover { color: var(--v-red); }
-.v-toc summary, .v-faq summary { cursor: pointer; font-weight: 600; min-height: 48px; display: flex; align-items: center; }
-.v-faq details { border-bottom: 1px solid var(--v-line); padding: 4px 0; }
-.v-faq summary { list-style: none; justify-content: space-between; gap: 16px; }
-.v-faq summary::-webkit-details-marker { display: none; }
-.v-faq summary::after { content: "+"; font-size: 24px; color: var(--v-red); }
-.v-faq details[open] summary::after { content: "–"; }
+.v-toc summary, .v-faq summary, .v-prose .wp-block-details > summary { cursor: pointer; font-weight: 600; min-height: 48px; display: flex; align-items: center; }
+.v-faq details, .v-prose .wp-block-details { border-bottom: 1px solid var(--v-line); padding: 4px 0; }
+.v-faq summary, .v-prose .wp-block-details > summary { list-style: none; justify-content: space-between; gap: 16px; }
+.v-faq summary::-webkit-details-marker, .v-prose .wp-block-details > summary::-webkit-details-marker { display: none; }
+.v-faq summary::after, .v-prose .wp-block-details > summary::after { content: "+"; font-size: 24px; color: var(--v-red); flex: none; }
+.v-faq details[open] summary::after, .v-prose .wp-block-details[open] > summary::after { content: "–"; }
 .v-author { display: flex; gap: 20px; align-items: flex-start; padding: 24px; background: #fff; border: 1px solid var(--v-line); margin-block: 32px; }
 .v-author__photo { flex: none; width: 88px; height: 88px; object-fit: cover; }
 .v-author p { margin: 0 0 6px; }
