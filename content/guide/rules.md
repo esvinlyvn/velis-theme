@@ -63,4 +63,12 @@ slogan, hotline của họ. Mỗi dòng: `- `cụm từ` (loại, nguồn)` — 
 - `0975442140` (điện thoại trong schema)
 - `Đại đô thị công viên sinh thái tri thức đáng sống bậc nhất` (slogan footer)
 
+### vinhomescangios.vn
+
+- `vinhomescangiosr` (Facebook)
+- `Vinhomes Cần Giờ SR` (tên site)
+- `0938910329` (điện thoại)
+- `0915333387` (điện thoại trong schema)
+- (tác giả, email, hotline 0938.007.778 / 0975442140, byline: trùng mục vinhomeshocmonsr.vn)
+
 <!-- banned:end -->
