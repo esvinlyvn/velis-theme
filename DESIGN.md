@@ -6,33 +6,39 @@ description: Phong cách "tư vấn riêng cao cấp" cho Velis Realty – nền
 colors:
   ink: "#1A1A1A"
   body-muted: "#5C5C5C"
-  canvas: "#FAF8F5"
+  canvas: "#FAF7F2"
   surface: "#FFFFFF"
   surface-sunken: "#F2EEE8"
-  surface-dark: "#141414"
+  surface-dark: "#111111"
+  footer: "#1A1A1A"
   hairline: "#E4DED5"
   hairline-strong: "#C9C1B5"
   velis-red: "#B8282E"
   velis-red-hover: "#9E1F26"
   champagne: "#B08D57"
   champagne-text: "#8A6A3A"
+  champagne-light: "#EADBC0"
+  champagne-soft: "#F3ECDF"
   on-dark: "#FFFFFF"
   on-dark-muted: "#B9B9B9"
   success: "#2E6B3F"
   warning: "#8A5A00"
   error: "#B3261E"
+  error-on-dark: "#F2B8B5"
   brand-logo-red: "#DC2524"
   brand-logo-gold: "#D2941B"
 
 typography:
   font-heading: "Playfair Display, Playfair Fallback, Georgia, 'Times New Roman', serif"
   font-body: "Be Vietnam Pro, Be Vietnam Pro Fallback, Arial, sans-serif"
-  h1: { fontFamily: heading, fontWeight: 600, desktop: 48px, mobile: 32px, lineHeight: 1.2 }
-  h2: { fontFamily: heading, fontWeight: 600, desktop: 36px, mobile: 26px, lineHeight: 1.2 }
-  h3: { fontFamily: body, fontWeight: 600, desktop: 24px, mobile: 20px, lineHeight: 1.35 }
-  h4: { fontFamily: body, fontWeight: 600, desktop: 20px, mobile: 18px, lineHeight: 1.4 }
-  body: { fontFamily: body, fontWeight: 400, desktop: 18px, mobile: 17px, lineHeight: 1.7 }
-  body-sm: { fontFamily: body, fontWeight: 400, desktop: 16px, mobile: 16px, lineHeight: 1.6 }
+  h1: { fontFamily: heading, fontWeight: 600, desktop: 56px, mobile: 36px, lineHeight: 1.1 }
+  h2: { fontFamily: heading, fontWeight: 600, desktop: 40px, mobile: 28px, lineHeight: 1.2 }
+  h3: { fontFamily: body, fontWeight: 600, desktop: 22px, mobile: 22px, lineHeight: 1.3 }
+  h4: { fontFamily: body, fontWeight: 600, desktop: 19px, mobile: 19px, lineHeight: 1.4 }
+  lead: { fontFamily: body, fontWeight: 400, desktop: 19px, mobile: 19px, lineHeight: 1.6 }
+  number: { fontFamily: heading, fontWeight: 600, desktop: 48px, mobile: 48px, lineHeight: 1.1 }
+  body: { fontFamily: body, fontWeight: 400, desktop: 17px, mobile: 17px, lineHeight: 1.65 }
+  body-sm: { fontFamily: body, fontWeight: 400, desktop: 16px, mobile: 16px, lineHeight: 1.55 }
   caption: { fontFamily: body, fontWeight: 400, desktop: 14px, mobile: 14px, lineHeight: 1.5 }
   eyebrow: { fontFamily: body, fontWeight: 600, desktop: 13px, mobile: 13px, lineHeight: 1.4, letterSpacing: 0.12em, textTransform: uppercase }
   button: { fontFamily: body, fontWeight: 600, desktop: 16px, mobile: 16px, lineHeight: 1.25 }
@@ -44,10 +50,8 @@ rounded:
   pill: 999px
 
 spacing:
-  unit: 4px
-  "1": 4px
+  unit: 8px
   "2": 8px
-  "3": 12px
   "4": 16px
   "6": 24px
   "8": 32px
@@ -55,11 +59,16 @@ spacing:
   "16": 64px
   "24": 96px
   section-desktop: 96px
-  section-mobile: 64px
+  section-tablet: 64px
+  section-mobile: 48px
+  head-gap-desktop: 40px
+  head-gap-mobile: 32px
+  card-gap: 24px
 
 layout:
   columns: 12
   content: 1200px
+  content-1600: 1320px
   reading: 720px
   gutter-desktop: 24px
   gutter-mobile: 16px
@@ -90,7 +99,7 @@ components:
   product-tabs: { activeIndicator: "2px {colors.velis-red}", anchors: true }
   subzone-listing: { views: ["Theo phân khu", "Theo loại sản phẩm"], filterDrawerMobile: true }
   sticky-cta-mobile: { backgroundColor: "{colors.surface}", shadow: "{elevation.sticky-cta}", height: 64px, items: ["Gọi", "Zalo", "Nhận tư vấn"] }
-  footer: { backgroundColor: "{colors.surface-dark}", textColor: "{colors.on-dark}", muted: "{colors.on-dark-muted}" }
+  footer: { backgroundColor: "{colors.footer}", borderTop: "1px solid {colors.champagne}", textColor: "{colors.on-dark}", muted: "{colors.on-dark-muted}" }
 ---
 
 # DESIGN.md – Velis Realty
@@ -110,15 +119,17 @@ bằng `prefers-reduced-motion`; WCAG 2.2 AA.
 ### Brand & Accent
 - **velis-red `#B8282E`** – nút chính, link, điểm nhấn hành động. Chữ trắng trên nút 6,21:1; chữ đỏ trên nền ngà 5,86:1.
 - **velis-red-hover `#9E1F26`** – hover/nhấn (7,84:1 với chữ trắng).
-- **champagne `#B08D57`** – đường kẻ, icon trang trí, chữ ≥ 24 px trên nền tối (5,96:1 trên `#141414`).
+- **champagne `#B08D57`** – đường kẻ, icon trang trí, chữ ≥ 24 px trên nền tối (≈ 6:1 trên `#111111`).
   Chỉ 2,92:1 trên nền ngà: **không dùng cho chữ** trên nền sáng.
 - **champagne-text `#8A6A3A`** – chữ nhỏ màu vàng khi cần (5,00:1 trên trắng, 4,71:1 trên ngà).
 - **Màu logo** `#DC2524` / `#D2941B` lấy đúng từ file Illustrator gốc; chỉ dùng trong file logo, không dùng làm màu giao diện
   (đỏ logo trên nền ngà 4,57:1, sát ngưỡng; vàng logo 2,48:1).
 
 ### Surface
-- **canvas `#FAF8F5`** nền trang (trắng ngà) · **surface `#FFFFFF`** thẻ, bảng, form · **surface-sunken `#F2EEE8`** đầu bảng,
-  khối phụ · **surface-dark `#141414`** footer, khối nổi bật (chữ trắng 18,42:1).
+- **canvas `#FAF7F2`** nền ngà · **surface `#FFFFFF`** dải trắng xen kẽ, thẻ, form · **surface-sunken `#F2EEE8`** đầu bảng ·
+  **champagne-soft `#F3ECDF`** dải nhạt (Thi thử + Tuyển dụng) · **champagne-light `#EADBC0`** vạch dọc giữa cột số liệu ·
+  **surface-dark `#111111`** khối tối duy nhất (form tư vấn, chữ trắng ≈ 19:1) · **footer `#1A1A1A`** + đường champagne 1 px ·
+  **error-on-dark `#F2B8B5`** chữ lỗi trên nền tối.
 - **hairline `#E4DED5`** viền thẻ, dòng bảng · **hairline-strong `#C9C1B5`** viền ô nhập (đạt 3:1 cho thành phần UI khi
   kết hợp nhãn hiển thị).
 
@@ -133,38 +144,70 @@ bằng `prefers-reduced-motion`; WCAG 2.2 AA.
 ## Typography
 
 ### Font Family
-- **Playfair Display 600** – H1, H2 và số liệu lớn; **chỉ từ 26 px (mobile) / 28 px trở lên**.
+- **Playfair Display 600** – H1, H2, số liệu lớn và tên thẻ dự án (22 px – ngoại lệ có chủ đích, chữ có chân giữ chất "tư vấn riêng" ở thẻ).
 - **Be Vietnam Pro 400 / 600** – nội dung, giao diện, H3–H4, số liệu. Bảng giá dùng `font-variant-numeric: tabular-nums`.
 - Tự lưu trên máy chủ: 3 file woff2 (latin + vietnamese gộp một file mỗi kiểu), preload 2 file (Be Vietnam Pro 400,
   Playfair Display 600), `font-display: swap`, font dự phòng chỉnh `size-adjust` (Arial 108,3 %, Times New Roman 112,3 %)
   để không xô lệch bố cục.
 
-### Hierarchy (desktop / mobile, co giãn bằng `clamp()`)
+### Hierarchy (thang chữ 1.3 – desktop ≥ 1024 / mobile)
 
 | Token | Font | Cỡ | Dòng |
 |---|---|---|---|
-| h1 | Playfair 600 | 48 / 32 px | 1,2 |
-| h2 | Playfair 600 | 36 / 26 px | 1,2 |
-| h3 | Be Vietnam Pro 600 | 24 / 20 px | 1,35 |
-| h4 | Be Vietnam Pro 600 | 20 / 18 px | 1,4 |
-| body | Be Vietnam Pro 400 | 18 / 17 px | 1,7 |
-| body-sm | Be Vietnam Pro 400 | 16 px | 1,6 |
-| caption | Be Vietnam Pro 400 | 14 px | 1,5 |
-| eyebrow | Be Vietnam Pro 600, chữ hoa, giãn 0,12em | 13 px | 1,4 |
+| h1 | Playfair 600 | 56 / 36 px | 1,1 |
+| số liệu | Playfair 600 | 48 px | 1,1 |
+| h2 | Playfair 600 | 40 / 28 px | 1,2 |
+| h3 | Be Vietnam Pro 600 (tên thẻ dự án: Playfair 600) | 22 px | 1,3 |
+| dẫn (lead) | Be Vietnam Pro 400 | 19 px | 1,6 |
+| thân | Be Vietnam Pro 400 | 17 px | 1,65 |
+| thẻ | Be Vietnam Pro 400 | 16 px | 1,55 |
+| phụ | Be Vietnam Pro 400 | 14 px | 1,5 |
+| nhãn (eyebrow) | Be Vietnam Pro 600, chữ hoa, giãn 0,12em – chỉ nhãn nhỏ | 13 px | 1,4 |
+
+Không có cỡ nào khác (đo bằng `tools/mockup_scale.mjs`). `h4` trong front-matter = 19 px chỉ để `theme.json` có đủ khóa.
 
 ### Principles
-- Đoạn văn tối đa 68 ký tự (`max-width: 68ch`); khung đọc bài 720 px.
+- Dòng chữ tối đa 68 ký tự **đếm thật** (1.6): chữ Việt hẹp hơn ký tự "0" nên `max-width: 46ch` (≈ 66–68 ký tự); khung đọc bài 720 px.
 - Đúng một H1 mỗi trang; tiêu đề khối của theme ("Bài viết liên quan", tiêu đề footer) **không dùng thẻ heading**,
   dùng kiểu `eyebrow`.
 - Không viết hoa toàn bộ tiêu đề tiếng Việt (dấu chồng lên nhau khó đọc); chữ hoa chỉ cho `eyebrow` ngắn.
 
+## Quy tắc bố cục (chốt 2026-11-05, áp cho cả 3 trang mockup)
+
+Đo được thì có bộ đo; còn lại soát bằng mắt (bảng trong `docs/reports/doi-cach-lam-buoc-2.md` mục 12). Cách đếm ghi ngay dưới từng quy tắc.
+
+**1.1 Lưới.** 12 cột, khung 1200 px (1320 px từ 1600 px), khe 24 px. Mọi khối thẳng mép khung (logo, chữ, ảnh, nút "Nhận tư vấn"
+ở header); không khối nào tự thụt vào. Hero tách đôi trang chủ: chữ 5/12 trái, ảnh 7/12 phải (đo mép bằng `tools/mockup_heroB.mjs`).
+
+**1.2 Thang khoảng cách.** Chỉ 8 · 16 · 24 · 32 · 48 · 64 · 96. Khoảng đệm section 96 desktop / 64 tablet / 48 mobile; tiêu đề khối →
+nội dung 40 desktop / 32 mobile (giá trị 40 duy nhất ngoài thang); giữa các thẻ 24. Đếm: mọi margin / padding / gap đã tính của
+phần tử hiển thị (margin `auto` dùng để canh, không tính); `tools/mockup_scale.mjs` liệt kê ngoại lệ, phải = 0.
+
+**1.3 Thang chữ.** Bảng Hierarchy ở trên – không cỡ nào khác. **Tối đa 3 cỡ chữ mỗi khối**, đếm phần *nội dung* của khối:
+không tính đầu khối (nhãn + H1/H2 + đoạn dẫn – mẫu NT-11) và nút / điều khiển (cỡ cố định của hệ thống).
+
+**1.4 Một điểm nhìn.** Mỗi khối đúng một tiêu điểm thị giác; không đặt hai thứ nặng ngang nhau cạnh nhau.
+
+**1.5 Nhịp nền.** Xen kẽ ngà #FAF7F2 và trắng; hai khối liền nhau không cùng nền trừ khi có tiêu đề ngăn. Chỉ **một** khối tối
+(#111111) ngay trước footer (form tư vấn). Footer nền khác (#1A1A1A) + đường champagne 1 px ở mép trên. Dải "Thi thử + Tuyển dụng"
+nền champagne nhạt #F3ECDF để tách rõ khỏi khối tối. Ngoại lệ đã chốt: khung Thư viện ảnh tối ở trang dự án (NT-13/NT-27)
+là khung ảnh trong khối, không phải khối tối thứ hai.
+
+**1.6 Chữ và đường kẻ.** Dòng ≤ 68 ký tự (đếm từng ký tự trên dòng hiển thị, bỏ dấu cách ở chỗ xuống dòng – `tools/mockup_scale.mjs`).
+Dùng khoảng trắng thay đường kẻ; viền chỉ cho thẻ và ô nhập. Được giữ: gạch champagne 48 px dưới tiêu đề khối (dấu nhấn NT-11),
+vạch dọc mảnh giữa các cột số liệu (yêu cầu khối b), đường kẻ dòng của bảng dữ liệu và thanh thông tin dự án (1 đường dưới mỗi hàng).
+
+**1.7 Nút, thẻ, icon.** Nút chính đỏ đặc, nút phụ viền; mọi thẻ cùng bo góc 2 px và cùng padding; icon mảnh champagne hoặc không có.
+
+**1.8 Nhãn "ảnh tạm".** Mặc định **ẩn**; bật bằng công tắc mockup, trạng thái ghi `#tam-1` trên địa chỉ.
+
 ## Layout
 
 ### Spacing System
-Bội số 4 px: 4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96. Khoảng giữa các phần lớn 96 px desktop / 64 px mobile.
+Chỉ 8 · 16 · 24 · 32 · 48 · 64 · 96 (+ 40: tiêu đề khối → nội dung, desktop) – xem "Quy tắc bố cục" 1.2.
 
 ### Grid & Container
-Lưới 12 cột; khung nội dung 1200 px (`wideSize`), khung đọc 720 px (`contentSize`); lề 24 px desktop / 16 px mobile.
+Lưới 12 cột; khung nội dung 1200 px (1320 px từ 1600 px), khung đọc 720 px; khe 24 px; lề trang 16 px (< 768) / 24 px / 32 px (≥ 1280).
 Điểm chuyển 375 / 768 / 1024 / 1440 px.
 
 ### Whitespace Philosophy
@@ -188,12 +231,55 @@ Chính (đỏ, chữ trắng) · Phụ (viền đen, hover nền đen) · Viền
 Cao tối thiểu 48 px (vùng bấm ≥ 44 × 44). Đổi màu 150–200 ms.
 
 ### Hero (đã chốt)
-- **A** – trang chủ, trang dự án, trang phân khu. Ảnh tràn màn hình. Desktop: lớp phủ `#141414` chỉ ở nửa trái, sau khối
-  chữ (90 % → 55 % ở 50 % chiều rộng → 0 ở 60 %), nửa phải giữ ảnh sáng tự nhiên; khối chữ ≤ min(520 px, 40vw).
-  Mobile: lớp phủ từ dưới lên 90 % → 45 % vì chữ chiếm cả chiều ngang. Eyebrow `#EADBC0`; chữ trên ảnh ≥ 4,5:1 (đo bằng
-  điểm ảnh, xem `tools/check_ui.mjs`). Tiêu đề hero mọi khung `text-wrap: balance`, đoạn dẫn `text-wrap: pretty`.
-  Chưa có ảnh: nền tối trung tính + tên dự án chìm phía sau.
+- **Trang chủ (chốt 2026-11-05): hero tách đôi** – trái 5/12: nhãn, H1, đoạn dẫn, 2 nút; phải 7/12: ảnh dự án 4:3 có lề,
+  điểm lấy nét F-B; mobile ảnh trên, chữ dưới. M1–M3: H1, đoạn dẫn, 2 nút và trọn ảnh trong màn đầu (đáy nút ≤ cao − 24).
+  Không có công tắc A/B, không dải dự án trong hero (dự án ở khối "Các dự án nổi bật" ngay sau dải số liệu).
+- **A** – trang dự án, trang phân khu (vòng 6; mô tả dải dự án dưới đây là bản trang chủ cũ, đã thay). Ảnh tràn rộng. **Desktop (≥ 1024 px): không phủ cả ảnh** – chỉ
+  một lớp nền mờ cục bộ (#141414 82 %, blur 36 px) sau khối chữ ở góc trái dưới (khối chữ ≤ min(600 px, 46vw)), ≥ 60 % diện tích
+  ảnh giữ độ sáng gốc; breadcrumb có nền nhỏ riêng; chữ ≥ 4,5:1 (đo bằng điểm ảnh, `tools/check_ui.mjs`). Tablet: lớp phủ từ dưới
+  lên; mobile: ảnh 4:3 ở trên, chữ trên dải tối. Trong hero: breadcrumb, eyebrow chủ đầu tư · khu vực, H1, 3–4 chip, 2 nút.
+  Trang dự án cao ~60vh; trang chủ: đáy hero là dải **mọi dự án có ảnh thật** (4 thẻ trong khung, nhiều hơn thì trượt ngang; thẻ cao bằng nhau – tên ≤ 2 dòng, khu vực 1 dòng cắt "…").
+  Chưa có ảnh: dải tối + tên chìm.
+- **Form** (mọi nơi): chỉ Họ tên + Số điện thoại (cùng hàng từ 768 px), ô đồng ý, nút Gửi; dự án / URL trang / utm là trường
+  ẩn gửi kèm email. Khối "Nhận tư vấn" 2 cột cân: trái tiêu đề + kênh liên hệ, phải form. Thẻ "Nhận bảng giá" ở cột phải
+  trang dự án mở form gọn tại chỗ.
+- **Khung**: 1200 px; từ 1600 px là 1320 px. Thanh CTA đáy (mobile/tablet) chỉ hiện sau khi cuộn qua nút của hero.
 - **B** – trang tổng (Dự án, Chủ đầu tư, Blog, cụm blog). Chia đôi 5:6, chữ trên nền ngà, tiêu đề `text-wrap: balance`.
+
+### Bố cục 2 cột & nhịp thị giác (vòng 5)
+- **Trang có văn bản dài** (dự án mọi cấp; Giới thiệu, Tuyển dụng; chính sách có mục lục): từ 1024 px là cột nội dung
+  (phần còn lại) + **cột phải dính 340 px** – dự án: thẻ "Nhận bảng giá {tên}" (ảnh, trạng thái, giá nếu có, bàn giao,
+  Nhận bảng giá → form điền sẵn, Gọi, Zalo); Giới thiệu: thẻ liên hệ; Tuyển dụng: thẻ "Gửi CV"; chính sách: mục lục.
+  Không có gì hữu ích cho cột phải → một cột đọc 760 px canh giữa. < 1024 px: một cột + thanh CTA đáy (kể cả tablet).
+- Khối rộng (danh sách phân khu, so sánh, thư viện, bản đồ) **vừa cột nội dung**: phân khu 2 cột, bảng so sánh cuộn ngang
+  có cột tên ghim – để cột phải dính liên tục suốt trang (đẹp và nhất quán hơn việc ngắt cột cho một khối full-width).
+- **Nhịp**: không lặp một khuôn suốt trang. Trang dự án (vòng 6): các section cùng một kiểu nền ngà (không khung trắng có
+  viền), Thư viện trên nền tối, bảng so sánh là **vùng full-width riêng** thoát khỏi 2 cột (không cuộn ngang khi ≤ 5 cột).
+  Thứ tự: Tổng quan → [Phân khu] → Sản phẩm → So sánh → Vị trí & tiện ích → Thư viện → Tiến độ & pháp lý → Góc nhìn CEO →
+  Hỏi đáp → Bài viết → Tư vấn. Văn bản dài của bài trụ cột cũ nằm sau dữ liệu của section, thu gọn sau ~250 từ (Tổng quan
+  ~150 từ) với "Đọc tiếp". Trang khác: nền ngà, dải trắng toàn chiều ngang, **mỗi trang ít nhất một khối nhấn tối**.
+- Thông tin liên hệ (điện thoại + email + địa chỉ) chỉ một lần trong thân trang (khối "Nhận tư vấn"); thẻ cột phải của
+  Giới thiệu là dự án đang tư vấn, của Tuyển dụng là "Gửi CV".
+- Danh sách ≤ 2 mục: 1 mục = thẻ ngang rộng hết khung (ảnh trái, chữ phải), 2 mục = 2 cột; không để hàng có ô trống.
+- **Thanh điều hướng mục** tối đa 8 mục: Tổng quan · Sản phẩm · Phân khu · Vị trí & tiện ích · Thư viện · Tiến độ & pháp lý ·
+  Hỏi đáp · Tư vấn (mục không có nội dung tự ẩn); mobile cuộn ngang, mục đầu luôn thấy.
+- **Khoảng trống**: từ 1024 px không vùng nào có khoảng trống ngang cạnh nội dung > 30 % khung kéo dài quá 1 màn hình
+  (`tools/check_ui.mjs` tự kiểm ở 1100 / 1366 / 1536 / 1920).
+
+### Ảnh nét (vòng r8)
+- Khung ảnh **chỉ theo thiết kế và viewport**, không phụ thuộc mật độ điểm ảnh (DPR): cùng viewport, hộp mọi ảnh/khối ở
+  DPR 1 / 1,25 / 2 lệch ≤ 1 px. Hero A tràn toàn khung ở mọi DPR. Ảnh trong nội dung rộng bằng cột chữ; chỉ khi file lớn
+  nhất nhỏ hơn cột thì ảnh hiện bằng cỡ file, căn giữa (`.v-crop`, `max-width` = file lớn nhất).
+- Phóng cắt `--zoom` 1,12 (hero, ảnh đầu bài, ảnh nội dung) / 1,15 (thẻ, dải nổi bật, thư viện, tiến độ, cột phải) neo ở
+  `--focus` (góc phải trên) để đẩy huy hiệu VELIS in chìm (góc trái dưới) ra ngoài khung. Mặt bằng, logo, bản đồ OSM: không phóng.
+- `srcset` tới 2560 px (thêm cỡ 600 / 900 / 1600 / 2000 / 2560); `sizes` luôn tường minh và **nhân hệ số phóng**
+  (`velis_sizes()`), không dùng `sizes="auto"` (bỏ qua phép phóng).
+- Nhóm thẻ có ảnh: thẻ thiếu ảnh dùng khung dự phòng có tên (Playfair, căn giữa, nền champagne nhạt), cùng tỉ lệ; cả nhóm
+  không ảnh thì thẻ chữ. Ảnh lỗi khi tải → thử cỡ 1024, rồi khung dự phòng có tên (`is-broken`).
+- Bộ đo bắt buộc: `node tools/check_ui.mjs --suite tools/suite-pages.txt <thư mục>` – DPR 1 / 1,25 / 2 × viewport 390 /
+  1066 / 1366 / 1536 / 1920, cuộn thật, chờ ảnh. Độ nét đo bằng bề rộng thật của file đang hiện (nạp `currentSrc` vào
+  `new Image()`), không dùng `img.naturalWidth`. Mọi cột lỗi = 0; "ảnh nguồn thiếu độ phân giải" chỉ để thông tin
+  (`docs/KIEM-KE-ANH.md`, chuẩn `docs/CHUAN-ANH.md`). Cột phải bài viết: `--sticky tools/sticky-pages.txt`.
 
 ### Đầu mục section
 Eyebrow → tiêu đề Playfair (H2) → đoạn dẫn ≤ 2 dòng màu `body-muted` → đường kẻ champagne 48 × 1 px. Nhịp: 96/64 px giữa
@@ -202,7 +288,7 @@ section, 32 px từ đầu mục tới nội dung, 24 px giữa các khối, 8 p
 ### Ảnh
 16:9 hero/ảnh đầu bài · 3:2 thư viện (21:10 desktop) và ảnh tiến độ · 4:3 mọi loại thẻ · 1:1 đại diện. Góc vuông.
 Mọi khung ảnh nhận `--focus` (object-position) và `--zoom` (phóng nhẹ neo theo điểm lấy nét) để đẩy huy hiệu in chìm ra
-ngoài khung. Ảnh minh họa không có chữ đè (không infographic). Thiếu ảnh: khung trung tính sọc mảnh + tên dự án.
+ngoài khung (xem "Ảnh nét"). Ảnh minh họa không có chữ đè (không infographic). Thiếu ảnh: khung champagne nhạt + tên dự án (Playfair, căn giữa).
 Mặt bằng và bản đồ dùng `contain`/không cắt nội dung. Chú thích 14 px: nội dung · nguồn · ngày chụp.
 
 ### Header & menu
@@ -247,9 +333,12 @@ nhất. Thẻ chủ đầu tư: khung logo trung tính dùng chung (biểu tư�
 - **Bản đồ**: ảnh tĩnh OpenStreetMap tông xám + ghim đỏ Velis, giữ ghi công; cao tối đa 420 px desktop / 320 px mobile;
   nút "Xem trên Google Maps" ở giữa cạnh dưới.
 - **Timeline tiến độ**: dòng dọc, mốc có ngày, ảnh có chú thích ngày chụp + nguồn.
+- **Ảnh tiến độ** (vòng r8): lưới rộng bằng cột chữ; số cột theo số ảnh – 1 → 1, 2 / 4 → 2, còn lại 3 cột (ảnh đầu rộng
+  2 ô khi số ảnh không chia hết cho 3); mobile 2 cột, ảnh đầu tràn hàng khi số ảnh lẻ. Bản đồ cũng rộng bằng cột chữ.
+- **Chip hero** ghép nhãn + giá trị viết thường chữ đầu của từ thường ("Bàn giao từ tháng 11/2023").
 
 ### Nội dung & tin cậy
-Bố cục bài: cột đọc 720 px + mục lục dính bên phải (≥ 1280 px), cao theo nội dung, tô đậm mục đang đọc; dưới đó mục lục
+Bố cục bài: cột đọc 720 px + cột phải dính (≥ 1280 px; top = header dính + 24 px): mục lục (chỉ danh sách cuộn riêng, cao ≤ 45vh, mờ dần ở đáy) + thẻ dự án ảnh thu gọn + nút tư vấn – cả cột luôn vừa màn hình, tô đậm mục đang đọc; dưới đó mục lục
 nằm trong cột đọc, 2 cột khi > 6 mục. FAQ (`<details>`) · Hộp tác giả (ảnh chân dung thật – chưa có thì ẩn khung ảnh;
 link mạng xã hội cá nhân; "Xem tất cả bài viết") · Hộp công bố
 (15 px, rộng bằng cột đọc, chữ `ink` trên `surface-sunken`) · Breadcrumb · Phân trang · Trang 404.
@@ -307,6 +396,8 @@ Sửa token ở phần đầu file này rồi chạy `python3 -I tools/build_the
 Không sửa tay màu/cỡ chữ/khoảng cách trong `theme.json` hay CSS.
 
 ## Known Gaps
+- Vòng 2026-11-05 ("Quy tắc bố cục"): front-matter đã đổi theo thang mới nhưng **chưa sinh lại `theme/velis/theme.json`**
+  (vòng này không sửa theme) – làm ở Bước 3 bằng `python3 -I tools/build_theme_json.py` (đã chạy thử trên bản sao: chạy được).
 - Be Vietnam Pro 500 bị lược để giữ giới hạn 3 file font (đã chốt 400/600).
 - Playfair Display không có ký tự ₫; giá luôn viết bằng Be Vietnam Pro.
 - Đối chiếu ui-ux-pro-max: gợi ý Glassmorphism, bảng màu teal và Cinzel/Josefin Sans bị loại (không hợp nhận diện; Cinzel

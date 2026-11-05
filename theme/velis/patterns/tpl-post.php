@@ -32,9 +32,9 @@ $meta    = array(
 	'<a href="' . esc_url( get_author_posts_url( $p->post_author ) ) . '">' . esc_html( get_the_author_meta( 'display_name', $p->post_author ) ) . '</a>, CEO Velis Realty',
 );
 $out  = velis_breadcrumb_html( velis_trail() );
-$head = '<header class="v-posthead"><p class="v-eyebrow">' . esc_html( VELIS_KINDS[ $kind ] ) . ( $cat ? ' · <a href="' . esc_url( get_category_link( $cat ) ) . '">' . esc_html( $cat->name ) . '</a>' : '' ) . '</p>'
+$head = '<header class="v-posthead"><p class="v-eyebrow">' . implode( ' · ', array_filter( array( $kind ? esc_html( VELIS_KINDS[ $kind ] ) : '', $cat ? '<a href="' . esc_url( get_category_link( $cat ) ) . '">' . esc_html( $cat->name ) . '</a>' : '' ) ) ) . '</p>'
 	. '<h1>' . esc_html( get_the_title( $p ) ) . '</h1><p class="v-meta">' . implode( ' · ', array_filter( $meta ) ) . '</p></header>';
-$img  = $thumb ? '<figure class="v-postimg">' . wp_get_attachment_image( $thumb, 'large', false, array( 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '(min-width: 800px) 720px, 100vw', 'style' => '--focus: 100% 0%; --zoom: 1.12', 'data-alt' => (string) wp_get_attachment_image_url( $thumb, 'medium_large' ) ) ) . ( wp_get_attachment_caption( $thumb ) ? '<figcaption>' . esc_html( wp_get_attachment_caption( $thumb ) ) . '</figcaption>' : '' ) . '</figure>' : '';
+$img  = $thumb ? '<figure class="v-postimg">' . wp_get_attachment_image( $thumb, 'large', false, array( 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => velis_sizes( '(min-width: 800px) 720px, 100vw - 32px', 1.12 ), 'style' => '--focus: 100% 0%; --zoom: 1.12', 'data-alt' => (string) wp_get_attachment_image_url( $thumb, 'medium_large' ) ) ) . ( wp_get_attachment_caption( $thumb ) && ! velis_auto_caption( wp_get_attachment_caption( $thumb ) ) ? '<figcaption>' . esc_html( wp_get_attachment_caption( $thumb ) ) . '</figcaption>' : '' ) . '</figure>' : '';
 $sum  = $p->post_excerpt ? '<aside class="v-summary" aria-label="Tóm tắt"><p class="v-eyebrow">Tóm tắt</p><p>' . esc_html( $p->post_excerpt ) . '</p></aside>' : '';
 $top  = '';
 if ( 'so-sanh' === $kind && count( $projs ) >= 2 ) {
@@ -55,13 +55,13 @@ if ( $projs ) {
 $aside = '<aside class="v-article__side">' . $toc . ( $pill ? '<div class="v-side__box">' . velis_card_project( $pill, 'Dự án trong bài', 'embed' ) . '</div>' : '' )
 	. '<div class="v-side__box"><p class="v-eyebrow">Cần tư vấn?</p><a class="v-btn" href="#tu-van">Nhận tư vấn</a> <a class="v-btn v-btn--secondary" href="tel:' . VELIS_PHONE_TEL . '">' . VELIS_PHONE . '</a></div></aside>';
 $disc  = in_array( $kind, array( 'phan-tich', 'nhan-dinh', 'so-sanh' ), true ) ? velis_disclosure( 'post' ) : '';
-$out  .= '<div class="v-wrap"><article class="v-article v-article--' . esc_attr( $kind ) . '"><div class="v-article__body">' . $head . $img . $sum . $top . '<div class="v-prose">' . $content . '</div>' . $disc . velis_author_box( (int) $p->post_author ) . '</div>' . $aside . '</article></div>';
+$out  .= '<div class="v-wrap"><article class="v-article v-article--' . esc_attr( $kind ?: 'bai' ) . '"><div class="v-article__body">' . $head . $img . $sum . $top . '<div class="v-prose">' . $content . '</div>' . $disc . velis_author_box( (int) $p->post_author ) . '</div>' . $aside . '</article></div>';
 
 // Same cluster: 3–6 other posts + the pillar project.
 $same = $cat ? get_posts( array( 'numberposts' => 6, 'category' => $cat->term_id, 'exclude' => array( $p->ID ) ) ) : array();
 if ( $same ) {
 	$btn  = $pill ? velis_btn( 'Thông tin dự án ' . $pill->post_title, get_permalink( $pill ), 'secondary' ) : '';
-	$out .= velis_section( velis_sechead( 'Cùng chủ đề ' . $cat->name, 'Đọc tiếp', '', '', $btn ) . velis_grid( array_map( 'velis_card_post', array_slice( $same, 0, count( $same ) >= 6 ? 6 : 3 ) ), '3' ) );
+	$out .= velis_section( velis_sechead( 'Cùng chủ đề ' . $cat->name, 'Đọc tiếp', '', '', $btn ) . velis_grid( array_map( 'velis_card_post', array_slice( $same, 0, count( $same ) >= 6 ? 6 : 3 ) ), '3' ), '', 'v-section--band' );
 }
 $out .= velis_form_html( $pill ? $pill->post_title : '', array(), $pill ? 'Nhận bảng giá ' . $pill->post_title : 'Nhận tư vấn' );
 wp_reset_postdata();

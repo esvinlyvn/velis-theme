@@ -95,7 +95,7 @@ theme = {
 }
 
 if __name__ == '__main__':
-    assert C['velis-red'] == '#B8282E' and TY['h1']['desktop'] == '48px', 'token lệch BRIEF.md'
+    assert C['velis-red'] == '#B8282E' and TY['h1']['desktop'] == '56px', 'token lệch BRIEF.md / DESIGN.md 1.3'  # H1 56 px: thang chữ 1.3, người dùng chốt 2026-11-05
     out = os.path.join(ROOT, 'theme', 'velis', 'theme.json')
     with open(out, 'w', encoding='utf-8') as f:
         json.dump(theme, f, ensure_ascii=False, indent='\t')

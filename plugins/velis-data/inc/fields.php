@@ -137,6 +137,11 @@ function velis_guess_type( string $name ): string {
 	return '';
 }
 
+/** Featured image kinds of a blog post (minh-hoa / nuoc-ngoai = to replace, docs/ANH-CAN-THAY.md). */
+function velis_image_kinds(): array {
+	return array( '' => '— Chưa phân loại —', 'du-an' => 'Ảnh dự án (phối cảnh / công trình)', 'khu-vuc' => 'Ảnh khu vực / Việt Nam', 'minh-hoa' => 'Minh họa chung – cần thay', 'nuoc-ngoai' => 'Người / cảnh nước ngoài – cần thay' );
+}
+
 /** Low-rise types get their own page; apartment types stay as tabs. */
 function velis_is_lowrise_type( string $slug ): bool {
 	return in_array( $slug, array( 'nha-pho', 'shophouse', 'biet-thu', 'dinh-thu' ), true );
@@ -245,6 +250,8 @@ function velis_register_meta() {
 	register_post_meta( 'post', 'velis_modified', array( 'type' => 'string', 'single' => true, 'show_in_rest' => true, 'sanitize_callback' => fn( $v ) => velis_clean( 'date', substr( (string) $v, 0, 10 ) ), 'auth_callback' => fn() => current_user_can( 'edit_posts' ) ) );
 	// Static map image of a region (used when a project has no coordinates of its own).
 	register_term_meta( 'khu-vuc', 'velis_map', array( 'type' => 'integer', 'single' => true, 'show_in_rest' => true, 'sanitize_callback' => 'absint', 'auth_callback' => fn() => current_user_can( 'edit_posts' ) ) );
+	// What the featured image shows; the home page only features posts whose image is a real project image.
+	register_post_meta( 'post', 'velis_image_kind', array( 'type' => 'string', 'single' => true, 'show_in_rest' => true, 'sanitize_callback' => fn( $v ) => isset( velis_image_kinds()[ $v ] ) ? $v : '', 'auth_callback' => fn() => current_user_can( 'edit_posts' ) ) );
 	register_post_meta( 'post', 'velis_post_kind', array( 'type' => 'string', 'single' => true, 'show_in_rest' => true, 'sanitize_callback' => 'sanitize_key', 'auth_callback' => fn() => current_user_can( 'edit_posts' ) ) );
 	// Blog post → the project / subzone it is about (brief: bài về phân khu link về đúng phân khu).
 	register_post_meta( 'post', 'velis_projects', array(

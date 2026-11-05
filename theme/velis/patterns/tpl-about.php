@@ -19,21 +19,22 @@ $ceo   = $ceo ? $ceo[0] : null;
 $out   = velis_breadcrumb_html( velis_trail() ) . velis_hero_b( array(
 	'eyebrow' => 'Velis Realty',
 	'title'   => wp_strip_all_tags( get_the_title( $pg ) ),
-	'lead'    => $pg->post_excerpt,
+	'lead'    => $pg->post_excerpt ?: 'Đơn vị chuyên tư vấn và phân phối bất động sản cao cấp, tập trung vào dự án của các chủ đầu tư có hồ sơ bàn giao và pháp lý công khai.', // sentence from the page itself
 	'img'     => (int) get_post_thumbnail_id( $pg ),
 	'buttons' => velis_btn( 'Liên hệ Velis', '/lien-he/' ) . velis_call_btn( 'secondary' ),
+	'after'   => velis_project_links(),
 ) );
 if ( trim( $pg->post_content ) ) {
-	$out .= velis_section( velis_sechead( 'Câu chuyện Velis', 'Về chúng tôi' ) . '<div class="v-prose">' . velis_content( $pg->post_content ) . '</div>' );
+	$out .= velis_section( velis_sechead( 'Câu chuyện Velis', 'Về chúng tôi' ) . '<div class="v-page--2col"><div class="v-page__main v-prose">' . velis_strip_contact( velis_content( $pg->post_content ) ) . '</div>' . velis_highlight_card() . '</div>' );
 }
 if ( $ceo && $ceo->description ) {
-	$out .= velis_section( velis_sechead( $ceo->display_name . ' – CEO Velis Realty', 'Người sáng lập' ) . '<p class="v-lead">' . esc_html( $ceo->description ) . '</p>' . velis_btn( 'Bài viết của ' . $ceo->display_name, get_author_posts_url( $ceo->ID ), 'secondary' ) );
+	$out .= velis_section( velis_sechead( $ceo->display_name . ' – CEO Velis Realty', 'Người sáng lập' ) . '<p class="v-lead">' . esc_html( $ceo->description ) . '</p>' . velis_btn( 'Bài viết của ' . $ceo->display_name, get_author_posts_url( $ceo->ID ), 'secondary' ), '', 'v-section--dark' );
 }
 if ( $steps = $lines( 'velis_steps' ) ) {
 	$out .= velis_section( velis_sechead( 'Cách Velis làm việc', 'Quy trình' ) . '<ol class="v-steps">' . implode( '', array_map( fn( $s ) => '<li>' . esc_html( $s ) . '</li>', $steps ) ) . '</ol>' );
 }
 if ( $values = $lines( 'velis_values' ) ) {
-	$out .= velis_section( velis_sechead( 'Giá trị Velis theo đuổi', 'Giá trị' ) . '<ul class="v-list">' . implode( '', array_map( fn( $s ) => '<li>' . esc_html( $s ) . '</li>', $values ) ) . '</ul>' );
+	$out .= velis_section( velis_sechead( 'Giá trị Velis theo đuổi', 'Giá trị' ) . '<ul class="v-list">' . implode( '', array_map( fn( $s ) => '<li>' . esc_html( $s ) . '</li>', $values ) ) . '</ul>', '', 'v-section--band' );
 }
 if ( $company = $lines( 'velis_company' ) ) {
 	$out .= velis_section( velis_sechead( 'Thông tin pháp nhân', 'Pháp nhân' ) . '<ul class="v-list">' . implode( '', array_map( fn( $s ) => '<li>' . esc_html( $s ) . '</li>', $company ) ) . '</ul>' );
