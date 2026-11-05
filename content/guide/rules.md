@@ -52,7 +52,7 @@ nhưng phần "áp dụng cho Velis" thì không.
 ## 6. Số liệu (người dùng chốt 2026-11-05)
 
 - Số liệu được người dùng **cung cấp trước mỗi đợt viết**. Chỉ dùng số có trong: dữ liệu được cung cấp cho đợt đó, `BRIEF.md`,
-  facts (`data/architecture/*.csv`).
+  facts (`data/architecture/*.csv`); số liệu dự án tham khảo đã duyệt trong `content/data/comparables/` (mục 12).
 - Thiếu số nào → **liệt kê và hỏi người dùng TRƯỚC khi viết**. Không tự điền, không ước lượng, không làm tròn khác nguồn.
 - Bỏ quy tắc gắn mã `[XN-n]` (thay cho đoạn tương ứng trong `docs/VOICE.md`).
 
@@ -72,6 +72,8 @@ nhưng phần "áp dụng cho Velis" thì không.
 5. Đủ thành phần tối thiểu của loại bài/loại trang (`content/guide/pillars.md` mục E2–E4).
 6. Mọi link ra ngoài đều là Wikipedia và đã kiểm tra HTTP 200, đúng chủ đề (mục 10).
 7. Không có dấu gạch dài (—), script ở bước 1 tự báo; câu ≤ 30 từ, đoạn ≤ 80 từ (mục 11).
+8. Bài/đoạn về cho thuê, lợi suất của dự án chưa khai thác: chỉ dùng số liệu tham khảo đã duyệt trong `content/data/comparables/`,
+   ghi rõ dự án, loại căn, thời điểm; lợi suất dạng khoảng + giả định; có câu "chưa khai thác, không phải cam kết" (mục 12).
 
 ## 9. Danh sách tên đối thủ cấm xuất hiện
 
@@ -198,3 +200,29 @@ slogan, hotline của họ. Mỗi dòng: `- `cụm từ` (loại, nguồn)` — 
 - Giữ trần `docs/VOICE.md`: tối đa 30 từ/câu, 80 từ/đoạn; thêm **mục tiêu câu trung bình 15–20 từ**.
 - **Cấm dấu gạch dài (—)** trong bài.
 - FAQ hiển thị + schema `FAQPage`: bài blog 3–5 câu, trang dự án 6–8 câu. Độ dài bài 1.200–2.000 từ.
+
+## 12. Trạng thái dự án; bài lợi suất / cho thuê (người dùng chốt 2026-11-05)
+
+**Bước 0 cho mọi bài**: trước khi lập danh sách câu hỏi, xác định trạng thái dự án từ BRIEF/facts
+(`data/architecture/project-facts.csv`, trường `velis_handover`): **đang xây** (hình thành trong tương lai) / **đã bàn giao** /
+**đang khai thác cho thuê**. Câu hỏi và nội dung phải theo đúng trạng thái đó. Facts không đủ để xác định → hỏi người dùng.
+
+**Dự án hình thành trong tương lai** (ví dụ The Privé), bài hoặc đoạn về lợi suất, cho thuê:
+
+- **Không hỏi và không viết** giá thuê thực tế, phí quản lý thực thu, quy định cho thuê **của chính dự án** như thể đã có.
+- Dùng **số liệu tham khảo tương đồng**: dự án lân cận cùng khu vực, cùng phân khúc (giá bán/m², loại căn, tiện ích, đối tượng khách thuê),
+  **đã bàn giao và đang có người thuê**. Không đoán; mọi con số tham khảo ghi rõ **dự án nào, loại căn nào, thời điểm nào**.
+- Trong bài nói rõ: dự án **chưa khai thác**, các con số là **tham khảo từ dự án tương đồng**, **không phải cam kết lợi nhuận**.
+  Lợi suất trình bày dạng **khoảng (thấp – trung bình – cao) kèm giả định** (giá mua, giá thuê, lấp đầy, chi phí), không đưa một con số chắc chắn.
+- Tên dự án tham khảo được nhắc trong bài nhưng **không link** đến chúng. Đơn vị môi giới, sàn trong danh sách cấm (mục 9) vẫn không được nhắc.
+- Điều chủ đầu tư **đã công bố chính thức** (chính sách thuê lại, cam kết lợi nhuận, phí quản lý dự kiến): hỏi người dùng xác nhận,
+  ghi trong bài là "theo công bố của chủ đầu tư".
+
+**Quy trình mỗi bài loại này**
+
+1. Đề xuất 3–5 dự án tham khảo, kèm lý do tương đồng (khoảng cách, phân khúc, giá/m², loại căn).
+2. Liệt kê số liệu cần cho từng dự án tham khảo: giá thuê theo loại căn, tỷ lệ lấp đầy, phí quản lý, giá bán thứ cấp/m².
+3. Chờ người dùng duyệt danh sách dự án tham khảo và cung cấp hoặc xác nhận số liệu, rồi mới viết.
+4. Lưu số liệu đã duyệt vào `content/data/comparables/<du-an>.csv` (cột nguồn, ngày; mẫu `_mau.csv`) để bài sau dùng lại
+   và mọi trang dùng cùng một con số. Bài chỉ lấy số từ file này.
+

@@ -50,7 +50,7 @@ Từ khóa từng URL: bản nháp `content/keyword-map.csv` (cùng cột với 
 |---:|---|---|---|
 | 1 | `palm-city` | Làm mới bài `/huong-viet-holdings-la-ai/`: title, meta, đoạn trả lời trước, FAQ (ai đứng sau, cơ cấu sở hữu, liên quan ngân hàng) | Trang: 4.824 hiển thị, vị trí 6,5, CTR 4,95%. "chủ đầu tư hướng việt" 251 / vị trí 8,4 / CTR 0,8%; "hướng việt holding" 449 / 9,4 / 3,8% |
 | 2 | `the-prive` | Bài phân tích sản phẩm Penthouse và Garden Duplex (tách 2 bài theo loại căn, link về tab) | Trang penthouse/garden duplex 206 / 9,75 / 5,8%; "penthouse prive", "garden duplex" vị trí 6–9 |
-| 3 | `the-prive` | Bài "cho thuê The Privé" (mua để cho thuê; hợp nhất ý định với bài lợi suất cho thuê, không tạo 2 URL cùng ý định) | "cho thuê the prive" 21 / 12,2 / 0%; "thuê the prive" 12 / 12,5; `/cho-thue-the-prive/` 55 / 12,4; `/loi-suat-cho-thue-the-prive/` 81 / 10,4 / 1,2% |
+| 3 | `the-prive` | **Gộp** bài cho thuê và bài lợi suất vào `/blog/the-prive/loi-suat-cho-thue-the-prive/` (dự án chưa khai thác, hai ý định trùng; `/cho-thue-the-prive/` chuyển 301 về đây). Viết theo `rules.md` mục 12: số liệu tham khảo từ dự án tương đồng | "cho thuê the prive" 21 / 12,2 / 0%; "thuê the prive" 12 / 12,5; `/cho-thue-the-prive/` 55 / 12,4; `/loi-suat-cho-thue-the-prive/` 81 / 10,4 / 1,2% |
 | 4 | `the-prive` | Làm mới bài nhận định sông Giồng Ông Tố (title/meta đúng truy vấn, đoạn trả lời trước) | "sông giồng ông tố" 85 / 8,3 / 0%; trang 209 / 7,3 / 3,35% |
 | 5 | `spring-ville` | Trang phân khu Persa Place + bài loại căn Persa Place | "persa place" 84 / 21,1; `/can-ho-persa-place/` 542 / 11,0 / 4,1%; "căn hộ gamuda nhơn trạch" 7 / 16,7 |
 
@@ -104,5 +104,6 @@ Khung đầy đủ ở BRIEF (template dự án, phân khu, dòng thấp tầng,
 
 - Xác minh chủ đầu tư Palm City / Palm River trước khi làm mới bài #1 (`docs/AUDIT-NOI-DUNG.md` mục 1 còn mở).
 - Số liệu cho từng bài đợt 1: chờ người dùng cung cấp (`content/dot-1-du-lieu-can-cung-cap.md`).
+- Đổi đích redirect `/cho-thue-the-prive/` (và trang ảnh con) sang `/blog/the-prive/loi-suat-cho-thue-the-prive/` trong `data/url-map.csv` (ngoài nhánh `content`).
 - Duyệt bản nháp `content/keyword-map.csv`; khi duyệt, đưa vào `data/keyword-map.csv` (ngoài nhánh `content`).
 - Cập nhật bảng ưu tiên khi có GSC mới (đề xuất mỗi quý) và khi có `keyword-map.csv` của BRIEF.

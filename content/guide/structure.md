@@ -57,6 +57,20 @@ Nguồn mục D: BRIEF, `docs/VOICE.md`, `docs/BRAND.md`, `content/samples/SUMMA
 7. **Nhất quán giữa các trang**: cùng dữ kiện (quy mô, bàn giao, pháp lý) giống nhau ở trang dự án, phân khu, blog, llms.txt.
 8. Bot AI được vào, llms.txt theo BRIEF; nội dung chính nằm trong HTML, không phụ thuộc JavaScript.
 
+## D4. Trạng thái dự án; bài lợi suất / cho thuê
+
+Quy tắc đầy đủ: `rules.md` mục 12. Thành phần bắt buộc trong bài:
+
+1. **Bước 0**: ghi trạng thái dự án (đang xây / đã bàn giao / đang khai thác) theo facts trước khi lập câu hỏi; nội dung theo đúng trạng thái.
+2. Dự án đang xây, phần cho thuê/lợi suất có:
+   - câu nêu rõ dự án **chưa khai thác**, số liệu là **tham khảo từ dự án tương đồng**, **không phải cam kết lợi nhuận** (đặt ngay trong đoạn trả lời trước và ở mục lợi suất);
+   - **bảng dự án tham khảo**: dự án, khu vực, loại căn, giá thuê, tỷ lệ lấp đầy, phí quản lý, giá bán thứ cấp/m², thời điểm, nguồn
+     (lấy từ `content/data/comparables/<du-an>.csv`; tên dự án không gắn link);
+   - **bảng kịch bản lợi suất** thấp – trung bình – cao, mỗi cột ghi giả định (giá mua, giá thuê, lấp đầy, chi phí);
+   - điều chủ đầu tư đã công bố (nếu có) ghi "theo công bố của chủ đầu tư";
+   - mục "Rủi ro và điều cần kiểm tra" nêu rủi ro riêng của dự án chưa khai thác (tiến độ bàn giao, nguồn cung cho thuê cùng thời điểm).
+3. Loại bài theo BRIEF: **Nhận định thị trường** (lợi suất, cho thuê); kèm hộp công bố đầu tư.
+
 ## Quyết định về chỗ lệch refs / BRIEF (người dùng chốt 2026-11-05)
 
 Refs: `~/refs/claude-blog`, `~/refs/claude-seo-velis` (bản fork chưa có tùy biến Velis). Đã áp vào mục D1–D3 và `rules.md`.
