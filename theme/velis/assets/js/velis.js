@@ -136,6 +136,7 @@ const broken = (img) => {
 	if (img.dataset.alt && !img.dataset.tried) {
 		img.dataset.tried = '1';
 		img.removeAttribute('srcset');
+		if (img.dataset.altW) img.style.setProperty('--nw', img.dataset.altW + 'px'); // keep the frame within the fallback file
 		img.src = img.dataset.alt;
 		return;
 	}
@@ -147,7 +148,7 @@ const broken = (img) => {
 		hero.classList.add('is-empty');
 		img.outerHTML = `<span class="v-hero__fallback" aria-hidden="true">${hero.dataset.name || ''}</span>`;
 	} else if (box) {
-		box.classList.add('v-media--empty');
+		box.classList.add('v-media--empty', 'is-broken');
 		box.innerHTML = '<span></span>';
 		box.firstChild.textContent = box.dataset.name;
 	}
@@ -411,3 +412,34 @@ $$('.v-long').forEach((prose) => {
 	addEventListener('scroll', set, { passive: true });
 	set();
 })();
+
+// Gallery: slides after the first are fetched as soon as the gallery is near the screen, so a slide is ready before the
+// reader swipes to it (round 7). A slide whose picture fails is dropped (see the broken-image handler above).
+if ('IntersectionObserver' in window) {
+	const near = new IntersectionObserver((list) => list.forEach((e) => {
+		if (!e.isIntersecting) return;
+		e.target.querySelectorAll('img[loading=lazy]').forEach((i) => (i.loading = 'eager'));
+		near.unobserve(e.target);
+	}), { rootMargin: '800px 0px' });
+	document.querySelectorAll('[data-gallery]').forEach((g) => near.observe(g));
+}
+
+// Featured projects strip: arrows when more cards than fit, disabled at either end (round 7).
+document.querySelectorAll('.v-feats').forEach((box) => {
+	const ul = box.querySelector('ul');
+	const nav = box.querySelector('.v-feats__nav');
+	if (!ul || !nav) return;
+	const [prev, next] = nav.querySelectorAll('button');
+	const sync = () => {
+		nav.hidden = ul.scrollWidth <= ul.clientWidth + 2;
+		prev.disabled = ul.scrollLeft <= 2;
+		next.disabled = ul.scrollLeft + ul.clientWidth >= ul.scrollWidth - 2;
+	};
+	nav.addEventListener('click', (e) => {
+		const b = e.target.closest('[data-feats]');
+		if (b) ul.scrollBy({ left: +b.dataset.feats * (ul.firstElementChild?.getBoundingClientRect().width + 12 || 260), behavior: 'smooth' });
+	});
+	ul.addEventListener('scroll', sync, { passive: true });
+	addEventListener('resize', sync);
+	sync();
+});

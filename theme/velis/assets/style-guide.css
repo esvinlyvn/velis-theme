@@ -54,3 +54,12 @@
 .v-choice legend { width: 100%; margin-bottom: 6px; }
 .v-choice label { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 400; }
 .v-choice input { width: 20px; height: 20px; accent-color: var(--v-red); }
+
+/* Moved from style.css (round 7): style guide only. */
+.v-logo-ph { width: 56px; height: 56px; fill: none; stroke: var(--wp--preset--color--hairline-strong); stroke-width: 1.2; }
+.v-toc summary, .v-faq summary{ cursor: pointer; font-weight: 600; min-height: 48px; display: flex; align-items: center; }
+.v-faq details{ border-bottom: 1px solid var(--v-line); padding: 4px 0; }
+.v-faq summary{ list-style: none; justify-content: space-between; gap: 16px; }
+.v-faq summary::-webkit-details-marker{ display: none; }
+.v-faq summary::after{ content: "+"; font-size: 24px; color: var(--v-red); flex: none; }
+.v-faq details[open] summary::after{ content: "–"; }

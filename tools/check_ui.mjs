@@ -5,8 +5,25 @@
 import { createRequire } from 'node:module';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 const { chromium } = createRequire(import.meta.url)('playwright');
-import { gapRuns } from './ui_gaps.mjs';
+import { gapRuns, contentBands } from './ui_gaps.mjs';
+import { runSuite } from './ui_media.mjs';
 import { layoutAudit } from './ui_layout.mjs';
+
+
+// Suite mode (round 7): every page × DPR (1, 1.25, 2) × viewport (390, 1066, 1366, 1920) – broken / blurry images, card
+// groups without fallback frames, empty blocks, tables < 2 rows, overflow, H1 count, ALL-CAPS headings, gaps.
+// Usage: VIEW_PASSWORD_FILE=… node tools/check_ui.mjs --suite pages.txt out-dir [dprs] [widths]   (pages.txt: "name /path/")
+if (process.argv[2] === '--suite') {
+	const [list, dir, dprArg, wArg] = process.argv.slice(3);
+	const pages = readFileSync(list, 'utf8').trim().split('\n').map((l) => l.trim().split(/\s+/));
+	mkdirSync(dir, { recursive: true });
+	const r = await runSuite({ chromium, base: 'https://staging.velisrealty.vn', password: readFileSync(process.env.VIEW_PASSWORD_FILE, 'utf8').trim(), pages, contentBands,
+		dprs: dprArg ? dprArg.split(',').map(Number) : undefined, widths: wArg ? wArg.split(',').map(Number) : undefined });
+	writeFileSync(`${dir}/bang.md`, `# Bộ đo ảnh & bố cục – ${new Date().toISOString().slice(0, 10)}\n\nMỗi ô = số lỗi cộng qua các viewport đã đo; tất cả phải = 0.\n\n${r.table}\n\n## Chi tiết\n\n${r.details.join('\n') || 'Không có lỗi.'}\n`);
+	writeFileSync(`${dir}/ket-qua.json`, JSON.stringify(r.result, null, 1));
+	console.log('tổng', r.total.join(' '));
+	process.exit(r.total.some((n) => n) ? 1 : 0);
+}
 
 const BASE = 'https://staging.velisrealty.vn';
 const [path = '/velis-style-guide/', out = 'screenshots/check', widthArg] = process.argv.slice(2);
@@ -114,29 +131,6 @@ async function photoContrast(p) {
 	return out;
 }
 
-// In the page: content boxes per 40 px strip (text, media, controls, boxes with a background or border); a sticky box
-// covers its whole parent (it travels with the reader).
-function contentBands() {
-	const step = 40, H = document.documentElement.scrollHeight, bands = Array.from({ length: Math.ceil(H / step) }, () => []);
-	const bodyBg = getComputedStyle(document.body).backgroundColor;
-	for (const el of document.querySelectorAll('body *')) {
-		const s = getComputedStyle(el);
-		if (s.display === 'none' || s.visibility === 'hidden' || el.closest('dialog:not([open]), .v-sr, [hidden]')) continue;
-		const text = [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim());
-		const media = el.matches('img, video, iframe, svg, canvas, input, select, textarea, button');
-		const box = (s.backgroundColor !== 'rgba(0, 0, 0, 0)' && s.backgroundColor !== bodyBg) || s.backgroundImage !== 'none' || parseFloat(s.borderTopWidth) > 0 || parseFloat(s.borderLeftWidth) > 0;
-		if (!text && !media && !box && s.position !== 'sticky') continue;
-		let r = el.getBoundingClientRect();
-		if (!r.width || !r.height) continue;
-		let top = r.top + scrollY, bottom = r.bottom + scrollY;
-		if (s.position === 'sticky' && el.parentElement) { const pr = el.parentElement.getBoundingClientRect(); top = pr.top + scrollY; bottom = pr.bottom + scrollY; }
-		if (s.position === 'fixed') continue;
-		for (let i = Math.max(0, Math.floor(top / step)); i < Math.min(bands.length, Math.ceil(bottom / step)); i++) bands[i].push([r.left, r.right]);
-	}
-	const wrap = Math.min(parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--v-wide')) || 1200, innerWidth - 2 * parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--v-gutter') || 24));
-	const left = (document.documentElement.clientWidth - wrap) / 2;
-	return { bands, left, right: left + wrap, step };
-}
 
 const report = {};
 for (const w of WIDTHS) {

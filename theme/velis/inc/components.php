@@ -144,3 +144,39 @@ function velis_strip_contact( string $html ): string {
 function velis_strip_auto_captions( string $html ): string {
 	return preg_replace_callback( '#<figcaption[^>]*>(.*?)</figcaption>#s', fn( $m ) => velis_auto_caption( $m[1] ) ? '' : $m[0], $html );
 }
+
+/** Widest file of a picture: the largest "NNNw" of its srcset, else the given width. */
+function velis_max_candidate( string $srcset, int $fallback = 0 ): int {
+	preg_match_all( '/\s(\d+)w(?:,|$)/', ' ' . $srcset, $m );
+	return $m[1] ? max( array_map( 'intval', $m[1] ) ) : $fallback;
+}
+
+/** Image blocks of a text (block markup) taken out: [text without them, [[attachment id, caption], …]] in reading order. */
+function velis_take_images( string $html ): array {
+	$found = array();
+	$rest  = preg_replace_callback( '#<!-- wp:image\b[^>]*-->(.*?)<!-- /wp:image -->#s', function ( $m ) use ( &$found ) {
+		if ( preg_match( '/wp-image-(\d+)/', $m[1], $id ) ) {
+			$cap     = preg_match( '#<figcaption[^>]*>(.*?)</figcaption>#s', $m[1], $f ) ? trim( wp_strip_all_tags( $f[1] ) ) : '';
+			$found[] = array( (int) $id[1], $cap );
+			return '';
+		}
+		return $m[0];
+	}, $html );
+	return array( $rest, $found );
+}
+
+/** Longest run of whole, consecutive sentences with at most $max words (quoting a page without writing new text). */
+function velis_sentence_run( string $text, int $max = 60 ): string {
+	$s    = preg_split( '/(?<=[.!?…])\s+/u', trim( preg_replace( '/\s+/u', ' ', $text ) ) );
+	$best = '';
+	foreach ( array_keys( $s ) as $i ) {
+		for ( $j = $i; $j < count( $s ); $j++ ) {
+			$run = implode( ' ', array_slice( $s, $i, $j - $i + 1 ) );
+			if ( count( preg_split( '/\s+/u', $run ) ) > $max ) {
+				break;
+			}
+			$best = mb_strlen( $run ) > mb_strlen( $best ) ? $run : $best;
+		}
+	}
+	return $best;
+}

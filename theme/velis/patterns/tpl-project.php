@@ -39,8 +39,8 @@ $sections = array(); // id => [nav label, html]
 // Old pillar post text (phase 4) split into the slots below; its H2 becomes the slot's title (words unchanged).
 $chunks = velis_chunks( (string) $p->post_content );
 $ct     = fn( $slot, $default ) => ( $chunks[ $slot ]['title'] ?? '' ) ?: $default;
-$cb     = function ( $slot ) use ( $chunks ) {
-	$h = trim( $chunks[ $slot ]['html'] ?? '' );
+$cb     = function ( $slot, $html = null ) use ( $chunks ) { // $html: the slot's text after a template took parts of it out
+	$h = trim( $html ?? $chunks[ $slot ]['html'] ?? '' );
 	if ( '' === $h || 'bai-viet' === $slot ) { // old "Bài viết liên quan" lists: the template has its own same-cluster block
 		return '';
 	}
@@ -137,7 +137,9 @@ if ( ! $conn && $parent && velis_f( $p, 'velis_connectivity' ) ) {
 	$conn = '<p>Vị trí và kết nối viết chung cho cả ' . esc_html( $root->post_title ) . ': <a href="' . esc_url( get_permalink( $root ) ) . '#vi-tri">xem trên trang ' . esc_html( $root->post_title ) . '</a>.</p>';
 }
 $conn .= $cb( 'vi-tri' );
-if ( ( $map = velis_map_html( $p ) ) || $conn ) {
+// one map: the project's own location map in the old text wins over the region map
+$map = velis_map_html( $p, ! preg_match( '/<img[^>]+(?:alt|src)="[^"]*(?:bản đồ|ban-do|vị trí|vi-tri|map|kết nối|ket-noi|liên kết vùng|lien-ket)/iu', $chunks['vi-tri']['html'] ?? '' ) );
+if ( $map || $conn ) {
 	$sections['vi-tri'] = array( 'Vị trí', velis_sechead( $ct( 'vi-tri', 'Vị trí ' . $name ), 'Vị trí & kết nối' ) . $map . $conn );
 }
 $amen   = velis_text( (string) get_post_meta( $p->ID, 'velis_amenities', true ) ) . $cb( 'tien-ich' );
@@ -158,7 +160,12 @@ if ( $photos ) {
 foreach ( array( 'dong-san-pham' => array( 'Dòng sản phẩm', 'Sản phẩm' ), 'phan-khu' => array( 'Phân khu', 'Phân khu' ), 'gia' => array( 'Giá', 'Giá bán' ), 'mat-bang' => array( 'Mặt bằng', 'Mặt bằng' ),
 	'tien-do' => array( 'Tiến độ', 'Tiến độ' ), 'goc-nhin' => array( 'Góc nhìn CEO', 'Góc nhìn của CEO' ), 'chu-dau-tu' => array( 'Chủ đầu tư', 'Chủ đầu tư' ), 'hoi-dap' => array( 'Hỏi đáp', 'Câu hỏi thường gặp' ) ) as $slot => $l ) {
 	if ( ! isset( $sections[ $slot ] ) && isset( $chunks[ $slot ] ) ) {
-		$sections[ $slot ] = array( $l[0], velis_sechead( $ct( $slot, $l[0] . ' ' . $name ), $l[1] ) . $cb( $slot ) );
+		$photos = '';
+		if ( 'tien-do' === $slot ) { // construction photos: a grid with zoom instead of big pictures one under another (round 7)
+			list( $text, $imgs ) = velis_take_images( $chunks['tien-do']['html'] );
+			$photos = velis_photo_grid( $imgs );
+		}
+		$sections[ $slot ] = array( $l[0], velis_sechead( $ct( $slot, $l[0] . ' ' . $name ), $l[1] ) . $cb( $slot, $photos ? $text : null ) . $photos );
 	}
 }
 

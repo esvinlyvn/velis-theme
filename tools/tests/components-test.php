@@ -46,4 +46,9 @@ $check( '<p>A</p><h2>Hỏi đáp</h2><p>B</p>' === $rel, 'old related list remov
 $check( '<h2>Phân tích</h2>' === velis_strip_related( '<h2>Phân tích</h2>' ), 'other headings untouched' );
 $check( '<p>Giới thiệu.</p>' === velis_strip_contact( '<p>Giới thiệu.</p><p>Liên hệ ngay với chúng tôi:</p><ul><li>Địa chỉ: 34 Lương Định Của</li><li>Hotline: 0911237979</li></ul>' ), 'old contact list + lead-in removed' );
 $check( '<ul><li>Một</li></ul>' === velis_strip_contact( '<ul><li>Một</li></ul>' ), 'other lists kept' );
+$check( 2560 === velis_max_candidate( 'a.webp 1200w, b.webp 2560w, c.webp 300w' ) && 768 === velis_max_candidate( '', 768 ), 'widest srcset candidate' );
+list( $rest, $imgs ) = velis_take_images( '<p>A</p><!-- wp:image {"id":5} --><figure class="wp-block-image"><img class="wp-image-5" alt=""/><figcaption>Tháng 4/2026</figcaption></figure><!-- /wp:image --><p>B</p>' );
+$check( '<p>A</p><p>B</p>' === $rest && array( array( 5, 'Tháng 4/2026' ) ) === $imgs, 'progress photos taken out of the text with their caption' );
+$run = velis_sentence_run( 'Một hai ba. Bốn năm sáu bảy tám chín mười. Mười một!', 7 );
+$check( 'Bốn năm sáu bảy tám chín mười.' === $run, 'longest run of whole sentences within the word limit' );
 echo "components: all checks passed\n";

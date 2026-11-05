@@ -36,5 +36,5 @@ test('a clean page passes', async () => {
 		<section><h2>Có chữ</h2></section><figure><img src="${PNG}" style="height:150px" alt=""></figure>
 		<div class="v-card__media v-media--empty" style="height:150px"><span>The Privé</span></div><aside>${contact}</aside>`);
 	assert.deepEqual([r.grid, r.empty, r.images, r.fallback, r.contact], [[], [], [], [], []]);
-	assert.deepEqual(r.media, ['div.v-card__media.v-media--empty']); // a named fallback still is a frame without a picture
+	assert.deepEqual(r.media, []); // a named fallback frame is intended (round 7); a broken one carries .is-broken
 });

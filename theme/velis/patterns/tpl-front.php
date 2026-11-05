@@ -47,6 +47,16 @@ foreach ( $nums as $label => $n ) {
 	$dl .= '<div><dt>' . esc_html( $label ) . '</dt><dd>' . esc_html( $n >= 10 ? floor( $n / 10 ) * 10 . '+' : (string) $n ) . '</dd></div>';
 }
 $out .= velis_section( '<dl class="v-numbers" aria-label="Velis bằng con số">' . $dl . '</dl>', '', 'v-section--strip' );
+// "Về Velis": the office photo of the about page + a quote (≤ 60 words, whole sentences) from its "Tầm nhìn & sứ mệnh" part.
+$about = get_page_by_path( 'gioi-thieu' );
+if ( $about && preg_match( '#<h[2-4][^>]*>(?:(?!</h).)*tầm nhìn(?:(?!</h).)*</h[2-4]>(.*?)(?=<!-- wp:heading|$)#siu', $about->post_content, $m ) ) {
+	$quote = velis_sentence_run( html_entity_decode( wp_strip_all_tags( $m[1] ), ENT_QUOTES ) );
+	$photo = (int) get_post_thumbnail_id( $about );
+	if ( $quote ) {
+		$out .= velis_section( '<div class="v-about">' . ( $photo ? '<figure>' . velis_img( $photo, 'Văn phòng Velis Realty', 'large' ) . '</figure>' : '' )
+			. '<div>' . velis_sechead( 'Velis Realty', 'Về Velis' ) . '<p class="v-lead">' . esc_html( $quote ) . '</p>' . velis_btn( 'Tìm hiểu Velis', get_permalink( $about ), 'secondary' ) . '</div></div>' );
+	}
+}
 if ( $devs ) {
 	$logos = array_filter( $devs, fn( $d ) => get_post_meta( $d->ID, 'velis_logo', true ) );
 	$list  = count( $logos ) === count( $devs ) ? velis_grid( array_map( 'velis_card_developer', $devs ) )

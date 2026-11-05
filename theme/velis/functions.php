@@ -71,6 +71,30 @@ if ( 'staging.velisrealty.vn' === wp_parse_url( home_url(), PHP_URL_HOST ) ) {
 	add_action( 'rest_api_init', fn() => register_rest_route( 'velis/v1', '/last-lead', array( 'methods' => 'GET', 'callback' => fn() => get_option( 'velis_cf7_last_mail', array() ), 'permission_callback' => fn() => current_user_can( 'manage_options' ) ) ) );
 }
 
+// Sharp pictures (round 7): extra widths for the srcset (WordPress never makes one wider than the original), a 2560 px
+// srcset limit, and --nw = the widest file on offer so CSS can keep the box no wider than the file allows (style.css).
+add_action( 'after_setup_theme', function () {
+	foreach ( array( 600, 900, 1600, 2000, 2560 ) as $w ) {
+		add_image_size( 'velis-' . $w, $w, 0, false );
+	}
+} );
+add_filter( 'max_srcset_image_width', fn() => 2560 );
+add_filter( 'wp_get_attachment_image_attributes', function ( $attr, $att, $size ) {
+	$src = wp_get_attachment_image_src( $att->ID, $size );
+	$nw  = velis_max_candidate( (string) ( $attr['srcset'] ?? '' ), (int) ( $src[1] ?? 0 ) );
+	if ( $nw ) {
+		$attr['style'] = trim( rtrim( (string) ( $attr['style'] ?? '' ), '; ' ) . '; --nw: ' . $nw . 'px', '; ' );
+	}
+	return $attr;
+}, 10, 3 );
+add_filter( 'wp_content_img_tag', function ( $tag ) {
+	$nw = velis_max_candidate( preg_match( '/\ssrcset="([^"]+)"/', $tag, $m ) ? $m[1] : '', preg_match( '/\swidth="(\d+)"/', $tag, $w ) ? (int) $w[1] : 0 );
+	if ( ! $nw ) {
+		return $tag;
+	}
+	return preg_match( '/\sstyle="/', $tag ) ? preg_replace( '/\sstyle="([^"]*)"/', ' style="$1; --nw: ' . $nw . 'px"', $tag, 1 ) : preg_replace( '/^<img/', '<img style="--nw: ' . $nw . 'px"', $tag );
+} );
+
 // Theme block styles: secondary (outline) and text buttons.
 add_action( 'init', function () {
 	register_block_style( 'core/button', array( 'name' => 'secondary', 'label' => 'Phụ (viền)' ) );

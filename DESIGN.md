@@ -220,6 +220,17 @@ Cao tối thiểu 48 px (vùng bấm ≥ 44 × 44). Đổi màu 150–200 ms.
 - **Khoảng trống**: từ 1024 px không vùng nào có khoảng trống ngang cạnh nội dung > 30 % khung kéo dài quá 1 màn hình
   (`tools/check_ui.mjs` tự kiểm ở 1100 / 1366 / 1536 / 1920).
 
+### Ảnh nét (vòng 7)
+- Mọi ảnh có `srcset` đủ cỡ (thêm 600 / 900 / 1600 / 2000 / 2560 px – WordPress chỉ tạo cỡ không lớn hơn ảnh gốc) và `sizes`
+  đúng khung (`auto` cho ảnh lazy). **Không phóng ảnh** (bỏ phép cắt `--zoom`): khung ảnh ≤ cỡ file × 1,15 / mật độ điểm ảnh
+  (`--nw`, `--dpr` trong style.css) – ảnh gốc nhỏ thì khung nhỏ, không kéo giãn. Hero: ảnh hẹp hơn màn hình (ví dụ ảnh gốc
+  1200 px trên màn 2×) nằm bên phải, mờ dần vào dải tối sau khối chữ.
+- Nhóm thẻ có ảnh: thẻ thiếu ảnh dùng khung dự phòng có tên, cùng tỉ lệ; cả nhóm không ảnh thì thẻ chữ. Thẻ bài viết thiếu
+  ảnh luôn có khung mang tên cụm. Ảnh lỗi khi tải → khung dự phòng có tên (`is-broken`, bộ đo đếm là ảnh hỏng).
+- Bộ đo bắt buộc: `node tools/check_ui.mjs --suite <danh sách> <thư mục>` – DPR 1 / 1,25 / 2 × viewport 390 / 1066 / 1366 /
+  1920, cuộn thật, chờ ảnh: ảnh hỏng, ảnh mờ, nhóm thẻ thiếu khung, khối trống, bảng < 2 hàng, tràn ngang, đúng 1 H1,
+  heading viết HOA, khoảng trống > 30 % – tất cả phải bằng 0.
+
 ### Đầu mục section
 Eyebrow → tiêu đề Playfair (H2) → đoạn dẫn ≤ 2 dòng màu `body-muted` → đường kẻ champagne 48 × 1 px. Nhịp: 96/64 px giữa
 section, 32 px từ đầu mục tới nội dung, 24 px giữa các khối, 8 px eyebrow → tiêu đề.
