@@ -188,12 +188,52 @@ Chính (đỏ, chữ trắng) · Phụ (viền đen, hover nền đen) · Viền
 Cao tối thiểu 48 px (vùng bấm ≥ 44 × 44). Đổi màu 150–200 ms.
 
 ### Hero (đã chốt)
-- **A** – trang chủ, trang dự án, trang phân khu. Ảnh tràn màn hình. Desktop: lớp phủ `#141414` chỉ ở nửa trái, sau khối
-  chữ (90 % → 55 % ở 50 % chiều rộng → 0 ở 60 %), nửa phải giữ ảnh sáng tự nhiên; khối chữ ≤ min(520 px, 40vw).
-  Mobile: lớp phủ từ dưới lên 90 % → 45 % vì chữ chiếm cả chiều ngang. Eyebrow `#EADBC0`; chữ trên ảnh ≥ 4,5:1 (đo bằng
-  điểm ảnh, xem `tools/check_ui.mjs`). Tiêu đề hero mọi khung `text-wrap: balance`, đoạn dẫn `text-wrap: pretty`.
-  Chưa có ảnh: nền tối trung tính + tên dự án chìm phía sau.
+- **A** – trang chủ, trang dự án, trang phân khu (vòng 6). Ảnh tràn rộng. **Desktop (≥ 1024 px): không phủ cả ảnh** – chỉ
+  một lớp nền mờ cục bộ (#141414 82 %, blur 36 px) sau khối chữ ở góc trái dưới (khối chữ ≤ min(600 px, 46vw)), ≥ 60 % diện tích
+  ảnh giữ độ sáng gốc; breadcrumb có nền nhỏ riêng; chữ ≥ 4,5:1 (đo bằng điểm ảnh, `tools/check_ui.mjs`). Tablet: lớp phủ từ dưới
+  lên; mobile: ảnh 4:3 ở trên, chữ trên dải tối. Trong hero: breadcrumb, eyebrow chủ đầu tư · khu vực, H1, 3–4 chip, 2 nút.
+  Trang dự án cao ~60vh; trang chủ: đáy hero là dải **mọi dự án có ảnh thật** (4 thẻ trong khung, nhiều hơn thì trượt ngang; thẻ cao bằng nhau – tên ≤ 2 dòng, khu vực 1 dòng cắt "…").
+  Chưa có ảnh: dải tối + tên chìm.
+- **Form** (mọi nơi): chỉ Họ tên + Số điện thoại (cùng hàng từ 768 px), ô đồng ý, nút Gửi; dự án / URL trang / utm là trường
+  ẩn gửi kèm email. Khối "Nhận tư vấn" 2 cột cân: trái tiêu đề + kênh liên hệ, phải form. Thẻ "Nhận bảng giá" ở cột phải
+  trang dự án mở form gọn tại chỗ.
+- **Khung**: 1200 px; từ 1600 px là 1320 px. Thanh CTA đáy (mobile/tablet) chỉ hiện sau khi cuộn qua nút của hero.
 - **B** – trang tổng (Dự án, Chủ đầu tư, Blog, cụm blog). Chia đôi 5:6, chữ trên nền ngà, tiêu đề `text-wrap: balance`.
+
+### Bố cục 2 cột & nhịp thị giác (vòng 5)
+- **Trang có văn bản dài** (dự án mọi cấp; Giới thiệu, Tuyển dụng; chính sách có mục lục): từ 1024 px là cột nội dung
+  (phần còn lại) + **cột phải dính 340 px** – dự án: thẻ "Nhận bảng giá {tên}" (ảnh, trạng thái, giá nếu có, bàn giao,
+  Nhận bảng giá → form điền sẵn, Gọi, Zalo); Giới thiệu: thẻ liên hệ; Tuyển dụng: thẻ "Gửi CV"; chính sách: mục lục.
+  Không có gì hữu ích cho cột phải → một cột đọc 760 px canh giữa. < 1024 px: một cột + thanh CTA đáy (kể cả tablet).
+- Khối rộng (danh sách phân khu, so sánh, thư viện, bản đồ) **vừa cột nội dung**: phân khu 2 cột, bảng so sánh cuộn ngang
+  có cột tên ghim – để cột phải dính liên tục suốt trang (đẹp và nhất quán hơn việc ngắt cột cho một khối full-width).
+- **Nhịp**: không lặp một khuôn suốt trang. Trang dự án (vòng 6): các section cùng một kiểu nền ngà (không khung trắng có
+  viền), Thư viện trên nền tối, bảng so sánh là **vùng full-width riêng** thoát khỏi 2 cột (không cuộn ngang khi ≤ 5 cột).
+  Thứ tự: Tổng quan → [Phân khu] → Sản phẩm → So sánh → Vị trí & tiện ích → Thư viện → Tiến độ & pháp lý → Góc nhìn CEO →
+  Hỏi đáp → Bài viết → Tư vấn. Văn bản dài của bài trụ cột cũ nằm sau dữ liệu của section, thu gọn sau ~250 từ (Tổng quan
+  ~150 từ) với "Đọc tiếp". Trang khác: nền ngà, dải trắng toàn chiều ngang, **mỗi trang ít nhất một khối nhấn tối**.
+- Thông tin liên hệ (điện thoại + email + địa chỉ) chỉ một lần trong thân trang (khối "Nhận tư vấn"); thẻ cột phải của
+  Giới thiệu là dự án đang tư vấn, của Tuyển dụng là "Gửi CV".
+- Danh sách ≤ 2 mục: 1 mục = thẻ ngang rộng hết khung (ảnh trái, chữ phải), 2 mục = 2 cột; không để hàng có ô trống.
+- **Thanh điều hướng mục** tối đa 8 mục: Tổng quan · Sản phẩm · Phân khu · Vị trí & tiện ích · Thư viện · Tiến độ & pháp lý ·
+  Hỏi đáp · Tư vấn (mục không có nội dung tự ẩn); mobile cuộn ngang, mục đầu luôn thấy.
+- **Khoảng trống**: từ 1024 px không vùng nào có khoảng trống ngang cạnh nội dung > 30 % khung kéo dài quá 1 màn hình
+  (`tools/check_ui.mjs` tự kiểm ở 1100 / 1366 / 1536 / 1920).
+
+### Ảnh nét (vòng r8)
+- Khung ảnh **chỉ theo thiết kế và viewport**, không phụ thuộc mật độ điểm ảnh (DPR): cùng viewport, hộp mọi ảnh/khối ở
+  DPR 1 / 1,25 / 2 lệch ≤ 1 px. Hero A tràn toàn khung ở mọi DPR. Ảnh trong nội dung rộng bằng cột chữ; chỉ khi file lớn
+  nhất nhỏ hơn cột thì ảnh hiện bằng cỡ file, căn giữa (`.v-crop`, `max-width` = file lớn nhất).
+- Phóng cắt `--zoom` 1,12 (hero, ảnh đầu bài, ảnh nội dung) / 1,15 (thẻ, dải nổi bật, thư viện, tiến độ, cột phải) neo ở
+  `--focus` (góc phải trên) để đẩy huy hiệu VELIS in chìm (góc trái dưới) ra ngoài khung. Mặt bằng, logo, bản đồ OSM: không phóng.
+- `srcset` tới 2560 px (thêm cỡ 600 / 900 / 1600 / 2000 / 2560); `sizes` luôn tường minh và **nhân hệ số phóng**
+  (`velis_sizes()`), không dùng `sizes="auto"` (bỏ qua phép phóng).
+- Nhóm thẻ có ảnh: thẻ thiếu ảnh dùng khung dự phòng có tên (Playfair, căn giữa, nền champagne nhạt), cùng tỉ lệ; cả nhóm
+  không ảnh thì thẻ chữ. Ảnh lỗi khi tải → thử cỡ 1024, rồi khung dự phòng có tên (`is-broken`).
+- Bộ đo bắt buộc: `node tools/check_ui.mjs --suite tools/suite-pages.txt <thư mục>` – DPR 1 / 1,25 / 2 × viewport 390 /
+  1066 / 1366 / 1536 / 1920, cuộn thật, chờ ảnh. Độ nét đo bằng bề rộng thật của file đang hiện (nạp `currentSrc` vào
+  `new Image()`), không dùng `img.naturalWidth`. Mọi cột lỗi = 0; "ảnh nguồn thiếu độ phân giải" chỉ để thông tin
+  (`docs/ANH-CAN-THAY.md`). Cột phải bài viết: `--sticky tools/sticky-pages.txt`.
 
 ### Đầu mục section
 Eyebrow → tiêu đề Playfair (H2) → đoạn dẫn ≤ 2 dòng màu `body-muted` → đường kẻ champagne 48 × 1 px. Nhịp: 96/64 px giữa
@@ -202,7 +242,7 @@ section, 32 px từ đầu mục tới nội dung, 24 px giữa các khối, 8 p
 ### Ảnh
 16:9 hero/ảnh đầu bài · 3:2 thư viện (21:10 desktop) và ảnh tiến độ · 4:3 mọi loại thẻ · 1:1 đại diện. Góc vuông.
 Mọi khung ảnh nhận `--focus` (object-position) và `--zoom` (phóng nhẹ neo theo điểm lấy nét) để đẩy huy hiệu in chìm ra
-ngoài khung. Ảnh minh họa không có chữ đè (không infographic). Thiếu ảnh: khung trung tính sọc mảnh + tên dự án.
+ngoài khung (xem "Ảnh nét"). Ảnh minh họa không có chữ đè (không infographic). Thiếu ảnh: khung champagne nhạt + tên dự án (Playfair, căn giữa).
 Mặt bằng và bản đồ dùng `contain`/không cắt nội dung. Chú thích 14 px: nội dung · nguồn · ngày chụp.
 
 ### Header & menu
@@ -247,9 +287,12 @@ nhất. Thẻ chủ đầu tư: khung logo trung tính dùng chung (biểu tư�
 - **Bản đồ**: ảnh tĩnh OpenStreetMap tông xám + ghim đỏ Velis, giữ ghi công; cao tối đa 420 px desktop / 320 px mobile;
   nút "Xem trên Google Maps" ở giữa cạnh dưới.
 - **Timeline tiến độ**: dòng dọc, mốc có ngày, ảnh có chú thích ngày chụp + nguồn.
+- **Ảnh tiến độ** (vòng r8): lưới rộng bằng cột chữ; số cột theo số ảnh – 1 → 1, 2 / 4 → 2, còn lại 3 cột (ảnh đầu rộng
+  2 ô khi số ảnh không chia hết cho 3); mobile 2 cột, ảnh đầu tràn hàng khi số ảnh lẻ. Bản đồ cũng rộng bằng cột chữ.
+- **Chip hero** ghép nhãn + giá trị viết thường chữ đầu của từ thường ("Bàn giao từ tháng 11/2023").
 
 ### Nội dung & tin cậy
-Bố cục bài: cột đọc 720 px + mục lục dính bên phải (≥ 1280 px), cao theo nội dung, tô đậm mục đang đọc; dưới đó mục lục
+Bố cục bài: cột đọc 720 px + cột phải dính (≥ 1280 px; top = header dính + 24 px): mục lục (chỉ danh sách cuộn riêng, cao ≤ 45vh, mờ dần ở đáy) + thẻ dự án ảnh thu gọn + nút tư vấn – cả cột luôn vừa màn hình, tô đậm mục đang đọc; dưới đó mục lục
 nằm trong cột đọc, 2 cột khi > 6 mục. FAQ (`<details>`) · Hộp tác giả (ảnh chân dung thật – chưa có thì ẩn khung ảnh;
 link mạng xã hội cá nhân; "Xem tất cả bài viết") · Hộp công bố
 (15 px, rộng bằng cột đọc, chữ `ink` trên `surface-sunken`) · Breadcrumb · Phân trang · Trang 404.

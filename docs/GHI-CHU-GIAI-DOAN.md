@@ -1,5 +1,11 @@
 # Ghi chú chuyển tiếp giữa các giai đoạn
 
+## Giai đoạn 4 – chờ duyệt (Cổng 4)
+
+Chuyển nội dung trên staging xong ngày 2026-11-04, nhánh `claude/upbeat-fermat-04eevu`: 133 bài/trang sang khối (0 lệch số từ
+> 1%, 0 shortcode), chữ 7 bài trụ cột vào ô trang dự án, 33 title + 69 meta rút gọn bằng cắt bớt, tắt 4 plugin. Báo cáo:
+`docs/reports/chuyen-noi-dung-giai-doan-4.md`. Chưa làm trên site thật (chờ duyệt kế hoạch ra mắt, `docs/KE-HOACH-RA-MAT.md`).
+
 ## Giai đoạn 3 hoàn tất – đã merge vào main
 
 Đã merge vào `main` (merge thường `--no-ff`, commit 23f12bb) ngày 2026-11-04 sau 3 vòng duyệt (PR esvinlyvn/velis-theme#3).

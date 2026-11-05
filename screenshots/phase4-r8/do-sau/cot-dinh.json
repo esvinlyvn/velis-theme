@@ -1,0 +1,38 @@
+[
+ {
+  "name": "dai-1",
+  "screen": "1366×768 DPR 1",
+  "steps": 40,
+  "bad": []
+ },
+ {
+  "name": "dai-1",
+  "screen": "1536×864 DPR 1.25",
+  "steps": 36,
+  "bad": []
+ },
+ {
+  "name": "dai-2",
+  "screen": "1366×768 DPR 1",
+  "steps": 36,
+  "bad": []
+ },
+ {
+  "name": "dai-2",
+  "screen": "1536×864 DPR 1.25",
+  "steps": 33,
+  "bad": []
+ },
+ {
+  "name": "dai-3",
+  "screen": "1366×768 DPR 1",
+  "steps": 38,
+  "bad": []
+ },
+ {
+  "name": "dai-3",
+  "screen": "1536×864 DPR 1.25",
+  "steps": 34,
+  "bad": []
+ }
+]

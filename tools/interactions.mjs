@@ -1,0 +1,182 @@
+// 34 interaction checks on STAGING (guest view behind the staging password) – rewritten in round 8 from the list of
+// round 6/7 (screenshots/phase4-r7/tuong-tac.txt). One form test submission (check 32) is sent to Contact Form 7 on staging
+// (emails are off there); its stored copy is read back from /wp-json/velis/v1/last-lead with the Application Password
+// (env WP_USER / WP_APP_PASSWORD, passed to curl on stdin – never printed).
+// Usage: VIEW_PASSWORD_FILE=… node tools/interactions.mjs <out-file>   (NO_SEND=1: skip the test submission while debugging)
+import { createRequire } from 'node:module';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+const { chromium } = createRequire(import.meta.url)('playwright');
+
+const BASE = 'https://staging.velisrealty.vn';
+const out = process.argv[2] || 'tuong-tac.txt';
+const lines = [];
+const check = (name, ok, detail = '') => { lines.push(`${ok ? 'PASS' : 'FAIL'} ${name}${detail !== '' ? ' – ' + (typeof detail === 'string' ? detail : JSON.stringify(detail)) : ''}`); console.log(lines.at(-1)); };
+const settle = (p) => p.evaluate(async () => { for (let y = 0; y < document.documentElement.scrollHeight; y += innerHeight * 0.7) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 100)); } scrollTo(0, 0); });
+
+const b = await chromium.launch();
+const login = await b.newContext();
+const lp = await login.newPage();
+await lp.goto(BASE + '/');
+await lp.fill('input[type=password]', readFileSync(process.env.VIEW_PASSWORD_FILE, 'utf8').trim());
+await Promise.all([lp.waitForNavigation(), lp.locator('input[type=submit], button[type=submit]').first().click()]);
+const storageState = await login.storageState();
+const desk = await b.newContext({ storageState, viewport: { width: 1366, height: 900 } });
+const mob = await b.newContext({ storageState, viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
+const open = async (ctx, path) => { const p = await ctx.newPage(); await p.goto(BASE + path, { waitUntil: 'load', timeout: 120000 }); return p; };
+
+// 1–5 mega menu
+let p = await open(desk, '/du-an/the-prive/');
+const mega = p.locator('details.v-dd--mega').first();
+await mega.locator('summary').hover(); await p.waitForTimeout(250);
+check('mega menu mở khi rê chuột', await mega.evaluate((d) => d.open));
+await p.mouse.move(683, 700); await p.waitForTimeout(80);
+const still = await mega.evaluate((d) => d.open);
+await p.waitForTimeout(400);
+check('mega menu đóng sau ~200 ms khi rời chuột', still && !(await mega.evaluate((d) => d.open)), `sau 80 ms vẫn mở: ${still}`);
+await p.mouse.move(683, 700); await mega.locator('summary').click(); await p.waitForTimeout(200);
+check('mega menu mở khi bấm', await mega.evaluate((d) => d.open));
+const zones = await p.locator('.v-mega__zones a').count();
+check('mega menu có phân khu', zones > 0, `${zones} link phân khu`);
+await p.keyboard.press('Escape'); await p.mouse.move(683, 700); await p.waitForTimeout(400);
+await mega.evaluate((d) => (d.open = false));
+await mega.locator('summary').focus(); await p.keyboard.press('Enter'); await p.waitForTimeout(200);
+check('mega menu mở bằng bàn phím (Enter)', await mega.evaluate((d) => d.open));
+await p.keyboard.press('Escape'); await mega.evaluate((d) => (d.open = false)); await p.mouse.move(683, 700);
+
+// 6–9 product tabs + price button
+const tabs = await p.evaluate(() => [...document.querySelectorAll('[role=tab]')].map((t) => { const pane = document.getElementById(t.getAttribute('aria-controls')); return { id: t.id || '', name: t.textContent.trim(), data: !!pane?.querySelector('.v-mini, table'), plan: !!pane?.querySelector('.v-line__plan img'), btn: !!pane?.querySelector('.v-btn') }; }));
+const full = tabs.find((t) => t.data && t.plan);
+check('tab có dữ liệu: bảng thông số + mặt bằng', !!full, full?.name || 'không có');
+const bare = tabs.find((t) => !t.data);
+check('tab chưa có dữ liệu: câu hướng dẫn + nút', !bare || bare.btn, bare ? bare.name : 'mọi tab đều có dữ liệu');
+await p.locator('[role=tab]', { hasText: full?.name || '' }).first().click(); await p.waitForTimeout(200);
+const priceBtn = p.locator('[role=tabpanel]:not([hidden]) a[data-interest]').first();
+const want = await priceBtn.getAttribute('data-interest');
+await priceBtn.click(); await p.waitForTimeout(1200);
+const formTop = await p.evaluate(() => Math.round(document.querySelector('#tu-van').getBoundingClientRect().top));
+check('"Nhận bảng giá" cuộn tới form', formTop >= 0 && formTop < 300, `top=${formTop}`);
+const interest = await p.evaluate(() => document.querySelector('#tu-van [name=interest]')?.value || '');
+check('"Nhận bảng giá" điền sẵn dòng sản phẩm', interest === want, interest);
+
+// 10–11 section nav
+await p.evaluate(() => scrollTo(0, 0)); await p.waitForTimeout(300);
+await p.locator('[data-secnav] a[href="#vi-tri"]').first().click(); await p.waitForTimeout(1200);
+const vt = await p.evaluate(() => { const n = document.querySelector('[data-secnav]').getBoundingClientRect(); const s = document.querySelector('#vi-tri').getBoundingClientRect(); return { gap: Math.round(s.top - n.bottom) }; });
+check('thanh điều hướng mục: bấm cuộn tới Vị trí', vt.gap >= -2 && vt.gap < 120, vt);
+const cur = await p.evaluate(() => document.querySelector('[data-secnav] a[aria-current]')?.textContent.trim() || '');
+check('thanh điều hướng mục: tô mục đang xem', /Vị trí/.test(cur), cur);
+
+// 12–15 gallery
+await settle(p);
+const g = p.locator('[data-gallery]').first();
+await g.scrollIntoViewIfNeeded();
+const c0 = await g.locator('[data-counter]').textContent();
+await g.locator('[data-next]').click(); await p.waitForTimeout(700);
+const c1 = await g.locator('[data-counter]').textContent();
+check('thư viện ảnh: nút "ảnh sau"', c0.startsWith('1/') && c1.startsWith('2/'), `${c0} → ${c1}`);
+await g.locator('.v-gallery__track button').nth(1).click(); await p.waitForTimeout(400);
+check('thư viện ảnh: phóng to (lightbox)', await p.evaluate(() => !!document.querySelector('.v-lightbox[open]')));
+await p.keyboard.press('Escape'); await p.waitForTimeout(200);
+await p.waitForFunction(() => [...document.images].every((i) => i.complete), null, { timeout: 20000 }).catch(() => {});
+const brokenPrive = await p.evaluate(() => [...document.images].filter((i) => i.getBoundingClientRect().width > 0 && i.complete && !i.naturalWidth).length);
+check('không còn ảnh vỡ hiển thị (The Privé)', brokenPrive === 0, `${brokenPrive}`);
+const box = await g.boundingBox();
+const y0 = await p.evaluate(() => scrollY);
+await p.mouse.move(box.x + box.width / 2, box.y + 40); await p.mouse.wheel(0, 400); await p.waitForTimeout(600);
+const y1 = await p.evaluate(() => scrollY);
+check('lăn chuột trên thư viện ảnh vẫn cuộn trang', y1 > y0, `${Math.round(y0)} → ${Math.round(y1)}`);
+
+// 16–17 header hide/show
+await p.evaluate(() => scrollTo(0, 2500)); await p.waitForTimeout(150); await p.evaluate(() => scrollTo(0, 3200)); await p.waitForTimeout(600);
+const down = await p.evaluate(() => ({ headerBottom: Math.max(0, Math.round(document.querySelector('.v-header').getBoundingClientRect().bottom)), navTop: Math.round(document.querySelector('[data-secnav]').getBoundingClientRect().top) }));
+check('cuộn xuống: header ẩn, thanh điều hướng ở top 0', down.headerBottom === 0 && down.navTop === 0, down);
+await p.evaluate(() => scrollTo(0, 3000)); await p.waitForTimeout(150); await p.evaluate(() => scrollTo(0, 2800)); await p.waitForTimeout(600);
+const up = await p.evaluate(() => ({ headerBottom: Math.round(document.querySelector('.v-header').getBoundingClientRect().bottom), navTop: Math.round(document.querySelector('[data-secnav]').getBoundingClientRect().top) }));
+check('cuộn lên: header hiện, thanh điều hướng sát dưới header', up.headerBottom > 0 && Math.abs(up.navTop - up.headerBottom) <= 1, up);
+
+// 18 form validation
+let sent = 0;
+p.on('request', (r) => { if (r.url().includes('contact-form-7') && r.method() === 'POST') sent++; });
+await p.locator('#tu-van [type=submit]').first().click(); await p.waitForTimeout(500);
+const errs = await p.evaluate(() => [...document.querySelectorAll('#tu-van .v-field__error')].filter((e) => !e.hidden && e.textContent.trim()).length);
+check('form báo lỗi khi bỏ trống, không gửi đi', errs >= 3 && sent === 0, `${errs} ô lỗi, ${sent} lần gửi`);
+await p.close();
+
+// 19–20, 34 /du-an/
+p = await open(desk, '/du-an/');
+await p.locator('[data-fdrop] summary', { hasText: 'Khu vực' }).click();
+await p.locator('input[name=khu][value=khu-dong]').check(); await p.waitForTimeout(400);
+const cnt = (await p.locator('[data-plist-count]').textContent()).trim();
+check('bộ lọc dự án: lọc Khu Đông', /Hiển thị \d+\/\d+/.test(cnt) && !/Hiển thị (\d+)\/\1 /.test(cnt + ' '), cnt);
+await settle(p); await p.waitForFunction(() => [...document.images].every((i) => i.complete), null, { timeout: 20000 }).catch(() => {});
+const brokenList = await p.evaluate(() => [...document.images].filter((i) => i.getBoundingClientRect().width > 0 && i.complete && !i.naturalWidth).length);
+check('không còn ảnh vỡ (/du-an/)', brokenList === 0, `${brokenList}`);
+await p.goto(BASE + '/du-an/'); await p.locator('[data-view-btn=san-pham]').click(); await p.waitForTimeout(400);
+const cnt2 = (await p.locator('[data-plist-count]').textContent()).trim();
+const viewShown = await p.evaluate(() => !document.querySelector('[data-view=san-pham]').hidden);
+// (recorded at the end, keeps the original numbering)
+
+// 21–22, 33 The Global City
+const t = await open(desk, '/du-an/the-global-city/');
+await t.locator('[data-filter] label.v-chip', { hasText: 'Biệt thự' }).first().click(); await t.waitForTimeout(400);
+const zc = (await t.locator('[data-count]').first().textContent()).trim();
+check('lọc phân khu theo loại (chip)', /Hiển thị \d+\/5/.test(zc) && !/5\/5/.test(zc), zc);
+await t.locator('[data-view=types]').first().click(); await t.waitForTimeout(300);
+check('chuyển chế độ "Theo loại sản phẩm"', await t.evaluate(() => [...document.querySelectorAll('[data-panel]')].some((x) => x.dataset.panel === 'types' && !x.hidden)));
+const cmp = await t.evaluate(() => { const w = document.querySelector('.v-compare'); return w ? { sw: w.scrollWidth, cw: w.clientWidth } : null; });
+
+// 23 search
+const s = await open(desk, '/?s=' + encodeURIComponent('căn hộ palm river'));
+const first = (await s.locator('main .v-card__title').first().textContent()).trim();
+check('tìm "căn hộ palm river" ra Palm River đầu tiên', /Palm River/.test(first), first);
+
+// 24–29 mobile
+const m = await open(mob, '/du-an/the-prive/');
+const ctaAtTop = await m.evaluate(async () => { await new Promise((r) => setTimeout(r, 600)); const c = document.querySelector('.v-sticky-cta'); const b = document.querySelector('.v-hero .v-row').getBoundingClientRect(); return { on: c.classList.contains('is-on'), heroBtnBottom: Math.round(b.bottom), vh: innerHeight }; });
+await m.locator('[data-menu-open]').first().click(); await m.waitForTimeout(300);
+check('mobile: menu mở', await m.evaluate(() => !!document.querySelector('dialog.v-menu[open]')));
+await m.locator('[data-menu-close]').first().click(); await m.waitForTimeout(300);
+const sn = await m.evaluate(() => { const u = document.querySelector('[data-secnav] ul'); return { sw: u.scrollWidth, cw: u.clientWidth, ox: getComputedStyle(u).overflowX }; });
+check('mobile: thanh điều hướng mục cuộn ngang', sn.sw > sn.cw && /auto|scroll/.test(sn.ox), sn);
+const ctaShown = async () => { await m.waitForTimeout(400); return m.evaluate(() => document.querySelector('.v-sticky-cta').classList.contains('is-on')); };
+check('mobile: thanh CTA đáy ẩn ở đầu trang', !ctaAtTop.on, ctaAtTop);
+await m.evaluate(() => scrollTo(0, 1400)); await m.waitForTimeout(600);
+check('mobile: thanh CTA đáy hiện sau khi cuộn qua nút hero', await ctaShown());
+await m.evaluate(() => scrollTo(0, 0)); await m.waitForTimeout(600);
+check('mobile: về đầu trang thì thanh CTA ẩn lại', !(await ctaShown()));
+await m.goto(BASE + '/du-an/vinhomes-saigon-park/ivy-park/nha-pho/');
+const bc = await m.evaluate(() => { const items = [...document.querySelectorAll('.v-breadcrumb li')]; const rg = document.createRange(); const tops = new Set(); items.forEach((li) => { rg.selectNodeContents(li); [...rg.getClientRects()].filter((x) => x.width > 0).forEach((x) => tops.add(Math.round(x.top))); }); return tops.size; });
+check('mobile: breadcrumb tối đa 2 dòng', bc >= 1 && bc <= 2, `${bc} dòng`);
+
+// 30–32 read more, side card mini form, test submission
+const r = await open(desk, '/du-an/the-global-city/');
+const before = await r.evaluate(() => Math.round(document.querySelector('.v-long.is-clamped')?.getBoundingClientRect().height || 0));
+await r.locator('.v-long + * button, button[data-more], .v-more-btn').first().click().catch(async () => r.getByRole('button', { name: 'Đọc tiếp' }).first().click());
+await r.waitForTimeout(400);
+const opened = await r.evaluate(() => !document.querySelector('.v-long--short.is-clamped'));
+check('"Đọc tiếp" mở toàn bộ đoạn dài', before > 0 && opened, `${before}px → ${opened ? 'mở' : 'vẫn thu'}`);
+await r.evaluate(() => scrollTo(0, 900)); await r.waitForTimeout(300);
+await r.locator('.v-page__side [data-open-form]').filter({ visible: true }).first().click(); await r.waitForTimeout(300);
+check('thẻ cột phải: "Nhận bảng giá" mở form gọn tại chỗ', await r.locator('.v-page__side .v-pricecard__form').filter({ visible: true }).count() === 1);
+if (process.env.NO_SEND) check('gửi thử: đủ trường ẩn (dự án, URL trang, utm)', true, 'BỎ QUA (NO_SEND, chạy dò lỗi)'); else {
+const side = r.locator('.v-page__side .v-pricecard__form').filter({ visible: true }).first();
+await side.locator('[name=your-name]').fill('Kiểm thử hệ thống');
+await side.locator('[name=your-phone]').fill('0900000000');
+await side.locator('input[type=checkbox]').first().check();
+await r.evaluate(() => history.replaceState(null, '', location.pathname + '?utm_source=kiemthu'));
+const resp = r.waitForResponse((x) => x.url().includes('contact-form-7') && x.request().method() === 'POST', { timeout: 30000 }).catch(() => null);
+await side.locator('[type=submit]').click();
+const res = await resp;
+let lead = '';
+try { lead = execFileSync('curl', ['-sS', '-K', '-', '--cacert', '/root/.ccr/ca-bundle.crt', BASE + '/wp-json/velis/v1/last-lead'], { input: `user = "${process.env.WP_USER}:${process.env.WP_APP_PASSWORD}"\n` }).toString(); } catch { lead = ''; }
+const hasAll = /The Global City/.test(lead) && /the-global-city/.test(lead) && /kiemthu/.test(lead);
+check('gửi thử: đủ trường ẩn (dự án, URL trang, utm)', !!res && res.ok() && hasAll, `${lead.length} byte`);
+}
+
+check('bảng so sánh full-width, không cuộn ngang', !!cmp && cmp.sw <= cmp.cw + 1, cmp);
+check('/du-an/: chế độ "Theo phân khu & sản phẩm"', viewShown && /Hiển thị/.test(cnt2), cnt2);
+
+await b.close();
+writeFileSync(out, lines.join('\n') + '\n');
+console.log(`${lines.filter((l) => l.startsWith('PASS')).length}/${lines.length} đạt`);

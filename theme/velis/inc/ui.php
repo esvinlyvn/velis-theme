@@ -6,6 +6,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Width of the main column of a 2-column page (content wrap − 340 px side column − 48 px gap); phones: wrap − gutters.
+const VELIS_SIZES_MAIN = '(min-width: 1600px) 932px, (min-width: 1024px) min(100vw - 436px, 812px), 100vw - 32px';
 const VELIS_ICON_PHONE = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>';
 
 /**
@@ -16,13 +18,34 @@ function velis_img( int $id, string $alt, string $size = 'large', array $attr = 
 	if ( ! $id ) {
 		return '';
 	}
-	$other = wp_get_attachment_image_url( $id, 'medium' === $size ? 'large' : 'medium' );
-	return wp_get_attachment_image( $id, $size, false, $attr + array( 'alt' => $alt, 'loading' => 'lazy', 'style' => '--focus: 100% 0%; --zoom: 1.15', 'data-alt' => (string) $other ) );
+	// $attr['zoom']: crop scale (1 = none, for plans and logos); $attr['sizes']: the frame's width per screen, zoom added here
+	// $attr['ratio']: the frame's width/height when the photo is cropped to it (cover) – a wider photo needs its width at the
+	// frame's height, so `sizes` grows by photo ratio / frame ratio
+	$z     = (float) ( $attr['zoom'] ?? 1.15 );
+	$k     = $z > 1 ? velis_cover_k( $id, $attr['ratio'] ?? 4 / 3 ) : 1;
+	$attr  = array( 'sizes' => velis_sizes( $attr['sizes'] ?? '(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw', $z * $k ) ) + $attr;
+	$other = wp_get_attachment_image_url( $id, 'large' ); // 1024 px, tried by velis.js when the chosen file is corrupt (Privé plan original)
+	unset( $attr['zoom'], $attr['ratio'] );
+	return wp_get_attachment_image( $id, $size, false, $attr + array( 'alt' => $alt, 'loading' => 'lazy', 'style' => $z > 1 ? '--focus: 100% 0%; --zoom: ' . $z : '', 'data-alt' => (string) $other ) );
 }
 
-function velis_media( int $id, string $name, string $class = 'v-card__media' ): string {
-	return $id ? '<div class="' . esc_attr( $class ) . '" data-name="' . esc_attr( $name ) . '">' . velis_img( $id, $name, 'medium_large' ) . '</div>'
-		: '<div class="' . esc_attr( $class ) . ' v-media--empty"><span>' . esc_html( $name ) . '</span></div>';
+/** How much wider than its frame a photo must be fetched when it is cropped (cover) into a frame of $ratio (w/h). */
+function velis_cover_k( int $id, float $ratio ): float {
+	$m = wp_get_attachment_metadata( $id );
+	return empty( $m['height'] ) ? 1 : round( max( 1, $m['width'] / $m['height'] / $ratio ), 3 );
+}
+
+function velis_media( int $id, string $name, string $class = 'v-card__media', string $label = '', string $sizes = '(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw' ): string {
+	// no photo: a placeholder that velis_grid() turns into the named fallback frame when other cards of the group have a
+	// photo, and drops when none has (round 7); a photo that fails later shows $label (velis.js)
+	$label = $label ?: $name;
+	return $id ? '<div class="' . esc_attr( $class ) . '" data-name="' . esc_attr( $label ) . '">' . velis_img( $id, $name, 'medium_large', array( 'sizes' => $sizes ) ) . '</div>'
+		: '<span hidden data-nomedia="' . esc_attr( $label ) . '"></span>';
+}
+
+/** Named fallback frame, same ratio as a photo. */
+function velis_media_empty( string $label ): string {
+	return '<div class="v-card__media v-media--empty"><span>' . esc_html( $label ) . '</span></div>';
 }
 
 function velis_price_html( string $price, string $prefix = 'Giá ' ): string {
@@ -62,7 +85,7 @@ function velis_card_project( $p, string $kicker = '', $mode = '' ): string {
 		static $n = 0;
 		$data = sprintf( ' data-n="%d" data-loai="%s" data-tt="%s" data-pn="" data-gia="" data-dt="" data-bg=""', ++$n, esc_attr( implode( ' ', array_keys( $types ) ) ), esc_attr( sanitize_title( $status ) ) );
 	} elseif ( true === $mode ) {
-		$data = sprintf( ' data-card data-khu="%s" data-cdt="%s" data-loai="%s" data-tt="%s"', esc_attr( implode( ' ', wp_list_pluck( velis_terms( $p, 'khu-vuc' ), 'slug' ) ) ), esc_attr( implode( ' ', wp_list_pluck( $devs, 'post_name' ) ) ), esc_attr( implode( ' ', array_keys( $types ) ) ), esc_attr( sanitize_title( $status ) ) );
+		$data = sprintf( ' data-card data-khu="%s" data-cdt="%s" data-loai="%s" data-tt="%s"', esc_attr( implode( ' ', wp_list_pluck( velis_terms( $p, 'khu-vuc' ) ?: velis_terms( velis_root( $p ), 'khu-vuc' ), 'slug' ) ) ), esc_attr( implode( ' ', wp_list_pluck( $devs, 'post_name' ) ) ), esc_attr( implode( ' ', array_keys( $types ) ) ), esc_attr( sanitize_title( $status ) ) );
 	}
 	$price = velis_price( $p );
 	$rows  = array();
@@ -87,7 +110,7 @@ function velis_card_project( $p, string $kicker = '', $mode = '' ): string {
 	}
 	$hand = (string) get_post_meta( $p->ID, 'velis_handover', true );
 	if ( $status || $hand ) {
-		$rows[] = '<p class="v-card__meta">' . implode( ' · ', array_filter( array( $status ? '<span class="v-badge">' . esc_html( $status ) . '</span>' : '', $hand ? esc_html( 'Bàn giao ' . mb_strtolower( mb_substr( velis_short( $hand, 32 ), 0, 1 ) ) . mb_substr( velis_short( $hand, 32 ), 1 ) ) : '' ) ) ) . '</p>';
+		$rows[] = '<p class="v-card__meta">' . implode( ' · ', array_filter( array( $status ? '<span class="v-badge">' . esc_html( $status ) . '</span>' : '', $hand ? esc_html( velis_label_value( 'Bàn giao', velis_short( $hand, 32 ) ) ) : '' ) ) ) . '</p>';
 	}
 	$meta = in_array( $mode, array( 'zone', 'embed' ), true ) || 'thap-tang' === $level ? '' : implode( ' · ', array_filter( array( $devs ? $devs[0]->post_title : '', velis_region_label( $p ) ) ) );
 	$img  = velis_image_id( $p );
@@ -107,8 +130,7 @@ function velis_card_developer( $d ): string {
 	$projs   = velis_developer_projects( $d );
 	$regions = array_unique( array_filter( array_map( 'velis_region_label', $projs ) ) );
 	$meta    = implode( ' · ', array_filter( array( $projs ? count( $projs ) . ' dự án đang tư vấn' : '', implode( ', ', $regions ) ) ) );
-	$media   = $logo ? '<div class="v-card__media v-card__logo">' . velis_img( $logo, 'Logo ' . $d->post_title, 'medium' ) . '</div>'
-		: '<div class="v-card__media v-card__logo"><svg class="v-logo-ph" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4"/></svg></div>';
+	$media   = $logo ? '<div class="v-card__media v-card__logo">' . velis_img( $logo, 'Logo ' . $d->post_title, 'medium', array( 'zoom' => 1, 'sizes' => '(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw' ) ) . '</div>' : ''; // no logo yet: text card
 	return '<article class="v-card">' . $media . '<div class="v-card__body"><p class="v-card__kicker">Chủ đầu tư</p><h3 class="v-card__title"><a href="' . esc_url( get_permalink( $d ) ) . '">' . esc_html( $d->post_title ) . '</a></h3>'
 		. ( $meta ? '<p class="v-card__meta">' . esc_html( $meta ) . '</p>' : '' ) . velis_more( 'Xem chủ đầu tư' ) . '</div></article>';
 }
@@ -119,15 +141,29 @@ function velis_card_post( $p, bool $filter_data = false, string $mode = '' ): st
 	$kind = velis_post_kind( $p );
 	$data = $filter_data ? sprintf( ' data-card data-kind="%s" data-pk="%s"', esc_attr( $kind ), esc_attr( implode( ' ', wp_list_pluck( velis_post_projects( $p ), 'post_name' ) ) ) ) : '';
 	$h    = 'feature' === $mode ? 'h2' : 'h3';
-	return '<article class="v-card' . ( 'feature' === $mode ? ' v-card--feature' : '' ) . '"' . $data . '>' . velis_media( (int) get_post_thumbnail_id( $p ), get_the_title( $p ) )
-		. '<div class="v-card__body"><p class="v-card__kicker">' . esc_html( ( 'feature' === $mode ? 'Bài mới nhất · ' : '' ) . VELIS_KINDS[ $kind ] ) . '</p>'
+	return '<article class="v-card' . ( 'feature' === $mode ? ' v-card--feature' : '' ) . '"' . $data . '>' . ( get_post_thumbnail_id( $p ) ? velis_media( (int) get_post_thumbnail_id( $p ), get_the_title( $p ), 'v-card__media', velis_post_label( $p ) ?: get_the_title( $p ), 'feature' === $mode ? '(min-width: 768px) min(58vw, 760px), 100vw' : '(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw' ) : velis_media_empty( velis_post_label( $p ) ?: get_the_title( $p ) ) )
+		. '<div class="v-card__body"><p class="v-card__kicker">' . esc_html( implode( ' · ', array_filter( array( 'feature' === $mode ? 'Bài mới nhất' : '', velis_post_label( $p ) ) ) ) ) . '</p>'
 		. "<$h class=\"v-card__title\"><a href=\"" . esc_url( get_permalink( $p ) ) . '">' . esc_html( get_the_title( $p ) ) . "</a></$h>"
 		. ( 'feature' === $mode && $p->post_excerpt ? '<p>' . esc_html( velis_short( $p->post_excerpt, 220 ) ) . '</p>' : '' )
-		. '<p class="v-card__meta">' . esc_html( get_the_author_meta( 'display_name', $p->post_author ) . ' · ' . get_the_date( 'd/m/Y', $p ) . ' · ' . velis_reading_minutes( $p ) . ' phút đọc' ) . '</p>'
+		. '<p class="v-card__meta"><span>' . implode( '</span> · <span>', array_map( 'esc_html', array( get_the_author_meta( 'display_name', $p->post_author ), get_the_date( 'd/m/Y', $p ), velis_reading_minutes( $p ) . ' phút đọc' ) ) ) . '</span></p>'
 		. velis_more( 'Đọc bài' ) . '</div></article>';
 }
 
+/** "Xem tất cả bài về {cụm} →": fills the last row of a ≥ 3-column post grid, hidden by CSS where it would open a new row. */
+function velis_all_posts_card( WP_Term $cat ): string {
+	return '<a class="v-card v-card--all" href="' . esc_url( get_category_link( $cat ) ) . '">Xem tất cả bài về ' . esc_html( $cat->name ) . ' →</a>';
+}
+
 function velis_grid( array $cards, string $mod = '4', string $attrs = '' ): string {
+	$any   = (bool) array_filter( $cards, fn( $c ) => str_contains( $c, 'class="v-card__media"' ) );
+	$cards = array_map( fn( $c ) => preg_replace_callback( '#<span hidden data-nomedia="([^"]*)"></span>#', fn( $m ) => $any ? velis_media_empty( html_entity_decode( $m[1], ENT_QUOTES ) ) : '', $c ), $cards );
+	$n     = count( $cards );
+	$mod = $n <= 2 && ! str_contains( $mod, 'rail' ) && ! str_contains( $attrs, 'data-' ) ? ( 1 === $n ? 'wide' : '2' ) : $mod; // ≤ 2 items: never a row with empty slots
+	$wide  = array( 'wide' => '(min-width: 768px) min(70vw, 1000px), 100vw', '2' => '(min-width: 768px) 600px, 100vw' )[ $mod ] ?? '';
+	if ( $wide ) { // cards are wider than in 3–4 column grids: the photo needs a bigger file
+		// × 4/3: a 16:9 photo cropped into a 4:3 card frame is fetched at the frame's height
+		$cards = preg_replace( '#(<div class="v-card__media"[^>]*><img\b[^>]*?\s)sizes="[^"]*"#', '$1sizes="' . esc_attr( velis_sizes( $wide, 1.15 * 4 / 3 ) ) . '"', $cards );
+	}
 	return $cards ? '<div class="v-grid v-grid--' . esc_attr( $mod ) . '"' . $attrs . '>' . implode( '', $cards ) . '</div>' : '';
 }
 
@@ -135,23 +171,100 @@ function velis_grid( array $cards, string $mod = '4', string $attrs = '' ): stri
 
 /** Hero A: full-bleed photo; focus keeps the printed badge out (desktop top-right, mobile 72% across). */
 function velis_hero_a( array $a ): string {
-	$tag = empty( $a['h1'] ) ? 'p' : 'h1';
-	$img = $a['img'] ? wp_get_attachment_image( $a['img'], 'full', false, array( 'alt' => $a['alt'] ?? $a['title'], 'fetchpriority' => 'high', 'loading' => 'eager', 'sizes' => '100vw', 'style' => '--focus: 100% 0%; --focus-m: 72% 0%; --zoom: 1.12', 'data-alt' => (string) wp_get_attachment_image_url( $a['img'], 'large' ) ) ) : '';
-	return '<section class="v-hero v-hero--full' . ( $img ? '' : ' is-empty' ) . '" aria-label="' . esc_attr( $a['title'] ) . '" data-name="' . esc_attr( $a['title'] ) . '">' . ( $img ?: '<span class="v-hero__fallback" aria-hidden="true">' . esc_html( $a['title'] ) . '</span>' ) . '<div class="v-hero__body">'
+	$tag   = empty( $a['h1'] ) ? 'p' : 'h1';
+	$img   = $a['img'] ? wp_get_attachment_image( $a['img'], 'full', false, array( 'alt' => $a['alt'] ?? $a['title'], 'fetchpriority' => 'high', 'loading' => 'eager', 'sizes' => velis_sizes( '(max-width: 1023px) ' . velis_cover_k( $a['img'], 4 / 3 ) . ' * 100vw, 100vw', 1.12 ), 'style' => '--focus: ' . ( $a['focus'] ?? '85% 30%' ) . '; --focus-m: 72% 0%; --zoom: 1.12', 'data-alt' => (string) wp_get_attachment_image_url( $a['img'], 'large' ) ) ) : '';
+	$chips = array_filter( $a['chips'] ?? array() );
+	return '<section class="v-hero v-hero--full' . ( $img ? '' : ' is-empty v-hero--noimg' ) . ( ! empty( $a['mod'] ) ? ' v-hero--' . $a['mod'] : '' ) . '" aria-label="' . esc_attr( $a['title'] ) . '" data-name="' . esc_attr( $a['title'] ) . '">' . ( $img ?: '<span class="v-hero__fallback" aria-hidden="true">' . esc_html( $a['title'] ) . '</span>' )
+		. ( ! empty( $a['crumbs'] ) ? '<div class="v-hero__top">' . $a['crumbs'] . '</div>' : '' ) . '<div class="v-hero__body">'
 		. ( ! empty( $a['eyebrow'] ) ? '<p class="v-eyebrow">' . $a['eyebrow'] . '</p>' : '' )
 		. "<$tag class=\"v-hero__title\">" . esc_html( $a['title'] ) . "</$tag>"
 		. ( ! empty( $a['lead'] ) ? '<p class="v-hero__lead">' . esc_html( $a['lead'] ) . '</p>' : '' )
-		. '<div class="v-row">' . ( $a['buttons'] ?? '' ) . '</div></div></section>';
+		. ( $chips ? '<ul class="v-hero__chips" aria-label="Thông tin chính"><li>' . implode( '</li><li>', array_map( 'esc_html', $chips ) ) . '</li></ul>' : '' )
+		. '<div class="v-row">' . ( $a['buttons'] ?? '' ) . '</div></div>'
+		. ( ! empty( $a['after'] ) ? '<div class="v-hero__after">' . $a['after'] . '</div>' : '' ) . '</section>';
+}
+
+/** Sticky side card of a project page (≥ 1024 px): photo, status, price when published, handover, 3 actions. */
+function velis_price_card( $p ): string {
+	$p     = get_post( $p );
+	$name  = $p->post_title;
+	$price = velis_price( $p );
+	$hand  = (string) get_post_meta( $p->ID, 'velis_handover', true );
+	$rows  = array_filter( array( 'Trạng thái' => velis_status( $p ), 'Loại sản phẩm' => implode( ', ', velis_type_names( $p ) ), 'Giá từ' => $price, 'Bàn giao' => $hand ? velis_short( $hand, 32 ) : '' ) );
+	$dl    = '';
+	foreach ( $rows as $k => $v ) {
+		$dl .= '<div><dt>' . esc_html( $k ) . '</dt><dd>' . esc_html( $v ) . '</dd></div>';
+	}
+	return '<aside class="v-page__side" aria-label="Nhận bảng giá ' . esc_attr( $name ) . '"><div class="v-pricecard">' . velis_img( velis_image_id( $p ), 'Phối cảnh ' . $name, 'medium_large', array( 'sizes' => '340px', 'ratio' => 16 / 9 ) )
+		. '<div class="v-pricecard__body"><p class="v-eyebrow">Nhận bảng giá</p><p class="v-pricecard__title">' . esc_html( $name ) . '</p>' . ( $dl ? '<dl>' . $dl . '</dl>' : '' )
+		. velis_btn( 'Nhận bảng giá', '#tu-van', '', ' data-interest="' . esc_attr( $name ) . '" data-open-form aria-expanded="false"' ) . '<div class="v-pricecard__form" hidden>' . velis_form_tag( $name, 'mini' ) . '</div>'
+		. '<div class="v-pricecard__row"><a class="v-btn v-btn--secondary" href="tel:' . VELIS_PHONE_TEL . '">Gọi ' . VELIS_PHONE . '</a><a class="v-btn v-btn--secondary" href="' . esc_url( VELIS_ZALO ) . '" rel="noopener" target="_blank">Zalo</a></div></div></div></aside>';
+}
+
+/** Side card of text pages: contact Velis, or ('cv') apply for a job. */
+function velis_contact_card( string $mode = 'contact', string $mail = '' ): string {
+	$rows = array( 'Hotline' => '<a href="tel:' . VELIS_PHONE_TEL . '">' . VELIS_PHONE . '</a>', 'Email' => '<a href="mailto:' . VELIS_EMAIL . '">' . VELIS_EMAIL . '</a>', 'Văn phòng' => esc_html( VELIS_ADDRESS ) );
+	$dl   = implode( '', array_map( fn( $k, $v ) => '<div><dt>' . $k . '</dt><dd>' . $v . '</dd></div>', array_keys( $rows ), $rows ) );
+	$cv   = 'cv' === $mode;
+	return '<aside class="v-page__side" aria-label="' . ( $cv ? 'Ứng tuyển' : 'Liên hệ Velis' ) . '"><div class="v-pricecard"><div class="v-pricecard__body"><p class="v-eyebrow">' . ( $cv ? 'Ứng tuyển' : 'Liên hệ Velis' ) . '</p>'
+		. '<p class="v-pricecard__title">' . ( $cv ? 'Gửi CV cho Velis Realty' : 'Velis Realty' ) . '</p>' . ( $cv ? '<p>Gửi CV qua email hoặc để lại số điện thoại, Velis liên hệ hẹn phỏng vấn.</p>' : '<p>' . $dl . '</p>' )
+		. ( $cv ? velis_btn( 'Gửi CV qua email', $mail ) . velis_btn( 'Điền form ứng tuyển', '#tu-van', 'secondary' ) : velis_btn( 'Nhận tư vấn', '#tu-van' ) . velis_btn( 'Nhắn Zalo', VELIS_ZALO, 'secondary', ' rel="noopener" target="_blank"' ) )
+		. '</div></div></aside>';
+}
+
+/** One line of links to the projects Velis advises on (answers "what do they sell" on contact / about pages). */
+function velis_project_links(): string {
+	$p = velis_top_projects();
+	return $p ? '<p class="v-projlinks">Dự án đang tư vấn: ' . implode( ', ', array_map( fn( $x ) => '<a href="' . esc_url( get_permalink( $x ) ) . '">' . esc_html( $x->post_title ) . '</a>', $p ) ) . '</p>' : '';
+}
+
+/** Side card of the about page: what Velis advises on (projects with a photo, developers). */
+function velis_highlight_card(): string {
+	$projs = array_filter( velis_top_projects(), 'velis_image_id' );
+	$li    = implode( '', array_map( fn( $p ) => '<li><a class="v-feat v-feat--light" href="' . esc_url( get_permalink( $p ) ) . '"><div class="v-ratio" style="--r:18/13;width:72px;flex:none">' . velis_img( velis_image_id( $p ), 'Phối cảnh ' . $p->post_title, 'thumbnail', array( 'sizes' => '72px', 'ratio' => 18 / 13 ) ) . '</div>' . '<span><b>' . esc_html( $p->post_title ) . '</b><small>' . esc_html( velis_region_label( $p ) ) . '</small></span></a></li>', $projs ) );
+	$devs  = array_values( array_filter( get_posts( array( 'post_type' => 'chu-dau-tu', 'numberposts' => 20, 'orderby' => 'title', 'order' => 'ASC' ) ), fn( $d ) => velis_developer_projects( $d ) ) );
+	return '<aside class="v-page__side" aria-label="Dự án Velis đang tư vấn"><div class="v-pricecard"><div class="v-pricecard__body"><p class="v-eyebrow">Đang tư vấn</p><p class="v-pricecard__title">' . count( velis_top_projects() ) . ' dự án · ' . count( $devs ) . ' chủ đầu tư</p>'
+		. '<ul class="v-highlights">' . $li . '</ul>' . velis_btn( 'Xem tất cả dự án', get_post_type_archive_link( 'du-an' ), 'secondary' ) . '</div></div></aside>';
+}
+
+/**
+ * Construction photos as a grid as wide as the text column, each opens the lightbox; caption (date) under it when there is
+ * one. Columns follow the count so no photo sits alone on the last row (round 8): 1 → 1, 2 / 4 → 2, else 3 columns with the
+ * first photo 2 cells wide when count % 3 ≠ 0 (5, 7, 8 …). Phones: 2 columns, first photo full width when the count is odd.
+ */
+function velis_photo_grid( array $imgs ): string {
+	$n = count( $imgs );
+	list( $cols, $wide ) = velis_photo_cols( $n );
+	$li   = '';
+	foreach ( array_values( $imgs ) as $k => list( $id, $cap ) ) {
+		$alt   = (string) get_post_meta( $id, '_wp_attachment_image_alt', true );
+		$cap   = velis_auto_caption( $cap ) ? '' : $cap;
+		$span  = ( 0 === $k && $wide ) ? 2 : 1;
+		$sizes = '(min-width: 768px) ' . round( ( 720 - 12 * ( $cols - 1 ) ) / $cols * $span + 12 * ( $span - 1 ) ) . 'px, ' . ( 0 === $k && $n % 2 ? '100vw - 32px' : '50vw - 22px' );
+		$li   .= '<li><figure><button type="button" data-zoom="' . esc_url( wp_get_attachment_image_url( $id, 'large' ) ) . '" aria-label="' . esc_attr( 'Phóng to: ' . ( $alt ?: $cap ?: 'ảnh tiến độ' ) ) . '">' . velis_img( $id, $alt ?: $cap, 'large', array( 'sizes' => $sizes ) ) . '</button>' . ( $cap ? '<figcaption>' . esc_html( $cap ) . '</figcaption>' : '' ) . '</figure></li>';
+	}
+	return $li ? '<ul class="v-photos v-photos--c' . $cols . ( $wide ? ' v-photos--wide' : '' ) . ( $n % 2 && $n > 1 ? ' v-photos--odd' : '' ) . '">' . $li . '</ul>' : '';
+}
+
+/** Featured projects inside the home hero: photo, name, region, status (only projects with a real photo). */
+function velis_feature_strip( array $projects ): string {
+	$li = array_map( function ( $p ) {
+		$meta = implode( ' · ', array_filter( array( velis_region_label( $p ), velis_status( $p ) ) ) );
+		return '<li><a class="v-feat" href="' . esc_url( get_permalink( $p ) ) . '"><div class="v-ratio" style="--r:13/9;width:104px;flex:none">' . velis_img( velis_image_id( $p ), 'Phối cảnh ' . $p->post_title, 'medium', array( 'loading' => 'eager', 'sizes' => '104px', 'ratio' => 13 / 9 ) ) . '</div>'
+			. '<span><b>' . esc_html( $p->post_title ) . '</b>' . ( $meta ? '<small>' . esc_html( $meta ) . '</small>' : '' ) . '</span></a></li>';
+	}, $projects );
+	$nav = '<span class="v-feats__nav" hidden><button type="button" data-feats="-1" aria-label="Dự án trước"><span aria-hidden="true">‹</span></button><button type="button" data-feats="1" aria-label="Dự án sau"><span aria-hidden="true">›</span></button></span>';
+	return $li ? '<div class="v-feats"><div class="v-feats__head"><p class="v-eyebrow">Dự án nổi bật</p>' . $nav . '</div><ul>' . implode( '', $li ) . '</ul></div>' : '';
 }
 
 /** Hero B: text on ivory + square image (index pages). $a: title, eyebrow, lead, img, buttons. */
 function velis_hero_b( array $a ): string {
-	$fig = ! empty( $a['img'] ) ? '<figure><div class="v-ratio" style="--r:4/3">' . velis_img( $a['img'], $a['alt'] ?? '', 'large', array( 'loading' => 'eager', 'fetchpriority' => 'high' ) ) . '</div></figure>' : '';
+	$fig = ! empty( $a['img'] ) ? '<figure><div class="v-ratio" style="--r:4/3">' . velis_img( $a['img'], $a['alt'] ?? '', 'large', array( 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '(min-width: 1024px) min(55vw - 64px, 690px), 100vw' ) ) . '</div></figure>' : '';
 	return '<div class="v-wrap"><div class="v-hero v-hero--split' . ( $fig ? '' : ' is-text' ) . '"><div class="v-hero__body">'
 		. ( ! empty( $a['eyebrow'] ) ? '<p class="v-eyebrow">' . esc_html( $a['eyebrow'] ) . '</p>' : '' )
 		. '<h1 class="v-hero__title">' . esc_html( $a['title'] ) . '</h1>'
 		. ( ! empty( $a['lead'] ) ? '<p class="v-hero__lead">' . esc_html( $a['lead'] ) . '</p>' : '' )
-		. ( ! empty( $a['buttons'] ) ? '<div class="v-row">' . $a['buttons'] . '</div>' : '' ) . '</div>' . $fig . '</div></div>';
+		. ( ! empty( $a['buttons'] ) ? '<div class="v-row">' . $a['buttons'] . '</div>' : '' ) . ( $a['after'] ?? '' ) . '</div>' . $fig . '</div></div>';
 }
 
 function velis_btn( string $label, string $url, string $mod = '', string $extra = '' ): string {
@@ -164,7 +277,7 @@ function velis_call_btn( string $mod = 'ghost' ): string {
 
 /* ---------- Breadcrumb ---------- */
 
-function velis_breadcrumb_html( array $trail ): string {
+function velis_breadcrumb_html( array $trail, bool $wrap = true ): string {
 	if ( count( $trail ) < 2 ) {
 		return '';
 	}
@@ -173,7 +286,8 @@ function velis_breadcrumb_html( array $trail ): string {
 	foreach ( $trail as $i => list( $name, $url ) ) {
 		$li[] = $i === $last ? '<li aria-current="page">' . esc_html( $name ) . '</li>' : '<li><a href="' . esc_url( $url ) . '">' . esc_html( $name ) . '</a></li>';
 	}
-	return '<div class="v-wrap"><nav class="v-breadcrumb" aria-label="Breadcrumb"><ol>' . implode( '', $li ) . '</ol></nav></div>';
+	$nav = '<nav class="v-breadcrumb" aria-label="Breadcrumb"><ol>' . implode( '', $li ) . '</ol></nav>';
+	return $wrap ? '<div class="v-wrap">' . $nav . '</div>' : $nav;
 }
 
 /* ---------- Project data blocks ---------- */
@@ -185,7 +299,7 @@ function velis_breadcrumb_html( array $trail ): string {
 function velis_facts_html( array $facts, ?string $price, string $note = '', array $more = array() ): string { // $price null: not a project, no price cell
 	$cells = array();
 	foreach ( array_filter( $facts, fn( $v ) => '' !== trim( (string) $v ) ) as $k => $v ) {
-		$short   = velis_short( (string) $v );
+		$short   = velis_short( (string) $v, 34 ); // ≤ 2 lines in a cell; the full text is in Tổng quan ("Chi tiết")
 		$link    = $short !== trim( preg_replace( '/\s+/u', ' ', (string) $v ) ) ? ' <a class="v-facts__more" href="' . esc_attr( $more[ $k ] ?? '#tong-quan' ) . '">Chi tiết</a>' : '';
 		$cells[] = '<dt>' . esc_html( $k ) . '</dt><dd>' . esc_html( $short ) . $link . '</dd>';
 	}
@@ -225,13 +339,13 @@ function velis_lines_html( $post ): string {
 		$tabs .= '<button role="tab" type="button" aria-controls="' . esc_attr( $id ) . '">' . esc_html( $l['name'] ) . '</button>';
 		$price = velis_has_data() ? velis_price_text( $l['price_from'] ?? '', $l['price_to'] ?? '', $l['price_unit'] ?? '', $l['price_month'] ?? '' ) : '';
 		$mini  = array_filter( array(
-			'Diện tích' => velis_line_area( $l ), 'Phòng ngủ' => esc_html( $l['beds'] ?? '' ), 'Hướng / vị trí' => esc_html( $l['facing'] ?? '' ),
+			'Diện tích' => velis_line_area( $l ), 'Phòng ngủ' => '0' === (string) ( $l['beds'] ?? '' ) ? '' : esc_html( $l['beds'] ?? '' ), // studio: no "0" 'Hướng / vị trí' => esc_html( $l['facing'] ?? '' ),
 			'Số lượng' => esc_html( $l['qty'] ?? '' ), 'Bàn giao' => esc_html( $fin[ $l['finish'] ?? '' ] ?? '' ), 'Sở hữu' => esc_html( $l['ownership'] ?? '' ),
 			'Tình trạng' => esc_html( ( $stock[ $l['stock'] ?? '' ] ?? '' ) === '—' ? '' : ( $stock[ $l['stock'] ?? '' ] ?? '' ) ),
 			'Giá' => $price ? esc_html( $price ) . ( ! empty( $l['source'] ) ? ' <small>· ' . esc_html( $l['source'] ) . '</small>' : '' ) : '',
 		), fn( $v ) => '' !== $v );
 		$btn  = '<a class="v-btn" href="#tu-van" data-interest="' . esc_attr( $name . ' – ' . $l['name'] ) . '">Nhận bảng giá ' . esc_html( $l['name'] ) . '</a>';
-		$plan = ! empty( $l['plan'] ) ? '<button class="v-line__plan" type="button" data-zoom="' . esc_url( wp_get_attachment_image_url( (int) $l['plan'], 'large' ) ) . '" aria-label="' . esc_attr( 'Phóng to mặt bằng ' . $l['name'] ) . '">' . velis_img( (int) $l['plan'], 'Mặt bằng ' . $l['name'] . ' ' . $name, 'large', array( 'style' => '' ) ) . '</button>' : '';
+		$plan = ! empty( $l['plan'] ) ? '<button class="v-line__plan" type="button" data-zoom="' . esc_url( wp_get_attachment_image_url( (int) $l['plan'], 'large' ) ) . '" aria-label="' . esc_attr( 'Phóng to mặt bằng ' . $l['name'] ) . '">' . velis_img( (int) $l['plan'], 'Mặt bằng ' . $l['name'] . ' ' . $name, 'large', array( 'zoom' => 1, 'sizes' => '(min-width: 768px) 420px, 100vw' ) ) . '</button>' : '';
 		if ( $mini ) {
 			$rows = '';
 			foreach ( $mini as $k => $v ) {
@@ -264,7 +378,8 @@ function velis_compare_html( array $posts, array $crit, string $caption, $curren
 		return '';
 	}
 	$labels = array_filter( array_keys( $crit ), fn( $l ) => count( array_unique( array_map( fn( $p ) => $cells[ $p->ID ][ $l ], $posts ) ) ) > 1 );
-	if ( ! $labels ) {
+	// fewer than 2 rows with real data (not only "Chưa công bố"): nothing to compare, no table (round 7)
+	if ( count( array_filter( $labels, fn( $l ) => array_filter( $posts, fn( $p ) => $miss !== $cells[ $p->ID ][ $l ] ) ) ) < 2 ) {
 		return '';
 	}
 	$head = '<tr><th scope="col">Tiêu chí</th>';
@@ -303,8 +418,11 @@ function velis_gallery_html( array $ids, string $name, string $label = 'Thư vi�
 	foreach ( $ids as $id ) {
 		$alt = trim( (string) get_post_meta( $id, '_wp_attachment_image_alt', true ) ) ?: $name;
 		$cap = wp_get_attachment_caption( $id );
-		$li .= '<li><figure><button type="button" data-zoom="' . esc_url( wp_get_attachment_image_url( $id, 'large' ) ) . '" aria-label="' . esc_attr( 'Phóng to: ' . $alt ) . '">' . velis_img( $id, $alt ) . '</button>' . ( $cap ? '<figcaption>' . esc_html( $cap ) . '</figcaption>' : '' ) . '</figure></li>';
+		$cap = velis_auto_caption( (string) $cap ) ? '' : $cap;
+		// plans / maps (late = 1): the whole drawing on the dark band, not cropped
+		$li .= '<li><figure><button type="button" data-zoom="' . esc_url( wp_get_attachment_image_url( $id, 'large' ) ) . '" aria-label="' . esc_attr( 'Phóng to: ' . $alt ) . '">' . velis_img( $id, $alt, 'large', array( 'sizes' => VELIS_SIZES_MAIN, 'ratio' => 1.5 ) + ( 1 === $late( $id ) ? array( 'zoom' => 1, 'style' => 'object-fit: contain' ) : array() ) ) . '</button>' . ( $cap ? '<figcaption>' . esc_html( $cap ) . '</figcaption>' : '' ) . '</figure></li>';
 	}
+	$li = velis_first_eager( $li ); // first slide loads at once; the next ones before they are reached (velis.js)
 	return '<div class="v-gallery" data-gallery><ul class="v-gallery__track" tabindex="0" aria-label="' . esc_attr( $label . ', cuộn ngang' ) . '">' . $li . '</ul>'
 		. ( count( $ids ) > 1 ? '<div class="v-gallery__nav"><button type="button" class="v-iconbtn" data-prev aria-label="Ảnh trước">‹</button><span class="v-gallery__count" aria-live="polite" data-counter>1/' . count( $ids ) . '</span><button type="button" class="v-iconbtn" data-next aria-label="Ảnh sau">›</button></div>' : '' )
 		. '</div><dialog class="v-lightbox" aria-label="Xem ảnh"><form method="dialog"><button class="v-lightbox__close" aria-label="Đóng">×</button></form><img alt="" width="1200" height="800"></dialog>';
@@ -321,12 +439,15 @@ function velis_project_listing( array $projects ): string {
 		return '';
 	}
 	$devs = $types = $khu = $tt = array();
-	foreach ( $projects as $p ) {
+	// second view: every phân khu and dòng thấp tầng with its own page, filtered by the same bar (round 6)
+	$subs = get_posts( array( 'post_type' => 'du-an', 'numberposts' => 200, 'post_parent__not_in' => array( 0 ), 'orderby' => 'menu_order title', 'order' => 'ASC' ) );
+	$subs = array_values( array_filter( $subs, fn( $x ) => in_array( velis_level( $x ), array( 'phan-khu', 'thap-tang' ), true ) ) );
+	foreach ( array_merge( $projects, $subs ) as $p ) {
 		foreach ( velis_developers( $p ) as $d ) {
 			$devs[ $d->post_name ] = $d->post_title;
 		}
 		$types += velis_type_names( $p );
-		foreach ( velis_terms( $p, 'khu-vuc' ) as $t ) {
+		foreach ( velis_terms( $p, 'khu-vuc' ) ?: velis_terms( velis_root( $p ), 'khu-vuc' ) as $t ) {
 			$khu[ $t->slug ] = $t;
 		}
 		if ( $s = velis_status( $p ) ) {
@@ -358,8 +479,10 @@ function velis_project_listing( array $projects ): string {
 	$close   = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>';
 	return '<div class="v-plist" data-plist><div class="v-plist__top">'
 		. ( $groups ? '<button class="v-btn v-btn--secondary v-listing__open" type="button" data-open aria-haspopup="dialog">Bộ lọc</button><dialog class="v-drawer v-drawer--bar" aria-label="Bộ lọc dự án"><form method="dialog" class="v-filter v-fbar" data-pfilter><div class="v-drawer__head"><p class="v-filter__title">Bộ lọc dự án</p><button class="v-drawer__close" type="button" data-close>' . $close . '<span class="v-sr">Đóng bộ lọc</span></button></div><div class="v-drawer__body v-fbar__groups">' . $groups . '</div><div class="v-drawer__foot"><button class="v-btn v-btn--secondary" type="reset">Xóa lọc</button><button class="v-btn" value="apply" data-apply>Xem ' . $n . ' kết quả</button></div></form></dialog>' : '' )
+		. ( $subs ? '<div class="v-viewswitch" role="group" aria-label="Cách xem"><button type="button" class="v-chip" aria-pressed="true" data-view-btn="du-an">Theo dự án</button><button type="button" class="v-chip" aria-pressed="false" data-view-btn="san-pham">Theo phân khu &amp; sản phẩm</button></div>' : '' )
 		. '<p class="v-listing__count" role="status" data-plist-count>Hiển thị ' . $n . '/' . $n . ' dự án</p></div>'
-		. velis_grid( array_map( fn( $p ) => velis_card_project( $p, '', true ), $projects ) )
+		. '<div data-view="du-an" data-noun="dự án">' . velis_grid( array_map( fn( $p ) => velis_card_project( $p, '', true ), $projects ) ) . '</div>'
+		. ( $subs ? '<div data-view="san-pham" data-noun="phân khu và dòng sản phẩm" hidden>' . velis_grid( array_map( fn( $p ) => velis_card_project( $p, velis_root( $p )->post_title, true ), $subs ) ) . '</div>' : '' )
 		. '<div class="v-empty" hidden data-plist-empty><p><b>Chưa có dự án phù hợp.</b></p><button class="v-btn v-btn--secondary" type="button" data-plist-reset>Xóa lọc</button></div></div>';
 }
 
@@ -416,27 +539,29 @@ function velis_chipbar( string $key, array $items, string $label ): string {
 /* ---------- Trust & conversion ---------- */
 
 /** Consultation form. Posts to Contact Form 7 (velis.js); $interest pre-fills the project field. */
-function velis_form_html( string $interest = '', array $options = array(), string $title = 'Nhận tư vấn', bool $info = true ): string { // $info false: the page already shows the contact details
-	$uid  = wp_unique_id( 'f' );
-	$cf7  = function_exists( 'velis_cf7_form_id' ) ? velis_cf7_form_id() : 0;
-	$list = $options ? '<datalist id="' . $uid . '-list">' . implode( '', array_map( fn( $o ) => '<option value="' . esc_attr( $o ) . '"></option>', $options ) ) . '</datalist>' : '';
-	return '<section class="v-section v-section--form" id="tu-van"><div class="v-wrap">' . velis_sechead( $title, 'Velis Realty', 'Velis gọi lại trong giờ làm việc. Cần nhanh hơn, anh chị gọi hoặc nhắn Zalo.' )
-		. ( $info ? '<div class="v-contact"><div class="v-contact__info"><ul class="v-contact__list">'
-		. '<li><span>Hotline</span><a href="tel:' . VELIS_PHONE_TEL . '">' . VELIS_PHONE . '</a></li>'
-		. '<li><span>Zalo</span><a href="' . esc_url( VELIS_ZALO ) . '" rel="noopener" target="_blank">zalo.me/' . VELIS_PHONE_TEL . '</a></li>'
-		. '<li><span>Email</span><a href="mailto:' . VELIS_EMAIL . '">' . VELIS_EMAIL . '</a></li>'
-		. '<li><span>Giờ làm việc</span>' . VELIS_HOURS . '</li></ul></div>' : '<div class="v-contact is-form-only">' )
-		. '<form class="v-form" novalidate data-form' . ( $cf7 ? ' data-cf7="' . $cf7 . '" action="' . esc_url( rest_url( 'contact-form-7/v1/contact-forms/' . $cf7 . '/feedback' ) ) . '" method="post"' : '' ) . '>'
-		. '<p class="v-field"><label for="' . $uid . '-name">Họ và tên</label><input id="' . $uid . '-name" name="your-name" autocomplete="name" required aria-describedby="' . $uid . '-name-err"><span class="v-field__error" id="' . $uid . '-name-err" hidden>Vui lòng nhập họ tên.</span></p>'
-		. '<p class="v-field"><label for="' . $uid . '-phone">Số điện thoại</label><input id="' . $uid . '-phone" name="your-phone" type="tel" inputmode="numeric" autocomplete="tel" required pattern="[0-9 +.]{9,15}" aria-describedby="' . $uid . '-phone-err"><span class="v-field__error" id="' . $uid . '-phone-err" hidden>Vui lòng nhập số điện thoại 9–15 chữ số.</span></p>'
-		. '<fieldset class="v-field v-choice"><legend>Nhu cầu</legend><label><input type="radio" name="need" value="Mua ở"> Mua ở</label><label><input type="radio" name="need" value="Đầu tư"> Đầu tư</label><label><input type="radio" name="need" value="Cho thuê"> Cho thuê</label></fieldset>'
-		. '<p class="v-field"><label for="' . $uid . '-interest">Dự án / phân khu quan tâm</label><input id="' . $uid . '-interest" name="interest" value="' . esc_attr( $interest ) . '"' . ( $list ? ' list="' . $uid . '-list"' : '' ) . '>' . $list . '</p>'
-		. '<p class="v-field"><label for="' . $uid . '-note">Ghi chú <span class="v-optional">(không bắt buộc)</span></label><textarea id="' . $uid . '-note" name="note" rows="3"></textarea></p>'
+/** Lead form: name + phone + consent; project / page URL / utm travel as hidden fields to the sales email (CF7). */
+function velis_form_tag( string $interest, string $mod = '' ): string {
+	$uid = wp_unique_id( 'f' );
+	$cf7 = function_exists( 'velis_cf7_form_id' ) ? velis_cf7_form_id() : 0;
+	return '<form class="v-form' . ( $mod ? ' v-form--' . $mod : '' ) . '" novalidate data-form' . ( $cf7 ? ' data-cf7="' . $cf7 . '" action="' . esc_url( rest_url( 'contact-form-7/v1/contact-forms/' . $cf7 . '/feedback' ) ) . '" method="post"' : '' ) . '>'
+		. '<div class="v-form__row"><p class="v-field"><label for="' . $uid . '-name">Họ và tên</label><input id="' . $uid . '-name" name="your-name" autocomplete="name" required aria-describedby="' . $uid . '-name-err"><span class="v-field__error" id="' . $uid . '-name-err" hidden>Vui lòng nhập họ tên.</span></p>'
+		. '<p class="v-field"><label for="' . $uid . '-phone">Số điện thoại</label><input id="' . $uid . '-phone" name="your-phone" type="tel" inputmode="numeric" autocomplete="tel" required pattern="[0-9 +.]{9,15}" aria-describedby="' . $uid . '-phone-err"><span class="v-field__error" id="' . $uid . '-phone-err" hidden>Vui lòng nhập số điện thoại 9–15 chữ số.</span></p></div>'
+		. '<input type="hidden" name="interest" value="' . esc_attr( $interest ) . '"><input type="hidden" name="page-url" value=""><input type="hidden" name="utm" value="">'
 		. '<p class="v-check"><input id="' . $uid . '-consent" name="consent" value="1" type="checkbox" required aria-describedby="' . $uid . '-consent-err"><label for="' . $uid . '-consent">Tôi đồng ý để Velis Realty xử lý dữ liệu cá nhân nhằm tư vấn, theo <a href="/chinh-sach-bao-mat/">chính sách bảo mật</a>.</label></p>'
 		. '<span class="v-field__error" id="' . $uid . '-consent-err" hidden>Cần đồng ý để Velis liên hệ.</span>'
 		. '<button class="v-btn" type="submit">Gửi yêu cầu</button>'
-		. '<p class="v-form__ok" role="status" hidden>Đã nhận. Velis sẽ gọi lại trong giờ làm việc.</p><p class="v-form__fail" role="alert" hidden>Chưa gửi được. Anh chị vui lòng gọi ' . VELIS_PHONE . ' hoặc nhắn Zalo.</p>'
-		. '</form></div></div></section>';
+		. '<p class="v-form__ok" role="status" hidden>Đã nhận. Velis sẽ gọi lại trong giờ làm việc.</p><p class="v-form__fail" role="alert" hidden>Chưa gửi được. Anh chị vui lòng gọi ' . VELIS_PHONE . ' hoặc nhắn Zalo.</p></form>';
+}
+
+/** "Nhận tư vấn" block: heading + contact channels on the left, the short form on the right ($options kept for callers, unused). */
+function velis_form_html( string $interest = '', array $options = array(), string $title = 'Nhận tư vấn', bool $info = true ): string { // $info false: the page already shows the contact details
+	unset( $options ); // the project now travels as a hidden field (round 6)
+	$list = $info ? '<ul class="v-contact__list"><li><span>Hotline</span><a href="tel:' . VELIS_PHONE_TEL . '">' . VELIS_PHONE . '</a></li>'
+		. '<li><span>Zalo</span><a href="' . esc_url( VELIS_ZALO ) . '" rel="noopener" target="_blank">zalo.me/' . VELIS_PHONE_TEL . '</a></li>'
+		. '<li><span>Email</span><a href="mailto:' . VELIS_EMAIL . '">' . VELIS_EMAIL . '</a></li><li><span>Giờ làm việc</span>' . VELIS_HOURS . '</li></ul>' : '';
+	return '<section class="v-section v-section--form" id="tu-van"><div class="v-wrap"><div class="v-contact"><div class="v-contact__info">'
+		. velis_sechead( $title, 'Velis Realty', 'Để lại họ tên và số điện thoại, Velis gọi lại trong giờ làm việc. Cần nhanh hơn, anh chị gọi hoặc nhắn Zalo.' ) . $list . '</div>'
+		. velis_form_tag( $interest ) . '</div></div></section>';
 }
 
 function velis_disclosure( string $kind = 'project' ): string {
@@ -491,7 +616,7 @@ function velis_pagination( WP_Query $q ): string {
 
 /** Editor content for templates: the page already has its H1, so any H1 inside the content becomes an H2. */
 function velis_content( string $raw ): string {
-	return preg_replace( '#<(/?)h1(\b[^>]*)>#i', '<$1h2$2>', apply_filters( 'the_content', $raw ) ); // phpcs:ignore -- core filter
+	return velis_strip_auto_captions( velis_strip_related( preg_replace( '#<(/?)h1(\b[^>]*)>#i', '<$1h2$2>', apply_filters( 'the_content', $raw ) ) ) ); // phpcs:ignore -- core filter
 }
 
 /** A card embedded inside text keeps the outline intact: its H3 title becomes a paragraph (brief: theme block titles are not headings). */
@@ -525,13 +650,15 @@ function velis_overview_html( array $facts ): string {
  * Static location map: the record's own map (velis_map on the project, none yet), else the map of its most specific
  * region that has one – then the caption says "khu vực". Plus a link to Google Maps for the address.
  */
-function velis_map_html( $p ): string {
+function velis_map_html( $p, bool $with_image = true ): string { // false: the text already shows a location map – keep only the link
 	$p     = get_post( $p );
 	$own   = (int) get_post_meta( $p->ID, 'velis_map', true );
 	$area  = '';
 	$map   = $own;
-	if ( ! $map ) {
-		foreach ( array_reverse( velis_terms( $p, 'khu-vuc' ) ) as $t ) {
+	// No map of its own: the nearest map up the tree – a parent's own map, else a region map of the record or its parents.
+	for ( $x = $p; ! $map && $x; $x = $x->post_parent ? get_post( $x->post_parent ) : null ) {
+		$map = $x === $p ? 0 : (int) get_post_meta( $x->ID, 'velis_map', true );
+		foreach ( $map ? array() : array_reverse( velis_terms( $x, 'khu-vuc' ) ) as $t ) {
 			if ( $map = (int) get_term_meta( $t->term_id, 'velis_map', true ) ) {
 				$area = $t->name;
 				break;
@@ -540,19 +667,19 @@ function velis_map_html( $p ): string {
 	}
 	$addr = (string) velis_f( $p, 'velis_address' );
 	$link = '<a class="v-btn" href="' . esc_url( 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode( velis_root( $p )->post_title . ' ' . $addr ) ) . '" target="_blank" rel="noopener">Xem trên Google Maps</a>';
-	if ( ! $map ) {
-		return $addr ? '<p class="v-source">' . esc_html( $addr ) . '</p><p>' . $link . '</p>' : '';
+	if ( ! $map || ! $with_image ) {
+		return $addr || ! $with_image ? ( $addr ? '<p class="v-source">' . esc_html( $addr ) . '</p>' : '' ) . '<p>' . $link . '</p>' : '';
 	}
-	return '<div class="v-map">' . wp_get_attachment_image( $map, 'large', false, array( 'loading' => 'lazy', 'alt' => $area ? 'Bản đồ khu vực ' . $area : 'Bản đồ vị trí ' . $p->post_title ) ) . $link . '</div>'
+	return '<div class="v-map">' . wp_get_attachment_image( $map, 'large', false, array( 'loading' => 'lazy', 'sizes' => velis_sizes( VELIS_SIZES_MAIN, 1 ), 'alt' => $area ? 'Bản đồ khu vực ' . $area : 'Bản đồ vị trí ' . $p->post_title ) ) . $link . '</div>'
 		. '<p class="v-source">' . esc_html( ( $area ? 'Vị trí khu vực ' . $area . ' (chưa có tọa độ riêng của dự án). ' : '' ) . ( $addr ? 'Địa chỉ: ' . $addr . '. ' : '' ) . 'Bản đồ © OpenStreetMap contributors.' ) . '</p>';
 }
 
 /** "Nằm trong" box: small photo + name + 1–2 lines + link. */
 function velis_within_html( $parent, string $label ): string {
 	$parent  = get_post( $parent );
-	$img     = velis_image_id( $parent );
+	$img     = velis_image_id( $parent ) ?: velis_image_id( velis_root( $parent ) ); // always a small photo: the đại đô thị's when the parent has none
 	$summary = $parent->post_excerpt ?: implode( ' · ', array_filter( array( velis_short( (string) get_post_meta( $parent->ID, 'velis_scale', true ) ), implode( ', ', wp_list_pluck( velis_developers( $parent ), 'post_title' ) ), velis_region_label( $parent ) ) ) );
-	return '<aside class="v-within" aria-label="' . esc_attr( $label ) . '">' . ( $img ? '<div class="v-within__img">' . velis_img( $img, $parent->post_title, 'medium' ) . '</div>' : '' )
+	return '<aside class="v-within" aria-label="' . esc_attr( $label ) . '">' . ( $img ? '<div class="v-within__img">' . velis_img( $img, $parent->post_title, 'medium', array( 'sizes' => '120px' ) ) . '</div>' : '' )
 		. '<div><p class="v-eyebrow">' . esc_html( $label ) . '</p><p class="v-within__name"><a href="' . esc_url( get_permalink( $parent ) ) . '">' . esc_html( $parent->post_title ) . '</a></p>'
 		. ( $summary ? '<p class="v-within__text">' . esc_html( velis_short( $summary, 140 ) ) . '</p>' : '' ) . '</div></aside>';
 }
