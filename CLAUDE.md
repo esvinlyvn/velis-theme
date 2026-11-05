@@ -3,6 +3,13 @@
 Repo riêng tư chứa theme khối WordPress "velis" (Phương án 2A trong `BRIEF.md`), tài liệu thiết kế,
 dữ liệu mốc SEO và công cụ kiểm tra.
 
+## Phạm vi nhánh content
+
+- Nhánh `content` chỉ sửa trong `content/`. Không đụng code giao diện (`theme/`, `tools/`, `assets/`…),
+  `package.json` hay file config.
+- Trước khi viết hoặc sửa bài: đọc **toàn bộ** `content/guide/`.
+- Repo tham khảo viết bài: `~/refs/claude-blog` (`/root/refs/claude-blog`).
+
 ## Quy tắc làm việc (người dùng chốt 2026-11-04)
 
 - **Không chia theo ngày.** Làm tuần tự từng giai đoạn trong BRIEF.md (1. Nhận diện & design system → 2. Kiến trúc
