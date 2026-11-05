@@ -109,3 +109,20 @@ Chỉ ghép khi ảnh ghi rõ đúng loại căn (đã xem từng ảnh, `data/a
   Title Case để chuẩn hóa ở đợt nội dung.
 - Ảnh đại diện cần thay: `docs/ANH-CAN-THAY.md` (43 bài). Phân khu Vinhomes Saigon Park: ảnh duy nhất là poster có chữ đè →
   đã bỏ khỏi thẻ, cần ảnh phối cảnh thật từng phân khu.
+
+## 8. Thấy khi soát vòng r8 (2026-11-05) – chỉ ghi, chưa sửa
+
+Nguồn: nội dung trên staging, đọc qua REST ngày 2026-11-05 (trùng nội dung site thật đã chuyển ở giai đoạn 4).
+
+- **Đơn vị hành chính cũ**: "Quận 2 (nay là TP. Thủ Đức)" ở `/du-an/the-prive/` (ô địa chỉ + đoạn mục Vị trí) và bài
+  `/blog/the-prive/gia-ban-the-prive-quan-2-2026/`. Từ 01/07/2025 TP. Thủ Đức không còn là đơn vị hành chính → nên ghi
+  "phường An Phú (trước đây Quận 2)" theo `docs/KHU-VUC.md`. Cùng loại: ô địa chỉ The Global City ("Phường An Phú, Quận 2,
+  TP. Thủ Đức"), Ansana by Kita ("P. An Lạc, Q. Bình Tân").
+- **Số thập phân dạng "4.5%"** (nên "4,5%"): 60 chỗ ở 13 trang – nhiều nhất `/blog/the-prive/loi-suat-cho-thue-the-prive/`
+  (21), `/blog/the-prive/chinh-sach-ban-hang-the-prive-phase-2/` (10), `/du-an/the-prive/` (6); còn lại 1–4 chỗ mỗi trang
+  (các bài cụm The Privé, `/blog/the-global-city/the-global-city-co-vuot-mat-quan-1-khong/`, `/du-an/ansana-by-kita/`
+  "33.7%"). Cùng kiểu ngoài phần trăm: "117.4ha" (The Global City), "6.68 tỷ", "9.5 tỷ".
+- **Dòng địa chỉ ở mục Vị trí lặp nguyên văn** câu đầu đoạn bên dưới: thấy trên màn hình ở The Privé ("khu dân cư Nam Rạch
+  Chiếc, phường An Phú, Quận 2 (nay là TP. Thủ Đức)" rồi "The Privé tọa lạc tại khu dân cư Nam Rạch Chiếc…"). Kiểm tra tự
+  động (chuỗi ô địa chỉ có nguyên văn trong nội dung): thêm The Global City, Spring Ville, Persa Place, Ansana by Kita,
+  Vinhomes Saigon Park – cần xem từng trang khi sửa (ẩn dòng địa chỉ hay sửa câu văn).

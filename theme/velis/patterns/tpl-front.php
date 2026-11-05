@@ -53,7 +53,7 @@ if ( $about && preg_match( '#<h[2-4][^>]*>(?:(?!</h).)*tầm nhìn(?:(?!</h).)*<
 	$quote = velis_sentence_run( html_entity_decode( wp_strip_all_tags( $m[1] ), ENT_QUOTES ) );
 	$photo = (int) get_post_thumbnail_id( $about );
 	if ( $quote ) {
-		$out .= velis_section( '<div class="v-about">' . ( $photo ? '<figure>' . velis_img( $photo, 'Văn phòng Velis Realty', 'large' ) . '</figure>' : '' )
+		$out .= velis_section( '<div class="v-about">' . ( $photo ? '<figure>' . velis_img( $photo, 'Văn phòng Velis Realty', 'large', array( 'sizes' => '(min-width: 1024px) min(50vw - 64px, 628px), 100vw' ) ) . '</figure>' : '' )
 			. '<div>' . velis_sechead( 'Velis Realty', 'Về Velis' ) . '<p class="v-lead">' . esc_html( $quote ) . '</p>' . velis_btn( 'Tìm hiểu Velis', get_permalink( $about ), 'secondary' ) . '</div></div>' );
 	}
 }

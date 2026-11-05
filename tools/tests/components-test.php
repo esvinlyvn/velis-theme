@@ -51,4 +51,14 @@ list( $rest, $imgs ) = velis_take_images( '<p>A</p><!-- wp:image {"id":5} --><fi
 $check( '<p>A</p><p>B</p>' === $rest && array( array( 5, 'Tháng 4/2026' ) ) === $imgs, 'progress photos taken out of the text with their caption' );
 $run = velis_sentence_run( 'Một hai ba. Bốn năm sáu bảy tám chín mười. Mười một!', 7 );
 $check( 'Bốn năm sáu bảy tám chín mười.' === $run, 'longest run of whole sentences within the word limit' );
+$check( 'calc(1.323 * (400px)), calc(1.323 * (100vw))' === velis_sizes( '400px, 100vw' ), 'sizes: zoom × pick margin on every slot' );
+$check( '(min-width: 768px) calc(1.288 * (min(720px, 1200px))), calc(1.288 * (min(100vw - 32px, 1200px)))' === velis_sizes( '(min-width: 768px) min(720px, 1200px), min(100vw - 32px, 1200px)', 1.12 ), 'sizes: media kept, commas inside min() not split' );
+$check( 'Bàn giao từ tháng 11/2023' === velis_label_value( 'Bàn giao', 'Từ tháng 11/2023' ) && 'Bàn giao dự kiến 2027' === velis_label_value( 'Bàn giao', 'Dự kiến 2027' ), 'common first word lower case' );
+$check( 'Bàn giao Masteri 2027' === velis_label_value( 'Bàn giao', 'Masteri 2027' ) && 'Bàn giao Quận 2' !== velis_label_value( 'Bàn giao', 'Quý 2/2027' ), 'proper nouns kept' );
+foreach ( range( 1, 13 ) as $n ) { // last row of the construction grid never holds one photo (≥ 768 px)
+	list( $cols, $wide ) = velis_photo_cols( $n );
+	$last = ( $n + ( $wide ? 1 : 0 ) ) % $cols ?: $cols;
+	$check( 1 === $n || 1 !== $last, "photo grid $n: last row has $last of $cols" );
+}
+$check( array( 1, false ) === velis_photo_cols( 1 ) && array( 2, false ) === velis_photo_cols( 4 ) && array( 3, true ) === velis_photo_cols( 5 ) && array( 3, false ) === velis_photo_cols( 6 ) && array( 3, true ) === velis_photo_cols( 7 ), 'photo grid columns per the brief' );
 echo "components: all checks passed\n";

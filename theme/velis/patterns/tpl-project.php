@@ -30,7 +30,7 @@ $price = velis_price( $p );
 $out  .= velis_hero_a( array(
 	'img' => velis_image_id( $p ), 'title' => $name, 'h1' => true, 'eyebrow' => $eyebrow, 'alt' => 'Phối cảnh ' . $name, 'mod' => 'project',
 	'crumbs' => velis_breadcrumb_html( velis_trail(), false ),
-	'chips' => array( velis_status( $p ), implode( ', ', velis_type_names( $p ) ), $hand ? 'Bàn giao ' . velis_short( $hand, 28 ) : '', '' !== $price ? 'Giá từ ' . $price : '' ),
+	'chips' => array( velis_status( $p ), implode( ', ', velis_type_names( $p ) ), $hand ? velis_label_value( 'Bàn giao', velis_short( $hand, 28 ) ) : '', '' !== $price ? 'Giá từ ' . $price : '' ),
 	'buttons' => velis_btn( 'thap-tang' === $level ? 'Nhận bảng giá ' . mb_strtolower( velis_short_name( $p ) ) : 'Nhận bảng giá', '#tu-van', '', ' data-interest="' . esc_attr( $name ) . '"' ) . velis_call_btn(),
 ) );
 
@@ -173,7 +173,7 @@ $posts = velis_project_posts( $p, 'thap-tang' === $level ? 3 : 6 );
 if ( $posts ) {
 	$cat = velis_cluster( $p );
 	$all = $cat ? '<a class="v-btn v-btn--secondary" href="' . esc_url( get_category_link( $cat ) ) . '">Tất cả bài ' . esc_html( $cat->name ) . '</a>' : '';
-	$sections['bai-viet'] = array( 'Bài viết', velis_sechead( 'Phân tích ' . $root->post_title, 'Bài viết của Vũ Xuân', '', '', $all ) . ( $posts ? velis_grid( array_map( 'velis_card_post', $posts ), '3 v-rail' ) : '' ) . $cb( 'bai-viet' ) );
+	$sections['bai-viet'] = array( 'Bài viết', velis_sechead( 'Phân tích ' . $root->post_title, 'Bài viết của Vũ Xuân', '', '', $all ) . ( $posts ? velis_grid( array_merge( array_map( 'velis_card_post', $posts ), $cat ? array( velis_all_posts_card( $cat ) ) : array() ), '3 v-rail' ) : '' ) . $cb( 'bai-viet' ) );
 }
 // Order (round 6): Tổng quan → [Phân khu] → Sản phẩm → So sánh (full width) → Vị trí & tiện ích → Thư viện → Tiến độ &
 // pháp lý → Góc nhìn CEO → Hỏi đáp → Bài viết → Tư vấn. Nav: at most 8 entries; a group keeps its parts' ids for deep links.

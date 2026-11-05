@@ -6,22 +6,29 @@ import { createRequire } from 'node:module';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 const { chromium } = createRequire(import.meta.url)('playwright');
 import { gapRuns, contentBands } from './ui_gaps.mjs';
-import { runSuite } from './ui_media.mjs';
+import { runSuite, runSticky } from './ui_media.mjs';
 import { layoutAudit } from './ui_layout.mjs';
 
 
-// Suite mode (round 7): every page × DPR (1, 1.25, 2) × viewport (390, 1066, 1366, 1920) – broken / blurry images, card
-// groups without fallback frames, empty blocks, tables < 2 rows, overflow, H1 count, ALL-CAPS headings, gaps.
+// Suite mode (round 8): every page × DPR (1, 1.25, 2) × viewport (390, 1066, 1366, 1536, 1920) – see tools/ui_media.mjs for
+// the criteria (sharpness by the real file width, DPR-invariant layout, wrong srcset pick, …). Info columns are not errors.
 // Usage: VIEW_PASSWORD_FILE=… node tools/check_ui.mjs --suite pages.txt out-dir [dprs] [widths]   (pages.txt: "name /path/")
-if (process.argv[2] === '--suite') {
+//        VIEW_PASSWORD_FILE=… node tools/check_ui.mjs --sticky pages.txt out-dir   (post side column, item 15)
+if (process.argv[2] === '--suite' || process.argv[2] === '--sticky') {
 	const [list, dir, dprArg, wArg] = process.argv.slice(3);
 	const pages = readFileSync(list, 'utf8').trim().split('\n').map((l) => l.trim().split(/\s+/));
 	mkdirSync(dir, { recursive: true });
-	const r = await runSuite({ chromium, base: 'https://staging.velisrealty.vn', password: readFileSync(process.env.VIEW_PASSWORD_FILE, 'utf8').trim(), pages, contentBands,
-		dprs: dprArg ? dprArg.split(',').map(Number) : undefined, widths: wArg ? wArg.split(',').map(Number) : undefined });
-	writeFileSync(`${dir}/bang.md`, `# Bộ đo ảnh & bố cục – ${new Date().toISOString().slice(0, 10)}\n\nMỗi ô = số lỗi cộng qua các viewport đã đo; tất cả phải = 0.\n\n${r.table}\n\n## Chi tiết\n\n${r.details.join('\n') || 'Không có lỗi.'}\n`);
+	const opts = { chromium, base: 'https://staging.velisrealty.vn', password: readFileSync(process.env.VIEW_PASSWORD_FILE, 'utf8').trim(), pages, contentBands };
+	if (process.argv[2] === '--sticky') {
+		const rows = await runSticky(opts);
+		writeFileSync(`${dir}/cot-dinh.json`, JSON.stringify(rows, null, 1));
+		rows.forEach((r) => console.log(`${r.name} ${r.screen}: ${r.steps} vị trí, ${r.bad.length} vi phạm`));
+		process.exit(rows.some((r) => r.bad.length) ? 1 : 0);
+	}
+	const r = await runSuite({ ...opts, dprs: dprArg ? dprArg.split(',').map(Number) : undefined, widths: wArg ? wArg.split(',').map(Number) : undefined });
+	writeFileSync(`${dir}/bang.md`, `# Bộ đo ảnh & bố cục – ${new Date().toISOString().slice(0, 10)}\n\nMỗi ô = số mục cộng qua các viewport đã đo. Cột lỗi (in đậm ở dòng tổng) phải = 0; 3 cột cuối chỉ để thông tin.\n\n${r.table}\n\n## Chi tiết\n\n${r.details.join('\n') || 'Không có lỗi.'}\n`);
 	writeFileSync(`${dir}/ket-qua.json`, JSON.stringify(r.result, null, 1));
-	console.log('tổng', r.total.join(' '));
+	console.log('lỗi', r.total.join(' '), '| thông tin', r.info.join(' '));
 	process.exit(r.total.some((n) => n) ? 1 : 0);
 }
 

@@ -136,7 +136,6 @@ const broken = (img) => {
 	if (img.dataset.alt && !img.dataset.tried) {
 		img.dataset.tried = '1';
 		img.removeAttribute('srcset');
-		if (img.dataset.altW) img.style.setProperty('--nw', img.dataset.altW + 'px'); // keep the frame within the fallback file
 		img.src = img.dataset.alt;
 		return;
 	}
@@ -443,3 +442,21 @@ document.querySelectorAll('.v-feats').forEach((box) => {
 	addEventListener('resize', sync);
 	sync();
 });
+
+// Post side column (round 8): the TOC list is the only part that scrolls – its height is what the screen leaves after the
+// project card and the CTA, so the whole column always fits below the sticky header (style.css, --toc-room).
+(() => {
+	const side = document.querySelector('.v-article__side');
+	const list = side?.querySelector('.v-toc ol');
+	if (!list) return;
+	const fit = () => {
+		if (getComputedStyle(side).display === 'none') return;
+		const top = Math.max(parseFloat(getComputedStyle(side).top) || 0, side.getBoundingClientRect().top);
+		const others = side.offsetHeight - list.offsetHeight;
+		side.style.setProperty('--toc-room', Math.max(120, innerHeight - top - 16 - others) + 'px');
+		list.classList.toggle('is-scroll', list.scrollHeight > list.clientHeight + 1);
+	};
+	addEventListener('scroll', fit, { passive: true });
+	addEventListener('resize', fit);
+	fit();
+})();

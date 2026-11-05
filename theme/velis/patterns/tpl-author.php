@@ -32,7 +32,7 @@ $facts = array_filter( array(
 ) );
 $dl  = implode( '', array_map( fn( $k, $v ) => '<div><dt>' . esc_html( $k ) . '</dt><dd>' . $v . '</dd></div>', array_keys( $facts ), $facts ) );
 $stats = array_filter( array( 'bài phân tích' => (int) count_user_posts( $u->ID, 'post', true ), 'cụm dự án theo dõi' => count( $areas ), 'năm kinh nghiệm' => (int) $years ) );
-$side  = $photo ? velis_img( $photo, $u->display_name, 'medium', array( 'loading' => 'eager', 'class' => 'v-profile__photo' ) )
+$side  = $photo ? velis_img( $photo, $u->display_name, 'medium', array( 'loading' => 'eager', 'class' => 'v-profile__photo', 'zoom' => 1, 'sizes' => '(min-width: 768px) 220px, 100vw' ) )
 	: '<dl class="v-numbers v-numbers--side" aria-label="' . esc_attr( $u->display_name ) . ' bằng con số">' . implode( '', array_map( fn( $k, $v ) => '<div><dt>' . esc_html( $k ) . '</dt><dd>' . esc_html( (string) $v ) . '</dd></div>', array_keys( $stats ), $stats ) ) . '</dl>';
 $out = velis_breadcrumb_html( velis_trail() ) . '<div class="v-wrap"><section class="v-profile has-side">'
 	. '<div><p class="v-eyebrow">Chuyên gia · ' . esc_html( $role ) . '</p><h1>' . esc_html( $u->display_name ) . ( $paged > 1 ? ' – trang ' . $paged : '' ) . '</h1>'

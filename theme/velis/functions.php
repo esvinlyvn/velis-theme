@@ -71,29 +71,26 @@ if ( 'staging.velisrealty.vn' === wp_parse_url( home_url(), PHP_URL_HOST ) ) {
 	add_action( 'rest_api_init', fn() => register_rest_route( 'velis/v1', '/last-lead', array( 'methods' => 'GET', 'callback' => fn() => get_option( 'velis_cf7_last_mail', array() ), 'permission_callback' => fn() => current_user_can( 'manage_options' ) ) ) );
 }
 
-// Sharp pictures (round 7): extra widths for the srcset (WordPress never makes one wider than the original), a 2560 px
-// srcset limit, and --nw = the widest file on offer so CSS can keep the box no wider than the file allows (style.css).
+// Sharp pictures: extra widths for the srcset (WordPress never makes one wider than the original) and a 2560 px srcset
+// limit. Frames follow the design and the viewport only (round 8); the crop zoom is part of every `sizes` (velis_sizes()).
 add_action( 'after_setup_theme', function () {
 	foreach ( array( 600, 900, 1600, 2000, 2560 ) as $w ) {
 		add_image_size( 'velis-' . $w, $w, 0, false );
 	}
 } );
 add_filter( 'max_srcset_image_width', fn() => 2560 );
-add_filter( 'wp_get_attachment_image_attributes', function ( $attr, $att, $size ) {
-	$src = wp_get_attachment_image_src( $att->ID, $size );
-	$nw  = velis_max_candidate( (string) ( $attr['srcset'] ?? '' ), (int) ( $src[1] ?? 0 ) );
-	if ( $nw && ! str_contains( (string) ( $attr['style'] ?? '' ), '--nw' ) ) {
-		$attr['style'] = trim( rtrim( (string) ( $attr['style'] ?? '' ), '; ' ) . '; --nw: ' . $nw . 'px', '; ' );
-	}
-	return $attr;
-}, 10, 3 );
-add_filter( 'wp_content_img_tag', function ( $tag ) {
-	$nw = velis_max_candidate( preg_match( '/\ssrcset="([^"]+)"/', $tag, $m ) ? $m[1] : '', preg_match( '/\swidth="(\d+)"/', $tag, $w ) ? (int) $w[1] : 0 );
-	if ( ! $nw ) {
+add_filter( 'wp_img_tag_add_auto_sizes', '__return_false' ); // "auto" = layout width, which leaves out the crop zoom
+// Images in post/page text: same crop as every photo (badge printed bottom-left), inside a clipping box no wider than the
+// widest file – a small file shows at its own size, centred (round 8).
+add_filter( 'wp_content_img_tag', function ( $tag, $context ) {
+	if ( 'the_content' !== $context || ! preg_match( '/\ssrcset="([^"]+)"/', $tag, $m ) ) { // not the theme's own template images
 		return $tag;
 	}
-	return preg_match( '/\sstyle="/', $tag ) ? preg_replace( '/\sstyle="([^"]*)"/', ' style="$1; --nw: ' . $nw . 'px"', $tag, 1 ) : preg_replace( '/^<img/', '<img style="--nw: ' . $nw . 'px"', $tag );
-} );
+	$max = velis_max_candidate( $m[1], preg_match( '/\swidth="(\d+)"/', $tag, $w ) ? (int) $w[1] : 0 );
+	$tag = preg_replace( '/\ssizes="[^"]*"/', '', $tag );
+	$tag = preg_replace( '/^<img/', '<img sizes="' . esc_attr( velis_sizes( '(min-width: 768px) min(720px, ' . $max . 'px), min(100vw - 32px, ' . $max . 'px)', 1.12 ) ) . '" style="--focus: 100% 0%; --zoom: 1.12"', $tag );
+	return '<span class="v-crop" style="max-width: ' . $max . 'px">' . $tag . '</span>';
+}, 10, 2 );
 
 // Theme block styles: secondary (outline) and text buttons.
 add_action( 'init', function () {

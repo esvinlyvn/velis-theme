@@ -192,7 +192,7 @@ Cao tối thiểu 48 px (vùng bấm ≥ 44 × 44). Đổi màu 150–200 ms.
   một lớp nền mờ cục bộ (#141414 82 %, blur 36 px) sau khối chữ ở góc trái dưới (khối chữ ≤ min(600 px, 46vw)), ≥ 60 % diện tích
   ảnh giữ độ sáng gốc; breadcrumb có nền nhỏ riêng; chữ ≥ 4,5:1 (đo bằng điểm ảnh, `tools/check_ui.mjs`). Tablet: lớp phủ từ dưới
   lên; mobile: ảnh 4:3 ở trên, chữ trên dải tối. Trong hero: breadcrumb, eyebrow chủ đầu tư · khu vực, H1, 3–4 chip, 2 nút.
-  Trang dự án cao ~60vh; trang chủ: đáy hero là dải **mọi dự án có ảnh thật** (4 thẻ trong khung, nhiều hơn thì trượt ngang).
+  Trang dự án cao ~60vh; trang chủ: đáy hero là dải **mọi dự án có ảnh thật** (4 thẻ trong khung, nhiều hơn thì trượt ngang; thẻ cao bằng nhau – tên ≤ 2 dòng, khu vực 1 dòng cắt "…").
   Chưa có ảnh: dải tối + tên chìm.
 - **Form** (mọi nơi): chỉ Họ tên + Số điện thoại (cùng hàng từ 768 px), ô đồng ý, nút Gửi; dự án / URL trang / utm là trường
   ẩn gửi kèm email. Khối "Nhận tư vấn" 2 cột cân: trái tiêu đề + kênh liên hệ, phải form. Thẻ "Nhận bảng giá" ở cột phải
@@ -220,16 +220,20 @@ Cao tối thiểu 48 px (vùng bấm ≥ 44 × 44). Đổi màu 150–200 ms.
 - **Khoảng trống**: từ 1024 px không vùng nào có khoảng trống ngang cạnh nội dung > 30 % khung kéo dài quá 1 màn hình
   (`tools/check_ui.mjs` tự kiểm ở 1100 / 1366 / 1536 / 1920).
 
-### Ảnh nét (vòng 7)
-- Mọi ảnh có `srcset` đủ cỡ (thêm 600 / 900 / 1600 / 2000 / 2560 px – WordPress chỉ tạo cỡ không lớn hơn ảnh gốc) và `sizes`
-  đúng khung (`auto` cho ảnh lazy). **Không phóng ảnh** (bỏ phép cắt `--zoom`): khung ảnh ≤ cỡ file × 1,15 / mật độ điểm ảnh
-  (`--nw`, `--dpr` trong style.css) – ảnh gốc nhỏ thì khung nhỏ, không kéo giãn. Hero: ảnh hẹp hơn màn hình (ví dụ ảnh gốc
-  1200 px trên màn 2×) nằm bên phải, mờ dần vào dải tối sau khối chữ.
-- Nhóm thẻ có ảnh: thẻ thiếu ảnh dùng khung dự phòng có tên, cùng tỉ lệ; cả nhóm không ảnh thì thẻ chữ. Thẻ bài viết thiếu
-  ảnh luôn có khung mang tên cụm. Ảnh lỗi khi tải → khung dự phòng có tên (`is-broken`, bộ đo đếm là ảnh hỏng).
-- Bộ đo bắt buộc: `node tools/check_ui.mjs --suite <danh sách> <thư mục>` – DPR 1 / 1,25 / 2 × viewport 390 / 1066 / 1366 /
-  1920, cuộn thật, chờ ảnh: ảnh hỏng, ảnh mờ, nhóm thẻ thiếu khung, khối trống, bảng < 2 hàng, tràn ngang, đúng 1 H1,
-  heading viết HOA, khoảng trống > 30 % – tất cả phải bằng 0.
+### Ảnh nét (vòng r8)
+- Khung ảnh **chỉ theo thiết kế và viewport**, không phụ thuộc mật độ điểm ảnh (DPR): cùng viewport, hộp mọi ảnh/khối ở
+  DPR 1 / 1,25 / 2 lệch ≤ 1 px. Hero A tràn toàn khung ở mọi DPR. Ảnh trong nội dung rộng bằng cột chữ; chỉ khi file lớn
+  nhất nhỏ hơn cột thì ảnh hiện bằng cỡ file, căn giữa (`.v-crop`, `max-width` = file lớn nhất).
+- Phóng cắt `--zoom` 1,12 (hero, ảnh đầu bài, ảnh nội dung) / 1,15 (thẻ, dải nổi bật, thư viện, tiến độ, cột phải) neo ở
+  `--focus` (góc phải trên) để đẩy huy hiệu VELIS in chìm (góc trái dưới) ra ngoài khung. Mặt bằng, logo, bản đồ OSM: không phóng.
+- `srcset` tới 2560 px (thêm cỡ 600 / 900 / 1600 / 2000 / 2560); `sizes` luôn tường minh và **nhân hệ số phóng**
+  (`velis_sizes()`), không dùng `sizes="auto"` (bỏ qua phép phóng).
+- Nhóm thẻ có ảnh: thẻ thiếu ảnh dùng khung dự phòng có tên (Playfair, căn giữa, nền champagne nhạt), cùng tỉ lệ; cả nhóm
+  không ảnh thì thẻ chữ. Ảnh lỗi khi tải → thử cỡ 1024, rồi khung dự phòng có tên (`is-broken`).
+- Bộ đo bắt buộc: `node tools/check_ui.mjs --suite tools/suite-pages.txt <thư mục>` – DPR 1 / 1,25 / 2 × viewport 390 /
+  1066 / 1366 / 1536 / 1920, cuộn thật, chờ ảnh. Độ nét đo bằng bề rộng thật của file đang hiện (nạp `currentSrc` vào
+  `new Image()`), không dùng `img.naturalWidth`. Mọi cột lỗi = 0; "ảnh nguồn thiếu độ phân giải" chỉ để thông tin
+  (`docs/ANH-CAN-THAY.md`). Cột phải bài viết: `--sticky tools/sticky-pages.txt`.
 
 ### Đầu mục section
 Eyebrow → tiêu đề Playfair (H2) → đoạn dẫn ≤ 2 dòng màu `body-muted` → đường kẻ champagne 48 × 1 px. Nhịp: 96/64 px giữa
@@ -238,7 +242,7 @@ section, 32 px từ đầu mục tới nội dung, 24 px giữa các khối, 8 p
 ### Ảnh
 16:9 hero/ảnh đầu bài · 3:2 thư viện (21:10 desktop) và ảnh tiến độ · 4:3 mọi loại thẻ · 1:1 đại diện. Góc vuông.
 Mọi khung ảnh nhận `--focus` (object-position) và `--zoom` (phóng nhẹ neo theo điểm lấy nét) để đẩy huy hiệu in chìm ra
-ngoài khung. Ảnh minh họa không có chữ đè (không infographic). Thiếu ảnh: khung trung tính sọc mảnh + tên dự án.
+ngoài khung (xem "Ảnh nét"). Ảnh minh họa không có chữ đè (không infographic). Thiếu ảnh: khung champagne nhạt + tên dự án (Playfair, căn giữa).
 Mặt bằng và bản đồ dùng `contain`/không cắt nội dung. Chú thích 14 px: nội dung · nguồn · ngày chụp.
 
 ### Header & menu
@@ -283,9 +287,12 @@ nhất. Thẻ chủ đầu tư: khung logo trung tính dùng chung (biểu tư�
 - **Bản đồ**: ảnh tĩnh OpenStreetMap tông xám + ghim đỏ Velis, giữ ghi công; cao tối đa 420 px desktop / 320 px mobile;
   nút "Xem trên Google Maps" ở giữa cạnh dưới.
 - **Timeline tiến độ**: dòng dọc, mốc có ngày, ảnh có chú thích ngày chụp + nguồn.
+- **Ảnh tiến độ** (vòng r8): lưới rộng bằng cột chữ; số cột theo số ảnh – 1 → 1, 2 / 4 → 2, còn lại 3 cột (ảnh đầu rộng
+  2 ô khi số ảnh không chia hết cho 3); mobile 2 cột, ảnh đầu tràn hàng khi số ảnh lẻ. Bản đồ cũng rộng bằng cột chữ.
+- **Chip hero** ghép nhãn + giá trị viết thường chữ đầu của từ thường ("Bàn giao từ tháng 11/2023").
 
 ### Nội dung & tin cậy
-Bố cục bài: cột đọc 720 px + mục lục dính bên phải (≥ 1280 px), cao theo nội dung, tô đậm mục đang đọc; dưới đó mục lục
+Bố cục bài: cột đọc 720 px + cột phải dính (≥ 1280 px; top = header dính + 24 px): mục lục (chỉ danh sách cuộn riêng, cao ≤ 45vh, mờ dần ở đáy) + thẻ dự án ảnh thu gọn + nút tư vấn – cả cột luôn vừa màn hình, tô đậm mục đang đọc; dưới đó mục lục
 nằm trong cột đọc, 2 cột khi > 6 mục. FAQ (`<details>`) · Hộp tác giả (ảnh chân dung thật – chưa có thì ẩn khung ảnh;
 link mạng xã hội cá nhân; "Xem tất cả bài viết") · Hộp công bố
 (15 px, rộng bằng cột đọc, chữ `ink` trên `surface-sunken`) · Breadcrumb · Phân trang · Trang 404.

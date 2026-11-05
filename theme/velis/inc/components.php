@@ -145,6 +145,31 @@ function velis_strip_auto_captions( string $html ): string {
 	return preg_replace_callback( '#<figcaption[^>]*>(.*?)</figcaption>#s', fn( $m ) => velis_auto_caption( $m[1] ) ? '' : $m[0], $html );
 }
 
+/** Construction photo grid: [columns ≥ 768 px, first photo 2 cells wide] so the last row never holds a single photo. */
+function velis_photo_cols( int $n ): array {
+	$cols = ( $n < 3 || 4 === $n ) ? max( 1, min( 2, $n ) ) : 3;
+	return array( $cols, 3 === $cols && 0 !== $n % 3 ); // 5 → 2+1 / 3, 7 → 2+1 / 3 / 2
+}
+
+/** "Bàn giao" + "Từ tháng 11/2023" → "Bàn giao từ tháng 11/2023": a common first word of the value goes lower case (round 8). */
+function velis_label_value( string $label, string $value ): string {
+	$value = preg_replace_callback( '/^(Từ|Dự kiến|Quý|Năm|Tháng)\b/u', fn( $m ) => mb_strtolower( $m[1] ), $value );
+	return $label . ' ' . $value;
+}
+
+/**
+ * `sizes` with the crop zoom in it: each slot length L becomes calc(z * (L)), so the browser fetches the file the zoomed
+ * picture needs. $rules: a normal sizes value, e.g. "(min-width: 1024px) 400px, 100vw".
+ */
+function velis_sizes( string $rules, float $z = 1.15 ): string {
+	$z = round( $z * 1.15, 3 ); // + pick margin: above 1x Chromium may take the next smaller file when the density sits below
+	// the geometric mean of two widths (√1.28 ≈ 1.13 for the widest step from 600 px up: 600/768/900/1024/1200/1600/2000/2560)
+	return implode( ', ', array_map( function ( $r ) use ( $z ) {
+		$r = trim( $r );
+		return preg_match( '/^(\([^)]*\)\s+)?(.+)$/', $r, $m ) ? $m[1] . 'calc(' . $z . ' * (' . $m[2] . '))' : $r;
+	}, preg_split( '/,(?![^(]*\))/', $rules ) ) );
+}
+
 /** Widest file of a picture: the largest "NNNw" of its srcset, else the given width. */
 function velis_max_candidate( string $srcset, int $fallback = 0 ): int {
 	preg_match_all( '/\s(\d+)w(?:,|$)/', ' ' . $srcset, $m );

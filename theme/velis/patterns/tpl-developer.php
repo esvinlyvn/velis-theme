@@ -39,7 +39,7 @@ foreach ( $links as $k => $u ) {
 }
 $sections = '';
 if ( $dl || $logo ) {
-	$sections .= velis_section( velis_sechead( 'Thông tin nhanh về ' . $d->post_title, 'Dữ kiện công khai' ) . ( $logo ? '<p class="v-devlogo">' . velis_img( $logo, 'Logo ' . $d->post_title, 'medium' ) . '</p>' : '' ) . ( $dl ? '<dl class="v-facts">' . $dl . '</dl>' : '' ) );
+	$sections .= velis_section( velis_sechead( 'Thông tin nhanh về ' . $d->post_title, 'Dữ kiện công khai' ) . ( $logo ? '<p class="v-devlogo">' . velis_img( $logo, 'Logo ' . $d->post_title, 'medium', array( 'zoom' => 1, 'sizes' => '240px' ) ) . '</p>' : '' ) . ( $dl ? '<dl class="v-facts">' . $dl . '</dl>' : '' ) );
 }
 if ( $projs ) {
 	$st = array();
