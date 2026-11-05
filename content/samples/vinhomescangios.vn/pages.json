@@ -7302,7 +7302,7 @@
     "VI. Cam kết bảo mật thông tin cá nhân"
    ]
   ],
-  "words": 5,
+  "words": 671,
   "schema": [],
   "links": [
    {
@@ -7426,7 +7426,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "https://vinhomescangios.vn/lien-he/",
@@ -7442,7 +7442,7 @@
     "LIÊN HỆ NHẬN THÔNG TIN VÀ TƯ VẤN VINHOMES CẦN GIỜ"
    ]
   ],
-  "words": 6,
+  "words": 53,
   "schema": [],
   "links": [
    {
@@ -7544,7 +7544,7 @@
    {
     "to": "https://vinhomescangios.vn/",
     "anchor": "https://vinhomescangios.vn/",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
@@ -7560,7 +7560,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "https://vinhomescangios.vn/dieu-khoan-su-dung/",
@@ -7592,7 +7592,7 @@
     "Chia sẻ thông tin trên mạng xã hội"
    ]
   ],
-  "words": 5,
+  "words": 812,
   "schema": [],
   "links": [
    {
@@ -7716,7 +7716,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "https://vinhomescangios.vn/blog/",

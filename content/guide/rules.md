@@ -123,6 +123,14 @@ slogan, hotline của họ. Mỗi dòng: `- `cụm từ` (loại, nguồn)` — 
 - `MinhQuyR` (Facebook)
 - `pham.nhat.113671` (Facebook)
 
+### ecoparkbysalereal.vn
+
+- `ecoparkbysalereal` (tên miền, Facebook)
+- `Ecopark By SaleReal` (tên site)
+- `EBYSR` (hậu tố title)
+- `CEO của SaleReal` (chức danh tác giả)
+- `Đại lý chiến lược của Ecopark` (lời tự giới thiệu)
+
 <!-- banned:end -->
 
 ### Chờ người dùng xác nhận (KHÔNG nằm trong danh sách quét)

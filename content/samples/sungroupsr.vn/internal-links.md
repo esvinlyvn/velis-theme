@@ -6,80 +6,81 @@
 
 | URL đích | Loại | Số link |
 |---|---|---:|
-| https://sungroupsr.vn/ | trang chủ | 61 |
-| https://sungroupsr.vn/blanca-city-vung-tau/ | khác (du-an) | 41 |
-| https://sungroupsr.vn/charmora-city-nha-trang/ | khác (du-an) | 19 |
-| https://sungroupsr.vn/xanh-island-cat-ba/ | khác (du-an) | 12 |
-| https://sungroupsr.vn/sun-urban-city-ha-nam/ | khác (du-an) | 12 |
-| https://sungroupsr.vn/sun-cosmo-residence/ | khác (du-an) | 10 |
-| https://sungroupsr.vn/can-ho-blanca-city/ | loại căn | 9 |
-| https://sungroupsr.vn/nha-pho-blanca-city/ | loại căn | 9 |
-| https://sungroupsr.vn/biet-thu-blanca-city/ | loại căn | 8 |
-| https://sungroupsr.vn/gia-ban-blanca-city/ | giá bán / bảng giá | 8 |
-| https://sungroupsr.vn/tien-do-blanca-city/ | tiến độ | 8 |
-| https://sungroupsr.vn/gia-ban-charmora-city/ | giá bán / bảng giá | 8 |
-| https://sungroupsr.vn/tien-do-charmora-city/ | tiến độ | 8 |
-| https://sungroupsr.vn/shophouse-blanca-city/ | loại căn | 7 |
-| https://sungroupsr.vn/nha-pho-charmora-city/ | loại căn | 7 |
+| https://sungroupsr.vn/ | trang chủ | 62 |
+| https://sungroupsr.vn/blanca-city-vung-tau/ | khác (du-an) | 46 |
+| https://sungroupsr.vn/charmora-city-nha-trang/ | khác (du-an) | 24 |
+| https://sungroupsr.vn/xanh-island-cat-ba/ | khác (du-an) | 17 |
+| https://sungroupsr.vn/sun-urban-city-ha-nam/ | khác (du-an) | 17 |
+| https://sungroupsr.vn/gia-ban-charmora-city/ | giá bán / bảng giá | 12 |
+| https://sungroupsr.vn/tien-do-charmora-city/ | tiến độ | 12 |
+| https://sungroupsr.vn/sun-cosmo-residence/ | khác (du-an) | 12 |
+| https://sungroupsr.vn/can-ho-blanca-city/ | loại căn | 11 |
+| https://sungroupsr.vn/nha-pho-blanca-city/ | loại căn | 11 |
+| https://sungroupsr.vn/biet-thu-blanca-city/ | loại căn | 10 |
+| https://sungroupsr.vn/gia-ban-blanca-city/ | giá bán / bảng giá | 10 |
+| https://sungroupsr.vn/tien-do-blanca-city/ | tiến độ | 10 |
+| https://sungroupsr.vn/shophouse-blanca-city/ | loại căn | 9 |
+| https://sungroupsr.vn/nha-pho-charmora-city/ | loại căn | 9 |
 
 ## Trang được trỏ đến nhiều nhất – vùng khung
 
 | URL đích | Loại | Số link |
 |---|---|---:|
-| https://sungroupsr.vn/charmora-city-nha-trang/ | khác (du-an) | 224 |
-| https://sungroupsr.vn/blanca-city-vung-tau/ | khác (du-an) | 224 |
-| https://sungroupsr.vn/xanh-island-cat-ba/ | khác (du-an) | 224 |
-| https://sungroupsr.vn/sun-urban-city-ha-nam/ | khác (du-an) | 224 |
-| https://sungroupsr.vn/blog/ | trang hệ thống | 220 |
+| https://sungroupsr.vn/charmora-city-nha-trang/ | khác (du-an) | 219 |
+| https://sungroupsr.vn/blanca-city-vung-tau/ | khác (du-an) | 219 |
+| https://sungroupsr.vn/xanh-island-cat-ba/ | khác (du-an) | 219 |
+| https://sungroupsr.vn/sun-urban-city-ha-nam/ | khác (du-an) | 219 |
+| https://sungroupsr.vn/blog/ | trang hệ thống | 219 |
 | https://sungroupsr.vn/du-an/ | khác (du-an) | 216 |
-| https://sungroupsr.vn/ | trang chủ | 73 |
 | https://sungroupsr.vn/gioi-thieu/ | trang hệ thống | 73 |
 | https://sungroupsr.vn/lien-he/ | trang hệ thống | 73 |
 | https://sungroupsr.vn/chinh-sach-bao-mat/ | trang hệ thống | 73 |
 | https://sungroupsr.vn/dieu-khoan-su-dung/ | trang hệ thống | 73 |
-| https://sungroupsr.vn/gia-ban-charmora-city/ | giá bán / bảng giá | 4 |
-| https://sungroupsr.vn/tien-do-charmora-city/ | tiến độ | 4 |
-| https://sungroupsr.vn/sun-solar-residence-uu-the-so-voi-du-an-lan-can/ | bài viết khác | 4 |
-| https://sungroupsr.vn/sun-symphony-residence/ | khác (du-an) | 3 |
+| https://sungroupsr.vn/ | trang chủ | 72 |
 
 ## Anchor hay dùng trong thân bài (top 25)
 
 | Anchor | Số lần |
 |---|---:|
 | sun group | 36 |
-| blanca city | 16 |
-| tham khảo dự án | 15 |
+| tham khảo dự án | 20 |
+| blanca city | 17 |
 | tập đoàn sun group | 15 |
-| blanca city vũng tàu | 9 |
-| charmora city | 8 |
-| sun urban city | 7 |
+| blanca city vũng tàu | 10 |
+| charmora city | 9 |
+| sun urban city | 8 |
+| tiến độ charmora city: cập nhật mới nhất t3/2026 | 7 |
+| charmora city nha trang | 7 |
+| biệt thự blanca city - giá bán & phân tích có nên mua? | 6 |
+| căn hộ blanca city - giỏ hàng căn đẹp & phân tích nên mua | 6 |
+| nhà phố blanca city - giá bán & phân tích lý do nên mua | 6 |
+| giá bán blanca city bao nhiêu? có nên mua không? | 6 |
+| tiến độ blanca city: cập nhật hình ảnh mới nhất 3/2026 | 6 |
+| giá bán charmora city bao nhiêu? cập nhật mới nhất t3/2026 | 6 |
 | chủ đầu tư sun group | 6 |
-| charmora city nha trang | 6 |
-| biệt thự blanca city - giá bán & phân tích có nên mua? | 5 |
-| căn hộ blanca city - giỏ hàng căn đẹp & phân tích nên mua | 5 |
-| nhà phố blanca city - giá bán & phân tích lý do nên mua | 5 |
-| giá bán blanca city bao nhiêu? có nên mua không? | 5 |
-| tiến độ blanca city: cập nhật hình ảnh mới nhất 3/2026 | 5 |
-| tiến độ charmora city: cập nhật mới nhất t3/2026 | 5 |
+| tìm hiểu thêm | 6 |
+| shophouse blanca city - bảng giá & phân tích lý do nên mua | 5 |
+| vị trí blanca city ở đâu? có tiềm năng gì thu hút nhà đầu tư? | 5 |
+| pháp lý charmora city đã hoàn thiện chưa? cập nhật mới 2026 | 5 |
+| xanh island | 5 |
+| dự án sun group vũng tàu có gì hút giới đầu tư miền bắc? | 4 |
 | dự án sun group | 4 |
 | sun group và vai trò định hình thị trường du lịch vũng tàu | 4 |
-| shophouse blanca city - bảng giá & phân tích lý do nên mua | 4 |
-| vị trí blanca city ở đâu? có tiềm năng gì thu hút nhà đầu tư? | 4 |
-| pháp lý charmora city đã hoàn thiện chưa? cập nhật mới 2026 | 4 |
-| giá bán charmora city bao nhiêu? cập nhật mới nhất t3/2026 | 4 |
-| vị trí charmora city ở đâu? có gì khiến nhà đầu tư săn đón? | 4 |
-| xanh island | 4 |
-| toàn cảnh kế hoạch phát triển của sun group tại vũng tàu đến 2030 | 4 |
-| sun group có đang thay đổi bản đồ bđs nghỉ dưỡng phía nam? | 4 |
+| nhà mẫu blanca city ở đâu? đặt lịch tham quan như thế nào? | 4 |
 
 ## Loại trang → loại trang (chỉ link trong thân bài)
 
 | Từ | Đến | Số link |
 |---|---|---:|
+| trang hệ thống | bài viết khác | 90 |
 | chuyên mục | bài viết khác | 63 |
+| trang hệ thống | phân tích đầu tư / nhu cầu | 50 |
+| trang hệ thống | loại căn | 42 |
 | chuyên mục | loại căn | 36 |
+| trang chủ | khác (du-an) | 28 |
 | chuyên mục | phân tích đầu tư / nhu cầu | 27 |
 | khác (du-an) | khác (du-an) | 26 |
+| trang hệ thống | hạ tầng / quy hoạch | 22 |
 | chuyên mục | hạ tầng / quy hoạch | 21 |
 | khác (du-an) | loại căn | 17 |
 | phân tích đầu tư / nhu cầu | khác (du-an) | 17 |
@@ -87,25 +88,20 @@
 | loại căn | loại căn | 15 |
 | phân tích đầu tư / nhu cầu | bài viết khác | 13 |
 | chủ đầu tư | khác (du-an) | 12 |
+| trang hệ thống | chuyên mục | 12 |
+| trang hệ thống | so sánh | 12 |
 | hạ tầng / quy hoạch | bài viết khác | 11 |
 | bài viết khác | bài viết khác | 10 |
 | so sánh | bài viết khác | 10 |
 | chuyên mục | tiến độ | 9 |
 | bài viết khác | phân tích đầu tư / nhu cầu | 8 |
+| trang chủ | phân tích đầu tư / nhu cầu | 8 |
 | loại căn | khác (du-an) | 7 |
 | phân khu / tòa | bài viết khác | 7 |
 | phân tích đầu tư / nhu cầu | phân tích đầu tư / nhu cầu | 7 |
 | so sánh | phân tích đầu tư / nhu cầu | 7 |
 | tiến độ | khác (du-an) | 7 |
 | tiện ích | phân tích đầu tư / nhu cầu | 7 |
-| chuyên mục | giá bán / bảng giá | 6 |
-| chuyên mục | pháp lý | 6 |
-| chuyên mục | vị trí | 6 |
-| chủ đầu tư | bài viết khác | 6 |
-| giá bán / bảng giá | khác (du-an) | 6 |
-| bài viết khác | trang chủ | 5 |
-| bài viết khác | khác (du-an) | 5 |
-| giá bán / bảng giá | trang chủ | 5 |
 
 ## Số link mỗi trang mẫu
 
@@ -173,12 +169,12 @@
 | http://sungroupsr.vn/cong-vien-nuoc-blanca-city/ | 6 | 29 |
 | http://sungroupsr.vn/tien-ich-blanca-city/ | 6 | 29 |
 | http://sungroupsr.vn/cong-vien-nuoc-sun-world-ha-nam/ | 6 | 29 |
-| https://sungroupsr.vn/ | 0 | 75 |
+| https://sungroupsr.vn/ | 53 | 75 |
 | http://sungroupsr.vn/gioi-thieu/ | 0 | 23 |
-| http://sungroupsr.vn/blog/ | 0 | 275 |
+| http://sungroupsr.vn/blog/ | 252 | 275 |
 | http://sungroupsr.vn/chinh-sach-bao-mat/ | 0 | 23 |
 | http://sungroupsr.vn/dieu-khoan-su-dung/ | 0 | 23 |
-| http://sungroupsr.vn/lien-he/ | 0 | 24 |
+| http://sungroupsr.vn/lien-he/ | 1 | 24 |
 | http://sungroupsr.vn/vi-tri-charmora-city/ | 5 | 28 |
 | http://sungroupsr.vn/vi-tri-blanca-city/ | 5 | 28 |
 | http://sungroupsr.vn/vi-tri-sun-urban-city/ | 5 | 28 |

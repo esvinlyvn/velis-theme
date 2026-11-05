@@ -46,7 +46,7 @@ Chỉ mô tả kỹ thuật; mọi trích dẫn là **ví dụ của đối th�
 
 - Vì site nhỏ, **khối "bài liên quan" cố định** (10 bài trụ: giá, tiến độ, vị trí, pháp lý, 2PN, 3PN, nút giao, tiện ích, nhà mẫu, gia đình trẻ)
   xuất hiện ở hầu hết bài → 10 trang này nhận 23–36 link thân bài mỗi trang; anchor = nguyên tiêu đề (kèm tháng).
-- Menu: giá, tiến độ, CĐT, blog, liên hệ. Trang chủ gần như không nhận link khung (chỉ logo).
+- Menu: giá, tiến độ, CĐT, blog, liên hệ. Trang chủ nhận link khung chủ yếu qua logo.
 - Link ngang trong nhóm: loại căn ↔ loại căn (20), phân tích ↔ phân tích (14); phân tích → loại căn (12).
 
 ## Nên học / nên tránh (kỹ thuật)

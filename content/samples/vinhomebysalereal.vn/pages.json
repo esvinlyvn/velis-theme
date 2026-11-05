@@ -16801,7 +16801,7 @@
     "ĐĂNG KÝ NHẬN TƯ VẤN TỪ VBYSR"
    ]
   ],
-  "words": 8,
+  "words": 1751,
   "schema": [
    "ContactPoint",
    "DefinedTerm",
@@ -16908,379 +16908,379 @@
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-saigon-park-hoc-mon/",
     "anchor": "VINHOMES SAIGON PARK",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-saigon-park-hoc-mon/",
     "anchor": "Tham khảo dự án",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-hai-van-bay/",
     "anchor": "VINHOMES HẢI VÂN BAY",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-hai-van-bay/",
     "anchor": "tham khảo dự án",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-green-paradise-can-gio/",
     "anchor": "VINHOMES GREEN PARADISE",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-green-paradise-can-gio/",
     "anchor": "Tham khảo dự án",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-green-city/",
     "anchor": "VINHOMES GREEN CITY",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-green-city/",
     "anchor": "Tham khảo dự án",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-ocean-park-2/",
     "anchor": "VINHOMES OCEAN PARK 2",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-ocean-park-2/",
     "anchor": "Tham khảo dự án",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-ocean-park-3/",
     "anchor": "VINHOMES OCEAN PARK 3",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-ocean-park-3/",
     "anchor": "tham khảo dự án",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-royal-island/",
     "anchor": "VINHOMES ROYAL ISLAND",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-royal-island/",
     "anchor": "tham khảo dự án",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-wonder-city-dan-phuong/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-wonder-city-dan-phuong/",
     "anchor": "Vinhomes Wonder City Đan Phượng",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-wonder-city-dan-phuong/",
     "anchor": "TÌM HIỂU THÊM",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/phan-khu-the-swan-lake-vinhomes-green-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/phan-khu-the-swan-lake-vinhomes-green-city/",
     "anchor": "Phân khu The Swan Lake Vinhomes Green City",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/phan-khu-the-swan-lake-vinhomes-green-city/",
     "anchor": "TÌM HIỂU THÊM",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/phan-khu-the-sunrise-vinhomes-green-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/phan-khu-the-sunrise-vinhomes-green-city/",
     "anchor": "Phân khu The Sunrise Vinhomes Green City",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/phan-khu-the-sunrise-vinhomes-green-city/",
     "anchor": "TÌM HIỂU THÊM",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-green-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-green-city/",
     "anchor": "Vinhomes Green City Long An",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-green-city/",
     "anchor": "TÌM HIỂU THÊM",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/phan-khu-mui-danh-vong-vinhomes-green-paradise/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/phan-khu-mui-danh-vong-vinhomes-green-paradise/",
     "anchor": "Phân khu Mũi Danh Vọng Vinhomes Green Paradise",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/phan-khu-mui-danh-vong-vinhomes-green-paradise/",
     "anchor": "TÌM HIỂU THÊM",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/phan-khu-vinh-ngoc-vinhomes-green-paradise/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/phan-khu-vinh-ngoc-vinhomes-green-paradise/",
     "anchor": "Phân khu Vịnh Ngọc Vinhomes Green Paradise",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/phan-khu-vinh-ngoc-vinhomes-green-paradise/",
     "anchor": "TÌM HIỂU THÊM",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-green-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-green-city/",
     "anchor": "Giá Bán Vinhomes Green City & CSBH – Cập nhật mới T8",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tien-do-vinhomes-green-paradise/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tien-do-vinhomes-green-paradise/",
     "anchor": "Tiến độ Vinhomes Green Paradise đến đâu? Hình ảnh T8/2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-saigon-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-saigon-park/",
     "anchor": "Bảng giá bán Vinhomes SaiGon Park & Chính sách mới T7",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tien-do-vinhomes-saigon-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tien-do-vinhomes-saigon-park/",
     "anchor": "Tiến độ Vinhomes SaiGon Park mới nhất tháng 7/2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/co-nen-mua-dau-tu-vinhomes-saigon-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/co-nen-mua-dau-tu-vinhomes-saigon-park/",
     "anchor": "Có nên mua đầu tư Vinhomes SaiGon Park? Đánh giá chuyên gia",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tien-do-vinhomes-hai-van-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tien-do-vinhomes-hai-van-bay/",
     "anchor": "Tiến độ Vinhomes Hải Vân Bay – Hình ảnh thực tế T5",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-hai-van-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-hai-van-bay/",
     "anchor": "Giá bán Vinhomes Hải Vân Bay & CSBH cập nhật T5/2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-green-paradise/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-green-paradise/",
     "anchor": "Giá bán Vinhomes Green Paradise Cần Giờ & Chính sách – Cập nhật T1",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-wonder-city-dan-phuong/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-wonder-city-dan-phuong/",
     "anchor": "Giá bán Vinhomes Wonder City & CSBH – Cập nhật T12/2025",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tien-do-vinhomes-green-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tien-do-vinhomes-green-city/",
     "anchor": "Tiến độ Vinhomes Green City – Cập nhật hình ảnh T12/2025",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-green-city-co-phai-la-ocean-park-phia-nam/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-green-city-co-phai-la-ocean-park-phia-nam/",
     "anchor": "Vinhomes Green City Có Phải Là “Ocean Park Phía Nam”?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/co-nen-dau-tu-vinhomes-ocean-park-3/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/co-nen-dau-tu-vinhomes-ocean-park-3/",
     "anchor": "Có nên đầu tư Vinhomes Ocean Park 3: Đánh giá từ chuyên gia",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-royal-island/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-royal-island/",
     "anchor": "Giá bán Vinhomes Royal Island – Cập nhật mới nhất 2025",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/chien-luoc-nang-cao-gia-tri-bat-dong-san-tai-khu-do-thi-vinhomes/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/chien-luoc-nang-cao-gia-tri-bat-dong-san-tai-khu-do-thi-vinhomes/",
     "anchor": "Chiến lược nâng cao giá trị bất động sản tại khu đô thị Vinhomes",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/chien-luoc-phat-trien-du-an-cua-vinhomes/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/chien-luoc-phat-trien-du-an-cua-vinhomes/",
     "anchor": "Chiến lược phát triển dự án của Vinhomes có gì khác biệt?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/blog/",
     "anchor": "XEM TẤT CẢ BÀI VIẾT",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
@@ -17308,7 +17308,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "https://vinhomebysalereal.vn/blog/",
@@ -17380,7 +17380,7 @@
     "Bài viết về Vinhomes Smart City"
    ]
   ],
-  "words": 4,
+  "words": 5260,
   "schema": [],
   "links": [
    {
@@ -17464,1765 +17464,1765 @@
    {
     "to": "https://vinhomebysalereal.vn/bai-viet-vinhomes/",
     "anchor": "Bài viết về chủ đầu tư Vinhomes",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-dau-tu-du-an-tai-tay-bac-hcm/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-dau-tu-du-an-tai-tay-bac-hcm/",
     "anchor": "Vinhomes đầu tư dự án lớn tại Tây Bắc HCM: Thông tin mới nhất",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/biet-thu-song-lap-ocean-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/biet-thu-song-lap-ocean-city/",
     "anchor": "Biệt thự song lập Ocean City: Thông tin & phân tích đều tại đây",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/shophouse-ocean-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/shophouse-ocean-city/",
     "anchor": "Shophouse Ocean City Hà Nội - Thông tin và phân tích 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vincom/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vincom/",
     "anchor": "Vincom: Chuỗi trung tâm thương mại hiện đại của Vingroup",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/danh-sach-cac-du-an-vinhomes-se-phat-trien-trong-tuong-lai/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/danh-sach-cac-du-an-vinhomes-se-phat-trien-trong-tuong-lai/",
     "anchor": "Danh sách các dự án Vinhomes sẽ phát triển trong tương lai",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-elite-club/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-elite-club/",
     "anchor": "Khám phá Vinhomes Elite Club: Câu lạc bộ Tinh hoa của Vinhomes",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/grand-world/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/grand-world/",
     "anchor": "Grand World - Thiên đường nghỉ dưỡng và giải trí của Vingroup",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinwonders/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinwonders/",
     "anchor": "Khám phá VinWonders: Công viên giải trí hàng đầu Việt Nam",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinholiday/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinholiday/",
     "anchor": "VinHoliday: Khách sạn bình dân, dịch vụ chất lượng của Vingroup",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinid/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinid/",
     "anchor": "VinID: Ứng dụng quản lý khách hàng thân thiết của Vingroup",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/bai-viet-vinhomes-saigon-park/",
     "anchor": "Bài viết về Vinhomes SAIGON PARK",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/phap-ly-vinhomes-saigon-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/phap-ly-vinhomes-saigon-park/",
     "anchor": "Pháp lý Vinhomes SaiGon Park: Cập nhật mới nhất 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-saigon-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-saigon-park/",
     "anchor": "Bảng giá bán Vinhomes SaiGon Park & Chính sách mới T7",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vi-tri-vinhomes-saigon-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vi-tri-vinhomes-saigon-park/",
     "anchor": "Vị trí Vinhomes SaiGon Park ở đâu? Có tiện để ở và đầu tư không?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tien-do-vinhomes-saigon-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tien-do-vinhomes-saigon-park/",
     "anchor": "Tiến độ Vinhomes SaiGon Park mới nhất tháng 7/2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/can-ho-vinhomes-saigon-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/can-ho-vinhomes-saigon-park/",
     "anchor": "Căn hộ Vinhomes SaiGon Park - Thông tin & 3 Lý do nên mua ngay",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/shophouse-vinhomes-saigon-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/shophouse-vinhomes-saigon-park/",
     "anchor": "Shophouse Vinhomes SaiGon Park - Thông tin & Phân tích lý do nên mua",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/biet-thu-don-lap-vinhomes-saigon-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/biet-thu-don-lap-vinhomes-saigon-park/",
     "anchor": "Biệt thự đơn lập Vinhomes SaiGon Park - Thông tin & Phân tích lý do nên mua",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/nha-pho-vinhomes-saigon-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/nha-pho-vinhomes-saigon-park/",
     "anchor": "Nhà phố Vinhomes SaiGon Park - Thông tin & Phân tích lý do nên mua",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/kha-nang-thanh-khoan-vinhomes-saigon-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/kha-nang-thanh-khoan-vinhomes-saigon-park/",
     "anchor": "Khả năng thanh khoản Vinhomes SaiGon Park: Dễ bán lại không?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-saigon-park-dang-de-nha-dau-tu-dat-cuoc-10-15-nam/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-saigon-park-dang-de-nha-dau-tu-dat-cuoc-10-15-nam/",
     "anchor": "Vinhomes SaiGon Park có đáng để nhà đầu tư “đặt cược” 10 - 15 năm",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/bai-viet-vinhomes-green-paradise/",
     "anchor": "Bài viết về Vinhomes GREEN PARADISE",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tien-do-vinhomes-green-paradise/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tien-do-vinhomes-green-paradise/",
     "anchor": "Tiến độ Vinhomes Green Paradise đến đâu? Hình ảnh T8/2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/sportia-complex-vinhomes-green-paradise/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/sportia-complex-vinhomes-green-paradise/",
     "anchor": "Sportia Complex Vinhomes Green Paradise: Quy mô và tác động ra sao?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/don-lap-vinh-tien-61-phan-khu-vinh-tien-vinhomes-green-paradise/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/don-lap-vinh-tien-61-phan-khu-vinh-tien-vinhomes-green-paradise/",
     "anchor": "Bán đơn lập Vịnh Tiên 61 phân khu Vịnh Tiên Vinhomes Green Paradise",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/don-lap-song-xanh-vinh-tien-vinhomes-green-paradise/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/don-lap-song-xanh-vinh-tien-vinhomes-green-paradise/",
     "anchor": "Bán đơn lập Sóng Xanh phân khu Vịnh Tiên Vinhomes Green Paradise",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/lien-ke-song-xanh-15-vinh-tien-vinhomes-green-paradise/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/lien-ke-song-xanh-15-vinh-tien-vinhomes-green-paradise/",
     "anchor": "Bán liền kề Sóng Xanh 15 phân khu Vịnh Tiên Vinhomes Green Paradise",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/lien-ke-tuong-lai-phan-khu-vinh-tien-vinhomes-green-paradise/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/lien-ke-tuong-lai-phan-khu-vinh-tien-vinhomes-green-paradise/",
     "anchor": "Bán Liền kề Tương Lai phân khu Vịnh Tiên Vinhomes Green Paradise",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/can-ho-vinhomes-green-paradise/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/can-ho-vinhomes-green-paradise/",
     "anchor": "Căn hộ Vinhomes Green Paradise - Giá bán & Phân tích",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/shophouse-vinhomes-green-paradise/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/shophouse-vinhomes-green-paradise/",
     "anchor": "Shophouse Vinhomes Green Paradise - Giá bán & Phân tích",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/biet-thu-don-lap-vinhomes-green-paradise/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/biet-thu-don-lap-vinhomes-green-paradise/",
     "anchor": "Biệt thự đơn lập Vinhomes Green Paradise - Giá bán & Phân tích",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-green-paradise/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-green-paradise/",
     "anchor": "Giá bán Vinhomes Green Paradise Cần Giờ & Chính sách - Cập nhật T1",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/bai-viet-vinhomes-hai-van-bay/",
     "anchor": "Bài viết về Vinhomes HẢI VÂN BAY",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tien-do-vinhomes-hai-van-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tien-do-vinhomes-hai-van-bay/",
     "anchor": "Tiến độ Vinhomes Hải Vân Bay - Hình ảnh thực tế T5",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/biet-thu-don-lap-vinhomes-hai-van-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/biet-thu-don-lap-vinhomes-hai-van-bay/",
     "anchor": "Biệt thự đơn lập Vinhomes Hải Vân Bay - Giá bán T5 & 3 Lý do nên mua",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-hai-van-bay-so-do-lau-dai/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-hai-van-bay-so-do-lau-dai/",
     "anchor": "Vinhomes Hải Vân Bay có sổ đỏ lâu dài không? Giải thích chi tiết",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/san-bay-da-nang-mo-rong-cu-hich-cho-vinhomes-hai-van-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/san-bay-da-nang-mo-rong-cu-hich-cho-vinhomes-hai-van-bay/",
     "anchor": "Sân bay Đà Nẵng mở rộng: Cú hích tỷ đô cho Vinhomes Hải Vân Bay?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/cao-toc-la-son-tuy-loan-co-lam-vinhomes-hai-van-bay-tang-gia/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/cao-toc-la-son-tuy-loan-co-lam-vinhomes-hai-van-bay-tang-gia/",
     "anchor": "Cao Tốc La Sơn – Túy Loan có làm Vinhomes Hải Vân Bay tăng giá 30%?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/co-nen-mua-dau-tu-vinhomes-hai-van-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/co-nen-mua-dau-tu-vinhomes-hai-van-bay/",
     "anchor": "Có nên mua đầu tư Vinhomes Hải Vân Bay? Chuyên gia hé lộ 3 lợi thế",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/lien-ke-vinhomes-hai-van-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/lien-ke-vinhomes-hai-van-bay/",
     "anchor": "Liền kề Vinhomes Hải Vân Bay - Giá bán T5 & 3 Lý do nên mua",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/shophouse-vinhomes-hai-van-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/shophouse-vinhomes-hai-van-bay/",
     "anchor": "Shophouse Vinhomes Hải Vân Bay - Giá bán T5 & Lý do nên mua",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/phap-ly-vinhomes-hai-van-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/phap-ly-vinhomes-hai-van-bay/",
     "anchor": "Pháp lý Vinhomes Hải Vân Bay đã có gì? Đủ điều kiện bán hàng chưa?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-hai-van-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-hai-van-bay/",
     "anchor": "Giá bán Vinhomes Hải Vân Bay & CSBH cập nhật T5/2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/bai-viet-vinhomes-green-city/",
     "anchor": "Bài viết về Vinhomes GREEN CITY",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-green-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-green-city/",
     "anchor": "Giá Bán Vinhomes Green City & CSBH - Cập nhật mới T8",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/shophouse-vinhomes-green-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/shophouse-vinhomes-green-city/",
     "anchor": "Shophouse Vinhomes Green City - Giá bán & Đánh giá từ chuyên gia",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/nha-pho-vinhomes-green-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/nha-pho-vinhomes-green-city/",
     "anchor": "Nhà phố Vinhomes Green City - Giá bán & Đánh giá từ chuyên gia",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-tri-gia-tang-vinhomes-green-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-tri-gia-tang-vinhomes-green-city/",
     "anchor": "Giá trị gia tăng của Vinhomes Green City đến từ đâu?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-green-city-co-phu-hop-de-an-duong-tuoi-gia/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-green-city-co-phu-hop-de-an-duong-tuoi-gia/",
     "anchor": "Vinhomes Green City Long An có phù hợp để an dưỡng tuổi già?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/kcn-quanh-vinhomes-green-city-tac-dong-nhu-cau-thue-o-that/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/kcn-quanh-vinhomes-green-city-tac-dong-nhu-cau-thue-o-that/",
     "anchor": "Các KCN quanh Vinhomes Green City: Tác động gì đến nhu cầu thuê & ở thật?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-green-city-cua-ngo-do-thi-moi-long-an/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-green-city-cua-ngo-do-thi-moi-long-an/",
     "anchor": "Vì sao Vinhomes Green City là “cửa ngõ đô thị mới” Long An?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vi-sao-vinhomes-green-city-diem-vao-hap-dan-tai-khu-tay-tp-hcm/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vi-sao-vinhomes-green-city-diem-vao-hap-dan-tai-khu-tay-tp-hcm/",
     "anchor": "Vì sao Vinhomes Green City là “điểm vào” hấp dẫn tại khu Tây TP.HCM",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/thi-truong-bds-long-an-vinhomes-green-city-dung-o-dau/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/thi-truong-bds-long-an-vinhomes-green-city-dung-o-dau/",
     "anchor": "Thị trường BĐS Long An 2025–2030: Vinhomes Green City đứng ở đâu?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/biet-thu-don-lap-vinhomes-green-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/biet-thu-don-lap-vinhomes-green-city/",
     "anchor": "Biệt thự đơn lập Vinhomes Green City - Giá bán & Đánh giá từ chuyên gia",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/bai-viet-vinhomes-wonder-city/",
     "anchor": "Bài viết về Vinhomes WONDER CITY",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-wonder-city-dan-phuong/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-wonder-city-dan-phuong/",
     "anchor": "Giá bán Vinhomes Wonder City & CSBH - Cập nhật T12/2025",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-wonder-city-co-phu-hop-de-dau-tu-luot-song/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-wonder-city-co-phu-hop-de-dau-tu-luot-song/",
     "anchor": "Vinhomes Wonder City có phù hợp để đầu tư lướt sóng?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tai-sao-nha-dau-tu-f0-nen-chon-vinhomes-wonder-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tai-sao-nha-dau-tu-f0-nen-chon-vinhomes-wonder-city/",
     "anchor": "Tại sao nhà đầu tư F0 nên chọn Vinhomes Wonder City?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/chinh-sach-ban-hang-vinhomes-wonder-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/chinh-sach-ban-hang-vinhomes-wonder-city/",
     "anchor": "Chính sách bán hàng Vinhomes Wonder City 2025 có tốt không?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-wonder-city-co-phai-la-lua-chon-dung-cho-gia-dinh-tre/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-wonder-city-co-phai-la-lua-chon-dung-cho-gia-dinh-tre/",
     "anchor": "Vinhomes Wonder City có phải là lựa chọn đúng cho gia đình trẻ?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/kha-nang-thanh-khoan-vinhomes-wonder-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/kha-nang-thanh-khoan-vinhomes-wonder-city/",
     "anchor": "Khả năng thanh khoản Vinhomes Wonder City có đáng để đầu tư dài hạn?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/co-nen-dau-tu-cho-thue-vinhomes-wonder-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/co-nen-dau-tu-cho-thue-vinhomes-wonder-city/",
     "anchor": "Có nên đầu tư cho thuê Vinhomes Wonder City? Tỷ lệ lấp đầy có đáng lo?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tiem-nang-sinh-loi-vinhomes-wonder-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tiem-nang-sinh-loi-vinhomes-wonder-city/",
     "anchor": "Tiềm năng sinh lời Vinhomes Wonder City có thật sự tốt?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/mua-nha-vinhomes-wonder-city-khong-bao-gio-lo/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/mua-nha-vinhomes-wonder-city-khong-bao-gio-lo/",
     "anchor": "Mua nhà Vinhomes Wonder City không bao giờ lỗ? Tin được không?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/nha-dau-tu-mien-bac-dang-do-xo-mua-vinhomes-wonder-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/nha-dau-tu-mien-bac-dang-do-xo-mua-vinhomes-wonder-city/",
     "anchor": "Nhà đầu tư miền Bắc Đang Đổ Xô Mua Vinhomes Wonder City? Có Thật Không?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/bai-viet-vinhomes-ocean-park-3/",
     "anchor": "Bài viết về Vinhomes ocean park 3",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinwonders-water-park-tai-vinhomes-ocean-park-3/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinwonders-water-park-tai-vinhomes-ocean-park-3/",
     "anchor": "VinWonders Water Park tại Vinhomes Ocean Park 3 có gì chơi?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinschool-vinhomes-ocean-park-3/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinschool-vinhomes-ocean-park-3/",
     "anchor": "Vinschool Vinhomes Ocean Park 3",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-ocean-park-3-co-gi-choi/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-ocean-park-3-co-gi-choi/",
     "anchor": "Vinhomes Ocean Park 3 có gì chơi? Các địa điểm không thể bỏ qua",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/be-boi-bon-mua-vinhomes-ocean-park-3/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/be-boi-bon-mua-vinhomes-ocean-park-3/",
     "anchor": "Bể bơi bốn mùa Vinhomes Ocean Park 3 có gì đặc biệt?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vincom-mega-mall-vinhomes-ocean-park-3/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vincom-mega-mall-vinhomes-ocean-park-3/",
     "anchor": "Vincom Mega Mall Vinhomes Ocean Park 3",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/he-thong-an-ninh-tai-vinhomes-ocean-park-3/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/he-thong-an-ninh-tai-vinhomes-ocean-park-3/",
     "anchor": "Hệ thống an ninh tại Vinhomes Ocean Park 3 có gì khác biệt?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/quy-trinh-mua-nha-vinhomes-ocean-park-3/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/quy-trinh-mua-nha-vinhomes-ocean-park-3/",
     "anchor": "Quy trình mua nhà Vinhomes Ocean Park 3 chi tiết từ A-Z",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/phap-ly-du-an-vinhomes-ocean-park-3/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/phap-ly-du-an-vinhomes-ocean-park-3/",
     "anchor": "Pháp lý dự án Vinhomes Ocean Park 3 thế nào hiện tại ?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-ocean-park-3/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-ocean-park-3/",
     "anchor": "Giá bán Vinhomes Ocean Park 3 mới nhất 2025",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/kha-nang-thanh-khoan-cua-vinhomes-ocean-park-3/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/kha-nang-thanh-khoan-cua-vinhomes-ocean-park-3/",
     "anchor": "Khả năng thanh khoản bất động sản Vinhomes Ocean Park 3 thế nào?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/bai-viet-vinhomes-ocean-park-2/",
     "anchor": "Bài viết về Vinhomes ocean park 2",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/royal-wave-park-tai-vinhomes-ocean-park-2/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/royal-wave-park-tai-vinhomes-ocean-park-2/",
     "anchor": "Royal Wave Park tại Vinhomes Ocean Park 2 có gì hấp dẫn?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vincom-mega-mall-tai-vinhomes-ocean-park-2/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vincom-mega-mall-tai-vinhomes-ocean-park-2/",
     "anchor": "Vincom Mega Mall Vinhomes Ocean Park 2 đem đến giá trị gì?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/benh-vien-vinmec-tai-vinhomes-ocean-park-2/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/benh-vien-vinmec-tai-vinhomes-ocean-park-2/",
     "anchor": "Bệnh viện Vinmec tại Vinhomes Ocean Park 2 mang đến giá trị gì?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/nha-lien-ke-vinhomes-ocean-park-2/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/nha-lien-ke-vinhomes-ocean-park-2/",
     "anchor": "Nhà liền kề Vinhomes Ocean Park 2 - Giá bán & Phân tích",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/quan-cafe-dep-tai-vinhomes-ocean-park-2/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/quan-cafe-dep-tai-vinhomes-ocean-park-2/",
     "anchor": "Top 5 quán cafe đẹp tại Vinhomes Ocean Park 2 không thể bỏ qua",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/quan-an-ngon-tai-vinhomes-ocean-park-2/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/quan-an-ngon-tai-vinhomes-ocean-park-2/",
     "anchor": "Điểm danh 5 quán ăn ngon tại Vinhomes Ocean Park 2",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/diem-yeu-cua-khu-do-thi-vinhomes-ocean-park-2/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/diem-yeu-cua-khu-do-thi-vinhomes-ocean-park-2/",
     "anchor": "Các điểm yếu của khu đô thị Vinhomes Ocean Park 2",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/well-group-doi-tac-y-te-cua-vinhomes-ocean-park-2/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/well-group-doi-tac-y-te-cua-vinhomes-ocean-park-2/",
     "anchor": "Well Group đối tác y tế chiến lược của Vinhomes Ocean Park 2",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-ocean-park-2/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-ocean-park-2/",
     "anchor": "Giá bán Vinhomes Ocean Park 2: Cập nhật chi tiết & Ưu đãi 2025",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/nhung-dia-diem-check-in-tai-vinhomes-ocean-park-2/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/nhung-dia-diem-check-in-tai-vinhomes-ocean-park-2/",
     "anchor": "Những địa điểm check-in tại Vinhomes Ocean Park 2 không thể bỏ lỡ",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/bai-viet-vinhomes-ocean-park/",
     "anchor": "Bài viết về Vinhomes Ocean Park",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/khu-vui-choi-tre-em-tai-vinhomes-ocean-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/khu-vui-choi-tre-em-tai-vinhomes-ocean-park/",
     "anchor": "Các khu vui chơi trẻ em tại Vinhomes Ocean Park có những gì ?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/nhung-dia-diem-check-in-tai-vinhomes-ocean-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/nhung-dia-diem-check-in-tai-vinhomes-ocean-park/",
     "anchor": "Những địa điểm checking không thể bỏ qua tại Vinhomes Ocean Park",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/bien-ho-ngoc-trai-vinhomes-ocean-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/bien-ho-ngoc-trai-vinhomes-ocean-park/",
     "anchor": "Biển hồ Ngọc Trai Vinhomes Ocean Park có gì? Đem lại giá trị gì?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinschool-vinhomes-ocean-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinschool-vinhomes-ocean-park/",
     "anchor": "Vinschool Vinhomes Ocean Park: Học phí - Chương trình học",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/cat-lo-tai-vinhomes-ocean-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/cat-lo-tai-vinhomes-ocean-park/",
     "anchor": "Tình trạng cắt lỗ tại Vinhomes Ocean Park như thế nào?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vi-sao-nha-dau-tu-nuoc-ngoai-lua-chon-vinhomes-ocean-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vi-sao-nha-dau-tu-nuoc-ngoai-lua-chon-vinhomes-ocean-park/",
     "anchor": "Vì sao nhà đầu tư nước ngoài đổ dồn về Vinhomes Ocean Park?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/phan-tich-chi-phi-dau-tu-vao-vinhomes-ocean-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/phan-tich-chi-phi-dau-tu-vao-vinhomes-ocean-park/",
     "anchor": "Phân tích chi phí đầu tư vào Vinhomes Ocean Park thế nào ?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/loi-nhuan-cho-thue-tai-vinhomes-ocean-park-the-nao/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/loi-nhuan-cho-thue-tai-vinhomes-ocean-park-the-nao/",
     "anchor": "Lợi nhuận cho thuê tại Vinhomes Ocean Park thế nào?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/so-sanh-vinhomes-ocean-park-voi-cac-du-an-khac/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/so-sanh-vinhomes-ocean-park-voi-cac-du-an-khac/",
     "anchor": "So sánh Vinhomes Ocean Park với các dự án khác",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/chat-luong-ban-giao-vinhomes-ocean-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/chat-luong-ban-giao-vinhomes-ocean-park/",
     "anchor": "Chất lượng bàn giao tại Vinhomes Ocean Park thế nào",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/bai-viet-vinhomes-royal-island/",
     "anchor": "Bài viết về Vinhomes ROYAL ISLAND",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/danh-gia-thi-truong-bds-hai-phong-co-hoi-vinhomes-royal-island/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/danh-gia-thi-truong-bds-hai-phong-co-hoi-vinhomes-royal-island/",
     "anchor": "Đánh giá thị trường BĐS Hải Phòng: Cơ hội Vinhomes Royal Island",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tiem-nang-cho-thue-tai-vinhomes-royal-island/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tiem-nang-cho-thue-tai-vinhomes-royal-island/",
     "anchor": "Tiềm năng cho thuê tại Vinhomes Royal Island ra sao?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tiem-nang-phat-trien-du-lich-tai-vinhomes-royal-island/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tiem-nang-phat-trien-du-lich-tai-vinhomes-royal-island/",
     "anchor": "Tiềm năng phát triển du lịch tại Vinhomes Royal Island ra sao?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/hoc-vien-cuoi-ngua-hoang-gia-tai-vinhomes-royal-island/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/hoc-vien-cuoi-ngua-hoang-gia-tai-vinhomes-royal-island/",
     "anchor": "Học viện cưỡi ngựa Hoàng gia tại Vinhomes Royal Island có gì?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinmec-tai-vinhomes-royal-island/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinmec-tai-vinhomes-royal-island/",
     "anchor": "Vinmec tại Vinhomes Royal Island đem lại giá trị gì cho cư dân ?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/thap-mat-troi-san-khau-nhac-nuoc-tai-vinhomes-royal-island/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/thap-mat-troi-san-khau-nhac-nuoc-tai-vinhomes-royal-island/",
     "anchor": "Tháp mặt trời và sân khấu nhạc nước tại Vinhomes Royal Island có gì?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/quang-truong-chau-au-tai-vinhomes-royal-island/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/quang-truong-chau-au-tai-vinhomes-royal-island/",
     "anchor": "Quảng trường Châu Âu tại Vinhomes Royal Island có gì? Giá trị mang lại?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/cong-vien-van-hoa-han-quoc-tai-vinhomes-royal-island/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/cong-vien-van-hoa-han-quoc-tai-vinhomes-royal-island/",
     "anchor": "Công viên văn hóa Hàn Quốc tại Vinhomes Royal Island có gì?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinschool-tai-vinhomes-royal-island/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinschool-tai-vinhomes-royal-island/",
     "anchor": "Vinschool tại Vinhomes Royal Island: Chương trình học & Học phí",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/trung-tam-hanh-chinh-moi-hai-phong-co-hoi-cho-vinhomes-royal-island/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/trung-tam-hanh-chinh-moi-hai-phong-co-hoi-cho-vinhomes-royal-island/",
     "anchor": "Trung tâm hành chính mới Hải Phòng cơ hội cho Vinhomes Royal Island",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/bai-viet-vinhomes-global-gate/",
     "anchor": "Bài viết về Vinhomes Global Gate Cổ Loa",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vincom-mega-mall-vinhomes-co-loa/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vincom-mega-mall-vinhomes-co-loa/",
     "anchor": "Vincom Mega Mall Vinhomes Cổ Loa có gì hấp dẫn ?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-co-loa/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-co-loa/",
     "anchor": "Giá bán Vinhomes Cổ Loa bao nhiêu? Cập nhật mới nhất 2025",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/chung-cu-vinhomes-global-gate-co-loa/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/chung-cu-vinhomes-global-gate-co-loa/",
     "anchor": "Chung cư Vinhomes Global Gate Cổ Loa",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tien-do-vinhomes-co-loa/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tien-do-vinhomes-co-loa/",
     "anchor": "Cập nhật tiến độ Vinhomes Cổ Loa 2025: Những hình ảnh mới nhất",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/shophouse-vinhomes-co-loa/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/shophouse-vinhomes-co-loa/",
     "anchor": "Shophouse Vinhomes Cổ Loa",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/he-thong-an-ninh-tai-vinhomes-co-loa/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/he-thong-an-ninh-tai-vinhomes-co-loa/",
     "anchor": "Hệ thống an ninh tai Vinhomes Cổ Loa có gì đặc biệt?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/loi-ich-dau-tu-vao-vinhomes-co-loa/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/loi-ich-dau-tu-vao-vinhomes-co-loa/",
     "anchor": "Lợi ích đầu tư vào Vinhomes Cổ Loa: Tiềm năng tăng giá cao",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/biet-thu-tu-lap-vinhomes-global-gate-co-loa/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/biet-thu-tu-lap-vinhomes-global-gate-co-loa/",
     "anchor": "Biệt thự tứ lập Vinhomes Global Gate Cổ Loa",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/cac-loai-hinh-nha-o-tai-vinhomes-global-gate/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/cac-loai-hinh-nha-o-tai-vinhomes-global-gate/",
     "anchor": "Các loại hình nhà ở tại Vinhomes Global Gate",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tien-ich-vinhomes-co-loa/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tien-ich-vinhomes-co-loa/",
     "anchor": "Tiện ích Vinhomes Cổ Loa có gì? Mang đến gì cho cư dân?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/bai-viet-vinhomes-grand-park/",
     "anchor": "Bài viết về Vinhomes Grand Park",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinwonders-tai-vinhomes-grand-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinwonders-tai-vinhomes-grand-park/",
     "anchor": "VinWonders tại Vinhomes Grand Park: Giá vé & Các hoạt động",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/truong-vinschool-tai-vinhomes-grand-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/truong-vinschool-tai-vinhomes-grand-park/",
     "anchor": "Trường Vinschool tại Vinhomes Grand Park: Học phí & chương trình học",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/cat-lo-tai-vinhomes-grand-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/cat-lo-tai-vinhomes-grand-park/",
     "anchor": "Cắt lỗ tại Vinhomes Grand Park vì sao bị và đã tăng mạnh lại chưa từ 2024 ?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tai-sao-vinhomes-grand-park-phu-hop-cho-gia-dinh-tre/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tai-sao-vinhomes-grand-park-phu-hop-cho-gia-dinh-tre/",
     "anchor": "Tại sao Vinhomes Grand Park rất phù hợp cho các gia đình trẻ",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/diem-yeu-khu-do-thi-vinhomes-grand-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/diem-yeu-khu-do-thi-vinhomes-grand-park/",
     "anchor": "Các điểm yếu của khu đô thị Vinhomes Grand Park",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/danh-gia-rui-ro-dau-tu-vao-vinhomes-grand-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/danh-gia-rui-ro-dau-tu-vao-vinhomes-grand-park/",
     "anchor": "Đánh giá rủi ro đầu tư vào Vinhomes Grand Park: Điều cần biết",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/kha-nang-thanh-khoan-bat-dong-san-vinhomes-grand-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/kha-nang-thanh-khoan-bat-dong-san-vinhomes-grand-park/",
     "anchor": "Khả năng thanh khoản bất động sản Vinhomes Grand Park từ 2024",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/ha-tang-giao-thong-tai-vinhomes-grand-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/ha-tang-giao-thong-tai-vinhomes-grand-park/",
     "anchor": "Hạ tầng giao thông tại Vinhomes Grand Park và tác động đến BĐS",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tac-dong-cua-dan-so-den-gia-vinhomes-grand-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tac-dong-cua-dan-so-den-gia-vinhomes-grand-park/",
     "anchor": "Tác động của dân số đến giá Vinhomes Grand Park và cơ hội đầu tư",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vi-sao-nha-dau-tu-nuoc-ngoai-chon-vinhomes-grand-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vi-sao-nha-dau-tu-nuoc-ngoai-chon-vinhomes-grand-park/",
     "anchor": "Vì sao nhà đầu tư nước ngoài chọn Vinhomes Grand Park?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/bai-viet-vinhomes-golden-river/",
     "anchor": "Bài viết về Vinhomes Golden River",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/can-ho-1-phong-ngu-tai-vinhomes-golden-river/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/can-ho-1-phong-ngu-tai-vinhomes-golden-river/",
     "anchor": "Căn hộ 1 phòng ngủ tại Vinhomes Golden River",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/he-thong-truong-hoc-tai-vinhomes-golden-river/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/he-thong-truong-hoc-tai-vinhomes-golden-river/",
     "anchor": "Hệ thống trường học tại Vinhomes Golden River",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-golden-river/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/gia-ban-vinhomes-golden-river/",
     "anchor": "Giá bán Vinhomes Golden River 2024: Chi tiết và cập nhật mới",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/co-nen-mua-vinhomes-golden-river/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/co-nen-mua-vinhomes-golden-river/",
     "anchor": "Có nên mua Vinhomes Golden River không? Đánh giá từ chuyên gia",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vi-tri-vinhomes-golden-river/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vi-tri-vinhomes-golden-river/",
     "anchor": "Vị trí Vinhomes Golden River ở đâu? Đánh giá ưu nhược điểm",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/dac-quyen-danh-cho-cu-dan-tai-vinhomes-golden-river/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/dac-quyen-danh-cho-cu-dan-tai-vinhomes-golden-river/",
     "anchor": "Đặc quyền đẳng cấp dành cho cư dân tại Vinhomes Golden River",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/moi-truong-song-tai-vinhomes-golden-river/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/moi-truong-song-tai-vinhomes-golden-river/",
     "anchor": "Khám phá môi trường sống chất lượng tại Vinhomes Golden River",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/he-thong-an-ninh-4-lop-tai-vinhomes-golden-river/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/he-thong-an-ninh-4-lop-tai-vinhomes-golden-river/",
     "anchor": "Hệ thống an ninh 4 lớp tại Vinhomes Golden River có gì khác biệt",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/khu-vui-choi-tre-em-tai-vinhomes-golden-river/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/khu-vui-choi-tre-em-tai-vinhomes-golden-river/",
     "anchor": "Khám phá khu vui chơi trẻ em tại Vinhomes Golden River",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tien-ich-ngoai-troi-tai-vinhomes-golden-river/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/tien-ich-ngoai-troi-tai-vinhomes-golden-river/",
     "anchor": "Khám phá tiện ích ngoài trời tại Vinhomes Golden River",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/bai-viet-vinhomes-smart-city/",
     "anchor": "Bài viết về Vinhomes Smart City",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vi-tri-vinhomes-smart-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vi-tri-vinhomes-smart-city/",
     "anchor": "Vị trí Vinhomes Smart City ở đâu? Kết nối ra sao?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/bien-nhan-tao-vinhome-smart-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/bien-nhan-tao-vinhome-smart-city/",
     "anchor": "Khám phá biển nhân tạo Vinhome Smart City và giá vé 2025",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/he-thong-nang-luong-mat-troi-tai-vinhomes-smart-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/he-thong-nang-luong-mat-troi-tai-vinhomes-smart-city/",
     "anchor": "Hệ thống năng lượng mặt trời tại Vinhomes Smart City",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/hop-tac-gic-singapore-tai-the-canopy-residences-vinhomes-smart-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/hop-tac-gic-singapore-tai-the-canopy-residences-vinhomes-smart-city/",
     "anchor": "Hợp tác với GIC Singapore tại The Canopy Residences Vinhomes Smart City",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/thiet-ke-kien-truc-cua-vinhomes-smart-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/thiet-ke-kien-truc-cua-vinhomes-smart-city/",
     "anchor": "Đánh giá thiết kế kiến trúc hiện đại của Vinhomes Smart City",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/he-thong-phuong-tien-cong-cong-tai-vinhomes-smart-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/he-thong-phuong-tien-cong-cong-tai-vinhomes-smart-city/",
     "anchor": "Hệ thống phương tiện công cộng tiện lợi tại Vinhomes Smart City",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/thiet-ke-can-ho-vinhomes-smart-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/thiet-ke-can-ho-vinhomes-smart-city/",
     "anchor": "Thiết kế căn hộ Vinhomes Smart City tối ưu không gian sống",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/cac-loai-hinh-can-ho-tai-vinhomes-smart-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/cac-loai-hinh-can-ho-tai-vinhomes-smart-city/",
     "anchor": "Các loại hình căn hộ đa dạng tại Vinhomes Smart City",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/khu-van-phong-tai-vinhomes-smart-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/khu-van-phong-tai-vinhomes-smart-city/",
     "anchor": "Khu văn phòng hiện đại và tiện nghi tại Vinhomes Smart City",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-smart-city-ung-dung-cong-nghe-thong-minh/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://vinhomebysalereal.vn/vinhomes-smart-city-ung-dung-cong-nghe-thong-minh/",
     "anchor": "Vinhomes Smart City ứng dụng công nghệ thông minh đỉnh cao",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
@@ -19250,7 +19250,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "http://vinhomebysalereal.vn/chinh-sach-bao-mat/",
@@ -19430,7 +19430,7 @@
     "liên hệ VINHOMES BY SALEREAL"
    ]
   ],
-  "words": 5,
+  "words": 52,
   "schema": [],
   "links": [
    {
@@ -19532,7 +19532,7 @@
    {
     "to": "https://vinhomebysalereal.vn/",
     "anchor": "https://vinhomebysalereal.vn/",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
@@ -19554,7 +19554,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "http://vinhomebysalereal.vn/gioi-thieu/",
@@ -19614,7 +19614,7 @@
     "Ban lãnh đạo SALEREAL"
    ]
   ],
-  "words": 5,
+  "words": 2353,
   "schema": [],
   "links": [
    {
@@ -19738,7 +19738,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "http://vinhomebysalereal.vn/dieu-khoan-su-dung/",

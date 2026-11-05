@@ -9734,7 +9734,7 @@
     "Tôi là Lưu Trung Quân - CEO của SaleReal - Sàn môi giớI chiến lược Masterise Homes."
    ]
   ],
-  "words": 13,
+  "words": 2401,
   "schema": [
    "Article",
    "BreadcrumbList",
@@ -9867,19 +9867,19 @@
    {
     "to": "https://masterisehomesbysalereal.vn/the-global-city/",
     "anchor": "The Global City",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": "noopener"
    },
    {
     "to": "https://masterisehomesbysalereal.vn/",
     "anchor": "Masterise Homes",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": "noopener"
    },
    {
     "to": "https://masterisehomesbysalereal.vn/nha-pho-shophouse-soho/",
     "anchor": "Nhà phố Soho",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
@@ -9891,7 +9891,7 @@
    {
     "to": "https://masterisehomesbysalereal.vn/lumiere-midtown/",
     "anchor": "Lumiere Midtown",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
@@ -9903,7 +9903,7 @@
    {
     "to": "https://masterisehomesbysalereal.vn/masteri-grand-view/",
     "anchor": "Masteri Grand View",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
@@ -9937,7 +9937,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "https://masterisehomesbysalereal.vn/nha-pho-shophouse-soho/",
@@ -10009,7 +10009,7 @@
     "Tôi là Lưu Trung Quân - CEO của SaleReal - Sàn môi giớI chiến lược Masterise Homes."
    ]
   ],
-  "words": 14,
+  "words": 2469,
   "schema": [
    "(JSON-LD lỗi)",
    "BreadcrumbList",
@@ -10134,25 +10134,25 @@
    {
     "to": "https://masterisehomesbysalereal.vn/the-global-city/",
     "anchor": "The Global City",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": "noopener"
    },
    {
     "to": "https://masterisehomesbysalereal.vn/",
     "anchor": "Masterise Homes",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": "noopener"
    },
    {
     "to": "https://masterisehomesbysalereal.vn/nha-pho-the-global-city/",
     "anchor": "Nhà phố The Global City",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": "noopener"
    },
    {
     "to": "https://masterisehomesbysalereal.vn/masteri-grand-view/",
     "anchor": "Masteri Grand View",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
@@ -10164,7 +10164,7 @@
    {
     "to": "https://masterisehomesbysalereal.vn/villa-sola/",
     "anchor": "Villa Sola",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
@@ -10176,7 +10176,7 @@
    {
     "to": "https://masterisehomesbysalereal.vn/lumiere-midtown/",
     "anchor": "Lumiere Midtown",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
@@ -10210,7 +10210,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "https://masterisehomesbysalereal.vn/thi-truong-cho-thue-can-ho-tai-lumiere-evergreen/",
@@ -13687,7 +13687,7 @@
     "Tôi là Lưu Trung Quân - CEO của SaleReal - Đại lý chiến lược Masterise Homes"
    ]
   ],
-  "words": 13,
+  "words": 2129,
   "schema": [
    "(JSON-LD lỗi)",
    "BreadcrumbList",
@@ -13812,43 +13812,43 @@
    {
     "to": "https://masterisehomesbysalereal.vn/lumiere-evergreen/",
     "anchor": "Lumiere Evergreen",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": "noopener"
    },
    {
     "to": "https://masterisehomesbysalereal.vn/",
     "anchor": "Masterise Homes",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": "noopener"
    },
    {
     "to": "https://masterisehomesbysalereal.vn/toa-the-atmos/",
     "anchor": "Tòa The Atmos",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/co-nen-dau-tu-lumiere-evergreen/",
     "anchor": "Có nên đầu tư Lumiere Evergreen giai đoạn này? Đánh giá chuyên gia",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-lumiere-evergreen/",
     "anchor": "Cập nhật tiến độ Lumiere Evergreen mới nhất 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/gia-ban-lumiere-evergreen/",
     "anchor": "Giá bán Lumiere Evergreen mới nhất 2026 kèm phân tích, so sánh",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/so-sanh-lumiere-evergreen-voi-cac-du-an-khac/",
     "anchor": "So sánh Lumiere Evergreen với 2 dự án ăn khách nhất thị trường",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
@@ -13876,7 +13876,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "https://masterisehomesbysalereal.vn/toa-the-atmos/",
@@ -13940,7 +13940,7 @@
     "Tôi là Lưu Trung Quân - CEO của SaleReal - Đại lý chiến lược Masterise Homes"
    ]
   ],
-  "words": 13,
+  "words": 2074,
   "schema": [
    "(JSON-LD lỗi)",
    "BreadcrumbList",
@@ -14065,43 +14065,43 @@
    {
     "to": "https://masterisehomesbysalereal.vn/lumiere-evergreen/",
     "anchor": "Lumiere Evergreen",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": "noopener"
    },
    {
     "to": "https://masterisehomesbysalereal.vn/",
     "anchor": "Masterise Homes",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": "noopener"
    },
    {
     "to": "https://masterisehomesbysalereal.vn/toa-the-aura/",
     "anchor": "Tòa The Aura",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/gia-ban-lumiere-evergreen/",
     "anchor": "Giá bán Lumiere Evergreen mới nhất 2026 kèm phân tích, so sánh",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/co-nen-dau-tu-lumiere-evergreen/",
     "anchor": "Có nên đầu tư Lumiere Evergreen giai đoạn này? Đánh giá chuyên gia",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-lumiere-evergreen/",
     "anchor": "Cập nhật tiến độ Lumiere Evergreen mới nhất 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/kinh-nghiem-mua-lumiere-evergreen/",
     "anchor": "Kinh nghiệm mua Lumiere Evergreen từ chuyên gia 14 năm",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
@@ -14129,7 +14129,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "https://masterisehomesbysalereal.vn/tinh-thanh-khoan-cua-lumiere-evergreen/",
@@ -20156,7 +20156,7 @@
     "ĐĂNG KÝ NHẬN TƯ VẤN TỪ MBYSR"
    ]
   ],
-  "words": 5,
+  "words": 1898,
   "schema": [
    "ContactPoint",
    "DefinedTerm",
@@ -20281,331 +20281,331 @@
    {
     "to": "https://masterisehomesbysalereal.vn/the-global-city/",
     "anchor": "The global city",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/the-global-city/",
     "anchor": "Tham khảo dự án",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/lumiere-spring-bay/",
     "anchor": "LUMIERE SPRING BAY",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/lumiere-spring-bay/",
     "anchor": "tham khảo dự án",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/lumiere-evergreen/",
     "anchor": "lumiere evergreen",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/lumiere-evergreen/",
     "anchor": "tham khảo dự án",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/lumiere-spring-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/lumiere-spring-bay/",
     "anchor": "Lumiere Spring Bay",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/lumiere-spring-bay/",
     "anchor": "TÌM HIỂU THÊM",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/the-centric/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/the-centric/",
     "anchor": "The Centric",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/the-centric/",
     "anchor": "TÌM HIỂU THÊM",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/lumiere-evergreen/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/lumiere-evergreen/",
     "anchor": "Lumiere Evergreen",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/lumiere-evergreen/",
     "anchor": "TÌM HIỂU THÊM",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/masteri-west-heights/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/masteri-west-heights/",
     "anchor": "Masteri West Heights",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/masteri-west-heights/",
     "anchor": "TÌM HIỂU THÊM",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/masteri-grand-view/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/masteri-grand-view/",
     "anchor": "Masteri Grand View",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/masteri-grand-view/",
     "anchor": "TÌM HIỂU THÊM",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/lumiere-midtown/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/lumiere-midtown/",
     "anchor": "Lumiere Midtown",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/lumiere-midtown/",
     "anchor": "TÌM HIỂU THÊM",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-the-centric/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-the-centric/",
     "anchor": "Tiến độ The Centric cập nhật mới nhất 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/ly-do-nen-chon-mua-nha-masterise-homes/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/ly-do-nen-chon-mua-nha-masterise-homes/",
     "anchor": "7 Lý do nên chọn mua nhà Masterise Homes từ CEO SaleReal",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-lumiere-evergreen/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-lumiere-evergreen/",
     "anchor": "Cập nhật tiến độ Lumiere Evergreen mới nhất 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/gia-ban-lumiere-spring-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/gia-ban-lumiere-spring-bay/",
     "anchor": "Giá bán Lumiere Spring Bay cập nhật mới nhất 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/du-an-da-hoan-thien-cua-masterise-homes/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/du-an-da-hoan-thien-cua-masterise-homes/",
     "anchor": "Tổng hợp 12 dự án đã hoàn thiện của Masterise Homes cho ai chưa biết?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-lumiere-spring-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-lumiere-spring-bay/",
     "anchor": "Tiến độ Lumiere Spring Bay đã đến đâu? Hình ảnh mới nhất 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/chat-luong-hoan-thien-du-an-masterise-homes/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/chat-luong-hoan-thien-du-an-masterise-homes/",
     "anchor": "Chất lượng hoàn thiện dự án Masterise Homes",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-lumiere-boulevard/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-lumiere-boulevard/",
     "anchor": "Cập nhật tiến độ Lumiere Boulevard mới nhất 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-the-global-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-the-global-city/",
     "anchor": "Tiến độ The Global City đã đến đâu? Hình ảnh mới 1/2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/loi-khuyen-dau-tu-shoptique-the-centric/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/loi-khuyen-dau-tu-shoptique-the-centric/",
     "anchor": "Lời khuyên đầu tư Shoptique The Centric của chuyên gia",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-masteri-west-heights/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-masteri-west-heights/",
     "anchor": "Tiến độ Masteri West Heights cập nhật mới nhất 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tiem-nang-sinh-loi-tai-the-global-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tiem-nang-sinh-loi-tai-the-global-city/",
     "anchor": "Tiềm năng sinh lời tại The Global City",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/danh-gia-tinh-thanh-khoan-cua-the-centric/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/danh-gia-tinh-thanh-khoan-cua-the-centric/",
     "anchor": "Đánh giá tính thanh khoản của The Centric từ chuyên gia",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/co-nen-dau-tu-the-global-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/co-nen-dau-tu-the-global-city/",
     "anchor": "Có nên đầu tư The Global City không? Phân tích chuyên gia",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/gia-ban-lumiere-evergreen/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/gia-ban-lumiere-evergreen/",
     "anchor": "Giá bán Lumiere Evergreen mới nhất 2026 kèm phân tích, so sánh",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/blog/",
     "anchor": "XEM TẤT CẢ BÀI VIẾT",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
@@ -20633,7 +20633,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "https://masterisehomesbysalereal.vn/gioi-thieu/",
@@ -20697,7 +20697,7 @@
     "Ban lãnh đạo SALEREAL"
    ]
   ],
-  "words": 6,
+  "words": 2857,
   "schema": [
    "AboutPage",
    "ContactPoint",
@@ -20840,7 +20840,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "https://masterisehomesbysalereal.vn/blog/",
@@ -20904,7 +20904,7 @@
     "Bài viết về The Rivus Elie Saab"
    ]
   ],
-  "words": 5,
+  "words": 3965,
   "schema": [],
   "links": [
    {
@@ -21006,1513 +21006,1513 @@
    {
     "to": "https://masterisehomesbysalereal.vn/bai-viet-masterise-homes/",
     "anchor": "Bài viết về chủ đầu tư Masterise homes",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/quy-trinh-nhan-nha-masterise-homes/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/quy-trinh-nhan-nha-masterise-homes/",
     "anchor": "Quy trình nhận nhà Masterise Homes",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/du-an-da-hoan-thien-cua-masterise-homes/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/du-an-da-hoan-thien-cua-masterise-homes/",
     "anchor": "Tổng hợp 12 dự án đã hoàn thiện của Masterise Homes cho ai chưa biết?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/ho-tro-vay-von-mua-nha-masterise-homes/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/ho-tro-vay-von-mua-nha-masterise-homes/",
     "anchor": "Hỗ trợ vay vốn mua nhà Masterise Homes",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/dich-vu-khach-hang-cua-masterise-homes/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/dich-vu-khach-hang-cua-masterise-homes/",
     "anchor": "Dịch vụ khách hàng của Masterise Homes",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/thu-tuc-mua-ban-nha-masterise-homes/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/thu-tuc-mua-ban-nha-masterise-homes/",
     "anchor": "Thủ tục mua bán nhà Masterise Homes",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/danh-gia-uy-tin-cua-masterise-homes/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/danh-gia-uy-tin-cua-masterise-homes/",
     "anchor": "Đánh giá uy tín của Masterise Homes từ chuyên gia 14 năm kinh nghiệm",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/diem-khac-giua-can-ho-hang-hieu-va-can-ho-cao-cap/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/diem-khac-giua-can-ho-hang-hieu-va-can-ho-cao-cap/",
     "anchor": "Bật mí điểm khác biệt giữa căn hộ hàng hiệu và căn hộ cao cấp",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/chat-luong-hoan-thien-du-an-masterise-homes/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/chat-luong-hoan-thien-du-an-masterise-homes/",
     "anchor": "Chất lượng hoàn thiện dự án Masterise Homes",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/bao-hanh-va-bao-tri-nha-masterise-homes/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/bao-hanh-va-bao-tri-nha-masterise-homes/",
     "anchor": "Bảo hành và bảo trì nhà Masterise Homes",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/huong-dan-mua-nha-du-an-masterise-homes/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/huong-dan-mua-nha-du-an-masterise-homes/",
     "anchor": "Hướng dẫn cho ngưới mới mua nhà dự án Masterise Homes",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/bai-viet-lumiere-spring-bay/",
     "anchor": "Bài viết về LUMIERE SPRING BAY",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-lumiere-spring-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-lumiere-spring-bay/",
     "anchor": "Tiến độ Lumiere Spring Bay đã đến đâu? Hình ảnh mới nhất 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-ich-lumiere-spring-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-ich-lumiere-spring-bay/",
     "anchor": "Tiện ích Lumiere Spring Bay có gì vượt trội và khác biệt?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/san-go-cao-cap-tai-lumiere-spring-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/san-go-cao-cap-tai-lumiere-spring-bay/",
     "anchor": "Sàn gỗ cao cấp bàn giao tại Lumiere Spring Bay: Chất lượng và thẩm mỹ",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/gia-dinh-tre-co-nen-mua-lumiere-spring-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/gia-dinh-tre-co-nen-mua-lumiere-spring-bay/",
     "anchor": "Gia đình trẻ có nên mua chung cư Lumiere Spring Bay để ở không?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/vi-tri-lumiere-spring-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/vi-tri-lumiere-spring-bay/",
     "anchor": "Vị trí Lumiere Spring Bay ở đâu? Tiềm năng đầu tư ra sao?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/co-nen-dau-tu-chung-cu-lumiere-spring-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/co-nen-dau-tu-chung-cu-lumiere-spring-bay/",
     "anchor": "Có nên đầu tư chung cư Lumiere Spring Bay không?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/gia-ban-lumiere-spring-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/gia-ban-lumiere-spring-bay/",
     "anchor": "Giá bán Lumiere Spring Bay cập nhật mới nhất 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/phap-ly-du-an-lumiere-spring-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/phap-ly-du-an-lumiere-spring-bay/",
     "anchor": "Pháp lý dự án Lumiere Spring Bay hiện tại thế nào?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/little-hong-kong-va-k-town-tac-dong-gia-tri-lumiere-spring-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/little-hong-kong-va-k-town-tac-dong-gia-tri-lumiere-spring-bay/",
     "anchor": "Lumiere Spring Bay hưởng lợi từ Little Hong Kong và K-Town",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/moi-truong-song-xanh-tai-lumiere-spring-bay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/moi-truong-song-xanh-tai-lumiere-spring-bay/",
     "anchor": "Môi trường sống xanh tại Lumiere Spring Bay: Bền vững thế nào?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/bai-viet-the-global-city/",
     "anchor": "Bài viết về The Global City",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/cong-vien-city-park/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/cong-vien-city-park/",
     "anchor": "Công viên City Park Thủ Đức có gì chơi? Giá vé bao nhiêu?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/vi-tri-the-global-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/vi-tri-the-global-city/",
     "anchor": "Vị trí The Global City ở đâu? Phân tích tiềm năng từ chuyên gia",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/gia-ban-the-global-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/gia-ban-the-global-city/",
     "anchor": "Giá bán The Global City & Chính sách - Cập nhật mới nhất 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/cac-phan-khu-trong-the-global-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/cac-phan-khu-trong-the-global-city/",
     "anchor": "Các phân khu trong The Global City",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tac-dong-nut-giao-an-phu-den-gia-tri-the-global-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tac-dong-nut-giao-an-phu-den-gia-tri-the-global-city/",
     "anchor": "Tác động nút Giao An Phú đến giá trị The Global City",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/can-ho-the-global-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/can-ho-the-global-city/",
     "anchor": "Căn hộ The Global City - Giá bán & Phân tích có nên mua",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/phap-ly-the-global-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/phap-ly-the-global-city/",
     "anchor": "Pháp lý The Global City đã được hoàn thiện như thế nào?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/co-nen-dau-tu-the-global-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/co-nen-dau-tu-the-global-city/",
     "anchor": "Có nên đầu tư The Global City không? Phân tích chuyên gia",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tac-dong-cau-nam-ly-den-gia-tri-the-global-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tac-dong-cau-nam-ly-den-gia-tri-the-global-city/",
     "anchor": "Tác động của cầu Nam Lý đến giá trị The Global City ra sao?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/van-phong-ban-hang-the-global-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/van-phong-ban-hang-the-global-city/",
     "anchor": "Văn phòng bán hàng The Global City",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/bai-viet-the-centric/",
     "anchor": "Bài viết về The Centric",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/quang-truong-bac-song-cam-diem-le-hoi-va-giai-tri-ben-the-centric/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/quang-truong-bac-song-cam-diem-le-hoi-va-giai-tri-ben-the-centric/",
     "anchor": "Quảng trường Bắc Sông Cấm: Điểm lễ hội và giải trí bên The Centric",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/trung-tam-hoi-nghi-bieu-dien-hai-phong/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/trung-tam-hoi-nghi-bieu-dien-hai-phong/",
     "anchor": "Khám phá trung tâm hội nghị biểu diễn Hải Phòng cùng The Centric",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/phap-ly-va-thu-tuc-mua-ban-tai-the-centric/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/phap-ly-va-thu-tuc-mua-ban-tai-the-centric/",
     "anchor": "Pháp lý và thủ tục mua bán tại The Centric",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-the-centric/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-the-centric/",
     "anchor": "Tiến độ The Centric cập nhật mới nhất 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/gia-ban-shoptique-the-centric/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/gia-ban-shoptique-the-centric/",
     "anchor": "Giá bán The Centric - Cập nhật mới nhất 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/danh-gia-tinh-thanh-khoan-cua-the-centric/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/danh-gia-tinh-thanh-khoan-cua-the-centric/",
     "anchor": "Đánh giá tính thanh khoản của The Centric từ chuyên gia",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/loi-khuyen-dau-tu-shoptique-the-centric/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/loi-khuyen-dau-tu-shoptique-the-centric/",
     "anchor": "Lời khuyên đầu tư Shoptique The Centric của chuyên gia",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tiem-nang-phat-trien-bat-dong-san-thuy-nguyen/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tiem-nang-phat-trien-bat-dong-san-thuy-nguyen/",
     "anchor": "Phân tích tiềm năng phát triển bất động sản Thủy Nguyên",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tiem-nang-phat-trien-bat-dong-san-hai-phong/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tiem-nang-phat-trien-bat-dong-san-hai-phong/",
     "anchor": "Tiềm năng phát triển bất động sản Hải Phòng: Cơ hội đầu tư vàng",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-ich-aeon-mall-gan-the-centric/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-ich-aeon-mall-gan-the-centric/",
     "anchor": "Tiện ích AEON Mall gần The Centric: Trải nghiệm mua sắm đẳng cấp",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/bai-viet-lumiere-boulevard/",
     "anchor": "Bài viết về Lumiere Boulevard",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/quy-trinh-mua-ban-lumiere-boulevard/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/quy-trinh-mua-ban-lumiere-boulevard/",
     "anchor": "Quy trình mua bán Lumiere Boulevard",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/phuong-thuc-thanh-toan-lumiere-boulevard/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/phuong-thuc-thanh-toan-lumiere-boulevard/",
     "anchor": "Các phương thức thanh toán Lumiere Boulevard mới nhất 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/ho-tro-vay-von-mua-nha-lumiere-boulevard/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/ho-tro-vay-von-mua-nha-lumiere-boulevard/",
     "anchor": "Hỗ trợ vay vốn mua nhà Lumiere Boulevard",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/gia-ban-lumiere-boulevard/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/gia-ban-lumiere-boulevard/",
     "anchor": "Giá bán Lumiere Boulevard",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/dich-vu-cham-soc-suc-khoe-tai-lumiere-boulevard/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/dich-vu-cham-soc-suc-khoe-tai-lumiere-boulevard/",
     "anchor": "Ở Lumiere Boulevard - Khám sức khoẻ ở đâu, tiêu chuẩn thế nào ?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/cuoc-song-giua-thien-nhien-tai-lumiere-boulevard/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/cuoc-song-giua-thien-nhien-tai-lumiere-boulevard/",
     "anchor": "Trải nghiệm cuộc sống mới giữa thiên nhiên tại Lumiere Boulevard",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/co-nen-dau-tu-lumiere-boulevard/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/co-nen-dau-tu-lumiere-boulevard/",
     "anchor": "Có nên đầu tư Lumiere Boulevard",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/so-sanh-lumiere-boulevard-voi-cac-du-an-khac/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/so-sanh-lumiere-boulevard-voi-cac-du-an-khac/",
     "anchor": "So sánh Lumiere Boulevard với các dự án khác",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/chat-luong-ban-giao-cua-lumiere-boulevard/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/chat-luong-ban-giao-cua-lumiere-boulevard/",
     "anchor": "Chất lượng bàn giao của Lumiere Boulevard",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tan-huong-tuoi-nghi-huu-tai-lumiere-boulevard/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tan-huong-tuoi-nghi-huu-tai-lumiere-boulevard/",
     "anchor": "Nơi tận hưởng tuổi nghỉ hưu an yên và khỏe mạnh Lumiere Boulevard",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/bai-viet-masteri-centre-point/",
     "anchor": "Bài viết về Masteri Centre Point",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/central-don-vi-xay-dung-cua-masteri-centre-point/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/central-don-vi-xay-dung-cua-masteri-centre-point/",
     "anchor": "Central đơn vị xây dựng uy tín của Masteri Centre Point",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/thiet-ke-noi-that-masteri-centre-point/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/thiet-ke-noi-that-masteri-centre-point/",
     "anchor": "Tại sao thiết kế nội thất Masteri Centre Point được đánh giá cao?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/cua-kinh-fullheight-tai-masteri-centre-point/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/cua-kinh-fullheight-tai-masteri-centre-point/",
     "anchor": "Cửa kính Fullheight tại Masteri Centre Point tạo nên sự khác biệt",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/thiet-ke-futuristic-tai-masteri-centre-point/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/thiet-ke-futuristic-tai-masteri-centre-point/",
     "anchor": "Phong cách thiết kế Futuristic tại Masteri Centre Point",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/ha-tang-giao-thong-xung-quanh-masteri-centre-point/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/ha-tang-giao-thong-xung-quanh-masteri-centre-point/",
     "anchor": "Hạ tầng giao thông xung quanh Masteri Centre Point ra sao?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/phap-ly-va-quyen-so-huu-masteri-centre-point/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/phap-ly-va-quyen-so-huu-masteri-centre-point/",
     "anchor": "Pháp lý và quyền sở hữu Masteri Centre Point",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/can-ho-duplex-san-vuon-masteri-centre-point/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/can-ho-duplex-san-vuon-masteri-centre-point/",
     "anchor": "Căn hộ duplex sân vườn Masteri Centre Point",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/shophouse-masteri-centre-point/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/shophouse-masteri-centre-point/",
     "anchor": "Shophouse Masteri Centre Point",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/phuong-thuc-thanh-toan-masteri-centre-point/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/phuong-thuc-thanh-toan-masteri-centre-point/",
     "anchor": "Các phương thức thanh toán khi mua Masteri Centre Point",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/so-sanh-masteri-centre-point-voi-cac-du-an-khac/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/so-sanh-masteri-centre-point-voi-cac-du-an-khac/",
     "anchor": "So sánh Masteri Centre Point với các dự án khác trong khu vực",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/bai-viet-grand-marina-saigon/",
     "anchor": "Bài viết về Grand Marina Saigon",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tiem-nang-sinh-loi-cua-grand-marina-saigon/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tiem-nang-sinh-loi-cua-grand-marina-saigon/",
     "anchor": "Tiềm năng sinh lời của Grand Marina Saigon",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/so-sanh-grand-marina-saigon-voi-cac-du-an-khac/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/so-sanh-grand-marina-saigon-voi-cac-du-an-khac/",
     "anchor": "So sánh Grand Marina Saigon với các dự án khác",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-grand-marina-saigon/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-grand-marina-saigon/",
     "anchor": "Cập nhật tiến độ Grand Marina Saigon mới nhất 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/dich-vu-quan-ly-tai-grand-marina-saigon/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/dich-vu-quan-ly-tai-grand-marina-saigon/",
     "anchor": "Dịch vụ quản lý chuyên nghiệp tại Grand Marina Saigon",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-ich-grand-marina-saigon/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-ich-grand-marina-saigon/",
     "anchor": "Tiện ích Grand Marina Saigon có gì đặc biệt ?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/phuong-thuc-thanh-toan-grand-marina-saigon/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/phuong-thuc-thanh-toan-grand-marina-saigon/",
     "anchor": "Phương thức thanh toán Grand Marina Saigon",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/gia-ban-grand-marina-saigon/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/gia-ban-grand-marina-saigon/",
     "anchor": "Giá bán Grand Marina Saigon",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/vi-tri-grand-marina-saigon/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/vi-tri-grand-marina-saigon/",
     "anchor": "Vị trí Grand Marina Saigon",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-ich-xung-quanh-grand-marina-saigon/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-ich-xung-quanh-grand-marina-saigon/",
     "anchor": "Tiện ích xung quanh Grand Marina Saigon",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/co-hoi-dau-tu-tai-grand-marina-saigon/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/co-hoi-dau-tu-tai-grand-marina-saigon/",
     "anchor": "Cơ hội đầu tư tại Grand Marina Saigon",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/bai-viet-lumiere-riverside/",
     "anchor": "Bài viết về Lumiere Riverside",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/shophouse-lumiere-riverside/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/shophouse-lumiere-riverside/",
     "anchor": "Shophouse Lumiere Riverside",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/co-nen-dau-tu-lumiere-riverside/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/co-nen-dau-tu-lumiere-riverside/",
     "anchor": "Có nên đầu tư Lumiere Riverside",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/vui-choi-giai-tri-cho-tre-em-tai-lumiere-riverside/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/vui-choi-giai-tri-cho-tre-em-tai-lumiere-riverside/",
     "anchor": "Hoạt động vui chơi giải trí cho trẻ em tại Lumiere Riverside",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-lumiere-riverside/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-lumiere-riverside/",
     "anchor": "Tiến độ Lumiere Riverside",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-ich-xung-quanh-lumiere-riverside/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-ich-xung-quanh-lumiere-riverside/",
     "anchor": "Tiện ích xung quanh Lumiere Riverside",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/vi-tri-lumiere-riverside/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/vi-tri-lumiere-riverside/",
     "anchor": "Vị trí Lumiere Riverside",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/loi-nhuan-dau-tu-vao-lumiere-riverside/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/loi-nhuan-dau-tu-vao-lumiere-riverside/",
     "anchor": "Lợi nhuận đầu tư vào Lumiere Riverside",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/ly-do-nen-mua-lumiere-riverside/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/ly-do-nen-mua-lumiere-riverside/",
     "anchor": "6 Lý do nên mua Lumiere Riverside không thể bỏ qua",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tiem-nang-dau-tu-lumiere-riverside/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tiem-nang-dau-tu-lumiere-riverside/",
     "anchor": "Đánh giá tiềm năng đầu tư Lumiere Riverside",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/so-sanh-lumiere-riverside-voi-cac-du-an-khac/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/so-sanh-lumiere-riverside-voi-cac-du-an-khac/",
     "anchor": "So sánh Lumiere Riverside với các dự án khác",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/bai-viet-lumiere-evergreen/",
     "anchor": "Bài viết về Lumiere Evergreen",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/phap-ly-lumiere-evergreen/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/phap-ly-lumiere-evergreen/",
     "anchor": "Pháp lý Lumiere Evergreen: An tâm với quyền sở hữu lâu dà",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/can-ho-studio-tai-lumiere-evergreen/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/can-ho-studio-tai-lumiere-evergreen/",
     "anchor": "Căn hộ studio tại Lumiere Evergreen",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/can-ho-3-phong-ngu-tai-lumiere-evergreen/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/can-ho-3-phong-ngu-tai-lumiere-evergreen/",
     "anchor": "Căn hộ 3 phòng ngủ tại Lumiere Evergreen",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/can-ho-1-phong-ngu-tai-lumiere-evergreen/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/can-ho-1-phong-ngu-tai-lumiere-evergreen/",
     "anchor": "Căn hộ 1 phòng ngủ tại Lumiere Evergreen",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/nang-tam-cuoc-song-an-duong-tai-lumiere-evergreen/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/nang-tam-cuoc-song-an-duong-tai-lumiere-evergreen/",
     "anchor": "Nâng tầm cuộc sống an dưỡng tại Lumiere Evergreen",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/nuoi-duong-tuong-lai-con-tre-tai-lumiere-evergreen/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/nuoi-duong-tuong-lai-con-tre-tai-lumiere-evergreen/",
     "anchor": "Nơi nuôi dưỡng tương lai con trẻ tại Lumiere Evergreen",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/gia-dinh-tre-co-nen-mua-lumiere-evergreen/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/gia-dinh-tre-co-nen-mua-lumiere-evergreen/",
     "anchor": "Gia đình trẻ có nên mua Lumiere Evergreen không?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/can-bang-cuoc-song-cong-viec-tai-lumiere-evergreen/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/can-bang-cuoc-song-cong-viec-tai-lumiere-evergreen/",
     "anchor": "Lumiere Evergreen bí quyết cân bằng cuộc sống - công việc hiệu quả",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/khoi-cong-du-an-lumiere-evergreen/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/khoi-cong-du-an-lumiere-evergreen/",
     "anchor": "Khởi công dự án Lumiere Evergreen: Masterise Homes gây sốt thị trường",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/khong-gian-lam-viec-cho-doanh-nhan-tai-lumiere-evergreen/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/khong-gian-lam-viec-cho-doanh-nhan-tai-lumiere-evergreen/",
     "anchor": "Không gian làm việc lý tưởng cho doanh nhân tại Lumiere Evergreen",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/bai-viet-masteri-waterfront/",
     "anchor": "Bài viết về Masteri Waterfront",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/cham-soc-suc-khoe-cho-gia-dinh-tai-masteri-waterfront/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/cham-soc-suc-khoe-cho-gia-dinh-tai-masteri-waterfront/",
     "anchor": "Chăm sóc sức khỏe cho gia đình tại Masteri Waterfront",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/noi-an-cu-ly-tuong-cho-nguoi-cao-tuoi-masteri-waterfront/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/noi-an-cu-ly-tuong-cho-nguoi-cao-tuoi-masteri-waterfront/",
     "anchor": "Nơi an cư lý tưởng cho người cao tuổi Masteri Waterfront",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/ly-do-nen-mua-masteri-waterfront/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/ly-do-nen-mua-masteri-waterfront/",
     "anchor": "Lý do nên mua Masteri Waterfront",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-ich-giai-tri-cho-nguoi-cao-tuoi-tai-masteri-waterfront/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-ich-giai-tri-cho-nguoi-cao-tuoi-tai-masteri-waterfront/",
     "anchor": "Tiện ích giải trí và thư giãn dành cho người cao tuổi tại Masteri Waterfront",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/song-xanh-va-an-toan-tai-masteri-waterfront/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/song-xanh-va-an-toan-tai-masteri-waterfront/",
     "anchor": "Sống xanh và an toàn tại Masteri Waterfront",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/co-nen-dau-tu-masteri-waterfront/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/co-nen-dau-tu-masteri-waterfront/",
     "anchor": "Có nên đầu tư Masteri Waterfront",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/chat-luong-ban-giao-cua-masteri-waterfront/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/chat-luong-ban-giao-cua-masteri-waterfront/",
     "anchor": "Chất lượng bàn giao của Masteri Waterfront thực tế thế nào ?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-masteri-waterfront/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-masteri-waterfront/",
     "anchor": "Tiến độ Masteri Waterfront cập nhật mới nhất 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-ich-masteri-waterfront/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-ich-masteri-waterfront/",
     "anchor": "Tiện ích Masteri Waterfront",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/so-sanh-masteri-waterfront-voi-cac-du-an-khac/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/so-sanh-masteri-waterfront-voi-cac-du-an-khac/",
     "anchor": "So sánh Masteri Waterfront với các dự án khác",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/bai-viet-masteri-west-heights/",
     "anchor": "Bài viết về Masteri West Heights",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/dich-vu-quan-ly-tai-masteri-west-heights/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/dich-vu-quan-ly-tai-masteri-west-heights/",
     "anchor": "Dịch vụ quản lý tại Masteri West Heights",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-ich-masteri-west-heights/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-ich-masteri-west-heights/",
     "anchor": "Tiện ích Masteri West Heights có gì? Mang đến gì cho cư dân?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/vui-choi-giai-tri-cho-tre-em-tai-masteri-west-heights/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/vui-choi-giai-tri-cho-tre-em-tai-masteri-west-heights/",
     "anchor": "Hoạt động vui chơi giải trí cho trẻ em tại Masteri West Heights",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-masteri-west-heights/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-do-masteri-west-heights/",
     "anchor": "Tiến độ Masteri West Heights cập nhật mới nhất 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/vi-tri-masteri-west-heights/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/vi-tri-masteri-west-heights/",
     "anchor": "Vị trí Masteri West Heights",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/an-toan-cho-tre-em-tai-masteri-west-heights/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/an-toan-cho-tre-em-tai-masteri-west-heights/",
     "anchor": "An toàn cho trẻ em tại Masteri West Heights",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/ly-do-nen-mua-masteri-west-heights/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/ly-do-nen-mua-masteri-west-heights/",
     "anchor": "Lý do nên mua Masteri West Heights",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/co-nen-dau-tu-masteri-west-heights/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/co-nen-dau-tu-masteri-west-heights/",
     "anchor": "Có nên đầu tư Masteri West Heights",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tiem-nang-dau-tu-cua-masteri-west-heights/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tiem-nang-dau-tu-cua-masteri-west-heights/",
     "anchor": "Đánh giá tiềm năng đầu tư Masteri West Heights từ chuyên gia 14 năm",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/phuong-thuc-thanh-toan-masteri-west-heights/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/phuong-thuc-thanh-toan-masteri-west-heights/",
     "anchor": "Phương thức thanh toán khi mua căn hộ Masteri West Heights",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/bai-viet-the-rivus-elie-saab/",
     "anchor": "Bài viết về The Rivus Elie Saab",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/ly-do-nen-chon-the-rivus-elie-saab/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/ly-do-nen-chon-the-rivus-elie-saab/",
     "anchor": "Lý do nên chọn The Rivus Elie Saab",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/ket-noi-cong-dong-nguoi-cao-tuoi-tai-the-rivus-elie-saab/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/ket-noi-cong-dong-nguoi-cao-tuoi-tai-the-rivus-elie-saab/",
     "anchor": "Kết nối cộng đồng người cao tuổi tại The Rivus Elie Saab",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/song-an-nhan-va-khoe-manh-tai-the-rivus-elie-saab/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/song-an-nhan-va-khoe-manh-tai-the-rivus-elie-saab/",
     "anchor": "Sống an nhàn và khỏe mạnh tại The Rivus Elie Saab",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/thiet-ke-the-rivus-elie-saab/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/thiet-ke-the-rivus-elie-saab/",
     "anchor": "Thiết Kế The Rivus Elie Saab: Biểu tượng sang trọng của Sài Gòn",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/so-sanh-the-rivus-elie-saab-voi-cac-du-an-khac/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/so-sanh-the-rivus-elie-saab-voi-cac-du-an-khac/",
     "anchor": "So sánh The Rivus Elie Saab với các dự án khác",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/dich-vu-cham-soc-suc-khoe-tai-the-rivus-elie-saab/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/dich-vu-cham-soc-suc-khoe-tai-the-rivus-elie-saab/",
     "anchor": "Dịch vụ chăm sóc sức khỏe tận tâm tại The Rivus Elie Saab",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/so-luong-gioi-han-cua-the-rivus-elie-saab/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/so-luong-gioi-han-cua-the-rivus-elie-saab/",
     "anchor": "Số lượng giới hạn của The Rivus Elie Saab",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-ich-the-rivus-elie-saab/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/tien-ich-the-rivus-elie-saab/",
     "anchor": "Tiện ích The Rivus Elie Saab",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/vi-tri-the-rivus-elie-saab/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/vi-tri-the-rivus-elie-saab/",
     "anchor": "Vị trí The Rivus Elie Saab ở đâu? Điểm nổi bật là gì?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/phong-thuy-tai-the-rivus-elie-saab/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://masterisehomesbysalereal.vn/phong-thuy-tai-the-rivus-elie-saab/",
     "anchor": "Phong thủy tại The Rivus Elie Saab",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
@@ -22540,7 +22540,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "https://masterisehomesbysalereal.vn/lien-he/",
@@ -22556,7 +22556,7 @@
     "liên hệ MASTERISE HOMES BY SALEREAL"
    ]
   ],
-  "words": 6,
+  "words": 51,
   "schema": [],
   "links": [
    {
@@ -22676,7 +22676,7 @@
    {
     "to": "https://masterisehomesbysalereal.vn/",
     "anchor": "https://masterisehomesbysalereal.vn",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
@@ -22698,7 +22698,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "https://masterisehomesbysalereal.vn/chinh-sach-bao-mat/",

@@ -79,9 +79,9 @@ Tổng 86 URL từ sitemap. Ngày crawl: 2026-11-05.
 | tiện ích | https://vinhomescangios.vn/vinschool-vinhomes-can-gio/ | 2013 | 5 | 6 | BlogPosting, BreadcrumbList, ContactPoint, ImageObject, ListItem, Organization, Person, PostalAddress, Project, Specialty, Thing, WebPage | 200 |
 | tiện ích | https://vinhomescangios.vn/vinmec-vinhomes-can-gio/ | 1595 | 3 | 7 | BlogPosting, BreadcrumbList, ContactPoint, ImageObject, ListItem, Organization, Person, PostalAddress, Project, Specialty, Thing, WebPage | 200 |
 | trang chủ | https://vinhomescangios.vn/ | 5704 | 14 | 17 | BreadcrumbList, ImageObject, ListItem, OpeningHoursSpecification, Organization, PostalAddress, Project, ReadAction, RealEstateAgent, Thing, WebPage, WebSite | 200 |
-| trang hệ thống | https://vinhomescangios.vn/chinh-sach-bao-mat/ | 5 | 6 | 0 |  | có thể cần JavaScript (gần như không có chữ) |
-| trang hệ thống | https://vinhomescangios.vn/lien-he/ | 6 | 1 | 0 |  | có thể cần JavaScript (gần như không có chữ) |
-| trang hệ thống | https://vinhomescangios.vn/dieu-khoan-su-dung/ | 5 | 1 | 4 |  | có thể cần JavaScript (gần như không có chữ) |
+| trang hệ thống | https://vinhomescangios.vn/chinh-sach-bao-mat/ | 671 | 6 | 0 |  | 200 |
+| trang hệ thống | https://vinhomescangios.vn/lien-he/ | 53 | 1 | 0 |  | 200 |
+| trang hệ thống | https://vinhomescangios.vn/dieu-khoan-su-dung/ | 812 | 1 | 4 |  | 200 |
 | trang hệ thống | https://vinhomescangios.vn/blog/ | 569 | 0 | 0 |  | 200 |
 | vị trí | https://vinhomescangios.vn/vi-tri-vinhomes-can-gio/ | 1631 | 3 | 6 | BlogPosting, BreadcrumbList, ContactPoint, ImageObject, ListItem, Organization, Person, PostalAddress, Project, Specialty, Thing, WebPage | 200 |
 

@@ -118,12 +118,12 @@ Tổng 421 URL từ sitemap. Ngày crawl: 2026-11-05.
 | tiện ích | http://sungroupsr.vn/cong-vien-nuoc-blanca-city/ | 1359 | 3 | 0 | BlogPosting, BreadcrumbList, ContactPoint, DefinedTerm, ImageObject, ListItem, Organization, Person, PostalAddress, Project, RealEstateAgent, Specialty, Thing, WebPage | 200 |
 | tiện ích | http://sungroupsr.vn/tien-ich-blanca-city/ | 930 | 1 | 2 | BlogPosting, BreadcrumbList, ContactPoint, DefinedTerm, ImageObject, ListItem, Organization, Person, PostalAddress, Project, RealEstateAgent, Specialty, Thing, WebPage | 200 |
 | tiện ích | http://sungroupsr.vn/cong-vien-nuoc-sun-world-ha-nam/ | 1563 | 3 | 5 | BlogPosting, BreadcrumbList, ContactPoint, Corporation, DefinedTerm, ImageObject, ListItem, Organization, Person, PostalAddress, Project, RealEstateAgent, Specialty, Thing, WebPage | 200 |
-| trang chủ | https://sungroupsr.vn/ | 12 | 10 | 3 | ContactPoint, DefinedTerm, GeoCoordinates, ImageObject, OpeningHoursSpecification, Person, PostalAddress, RealEstateAgent, Specialty, WebPage | có thể cần JavaScript (gần như không có chữ) |
+| trang chủ | https://sungroupsr.vn/ | 2052 | 10 | 3 | ContactPoint, DefinedTerm, GeoCoordinates, ImageObject, OpeningHoursSpecification, Person, PostalAddress, RealEstateAgent, Specialty, WebPage | 200 |
 | trang hệ thống | http://sungroupsr.vn/gioi-thieu/ | 2300 | 9 | 2 | AboutPage, ContactPoint, ImageObject, Organization, PostalAddress, RealEstateAgent | 200 |
-| trang hệ thống | http://sungroupsr.vn/blog/ | 2 | 12 | 0 |  | có thể cần JavaScript (gần như không có chữ) |
+| trang hệ thống | http://sungroupsr.vn/blog/ | 4727 | 12 | 0 |  | 200 |
 | trang hệ thống | http://sungroupsr.vn/chinh-sach-bao-mat/ | 630 | 6 | 0 |  | 200 |
 | trang hệ thống | http://sungroupsr.vn/dieu-khoan-su-dung/ | 816 | 5 | 0 |  | 200 |
-| trang hệ thống | http://sungroupsr.vn/lien-he/ | 3 | 1 | 0 |  | có thể cần JavaScript (gần như không có chữ) |
+| trang hệ thống | http://sungroupsr.vn/lien-he/ | 50 | 1 | 0 |  | 200 |
 | vị trí | http://sungroupsr.vn/vi-tri-charmora-city/ | 1492 | 3 | 4 | BlogPosting, BreadcrumbList, ContactPoint, DefinedTerm, ImageObject, ListItem, Organization, Person, PostalAddress, Project, RealEstateAgent, Specialty, Thing, WebPage | 200 |
 | vị trí | http://sungroupsr.vn/vi-tri-blanca-city/ | 1284 | 3 | 3 | BlogPosting, BreadcrumbList, ContactPoint, DefinedTerm, ImageObject, ListItem, Organization, Person, PostalAddress, Project, RealEstateAgent, Specialty, Thing, WebPage | 200 |
 | vị trí | http://sungroupsr.vn/vi-tri-sun-urban-city/ | 1258 | 2 | 4 | BlogPosting, BreadcrumbList, ContactPoint, DefinedTerm, ImageObject, ListItem, Organization, Person, PostalAddress, Project, RealEstateAgent, Specialty, Thing, WebPage | 200 |

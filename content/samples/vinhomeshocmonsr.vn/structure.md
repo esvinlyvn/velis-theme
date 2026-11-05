@@ -81,9 +81,9 @@ Tổng 55 URL từ sitemap. Ngày crawl: 2026-11-05.
 | tiện ích | https://vinhomeshocmonsr.vn/vinmec-vinhomes-hoc-mon/ | 1515 | 3 | 5 | BlogPosting, BreadcrumbList, ContactPoint, ImageObject, ListItem, Organization, Person, PostalAddress, Project, Specialty, Thing, WebPage | 200 |
 | tiện ích | https://vinhomeshocmonsr.vn/vinschool-vinhomes-hoc-mon/ | 1515 | 3 | 6 | BlogPosting, BreadcrumbList, ContactPoint, ImageObject, ListItem, Organization, Person, PostalAddress, Project, Specialty, Thing, WebPage | 200 |
 | trang chủ | https://vinhomeshocmonsr.vn/ | 4916 | 12 | 15 | BreadcrumbList, ImageObject, ListItem, OpeningHoursSpecification, Organization, PostalAddress, Project, ReadAction, RealEstateAgent, Thing, WebPage, WebSite | 200 |
-| trang hệ thống | https://vinhomeshocmonsr.vn/chinh-sach-bao-mat/ | 5 | 6 | 0 |  | có thể cần JavaScript (gần như không có chữ) |
-| trang hệ thống | https://vinhomeshocmonsr.vn/lien-he/ | 6 | 1 | 0 |  | có thể cần JavaScript (gần như không có chữ) |
-| trang hệ thống | https://vinhomeshocmonsr.vn/dieu-khoan-su-dung/ | 5 | 1 | 4 |  | có thể cần JavaScript (gần như không có chữ) |
+| trang hệ thống | https://vinhomeshocmonsr.vn/chinh-sach-bao-mat/ | 629 | 6 | 0 |  | 200 |
+| trang hệ thống | https://vinhomeshocmonsr.vn/lien-he/ | 51 | 1 | 0 |  | 200 |
+| trang hệ thống | https://vinhomeshocmonsr.vn/dieu-khoan-su-dung/ | 812 | 1 | 4 |  | 200 |
 | vị trí | https://vinhomeshocmonsr.vn/vi-tri-vinhomes-hoc-mon/ | 1366 | 3 | 3 | BlogPosting, BreadcrumbList, ContactPoint, ImageObject, ListItem, Organization, Person, PostalAddress, Project, Specialty, Thing, WebPage | 200 |
 
 Chi tiết title, meta description, H1–H3, link: `pages.json`.

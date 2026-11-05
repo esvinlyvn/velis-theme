@@ -7083,7 +7083,7 @@
     "VI. Cam kết bảo mật thông tin cá nhân"
    ]
   ],
-  "words": 5,
+  "words": 629,
   "schema": [],
   "links": [
    {
@@ -7207,7 +7207,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "https://vinhomeshocmonsr.vn/lien-he/",
@@ -7223,7 +7223,7 @@
     "LIÊN HỆ NHẬN THÔNG TIN VÀ TƯ VẤN VINHOMES HÓC MÔN"
    ]
   ],
-  "words": 6,
+  "words": 51,
   "schema": [],
   "links": [
    {
@@ -7325,7 +7325,7 @@
    {
     "to": "https://vinhomeshocmonsr.vn/",
     "anchor": "https://vinhomeshocmonsr.vn/",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
@@ -7341,7 +7341,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "https://vinhomeshocmonsr.vn/dieu-khoan-su-dung/",
@@ -7373,7 +7373,7 @@
     "Chia sẻ thông tin trên mạng xã hội"
    ]
   ],
-  "words": 5,
+  "words": 812,
   "schema": [],
   "links": [
    {
@@ -7497,7 +7497,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "https://vinhomeshocmonsr.vn/vi-tri-vinhomes-hoc-mon/",

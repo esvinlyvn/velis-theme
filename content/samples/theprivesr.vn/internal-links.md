@@ -15,7 +15,7 @@
 | https://theprivesr.vn/tac-dong-cua-nut-giao-an-phu-den-the-prive/ | bài viết khác | 28 |
 | https://theprivesr.vn/tien-ich-the-prive/ | tiện ích | 28 |
 | https://theprivesr.vn/nha-mau-the-prive/ | bài viết khác | 28 |
-| https://theprivesr.vn/ | trang chủ | 23 |
+| https://theprivesr.vn/ | trang chủ | 24 |
 | https://theprivesr.vn/gia-dinh-tre-co-nen-mua-the-prive/ | phân tích đầu tư / nhu cầu | 23 |
 | https://theprivesr.vn/can-ho-1-phong-ngu-the-prive/ | loại căn | 8 |
 | https://theprivesr.vn/can-ho-penthouse-the-prive/ | loại căn | 8 |
@@ -33,7 +33,6 @@
 | https://theprivesr.vn/lien-he/ | trang hệ thống | 81 |
 | https://theprivesr.vn/chinh-sach-bao-mat/ | trang hệ thống | 27 |
 | https://theprivesr.vn/dieu-khoan-su-dung/ | trang hệ thống | 27 |
-| https://theprivesr.vn/ | trang chủ | 1 |
 
 ## Anchor hay dùng trong thân bài (top 25)
 
@@ -128,7 +127,7 @@
 | https://theprivesr.vn/tien-ich-the-prive/ | 13 | 30 |
 | https://theprivesr.vn/ | 8 | 25 |
 | https://theprivesr.vn/chinh-sach-bao-mat/ | 0 | 16 |
-| https://theprivesr.vn/lien-he/ | 0 | 15 |
+| https://theprivesr.vn/lien-he/ | 1 | 15 |
 | https://theprivesr.vn/dieu-khoan-su-dung/ | 0 | 16 |
 | https://theprivesr.vn/blog/ | 36 | 50 |
 | https://theprivesr.vn/vi-tri-the-prive/ | 13 | 30 |

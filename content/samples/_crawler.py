@@ -126,7 +126,8 @@ class Page(HTMLParser):
         if tag in VOID:
             return
         cls = (a.get("class") or "") + " " + (a.get("id") or "")
-        self.stack.append((tag, tag in CHROME_TAGS or bool(CHROME_CLS.search(cls)), tag in SKIP))
+        chrome = tag in CHROME_TAGS or (tag not in ("html", "body") and bool(CHROME_CLS.search(cls)))  # class của body mô tả cả trang
+        self.stack.append((tag, chrome, tag in SKIP))
         if tag == "title":
             self._in_title = True
         if tag == "script" and "ld+json" in (a.get("type") or ""):
@@ -422,6 +423,9 @@ def _selftest():
     q = Page()
     q.feed('<div class="elementor-widget elementor-widget-text-editor"><p>a b</p></div><div class="elementor-nav-menu"><p>c</p></div>')
     assert q.words == 2, q.words  # widget Elementor là nội dung, nav-menu là khung
+    b = Page()
+    b.feed('<body class="has-header-menu"><p>a b c</p></body>')
+    assert b.words == 3, b.words
     assert classify("https://x.vn/mat-bang-the-opus/", "page") == "mặt bằng"
     assert classify("https://x.vn/", "page") == "trang chủ"
     assert classify("https://x.vn/category/tin-tuc/", "category") == "chuyên mục"

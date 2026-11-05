@@ -28,7 +28,7 @@ Khác hai hub trước: trọng tâm là **câu chuyện địa phương** (CĐT
 
 ## Trình bày trang
 
-- Trang chủ gần như không có chữ (12 chữ ngoài khung): 3 lý do → khối từng dự án → dự án nổi bật → báo chí → blog → form.
+- Trang chủ ~2.050 chữ: 3 lý do → khối từng dự án (H2 + tóm tắt) → dự án nổi bật → báo chí → blog → form.
 - Trang loại căn: vị trí → bảng giá → giá trị/tăng trưởng → thiết kế → tiềm năng sinh lời → chính sách — nặng đầu tư, nhẹ thông số.
 - Bài 1.000–2.000 chữ; ~16% H2/H3 là câu hỏi; bảng 12/73; ngày cập nhật hiển thị 37/73.
 
@@ -48,7 +48,7 @@ Khác hai hub trước: trọng tâm là **câu chuyện địa phương** (CĐT
 ## Liên kết nội bộ
 
 - Menu: 4 dự án trọng điểm + blog + lưu trữ dự án (~220 link khung mỗi đích).
-- Thân bài: trang chủ (61), trang dự án trọng điểm (41, 19, 12…), rồi loại căn/giá/tiến độ của dự án đó.
+- Thân bài: trang chủ (62), trang dự án trọng điểm (46, 24, 17, 17…), rồi giá/tiến độ/loại căn của dự án đó (11–12).
 - Anchor phổ biến nhất là **tên chủ đầu tư trần** (36 + biến thể ~27) trỏ về trang chủ, "tham khảo dự án" (15); anchor tên dự án trỏ về trang dự án.
   → dùng tên thực thể làm anchor về trang thực thể: nhất quán, nhưng lặp nhiều.
 
@@ -56,5 +56,5 @@ Khác hai hub trước: trọng tâm là **câu chuyện địa phương** (CĐT
 
 - Học: trang giới thiệu đội ngũ thật (ảnh, vai trò, kinh nghiệm, hồ sơ mạng xã hội) và tác giả nhất quán — E-E-A-T;
   cụm bài **thị trường địa phương** dẫn về dự án; anchor tên dự án → trang dự án; lưu trữ dự án theo vùng.
-- Tránh: sitemap `http://`; 2/3 nội dung không cập nhật trong năm; trang chủ không có chữ; mở bài giật gân, so sánh nhất;
+- Tránh: sitemap `http://`; 2/3 nội dung không cập nhật trong năm; mở bài giật gân, so sánh nhất;
   trang loại căn thiếu thông số kỹ thuật.

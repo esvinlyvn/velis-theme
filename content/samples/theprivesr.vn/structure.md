@@ -71,9 +71,9 @@ Tổng 32 URL từ sitemap. Ngày crawl: 2026-11-05.
 | tiến độ | https://theprivesr.vn/tien-do-the-prive/ | 930 | 2 | 0 | BlogPosting, BreadcrumbList, ContactPoint, ImageObject, ListItem, Organization, Person, PostalAddress, Project, Specialty, WebPage | 200 |
 | tiện ích | https://theprivesr.vn/tien-ich-the-prive/ | 1288 | 1 | 4 | BlogPosting, BreadcrumbList, ContactPoint, ImageObject, ListItem, Organization, Person, PostalAddress, Project, Specialty, Thing, WebPage | 200 |
 | trang chủ | https://theprivesr.vn/ | 3857 | 13 | 9 | BreadcrumbList, ImageObject, ListItem, OpeningHoursSpecification, Organization, PostalAddress, Project, ReadAction, RealEstateAgent, Thing, WebPage, WebSite | 200 |
-| trang hệ thống | https://theprivesr.vn/chinh-sach-bao-mat/ | 6 | 7 | 0 |  | có thể cần JavaScript (gần như không có chữ) |
-| trang hệ thống | https://theprivesr.vn/lien-he/ | 4 | 1 | 0 |  | có thể cần JavaScript (gần như không có chữ) |
-| trang hệ thống | https://theprivesr.vn/dieu-khoan-su-dung/ | 6 | 1 | 4 |  | có thể cần JavaScript (gần như không có chữ) |
+| trang hệ thống | https://theprivesr.vn/chinh-sach-bao-mat/ | 735 | 7 | 0 |  | 200 |
+| trang hệ thống | https://theprivesr.vn/lien-he/ | 49 | 1 | 0 |  | có thể cần JavaScript (gần như không có chữ) |
+| trang hệ thống | https://theprivesr.vn/dieu-khoan-su-dung/ | 809 | 1 | 4 |  | 200 |
 | trang hệ thống | https://theprivesr.vn/blog/ | 581 | 0 | 0 |  | 200 |
 | vị trí | https://theprivesr.vn/vi-tri-the-prive/ | 1413 | 2 | 4 | BlogPosting, BreadcrumbList, ContactPoint, ImageObject, ListItem, Organization, Person, PostalAddress, Project, Specialty, Thing, WebPage | 200 |
 

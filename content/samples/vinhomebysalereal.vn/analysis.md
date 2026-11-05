@@ -12,7 +12,7 @@ Số liệu chi tiết: `structure.md`, `internal-links.md`, `pages.json`.
 - Slug **phẳng 1 cấp cho mọi kiểu nội dung** (CPT `du-an` bỏ tiền tố); quan hệ cha–con (dự án → phân khu → tòa) chỉ thể hiện
   qua tên trong slug, không qua đường dẫn.
 - **Sitemap khai báo `http://`** (692/697 URL) trong khi canonical và link nội bộ dùng `https://` → lệch giữa sitemap và canonical.
-- Trang hệ thống (chính sách bảo mật, điều khoản) dài 700–800 chữ nhưng nằm ngoài sitemap.
+- Trang giới thiệu (~2.350 chữ, giới thiệu đội ngũ) và trang chính sách/điều khoản có trong page-sitemap; trang chuyên mục `/blog/` ~5.000 chữ (trích đoạn bài).
 - Xuất bản theo đợt lớn: 364 URL có lastmod tháng 07/2025, các đợt nhỏ hơn 12/2025–01/2026, 05/2026.
 
 ## Cụm nội dung (lặp silo vệ tinh cho từng dự án)
@@ -32,7 +32,7 @@ Ma trận **chủ đề × dự án** sinh hàng trăm URL từ một bộ khung
 
 ## Trình bày trang
 
-- **Trang chủ** gần như không có chữ (crawler đếm 8 chữ ngoài khung): khối giới thiệu đơn vị (3 lý do) → mỗi dự án một H2/khối thẻ → blog → form.
+- **Trang chủ** ~1.750 chữ: khối giới thiệu đơn vị (3 lý do) → mỗi dự án một H2 kèm đoạn tóm tắt → dự án đang tư vấn → blog → form.
 - **Trang lưu trữ `/du-an/`** (~3.000 chữ): H2 nhóm theo **tỉnh/thành**, dưới mỗi nhóm là H2 dự án → điều hướng theo khu vực.
 - **Trang dự án** (~5.000 chữ) dùng đúng thứ tự H2 của site vệ tinh: thông tin → "năm nay nên mua gì" → tiến độ → vị trí → tiện ích →
   giá (H3 chính sách) → loại hình (H3 từng loại) → phân khu (H3 từng phân khu) → lý do đầu tư → … Heading HOA.
@@ -60,7 +60,7 @@ Ma trận **chủ đề × dự án** sinh hàng trăm URL từ một bộ khung
 ## Liên kết nội bộ
 
 - Menu cố định trỏ 3 trang dự án trọng điểm + `/blog/` + `/du-an/` (~230 link khung mỗi đích trên 76 trang mẫu).
-- Thân bài: trang chủ (59), các trang dự án CPT (24, 23, 16…), rồi trang loại căn/giá/vị trí của dự án.
+- Thân bài: trang chủ (60), các trang dự án CPT (26, 25, 18, 15…), rồi trang giá/tiến độ/loại căn của dự án (11–14).
 - Dòng chảy chính: trang dự án → phân khu (105) và → dự án khác (76); chuyên mục → loại căn/bài; phân khu → loại căn; giá → loại căn.
   Tức là **trên xuống** (dự án → phân khu → loại căn) và **ngang** (phân khu anh em, dự án cùng CĐT).
 - Anchor yếu: "tham khảo dự án" (69 lần), "bấm xem thông tin & phân tích" (10), tên CĐT trần (47); phần còn lại là nguyên tiêu đề bài.
@@ -69,5 +69,5 @@ Ma trận **chủ đề × dự án** sinh hàng trăm URL từ một bộ khung
 
 - Học: trang lưu trữ dự án nhóm theo khu vực; trang dự án → phân khu → loại căn với liên kết anh em ("phân khu khác phù hợp");
   chuyên mục blog riêng cho từng dự án; bài về đối tác/nhà thầu của chủ đầu tư để phủ thực thể; tác giả là người đứng đầu, viết ngôi thứ nhất.
-- Tránh: sitemap `http://` lệch canonical; trang chủ không có nội dung chữ; slug phẳng cho cả cấu trúc cha–con;
+- Tránh: sitemap `http://` lệch canonical; slug phẳng cho cả cấu trúc cha–con;
   anchor chung chung; title gắn tháng; hộp tác giả chèn giữa trang bán hàng; sản xuất hàng loạt theo ma trận dễ thành nội dung mỏng/lặp.

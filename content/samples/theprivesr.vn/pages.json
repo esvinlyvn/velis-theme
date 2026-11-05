@@ -5579,7 +5579,7 @@
     "VII. Công cụ theo dõi hành vi người dùng"
    ]
   ],
-  "words": 6,
+  "words": 735,
   "schema": [],
   "links": [
    {
@@ -5679,7 +5679,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "https://theprivesr.vn/lien-he/",
@@ -5695,7 +5695,7 @@
     "LIÊN HỆ NHẬN THÔNG TIN VÀ TƯ VẤN THE PRIVE"
    ]
   ],
-  "words": 4,
+  "words": 49,
   "schema": [],
   "links": [
    {
@@ -5773,7 +5773,7 @@
    {
     "to": "https://theprivesr.vn/",
     "anchor": "https://theprivesr.vn/",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
@@ -5821,7 +5821,7 @@
     "Chia sẻ thông tin trên mạng xã hội"
    ]
   ],
-  "words": 6,
+  "words": 809,
   "schema": [],
   "links": [
    {
@@ -5921,7 +5921,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "https://theprivesr.vn/blog/",

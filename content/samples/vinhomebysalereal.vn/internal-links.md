@@ -6,106 +6,106 @@
 
 | URL đích | Loại | Số link |
 |---|---|---:|
-| https://vinhomebysalereal.vn/ | trang chủ | 59 |
-| https://vinhomebysalereal.vn/vinhomes-saigon-park-hoc-mon/ | khác (du-an) | 24 |
-| https://vinhomebysalereal.vn/vinhomes-green-paradise-can-gio/ | khác (du-an) | 23 |
-| https://vinhomebysalereal.vn/vinhomes-hai-van-bay/ | khác (du-an) | 16 |
+| https://vinhomebysalereal.vn/ | trang chủ | 60 |
+| https://vinhomebysalereal.vn/vinhomes-saigon-park-hoc-mon/ | khác (du-an) | 26 |
+| https://vinhomebysalereal.vn/vinhomes-green-paradise-can-gio/ | khác (du-an) | 25 |
+| https://vinhomebysalereal.vn/vinhomes-hai-van-bay/ | khác (du-an) | 18 |
+| https://vinhomebysalereal.vn/vinhomes-green-city/ | khác (du-an) | 15 |
+| https://vinhomebysalereal.vn/gia-ban-vinhomes-saigon-park/ | giá bán / bảng giá | 14 |
+| https://vinhomebysalereal.vn/gia-ban-vinhomes-green-paradise/ | giá bán / bảng giá | 13 |
+| https://vinhomebysalereal.vn/tien-do-vinhomes-hai-van-bay/ | tiến độ | 13 |
+| https://vinhomebysalereal.vn/biet-thu-don-lap-vinhomes-green-paradise/ | loại căn | 12 |
+| https://vinhomebysalereal.vn/gia-ban-vinhomes-hai-van-bay/ | giá bán / bảng giá | 12 |
+| https://vinhomebysalereal.vn/vi-tri-vinhomes-saigon-park/ | vị trí | 11 |
+| https://vinhomebysalereal.vn/shophouse-vinhomes-green-city/ | loại căn | 11 |
+| https://vinhomebysalereal.vn/nha-pho-vinhomes-green-city/ | loại căn | 11 |
 | https://vinhomebysalereal.vn/nha-pho-vinhomes-green-paradise/ | loại căn | 11 |
 | https://vinhomebysalereal.vn/biet-thu-song-lap-vinhomes-green-paradise/ | loại căn | 11 |
-| https://vinhomebysalereal.vn/gia-ban-vinhomes-saigon-park/ | giá bán / bảng giá | 10 |
-| https://vinhomebysalereal.vn/biet-thu-don-lap-vinhomes-green-paradise/ | loại căn | 10 |
-| https://vinhomebysalereal.vn/vinhomes-green-city/ | khác (du-an) | 10 |
-| https://vinhomebysalereal.vn/vi-tri-vinhomes-saigon-park/ | vị trí | 9 |
-| https://vinhomebysalereal.vn/shophouse-vinhomes-green-city/ | loại căn | 9 |
-| https://vinhomebysalereal.vn/nha-pho-vinhomes-green-city/ | loại căn | 9 |
-| https://vinhomebysalereal.vn/gia-ban-vinhomes-green-paradise/ | giá bán / bảng giá | 9 |
-| https://vinhomebysalereal.vn/tien-do-vinhomes-hai-van-bay/ | tiến độ | 9 |
-| https://vinhomebysalereal.vn/vinhomes-grand-park/ | khác (du-an) | 9 |
 
 ## Trang được trỏ đến nhiều nhất – vùng khung
 
 | URL đích | Loại | Số link |
 |---|---|---:|
-| https://vinhomebysalereal.vn/vinhomes-saigon-park-hoc-mon/ | khác (du-an) | 230 |
-| https://vinhomebysalereal.vn/vinhomes-hai-van-bay/ | khác (du-an) | 230 |
-| https://vinhomebysalereal.vn/vinhomes-green-paradise-can-gio/ | khác (du-an) | 230 |
-| https://vinhomebysalereal.vn/blog/ | trang hệ thống | 226 |
+| https://vinhomebysalereal.vn/vinhomes-saigon-park-hoc-mon/ | khác (du-an) | 228 |
+| https://vinhomebysalereal.vn/vinhomes-hai-van-bay/ | khác (du-an) | 228 |
+| https://vinhomebysalereal.vn/vinhomes-green-paradise-can-gio/ | khác (du-an) | 228 |
 | https://vinhomebysalereal.vn/du-an/ | khác (du-an) | 225 |
-| https://vinhomebysalereal.vn/ | trang chủ | 76 |
+| https://vinhomebysalereal.vn/blog/ | trang hệ thống | 225 |
 | https://vinhomebysalereal.vn/gioi-thieu/ | trang hệ thống | 76 |
 | https://vinhomebysalereal.vn/chinh-sach-bao-mat/ | trang hệ thống | 76 |
 | https://vinhomebysalereal.vn/dieu-khoan-su-dung/ | trang hệ thống | 76 |
+| https://vinhomebysalereal.vn/ | trang chủ | 75 |
 | https://vinhomebysalereal.vn/lien-he/ | trang hệ thống | 75 |
-| https://vinhomebysalereal.vn/phan-khu-vinh-ngoc-vinhomes-green-paradise/ | phân khu / tòa | 5 |
-| https://vinhomebysalereal.vn/phan-khu-mui-danh-vong-vinhomes-green-paradise/ | phân khu / tòa | 5 |
-| https://vinhomebysalereal.vn/vinhomes-green-city/ | khác (du-an) | 5 |
-| https://vinhomebysalereal.vn/phan-khu-the-sunrise-vinhomes-green-city/ | phân khu / tòa | 4 |
-| https://vinhomebysalereal.vn/phan-khu-the-swan-lake-vinhomes-green-city/ | phân khu / tòa | 4 |
+| https://vinhomebysalereal.vn/phan-khu-dao-mat-troi-vinhomes-green-paradise/ | phân khu / tòa | 3 |
+| https://vinhomebysalereal.vn/phan-khu-the-forest-vinhomes-green-city/ | phân khu / tòa | 2 |
+| https://vinhomebysalereal.vn/phan-khu-vinh-ngoc-vinhomes-green-paradise/ | phân khu / tòa | 2 |
+| https://vinhomebysalereal.vn/phan-khu-vinh-tien-vinhomes-green-paradise/ | phân khu / tòa | 2 |
+| https://vinhomebysalereal.vn/phan-khu-mui-danh-vong-vinhomes-green-paradise/ | phân khu / tòa | 2 |
 
 ## Anchor hay dùng trong thân bài (top 25)
 
 | Anchor | Số lần |
 |---|---:|
-| tham khảo dự án | 69 |
+| tham khảo dự án | 76 |
 | vinhomes | 47 |
-| vinhomes green paradise | 11 |
+| vinhomes green paradise | 12 |
 | bấm xem thông tin & phân tích | 10 |
-| vinhomes hải vân bay | 8 |
+| vinhomes hải vân bay | 9 |
+| tiến độ vinhomes green paradise đến đâu? hình ảnh t8/2026 | 7 |
+| giá bán vinhomes hải vân bay & csbh cập nhật t5/2026 | 7 |
+| vinhomes green city | 7 |
+| vinhomes saigon park | 7 |
+| giá bán vinhomes green paradise cần giờ & chính sách - cập nhật t1 | 6 |
+| tiến độ vinhomes hải vân bay - hình ảnh thực tế t5 | 6 |
+| tiến độ vinhomes saigon park mới nhất tháng 7/2026 | 6 |
+| bảng giá bán vinhomes saigon park & chính sách mới t7 | 6 |
 | vành đai 3 và cơ hội tăng giá của vinhomes saigon park | 6 |
-| vinhomes green city | 6 |
-| vinhomes saigon park | 6 |
+| tìm hiểu thêm | 6 |
 | dự án vinhomes | 5 |
 | có nên vay ngân hàng để mua vinhomes saigon park không? | 5 |
-| tiến độ vinhomes green paradise đến đâu? hình ảnh t8/2026 | 5 |
-| giá bán vinhomes green paradise cần giờ & chính sách - cập nhật t1 | 5 |
-| giá bán vinhomes hải vân bay & csbh cập nhật t5/2026 | 5 |
-| tiến độ vinhomes hải vân bay - hình ảnh thực tế t5 | 5 |
+| giá bán vinhomes green city & csbh - cập nhật mới t8 | 5 |
+| vị trí vinhomes saigon park ở đâu? có tiện để ở và đầu tư không? | 5 |
 | vinhome green paradise | 5 |
+| có nên mua đầu tư vinhomes saigon park? đánh giá chuyên gia | 5 |
 | gia đình trẻ có nên mua vinhomes saigon park để ở không? đánh giá thực tế | 4 |
 | các loại hình nhà ở tại vinhomes saigon park: ai phù hợp với loại nào? | 4 |
 | quy hoạch vinhomes saigon park: toàn bộ thông tin cần biết | 4 |
 | tiềm năng tăng giá vinhomes saigon park: phân tích thực tế | 4 |
-| giá bán vinhomes green city & csbh - cập nhật mới t8 | 4 |
-| nhà phố vinhomes green paradise - giá bán & phân tích | 4 |
-| biệt thự song lập vinhomes green paradise - giá bán & phân tích | 4 |
-| vị trí vinhomes hải vân bay ở đâu? có gì thu hút nhà đầu tư | 4 |
-| vị trí vinhomes saigon park ở đâu? có tiện để ở và đầu tư không? | 4 |
-| tiến độ vinhomes saigon park mới nhất tháng 7/2026 | 4 |
 
 ## Loại trang → loại trang (chỉ link trong thân bài)
 
 | Từ | Đến | Số link |
 |---|---|---:|
 | khác (du-an) | phân khu / tòa | 105 |
+| trang hệ thống | bài viết khác | 94 |
 | khác (du-an) | khác (du-an) | 76 |
 | chuyên mục | loại căn | 57 |
+| trang hệ thống | loại căn | 54 |
+| trang hệ thống | phân tích đầu tư / nhu cầu | 42 |
+| trang hệ thống | tiện ích | 36 |
 | khác (du-an) | loại căn | 33 |
 | chuyên mục | bài viết khác | 27 |
 | phân khu / tòa | loại căn | 27 |
 | giá bán / bảng giá | loại căn | 25 |
 | chuyên mục | tiện ích | 21 |
+| trang chủ | khác (du-an) | 20 |
 | chuyên mục | phân tích đầu tư / nhu cầu | 18 |
 | chuyên mục | hạ tầng / quy hoạch | 18 |
 | chủ đầu tư | khác (du-an) | 18 |
 | loại căn | phân khu / tòa | 18 |
+| trang hệ thống | giá bán / bảng giá | 18 |
 | loại căn | loại căn | 15 |
+| trang hệ thống | chuyên mục | 14 |
 | phân khu / tòa | phân khu / tòa | 13 |
 | so sánh | phân tích đầu tư / nhu cầu | 13 |
 | chuyên mục | giá bán / bảng giá | 12 |
 | chuyên mục | tiến độ | 12 |
 | khác (du-an) | hạ tầng / quy hoạch | 12 |
+| trang chủ | phân khu / tòa | 12 |
+| trang chủ | giá bán / bảng giá | 12 |
 | bài viết khác | phân tích đầu tư / nhu cầu | 11 |
 | phân tích đầu tư / nhu cầu | phân tích đầu tư / nhu cầu | 10 |
 | so sánh | bài viết khác | 10 |
-| chủ đầu tư | phân tích đầu tư / nhu cầu | 8 |
-| chính sách bán hàng | phân tích đầu tư / nhu cầu | 7 |
-| giá bán / bảng giá | khác (du-an) | 7 |
-| hạ tầng / quy hoạch | phân tích đầu tư / nhu cầu | 7 |
-| phân khu / tòa | khác (du-an) | 7 |
-| tiện ích | hạ tầng / quy hoạch | 7 |
-| chuyên mục | pháp lý | 6 |
-| chuyên mục | vị trí | 6 |
-| tiện ích | tiện ích | 6 |
 
 ## Số link mỗi trang mẫu
 
@@ -176,10 +176,10 @@
 | http://vinhomebysalereal.vn/vinschool-vinhomes-hai-van-bay/ | 6 | 26 |
 | http://vinhomebysalereal.vn/vinmec-vinhomes-hai-van-bay/ | 6 | 26 |
 | http://vinhomebysalereal.vn/vincom-open-mall-vinhomes-hai-van-bay/ | 6 | 26 |
-| https://vinhomebysalereal.vn/ | 0 | 82 |
-| https://vinhomebysalereal.vn/blog/ | 0 | 311 |
+| https://vinhomebysalereal.vn/ | 63 | 82 |
+| https://vinhomebysalereal.vn/blog/ | 294 | 311 |
 | http://vinhomebysalereal.vn/chinh-sach-bao-mat/ | 0 | 20 |
-| https://vinhomebysalereal.vn/lien-he/ | 0 | 20 |
+| https://vinhomebysalereal.vn/lien-he/ | 1 | 20 |
 | http://vinhomebysalereal.vn/gioi-thieu/ | 0 | 20 |
 | http://vinhomebysalereal.vn/dieu-khoan-su-dung/ | 0 | 20 |
 | http://vinhomebysalereal.vn/vi-tri-vinhomes-saigon-park/ | 4 | 24 |

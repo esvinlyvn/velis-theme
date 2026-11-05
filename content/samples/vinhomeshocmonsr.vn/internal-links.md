@@ -6,7 +6,7 @@
 
 | URL đích | Loại | Số link |
 |---|---|---:|
-| https://vinhomeshocmonsr.vn/ | trang chủ | 30 |
+| https://vinhomeshocmonsr.vn/ | trang chủ | 31 |
 | https://vinhomeshocmonsr.vn/gia-ban-vinhomes-hoc-mon/ | giá bán / bảng giá | 12 |
 | https://vinhomeshocmonsr.vn/co-nen-mua-dau-tu-vinhomes-hoc-mon/ | phân tích đầu tư / nhu cầu | 10 |
 | https://vinhomeshocmonsr.vn/vi-tri-vinhomes-hoc-mon/ | vị trí | 10 |
@@ -32,7 +32,7 @@
 | https://vinhomeshocmonsr.vn/shophouse-vinhomes-hoc-mon/ | loại căn | 105 |
 | https://vinhomeshocmonsr.vn/blog/ | chuyên mục | 105 |
 | https://vinhomeshocmonsr.vn/lien-he/ | trang hệ thống | 105 |
-| https://vinhomeshocmonsr.vn/ | trang chủ | 37 |
+| https://vinhomeshocmonsr.vn/ | trang chủ | 36 |
 | https://vinhomeshocmonsr.vn/chinh-sach-bao-mat/ | trang hệ thống | 35 |
 | https://vinhomeshocmonsr.vn/dieu-khoan-su-dung/ | trang hệ thống | 35 |
 | https://vinhomeshocmonsr.vn/vi-tri-vinhomes-hoc-mon/ | vị trí | 2 |
@@ -140,6 +140,6 @@
 | https://vinhomeshocmonsr.vn/vinschool-vinhomes-hoc-mon/ | 6 | 27 |
 | https://vinhomeshocmonsr.vn/ | 10 | 30 |
 | https://vinhomeshocmonsr.vn/chinh-sach-bao-mat/ | 0 | 20 |
-| https://vinhomeshocmonsr.vn/lien-he/ | 0 | 19 |
+| https://vinhomeshocmonsr.vn/lien-he/ | 1 | 19 |
 | https://vinhomeshocmonsr.vn/dieu-khoan-su-dung/ | 0 | 20 |
 | https://vinhomeshocmonsr.vn/vi-tri-vinhomes-hoc-mon/ | 4 | 25 |

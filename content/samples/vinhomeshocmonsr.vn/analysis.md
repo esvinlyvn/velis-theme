@@ -57,7 +57,7 @@ Mô hình: 1 trang chủ dài làm trụ cột → ~12 trang dữ kiện/sản p
 ## Liên kết nội bộ
 
 - Menu (khung) trỏ cố định tới: giá bán, liên hệ, tiến độ, nhà phố, shophouse, blog → 6 trang này nhận ~108 link khung mỗi trang.
-- Trong thân bài, đích nhận nhiều link nhất: trang chủ (32), trang giá (13), bài "có nên mua" (11), vị trí (11), nhà phố (10).
+- Trong thân bài, đích nhận nhiều link nhất: trang chủ (31), trang giá (13), bài "có nên mua" (11), vị trí (11), nhà phố (10).
 - Anchor trong thân bài thường là **nguyên tiêu đề bài đích** (khối "bài liên quan" chèn giữa bài) hoặc tên dự án trần;
   ít anchor mô tả ngắn theo ngữ cảnh.
 - Link chủ yếu đi **ngang trong cùng nhóm** (loại căn ↔ loại căn, tiện ích ↔ tiện ích, hạ tầng ↔ hạ tầng) và đi lên trang chủ.

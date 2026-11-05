@@ -47,7 +47,7 @@ Số liệu chi tiết: `structure.md`, `internal-links.md`, `pages.json`.
 ## Liên kết nội bộ
 
 - Menu: 4 dự án trọng điểm + `/blog/` + `/du-an/` (~230 link khung mỗi đích).
-- **Khối liên quan toàn site gắn cứng cho một dự án**: 10 bài của một dự án nhận 58–66 link thân bài mỗi bài, kể cả từ trang
+- **Khối liên quan toàn site gắn cứng cho một dự án**: 10 bài của một dự án nhận 60–68 link thân bài mỗi bài, kể cả từ trang
   của dự án khác → dồn sức mạnh lệch, không theo ngữ cảnh. Anchor = nguyên tiêu đề có năm.
 - Anchor chung chung "tham khảo dự án" (27), tên CĐT trần (52).
 - Trang dự án → chuyên mục blog dự án (vùng khung) và → phân khu.

@@ -122,11 +122,11 @@ Tổng 697 URL từ sitemap. Ngày crawl: 2026-11-05.
 | tiện ích | http://vinhomebysalereal.vn/vinschool-vinhomes-hai-van-bay/ | 1373 | 4 | 5 | BlogPosting, BreadcrumbList, ContactPoint, DefinedTerm, ImageObject, ListItem, Organization, Person, PostalAddress, Project, RealEstateAgent, Specialty, Thing, WebPage | 200 |
 | tiện ích | http://vinhomebysalereal.vn/vinmec-vinhomes-hai-van-bay/ | 1150 | 3 | 3 | BlogPosting, BreadcrumbList, ContactPoint, DefinedTerm, ImageObject, ListItem, Organization, Person, PostalAddress, Project, RealEstateAgent, Specialty, Thing, WebPage | 200 |
 | tiện ích | http://vinhomebysalereal.vn/vincom-open-mall-vinhomes-hai-van-bay/ | 1249 | 3 | 5 | BlogPosting, BreadcrumbList, ContactPoint, DefinedTerm, ImageObject, ListItem, Organization, Person, PostalAddress, Project, RealEstateAgent, Specialty, Thing, WebPage | 200 |
-| trang chủ | https://vinhomebysalereal.vn/ | 8 | 11 | 3 | ContactPoint, DefinedTerm, GeoCoordinates, ImageObject, OpeningHoursSpecification, Person, PostalAddress, RealEstateAgent, Specialty, WebPage | có thể cần JavaScript (gần như không có chữ) |
-| trang hệ thống | https://vinhomebysalereal.vn/blog/ | 4 | 14 | 0 |  | có thể cần JavaScript (gần như không có chữ) |
+| trang chủ | https://vinhomebysalereal.vn/ | 1751 | 11 | 3 | ContactPoint, DefinedTerm, GeoCoordinates, ImageObject, OpeningHoursSpecification, Person, PostalAddress, RealEstateAgent, Specialty, WebPage | 200 |
+| trang hệ thống | https://vinhomebysalereal.vn/blog/ | 5260 | 14 | 0 |  | 200 |
 | trang hệ thống | http://vinhomebysalereal.vn/chinh-sach-bao-mat/ | 684 | 6 | 0 |  | 200 |
-| trang hệ thống | https://vinhomebysalereal.vn/lien-he/ | 5 | 1 | 0 |  | có thể cần JavaScript (gần như không có chữ) |
-| trang hệ thống | http://vinhomebysalereal.vn/gioi-thieu/ | 5 | 9 | 2 |  | có thể cần JavaScript (gần như không có chữ) |
+| trang hệ thống | https://vinhomebysalereal.vn/lien-he/ | 52 | 1 | 0 |  | 200 |
+| trang hệ thống | http://vinhomebysalereal.vn/gioi-thieu/ | 2353 | 9 | 2 |  | 200 |
 | trang hệ thống | http://vinhomebysalereal.vn/dieu-khoan-su-dung/ | 819 | 1 | 4 |  | 200 |
 | vị trí | http://vinhomebysalereal.vn/vi-tri-vinhomes-saigon-park/ | 1783 | 3 | 6 |  | 200 |
 | vị trí | http://vinhomebysalereal.vn/vi-tri-vinhomes-hai-van-bay/ | 1181 | 2 | 3 | BlogPosting, BreadcrumbList, ContactPoint, DefinedTerm, ImageObject, ListItem, Person, PostalAddress, Project, RealEstateAgent, Specialty, Thing, WebPage | 200 |

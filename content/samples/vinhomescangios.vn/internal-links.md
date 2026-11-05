@@ -6,7 +6,7 @@
 
 | URL đích | Loại | Số link |
 |---|---|---:|
-| https://vinhomescangios.vn/ | trang chủ | 32 |
+| https://vinhomescangios.vn/ | trang chủ | 33 |
 | https://vinhomescangios.vn/gia-ban-vinhomes-can-gio/ | giá bán / bảng giá | 12 |
 | https://vinhomescangios.vn/shophouse-vinhomes-can-gio/ | loại căn | 10 |
 | https://vinhomescangios.vn/co-nen-dau-tu-vinhomes-can-gio/ | phân tích đầu tư / nhu cầu | 9 |
@@ -32,7 +32,7 @@
 | https://vinhomescangios.vn/shophouse-vinhomes-can-gio/ | loại căn | 108 |
 | https://vinhomescangios.vn/blog/ | trang hệ thống | 108 |
 | https://vinhomescangios.vn/lien-he/ | trang hệ thống | 108 |
-| https://vinhomescangios.vn/ | trang chủ | 37 |
+| https://vinhomescangios.vn/ | trang chủ | 36 |
 | https://vinhomescangios.vn/chinh-sach-bao-mat/ | trang hệ thống | 36 |
 | https://vinhomescangios.vn/dieu-khoan-su-dung/ | trang hệ thống | 36 |
 
@@ -138,7 +138,7 @@
 | https://vinhomescangios.vn/vinmec-vinhomes-can-gio/ | 5 | 26 |
 | https://vinhomescangios.vn/ | 15 | 35 |
 | https://vinhomescangios.vn/chinh-sach-bao-mat/ | 0 | 20 |
-| https://vinhomescangios.vn/lien-he/ | 0 | 19 |
+| https://vinhomescangios.vn/lien-he/ | 1 | 19 |
 | https://vinhomescangios.vn/dieu-khoan-su-dung/ | 0 | 20 |
 | https://vinhomescangios.vn/blog/ | 36 | 54 |
 | https://vinhomescangios.vn/vi-tri-vinhomes-can-gio/ | 4 | 25 |

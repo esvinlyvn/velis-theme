@@ -48,7 +48,7 @@ Số liệu chi tiết: `structure.md`, `internal-links.md`, `pages.json`.
 ## Liên kết nội bộ
 
 - Menu cố định: giá, tiến độ, nhà phố, shophouse, blog, liên hệ (~108 link khung mỗi trang).
-- Thân bài: trang chủ 32, giá 12, shophouse 10, "có nên đầu tư" 9, nhà phố 9, tiến độ 8.
+- Thân bài: trang chủ 33, giá 12, shophouse 10, "có nên đầu tư" 9, nhà phố 9, tiến độ 8.
 - Trang loại căn trỏ sang trang phân khu với anchor "<loại căn> <phân khu> <dự án>" → ma trận loại căn × phân khu
   (đây là cách liên kết tốt, chỉ hỏng vì phân khu thiếu trong sitemap).
 - Ít khối "bài liên quan" hơn site Hóc Môn (2/37 trang) — link chủ yếu chèn trong đoạn văn.

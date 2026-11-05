@@ -15515,7 +15515,7 @@
     "ĐĂNG KÝ NHẬN TƯ VẤN TỪ SGSR"
    ]
   ],
-  "words": 12,
+  "words": 2052,
   "schema": [
    "ContactPoint",
    "DefinedTerm",
@@ -15640,319 +15640,319 @@
    {
     "to": "https://sungroupsr.vn/charmora-city-nha-trang/",
     "anchor": "CHARMORA CITY",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/charmora-city-nha-trang/",
     "anchor": "Tham khảo dự án",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/blanca-city-vung-tau/",
     "anchor": "BLANCA CITY",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/blanca-city-vung-tau/",
     "anchor": "tham khảo dự án",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/xanh-island-cat-ba/",
     "anchor": "XANH ISLAND",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/xanh-island-cat-ba/",
     "anchor": "Tham khảo dự án",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-urban-city-ha-nam/",
     "anchor": "SUN URBAN CITY",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-urban-city-ha-nam/",
     "anchor": "tham khảo dự án",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-cosmo-residence/",
     "anchor": "SUN COSMO RESIDENCE",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-cosmo-residence/",
     "anchor": "tham khảo dự án",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/charmora-city-nha-trang/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/charmora-city-nha-trang/",
     "anchor": "Charmora City Nha Trang",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/charmora-city-nha-trang/",
     "anchor": "TÌM HIỂU THÊM",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/blanca-city-vung-tau/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/blanca-city-vung-tau/",
     "anchor": "Blanca City Vũng Tàu",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/blanca-city-vung-tau/",
     "anchor": "TÌM HIỂU THÊM",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-urban-city-ha-nam/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-urban-city-ha-nam/",
     "anchor": "Sun Urban City Hà Nam",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-urban-city-ha-nam/",
     "anchor": "TÌM HIỂU THÊM",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/xanh-island-cat-ba/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/xanh-island-cat-ba/",
     "anchor": "Xanh Island Cát Bà",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/xanh-island-cat-ba/",
     "anchor": "TÌM HIỂU THÊM",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-symphony-residence/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-symphony-residence/",
     "anchor": "Sun Symphony Residence",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-symphony-residence/",
     "anchor": "TÌM HIỂU THÊM",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-solar-residence/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-solar-residence/",
     "anchor": "Sun Solar Residence",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-solar-residence/",
     "anchor": "TÌM HIỂU THÊM",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/gia-ban-sun-symphony-residence/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/gia-ban-sun-symphony-residence/",
     "anchor": "Giá bán Sun Symphony Residence bao nhiêu? Cập nhật mới 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/gia-ban-charmora-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/gia-ban-charmora-city/",
     "anchor": "Giá bán Charmora City bao nhiêu? Cập nhật mới nhất T3/2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tien-do-charmora-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tien-do-charmora-city/",
     "anchor": "Tiến độ Charmora City: Cập nhật mới nhất T3/2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/co-nen-mua-dau-tu-charmora-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/co-nen-mua-dau-tu-charmora-city/",
     "anchor": "Có nên mua đầu tư Charmora City? Góc nhìn từ CEO SaleReal",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tiem-nang-tang-gia-blanca-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tiem-nang-tang-gia-blanca-city/",
     "anchor": "Tiềm năng tăng giá Blanca City theo chu kỳ phát triển hạ tầng",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tiem-nang-cho-thue-tai-blanca-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tiem-nang-cho-thue-tai-blanca-city/",
     "anchor": "Tiềm Năng Cho Thuê Mùa Cao Điểm Tại Blanca City Có Thật Sự Cao?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tien-do-sun-symphony-residence/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tien-do-sun-symphony-residence/",
     "anchor": "Tiến độ Sun Symphony Residence – Cập nhật mới tháng 12/2025",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-urban-city-la-lua-chon-tot-nhat-trong-chuoi-do-thi-ve-tinh-ha-noi/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-urban-city-la-lua-chon-tot-nhat-trong-chuoi-do-thi-ve-tinh-ha-noi/",
     "anchor": "Sun Urban City là lựa chọn tốt nhất trong chuỗi đô thị vệ tinh Hà Nội?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/shophouse-sun-urban-city-ha-nam/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/shophouse-sun-urban-city-ha-nam/",
     "anchor": "Shophouse Sun Urban City Hà Nam – Mua để ở, kinh doanh hay cho thuê?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/su-khac-biet-giua-sun-group-va-cac-chu-dau-tu-khac/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/su-khac-biet-giua-sun-group-va-cac-chu-dau-tu-khac/",
     "anchor": "Sự khác biệt giữa Sun Group và các chủ đầu tư khác tại Việt Nam",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/gia-tri-cot-loi-tao-nen-su-khac-biet-cua-sun-group/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/gia-tri-cot-loi-tao-nen-su-khac-biet-cua-sun-group/",
     "anchor": "Giá Trị Cốt Lõi Tạo Nên Sự Khác Biệt Của Sun Group Ra Sao?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-solar-residence-uu-the-so-voi-du-an-lan-can/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-solar-residence-uu-the-so-voi-du-an-lan-can/",
     "anchor": "Sun Solar Residence Có Ưu Thế Gì So Với Dự Án Quanh Cầu Rồng – Hàn?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/blog/",
     "anchor": "XEM TẤT CẢ BÀI VIẾT",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
@@ -15980,7 +15980,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "http://sungroupsr.vn/gioi-thieu/",
@@ -16253,7 +16253,7 @@
     "Bài viết về SUN URBAN CITY"
    ]
   ],
-  "words": 2,
+  "words": 4727,
   "schema": [],
   "links": [
    {
@@ -16373,1513 +16373,1513 @@
    {
     "to": "https://sungroupsr.vn/bai-viet-sun-group/",
     "anchor": "Bài viết về chủ đầu tư SUN GROUP",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/dieu-can-biet-khi-dau-tu-bat-dong-san-sun-group/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/dieu-can-biet-khi-dau-tu-bat-dong-san-sun-group/",
     "anchor": "5 Điều cần biết trước khi đầu tư vào bất động sản Sun Group",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/mo-hinh-all-in-one-sun-group-trien-khai-tai-viet-nam/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/mo-hinh-all-in-one-sun-group-trien-khai-tai-viet-nam/",
     "anchor": "Tổng Kết Mô Hình All-In-One Sun Group Triển Khai Tại Việt Nam",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/dong-gop-cua-sun-group-cho-du-lich-viet-nam/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/dong-gop-cua-sun-group-cho-du-lich-viet-nam/",
     "anchor": "Đóng góp của Sun Group cho du lịch Việt Nam suốt hơn 10 năm qua",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/giai-thuong-quoc-te-sun-group-trong-linh-vuc-du-lich-nghi-duong/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/giai-thuong-quoc-te-sun-group-trong-linh-vuc-du-lich-nghi-duong/",
     "anchor": "Giải Thưởng Quốc Tế Sun Group Trong Lĩnh Vực Du Lịch – Nghỉ Dưỡng",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-va-he-sinh-thai-chuan-quoc-te-tai-viet-nam/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-va-he-sinh-thai-chuan-quoc-te-tai-viet-nam/",
     "anchor": "Sun Group Và Tầm Nhìn Hệ Sinh Thái Chuẩn Quốc Tế Tại Việt Nam",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/he-sinh-thai-sun-group-cach-cac-manh-ghep-tao-gia-tri-cong-huong/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/he-sinh-thai-sun-group-cach-cac-manh-ghep-tao-gia-tri-cong-huong/",
     "anchor": "Hệ Sinh Thái Sun Group: Cách Các Mảnh Ghép Tạo Giá Trị Cộng Hưởng",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-da-tao-nhung-cong-trinh-bieu-tuong-nao-tai-viet-nam/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-da-tao-nhung-cong-trinh-bieu-tuong-nao-tai-viet-nam/",
     "anchor": "Sun Group đã tạo nên những công trình biểu tượng nào tại Việt Nam?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-dau-tu-vao-nhung-linh-vuc-nao/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-dau-tu-vao-nhung-linh-vuc-nao/",
     "anchor": "Sun Group đầu tư vào những lĩnh vực nào? Toàn cảnh các mũi nhọn chiến lược",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/dong-san-pham-sun-property-mang-gia-tri-tich-san/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/dong-san-pham-sun-property-mang-gia-tri-tich-san/",
     "anchor": "Top Dòng Sản Phẩm Sun Property Mang Giá Trị Tích Sản Bền Vững",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/mua-de-o-hay-dau-tu-he-sinh-thai-sun-group-dap-ung-ca-hai/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/mua-de-o-hay-dau-tu-he-sinh-thai-sun-group-dap-ung-ca-hai/",
     "anchor": "Mua Để Ở Hay Đầu Tư? Hệ Sinh Thái Sun Group Đáp Ứng Cả Hai",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/bai-viet-charmora-city/",
     "anchor": "Bài viết về CHARMORA CITY",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/can-ho-charmora-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/can-ho-charmora-city/",
     "anchor": "Căn hộ Charmora City - Giá bán & Phân tích có nên mua",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/nha-pho-charmora-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/nha-pho-charmora-city/",
     "anchor": "Nhà phố Charmora City - Thông tin & Phân tích có nên mua",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/biet-thu-song-lap-charmora-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/biet-thu-song-lap-charmora-city/",
     "anchor": "Biệt thự song lập Charmora City - Thông tin & Phân tích có nên mua",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/biet-thu-don-lap-charmora-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/biet-thu-don-lap-charmora-city/",
     "anchor": "Biệt thự đơn lập Charmora City - Thông tin & Phân tích có nên mua",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/phap-ly-charmora-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/phap-ly-charmora-city/",
     "anchor": "Pháp lý Charmora City đã hoàn thiện chưa? Cập nhật mới 2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/gia-ban-charmora-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/gia-ban-charmora-city/",
     "anchor": "Giá bán Charmora City bao nhiêu? Cập nhật mới nhất T3/2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tien-do-charmora-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tien-do-charmora-city/",
     "anchor": "Tiến độ Charmora City: Cập nhật mới nhất T3/2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/cao-toc-van-phong-nha-trang-tac-dong-charmora-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/cao-toc-van-phong-nha-trang-tac-dong-charmora-city/",
     "anchor": "Cao tốc Vân Phong – Nha Trang tác động thế nào đến Charmora City?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/san-bay-cam-ranh-mo-rong-don-bay-charmora-city-tang-gia/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/san-bay-cam-ranh-mo-rong-don-bay-charmora-city-tang-gia/",
     "anchor": "Sân bay Cam Ranh mở rộng – Đòn bẩy giúp Charmora City tăng giá",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/trung-tam-hanh-chinh-moi-khanh-hoa-tac-dong-den-charmora-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/trung-tam-hanh-chinh-moi-khanh-hoa-tac-dong-den-charmora-city/",
     "anchor": "Trung tâm hành chính mới Khánh Hòa tác động thế nào đến Charmora City?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/bai-viet-sun-vung-tau/",
     "anchor": "Bài viết về SUN VŨNG TÀU",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/du-an-sun-group-vung-tau-hut-gioi-dau-tu-mien-bac/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/du-an-sun-group-vung-tau-hut-gioi-dau-tu-mien-bac/",
     "anchor": "Dự án Sun Group Vũng Tàu có gì hút giới đầu tư Miền Bắc?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/so-sanh-ha-tang-vung-tau-mui-ne-long-hai/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/so-sanh-ha-tang-vung-tau-mui-ne-long-hai/",
     "anchor": "So Sánh Hạ Tầng Vũng Tàu, Mũi Né Và Long Hải - Kết Nối Nào Vượt Trội?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/dau-tu-sun-group-vung-tau-loi-nhuan-tu-dau/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/dau-tu-sun-group-vung-tau-loi-nhuan-tu-dau/",
     "anchor": "Đầu Tư Sun Group Vũng Tàu: Lợi Nhuận Đến Từ Đâu?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-anh-huong-den-luong-khach-du-lich-vung-tau/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-anh-huong-den-luong-khach-du-lich-vung-tau/",
     "anchor": "Sun Group ảnh hưởng thế nào đến lượng khách du lịch Vũng Tàu?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/co-hoi-nha-dau-tu-khi-sun-group-den-vung-tau/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/co-hoi-nha-dau-tu-khi-sun-group-den-vung-tau/",
     "anchor": "Cơ hội nào cho nhà đầu tư khi Sun Group triển khai tại Vũng Tàu?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/vung-tau-co-bung-no-nhu-phu-quoc-khi-sun-group-trien-khai/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/vung-tau-co-bung-no-nhu-phu-quoc-khi-sun-group-trien-khai/",
     "anchor": "Vũng Tàu có bùng nổ như Phú Quốc khi Sun Group triển khai?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-tai-mien-nam-vung-tau-dong-vai-tro-gi/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-tai-mien-nam-vung-tau-dong-vai-tro-gi/",
     "anchor": "Chiến Lược Sun Group Tại Miền Nam: Vũng Tàu Đóng Vai Trò Gì?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/quy-hoach-giao-thong-du-lich-vung-tau/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/quy-hoach-giao-thong-du-lich-vung-tau/",
     "anchor": "Quy Hoạch Giao Thông Du Lịch Vũng Tàu 2030: Sun Group Hưởng Lợi Gì?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/can-ho-bien-sun-group-mo-hinh-tu-khai-thac-co-hut-khach-noi-dia/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/can-ho-bien-sun-group-mo-hinh-tu-khai-thac-co-hut-khach-noi-dia/",
     "anchor": "Căn Hộ Biển Sun Group: Mô Hình Tự Khai Thác Có Hút Khách Nội Địa?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/mo-hinh-da-diem-den-sun-group-vung-tau-la-manh-ghep-then-chot/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/mo-hinh-da-diem-den-sun-group-vung-tau-la-manh-ghep-then-chot/",
     "anchor": "Mô Hình Đa Điểm Đến Sun Group: Vũng Tàu Là Mảnh Ghép Then Chốt",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/bai-viet-blanca-city/",
     "anchor": "Bài viết về BLANCA CITY",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/can-ho-blanca-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/can-ho-blanca-city/",
     "anchor": "Căn hộ Blanca City - Giỏ hàng căn đẹp & Phân tích nên mua",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/nha-pho-blanca-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/nha-pho-blanca-city/",
     "anchor": "Nhà phố Blanca City - Giá bán & Phân tích lý do nên mua",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/shophouse-blanca-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/shophouse-blanca-city/",
     "anchor": "Shophouse Blanca City - Bảng giá & Phân tích lý do nên mua",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/biet-thu-blanca-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/biet-thu-blanca-city/",
     "anchor": "Biệt Thự Blanca City - Giá bán & Phân tích có nên mua?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/nha-mau-blanca-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/nha-mau-blanca-city/",
     "anchor": "Nhà mẫu Blanca City ở đâu? Đặt lịch tham quan như thế nào?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tien-do-blanca-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tien-do-blanca-city/",
     "anchor": "Tiến độ Blanca City: Cập nhật hình ảnh mới nhất 3/2026",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/gia-ban-blanca-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/gia-ban-blanca-city/",
     "anchor": "Giá bán Blanca City bao nhiêu? Có nên mua không?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/phap-ly-blanca-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/phap-ly-blanca-city/",
     "anchor": "Pháp lý Blanca City có gì khác so với các dự án nghỉ dưỡng khác?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/vi-tri-blanca-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/vi-tri-blanca-city/",
     "anchor": "Vị trí Blanca City ở đâu? Có tiềm năng gì thu hút nhà đầu tư?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/co-nen-mua-dau-tu-blanca-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/co-nen-mua-dau-tu-blanca-city/",
     "anchor": "Có nên mua đầu tư Blanca City: Phân tích từ chuyên gia",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/bai-viet-sun-cat-ba/",
     "anchor": "Bài viết về SUN CÁT BÀ",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/gioi-trung-luu-co-nen-dau-tu-cat-ba-giai-doan-nay/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/gioi-trung-luu-co-nen-dau-tu-cat-ba-giai-doan-nay/",
     "anchor": "Giới trung lưu có nên tham gia đầu tư Cát Bà giai đoạn này?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/cat-ba-diem-den-moi-cua-gioi-tinh-hoa-khi-sun-group-dau-tu/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/cat-ba-diem-den-moi-cua-gioi-tinh-hoa-khi-sun-group-dau-tu/",
     "anchor": "Cát Bà có phải điểm đến mới của giới tinh hoa khi Sun Group đầu tư?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/ly-do-nen-tim-hieu-thi-truong-cat-ba-khi-sun-group-dau-tu/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/ly-do-nen-tim-hieu-thi-truong-cat-ba-khi-sun-group-dau-tu/",
     "anchor": "5 Lý do nên tìm hiểu thị trường Cát Bà khi Sun Group đầu tư",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/ai-dang-mua-bat-dong-san-cat-ba/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/ai-dang-mua-bat-dong-san-cat-ba/",
     "anchor": "Ai đang mua bất động sản Cát Bà? Dòng tiền đổ về từ đâu?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/dau-tu-nghi-duong-phia-bac-cat-ba-duoc-chon-thay-vi-quang-ninh/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/dau-tu-nghi-duong-phia-bac-cat-ba-duoc-chon-thay-vi-quang-ninh/",
     "anchor": "Đầu tư nghỉ dưỡng phía Bắc: Vì sao Cát Bà được chọn thay vì Quảng Ninh?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/chien-luoc-dau-tu-cat-ba-khi-sun-group-hien-dien/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/chien-luoc-dau-tu-cat-ba-khi-sun-group-hien-dien/",
     "anchor": "Chiến lược đầu tư hiệu quả tại Cát Bà khi Sun Group hiện diện",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/dau-tu-cat-ba-loi-nhuan-cao-it-rui-ro/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/dau-tu-cat-ba-loi-nhuan-cao-it-rui-ro/",
     "anchor": "Đầu tư Cát Bà: Giải pháp cho người muốn lợi nhuận cao nhưng ít rủi ro?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/dau-tu-theo-dau-chan-sun-group-tai-cat-ba-co-gi-dac-biet/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/dau-tu-theo-dau-chan-sun-group-tai-cat-ba-co-gi-dac-biet/",
     "anchor": "Đầu tư theo dấu chân Sun Group tại Cát Bà có gì đặc biệt?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/he-sinh-thai-nghi-duong-sun-group-tai-cat-ba/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/he-sinh-thai-nghi-duong-sun-group-tai-cat-ba/",
     "anchor": "Hệ sinh thái nghỉ dưỡng Sun Group tại Cát Bà sẽ thay đổi du lịch thế nào?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-co-dang-bien-cat-ba-thanh-hon-ngoc-nghi-duong-moi/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-co-dang-bien-cat-ba-thanh-hon-ngoc-nghi-duong-moi/",
     "anchor": "Sun Group có đang biến Cát Bà thành hòn ngọc nghỉ dưỡng mới?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/bai-viet-xanh-island/",
     "anchor": "Bài viết về XANH ISLAND",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/can-ho-xanh-island/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/can-ho-xanh-island/",
     "anchor": "Căn Hộ Xanh Island – Second Home Nghỉ Dưỡng Đáng Mua Nhất 2025",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/shophouse-xanh-island/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/shophouse-xanh-island/",
     "anchor": "Shophouse Xanh Island – Cơ hội đầu tư sinh lời vàng tại Cát Bà",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/nha-mau-xanh-island/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/nha-mau-xanh-island/",
     "anchor": "Nhà mẫu Xanh Island ở đâu? Có gì để tham quan?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tien-do-xanh-island/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tien-do-xanh-island/",
     "anchor": "Cập nhật tiến độ Xanh Island mới nhất 2025? Hình ảnh mới nhất?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/xanh-island-dua-hai-phong-thanh-tam-diem-du-lich-quoc-te/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/xanh-island-dua-hai-phong-thanh-tam-diem-du-lich-quoc-te/",
     "anchor": "Xanh Island có đưa Hải Phòng thành tâm điểm du lịch quốc tế mới?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tien-ich-xanh-island/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tien-ich-xanh-island/",
     "anchor": "Tiện ích Xanh Island có gì xứng đáng đẳng cấp 5 sao?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/xanh-sky/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/xanh-sky/",
     "anchor": "Xanh Sky Cát Bà: Căn hộ nghỉ dưỡng giữa thiên nhiên biển đảo",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/xanh-boutique/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/xanh-boutique/",
     "anchor": "Xanh Boutique Cát Bà: Shophouse nghỉ dưỡng độc đáo giữa lòng di sản",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/xanh-island-giai-bai-toan-chay-phong-mua-cao-diem-cat-ba/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/xanh-island-giai-bai-toan-chay-phong-mua-cao-diem-cat-ba/",
     "anchor": "Xanh Island có giải được bài toán cháy phòng mùa cao điểm Cát Bà?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/canh-vuon-quoc-gia-cat-ba-xanh-island-co-la-do-thi-sinh-thai-thuc-thu/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/canh-vuon-quoc-gia-cat-ba-xanh-island-co-la-do-thi-sinh-thai-thuc-thu/",
     "anchor": "Cạnh Vườn quốc gia Cát Bà: Xanh Island có là đô thị sinh thái thực thụ?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/bai-viet-sun-da-nang/",
     "anchor": "Bài viết về SUN ĐÀ NẴNG",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/du-lich-da-nang-thay-doi-ra-sao-sau-cac-cong-trinh-cua-sun-group/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/du-lich-da-nang-thay-doi-ra-sao-sau-cac-cong-trinh-cua-sun-group/",
     "anchor": "Du lịch Đà Nẵng thay đổi ra sao sau các công trình của Sun Group?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/nha-dau-tu-bac-nam-quan-tam-sun-group-da-nang/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/nha-dau-tu-bac-nam-quan-tam-sun-group-da-nang/",
     "anchor": "Vì Sao Nhà Đầu Tư Bắc Nam Đều Quan Tâm Sun Group Đà Nẵng?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/he-sinh-thai-sun-group-da-nang-so-voi-phu-quoc-ha-long/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/he-sinh-thai-sun-group-da-nang-so-voi-phu-quoc-ha-long/",
     "anchor": "Hệ sinh thái Sun Group Đà Nẵng khác biệt gì với Phú Quốc, Hạ Long?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/chinh-sach-dau-tu-bds-du-lich-tai-da-nang/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/chinh-sach-dau-tu-bds-du-lich-tai-da-nang/",
     "anchor": "Chính sách đầu tư BĐS du lịch tại Đà Nẵng có gì hấp dẫn?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-sap-lam-gi-tai-da-nang/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-sap-lam-gi-tai-da-nang/",
     "anchor": "Sun Group Sắp Làm Gì Tại Đà Nẵng? Góc Nhìn Nhà Đầu Tư",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/bat-dong-san-view-thien-nhien-xu-huong-tai-da-nang/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/bat-dong-san-view-thien-nhien-xu-huong-tai-da-nang/",
     "anchor": "Bất động sản view thiên nhiên – xu hướng lên ngôi tại Đà Nẵng?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tam-ly-nha-dau-tu-ha-noi-hcm-dau-tu-sun-group-da-nang/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tam-ly-nha-dau-tu-ha-noi-hcm-dau-tu-sun-group-da-nang/",
     "anchor": "Tâm Lý Nhà Đầu Tư Hà Nội – HCM Khi Đầu Tư Sun Group Đà Nẵng",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/khach-hang-mua-bds-gan-du-an-sun-group-tai-da-nang/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/khach-hang-mua-bds-gan-du-an-sun-group-tai-da-nang/",
     "anchor": "Khách hàng mua BĐS gần dự án Sun Group tại Đà Nẵng là ai?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/mo-rong-san-bay-da-nang-va-anh-huong-toi-bds-sun-group/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/mo-rong-san-bay-da-nang-va-anh-huong-toi-bds-sun-group/",
     "anchor": "Mở rộng sân bay Đà Nẵng và ảnh hưởng tới BĐS Sun Group",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tac-dong-ha-tang-moi-den-cac-du-an-sun-group/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tac-dong-ha-tang-moi-den-cac-du-an-sun-group/",
     "anchor": "Hạ Tầng Giao Thông Mới Tác Động Ra Sao Đến Các Dự Án Sun Group?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/bai-viet-sunneva-island/",
     "anchor": "Bài viết về SUNNEVA ISLAND",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sunneva-island-khac-biet-ra-sao-voi-cac-du-an-ven-song-khac/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sunneva-island-khac-biet-ra-sao-voi-cac-du-an-ven-song-khac/",
     "anchor": "Sunneva Island khác biệt ra sao với các dự án ven sông khác?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/biet-thu-sunneva-island-khien-nha-dau-tu-xuong-tien/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/biet-thu-sunneva-island-khien-nha-dau-tu-xuong-tien/",
     "anchor": "Vì Sao Biệt Thự Sunneva Island Khiến Nhà Đầu Tư Xuống Tiền Nhanh?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/nha-dau-tu-chon-sunneva-island-thay-vi-gui-ngan-hang/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/nha-dau-tu-chon-sunneva-island-thay-vi-gui-ngan-hang/",
     "anchor": "Vì Sao Nhà Đầu Tư Chọn Sunneva Island Thay Vì Gửi Ngân Hàng?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/thiet-ke-sunneva-island/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/thiet-ke-sunneva-island/",
     "anchor": "Vì sao thiết kế Sunneva Island được giới nghệ thuật ca ngợi?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sunneva-island-co-that-su-biet-lap/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sunneva-island-co-that-su-biet-lap/",
     "anchor": "Sunneva Island có thật sự biệt lập? Phân tích tính riêng tư & an ninh",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/gia-tri-phong-thuy-hiem-co-chi-sunneva-island-so-huu/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/gia-tri-phong-thuy-hiem-co-chi-sunneva-island-so-huu/",
     "anchor": "Giá trị phong thủy hiếm có chỉ Sunneva Island sở hữu?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/shophouse-sunneva-island/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/shophouse-sunneva-island/",
     "anchor": "Shophouse Sunneva Island – Giá bán & Phân tích lý do nên mua",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sunneva-island-buoc-dau-chuoi-du-an-dao-noi-do-sun-group/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sunneva-island-buoc-dau-chuoi-du-an-dao-noi-do-sun-group/",
     "anchor": "Sunneva Island Có Phải Bước Đệm Cho Chuỗi Dự Án Đảo Nội Đô Của Sun Group?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sunneva-island-co-tao-ra-chuan-muc-tham-my-moi-cho-bat-dong-san-mien-trung/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sunneva-island-co-tao-ra-chuan-muc-tham-my-moi-cho-bat-dong-san-mien-trung/",
     "anchor": "Sunneva Island có tạo ra chuẩn mực thẩm mỹ mới cho bất động sản miền Trung?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sunneva-island-co-phai-la-bat-dong-san-truyen-doi/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sunneva-island-co-phai-la-bat-dong-san-truyen-doi/",
     "anchor": "Sunneva Island có phải là bất động sản truyền đời thế hệ sau",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/bai-viet-sun-cosmo-residence/",
     "anchor": "Bài viết về SUN COSMO RESIDENCE",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/the-panoma-toa-can-ho-cua-sun-group-tai-da-nang-co-gi-khac-biet/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/the-panoma-toa-can-ho-cua-sun-group-tai-da-nang-co-gi-khac-biet/",
     "anchor": "The Panoma - Tòa Căn Hộ Sun Group Tại Đà Nẵng Có Gì Khác Biệt?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-cosmo-residence-co-tai-hien-duoc-thanh-cong-nhu-sun-grand-city-thuy-khue/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-cosmo-residence-co-tai-hien-duoc-thanh-cong-nhu-sun-grand-city-thuy-khue/",
     "anchor": "Sun Cosmo Residence có tái hiện được thành công như Sun Grand City Thụy Khuê?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-cosmo-residence-at-chu-bai-cua-sun-group-ven-song-han/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-cosmo-residence-at-chu-bai-cua-sun-group-ven-song-han/",
     "anchor": "Sun Cosmo Residence có phải át chủ bài của Sun Group ven sông Hàn?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/vi-sao-can-sky-villa-va-penthouse-the-panoma-duoc-san-don/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/vi-sao-can-sky-villa-va-penthouse-the-panoma-duoc-san-don/",
     "anchor": "Vì Sao Căn Sky Villa và Penthouse The Panoma Được Săn Đón?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-cosmo-residence-co-phai-lua-chon-cho-thue-ngan-han-tai-da-nang/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-cosmo-residence-co-phai-lua-chon-cho-thue-ngan-han-tai-da-nang/",
     "anchor": "Sun Cosmo Residence Có Phải Lựa Chọn Cho Thuê Ngắn Hạn Tại Đà Nẵng?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-cosmo-residence-co-giu-gia-tot-nho-vi-tri-ven-song-han/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-cosmo-residence-co-giu-gia-tot-nho-vi-tri-ven-song-han/",
     "anchor": "Sun Cosmo Residence Có Giữ Giá Tốt Nhờ Vị Trí Ven Sông Hàn?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-cosmo-residence-co-hap-dan-nha-dau-tu-chuyen-nghiep/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-cosmo-residence-co-hap-dan-nha-dau-tu-chuyen-nghiep/",
     "anchor": "Sun Cosmo Residence Có Đủ Hấp Dẫn Với Giới Đầu Tư Chuyên Nghiệp?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/shophouse-sun-cosmo-residence/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/shophouse-sun-cosmo-residence/",
     "anchor": "Shophouse Sun Cosmo Residence Có Đáng Mua Không? Phân Tích Chi Tiết",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/the-cosmo-phan-khu-thap-tang-gay-sot-dau-tu/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/the-cosmo-phan-khu-thap-tang-gay-sot-dau-tu/",
     "anchor": "Vì Sao Phân Khu Thấp Tầng The Cosmo Gây Sốt Ngay Từ Đầu?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/cau-tran-thi-ly-va-song-han-nang-gia-tri-sun-cosmo-residence/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/cau-tran-thi-ly-va-song-han-nang-gia-tri-sun-cosmo-residence/",
     "anchor": "Cầu Trần Thị Lý và Sông Hàn nâng giá trị Sun Cosmo Residence thế nào?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/bai-viet-sun-solar-residence/",
     "anchor": "Bài viết về SUN SOLAR RESIDENCE",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/so-sanh-sun-solar-residence-va-sun-costa-residence/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/so-sanh-sun-solar-residence-va-sun-costa-residence/",
     "anchor": "Sun Solar Residence Và Sun Costa: Dự Án Nào Khai Thác Tốt Hơn?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-solar-residence-uu-the-so-voi-du-an-lan-can/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-solar-residence-uu-the-so-voi-du-an-lan-can/",
     "anchor": "Sun Solar Residence Có Ưu Thế Gì So Với Dự Án Quanh Cầu Rồng – Hàn?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-solar-residence-duoc-huong-gi-tu-sun-symphony-ponte-cosmo/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-solar-residence-duoc-huong-gi-tu-sun-symphony-ponte-cosmo/",
     "anchor": "Sun Solar Residence được hưởng gì từ Sun Symphony – Ponte – Cosmo?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-solar-residence-gan-khach-san-lon-anh-huong-gi-den-khai-thac/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-solar-residence-gan-khach-san-lon-anh-huong-gi-den-khai-thac/",
     "anchor": "Sun Solar Residence Gần Khách Sạn Lớn: Ảnh Hưởng Gì Đến Khả Năng Khai Thác?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/co-nen-so-huu-can-ho-sun-solar-residence-de-cho-thue/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/co-nen-so-huu-can-ho-sun-solar-residence-de-cho-thue/",
     "anchor": "Có nên sở hữu căn hộ Sun Solar Residence để cho thuê dài hạn?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/vi-sao-sun-group-uu-tien-can-ho-trung-tam-thay-vi-bien/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/vi-sao-sun-group-uu-tien-can-ho-trung-tam-thay-vi-bien/",
     "anchor": "Vì Sao Sun Group Ưu Tiên Căn Hộ Trung Tâm Thay Vì Biển?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-solar-residence-bat-dong-san-khong-mat-gia-tai-da-nang/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-solar-residence-bat-dong-san-khong-mat-gia-tai-da-nang/",
     "anchor": "Sun Solar Residence: BĐS “Không Mất Giá” Tại Đà Nẵng",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-solar-residence-lua-chon-cho-nha-dau-tu-khong-thich-rui-ro-vung-ven/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-solar-residence-lua-chon-cho-nha-dau-tu-khong-thich-rui-ro-vung-ven/",
     "anchor": "Sun Solar Residence lựa chọn cho nhà đầu tư không thích rủi ro vùng ven?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/vi-sao-doanh-nhan-chon-sun-solar-residence-hon-resort/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/vi-sao-doanh-nhan-chon-sun-solar-residence-hon-resort/",
     "anchor": "Vì Sao Doanh Nhân Chọn Sun Solar Residence Hơn Resort Khi Công Tác?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/gia-tri-sun-solar-residence-co-tang-khi-pho-le-duan-nang-cap/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/gia-tri-sun-solar-residence-co-tang-khi-pho-le-duan-nang-cap/",
     "anchor": "Giá Trị Sun Solar Residence Có Tăng Khi Phố Lê Duẩn Được Nâng Cấp?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/bai-viet-sun-ha-nam/",
     "anchor": "Bài viết về SUN HÀ NAM",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tac-dong-tu-cac-du-an-sun-group-den-bat-dong-san-ha-nam/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/tac-dong-tu-cac-du-an-sun-group-den-bat-dong-san-ha-nam/",
     "anchor": "Tác động từ các dự án Sun Group đến bất động sản Hà Nam",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/ha-nam-huong-loi-gi-tu-he-sinh-thai-3s-cua-sun-group/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/ha-nam-huong-loi-gi-tu-he-sinh-thai-3s-cua-sun-group/",
     "anchor": "Hà Nam sẽ hưởng lợi gì từ hệ sinh thái 3S của Sun Group?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-tu-khai-mo-du-lich-den-kich-hoat-bds-tai-ha-nam/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-tu-khai-mo-du-lich-den-kich-hoat-bds-tai-ha-nam/",
     "anchor": "Sun Group từ khai mở du lịch đến kích hoạt bđs tại Hà Nam",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/bien-ha-nam-thanh-trung-tam-su-kien-le-hoi-cua-sun-group/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/bien-ha-nam-thanh-trung-tam-su-kien-le-hoi-cua-sun-group/",
     "anchor": "Tầm nhìn biến Hà Nam thành trung tâm sự kiện - lễ hội của Sun Group?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-tao-luc-hap-dan-keo-dong-von-ve-ha-nam/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-tao-luc-hap-dan-keo-dong-von-ve-ha-nam/",
     "anchor": "Sun Group đang tạo ra lực hấp dẫn mới kéo dòng vốn về Hà Nam?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-ve-ha-nam-co-hoi-hay-thach-thuc-cho-nha-dau-tu/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-ve-ha-nam-co-hoi-hay-thach-thuc-cho-nha-dau-tu/",
     "anchor": "Sun Group về Hà Nam: Cơ hội hay thách thức cho nhà đầu tư?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-chon-ha-nam-lua-chon-dai-han-hay-co-hoi-ngan-han/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-chon-ha-nam-lua-chon-dai-han-hay-co-hoi-ngan-han/",
     "anchor": "Sun Group chọn Hà Nam: Lựa chọn dài hạn hay cơ hội ngắn hạn?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-phat-trien-ha-tang-mem-tai-ha-nam/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-phat-trien-ha-tang-mem-tai-ha-nam/",
     "anchor": "Vai trò của Sun Group trong phát triển hạ tầng mềm tại Hà Nam",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/nha-dau-tu-huong-loi-gi-tu-he-sinh-thai-sun-group-tai-ha-nam/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/nha-dau-tu-huong-loi-gi-tu-he-sinh-thai-sun-group-tai-ha-nam/",
     "anchor": "Nhà đầu tư hưởng lợi gì từ hệ sinh thái Sun Group tại Hà Nam?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-co-the-thay-doi-kinh-te-du-lich-ha-nam/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-group-co-the-thay-doi-kinh-te-du-lich-ha-nam/",
     "anchor": "Vì sao Sun Group có thể thay đổi diện mạo kinh tế – du lịch Hà Nam?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/bai-viet-sun-urban-city/",
     "anchor": "Bài viết về SUN URBAN CITY",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/co-nen-mua-dau-tu-sun-urban-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/co-nen-mua-dau-tu-sun-urban-city/",
     "anchor": "Có nên mua đầu tư Sun Urban City Hà Nam? Chuyên gia phân tích",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-urban-city-co-phai-du-an-lon-nhat-tai-ha-nam/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-urban-city-co-phai-du-an-lon-nhat-tai-ha-nam/",
     "anchor": "Sun Urban City có phải là dự án lớn nhất hiện nay tại Hà Nam?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/le-khoi-cong-sun-urban-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/le-khoi-cong-sun-urban-city/",
     "anchor": "Khởi công Sun Urban City: Sun Group cam kết gì với nhà đầu tư?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/so-do-lau-dai-tai-sun-urban-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/so-do-lau-dai-tai-sun-urban-city/",
     "anchor": "Sổ đỏ lâu dài tại Sun Urban City: Tạo nên khác biệt khi đầu tư?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/he-sinh-thai-cong-vien-lien-hoan-tai-sun-urban-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/he-sinh-thai-cong-vien-lien-hoan-tai-sun-urban-city/",
     "anchor": "Hệ sinh thái công viên liên hoàn tại Sun Urban City có gì đặc biệt?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/art-residence-can-ho-nghe-thuat-tai-ha-nam-la-gi/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/art-residence-can-ho-nghe-thuat-tai-ha-nam-la-gi/",
     "anchor": "Art Residence – Căn hộ nghệ thuật đầu tiên xuất hiện tại Hà Nam là gì?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-urban-city-du-an-duy-nhat-mien-bac-tich-hop-12000-can-ho-noxh/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-urban-city-du-an-duy-nhat-mien-bac-tich-hop-12000-can-ho-noxh/",
     "anchor": "Sun Urban City – Dự án duy nhất miền Bắc tích hợp 12.000 căn hộ NOXH?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/trung-tam-hanh-chinh-tinh-duoc-dat-trong-sun-urban-city/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/trung-tam-hanh-chinh-tinh-duoc-dat-trong-sun-urban-city/",
     "anchor": "Vì sao trung tâm hành chính tỉnh được đặt trong Sun Urban City?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-hospitality-tai-sun-urban-city-co-gi-dang-ky-vong/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/sun-hospitality-tai-sun-urban-city-co-gi-dang-ky-vong/",
     "anchor": "Sun Hospitality có mặt tại Sun Urban City – Có gì đáng kỳ vọng?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/cong-vien-nuoc-sun-world-ha-nam/",
     "anchor": "",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
     "to": "https://sungroupsr.vn/cong-vien-nuoc-sun-world-ha-nam/",
     "anchor": "Công viên nước Sun World Hà Nam có gì chơi? Giá vé bao nhiêu?",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
@@ -17907,7 +17907,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "http://sungroupsr.vn/chinh-sach-bao-mat/",
@@ -18279,7 +18279,7 @@
     "liên hệ SUN GROUP SR"
    ]
   ],
-  "words": 3,
+  "words": 50,
   "schema": [],
   "links": [
    {
@@ -18399,7 +18399,7 @@
    {
     "to": "https://sungroupsr.vn/",
     "anchor": "https://sungroupsr.vn/",
-    "zone": "khung",
+    "zone": "nội dung",
     "rel": ""
    },
    {
@@ -18427,7 +18427,7 @@
     "rel": ""
    }
   ],
-  "note": "có thể cần JavaScript (gần như không có chữ)"
+  "note": ""
  },
  {
   "url": "http://sungroupsr.vn/vi-tri-charmora-city/",
