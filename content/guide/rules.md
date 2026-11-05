@@ -60,15 +60,18 @@ nhưng phần "áp dụng cho Velis" thì không.
 
 - Mặc định không gắn tháng/năm vào title, H2, anchor (BRIEF, `content/samples/SUMMARY.md` mục C).
 - **Ngoại lệ: bài tin tiến độ** được gắn tháng/năm trong title (ví dụ dạng "Tiến độ {dự án} tháng MM/YYYY").
+- Title 45–60 ký tự, meta description 120–155 ký tự (người dùng chốt 2026-11-05).
 
 ## 8. Checklist trước khi commit một bài
 
 1. `python3 -I content/guide/scan_banned.py <bài>` không báo trùng (mục 4, 9).
 2. Mọi con số trong bài đều có trong dữ liệu được cung cấp cho đợt viết, `BRIEF.md` hoặc facts (mục 6).
-3. Title, meta, H1, link trụ cột đúng `content/guide/structure.md` mục SEO/AEO (title ≤ 60 ký tự, meta ≤ 155, một H1,
+3. Title, meta, H1, link trụ cột đúng `content/guide/structure.md` mục SEO/AEO (title 45–60 ký tự, meta 120–155, một H1,
    không nhảy cấp heading, có link lên trang trụ cột của cụm + 2–4 link ngang).
 4. Câu chuyện ngôi thứ nhất không mâu thuẫn dữ kiện trong BRIEF, BRAND, facts (mục 5).
 5. Đủ thành phần tối thiểu của loại bài/loại trang (`content/guide/pillars.md` mục E2–E4).
+6. Mọi link ra ngoài đều là Wikipedia và đã kiểm tra HTTP 200, đúng chủ đề (mục 10).
+7. Không có dấu gạch dài (—), script ở bước 1 tự báo; câu ≤ 30 từ, đoạn ≤ 80 từ (mục 11).
 
 ## 9. Danh sách tên đối thủ cấm xuất hiện
 
@@ -178,3 +181,20 @@ slogan, hotline của họ. Mỗi dòng: `- `cụm từ` (loại, nguồn)` — 
 - **Vũ Thanh Xuân** (Facebook `xuanvu.bp`) chính là CEO Velis Vũ Xuân. Trước đây anh là giám đốc sàn của đơn vị phân phối đứng sau
   các domain trong `content/samples/`, nay đã mở công ty riêng là Velis Realty. Trang giới thiệu đội ngũ của sungroupsr.vn vẫn còn hồ sơ cũ của anh.
   Không bao giờ đưa "Vũ Xuân", "Vũ Thanh Xuân" hay `xuanvu.bp` vào danh sách cấm.
+
+## 10. Link ra ngoài (người dùng chốt 2026-11-05)
+
+- **Chỉ dẫn đến Wikipedia**, ưu tiên `vi.wikipedia.org`, ở chỗ có bài phù hợp: địa danh, phường/xã, tuyến đường, hạ tầng, khái niệm pháp lý…
+- **Không** link đến chủ đầu tư, sàn, môi giới, trang rao bán hay bất kỳ site bán hàng nào. **Không bao giờ** link đến domain trong danh sách cấm (mục 9).
+- Trước khi chèn: kiểm tra URL tồn tại (HTTP 200) và đúng chủ đề. Không tự đoán URL; không có bài phù hợp thì không chèn link.
+  ```bash
+  curl -sS -o /dev/null -w '%{http_code} %{url_effective}\n' -L --cacert /root/.ccr/ca-bundle.crt 'https://vi.wikipedia.org/wiki/<Tên_bài>'
+  ```
+  200 sau chuyển hướng vẫn phải mở xem tiêu đề bài đích có đúng chủ đề (trang định hướng/disambiguation thì không dùng).
+- Số liệu vẫn chỉ lấy từ dữ liệu người dùng cung cấp (mục 6), **không lấy số từ Wikipedia**.
+
+## 11. Câu chữ (người dùng chốt 2026-11-05)
+
+- Giữ trần `docs/VOICE.md`: tối đa 30 từ/câu, 80 từ/đoạn; thêm **mục tiêu câu trung bình 15–20 từ**.
+- **Cấm dấu gạch dài (—)** trong bài.
+- FAQ hiển thị + schema `FAQPage`: bài blog 3–5 câu, trang dự án 6–8 câu. Độ dài bài 1.200–2.000 từ.

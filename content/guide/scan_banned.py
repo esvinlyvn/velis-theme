@@ -3,7 +3,7 @@
 
 Chạy: python3 -I content/guide/scan_banned.py <file> [<file>...]
 So khớp không phân biệt hoa thường, bỏ dấu, theo ranh giới từ; số điện thoại so theo dãy chữ số
-(0938.007.778 = 0938 007 778 = 0938007778).
+(0938.007.778 = 0938 007 778 = 0938007778). Cũng báo dấu gạch dài (—), bị cấm trong bài (rules.md mục 11).
 """
 import os, re, sys, unicodedata
 
@@ -45,9 +45,13 @@ def main(paths):
     bad = 0
     for p in paths:
         with open(p, encoding="utf-8") as fh:
-            for t in hits(fh.read(), terms):
-                print(f"{p}: chứa từ cấm «{t}»")
-                bad = 1
+            body = fh.read()
+        for t in hits(body, terms):
+            print(f"{p}: chứa từ cấm «{t}»")
+            bad = 1
+        if "\u2014" in body:
+            print(f"{p}: có {body.count(chr(0x2014))} dấu gạch dài (—)")
+            bad = 1
     return bad
 
 

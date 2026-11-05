@@ -16,15 +16,19 @@ Nguồn mục D: BRIEF, `docs/VOICE.md`, `docs/BRAND.md`, `content/samples/SUMMA
 ## D1. SEO trên trang
 
 1. **Một URL – một từ khóa chính – một ý định**, theo `keyword-map.csv` (BRIEF); hai URL trùng từ khóa chính là lỗi.
-2. Title ≤ 60 ký tự, từ khóa chính ở đầu; meta description ≤ 155 ký tự, ý chính + lý do đọc; không trùng giữa hai trang (BRIEF).
-   **Không gắn tháng/năm** vào title, H2, anchor — **trừ bài tin tiến độ** (`rules.md` mục 7).
+2. Title **45–60 ký tự**, từ khóa chính ở đầu; meta description **120–155 ký tự**, ý chính + lý do đọc; không trùng giữa hai trang
+   (BRIEF + người dùng chốt sàn 2026-11-05).
+   **Không gắn tháng/năm** vào title, H2, anchor, **trừ bài tin tiến độ** (`rules.md` mục 7).
 3. Một H1; H2 phần chính, H3 mục con, không nhảy cấp; 15–25% heading dạng câu hỏi thật (VOICE). Tiêu đề khối của theme
    không dùng thẻ heading (BRIEF).
 4. Slug theo BRIEF, không năm (trừ bài gắn thời điểm theo BRIEF), không dấu, ngắn.
 5. **Link nội bộ bắt buộc**: lên trụ cột của cụm (đúng cấp bài nói tới: phân khu/dòng/dự án) + 2–4 link ngang trong cụm;
    anchor mô tả ngắn, khác nhau giữa các bài, không phải nguyên tiêu đề, không "xem thêm/tại đây" (SUMMARY C.4, tránh 5).
 6. Ảnh: có bản quyền, alt mô tả, chú thích; ảnh thực tế ghi ngày chụp; khai báo kích thước; ảnh đại diện 16:9 (BRIEF).
-7. Mục lục khi bài > 1.200 từ (BRIEF). Độ dài theo VOICE; đủ ý thì dừng, không độn chữ.
+7. Mục lục khi bài > 1.200 từ (BRIEF). Độ dài bài **1.200–2.000 từ** (trụ cột theo VOICE); đủ ý thì dừng, không độn chữ.
+8. Câu tối đa 30 từ, đoạn tối đa 80 từ (VOICE); **mục tiêu câu trung bình 15–20 từ**. **Không dùng dấu gạch dài (U+2014)** trong bài:
+   thay bằng dấu phẩy, hai chấm, gạch nối ngắn hoặc tách câu.
+9. **Link ra ngoài chỉ đến Wikipedia** (`rules.md` mục 10).
 
 ## D2. AEO – để được chọn làm câu trả lời
 
@@ -32,10 +36,11 @@ Nguồn mục D: BRIEF, `docs/VOICE.md`, `docs/BRAND.md`, `content/samples/SUMMA
    đọc hiểu được khi tách khỏi bài (không "như đã nói ở trên", không đại từ trỏ ra ngoài).
 2. **Hộp "Tóm tắt nhanh"** 3–5 dòng, mỗi dòng một dữ kiện (VOICE).
 3. **Mỗi H2 trả lời một câu hỏi**; câu đầu của mục là câu trả lời, phần sau giải thích. Mỗi mục đọc độc lập được.
-4. Dữ kiện ở dạng có cấu trúc: bảng thông số, bảng so sánh, bước đánh số, mốc thời gian — thay cho đoạn văn dài.
+4. Dữ kiện ở dạng có cấu trúc: bảng thông số, bảng so sánh, bước đánh số, mốc thời gian, thay cho đoạn văn dài.
 5. Lần nhắc đầu mỗi mục gọi **đủ tên thực thể**: tên dự án + chủ đầu tư + phường/xã mới (kèm "trước đây Quận …" khi cần);
    không chỉ "dự án này", "nơi đây".
-6. **FAQ chỉ gồm câu khách hỏi thật** (GSC, form, Zalo, sale); mỗi câu trả lời 40–80 từ, tự đứng được.
+6. **FAQ hiển thị + schema `FAQPage`**: bài blog 3–5 câu, trang dự án 6–8 câu; chỉ gồm câu khách hỏi thật (GSC, form, Zalo, sale);
+   mỗi câu trả lời 40–80 từ, tự đứng được.
 7. Định nghĩa thuật ngữ ở lần dùng đầu trong 1 câu (VOICE: giá vốn Net, ân hạn nợ gốc, lợi suất cho thuê…).
 
 ## D3. Trích dẫn AI – để AI tin và ghi nguồn Velis
@@ -52,24 +57,18 @@ Nguồn mục D: BRIEF, `docs/VOICE.md`, `docs/BRAND.md`, `content/samples/SUMMA
 7. **Nhất quán giữa các trang**: cùng dữ kiện (quy mô, bàn giao, pháp lý) giống nhau ở trang dự án, phân khu, blog, llms.txt.
 8. Bot AI được vào, llms.txt theo BRIEF; nội dung chính nằm trong HTML, không phụ thuộc JavaScript.
 
-## Lệch giữa refs và BRIEF – chờ người dùng quyết (2026-11-05)
+## Quyết định về chỗ lệch refs / BRIEF (người dùng chốt 2026-11-05)
 
-Refs: `~/refs/claude-blog` (CB), `~/refs/claude-seo-velis` (CV; bản fork chưa có tùy biến nào cho Velis, giống bản gốc).
-Chưa áp dụng điểm nào dưới đây; mục D giữ theo BRIEF cho tới khi người dùng quyết.
+Refs: `~/refs/claude-blog`, `~/refs/claude-seo-velis` (bản fork chưa có tùy biến Velis). Đã áp vào mục D1–D3 và `rules.md`.
 
-| # | Chủ đề | BRIEF / quy tắc hiện tại | Refs nói | Ghi chú |
-|---:|---|---|---|---|
-| 1 | Năm trong title | Không gắn năm (trừ tin tiến độ) | CB: mẫu how-to, pillar "thêm năm để báo tín hiệu mới" (`blog/templates/how-to-guide.md:30`, `pillar-page.md:32`) | Trái BRIEF |
-| 2 | Độ dài title | ≤ 60 ký tự | CV: 50–60, "không dưới 50" (`seo-content-brief/SKILL.md:133`); chỗ khác 30–60 | Refs tự mâu thuẫn; BRIEF không có sàn |
-| 3 | Độ dài meta | ≤ 155 ký tự | CV: 130–150 (`seo-content-brief:139`), 150–160 (`seo-page:21`), 120–160; CB: không giới hạn | Refs tự mâu thuẫn; có thể thêm sàn ~120 |
-| 4 | FAQ & schema | `FAQPage` khi FAQ hiển thị; FAQ dự án 6–8 câu | CB, CV: Google bỏ hẳn kết quả nhiều định dạng FAQ từ 07/05/2026 → `FAQPage` chỉ còn là đánh dấu thực thể, không lợi SERP; FAQ bài 3–5 câu (`blog-write:364`, `seo-schema:55`) | Không trái BRIEF, nhưng đổi lý do giữ FAQ; số câu khác |
-| 5 | Trải nghiệm ngôi thứ nhất | `rules.md` mục 5: Claude tự viết, không đánh dấu (người dùng chốt) | CB: chỉ dùng trải nghiệm khi tác giả cung cấp bằng chứng, "không mô phỏng" (`blog-write:112-119`, `blog-brief:170`) | Trái quyết định người dùng (BRIEF không nói) |
-| 6 | Nguồn số liệu, link ra ngoài | VOICE: không bắt buộc link ngoài; số theo dữ liệu được cung cấp | CB: mỗi số cần nguồn bậc 1–3, bài cần ≥ 2 số có nguồn, 3–8 link ngoài (`blog-write:299`, `quality-scoring.md:27`) | Khác |
-| 7 | Độ dài bài | 1.200–2.000; trụ cột 2.500–4.000 | CV: sàn 1.500 cho bài blog (`seo-content:74`); CB, CV cụm: vệ tinh 1.200–1.800, trụ cột 2.500–4.000 | Chỉ CV khác |
-| 8 | Độ dài mỗi mục | Chưa quy định | CV: khối tự đứng ~130–170 từ (tự ghi là kinh nghiệm, không phải yêu cầu Google); CB: cảnh báo mục > 300 từ | BRIEF im lặng |
-| 9 | Link nội bộ | Trụ cột + 3 bài cùng cụm (BRIEF); D: + 2–4 ngang | CB: 5–7 link/bài 1–2 nghìn từ, tối thiểu 3, ≥ 1 link trong 3 đoạn đầu; mỗi bài vệ tinh nhận ≥ 2 link (CV: ≥ 3) | Gần khớp; refs chi tiết hơn |
-| 10 | llms.txt | Giữ và cập nhật (BRIEF) | CV: báo cáo nhưng tính trọng số 0; CB: Google không cần | Không trái; chỉ khác kỳ vọng |
-| 11 | Dấu gạch dài (—) | Không quy định | CB: cấm dùng em dash trong bài (`content-rules.md:223`) | BRIEF im lặng; guide đang dùng nhiều |
-| 12 | Độ mới | Ngày cập nhật chỉ đổi khi nội dung đổi thật | CV: nội dung < 3 tháng được trích nhiều hơn, > 6 tháng giảm cơ hội (`seo-geo:127`) | Không trái; gợi ý lịch rà soát |
-| 13 | Câu, đoạn | Trần 30 từ/câu, 80 từ/đoạn (VOICE) | CV: câu TB 15–20 từ, đoạn 2–4 câu; CB: cảnh báo đoạn > 3 câu | Refs chặt hơn |
-| 14 | Schema bài | `BlogPosting` | CV mẫu dùng `Article`; cả hai hợp lệ | Không trái |
+| # | Chủ đề | Quyết định |
+|---:|---|---|
+| 1 | Năm trong title | Giữ BRIEF: không gắn năm, trừ bài tin tiến độ |
+| 2 | Trải nghiệm ngôi thứ nhất | Giữ như đã chốt (`rules.md` mục 5) |
+| 3 | FAQ | Giữ FAQ hiển thị + `FAQPage`; bài blog 3–5 câu, trang dự án 6–8 câu |
+| 4 | Link ra ngoài | Chỉ Wikipedia (ưu tiên vi.wikipedia.org), kiểm tra HTTP 200 + đúng chủ đề; không lấy số từ Wikipedia (`rules.md` mục 10) |
+| 5 | Title, meta | Title 45–60 ký tự, meta 120–155 ký tự |
+| 6 | Câu, đoạn | Giữ VOICE (≤ 30 từ/câu, ≤ 80 từ/đoạn) + mục tiêu câu trung bình 15–20 từ |
+| 7 | Dấu gạch dài (U+2014) | Cấm trong bài |
+| 8 | Độ dài bài | Giữ 1.200–2.000 từ |
+| 9–14 | Độ dài mục, link nội bộ, llms.txt, độ mới, schema `BlogPosting` | Giữ như mục D (không trái BRIEF) |

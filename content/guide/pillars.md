@@ -24,8 +24,10 @@ Chỉ ghi phần bổ sung. Phần đã có, đọc tại nguồn:
 
 ## E1b. Thứ tự ưu tiên theo Search Console
 
-Nguồn: `data/gsc/queries.csv`, `pages.csv` — 12 tháng đến 01/11/2026, tìm kiếm web. Tiêu chí (người dùng chốt): truy vấn có hiển thị nhưng
+Nguồn: `data/gsc/queries.csv`, `pages.csv`, 12 tháng đến 01/11/2026, tìm kiếm web. Tiêu chí (người dùng chốt): truy vấn có hiển thị nhưng
 CTR thấp, hoặc vị trí 8–20. Truy vấn thương hiệu Velis và nhóm "realty/realtor" không liên quan bị loại.
+
+Từ khóa từng URL: bản nháp `content/keyword-map.csv` (cùng cột với `data/keyword-map.csv` + cột `trang_thai`; cột `gsc_nhap` là lượt nhấp **12 tháng**, GSC chỉ xuất 12 tháng thay vì 16 như BRIEF). Dữ liệu cần cho đợt 1: `content/dot-1-du-lieu-can-cung-cap.md`.
 
 **Tổng theo cụm**
 
@@ -56,7 +58,7 @@ CTR thấp, hoặc vị trí 8–20. Truy vấn thương hiệu Velis và nhóm 
 
 | # | Cụm | Việc | Bằng chứng GSC |
 |---:|---|---|---|
-| 6 | `the-global-city` | Bài nhận định "Có nên đầu tư The Global City giai đoạn này" | 2 biến thể, 80 hiển thị, vị trí ~55 |
+| 6 | `the-global-city` | Làm mới bài `/blog/the-global-city/the-global-city-bat-day-hay-du-dinh/` cho từ khóa "có nên đầu tư the global city" (không tạo URL mới) | 2 biến thể, 80 hiển thị, vị trí ~55 |
 | 7 | `the-global-city` | Trang dự án TGC (mục chủ đầu tư rõ ràng) | Trang `/the-global-city/` 422 / 28,1 / 1,2%; "chủ đầu tư the global city" 18 / 38,9 |
 | 8 | `spring-ville` | Trang chủ đầu tư Gamuda Land (ai đứng sau, các dự án) | `/du-an/gamuda-land/` 220 / 30,1; "dự án gamuda" 31 / 38,7; "gamuda land của ai" 17 / 54,4 |
 
@@ -101,5 +103,6 @@ Khung đầy đủ ở BRIEF (template dự án, phân khu, dòng thấp tầng,
 ## TODO
 
 - Xác minh chủ đầu tư Palm City / Palm River trước khi làm mới bài #1 (`docs/AUDIT-NOI-DUNG.md` mục 1 còn mở).
-- Số liệu cho từng bài đợt 1: chờ người dùng cung cấp (`rules.md` mục 6).
+- Số liệu cho từng bài đợt 1: chờ người dùng cung cấp (`content/dot-1-du-lieu-can-cung-cap.md`).
+- Duyệt bản nháp `content/keyword-map.csv`; khi duyệt, đưa vào `data/keyword-map.csv` (ngoài nhánh `content`).
 - Cập nhật bảng ưu tiên khi có GSC mới (đề xuất mỗi quý) và khi có `keyword-map.csv` của BRIEF.
