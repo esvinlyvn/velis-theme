@@ -20,7 +20,10 @@ dữ liệu thật trên velisrealty.vn), không lấy từ site đối thủ.
 
 ## 3. Người viết
 
-Người viết toàn bộ nội dung Velis là **CEO Velis Realty – Vũ Xuân** (nguồn: `BRIEF.md`; trang tác giả `/chuyen-gia/vu-xuan/`).
+Người viết toàn bộ nội dung Velis là **CEO Velis Realty – Vũ Xuân** (họ tên đầy đủ: Vũ Thanh Xuân, người dùng xác nhận 2026-11-05;
+nguồn: `BRIEF.md`; trang tác giả `/chuyen-gia/vu-xuan/`).
+Tiểu sử CEO cho Velis phải viết mới; không chép lời giới thiệu trên site đối thủ. Kinh nghiệm cũ chỉ mô tả chung
+("từng quản lý sàn tại một đơn vị phân phối"), không nêu tên đơn vị cũ hay tên sàn cũ, trừ khi người dùng quyết định khác.
 Không dùng tên, chức danh hay lời giới thiệu của bất kỳ ai khác. Thông tin CEO chưa có trong repo (tiểu sử, năm kinh nghiệm…)
 thì ghi TODO và hỏi người dùng, không tự đặt.
 
@@ -133,7 +136,8 @@ slogan, hotline của họ. Mỗi dòng: `- `cụm từ` (loại, nguồn)` — 
 
 <!-- banned:end -->
 
-### Chờ người dùng xác nhận (KHÔNG nằm trong danh sách quét)
+### Đã xác nhận – KHÔNG cấm (người dùng xác nhận 2026-11-05)
 
-- Vũ Thanh Xuân — "giám đốc sàn" trên trang giới thiệu đội ngũ của sungroupsr.vn (Facebook `xuanvu.bp`). Tên gần trùng CEO Velis
-  (Vũ Xuân). Chưa rõ là người khác hay cùng một người → chưa cấm; hỏi người dùng. Tuyệt đối không cấm cụm "Vũ Xuân".
+- **Vũ Thanh Xuân** (Facebook `xuanvu.bp`) chính là CEO Velis Vũ Xuân. Trước đây anh là giám đốc sàn của đơn vị phân phối đứng sau
+  các domain trong `content/samples/`, nay đã mở công ty riêng là Velis Realty. Trang giới thiệu đội ngũ của sungroupsr.vn vẫn còn hồ sơ cũ của anh.
+  Không bao giờ đưa "Vũ Xuân", "Vũ Thanh Xuân" hay `xuanvu.bp` vào danh sách cấm.
