@@ -1,5 +1,18 @@
 # Ghi chú chuyển tiếp giữa các giai đoạn
 
+## Đổi cách làm (2026-11-05)
+
+Giai đoạn 4 đóng ở vòng r8 (PR #5, theme 0.9.8). Từ đây chuyển sang Đổi cách làm bước 1–4; lộ trình:
+- Bước 1: danh sách nghiệm thu (`docs/NGHIEM-THU.md`) + chuẩn ảnh đầu vào (`docs/CHUAN-ANH.md`) + kiểm kê ảnh
+  (`docs/KIEM-KE-ANH.md`) + đề xuất site tham chiếu (`docs/THAM-CHIEU.md`).
+- Bước 2: mockup HTML tĩnh 2 trang (trang chủ, The Global City) theo 2–3 site tham chiếu người dùng chọn.
+- Bước 3: viết lại CSS/component theo mockup đã duyệt, tổ chức theo kiểu Twenty Twenty-Five.
+- Bước 4: nghiệm thu bằng Playwright toHaveScreenshot làm mốc, Lighthouse CI có ngân sách, soát mắt trên Chrome thật.
+
+Mỗi bước xong thì dừng chờ duyệt. Giai đoạn 5 (kiểm thử tổng) và 6 (ra mắt) làm sau bước 4.
+Lý do (đã chốt): sửa giao diện 8 vòng vẫn còn lỗi vì không có hình mẫu duyệt trước, tự chấm bằng bộ đo tự viết, phát hiện
+giới hạn ảnh muộn, CSS vá chồng.
+
 ## Giai đoạn 4 – chờ duyệt (Cổng 4)
 
 Chuyển nội dung trên staging xong ngày 2026-11-04, nhánh `claude/upbeat-fermat-04eevu`: 133 bài/trang sang khối (0 lệch số từ
