@@ -750,7 +750,7 @@ body:has(dialog[open]) .v-sticky-cta { display: none; } /* menu or filter open *
 	.v-side__box .v-card--row { grid-template-columns: 96px 1fr; align-items: center; }
 	.v-side__box .v-card--row .v-card__media { aspect-ratio: 4 / 3; }
 }
-.v-author .v-btn--text { padding-inline: 0; }
+.v-author .v-btn--text { padding-inline: 0; border: 0; }
 .v-card__meta span { white-space: nowrap; }
 /* "Xem tất cả bài" fills the last row of a ≥ 3-column post grid; hidden where it would open a new row (round 8) */
 .v-card--all { display: grid; place-items: center; min-height: 160px; padding: 24px; text-align: center; font: 600 var(--v-h4)/1.35 var(--v-fh); color: var(--v-red); text-decoration: none; background: #F3ECDF; }

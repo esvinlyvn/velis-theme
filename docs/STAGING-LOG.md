@@ -138,3 +138,11 @@ Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng th
 |---|---|
 | Cỡ ảnh | Theme đăng ký thêm cỡ `velis-600/900/1600/2000/2560`; tạo lại cỡ cho 239 ảnh qua REST `media/<id>/post-process` (create-image-subsizes) – chỉ thêm file cỡ mới, không xóa/sửa ảnh gốc |
 | Theme | ảnh không phóng, khung ≤ cỡ file/DPR, khung dự phòng có tên, lưới ảnh tiến độ, khối "Về Velis", mũi tên dải dự án |
+
+## 2026-11-05 – Giai đoạn 4, vòng r8
+
+| Mục | Thay đổi |
+|---|---|
+| Theme | velis 0.9.0 → **0.9.8** (tải zip qua wp-admin → Giao diện → Tải lên → thay bản đang dùng; 7 lần trong vòng, lần cuối = commit cuối của vòng r8): khung ảnh không phụ thuộc DPR, phóng cắt ẩn huy hiệu, `sizes` tính hệ số phóng, các mục 7–16 |
+| Gửi thử form | 1 lần (Kiểm thử hệ thống, 0900000000, `?utm_source=kiemthu`) từ thẻ cột phải The Global City – `tools/interactions.mjs` |
+| Media / nội dung | không đổi (không có bản gốc lớn hơn để tải lên – `docs/ANH-CAN-THAY.md`) |

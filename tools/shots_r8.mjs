@@ -33,17 +33,18 @@ export const SHOTS = [
 const FIRST = [['trang-chu', '/'], ['the-global-city', '/du-an/the-global-city/'], ['du-an', '/du-an/'], ['persa-place', '/du-an/spring-ville/persa-place/'],
 	['bai-dai', '/blog/vinhomes/vinhomes-2026-bds-xanh-hay-greenwashing/'], ['gioi-thieu', '/gioi-thieu/']];
 const SCREENS = [[1366, 768, 1], [1536, 864, 1.25], [1920, 1080, 1], [390, 844, 2]];
-// [name, path, selector, index among matches] – frames that show a photo with the badge in its source file
+// [name, path, selector, index among matches] – the clipping frame (not the zoomed <img>, whose box spills past it) of a
+// photo that has the badge in its source file
 const BADGES = [
-	['hero-trang-chu', '/', '.v-hero--full > img', 0], ['hero-the-global-city', '/du-an/the-global-city/', '.v-hero--full > img', 0],
-	['hero-the-prive', '/du-an/the-prive/', '.v-hero--full > img', 0], ['hero-persa-place', '/du-an/spring-ville/persa-place/', '.v-hero--full > img', 0],
+	['hero-trang-chu', '/', '.v-hero--full', 0], ['hero-the-global-city', '/du-an/the-global-city/', '.v-hero--full', 0],
+	['hero-the-prive', '/du-an/the-prive/', '.v-hero--full', 0], ['hero-persa-place', '/du-an/spring-ville/persa-place/', '.v-hero--full', 0],
 	['dai-noi-bat-1', '/', '.v-feats li', 0], ['dai-noi-bat-3', '/', '.v-feats li', 2],
 	['the-du-an-1', '/du-an/', 'main .v-card__media', 0], ['the-du-an-2', '/du-an/', 'main .v-card__media', 1], ['the-du-an-3', '/du-an/', 'main .v-card__media', 2],
 	['the-phan-khu-tgc', '/du-an/the-global-city/', '#phan-khu .v-card__media', 2], ['the-bai-blog', '/blog/', 'main .v-card__media', 1],
 	['thu-vien-the-prive-1', '/du-an/the-prive/', '.v-gallery__track li', 0], ['thu-vien-the-prive-2', '/du-an/the-prive/', '.v-gallery__track li', 1],
 	['ban-do-noi-dung-the-prive', '/du-an/the-prive/', '#vi-tri .v-crop, #vi-tri .v-prose img', 0], ['anh-noi-dung-tgc', '/blog/the-global-city/lan-song-fb-do-bo-soho-the-global-city/', '.v-prose .v-crop, .v-prose .wp-block-image', 0],
 	['anh-dau-bai', '/blog/the-global-city/lan-song-fb-do-bo-soho-the-global-city/', '.v-postimg', 0], ['tien-do-the-prive', '/du-an/the-prive/', '.v-photos li', 0],
-	['cot-phai-the-global-city', '/du-an/the-global-city/', '.v-page__side img', 0], ['cot-phai-bai', '/blog/vinhomes/vinhomes-2026-bds-xanh-hay-greenwashing/', '.v-article__side img', 0],
+	['cot-phai-the-global-city', '/du-an/the-global-city/', '.v-page__side .v-pricecard', 0], ['cot-phai-bai', '/blog/vinhomes/vinhomes-2026-bds-xanh-hay-greenwashing/', '.v-article__side .v-card__media', 0],
 	['nam-trong-persa-place', '/du-an/spring-ville/persa-place/', '.v-within__img', 0],
 ];
 

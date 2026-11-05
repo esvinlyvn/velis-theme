@@ -51,3 +51,31 @@ Tổng: 43 bài (34 minh họa chung, 9 người/phố nước ngoài).
 | /blog/ansana-by-kita/loi-the-y-te-ansana-by-kita-dau-tu-cho-thue/ | `tien-ich-y-te-ansana.webp` | minh họa chung (nội thất, văn phòng, biểu đồ, giả tưởng) |
 | /blog/ansana-by-kita/thoi-gian-di-chuyen-tu-ansana-by-kita-vao-quan-1/ | `di-chuyen-ansana-quan-1.webp` | minh họa chung (nội thất, văn phòng, biểu đồ, giả tưởng) |
 | /blog/vinhomes/vinhomes-smart-city-hay-big-brother-quyen-rieng-tu-cua-cu-dan-o-dau/ | `camera-ia-khu-do-thi.webp` | minh họa chung (nội thất, văn phòng, biểu đồ, giả tưởng) |
+
+## Ảnh cần bản gốc lớn hơn (vòng r8, 2026-11-05)
+
+Đã tìm bản lớn hơn cho mọi ảnh < 2000 px: trên staging không ảnh nào có `original_image` / bản `-scaled` lớn hơn (chỉ
+`mat-bang-palm-river` – đã 2560 px); trên site thật (REST công khai, chỉ đọc) 233 file cùng tên đều cùng cỡ với staging
+(1200 px là phổ biến: 219/240). Không có gì để đưa lên → cần bản gốc từ chủ đầu tư / người chụp. Danh sách lấy từ cột
+"Ảnh nguồn thiếu độ phân giải" của bộ đo (`screenshots/phase4-r8/do-sau/bang.md`): cỡ cần = bề rộng file để ảnh hiện
+đủ nét ở khung đó (khung × DPR × hệ số phóng 1,12–1,15 × tỉ lệ cắt). Trang ghi 1 trang đại diện khi ảnh dùng ở nhiều trang.
+
+| Ảnh (file gốc) | Trang / vị trí | Cỡ hiện có | Cần ở 1536×864 DPR 1,25 | Cần ở 1920×1080 DPR 1 |
+|---|---|---|---|---|
+| `palm-city.webp` | `/du-an/palm-city/palm-river/` · hero | 1200 px | 2150 px | 2150 px |
+| `can-ho-the-prive.webp` | `/`, `/du-an/the-prive/` · hero | 1200 px | 2150 px | 2150 px |
+| `the-global-city-3-1.webp` | `/du-an/the-global-city/` · hero | 1200 px | 2150 px | 2150 px |
+| `vinhomes-saigon-park-2.webp` | `/du-an/vinhomes-saigon-park/` · hero | 1200 px | 2150 px | 2150 px |
+| `phoi-canh-spring-ville.webp` | `/du-an/spring-ville/` · hero | 1200 px | 2150 px | 2150 px |
+| `vi-tri-ansana-by-kita.webp` | `/du-an/ansana-by-kita/` · hero | 1200 px | 2150 px | 2150 px |
+| `can-ho-masteri-grand-view.webp` | `/du-an/the-global-city/masteri-grand-view/` · hero | 1200 px | 2150 px | 2150 px |
+| `phoi-canh-persa-place-3.webp` | `/du-an/spring-ville/persa-place/` · hero | 1200 px | 2150 px | 2150 px |
+| `ban-do-van-phong-velis.webp` | `/lien-he/` · bản đồ | 1200 px | 1500 px | 1320 px |
+| `vp-velis-realty.webp` | `/gioi-thieu/` · ảnh đầu trang (hero B) | 1200 px | 1276 px | đủ |
+| `can-ho-the-prive.webp` | `/?s=the+prive` · thẻ | 1200 px | 1276 px | đủ |
+| `phoi-canh-the-global-city.webp` | `/du-an/the-global-city/` · thư viện | 1200 px | 1220 px | đủ |
+| `vinhomes-saigon-park-3.webp` | `/du-an/vinhomes-saigon-park/` · thư viện | 1200 px | 1210 px | đủ |
+| `can-ho-1pn-the-prive.webp` | `/du-an/the-prive/` · thư viện | 1024 px | 1052 px | đủ |
+| `can-ho-2pn-the-prive.webp` | `/du-an/the-prive/` · thư viện | 1024 px | 1052 px | đủ |
+| `can-ho-3pn-the-prive.webp` | `/du-an/the-prive/` · thư viện | 1024 px | 1052 px | đủ |
+| `hqdefault.jpg` | `/du-an/the-global-city/` · ảnh nội dung | 480 px | 900 px | 720 px |
