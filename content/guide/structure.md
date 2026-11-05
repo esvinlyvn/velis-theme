@@ -71,6 +71,18 @@ Quy tắc đầy đủ: `rules.md` mục 12. Thành phần bắt buộc trong b�
    - mục "Rủi ro và điều cần kiểm tra" nêu rủi ro riêng của dự án chưa khai thác (tiến độ bàn giao, nguồn cung cho thuê cùng thời điểm).
 3. Loại bài theo BRIEF: **Nhận định thị trường** (lợi suất, cho thuê); kèm hộp công bố đầu tư.
 
+## D5. Vai trò chủ đầu tư / đơn vị phát triển
+
+Quy tắc đầy đủ: `rules.md` mục 13; dữ liệu: `content/data/entities/entities.csv`.
+
+1. **Trong bài, title, meta, FAQ**: "chủ đầu tư" chỉ đi với pháp nhân pháp lý; thương hiệu là "đơn vị phát triển" hoặc "thuộc tập đoàn …".
+   Lần nhắc đầu: "[Dự án] do [pháp nhân] làm chủ đầu tư, [thương hiệu] phát triển"; các lần sau dùng `ten_ngan`.
+2. **Trang chủ đầu tư** (`/chu-dau-tu/{…}/`): nêu đúng vai trò của từng tổ chức với từng dự án theo entities; không gọi thương hiệu là chủ đầu tư
+   ở H1, đoạn mở, FAQ, bảng thông tin.
+3. **Schema**: mỗi tổ chức một nút `Organization` (`@id` cố định); pháp nhân chủ đầu tư có `parentOrganization` → tập đoàn;
+   trên trang dự án, quan hệ dự án ↔ tổ chức theo đúng vai trò trong entities. Vai trò chưa xác minh thì không khai báo.
+4. Vai trò "Chưa xác minh" → không viết, không khai schema; hỏi người dùng.
+
 ## Quyết định về chỗ lệch refs / BRIEF (người dùng chốt 2026-11-05)
 
 Refs: `~/refs/claude-blog`, `~/refs/claude-seo-velis` (bản fork chưa có tùy biến Velis). Đã áp vào mục D1–D3 và `rules.md`.

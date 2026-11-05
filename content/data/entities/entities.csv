@@ -1,0 +1,16 @@
+du_an,vai_tro,to_chuc,loai_to_chuc,thuoc_tap_doan,ten_ngan,trang_thai,nguon_hien_co,ghi_chu
+vinhomes-saigon-park,chu_dau_tu,Berjaya Việt Nam,phap_nhan,,,Chưa xác minh,"/vinhomes-saigon-park/ bảng tổng quan: ""Chủ đầu tư: Berjaya Việt Nam""",Tên pháp nhân đầy đủ chưa có; AUDIT-NOI-DUNG 2.2
+vinhomes-saigon-park,don_vi_phat_trien,Vinhomes,thuong_hieu,,Vinhomes,Chưa xác minh,"/vinhomes-saigon-park/ bảng tổng quan: ""Phát triển: Vinhomes""; 8 bài khác gọi là ""chủ đầu tư Vinhomes""",Tập đoàn mẹ: chưa có trong repo
+the-global-city,chu_dau_tu,,phap_nhan,,,Chưa xác minh,"/the-global-city/ bảng: ""Chủ đầu tư Masterise Homes"" (thương hiệu, không phải pháp nhân)",Cần tên pháp nhân
+the-global-city,don_vi_phat_trien,Masterise Homes,thuong_hieu,,Masterise Homes,Chưa xác minh,/the-global-city/,Tập đoàn mẹ: chưa có trong repo
+the-prive,chu_dau_tu,,phap_nhan,,,Chưa xác minh,"/can-ho-the-prive/: ""Chủ đầu tư của The Privé là Tập đoàn Đất Xanh""",Cần tên pháp nhân
+the-prive,don_vi_phat_trien,Tập đoàn Đất Xanh,tap_doan,,Đất Xanh,Chưa xác minh,/can-ho-the-prive/,
+palm-city,chu_dau_tu,,phap_nhan,,,Chưa xác minh,Chưa có dữ liệu cho cấp đại đô thị,AUDIT-NOI-DUNG 2.1: Hướng Việt Holdings hay Keppel Land
+palm-river,chu_dau_tu,Công ty TNHH Nam Rạch Chiếc,phap_nhan,,,Chưa xác minh,"/can-ho-palm-river/ thân bài: ""Công ty TNHH Nam Rạch Chiếc vẫn là đơn vị chủ đầu tư pháp định""; cùng trang, bảng tổng quan ghi ""Chủ đầu tư Hướng Việt""",Mâu thuẫn trong cùng trang
+palm-river,don_vi_phat_trien,Hướng Việt Properties,thuong_hieu,Hướng Việt Holdings,Hướng Việt,Chưa xác minh,"/can-ho-palm-river/: ""đơn vị phát triển … Hướng Việt Properties (thuộc Hướng Việt Holdings)""",
+spring-ville,chu_dau_tu,Công ty CP Xây dựng Kinh doanh Nhà Gia Phú,phap_nhan,,,Chưa xác minh,"/can-ho-spring-ville-co-gi-dang-chu-y-voi-nguoi-mua-o-thuc/: ""chủ đầu tư … là Công ty CP Xây dựng Kinh doanh Nhà Gia Phú""; /spring-ville/ bảng ghi ""Chủ đầu tư: Gamuda Land""",Mâu thuẫn giữa hai trang
+spring-ville,don_vi_phat_trien,Gamuda Land,thuong_hieu,,Gamuda Land,Chưa xác minh,/can-ho-spring-ville-co-gi-dang-chu-y-voi-nguoi-mua-o-thuc/,Tập đoàn mẹ: chưa có trong repo
+persa-place,chu_dau_tu,,phap_nhan,,,Chưa xác minh,"/can-ho-persa-place/ bảng: ""Chủ đầu tư Gamuda Land (Malaysia)""",Thừa kế Spring Ville? cần xác nhận
+persa-place,don_vi_phat_trien,Gamuda Land,thuong_hieu,,Gamuda Land,Chưa xác minh,/can-ho-persa-place/,
+ansana-by-kita,chu_dau_tu,,phap_nhan,,,Chưa xác minh,"/ansana-by-kita/ bảng: ""Chủ đầu tư Kita Group (Tập đoàn Kita Invest)""",Cần tên pháp nhân
+ansana-by-kita,don_vi_phat_trien,Kita Group,thuong_hieu,,Kita Group,Chưa xác minh,/ansana-by-kita/,
