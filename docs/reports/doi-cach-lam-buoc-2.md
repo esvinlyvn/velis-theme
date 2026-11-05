@@ -3,6 +3,8 @@
 Ngày 2026-11-05. Nhánh `claude/doi-cach-lam-b2`. **Không sửa theme, không ghi gì lên staging** (chỉ đọc 4 URL qua cổng mật
 khẩu xem + REST GET). Site thật không đụng tới.
 
+> **Vòng sửa 2026-11-05: xem mục 9** (mục 1–8 là kết quả vòng đầu, giữ để đối chiếu; số đo mới ở 9.2–9.3).
+
 ## 1. Kết quả
 
 | Mục | Kết quả |
@@ -231,6 +233,101 @@ Không chép nhận diện của Aman/Berkeley (không font, màu, logo, ảnh, 
 - `can-canh/trang-thai-*.jpg` – menu mobile mở, thanh mục đang ở "Vị trí", FAQ mở, lỗi form
 - `kiem-tra/bang-nt.md`, `kiem-tra/ket-qua.json`, `kiem-tra/tuong-phan-hero-a.json`
 
+## 9. Vòng sửa (2026-11-05, sau soát của người dùng)
+
+Chỉ sửa mockup + tài liệu; theme và staging không đụng. Quyết định đã ghi ở `docs/NGHIEM-THU.md` (nhật ký, "Duyệt: người dùng,
+2026-11-05"): NT-10, NT-13, NT-23, NT-43 sửa; **NT-44 bỏ** (thay bằng NT-48); thêm **NT-49** (= "NT-màn-đầu-B"),
+**NT-17** (= "NT-căn-lề-hero-B"), **NT-18** (= "NT-nút-hero"). Số mã: 100 (99 đang dùng).
+
+### 9.1 Đã sửa
+
+| Mục | Sửa | NT |
+|---|---|---|
+| 2.1 Màn hình đầu hero B | Khung ảnh B cao = phần còn lại của màn đầu: `min(560px, max(180px, 100svh − 540px), rộng khung / 2,4)` (trang chủ trừ 570px); khoảng cách hero gọn (16px); thanh thông tin xếp **Giá vào hàng đầu** (TGC: Chủ đầu tư · Quy mô · Số phân khu · Giá / Vị trí · Sản phẩm · Bàn giao · Pháp lý; MPP: Chủ đầu tư · Quy mô · Giá / Vị trí · Diện tích · Bàn giao). Cỡ chữ giữ đúng DESIGN.md, giữ breadcrumb + thanh mục | NT-49 |
+| 2.2 Căn lề hero B | Khung ảnh B = khung nội dung `.wrap` (1200 / 1320 px, lề 16/24/32) – cùng mép logo, breadcrumb, thanh mục, nút "Nhận tư vấn"; chữ dưới ảnh cũng là `.wrap` | NT-17 |
+| 2.3 Nút hero | Bỏ lưới đẩy nút sang phải; nút ngay dưới chip / đoạn dẫn (cách 16px), thẳng mép trái tiêu đề; < 768px xếp dọc, rộng đều. Hero A ở 768–1023px nút xuống hàng thứ hai vẫn bắt đầu ở mép trái | NT-18 |
+| 2.4 Dải dự án nổi bật | Tối đa 4 thẻ trong khung (≥ 1280px 4, 1024–1279 3, 768–1023 2, mobile 84 %), phần còn lại trượt bằng mũi tên ‹ › hoặc vuốt (scroll-snap, không tự chạy, mũi tên mờ ở đầu/cuối); tên 1 dòng không bẻ, không "…" (ảnh nhỏ 64px, khoảng 8px để "Vinhomes Saigon Park" vừa ở 4 thẻ); khu vực được xuống dòng | NT-10 |
+| 2.5 Form tư vấn nền tối | Khối "Nhận tư vấn" cuối trang `section--dark` trên cả 3 trang; chữ phụ `--on-dark-muted`, ô nhập nền trắng chữ mực, viền focus trắng, lỗi dùng token mới **`--error-on-dark: #F2B8B5`** (đề xuất thêm vào DESIGN.md; #B3261E trên nền tối chỉ ~2,7:1); check_ui 0 lỗi tương phản / vùng bấm | NT-13 |
+| 2.6 Ảnh có logo không che được | Build đọc cờ `logo-cdt` / `chu-in-san` trong `data/kiem-ke-anh-mat.csv` → không dùng ở hero / thẻ / cột phải, thay khung có tên. Đã thay ra: **`can-ho-masteri-grand-view.webp`** (thẻ phân khu Masteri Grand View, logo "MASTERI GRAND VIEW" in trên kính – cờ thêm vào CSV vòng này). `shophouse-soho-tgc.webp` (logo TGC + Masterise) không ở hero / thẻ / cột phải nên vẫn ở thư viện + nội dung; `mat-bang-the-global-city.webp` hiện trọn, tạm chấp nhận huy hiệu. Cả 3 file đã có trong `data/anh-can-ban-goc.csv` (danh sách cần bản sạch) | NT-23 |
+| 2.7 Hero A | Lớp phủ: `.86 → .80 (30 %) → .50 (42 %) → 0 (54 %)`, bỏ lớp dọc ở đáy → 46 % ảnh giữ sáng gốc; khối chữ kết thúc trước 42 % khung (rộng 26–36 % ở ≥ 1366) | NT-43, NT-47 |
+| 2.8 Công tắc mockup | Đổi hero A/B và nhãn ảnh tạm **tại chỗ** (không tải lại, không query string); trạng thái ghi `#hero-a` / `#hero-b`, `#tam-0` (ghép bằng dấu phẩy, vd. `#hero-a,tam-0`), đọc lại trước khi vẽ; link trong trang cuộn bằng JS để không xóa trạng thái. Công tắc nổi nhỏ góc dưới phải (nút tròn 48px "A/B", mở ra bảng nhỏ; nằm trên thanh CTA mobile, không che CTA); giữ công tắc cuối trang. Mặc định hero B, nhãn hiện | – |
+
+Mở file: `mockup/dist/trang-chu.html#hero-a`, `…#hero-b,tam-0` (các trạng thái `?trang-thai=menu` / `?trang-thai=loi-form` giữ nguyên).
+
+### 9.2 Bảng đo 2.1–2.3 (chưa cuộn) – `screenshots/mockup-b2-r2/kiem-tra/do-hero.md`
+
+Hero B (đơn vị px; "hàng 1 / dải" = đáy hàng đầu thanh thông tin ở trang dự án, đỉnh dải nổi bật ở trang chủ):
+
+| Trang | Màn (cao) | Khung ảnh | Đáy nút (giới hạn) | Hàng 1 / dải (giới hạn) | Lệch mép T / P | Nút cách chip · lệch trái | Độ giãn ảnh |
+|---|---|---|---|---|---|---|---|
+| trang-chu | M1 (768) | 1200×198 | 624 (≤ 744) | đỉnh dải 720 (≤ 728) | 0 / 0 | 16 · 0 | 1,00 |
+| trang-chu | M2 (864) | 1200×294 | 720 (≤ 840) | 816 (≤ 824) | 0 / 0 | 16 · 0 | 1,25 |
+| trang-chu | M3 (1080) | 1320×510 | 879 (≤ 1056) | 975 (≤ 1040) | 0 / 0 | 16 · 0 | 1,10 |
+| trang-chu | M5 (844) | 358×269 | nút đầu 775 (≤ 844) | – | – | 16 · 0 | 0,92 |
+| the-global-city | M1 | 1200×228 | 645 (≤ 744) | 762 (≤ 768) | 0 / 0 | 16 · 0 | 1,00 |
+| the-global-city | M2 | 1200×324 | 741 (≤ 840) | 858 (≤ 864) | 0 / 0 | 16 · 0 | 1,25 |
+| the-global-city | M3 | 1320×540 | 957 (≤ 1056) | 1074 (≤ 1080) | 0 / 0 | 16 · 0 | 1,10 |
+| the-global-city | M5 | 358×269 | nút đầu 693 | – | – | 16 · 0 | 0,72 |
+| masteri-park-place | M1 | 1200×228 | 645 | 762 | 0 / 0 | 16 · 0 | 1,00 |
+| masteri-park-place | M2 | 1200×324 | 741 | 858 | 0 / 0 | 16 · 0 | 1,25 |
+| masteri-park-place | M3 | 1320×540 | 957 | 1074 | 0 / 0 | 16 · 0 | 1,10 |
+| masteri-park-place | M5 | 358×269 | nút đầu 678 | – | – | 16 · 0 | 0,87 |
+| cả 3 | M4 960×540 | 912×180 | – | – | 0 / 0 | 16 · 0 | **1,52** |
+| cả 3 | 768, 1024 | 720×300, 976×198–228 | – | – | 0 / 0 | 16 · 0 | 1,20, 0,81 |
+
+Ô Giá ở hàng đầu thanh thông tin: đạt ở M1–M3 cả 2 trang dự án. Hero A: nút cách chip 16, lệch trái 0 ở mọi màn; NT-43 ở
+M1 / M2 / M3: lớp phủ về 0 tại 54 %, ảnh giữ sáng 46 %, khối chữ rộng 35,9 % / 31,1 % / 26,4 %. NT-10: 4 thẻ trong khung ở 1366,
+1536, 1920; 3 ở 1024; 0 tên bẻ / cắt.
+
+**Vi phạm: 0 ở NT-49, NT-17, NT-18, NT-10, NT-43; còn 1 điểm xung đột không đạt được đồng thời – M4 độ giãn 1,52.**
+M4 (960×540, DPR 2) nằm trong dải ≥ 768px nên khung B phải trùng khung nội dung = 960 − 2 × 24 = 912px (2.2). Ảnh 1200px phủ
+theo bề rộng: 912 × 2 / 1200 = **1,52** – đã bỏ phóng cắt ở hero B ≥ 768px (cắt dấu bằng khung dẹt thay vì phóng) nên đây là
+mức thấp nhất có thể. Phải chọn một: (a) chấp nhận 1,52 ở M4 (chênh 0,02); (b) ở 768–1023px khung B hẹp hơn khung nội dung
+(≤ 900px) – trái 2.2; (c) có file ≥ 1824px (ảnh thật). Mockup đang theo (a).
+
+### 9.3 Chạy lại bộ đo (bản build cuối)
+
+| Bộ đo | Kết quả |
+|---|---|
+| Bộ NT (`tools/check_mockup.mjs`, 3 trang × A/B × 11 màn) | **0 lỗi** – `screenshots/mockup-b2-r2/kiem-tra/bang-nt.md` |
+| check_ui 7 khung (360–1920) × 3 trang × A/B | **0 lỗi** tương phản / vùng bấm / tràn / khoảng trống / bố cục; CLS lớn nhất 0,007 |
+| Tương tác (`tools/mockup_interactions.mjs`) | **18/18 đạt** (13 cũ + 4 kiểm công tắc tại chỗ / #hash / công tắc nổi + 1 mũi tên dải nổi bật) |
+| Tương phản hero A, 5 điểm / dòng | **đạt mọi điểm** (595 điểm), thấp nhất 6,08 : 1 (nút "Gọi" viền trắng, TGC M4) – `tuong-phan-hero-a.json` |
+| Build | 3 file tự chứa: trang-chu 4,5 MB · the-global-city 9,0 MB · masteri-park-place 2,5 MB (≤ 12 MB); **CSS 24,3 KB min / 5,7 KB gzip** (≤ 45 / ≤ 12) |
+| Test | ui-media 7/7, ui-layout 2/2, kiem-ke-anh 3/3 |
+
+Tương phản hero A – dòng thấp nhất mỗi màn:
+
+| Trang | Màn | Dòng | Điểm | Thấp nhất | Dòng | 5 điểm |
+|---|---|---|---|---|---|---|
+| trang-chu | M1 | 10 | 50 | 7,63 | Tư vấn bất động sản cao cấp | 14,37 / 14,16 / 15,06 / 12,29 / 7,63 |
+| trang-chu | M2 | 10 | 50 | 6,87 | Tư vấn bất động sản cao cấp | 14,78 / 13,85 / 16,31 / 14,82 / 6,87 |
+| trang-chu | M3 | 9 | 45 | 10,70 | VELIS REALTY | 11,58 / 12,15 / 12,14 / 11,11 / 10,7 |
+| trang-chu | M4 | 11 | 55 | 6,43 | Tư vấn bất động sản cao cấp | 13,21 / 12,5 / 11,74 / 11,08 / 6,43 |
+| trang-chu | M5 | 11 | 55 | 13,50 | VELIS REALTY | 13,5 / 13,5 / 13,5 / 13,5 / 13,5 |
+| the-global-city | M1 | 5 | 25 | 9,14 | MASTERISE HOMES · NAM RẠCH C | 10,12 / 9,87 / 9,73 / 9,45 / 9,14 |
+| the-global-city | M2 | 5 | 25 | 8,75 | MASTERISE HOMES · NAM RẠCH C | 10,01 / 10,27 / 11,96 / 10,05 / 8,75 |
+| the-global-city | M3 | 5 | 25 | 8,57 | MASTERISE HOMES · NAM RẠCH C | 10,97 / 12,34 / 10,25 / 9,33 / 8,57 |
+| the-global-city | M4 | 5 | 25 | 6,08 | Gọi 0911 237 979 | 12,4 / 13,07 / 15,88 / 15,33 / 6,08 |
+| the-global-city | M5 | 5 | 25 | 13,50 | MASTERISE HOMES · NAM RẠCH C | 13,5 / 13,5 / 13,5 / 13,5 / 13,5 |
+| masteri-park-place | M1 | 5 | 25 | 11,43 | MASTERISE HOMES · NAM RẠCH C | 12,72 / 12,07 / 11,43 / 12,2 / 12,02 |
+| masteri-park-place | M2 | 5 | 25 | 7,20 | Masteri Park Place | 17,43 / 15,56 / 12,84 / 13,63 / 7,2 |
+| masteri-park-place | M3 | 5 | 25 | 9,86 | Masteri Park Place | 16,14 / 16,8 / 17,45 / 16,02 / 9,86 |
+| masteri-park-place | M4 | 5 | 25 | 10,81 | MASTERISE HOMES · NAM RẠCH C | 11,12 / 10,81 / 11,12 / 11,81 / 11,7 |
+| masteri-park-place | M5 | 5 | 25 | 13,50 | MASTERISE HOMES · NAM RẠCH C | 13,5 / 13,5 / 13,5 / 13,5 / 13,5 |
+
+### 9.4 Ảnh chụp – `screenshots/mockup-b2-r2/`
+
+- `man-dau/<trang>-<a|b>-<M1..M5>.jpg` – màn hình đầu, 30 ảnh (phần dính giữ nguyên, công tắc nổi hiện).
+- `can-canh/dai-noi-bat-<a|b>-<1024|1366|1536|1920>.jpg` – dải dự án nổi bật.
+- `can-canh/form-toi-<trang>-M1.jpg`, `form-toi-masteri-park-place-M5-loi.jpg` – form nền tối, trạng thái lỗi.
+- `can-canh/mep-hero-b-<trang>-M2.jpg` (cả màn đầu, kẻ 2 đường đỏ 1px = mép khung nội dung), `mep-trai-…` / `mep-phai-…png`
+  (200px quanh mép, gốc DPR 1,25).
+- `can-canh/lop-phu-<the-global-city|masteri-park-place>-<M2|M3>.jpg` – ranh giới lớp phủ hero A.
+- `can-canh/trang-thai-menu-M5.jpg`, `cong-tac-noi-M1.jpg`.
+- `kiem-tra/do-hero.md` (bảng 9.2 đủ 42 hàng, gồm hero A), `bang-nt.md`, `ket-qua.json`, `tuong-phan-hero-a.json`.
+
+
 ---
-Đã bỏ qua / chưa kiểm tra: Safari/iPhone thật, DPR 1,5; Lighthouse không đại diện (file tự chứa); chế độ lọc "Theo loại sản phẩm", mega menu, header ẩn khi cuộn không dựng trong mockup.
-Rủi ro: soát mắt còn 4 điểm chờ quyết (NT-10/13/23/43); ảnh tạm 1200 px vẫn mờ ở hero A M2–M4 (đúng như nhãn); 3 ảnh có logo/chữ in sẵn ngoài huy hiệu (AUDIT mục 9) cần file gốc sạch; nhánh xếp chồng trên PR #5/#6 chưa merge.
+Đã bỏ qua / chưa kiểm tra: Safari/iPhone thật, DPR 1,5; Lighthouse không chạy lại ở vòng sửa (không đại diện với file tự chứa); chế độ lọc "Theo loại sản phẩm", mega menu, header ẩn khi cuộn không dựng trong mockup; ảnh Ansana có chữ tên đường in trong phối cảnh – tôi coi là cảnh vật, chưa thay (cần người dùng xác nhận).
+Rủi ro: M4 độ giãn 1,52 (> 1,5) do 2.1 và 2.2 không đạt được cùng lúc với ảnh 1200px (mục 9.2); khung ảnh hero B rất dẹt ở M1 (≈ 6:1) – đúng tiêu chí nhưng ảnh thật nên chụp dạng toàn cảnh rộng; token `--error-on-dark` chưa có trong DESIGN.md; nhánh xếp chồng trên PR #5/#6.

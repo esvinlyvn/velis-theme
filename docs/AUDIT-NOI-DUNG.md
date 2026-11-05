@@ -138,10 +138,12 @@ Nguồn: 3 trang staging đọc ngày 2026-11-05 (chỉ đọc, `tools/mockup_ex
 - **Masteri Cosmo Central**: bảng so sánh ghi "Chưa công bố" cho quy mô / diện tích / bàn giao, nhưng mục Phân khu của bài trụ
   cột có "Diện tích: 47m² – 138.8m²", "Thời gian bàn giao: Dự kiến Quý 3/2028" → chủ site xác nhận rồi nhập vào trường dữ liệu
   (không tự suy). Phân khu này chưa có ảnh đại diện, trong Media có `phoi-canh-masteri-cosmo.webp` (đang dùng ở thư viện).
-- **Ảnh có chữ / logo in sẵn chưa có trong `data/kiem-ke-anh-mat.csv`**: `can-ho-masteri-grand-view.webp` có logo "MASTERI"
-  in trên kính cửa sổ giữa ảnh (thấy ở thẻ phân khu) – phóng cắt không che được. `shophouse-soho-tgc.webp` có logo TGC (trái
-  trên) và Masterise (phải trên) – phóng cắt chỉ che huy hiệu trái dưới. `mat-bang-the-global-city.webp` là mặt bằng nên
-  không phóng cắt → huy hiệu VELIS còn thấy. Cả 3 cần file gốc sạch.
+- **Ảnh có logo / chữ in sẵn mà cắt khung không che được** (NT-23, người dùng duyệt 05/11): `can-ho-masteri-grand-view.webp`
+  (logo "MASTERI GRAND VIEW" in trên kính – đã ghi cờ `logo-cdt` vào `data/kiem-ke-anh-mat.csv`) → mockup thay bằng khung có tên
+  ở thẻ phân khu; `shophouse-soho-tgc.webp` (logo TGC trái trên + Masterise phải trên) chỉ dùng ở thư viện / nội dung;
+  `mat-bang-the-global-city.webp` là mặt bằng nên hiện trọn, tạm chấp nhận huy hiệu VELIS. **Cần bản sạch cho cả 3** (đã có
+  trong `data/anh-can-ban-goc.csv`). Cần xác nhận thêm: `vi-tri-ansana-by-kita.webp` có chữ tên đường "VO VAN KIET BLVD" trong
+  phối cảnh (đang coi là cảnh vật, vẫn dùng ở thẻ / dải nổi bật).
 - **Video tiến độ** ở mục Tiến độ chỉ là ảnh xem trước YouTube có `alt="hqdefault"` (tên file) → cần alt mô tả hoặc nhúng video
   đúng cách; mockup thay bằng khung có tên.
 - **Ô địa chỉ dùng đơn vị cũ** "Phường An Phú, Quận 2, TP. Thủ Đức" (đã ghi ở mục 8) – xuất hiện ở thanh thông tin, mục Vị
