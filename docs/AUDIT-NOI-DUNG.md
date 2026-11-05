@@ -152,3 +152,23 @@ Nguồn: 3 trang staging đọc ngày 2026-11-05 (chỉ đọc, `tools/mockup_ex
   dự án Sun Group → chủ site xác nhận.
 - **Khoảng trắng thừa trước dấu phẩy**: "120 – 160 triệu VNĐ/m² cho sản phẩm sơ cấp , đi kèm…" (mục Tổng quan The Global City).
 - **Số liệu theo thời điểm**: Hỏi đáp The Global City ghi "tháng 4/2026" (2 câu) – cần ngày cập nhật hoặc sửa lại theo hiện tại.
+
+## 10. Vòng định vị môi giới – mockup trang chủ (2026-11-05) – chờ người dùng chọn / bổ sung
+
+Nguồn: REST staging (chỉ đọc) ngày 2026-11-05 – trang `/gioi-thieu/` (sửa lần cuối 2026-11-04), dự án gốc, chủ đầu tư, khu vực.
+
+- **Tên hiển thị của CEO**: họ tên đầy đủ là **Vũ Thanh Xuân** (tên file ảnh người dùng gửi); site đang dùng **"Vũ Xuân"**
+  (tác giả bài viết, đoạn dẫn trang chủ, tiêu đề "Góc nhìn CEO Vũ Xuân"). Mockup giữ "Vũ Xuân" – cần chọn tên chính thức
+  (và có ghi họ tên đầy đủ ở trang Giới thiệu / schema tác giả hay không).
+- **Cách Velis làm việc – chờ nội dung**: trang Giới thiệu có "Chúng Tôi Là Ai?" và 4 mục "Giá Trị Khác Biệt" (mockup dùng
+  nguyên văn) nhưng **không có phần các bước làm việc với khách**. Mockup để khung "chờ nội dung" – không tự viết.
+- **Đối tác trên trang Giới thiệu** liệt kê Vinhomes, **Sun Group**, Masterise Homes, Gamuda Land, **Ecopark**; danh sách chủ
+  đầu tư có dự án Velis đang tư vấn là Berjaya Việt Nam, Gamuda Land, Kita Group, Masterise Homes, Tập đoàn Đất Xanh, Vinhomes
+  (+ Hướng Việt Holdings của Palm City). Sun Group, Ecopark chưa có dự án nào trên site → chủ site xác nhận (đã ghi Sun Group ở
+  mục 9). Mockup chỉ trích câu đầu đoạn "Chúng Tôi Là Ai?" (không kèm danh sách).
+- **Hướng Việt Holdings** (chủ đầu tư Palm City) chưa xuất bản trang chủ đầu tư → trong khối "Tìm dự án theo nhu cầu" chỉ là ô
+  lọc, ở danh sách chủ đầu tư đối tác không có link.
+- **Câu vai trò chờ duyệt** ở khối "Velis tư vấn dự án này": "Velis Realty là đơn vị tư vấn, phân phối; chủ đầu tư dự án là
+  {chủ đầu tư}." – nháp theo lệnh, gắn nhãn "câu chờ duyệt".
+- **Lọc theo khu vực**: dùng tên khu vực thị trường có dự án (Khu Đông, Khu Tây, Tây Bắc, Nhơn Trạch – Long Thành); không dùng
+  "Thủ Đức" vì TP. Thủ Đức không còn là đơn vị hành chính từ 01/07/2025 và không có trong taxonomy khu vực.

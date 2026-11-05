@@ -3,7 +3,7 @@
 Ngày 2026-11-05. Nhánh `claude/doi-cach-lam-b2`. **Không sửa theme, không ghi gì lên staging** (chỉ đọc 4 URL qua cổng mật
 khẩu xem + REST GET). Site thật không đụng tới.
 
-> **Vòng sửa 2026-11-05: xem mục 9** (mục 1–8 là kết quả vòng đầu, giữ để đối chiếu; số đo mới ở 9.2–9.3).
+> **Vòng định vị môi giới: mục 10** · **Vòng sửa 2026-11-05: xem mục 9** (mục 1–8 là kết quả vòng đầu, giữ để đối chiếu; số đo mới ở 9.2–9.3).
 
 ## 1. Kết quả
 
@@ -328,6 +328,88 @@ Tương phản hero A – dòng thấp nhất mỗi màn:
 - `kiem-tra/do-hero.md` (bảng 9.2 đủ 42 hàng, gồm hero A), `bang-nt.md`, `ket-qua.json`, `tuong-phan-hero-a.json`.
 
 
+## 10. Vòng định vị môi giới (2026-11-05)
+
+Velis là **công ty môi giới / tư vấn**, không phải chủ đầu tư → trang chủ dựng lại theo cấu trúc môi giới; trang dự án và phân
+khu giữ mockup vòng sửa, chỉ thêm khối "Velis tư vấn dự án này". Chỉ sửa mockup + tài liệu; theme và staging không đụng (REST
+chỉ đọc). Ảnh chân dung CEO do người dùng commit vào nhánh (61fb1e6, 1440×1920, nền trong suốt) – **ảnh sạch**: không cắt khung,
+không nhãn "ảnh tạm"; đã ghi đạt chuẩn ở `docs/KIEM-KE-ANH.md` (mục thêm tay, nguồn `docs/kiem-ke-anh/them-tay.md`, giữ khi chạy
+lại `tools/kiem_ke_anh.mjs`).
+
+### 10.1 Tham chiếu môi giới
+
+`docs/THAM-CHIEU.md` mục "Môi giới": Knight Frank (knightfrank.com), Savills Việt Nam, **Engel & Völkers thay Sotheby's**
+(sothebysrealty.com chặn truy cập tự động bằng trang "Let's confirm you are human"); mỗi site 3 điểm nên học + 1 điểm không hợp,
+ảnh màn đầu + cả trang ở 1536×864 DPR 1,25 (`docs/tham-chieu/moi-gioi-*.jpg`). Aman chỉ còn cho khoảng trắng + ảnh khung có
+lề; Berkeley bỏ khỏi trang chủ, giữ cho trang dự án.
+
+### 10.2 Trang chủ mới (theo thứ tự)
+
+| Khối | Nội dung | Nguồn chữ |
+|---|---|---|
+| a. Hero tư vấn | eyebrow + H1 "Tư vấn bất động sản cao cấp tại TP.HCM và vùng lân cận" + đoạn dẫn; nút Gọi 0911 237 979 + Zalo; chân dung CEO đứng trên nền ngà, cắt ngang thân, không viền / khung tròn / bóng; tên **Vũ Xuân** + "CEO Velis Realty" cạnh ảnh; **form ngắn** Họ tên · Số điện thoại · Dự án quan tâm (6 dự án thật) · đồng ý · Gửi yêu cầu | nguyên văn trang chủ staging; danh sách dự án từ REST |
+| b. Tìm dự án theo nhu cầu | 3 hàng ô chọn: Khu vực (Khu Tây, Khu Đông, Nhơn Trạch – Long Thành, Tây Bắc), Loại sản phẩm (5), Chủ đầu tư (7) – lọc ngay lưới dự án bên dưới; "Xem tất cả dự án" → `/du-an/` | taxonomy + chủ đầu tư có dự án |
+| c. Dự án Velis đang tư vấn | 6 thẻ: tên, chủ đầu tư · khu vực, loại sản phẩm, bàn giao (bản ngắn của thẻ staging; Palm City, VSP chưa có → ẩn dòng); không giá (X-05). Dải "Dự án nổi bật" cũ **gộp vào đây** (bỏ dải) | REST + thẻ `/du-an/` |
+| d. Vì sao chọn Velis | "Chúng Tôi Là Ai?" (câu đầu, nguyên văn) + 3 con số + "Giá Trị Khác Biệt Tại Velis Realty" (4 mục nguyên văn) + khung **"Cách Velis làm việc · chờ nội dung"** | trang `/gioi-thieu/` (sửa 2026-11-04) |
+| e. Chủ đầu tư đối tác | 6 tên, link tới `/chu-dau-tu/{slug}/` đã có (chưa có logo trong Media → tên) | staging |
+| f. Phân tích từ CEO | 3 bài mới, dòng tác giả có ảnh đại diện nhỏ của CEO (32px, bản 720) + "Vũ Xuân" | staging |
+| g. Form tư vấn nền tối + footer | giữ như vòng sửa (NT-13) | – |
+
+- **Không tạo URL mới**: bộ lọc `/du-an/` hiện chỉ lọc tại chỗ (không đọc tham số URL) và taxonomy khu vực / loại không có trang
+  riêng (`public: false`) → ô chọn ở khối b lọc lưới ngay trên trang chủ; đường dẫn đi ra chỉ là `/du-an/` và
+  `/chu-dau-tu/{slug}/` đã có. Nếu muốn ô chọn mở `/du-an/` đã lọc sẵn, bước 3 cần cho bộ lọc `/du-an/` đọc tham số – để người
+  dùng quyết (không làm ở vòng này).
+- **Form ngắn** gửi cùng trường như form chính: `interest` (ô chọn dự án; form chính: tên dự án của trang), `page-url`, `utm`
+  (đúng tên trường của CF7 ID 20800). Mockup không gửi đi đâu: hợp lệ thì điền trường ẩn và hiện nội dung sẽ gửi.
+- **Bỏ hero A/B ở trang chủ**; công tắc A/B chỉ còn ở trang dự án / phân khu (trang chủ chỉ còn công tắc nhãn ảnh tạm).
+
+### 10.3 Trang dự án + phân khu – "Velis tư vấn dự án này"
+
+Thẻ ở cột phải (≥ 1024px, thay thẻ "Nhận bảng giá" cũ, giữ nội dung của nó) và ngay sau thanh thông tin (< 1024px): ảnh CEO
+tròn 80px (bản 720), "Vũ Xuân · CEO Velis Realty", câu vai trò **nháp có nhãn "câu chờ duyệt"**: "Velis Realty là đơn vị tư
+vấn, phân phối; chủ đầu tư dự án là Masterise Homes.", tên dự án + loại sản phẩm + bàn giao, nút Nhận bảng giá · Gọi · Zalo.
+
+### 10.4 Đo tiêu chí 2.1 (chưa cuộn) – `screenshots/mockup-b2-r3/kiem-tra/do-hero.md`
+
+| Màn (cao) | Đáy nút gửi form ngắn (giới hạn) | Đáy vùng mặt CEO | Khung ảnh CEO | File hiển thị / cần (khung × DPR) | Vi phạm |
+|---|---|---|---|---|---|
+| M1 1366×768 | 617 (≤ 744) | 472 | 294×343 | 1440 / 294 | 0 |
+| M2 1536×864 | 617 (≤ 840) | 472 | 294×343 | 1440 / 367 | 0 |
+| M3 1920×1080 | 591 (≤ 1056) | 424 | 325×379 | 1440 / 325 | 0 |
+| M4 960×540 | 1185 (không có giới hạn) | 353 | 444×518 | 1440 / 888 | 0 |
+| M5 390×844 | 1183 (≤ 1,5 × 844 = 1266) | 570 | 112×128 | 1440 / 224 | 0 |
+| 768×1024, 1024×768 | 1071, 617 | 312, 515 | 348×406, 236×275 | 1440 / 696, 236 | 0 |
+
+Ở M1, M2, M5 cùng lúc trong màn đầu (đo tự động): H1 (Velis tư vấn BĐS – ai), vùng mặt + tên CEO (ai tư vấn), hotline + Zalo
+và form (liên hệ thế nào); M1/M2 form hiện trọn. Vùng mặt = 35–65 % ngang × 2–32 % dọc của file ảnh, tính theo khung cắt
+`object-position: top`. Ảnh CEO không giãn ở mọi màn (file 1440px ≥ khung × DPR).
+
+### 10.5 Bộ đo (bản build cuối)
+
+| Bộ đo | Kết quả |
+|---|---|
+| Bộ NT (`check_mockup.mjs`, 3 trang × A/B × 11 màn) | **0 lỗi** – `screenshots/mockup-b2-r3/kiem-tra/bang-nt.md` |
+| check_ui 7 khung (trang chủ + TGC/MPP × A/B) | **0 lỗi** (sửa 1: eyebrow vàng trên nền xám ngà 4,32:1 → hero dùng nền ngà `--canvas`) – `check-ui.md` |
+| Tương tác | **23/23 đạt**: 17 cũ (bỏ bài mũi tên dải nổi bật vì dải đã gộp) + 6 mới: trang chủ không còn A/B; form ngắn báo lỗi từng trường; **gửi thử cục bộ** đủ `interest` / `page-url` / `utm`, 0 yêu cầu mạng; form chính có cùng trường ẩn; lọc Khu Đông + Biệt thự → 1 dự án; Xóa lọc → 6/6 |
+| Tương phản hero A (TGC, MPP – trang chủ không còn hero ảnh) | **đạt mọi điểm** ≥ 4,5:1 |
+| Hero B trang dự án | như vòng sửa; còn M4 độ giãn 1,52 (đã báo ở 9.2) |
+| Build | trang-chu 4,0 MB · the-global-city 9,9 MB · masteri-park-place 3,1 MB (≤ 12 MB); **CSS 26,9 KB min / 6,0 KB gzip** |
+
+### 10.6 Học từ đâu – trang chủ mới
+
+| Chi tiết | Knight Frank | Savills VN | Engel & Völkers | Aman | Quyết định / NT |
+|---|---|---|---|---|---|
+| Tư vấn là hành động chính: nút "Nhận tư vấn" header + form ngay màn đầu | ✓ ("Book a consultation") | | ✓ (ô hành động trước ảnh) | | 2.1 |
+| Người tư vấn có mặt: chân dung CEO + tên + chức danh | | | ✓ ("Contact your personal advisor") | | 2.1 |
+| Hotline + Zalo trong màn đầu | | ✓ (Zalo/WhatsApp nổi) | | | 2.1 |
+| Tìm theo nhu cầu (khu vực · loại · chủ đầu tư) | | ✓ (ô tìm theo nhu cầu) | ✓ | | 2.1 b |
+| Con số tin cậy + giá trị khác biệt | ✓ (130 · 650+ · 21 000+) | ✓ ("Why Savills") | ✓ (3 lý do) | | 2.1 d – nội dung nguyên văn Giới thiệu |
+| Phân tích chuyên gia có tác giả | | ✓ ("Insight & Opinion") | | | 2.1 f |
+| Khoảng trắng, ảnh không viền, chữ serif | | | | ✓ | DESIGN |
+| Thẻ dự án không giá | | | | | X-05 |
+| Form nền tối cuối trang | | | | | NT-13 |
+
+
 ---
-Đã bỏ qua / chưa kiểm tra: Safari/iPhone thật, DPR 1,5; Lighthouse không chạy lại ở vòng sửa (không đại diện với file tự chứa); chế độ lọc "Theo loại sản phẩm", mega menu, header ẩn khi cuộn không dựng trong mockup; ảnh Ansana có chữ tên đường in trong phối cảnh – tôi coi là cảnh vật, chưa thay (cần người dùng xác nhận).
-Rủi ro: M4 độ giãn 1,52 (> 1,5) do 2.1 và 2.2 không đạt được cùng lúc với ảnh 1200px (mục 9.2); khung ảnh hero B rất dẹt ở M1 (≈ 6:1) – đúng tiêu chí nhưng ảnh thật nên chụp dạng toàn cảnh rộng; token `--error-on-dark` chưa có trong DESIGN.md; nhánh xếp chồng trên PR #5/#6.
+Đã bỏ qua / chưa kiểm tra: Lighthouse không chạy lại; Safari/iPhone thật chưa thử; chưa có logo chủ đầu tư trong Media (khối e dùng tên); ô chọn khu vực / loại chưa mở `/du-an/` đã lọc sẵn (bộ lọc theme không đọc tham số URL – cần quyết ở bước 3).
+Rủi ro: tên hiển thị CEO (Vũ Xuân / Vũ Thanh Xuân) và câu vai trò "câu chờ duyệt" chờ người dùng chọn; khung "Cách Velis làm việc" chờ nội dung; M4 độ giãn hero B 1,52 vẫn như vòng sửa.
