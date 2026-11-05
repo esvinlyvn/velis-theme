@@ -34,6 +34,64 @@ add_action( 'wp_head', function () {
 	}
 }, 1 );
 
+// Site verification + GA4, moved from the "Header and Footer Scripts" plugin (phase 4). Production host only:
+// staging must not send hits or claim the domain.
+const VELIS_GA4 = 'G-QSJ8EH9CWB';
+add_action( 'wp_head', function () {
+	if ( 'velisrealty.vn' !== wp_parse_url( home_url(), PHP_URL_HOST ) ) {
+		return;
+	}
+	echo '<meta name="p:domain_verify" content="61c508b8fea6f53c5988fd9613d8bc5d">' . "\n"
+		. '<meta name="facebook-domain-verification" content="n0tenm1utob7tp7q6fe7h7r03v505p">' . "\n"
+		. '<script async src="https://www.googletagmanager.com/gtag/js?id=' . VELIS_GA4 . '"></script>' . "\n"
+		. "<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','" . VELIS_GA4 . "');</script>\n";
+}, 2 );
+
+// YouTube embeds load nothing from YouTube until the reader clicks (BRIEF: video "bấm mới tải").
+add_filter( 'render_block_core/embed', function ( $html, $block ) {
+	$id = 'youtube' === ( $block['attrs']['providerNameSlug'] ?? '' ) ? velis_youtube_id( (string) ( $block['attrs']['url'] ?? '' ) ) : '';
+	if ( '' === $id ) {
+		return $html;
+	}
+	return velis_youtube_facade( $id, preg_match( '#<figcaption[^>]*>(.*?)</figcaption>#s', $html, $m ) ? wp_kses_post( $m[1] ) : '' );
+}, 10, 2 );
+
+// Image captions that are only a file name / auto title are dropped (round 5).
+add_filter( 'render_block_core/image', function ( $html ) {
+	return preg_replace_callback( '#<figcaption[^>]*>(.*?)</figcaption>#s', fn( $m ) => velis_auto_caption( $m[1] ) ? '' : $m[0], $html );
+} );
+
+// STAGING only: emails are switched off there, so the last CF7 email (subject + body after field replacement) is kept in
+// an option that admins can read at /wp-json/velis/v1/last-lead – used to check that the hidden fields reach the sales email.
+if ( 'staging.velisrealty.vn' === wp_parse_url( home_url(), PHP_URL_HOST ) ) {
+	add_filter( 'wpcf7_mail_components', function ( $c ) {
+		update_option( 'velis_cf7_last_mail', array( 'time' => current_time( 'mysql' ), 'subject' => $c['subject'] ?? '', 'body' => $c['body'] ?? '' ), false );
+		return $c;
+	} );
+	add_action( 'rest_api_init', fn() => register_rest_route( 'velis/v1', '/last-lead', array( 'methods' => 'GET', 'callback' => fn() => get_option( 'velis_cf7_last_mail', array() ), 'permission_callback' => fn() => current_user_can( 'manage_options' ) ) ) );
+}
+
+// Sharp pictures: extra widths for the srcset (WordPress never makes one wider than the original) and a 2560 px srcset
+// limit. Frames follow the design and the viewport only (round 8); the crop zoom is part of every `sizes` (velis_sizes()).
+add_action( 'after_setup_theme', function () {
+	foreach ( array( 600, 900, 1600, 2000, 2560 ) as $w ) {
+		add_image_size( 'velis-' . $w, $w, 0, false );
+	}
+} );
+add_filter( 'max_srcset_image_width', fn() => 2560 );
+add_filter( 'wp_img_tag_add_auto_sizes', '__return_false' ); // "auto" = layout width, which leaves out the crop zoom
+// Images in post/page text: same crop as every photo (badge printed bottom-left), inside a clipping box no wider than the
+// widest file – a small file shows at its own size, centred (round 8).
+add_filter( 'wp_content_img_tag', function ( $tag, $context ) {
+	if ( 'the_content' !== $context || ! preg_match( '/\ssrcset="([^"]+)"/', $tag, $m ) ) { // not the theme's own template images
+		return $tag;
+	}
+	$max = velis_max_candidate( $m[1], preg_match( '/\swidth="(\d+)"/', $tag, $w ) ? (int) $w[1] : 0 );
+	$tag = preg_replace( '/\ssizes="[^"]*"/', '', $tag );
+	$tag = preg_replace( '/^<img/', '<img sizes="' . esc_attr( velis_sizes( '(min-width: 768px) min(720px, ' . $max . 'px), min(100vw - 32px, ' . $max . 'px)', 1.12 ) ) . '" style="--focus: 100% 0%; --zoom: 1.12"', $tag );
+	return '<span class="v-crop" style="max-width: ' . $max . 'px">' . $tag . '</span>';
+}, 10, 2 );
+
 // Theme block styles: secondary (outline) and text buttons.
 add_action( 'init', function () {
 	register_block_style( 'core/button', array( 'name' => 'secondary', 'label' => 'Phụ (viền)' ) );

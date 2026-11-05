@@ -10,6 +10,7 @@ def minify(css):
     css = re.sub(r'\s+', ' ', css)
     css = re.sub(r'\s*([{};,>])\s*', r'\1', css)
     css = re.sub(r'([{;])\s*([\w-]+)\s*:\s*', r'\1\2:', css)  # "color : red" → "color:red" (declarations only, not :hover)
+    css = re.sub(r'(?<=[\s:(,])0\.(\d)', r'.\1', css)  # 0.5 → .5
     return css.replace(';}', '}').strip() + '\n'
 
 

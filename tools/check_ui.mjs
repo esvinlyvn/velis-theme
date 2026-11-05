@@ -1,13 +1,40 @@
 // Automated UI check + screenshots for a staging page (guest view behind the staging password).
 // Usage: VIEW_PASSWORD_FILE=/path/to/file node tools/check_ui.mjs <url-path> <out-dir> [widths]
-// Reports per width: horizontal overflow, empty images, text contrast < WCAG AA, tap targets < 44px, CLS.
+// Reports per width: horizontal overflow, images not loaded (after a real scroll), text contrast < WCAG AA, tap targets < 44px,
+// gaps beside content (tools/ui_gaps.mjs), layout errors (tools/ui_layout.mjs), CLS.
 import { createRequire } from 'node:module';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 const { chromium } = createRequire(import.meta.url)('playwright');
+import { gapRuns, contentBands } from './ui_gaps.mjs';
+import { runSuite, runSticky } from './ui_media.mjs';
+import { layoutAudit } from './ui_layout.mjs';
+
+
+// Suite mode (round 8): every page × DPR (1, 1.25, 2) × viewport (390, 1066, 1366, 1536, 1920) – see tools/ui_media.mjs for
+// the criteria (sharpness by the real file width, DPR-invariant layout, wrong srcset pick, …). Info columns are not errors.
+// Usage: VIEW_PASSWORD_FILE=… node tools/check_ui.mjs --suite pages.txt out-dir [dprs] [widths]   (pages.txt: "name /path/")
+//        VIEW_PASSWORD_FILE=… node tools/check_ui.mjs --sticky pages.txt out-dir   (post side column, item 15)
+if (process.argv[2] === '--suite' || process.argv[2] === '--sticky') {
+	const [list, dir, dprArg, wArg] = process.argv.slice(3);
+	const pages = readFileSync(list, 'utf8').trim().split('\n').map((l) => l.trim().split(/\s+/));
+	mkdirSync(dir, { recursive: true });
+	const opts = { chromium, base: 'https://staging.velisrealty.vn', password: readFileSync(process.env.VIEW_PASSWORD_FILE, 'utf8').trim(), pages, contentBands };
+	if (process.argv[2] === '--sticky') {
+		const rows = await runSticky(opts);
+		writeFileSync(`${dir}/cot-dinh.json`, JSON.stringify(rows, null, 1));
+		rows.forEach((r) => console.log(`${r.name} ${r.screen}: ${r.steps} vị trí, ${r.bad.length} vi phạm`));
+		process.exit(rows.some((r) => r.bad.length) ? 1 : 0);
+	}
+	const r = await runSuite({ ...opts, dprs: dprArg ? dprArg.split(',').map(Number) : undefined, widths: wArg ? wArg.split(',').map(Number) : undefined });
+	writeFileSync(`${dir}/bang.md`, `# Bộ đo ảnh & bố cục – ${new Date().toISOString().slice(0, 10)}\n\nMỗi ô = số mục cộng qua các viewport đã đo. Cột lỗi (in đậm ở dòng tổng) phải = 0; 3 cột cuối chỉ để thông tin.\n\n${r.table}\n\n## Chi tiết\n\n${r.details.join('\n') || 'Không có lỗi.'}\n`);
+	writeFileSync(`${dir}/ket-qua.json`, JSON.stringify(r.result, null, 1));
+	console.log('lỗi', r.total.join(' '), '| thông tin', r.info.join(' '));
+	process.exit(r.total.some((n) => n) ? 1 : 0);
+}
 
 const BASE = 'https://staging.velisrealty.vn';
 const [path = '/velis-style-guide/', out = 'screenshots/check', widthArg] = process.argv.slice(2);
-const WIDTHS = widthArg ? widthArg.split(',').map(Number) : [360, 390, 430, 600, 768, 1023, 1024, 1100, 1180, 1280, 1366, 1920]; // 12 frames: phones, tablet, breakpoint edges, common laptops
+const WIDTHS = widthArg ? widthArg.split(',').map(Number) : [360, 390, 430, 600, 768, 1023, 1024, 1100, 1180, 1280, 1366, 1536, 1920]; // 12 frames + 1536 (gap rule): phones, tablet, breakpoint edges, common laptops
 mkdirSync(out, { recursive: true });
 
 // Runs in the page. Kept dependency-free on purpose.
@@ -111,6 +138,7 @@ async function photoContrast(p) {
 	return out;
 }
 
+
 const report = {};
 for (const w of WIDTHS) {
 	const p = await ctx.newPage();
@@ -127,10 +155,20 @@ for (const w of WIDTHS) {
 	// switched to eager so every <img> on the page is actually fetched and verified.
 	await p.evaluate(() => Promise.all([...document.images].map((i) => { i.loading = 'eager'; return i.decode().catch(() => {}); })));
 	await p.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
-	report[w] = { ...(await p.evaluate(audit)), cls };
+	await p.waitForFunction(() => [...document.images].every((i) => i.complete), null, { timeout: 15000 }).catch(() => {}); // every picture settled (loaded or failed)
+	const lay = await p.evaluate(layoutAudit);
+	report[w] = { ...(await p.evaluate(audit)), cls, gaps: [] };
+	report[w].images = [...new Set([...report[w].images, ...lay.images])];
+	report[w].layout = [...lay.grid.map((x) => `NT-06 hàng lưới 1 thẻ ≤ 50%: ${x}`), ...lay.empty.map((x) => `NT-04 khung trống > 40px: ${x}`), ...lay.media.map((x) => `NT-25 khung ảnh/bản đồ không có ảnh: ${x}`),
+		...lay.fallback.map((x) => `NT-24 khung dự phòng không tên: ${x}`), ...lay.contact.map((x) => `NT-14 khối liên hệ lặp: ${x}`)];
+	if (w >= 1024) {
+		const g = await p.evaluate(contentBands);
+		const at = async (y) => p.evaluate((y) => { const el = [...document.querySelectorAll('main section, main .v-wrap, main article, main aside')].find((e) => { const r = e.getBoundingClientRect(); return r.top + scrollY <= y && r.bottom + scrollY > y; }); return el ? el.tagName.toLowerCase() + (el.id ? '#' + el.id : '') + (el.className ? '.' + String(el.className).trim().split(/\s+/).slice(0, 2).join('.') : '') : 'body'; }, y);
+		for (const run of gapRuns(g.bands, g.left, g.right, g.step, w < 768 ? 800 : 900)) report[w].gaps.push(`khoảng trống ${run.pct}% từ y=${run.from} đến y=${run.to} (${await at(run.from)})`);
+	}
 	const photo = await photoContrast(p);
 	report[w].photo = photo;
-	report[w].contrast.push(...photo.filter((x) => !x.ok).map((x) => `chữ trên ảnh "${x.text}" ${x.ratio} < ${x.need}`));
+	report[w].contrast.push(...photo.filter((x) => !x.ok).map((x) => `NT-42 chữ trên ảnh "${x.text}" ${x.ratio} < ${x.need}`));
 	await p.evaluate(() => scrollTo(0, 0));
 	await p.screenshot({ path: `${out}/page-${w}.png`, fullPage: true });
 	if (w === 390 || w === 1366) { // header collapsed state
@@ -139,12 +177,12 @@ for (const w of WIDTHS) {
 	}
 	await p.close();
 	const r = report[w];
-	console.log(`${w}px overflow:${r.overflow.length} emptyImg:${r.images.length} contrast:${r.contrast.length} tap<44:${r.targets.length} CLS:${r.cls}`);
+	console.log(`${w}px overflow:${r.overflow.length} emptyImg:${r.images.length} contrast:${r.contrast.length} tap<44:${r.targets.length} gap:${r.gaps.length} layout:${r.layout.length} CLS:${r.cls}`);
 }
 await browser.close();
 
 const photoLine = WIDTHS.map((w) => `${w}px: ` + report[w].photo.map((x) => `${x.text.slice(0, 18)}… ${x.ratio}`).join(' · ')).join('\n- ');
-const rows = WIDTHS.map((w) => { const r = report[w]; return `| ${w} | ${r.overflow.length ? 'CÓ' : 'không'} | ${r.images.length} | ${r.contrast.length} | ${r.targets.length} | ${r.cls} |`; });
-const details = WIDTHS.flatMap((w) => { const r = report[w]; return [...r.overflow.map((x) => `- ${w}px tràn ngang: ${x}`), ...r.images.map((x) => `- ${w}px ảnh rỗng: ${x}`), ...r.contrast.map((x) => `- ${w}px tương phản: ${x}`), ...r.targets.map((x) => `- ${w}px vùng bấm: ${x}`)]; });
+const rows = WIDTHS.map((w) => { const r = report[w]; return `| ${w} | ${r.overflow.length ? 'CÓ' : 'không'} | ${r.images.length} | ${r.contrast.length} | ${r.targets.length} | ${r.gaps.length} | ${r.layout.length} | ${r.cls} |`; });
+const details = WIDTHS.flatMap((w) => { const r = report[w]; return [...r.overflow.map((x) => `- ${w}px tràn ngang: ${x}`), ...r.images.map((x) => `- ${w}px ảnh rỗng: ${x}`), ...r.contrast.map((x) => `- ${w}px tương phản: ${x}`), ...r.targets.map((x) => `- ${w}px vùng bấm: ${x}`), ...r.gaps.map((x) => `- ${w}px ${x}`), ...r.layout.map((x) => `- ${w}px ${x}`)]; });
 writeFileSync(`${out}/report.json`, JSON.stringify(report, null, 1));
-writeFileSync(`${out}/report.md`, `# Kiểm tra tự động – ${path}\n\n| Khung | Tràn ngang | Ảnh rỗng | Tương phản lỗi | Vùng bấm < 44px | CLS |\n|---|---|---|---|---|---|\n${rows.join('\n')}\n\n${details.length ? details.join('\n') : 'Không có lỗi.'}\n\n## Tương phản chữ trên ảnh hero (nền sáng nhất phân vị 98)\n- ${photoLine}\n`);
+writeFileSync(`${out}/report.md`, `# Kiểm tra tự động – ${path}\n\n| Khung | NT-02 Tràn ngang | NT-20 Ảnh rỗng | NT-85 Tương phản lỗi | NT-86 Vùng bấm < 44px | NT-03 Khoảng trống > 30% | Bố cục (NT-06/04/25/24/14) | NT-91 CLS |\n|---|---|---|---|---|---|---|---|\n${rows.join('\n')}\n\n${details.length ? details.join('\n') : 'Không có lỗi.'}\n\n## Tương phản chữ trên ảnh hero (nền sáng nhất phân vị 98)\n- ${photoLine}\n`);
