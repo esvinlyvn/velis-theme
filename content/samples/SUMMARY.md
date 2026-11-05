@@ -103,6 +103,8 @@ Chỉ là kỹ thuật; nội dung, số liệu, câu chữ do Velis tự viết
 
 ## D. Quy tắc SEO – AEO – trích dẫn AI (bắt buộc mọi trang/bài)
 
+> Bản dùng để viết: `content/guide/structure.md` (D) và `content/guide/pillars.md` (E, kèm ưu tiên GSC). Khi khác nhau, theo `content/guide/`.
+
 Nguồn: BRIEF.md (mục SEO kỹ thuật, công thức title/meta/heading, template blog), `docs/VOICE.md`, `docs/BRAND.md`, bài học ở mục A–C.
 AEO = tối ưu để công cụ trả lời (Google AI Overview, ChatGPT, Perplexity, Gemini…) **trích đúng đoạn** và **ghi nguồn là Velis**.
 
@@ -133,10 +135,8 @@ AEO = tối ưu để công cụ trả lời (Google AI Overview, ChatGPT, Perpl
 
 ### D3. Trích dẫn AI – để AI tin và ghi nguồn Velis
 
-1. **Mọi con số có nguồn + ngày**: nguồn gốc (văn bản pháp lý, công bố chủ đầu tư, cơ quan nhà nước) ghi ngắn trong câu;
-   số từ giao dịch Velis viết ngôi thứ nhất có thời điểm ("qua các giao dịch tôi và đội ngũ tư vấn quý 3/2026…") và gắn `[XN-n]` trong nháp
-   để chủ site xác nhận (VOICE.md). Không bịa số, không lấy số từ site đối thủ.
-2. **Kinh nghiệm trực tiếp**: mỗi bài ít nhất một nhận định/tình huống chỉ người làm nghề mới có (ẩn danh khách), đánh dấu rõ là quan điểm của Vũ Xuân.
+1. **Số liệu**: chỉ dùng số có trong dữ liệu được cung cấp cho đợt viết, BRIEF hoặc facts; thiếu thì hỏi trước khi viết (thay quy tắc `[XN-n]`, xem `content/guide/rules.md` mục 6). Không lấy số từ site đối thủ.
+2. **Kinh nghiệm trực tiếp**: mỗi bài có ít nhất một nhận định/tình huống ngôi thứ nhất của Vũ Xuân, do Claude viết, không mâu thuẫn dữ kiện (`content/guide/rules.md` mục 5).
 3. **Ngày cập nhật hiển thị = `dateModified`**, chỉ đổi khi nội dung đổi thật; giá/tiến độ/pháp lý luôn kèm "cập nhật ngày …".
 4. **Tác giả nhất quán**: byline Vũ Xuân, CEO Velis Realty, link trang tác giả; hộp tác giả cuối bài; `Person` (`@id` cố định, `sameAs` hồ sơ thật)
    và `Organization` Velis giống nhau trên mọi trang.
@@ -151,7 +151,7 @@ AEO = tối ưu để công cụ trả lời (Google AI Overview, ChatGPT, Perpl
 ### D4. Kiểm tra trước khi commit một bài
 
 `python3 -I content/guide/scan_banned.py <bài>` (danh sách cấm) · title/meta đúng độ dài · 1 H1, không nhảy cấp · có đoạn trả lời trước,
-tóm tắt nhanh, rủi ro, công bố, hộp tác giả · mọi số có nguồn + ngày hoặc `[XN-n]` · link lên trụ cột + 2–4 link ngang · từ cấm trong BRAND.md.
+tóm tắt nhanh, rủi ro, công bố, hộp tác giả · mọi số có trong dữ liệu được cung cấp · link lên trụ cột + 2–4 link ngang · từ cấm trong BRAND.md.
 
 ## E. Cụm bài và thành phần tối thiểu theo loại
 

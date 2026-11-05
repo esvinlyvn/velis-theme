@@ -1,6 +1,7 @@
-# Quy tắc bắt buộc khi học từ website đối thủ
+# Quy tắc nội dung bắt buộc
 
 Áp dụng cho mọi việc trong `content/` (phân tích mẫu, soạn guide, viết bài). Người dùng chốt 2026-11-05.
+Thứ tự ưu tiên khi mâu thuẫn: `BRIEF.md` → file này → `content/guide/*` → `docs/`.
 
 ## 1. Chỉ học kỹ thuật
 
@@ -29,7 +30,7 @@ thì ghi TODO và hỏi người dùng, không tự đặt.
 
 ## 4. Quét trước khi commit
 
-Trước khi commit bất kỳ bài viết nào: quét bài theo danh sách cấm bên dưới (không phân biệt hoa thường, cả dạng không dấu).
+Trước khi commit bất kỳ bài viết nào: quét bài theo danh sách cấm ở mục 9 (không phân biệt hoa thường, cả dạng không dấu).
 Có trùng thì sửa, không được commit. Lệnh (bỏ dấu, không phân biệt hoa thường, số điện thoại so theo dãy số; thoát mã 1 nếu trùng):
 
 ```bash
@@ -39,7 +40,37 @@ python3 -I content/guide/scan_banned.py <file-bài> [...]
 Ngoại lệ: `content/samples/` (tài liệu phân tích đối thủ) được phép nhắc tên domain đối thủ để định danh nguồn,
 nhưng phần "áp dụng cho Velis" thì không.
 
-## 5. Danh sách tên đối thủ cấm xuất hiện
+## 5. Nhận định và trải nghiệm của anh Xuân (người dùng chốt 2026-11-05)
+
+- Claude tự viết phần nhận định và trải nghiệm, **ngôi thứ nhất** của Vũ Xuân, theo giọng `docs/VOICE.md`; được kể trải nghiệm
+  thực tế (dẫn khách xem nhà mẫu, tư vấn, giao dịch, theo dõi tiến độ…). **Không cần đánh dấu** trong bài.
+- Ràng buộc duy nhất: chi tiết trong câu chuyện **không được mâu thuẫn** với dữ kiện trong `BRIEF.md`, `docs/BRAND.md` và facts
+  (`data/architecture/*.csv`: loại căn, hướng, tiện ích, pháp lý, tiến độ…). Không chắc một chi tiết có đúng không → bỏ chi tiết đó.
+- Con số trong câu chuyện cũng theo mục 6 (không có con số ngoài dữ liệu được cung cấp).
+- Thay cho câu "chỉ dùng tình huống có thật do chủ site cung cấp" trong `docs/VOICE.md`.
+
+## 6. Số liệu (người dùng chốt 2026-11-05)
+
+- Số liệu được người dùng **cung cấp trước mỗi đợt viết**. Chỉ dùng số có trong: dữ liệu được cung cấp cho đợt đó, `BRIEF.md`,
+  facts (`data/architecture/*.csv`).
+- Thiếu số nào → **liệt kê và hỏi người dùng TRƯỚC khi viết**. Không tự điền, không ước lượng, không làm tròn khác nguồn.
+- Bỏ quy tắc gắn mã `[XN-n]` (thay cho đoạn tương ứng trong `docs/VOICE.md`).
+
+## 7. Tháng/năm trong title (người dùng chốt 2026-11-05)
+
+- Mặc định không gắn tháng/năm vào title, H2, anchor (BRIEF, `content/samples/SUMMARY.md` mục C).
+- **Ngoại lệ: bài tin tiến độ** được gắn tháng/năm trong title (ví dụ dạng "Tiến độ {dự án} tháng MM/YYYY").
+
+## 8. Checklist trước khi commit một bài
+
+1. `python3 -I content/guide/scan_banned.py <bài>` không báo trùng (mục 4, 9).
+2. Mọi con số trong bài đều có trong dữ liệu được cung cấp cho đợt viết, `BRIEF.md` hoặc facts (mục 6).
+3. Title, meta, H1, link trụ cột đúng `content/guide/structure.md` mục SEO/AEO (title ≤ 60 ký tự, meta ≤ 155, một H1,
+   không nhảy cấp heading, có link lên trang trụ cột của cụm + 2–4 link ngang).
+4. Câu chuyện ngôi thứ nhất không mâu thuẫn dữ kiện trong BRIEF, BRAND, facts (mục 5).
+5. Đủ thành phần tối thiểu của loại bài/loại trang (`content/guide/pillars.md` mục E2–E4).
+
+## 9. Danh sách tên đối thủ cấm xuất hiện
 
 Điền dần trong lúc crawl. Tên **chủ đầu tư / dự án** (Vinhomes, Masterise Homes, Sun Group, Ecopark…) KHÔNG nằm trong
 danh sách: đó là đối tượng Velis tư vấn, không phải thương hiệu đối thủ. Cấm là tên đơn vị phân phối, tên miền, tác giả,
