@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Step-2 mockup interactions (local server, read-only): NT-57, NT-72, NT-75, NT-76, NT-77, NT-79, NT-87. One line per check.
+// Step-2 mockup interactions (local server, read-only): NT-57, NT-72, NT-75, NT-76, NT-77, NT-79, NT-87, home area tabs + form. One line per check.
 // Usage: node tools/mockup_interactions.mjs http://127.0.0.1:8765
 import { createRequire } from 'node:module';
 const { chromium } = createRequire(import.meta.url)('playwright');
@@ -15,28 +15,27 @@ await p.evaluate(() => { window.__same = 1; });
 await p.click('.mk [data-mk-hero="a"]');
 const sw = await p.evaluate(() => ({ same: window.__same === 1, a: !!document.querySelector('.hero.hero--a'), hash: location.hash, search: location.search }));
 check('Công tắc mockup: đổi hero A tại chỗ, không tải lại, ghi #hero-a', sw.same && sw.a && sw.hash === '#hero-a' && !sw.search, sw);
-await p.click('.mk [data-mk-tam="0"]');
-const tg = await p.evaluate(() => ({ hidden: getComputedStyle(document.querySelector('.tmp')).display === 'none', hash: location.hash, same: window.__same === 1 }));
-check('Công tắc mockup: ẩn nhãn ảnh tạm tại chỗ, ghi #tam-0', tg.hidden && tg.same && /tam-0/.test(tg.hash), tg);
+await p.click('.mk [data-mk-tam="1"]');
+const tg = await p.evaluate(() => ({ shown: getComputedStyle(document.querySelector('.tmp')).display !== 'none', hash: location.hash, same: window.__same === 1 }));
+check('Công tắc mockup: bật nhãn ảnh tạm tại chỗ (mặc định ẩn, 1.8), ghi #tam-1', tg.shown && tg.same && /tam-1/.test(tg.hash), tg);
 await p.reload();
 const rd = await p.evaluate(() => ({ a: !!document.querySelector('.hero.hero--a'), tam: document.documentElement.dataset.tam, pressed: document.querySelector('.mk-float [data-mk-hero="a"]').getAttribute('aria-pressed') }));
-check('Công tắc mockup: mở lại đọc trạng thái từ #hash (A, nhãn ẩn)', rd.a && rd.tam === '0' && rd.pressed === 'true', rd);
+check('Công tắc mockup: mở lại đọc trạng thái từ #hash (A, nhãn hiện)', rd.a && rd.tam === '1' && rd.pressed === 'true', rd);
 await p.click('.mk-float summary'); await p.click('.mk-float [data-mk-hero="b"]');
 check('Công tắc nổi góc dưới phải: đổi về hero B', await p.evaluate(() => !!document.querySelector('.hero.hero--b') && location.hash.startsWith('#hero-b')));
 await p.context().close();
 
-// home (old page + BRIEF): hero B only, projects filtered by developer and area, full dark form with the CF7 hidden fields
+// home (round 5): split hero, no hero switch, "ảnh tạm" hidden by default, one-at-a-time area tabs, dark form with the CF7 hidden fields
 p = await open('/trang-chu.html?utm_source=thu&utm_medium=mockup');
-check('Trang chủ: hero B cố định, không có công tắc hero A/B', await p.evaluate(() => !!document.querySelector('.hero.hero--b') && !document.querySelector('[data-mk-hero]')));
-await p.click('.finder [data-key="cdt"][value="masterise-homes"]');
-await p.click('.finder [data-key="khu"][value="khu-dong"]');
-const fr = await p.evaluate(() => ({ count: document.querySelector('.finder [data-count]').textContent, n: document.querySelector('#du-an .grid').dataset.n, shown: [...document.querySelectorAll('#du-an .card:not([hidden]) .card__title')].map((t) => t.textContent) }));
-check('Lọc dự án: Masterise Homes + Khu Đông → 1 dự án (The Global City), lưới theo số thẻ', fr.n === '1' && fr.shown.join() === 'The Global City' && /1\/6/.test(fr.count), fr);
-await p.click('.finder [data-key="cdt"][value="masterise-homes"]');
-const fr2 = await p.evaluate(() => document.querySelector('#du-an .grid').dataset.n);
-check('Lọc dự án: chỉ Khu Đông → 3 dự án (Palm City, The Global City, The Privé)', fr2 === '3', fr2);
-await p.click('.finder [data-clear]');
-check('Lọc dự án: Xóa lọc → 6/6', await p.evaluate(() => document.querySelector('#du-an .grid').dataset.n === '6'));
+check('Trang chủ: hero tách đôi, không có công tắc hero A/B, nhãn ảnh tạm mặc định ẩn', await p.evaluate(() => !!document.querySelector('.hero.hero--split') && !document.querySelector('.hero--a, .hero--b, [data-mk-hero]') && document.documentElement.dataset.tam === '0' && [...document.querySelectorAll('.tmp')].every((t) => getComputedStyle(t).display === 'none')));
+const tabs = (v) => p.click(v ? `.ftabs [value="${v}"]` : '.ftabs [data-clear]');
+const fs = () => p.evaluate(() => ({ n: document.querySelector('#du-an .grid').dataset.n, shown: [...document.querySelectorAll('#du-an .card:not([hidden]) .card__title')].map((t) => t.textContent).sort().join(', '), pressed: [...document.querySelectorAll('.ftabs [aria-pressed="true"]')].map((x) => x.textContent.trim()), count: document.querySelector('#du-an [data-count]').textContent }));
+await tabs('khu-dong'); const f1 = await fs();
+check('Tab khu vực: Khu Đông → 3 dự án (Palm City, The Global City, The Privé), chỉ 1 tab được chọn', f1.n === '3' && f1.shown === 'Palm City, The Global City, The Privé' && f1.pressed.join() === 'Khu Đông', f1);
+await tabs('khu-tay'); const f2 = await fs();
+check('Tab khu vực: Khu Tây → 1 dự án (Ansana by Kita) thành thẻ rộng, Khu Đông tự bỏ chọn', f2.n === '1' && f2.shown === 'Ansana by Kita' && f2.pressed.join() === 'Khu Tây', f2);
+await tabs(); const f3 = await fs();
+check('Tab khu vực: Tất cả → 6 dự án, tab "Tất cả" được chọn', f3.n === '6' && f3.pressed.join() === 'Tất cả' && /6\/6/.test(f3.count), f3);
 const hid = await p.evaluate(() => [...document.querySelectorAll('#tu-van form [type=hidden]')].map((i) => i.name).sort().join(','));
 check('Form tư vấn: trường ẩn interest, page-url, utm như CF7', hid === 'interest,page-url,utm', hid);
 let req = 0; p.on('request', (r) => { if (!r.url().startsWith('data:') && !r.url().startsWith('http://127.0.0.1')) req++; });

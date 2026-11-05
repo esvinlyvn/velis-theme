@@ -3,12 +3,13 @@
 	const q = new URLSearchParams(location.search);
 	const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
-	// [mockup] hero A/B + "ảnh tạm" tags, switched in place; state kept in the hash (#hero-a / #hero-b, #tam-0), read on
-	// open (the hero and the tags are already set before first paint by inline scripts)
-	const st = { hero: document.querySelector('.hero--a') ? 'a' : 'b', tam: document.documentElement.dataset.tam || '1' };
-	const save = () => history.replaceState(null, '', '#' + [st.hero === 'a' ? 'hero-a' : 'hero-b', st.tam === '0' ? 'tam-0' : ''].filter(Boolean).join(','));
+	// [mockup] hero A/B + "ảnh tạm" tags (hidden by default, 1.8), switched in place; state kept in the hash (#hero-a /
+	// #hero-b, #tam-1), read on open (the hero and the tags are already set before first paint by inline scripts)
+	const ab = $$('.hero:not(.hero--split)').length > 0; // the home page has a split hero, no A/B switch
+	const st = { hero: document.querySelector('.hero--a') ? 'a' : 'b', tam: document.documentElement.dataset.tam || '0' };
+	const save = () => history.replaceState(null, '', '#' + [ab ? (st.hero === 'a' ? 'hero-a' : 'hero-b') : '', st.tam === '1' ? 'tam-1' : ''].filter(Boolean).join(','));
 	const paint = () => {
-		$$('.hero').forEach(h => {
+		$$('.hero:not(.hero--split)').forEach(h => {
 			h.classList.toggle('hero--a', st.hero === 'a'); h.classList.toggle('hero--b', st.hero !== 'a');
 			const i = h.querySelector('.hero__media img');
 			if (i) { i.dataset.sizesB ??= i.sizes; i.sizes = st.hero === 'a' ? '100vw' : i.dataset.sizesB; }
@@ -101,8 +102,11 @@
 			});
 			out.textContent = `Hiển thị ${all}/${total} ${noun}`;
 		};
-		$$('button[value]', f).forEach(b => { b.onclick = () => { b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true')); apply(); }; });
-		f.querySelector('[data-clear]').onclick = () => { $$('button[value]', f).forEach(b => b.setAttribute('aria-pressed', 'false')); apply(); };
+		// data-single (home area tabs): one value at a time, "Tất cả" pressed when none is
+		const clear = f.querySelector('[data-clear]'), single = f.hasAttribute('data-single');
+		const sync = () => { if (single) clear.setAttribute('aria-pressed', String(!$$('button[value][aria-pressed="true"]', f).length)); };
+		$$('button[value]', f).forEach(b => { b.onclick = () => { const on = b.getAttribute('aria-pressed') !== 'true'; if (single) $$('button[value]', f).forEach(o => o.setAttribute('aria-pressed', 'false')); b.setAttribute('aria-pressed', String(on)); sync(); apply(); }; });
+		clear.onclick = () => { $$('button[value]', f).forEach(b => b.setAttribute('aria-pressed', 'false')); sync(); apply(); };
 	});
 
 	// consultation form: inline errors (the mockup sends nothing)

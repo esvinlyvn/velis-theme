@@ -54,7 +54,7 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 <nav class="cta" aria-label="Liên hệ nhanh"><a href="#">${esc(home.cta[0])}</a><a href="#">${esc(home.cta[1])}</a><a href="#tu-van">${esc(home.cta[2])}</a></nav>
 <details class="mk-float"><summary aria-label="Công tắc mockup">${heroSwitch ? 'A/B' : 'Nhãn'}</summary><div class="mk__row">${sw(false)}Nhãn <button type="button" data-mk-tam="1">Hiện</button><button type="button" data-mk-tam="0">Ẩn</button></div></details>
 <aside class="mk" aria-label="Công tắc mockup"><div class="wrap">
-	<p><b>Mockup bước 2</b> – công tắc chỉ dùng để duyệt, không đưa vào theme. Trạng thái ghi vào địa chỉ: ${heroSwitch ? '<code>#hero-a</code> / <code>#hero-b</code>, ' : ''}<code>#tam-0</code>.</p>
+	<p><b>Mockup bước 2</b> – công tắc chỉ dùng để duyệt, không đưa vào theme. Trạng thái ghi vào địa chỉ: ${heroSwitch ? '<code>#hero-a</code> / <code>#hero-b</code>, ' : ''}<code>#tam-1</code> (nhãn "ảnh tạm" mặc định ẩn).</p>
 	<div class="mk__row">${sw(true)}Nhãn ảnh tạm: <button type="button" data-mk-tam="1">Hiện</button><button type="button" data-mk-tam="0">Ẩn</button></div>
 </div></aside>`;
 	};
@@ -127,7 +127,7 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 	${more ? `<span class="card__more" aria-hidden="true">${esc(more)}</span>` : ''}
 	</div>
 </article>`;
-	const postCard = (p, sizes) => card(p, sizes, { kicker: p.kicker, more: 'Đọc bài →' }).replace('<article class="card">', '<article class="card card--post">')
+	const postCard = (p, sizes) => card(p, sizes, { kicker: p.kicker }).replace('<article class="card">', '<article class="card card--post">')
 		.replace('</h3>', `</h3>\n\t<p class="card__meta">${esc(p.meta).split(' · ').map(x => `<span>${x}</span>`).join(' · ')}</p>`);
 	// MPP compare table: the template repeats the current zone as first AND last column → keep the first, mark it
 	const dropDupCol = html => html.replace(/<tr>(.*?)<\/tr>/gs, (m, row) => {
@@ -148,40 +148,54 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 	// Trang chủ theo trang cũ + BRIEF (vòng chốt): chữ nguyên văn trang chủ cũ (home-cu.json), Giới thiệu (broker.json), dữ liệu
 	// dự án / bài trên staging; thứ tự khối và đường đi tiếp học cách tổ chức của Newway Realty (docs/THAM-CHIEU.md)
 	const O = homeCu, sentence = (t) => t.charAt(0) + t.slice(1).toLowerCase(); // old headings were all caps (NT-55)
-	const homeBody = `${header()}
-<main id="noi-dung" tabindex="-1">
-${hero({ img: H.hero.img, alt: H.hero.alt, title: 'Công ty TNHH Velis Realty' }, { home: true, intro: O.paras, buttons: `<a class="btn" href="#tu-van">Nhận tư vấn</a><a class="btn btn--line" href="#">Gọi ${PHONE}</a>` })}
-<section class="section section--tight" aria-label="Velis Realty trong những con số"><div class="wrap">
-	<dl class="numbers numbers--four">${O.numbers.map(n => `<div><dt>${esc(n.label)}</dt><dd>${esc(n.value)}</dd></div>`).join('')}</dl>
-</div></section>
-<section class="section section--flush" id="du-an" aria-labelledby="du-an-h"><div class="wrap">
-	<header class="sechead sechead--row"><div><h2 id="du-an-h">${sentence(O.featuredHead)}</h2></div><a class="btn btn--text" href="#">Xem tất cả dự án →</a></header>
-	<div class="finder" data-filter="#du-an .grid" data-noun="dự án">
-		${[['cdt', 'Chủ đầu tư', broker.devs.map(d => [d.slug, d.name])], ['khu', 'Khu vực', broker.regions.map(r => [r.slug, r.slug === 've-tinh' && r.sub.length ? r.sub.join(', ') : r.name])]]
-			.map(([key, label, opts]) => `<div class="finder__row" role="group" aria-label="Lọc theo ${label.toLowerCase()}"><span class="finder__label">${label}</span>${opts.map(([v, t]) => `<button class="chip" type="button" data-key="${key}" value="${v}" aria-pressed="false">${esc(t)}</button>`).join('')}</div>`).join('')}
-		<div class="finder__foot"><p class="muted mb-0" data-count aria-live="polite">Hiển thị ${broker.projects.length}/${broker.projects.length} dự án</p><button class="btn btn--text" type="button" data-clear>Xóa lọc</button></div>
-	</div>
-	${grid(broker.projects.map(p => {
+	// round 5 (layout rules): the first sentence of intro paragraph 1 is the hero lead; the rest of both paragraphs goes,
+	// word for word, to block e. Nothing is rewritten.
+	const cut = O.paras[0].indexOf('. ') + 1, heroLead = O.paras[0].slice(0, cut), aboutLead = [O.paras[0].slice(cut + 1), O.paras[1]];
+	const withImg = broker.projects.filter(p => (H.projects.find(x => x.title === p.title) || {}).img), noImg = broker.projects.filter(p => !withImg.includes(p));
+	const projCard = p => {
 		const c = H.projects.find(x => x.title === p.title) || {}, hand = (c.lines || []).find(l => /^Bàn giao/.test(l));
 		return card({ title: p.title, img: c.noimg ? '' : c.img }, S.card3, { kicker: `${p.devs.map(d => d.name).join(', ')} · ${p.khu.join(', ')}`, lines: [p.types.join(', '), hand], more: 'Xem dự án →' })
-			.replace('<article class="card">', `<article class="card" data-khu="${p.regions.join(' ')}" data-loai="${p.typeSlugs.join(' ')}" data-cdt="${p.devs.map(d => d.slug).join(' ')}">`);
-	}), ' grid--three')}
+			.replace('<article class="card">', `<article class="card" data-khu="${p.regions.join(' ')}">`);
+	};
+	const homeBody = `${header()}
+<main id="noi-dung" tabindex="-1">
+<section class="hero hero--split hero--home" aria-labelledby="h1"><div class="wrap hero__grid">
+	<div class="hero__body">
+		<p class="eyebrow">VELIS REALTY</p>
+		<h1 id="h1">Công ty TNHH Velis Realty</h1>
+		<p class="hero__lead">${heroLead}</p>
+		<div class="actions"><a class="btn" href="#tu-van">Nhận tư vấn</a><a class="btn btn--line" href="#">Gọi ${PHONE}</a></div>
+	</div>
+	<figure class="hero__media" style="--focus: 50% 50%">${img('img/vi-tri-ansana-by-kita.webp', { alt: 'Phối cảnh Ansana by Kita', sizes: [['(min-width: 1600px)', '760px'], ['(min-width: 1248px)', '690px'], ['(min-width: 768px)', '((100vw - 312px) * 7 / 12 + 144px)'], ['', '(100vw - 32px)']], frame: 4 / 3, lcp: true, tmp: 'ảnh tạm – ảnh thật sẽ nét' })}</figure>
+</div></section>
+<section class="section section--tight section--tint" aria-label="Velis Realty trong những con số"><div class="wrap">
+	<dl class="numbers">${O.numbers.map(n => `<div><dt>${esc(n.label)}</dt><dd>${esc(n.value.replace('+', ''))}+</dd></div>`).join('')}</dl>
+</div></section>
+<section class="section" id="du-an" aria-labelledby="du-an-h"><div class="wrap">
+	<header class="sechead"><h2 id="du-an-h">${sentence(O.featuredHead)}</h2></header>
+	<div class="ftabs" role="group" aria-label="Lọc theo khu vực" data-filter="#du-an .grid" data-noun="dự án" data-single>
+		<button type="button" data-clear aria-pressed="true">Tất cả</button>${broker.regions.slice().sort((x, y) => ['khu-dong', 'khu-tay', 've-tinh', 'tay-bac'].indexOf(x.slug) - ['khu-dong', 'khu-tay', 've-tinh', 'tay-bac'].indexOf(y.slug)).map(r => `<button type="button" data-key="khu" value="${r.slug}" aria-pressed="false">${esc(r.slug === 've-tinh' && r.sub.length ? r.sub.join(', ') : r.name)}</button>`).join('')}
+		<p class="sr-only" data-count aria-live="polite">Hiển thị ${broker.projects.length}/${broker.projects.length} dự án</p>
+	</div>
+	${grid([...withImg, ...noImg].map(projCard), ' grid--three')}
+	<p class="more-center"><a class="btn btn--line" href="#">Xem tất cả dự án</a></p>
 </div></section>
 <section class="section section--tint" aria-labelledby="cdt-h"><div class="wrap">
-	<header class="sechead"><div><h2 id="cdt-h">${sentence(O.partnersHead)}</h2><p>${esc(broker.who.text.slice(0, broker.who.text.indexOf('. ') + 1))}</p></div></header>
-	<ul class="partners">${O.partners.map(pt => { const dv = broker.devs.find(x => x.name === pt.name); const slug = dv?.slug || pt.oldLink.split('/').filter(Boolean).pop(); return `<li><a href="#" data-href="/chu-dau-tu/${slug}/">${img(`img/doi-tac-${slug}.webp`, { alt: pt.name, sizes: [['', '200px']], frame: 1024 / 536, tmp: '' })}<span>${esc(pt.name)}</span></a></li>`; }).join('')}</ul>
+	<header class="sechead sechead--center"><h2 id="cdt-h">${sentence(O.partnersHead)}</h2><p>${esc(broker.who.text.slice(0, broker.who.text.indexOf('. ') + 1))}</p></header>
+	<ul class="partners">${O.partners.map(pt => { const dv = broker.devs.find(x => x.name === pt.name); const slug = dv?.slug || pt.oldLink.split('/').filter(Boolean).pop(); return `<li><a href="#" data-href="/chu-dau-tu/${slug}/" aria-label="${esc(pt.name)}">${img(`img/doi-tac-${slug}.webp`, { alt: pt.name, sizes: [['', '200px']], tmp: '' })}</a></li>`; }).join('')}</ul>
 </div></section>
-<section class="section" id="ve-velis" aria-labelledby="ve-velis-h"><div class="wrap why">
-	<div><p class="eyebrow">VÌ SAO CHỌN VELIS</p><h2 id="ve-velis-h">${esc(broker.values.head)}</h2><p class="mb-0"><a class="btn btn--line" href="#">${esc(H.about.button)}</a></p></div>
-	<ul class="values">${broker.values.items.map(([t, d]) => `<li><b>${esc(t)}</b><span>${esc(d)}</span></li>`).join('')}</ul>
+<section class="section" id="ve-velis" aria-labelledby="ve-velis-h"><div class="wrap">
+	<header class="sechead"><h2 id="ve-velis-h">${esc(broker.values.head)}</h2><div class="about__lead">${aboutLead.map(t => `<p>${t}</p>`).join('')}</div></header>
+	<ul class="values">${broker.values.items.map(([t, d]) => `<li><h3>${esc(t)}</h3><p>${esc(d)}</p></li>`).join('')}</ul>
+	<p class="mb-0"><a class="btn btn--line" href="#">${esc(H.about.button)}</a></p>
 </div></section>
 <section class="section section--tint" aria-labelledby="bai-h"><div class="wrap">
 	${sechead({ title: sentence(O.postsHead) }, `<a class="btn btn--text" href="#">${esc(H.sections[2].more)} →</a>`).replace('<h2>', '<h2 id="bai-h">')}
 	${grid(H.posts.map(p => postCard(p, S.card3)))}
 </div></section>
-<section class="section section--tight" aria-label="Thi thử chứng chỉ môi giới và cơ hội nghề nghiệp"><div class="wrap duo">
-	<div class="duo__item"><h2 class="duo__title">${sentence(O.exam.button)}</h2><p class="mb-0"><a class="btn btn--line" href="#" data-href="${O.exam.link}">Thi thử CCMG</a></p></div>
-	<div class="duo__item"><h2 class="duo__title">${sentence(O.career.head)}</h2><p>${esc(O.career.line)}</p><p class="mb-0"><a class="btn btn--line" href="#" data-href="${O.career.link}">${sentence(O.career.button)}</a></p></div>
+<section class="section section--tight section--soft" aria-label="Thi thử chứng chỉ môi giới và cơ hội nghề nghiệp"><div class="wrap duo">
+	<div class="duo__item"><h2 class="duo__title">${sentence(O.exam.button)}</h2><a class="btn" href="#" data-href="${O.exam.link}">Thi thử CCMG</a></div>
+	<div class="duo__item"><h2 class="duo__title">${sentence(O.career.head)}</h2><p>${esc(O.career.line)}</p><a class="btn" href="#" data-href="${O.career.link}">${sentence(O.career.button)}</a></div>
 </div></section>
 ${form(H.form.title, H.form.lead)}
 </main>
@@ -206,8 +220,8 @@ ${advisorInline(T.hero.title, T.side.dl.slice(0, 2))}
 	<section class="block" id="phan-khu">${sechead(T.heads['phan-khu'])}
 		<div class="zfilter" data-filter=".zones"><p class="muted mb-0" data-count aria-live="polite">Hiển thị ${T.zones.length}/${T.zones.length} phân khu</p>
 			<div class="actions" role="group" aria-label="Lọc theo loại sản phẩm">${[['can-ho', 'Căn hộ'], ['biet-thu', 'Biệt thự'], ['dinh-thu', 'Dinh thự'], ['shophouse', 'Shophouse']].map(([v, t]) => `<button class="chip" type="button" value="${v}" aria-pressed="false">${t}</button>`).join('')}<button class="btn btn--text" type="button" data-clear>Xóa lọc</button></div></div>
-		<div data-group><p class="eyebrow">CAO TẦNG</p>${grid(high.map(zoneCard), ' zones')}</div>
-		<div data-group><p class="eyebrow">THẤP TẦNG</p>${grid(low.map(z => zoneCard(z).replace('class="card"', 'class="card card--wide"')), ' zones')}</div>
+		<div data-group><h3>Cao tầng</h3>${grid(high.map(zoneCard), ' zones')}</div>
+		<div data-group><h3>Thấp tầng</h3>${grid(low.map(z => zoneCard(z).replace('class="card"', 'class="card card--wide"')), ' zones')}</div>
 		${prose(c('phan-khu'), 'phan-khu')}</section>
 	<section class="block" id="dong-san-pham">${sechead(T.heads['dong-san-pham'])}${prose(c('dong-san-pham'), 'dong-san-pham')}</section>
 	<section class="block" id="mat-bang">${sechead(T.heads['mat-bang'])}${prose(c('mat-bang'), 'mat-bang')}</section>
@@ -242,7 +256,7 @@ ${advisorInline(M.hero.title, [['Loại sản phẩm', 'Căn hộ'], ['Bàn giao
 <div class="page__main">
 	<section class="block" id="tong-quan">${sechead(M.heads['tong-quan'])}
 		<a class="within" href="the-global-city.html"><span class="within__img">${img(M.within.img, { alt: '', sizes: S.within, frame: 4 / 3, tmp: '' })}</span><div><p class="eyebrow">${esc(M.within.eyebrow)}</p><p class="within__name">${esc(M.within.name)}</p><p class="muted">${esc(M.within.text)}</p></div></a>
-		<dl>${M.overview.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl></section>
+		<dl>${M.overview.map(([k, v]) => `<div><dt class="eyebrow">${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl></section>
 	<section class="block" id="so-sanh">${sechead(M.heads['so-sanh'])}<div class="table-wrap"><table>${dropDupCol(M.compare)}</table></div></section>
 	<section class="block" id="vi-tri">${sechead(M.heads['vi-tri'])}${map(M.map)}</section>
 	<section class="block" id="bai-viet">${sechead(M.heads['bai-viet'], '<a class="btn btn--text" href="#">Tất cả bài The Global City →</a>')}${grid(M.posts.slice(0, 6).map(p => postCard(p, S.card3side)), ' grid--three')}</section>

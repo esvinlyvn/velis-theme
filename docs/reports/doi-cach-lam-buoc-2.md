@@ -503,6 +503,91 @@ bài, khung chờ nội dung) và dải nổi bật cũ.
 - `ca-trang/trang-chu-cu-1536.jpg` – ảnh gốc trang cũ.
 
 
+
+## 12. Chỉnh thẩm mỹ theo quy tắc chung (2026-11-05)
+
+Phạm vi: mockup + DESIGN.md. **Không sửa theme, không ghi gì lên staging** (kiểm tra `WP_STAGING_URL` + Application Password:
+REST trả 200, chỉ đọc). Nội dung giữ nguyên văn, thứ tự khối như trang cũ, số liệu vẫn 10 · 50 · 999 · 99 (chờ xác nhận).
+
+### 12.1 Quy tắc chung – DESIGN.md mục "Quy tắc bố cục" 1.1–1.8
+
+Ghi đủ 8 quy tắc kèm **cách đếm** (để đo lại được): thang khoảng cách chỉ 8…96 (+40 tiêu đề → nội dung), thang chữ 9 cỡ,
+"≤ 3 cỡ mỗi khối" đếm phần nội dung (không tính đầu khối nhãn + H1/H2 + đoạn dẫn và nút), "≤ 68 ký tự" đếm từng ký tự trên
+dòng hiển thị. Front-matter đổi theo token mới (ngà #FAF7F2, tối #111111, footer #1A1A1A, champagne-soft/light, error-on-dark
+#F2B8B5, H1 56/36, H2 40/28, H3 22, thân 17, section 96/64/48). **`theme.json` chưa sinh lại** (vòng này không sửa theme);
+đã chạy thử `build_theme_json.py` trên bản sao – chạy được; assert H1 trong script đổi 48 → 56 theo thang 1.3.
+
+Phát hiện khi đo: `max-width: 68ch` cho ra **80–92 ký tự** tiếng Việt mỗi dòng (chữ Việt hẹp hơn ký tự "0"). Đã hạ còn
+**46ch ≈ 66–68 ký tự** cho p / li / dd và đoạn dẫn.
+
+### 12.2 Trang chủ – từng khối
+
+| Khối | Đã làm | Điểm nhìn (1.4) |
+|---|---|---|
+| a. Hero tách đôi | Trái 5/12: nhãn VELIS REALTY, H1, đoạn dẫn = câu đầu đoạn giới thiệu 1 (nguyên văn), 2 nút. Phải 7/12: ảnh Ansana 4:3 có lề, F-B. Mobile: ảnh trên, chữ dưới. Hero B dải phẳng bỏ ở trang chủ (trang dự án giữ). | **Ảnh dự án 7/12** – khối lớn, sáng nhất; chữ bên trái đọc sau. |
+| b. Số liệu | Dải trắng, 4 cột đều, vạch dọc champagne nhạt, Playfair 48 màu champagne đậm (5,0:1 trên trắng), "+" sau số, nhãn 14, đệm 48. | **Hàng 4 con số** – cùng cỡ, đọc như một dải. |
+| c. Dự án nổi bật | Bỏ 2 hàng chip; 1 hàng tab chữ "Tất cả · Khu Đông · Khu Tây · Nhơn Trạch – Long Thành · Tây Bắc" (chọn một); lưới 3 × 2; Palm City (khung tên, chưa có ảnh sạch) xếp cuối; "Xem tất cả dự án" giữa dưới lưới. | **Lưới 6 ảnh dự án**; tab chỉ là đường mảnh. |
+| d. Đối tác | 1 hàng logo cao 40 px, xám đậm (hover: màu gốc), canh giữa, không ô nền, không tên dưới logo (tên trong alt), 1 dòng mô tả nguyên văn. | **Hàng logo**. |
+| e. Về Velis / Giá trị khác biệt | H2 + phần còn lại của 2 đoạn giới thiệu (2 cột dẫn ≥ 1024 để không bỏ trống nửa phải); 4 mục 4 cột (≥ 1280; 2×2 ở 768–1279; 1 cột mobile), số 01–04 champagne + H3 + đoạn; nút "Tìm hiểu Velis". | **H2** – các mục 01–04 nhẹ hơn, cùng trọng lượng nên đọc như một hàng. |
+| f. Bài phân tích | 3 thẻ đều, thang chữ 1.3 (nhãn 13 · tên 22 · meta 14), bỏ dòng "Đọc bài". | **3 ảnh bài viết**. |
+| g. Thi thử + Tuyển dụng | Dải champagne nhạt, 2 hộp cao bằng nhau (H3, 1 dòng nguyên văn – Thi thử không có câu nên chỉ H3, nút đỏ), đệm 48. | **2 nút đỏ** – hai hộp cố ý ngang nhau vì là một cặp lựa chọn (xem 12.4). |
+| h. Form | Khối tối duy nhất, 2 cột (trái: tiêu đề + hotline / Zalo / email / giờ; phải: form). Footer #1A1A1A + đường champagne. | **Tiêu đề "Nhận tư vấn"** + nút "Gửi yêu cầu". |
+
+Ảnh trước (r4) | sau, 1536×864: `screenshots/mockup-b2-r5/khoi/trang-chu-{a-hero,b-so-lieu,c-du-an,d-doi-tac,e-ve-velis,f-bai-viet,g-thi-thu-tuyen-dung,h-form,footer}.jpg`;
+cả trang `ca-trang/trang-chu-truoc-sau-1536.jpg`; màn đầu + cả trang M1–M5 `man-dau/`, `ca-trang/`.
+
+### 12.3 Soát mắt – quy tắc × khối (bắt buộc, không thay bằng số đo)
+
+Trang chủ (ảnh: `khoi/trang-chu-*.jpg`; cột cuối là footer):
+
+| Quy tắc | a | b | c | d | e | f | g | h | footer |
+|---|---|---|---|---|---|---|---|---|---|
+| 1.1 Lưới, thẳng mép khung | ĐẠT (mép chữ = logo, mép ảnh = nút header, đo ±0 px) | ĐẠT | ĐẠT | ĐẠT (canh giữa trục) | ĐẠT | ĐẠT | ĐẠT | ĐẠT | ĐẠT |
+| 1.2 Thang khoảng cách | ĐẠT | ĐẠT (đệm 48) | ĐẠT | ĐẠT | ĐẠT | ĐẠT | ĐẠT (đệm 48) | ĐẠT | ĐẠT |
+| 1.3 Thang chữ, ≤ 3 cỡ nội dung | ĐẠT (chỉ đầu khối) | ĐẠT (48 · 14) | ĐẠT (22 · 16 · 13) | ĐẠT (0) | ĐẠT (22 · 16; 13 là số mục) | ĐẠT (22 · 14 · 13) | ĐẠT (22 · 17) | ĐẠT (17 · 14) | ĐẠT (14 · 13) |
+| 1.4 Một điểm nhìn | ĐẠT | ĐẠT | ĐẠT | ĐẠT | ĐẠT | ĐẠT | ĐẠT (cặp cố ý, 12.4) | ĐẠT | ĐẠT |
+| 1.5 Nhịp nền | ngà | trắng | ngà | trắng | ngà | trắng | champagne nhạt | tối (duy nhất) | #1A1A1A + vạch champagne |
+| 1.6 ≤ 68 ký tự, khoảng trắng thay kẻ | ĐẠT | ĐẠT (vạch dọc theo yêu cầu b) | ĐẠT | ĐẠT | ĐẠT | ĐẠT | ĐẠT | ĐẠT | ĐẠT |
+| 1.7 Nút / thẻ / icon | ĐẠT (đỏ đặc + viền) | – | ĐẠT (nút viền) | – | ĐẠT (nút viền) | ĐẠT | ĐẠT (hộp bo 2 px, đệm 24) | ĐẠT | – |
+| 1.8 Nhãn ảnh tạm ẩn | ĐẠT | – | ĐẠT | – | – | ĐẠT | – | – | – |
+
+The Global City (`khoi/the-global-city-01..17.jpg`) và Masteri Park Place (`khoi/masteri-park-place-01..09.jpg`):
+
+| Quy tắc | The Global City | Masteri Park Place |
+|---|---|---|
+| 1.1 | ĐẠT – hero B, thanh mục, thanh thông tin, cột phải thẳng khung (NT-17 0 lỗi) | ĐẠT |
+| 1.2 | ĐẠT – 0 ngoại lệ đo máy | ĐẠT |
+| 1.3 | ĐẠT – mọi khối ≤ 3 cỡ nội dung (đã sửa: nhãn "CAO TẦNG / THẤP TẦNG" → H3; bảng trong bài theo cỡ thân 17) | ĐẠT (nhãn "Vị trí" về cỡ nhãn 13) |
+| 1.4 | ĐẠT – mỗi khối một ảnh / bảng / bản đồ chính | ĐẠT |
+| 1.5 | **NGOẠI LỆ** – các khối trong cột nội dung cùng nền ngà nhưng luôn có tiêu đề ngăn (được phép); khung **Thư viện ảnh tối** (NT-13/NT-27) là khối tối thứ hai | ĐẠT (không có thư viện) |
+| 1.6 | ĐẠT – dòng ≤ 68 ký tự; thanh thông tin bỏ lưới kẻ 1 px, còn 1 đường dưới mỗi hàng | ĐẠT |
+| 1.7 | ĐẠT – thẻ có viền (Velis tư vấn, "Nằm trong đại đô thị", hộp g) cùng bo 2 px, đệm 24 | ĐẠT |
+| 1.8 | ĐẠT – nhãn ảnh tạm ẩn mặc định, `#tam-1` hiện | ĐẠT |
+
+### 12.4 Còn vướng – cần anh/chị chọn
+
+1. **Mục 03 "Tư Duy Chiến Lược" dài 5 dòng** ở khung 1200 px (yêu cầu e: ≤ 4 dòng). 4 cột đều + khe 24 → mỗi cột 282 px; câu
+   nguyên văn cần ≥ 312 px để còn 4 dòng (đo thử 282 / 288 / 300 / 312 px → 5 / 5 / 5 / 4 dòng). Từ 1600 px (khung 1320) là 4 dòng.
+   Chọn: (A) giữ 4 cột, chấp nhận 5 dòng ở 1280–1599; (B) 2×2 ở mọi khung < 1600; (C) rút gọn câu (cần anh/chị duyệt câu mới).
+2. **Khung thư viện ảnh tối** ở trang dự án trái 1.5 ("chỉ một khối tối"). Chọn: giữ (ảnh nổi trên nền tối, NT-13) hay đổi nền ngà.
+3. **Hộp "Thi thử"** chỉ có H3 + nút (trang cũ không có câu mô tả) nên trống hơn hộp Tuyển dụng – cần 1 câu mô tả nếu muốn cân.
+4. Tên thẻ dự án dùng Playfair 22 px (nguyên tắc cũ: Playfair chỉ ≥ 26 px) – đã ghi lại trong DESIGN.md là ngoại lệ có chủ đích.
+
+### 12.5 Đo máy (bản build cuối) – `screenshots/mockup-b2-r5/kiem-tra/`
+
+| Bộ đo | Kết quả |
+|---|---|
+| Thang chữ 1.3 + khoảng cách 1.2 + ≤ 68 ký tự (`tools/mockup_scale.mjs`, 3 trang × 5 màn) | **0 ngoại lệ** – `thang.md` |
+| Bộ NT (`check_mockup.mjs`) | **0 lỗi** – `bang-nt.md` |
+| check_ui 7 khung (trang chủ + TGC/MPP × A/B) | **0 lỗi (35 dòng = 5 biến thể × 7 khung)** – `check-ui.md` |
+| Màn đầu (`mockup_heroB.mjs`) | Trang chủ M1–M3: H1, đoạn dẫn, 2 nút và trọn ảnh trong màn đầu, đáy nút 552 / 552 / 578 ≤ cao − 24; M5: H1 + nút đầu (đáy 696 ≤ 844); mép chữ / ảnh lệch khung 0 px. Còn M4 1,52 ở hero B trang dự án (đã chấp nhận) – `do-hero.md` |
+| Tương tác | **23/23 đạt** – thêm: tab khu vực Khu Đông → 3, Khu Tây → 1 (thẻ rộng), Tất cả → 6; nhãn ảnh tạm mặc định ẩn / `#tam-1`; form trường ẩn CF7 + gửi thử 0 yêu cầu mạng – `tuong-tac.txt` |
+| Tương phản | hero A đạt mọi điểm; số liệu 5,0:1, số 01–04 4,68:1, nhãn thẻ 4,68:1 |
+| Build | trang-chu 3,19 MB · the-global-city 9,44 MB · masteri-park-place 2,97 MB; **CSS 25,8 KB min / 5,8 KB gzip** (≤ 45 KB) |
+
+Công cụ mới / sửa: `tools/mockup_scale.mjs` (mới), `mockup_heroB.mjs` (nhánh hero tách đôi), `mockup_interactions.mjs`
+(tab khu vực, nhãn ảnh tạm), `shots_mockup.mjs --r5` (ảnh trước | sau theo khối; r4 lấy từ commit 2a2ebe0).
+
 ---
-Đã bỏ qua / chưa kiểm tra: Lighthouse không chạy lại; Safari/iPhone thật chưa thử; logo đối tác chỉ có 4 (theo trang cũ).
-Rủi ro: con số trang chủ dùng giá trị HTML trang cũ (10 · 50 · 999 · 99), khác số trong lệnh (48 · 954 · 95) – chờ chọn (AUDIT mục 11); M4 độ giãn hero B 1,52; thẻ "Velis tư vấn dự án này" vẫn ở trang dự án (chờ xác nhận).
+Đã bỏ qua / chưa kiểm tra: Lighthouse không chạy lại; Safari/iPhone thật chưa thử; "≤ 3 cỡ chữ mỗi khối" đếm theo cách ghi ở DESIGN.md 1.3 (không tính đầu khối, nút).
+Rủi ro: 4 điểm ở 12.4 chờ anh/chị chọn (mục 03 dài 5 dòng, thư viện tối, hộp Thi thử, Playfair 22); số liệu 10 · 50 · 999 · 99 chờ xác nhận; theme.json chưa sinh lại theo thang mới.

@@ -23,7 +23,8 @@ const marks = Object.fromEntries(read('data/kiem-ke-anh-mat.csv').trim().split('
 // images supplied by the user (not in Media yet): checked by eye, docs/kiem-ke-anh/them-tay.md
 const SUPPLIED = { 'vu-thanh-xuan-ceo-velis.webp': { co: 'khong', meta: { w: 1440, h: 1920, files: { 720: 'img/vu-thanh-xuan-ceo-velis-720.webp', 1440: 'img/vu-thanh-xuan-ceo-velis-1440.webp' } } },
 	// partner logos of the old home (velisrealty.vn Media, read 2026-11-05): a logo is the content, not a watermark
-	...Object.fromEntries(['vinhomes', 'masterise-homes', 'sun-group', 'gamuda-land'].map((s) => [`doi-tac-${s}.webp`, { co: 'khong', meta: { w: 1024, h: 536, files: { 1024: `img/doi-tac-${s}.webp` } } }])) };
+	// background made transparent and cropped to the logo (round 5) so every logo shows at the same 40 px height
+	...Object.fromEntries(Object.entries({ vinhomes: [712, 325], 'masterise-homes': [486, 330], 'sun-group': [712, 226], 'gamuda-land': [711, 144] }).map(([s, [w, h]]) => [`doi-tac-${s}.webp`, { co: 'khong', meta: { w, h, files: { [w]: `img/doi-tac-${s}.webp` } } }])) };
 const flag = f => SUPPLIED[f]?.co ?? marks[ids[f]] ?? 'chua-soat';
 // NT-23: a logo / printed text the crop cannot hide → the photo is not used in hero / card / side column (named frame instead)
 const usable = ref => !/logo-cdt|chu-in-san|logo-khac/.test(flag(basename(ref)));
@@ -83,7 +84,7 @@ for (const [name, { title, body }] of Object.entries(pages)) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>${title}</title>
-<script>document.documentElement.dataset.tam = /(^#|[,&])tam-0(?![\\w-])/.test(location.hash) ? '0' : '1'</script>
+<script>document.documentElement.dataset.tam = /(^#|[,&])tam-1(?![\\w-])/.test(location.hash) ? '1' : '0'</script>
 <style>${css}</style>
 </head>
 <body>

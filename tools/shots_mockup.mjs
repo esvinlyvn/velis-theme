@@ -23,6 +23,55 @@ async function open(page, m, hash = '', query = '') {
 	return p;
 }
 const jpg = { type: 'jpeg', quality: 80 };
+// --r5 (quy tắc bố cục): home first screen + full page M1–M5; per block a–h + footer, r4 | r5 side by side at 1536×864 DPR 1,25
+// (r4 = the dist of commit 2a2ebe0 served at BEFORE_URL); every block of the 2 project pages at 1536 as eye-review evidence
+if (full === '--r5') {
+	const before = process.env.BEFORE_URL || 'http://127.0.0.1:8766';
+	for (const d of ['khoi', 'ca-trang']) mkdirSync(`${dir}/${d}`, { recursive: true });
+	for (const m of Object.keys(M)) {
+		const p = await open('trang-chu', m);
+		await p.screenshot({ ...jpg, path: `${dir}/man-dau/trang-chu-${m}.jpg` });
+		await p.screenshot({ ...jpg, quality: 70, path: `${dir}/ca-trang/trang-chu-${m}.jpg`, fullPage: true });
+		await p.context().close();
+	}
+	const blocks = 'body > section, body > main > section, body > footer';
+	const NAMES = ['a-hero', 'b-so-lieu', 'c-du-an', 'd-doi-tac', 'e-ve-velis', 'f-bai-viet', 'g-thi-thu-tuyen-dung', 'h-form', 'footer'];
+	const grab = async (url, sel = blocks) => {
+		const ctx = await b.newContext({ viewport: { width: 1536, height: 864 }, deviceScaleFactor: 1.25, reducedMotion: 'reduce' });
+		const p = await ctx.newPage(); await p.goto(url, { waitUntil: 'load' });
+		await p.evaluate(() => Promise.all([...document.images].map((i) => { i.loading = 'eager'; return i.decode().catch(() => {}); })));
+		// the floating review switch is not part of any block; sticky header / section bar would cover a block shot taken further down
+		await p.addStyleTag({ content: '.mk-float { display: none !important; } .header, .tabs, .page__side { position: static !important; }' });
+		const els = await p.$$(sel), out = [];
+		for (const e of els) out.push((await e.screenshot({ type: 'png' })).toString('base64'));
+		const page = (await p.screenshot({ type: 'png', fullPage: true })).toString('base64');
+		await ctx.close(); return { out, page };
+	};
+	const [o, n] = [await grab(`${before}/trang-chu.html`), await grab(`${base}/trang-chu.html`)];
+	if (o.out.length !== NAMES.length || n.out.length !== NAMES.length) throw new Error(`số khối trước ${o.out.length} / sau ${n.out.length} ≠ ${NAMES.length}`);
+	// side by side on one canvas: label row, then the two images top-aligned, scaled to half the width each
+	const pair = async (l, r, path) => {
+		const ctx = await b.newContext({ viewport: { width: 2 * 960 + 24, height: 400 } }); const p = await ctx.newPage();
+		await p.setContent(`<body style="margin:0;background:#888;font:600 20px Arial;color:#fff"><div style="display:grid;grid-template-columns:960px 960px;gap:24px;align-items:start"><div><p style="margin:8px">Trước (r4)</p><img style="width:960px;display:block" src="data:image/png;base64,${l}"></div><div><p style="margin:8px">Sau (r5)</p><img style="width:960px;display:block" src="data:image/png;base64,${r}"></div></div></body>`);
+		await p.evaluate(() => Promise.all([...document.images].map((i) => i.decode())));
+		await p.screenshot({ ...jpg, quality: 75, path, fullPage: true }); await ctx.close();
+	};
+	for (let i = 0; i < NAMES.length; i++) await pair(o.out[i], n.out[i], `${dir}/khoi/trang-chu-${NAMES[i]}.jpg`);
+	await pair(o.page, n.page, `${dir}/ca-trang/trang-chu-truoc-sau-1536.jpg`);
+	for (const page of ['the-global-city', 'masteri-park-place']) {
+		const { out } = await grab(`${base}/${page}.html`, '.hero, section.facts, .page .block, #tu-van, body > footer');
+		const ctx = await b.newContext({ viewport: { width: 1536, height: 400 } }); const p = await ctx.newPage();
+		for (let i = 0; i < out.length; i++) {
+			await p.setContent(`<body style="margin:0"><img style="width:1536px;display:block" src="data:image/png;base64,${out[i]}"></body>`);
+			await p.evaluate(() => document.images[0].decode());
+			await p.screenshot({ ...jpg, quality: 75, path: `${dir}/khoi/${page}-${String(i + 1).padStart(2, '0')}.jpg`, fullPage: true });
+		}
+		await ctx.close();
+	}
+	await b.close();
+	console.log('xong');
+	process.exit(0);
+}
 // --r4 (trang chủ theo trang cũ + BRIEF): home first screen + full page M1–M5; old live home | new home at 1536×864 DPR 1,25
 if (full === '--r4') {
 	mkdirSync(`${dir}/ca-trang`, { recursive: true });
