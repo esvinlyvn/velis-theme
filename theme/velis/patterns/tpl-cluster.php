@@ -23,7 +23,9 @@ $out   = velis_breadcrumb_html( velis_trail() ) . velis_hero_b( array(
 $kinds = array();
 $pks   = array();
 foreach ( $q->posts as $p ) {
-	$kinds[ velis_post_kind( $p ) ] = VELIS_KINDS[ velis_post_kind( $p ) ];
+	if ( $k = velis_post_kind( $p ) ) {
+		$kinds[ $k ] = VELIS_KINDS[ $k ]; // only kinds set by hand
+	}
 	foreach ( velis_post_projects( $p ) as $r ) {
 		if ( 'phan-khu' === velis_level( $r ) ) {
 			$pks[ $r->post_name ] = $r->post_title;

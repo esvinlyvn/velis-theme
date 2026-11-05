@@ -31,10 +31,13 @@ $facts = array_filter( array(
 	'Mạng xã hội' => implode( ' · ', array_map( fn( $l ) => '<a href="' . esc_url( $l ) . '" rel="me noopener" target="_blank">' . esc_html( wp_parse_url( $l, PHP_URL_HOST ) ) . '</a>', $urls ) ),
 ) );
 $dl  = implode( '', array_map( fn( $k, $v ) => '<div><dt>' . esc_html( $k ) . '</dt><dd>' . $v . '</dd></div>', array_keys( $facts ), $facts ) );
-$out = velis_breadcrumb_html( velis_trail() ) . '<div class="v-wrap"><section class="v-profile' . ( $photo ? ' has-photo' : '' ) . '">' . ( $photo ? velis_img( $photo, $u->display_name, 'medium', array( 'loading' => 'eager', 'class' => 'v-profile__photo' ) ) : '' )
+$stats = array_filter( array( 'bài phân tích' => (int) count_user_posts( $u->ID, 'post', true ), 'cụm dự án theo dõi' => count( $areas ), 'năm kinh nghiệm' => (int) $years ) );
+$side  = $photo ? velis_img( $photo, $u->display_name, 'medium', array( 'loading' => 'eager', 'class' => 'v-profile__photo' ) )
+	: '<dl class="v-numbers v-numbers--side" aria-label="' . esc_attr( $u->display_name ) . ' bằng con số">' . implode( '', array_map( fn( $k, $v ) => '<div><dt>' . esc_html( $k ) . '</dt><dd>' . esc_html( (string) $v ) . '</dd></div>', array_keys( $stats ), $stats ) ) . '</dl>';
+$out = velis_breadcrumb_html( velis_trail() ) . '<div class="v-wrap"><section class="v-profile has-side">'
 	. '<div><p class="v-eyebrow">Chuyên gia · ' . esc_html( $role ) . '</p><h1>' . esc_html( $u->display_name ) . ( $paged > 1 ? ' – trang ' . $paged : '' ) . '</h1>'
 	. ( $u->description ? '<p class="v-lead">' . esc_html( $u->description ) . '</p>' : '' ) . ( $dl ? '<dl class="v-overview">' . $dl . '</dl>' : '' )
-	. '<div class="v-row">' . velis_btn( 'Liên hệ ' . $u->display_name, '#tu-van' ) . '</div></div></section></div>';
+	. '<div class="v-row">' . velis_btn( 'Liên hệ ' . $u->display_name, '#tu-van' ) . '</div></div>' . $side . '</section></div>';
 $out .= velis_section( velis_sechead( 'Bài viết của ' . $u->display_name, $q->found_posts . ' bài' ) . velis_grid( array_map( 'velis_card_post', $q->posts ), '3' ) . velis_pagination( $q ) );
 $out .= velis_form_html();
 ?>

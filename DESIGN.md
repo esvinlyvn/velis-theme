@@ -188,12 +188,48 @@ Chính (đỏ, chữ trắng) · Phụ (viền đen, hover nền đen) · Viền
 Cao tối thiểu 48 px (vùng bấm ≥ 44 × 44). Đổi màu 150–200 ms.
 
 ### Hero (đã chốt)
-- **A** – trang chủ, trang dự án, trang phân khu. Ảnh tràn màn hình. Desktop: lớp phủ `#141414` chỉ ở nửa trái, sau khối
-  chữ (90 % → 55 % ở 50 % chiều rộng → 0 ở 60 %), nửa phải giữ ảnh sáng tự nhiên; khối chữ ≤ min(520 px, 40vw).
-  Mobile: lớp phủ từ dưới lên 90 % → 45 % vì chữ chiếm cả chiều ngang. Eyebrow `#EADBC0`; chữ trên ảnh ≥ 4,5:1 (đo bằng
-  điểm ảnh, xem `tools/check_ui.mjs`). Tiêu đề hero mọi khung `text-wrap: balance`, đoạn dẫn `text-wrap: pretty`.
-  Chưa có ảnh: nền tối trung tính + tên dự án chìm phía sau.
+- **A** – trang chủ, trang dự án, trang phân khu (vòng 6). Ảnh tràn rộng. **Desktop (≥ 1024 px): không phủ cả ảnh** – chỉ
+  một lớp nền mờ cục bộ (#141414 82 %, blur 36 px) sau khối chữ ở góc trái dưới (khối chữ ≤ min(600 px, 46vw)), ≥ 60 % diện tích
+  ảnh giữ độ sáng gốc; breadcrumb có nền nhỏ riêng; chữ ≥ 4,5:1 (đo bằng điểm ảnh, `tools/check_ui.mjs`). Tablet: lớp phủ từ dưới
+  lên; mobile: ảnh 4:3 ở trên, chữ trên dải tối. Trong hero: breadcrumb, eyebrow chủ đầu tư · khu vực, H1, 3–4 chip, 2 nút.
+  Trang dự án cao ~60vh; trang chủ: đáy hero là dải **mọi dự án có ảnh thật** (4 thẻ trong khung, nhiều hơn thì trượt ngang).
+  Chưa có ảnh: dải tối + tên chìm.
+- **Form** (mọi nơi): chỉ Họ tên + Số điện thoại (cùng hàng từ 768 px), ô đồng ý, nút Gửi; dự án / URL trang / utm là trường
+  ẩn gửi kèm email. Khối "Nhận tư vấn" 2 cột cân: trái tiêu đề + kênh liên hệ, phải form. Thẻ "Nhận bảng giá" ở cột phải
+  trang dự án mở form gọn tại chỗ.
+- **Khung**: 1200 px; từ 1600 px là 1320 px. Thanh CTA đáy (mobile/tablet) chỉ hiện sau khi cuộn qua nút của hero.
 - **B** – trang tổng (Dự án, Chủ đầu tư, Blog, cụm blog). Chia đôi 5:6, chữ trên nền ngà, tiêu đề `text-wrap: balance`.
+
+### Bố cục 2 cột & nhịp thị giác (vòng 5)
+- **Trang có văn bản dài** (dự án mọi cấp; Giới thiệu, Tuyển dụng; chính sách có mục lục): từ 1024 px là cột nội dung
+  (phần còn lại) + **cột phải dính 340 px** – dự án: thẻ "Nhận bảng giá {tên}" (ảnh, trạng thái, giá nếu có, bàn giao,
+  Nhận bảng giá → form điền sẵn, Gọi, Zalo); Giới thiệu: thẻ liên hệ; Tuyển dụng: thẻ "Gửi CV"; chính sách: mục lục.
+  Không có gì hữu ích cho cột phải → một cột đọc 760 px canh giữa. < 1024 px: một cột + thanh CTA đáy (kể cả tablet).
+- Khối rộng (danh sách phân khu, so sánh, thư viện, bản đồ) **vừa cột nội dung**: phân khu 2 cột, bảng so sánh cuộn ngang
+  có cột tên ghim – để cột phải dính liên tục suốt trang (đẹp và nhất quán hơn việc ngắt cột cho một khối full-width).
+- **Nhịp**: không lặp một khuôn suốt trang. Trang dự án (vòng 6): các section cùng một kiểu nền ngà (không khung trắng có
+  viền), Thư viện trên nền tối, bảng so sánh là **vùng full-width riêng** thoát khỏi 2 cột (không cuộn ngang khi ≤ 5 cột).
+  Thứ tự: Tổng quan → [Phân khu] → Sản phẩm → So sánh → Vị trí & tiện ích → Thư viện → Tiến độ & pháp lý → Góc nhìn CEO →
+  Hỏi đáp → Bài viết → Tư vấn. Văn bản dài của bài trụ cột cũ nằm sau dữ liệu của section, thu gọn sau ~250 từ (Tổng quan
+  ~150 từ) với "Đọc tiếp". Trang khác: nền ngà, dải trắng toàn chiều ngang, **mỗi trang ít nhất một khối nhấn tối**.
+- Thông tin liên hệ (điện thoại + email + địa chỉ) chỉ một lần trong thân trang (khối "Nhận tư vấn"); thẻ cột phải của
+  Giới thiệu là dự án đang tư vấn, của Tuyển dụng là "Gửi CV".
+- Danh sách ≤ 2 mục: 1 mục = thẻ ngang rộng hết khung (ảnh trái, chữ phải), 2 mục = 2 cột; không để hàng có ô trống.
+- **Thanh điều hướng mục** tối đa 8 mục: Tổng quan · Sản phẩm · Phân khu · Vị trí & tiện ích · Thư viện · Tiến độ & pháp lý ·
+  Hỏi đáp · Tư vấn (mục không có nội dung tự ẩn); mobile cuộn ngang, mục đầu luôn thấy.
+- **Khoảng trống**: từ 1024 px không vùng nào có khoảng trống ngang cạnh nội dung > 30 % khung kéo dài quá 1 màn hình
+  (`tools/check_ui.mjs` tự kiểm ở 1100 / 1366 / 1536 / 1920).
+
+### Ảnh nét (vòng 7)
+- Mọi ảnh có `srcset` đủ cỡ (thêm 600 / 900 / 1600 / 2000 / 2560 px – WordPress chỉ tạo cỡ không lớn hơn ảnh gốc) và `sizes`
+  đúng khung (`auto` cho ảnh lazy). **Không phóng ảnh** (bỏ phép cắt `--zoom`): khung ảnh ≤ cỡ file × 1,15 / mật độ điểm ảnh
+  (`--nw`, `--dpr` trong style.css) – ảnh gốc nhỏ thì khung nhỏ, không kéo giãn. Hero: ảnh hẹp hơn màn hình (ví dụ ảnh gốc
+  1200 px trên màn 2×) nằm bên phải, mờ dần vào dải tối sau khối chữ.
+- Nhóm thẻ có ảnh: thẻ thiếu ảnh dùng khung dự phòng có tên, cùng tỉ lệ; cả nhóm không ảnh thì thẻ chữ. Thẻ bài viết thiếu
+  ảnh luôn có khung mang tên cụm. Ảnh lỗi khi tải → khung dự phòng có tên (`is-broken`, bộ đo đếm là ảnh hỏng).
+- Bộ đo bắt buộc: `node tools/check_ui.mjs --suite <danh sách> <thư mục>` – DPR 1 / 1,25 / 2 × viewport 390 / 1066 / 1366 /
+  1920, cuộn thật, chờ ảnh: ảnh hỏng, ảnh mờ, nhóm thẻ thiếu khung, khối trống, bảng < 2 hàng, tràn ngang, đúng 1 H1,
+  heading viết HOA, khoảng trống > 30 % – tất cả phải bằng 0.
 
 ### Đầu mục section
 Eyebrow → tiêu đề Playfair (H2) → đoạn dẫn ≤ 2 dòng màu `body-muted` → đường kẻ champagne 48 × 1 px. Nhịp: 96/64 px giữa
