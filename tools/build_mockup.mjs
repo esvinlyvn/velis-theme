@@ -21,7 +21,9 @@ const ZOOM = 1.15; // = --zoom in 4-components.css
 const ids = Object.fromEntries([...read('docs/KIEM-KE-ANH.md').matchAll(/`([^`]+\.(?:webp|jpe?g|png))` \(ID (\d+)\)/g)].map(m => [m[1], m[2]]));
 const marks = Object.fromEntries(read('data/kiem-ke-anh-mat.csv').trim().split('\n').slice(1).map(l => l.split(';')).map(([id, co]) => [id, co]));
 // images supplied by the user (not in Media yet): checked by eye, docs/kiem-ke-anh/them-tay.md
-const SUPPLIED = { 'vu-thanh-xuan-ceo-velis.webp': { co: 'khong', meta: { w: 1440, h: 1920, files: { 720: 'img/vu-thanh-xuan-ceo-velis-720.webp', 1440: 'img/vu-thanh-xuan-ceo-velis-1440.webp' } } } };
+const SUPPLIED = { 'vu-thanh-xuan-ceo-velis.webp': { co: 'khong', meta: { w: 1440, h: 1920, files: { 720: 'img/vu-thanh-xuan-ceo-velis-720.webp', 1440: 'img/vu-thanh-xuan-ceo-velis-1440.webp' } } },
+	// partner logos of the old home (velisrealty.vn Media, read 2026-11-05): a logo is the content, not a watermark
+	...Object.fromEntries(['vinhomes', 'masterise-homes', 'sun-group', 'gamuda-land'].map((s) => [`doi-tac-${s}.webp`, { co: 'khong', meta: { w: 1024, h: 536, files: { 1024: `img/doi-tac-${s}.webp` } } }])) };
 const flag = f => SUPPLIED[f]?.co ?? marks[ids[f]] ?? 'chua-soat';
 // NT-23: a logo / printed text the crop cannot hide → the photo is not used in hero / card / side column (named frame instead)
 const usable = ref => !/logo-cdt|chu-in-san|logo-khac/.test(flag(basename(ref)));
@@ -70,7 +72,7 @@ const logo = b64('theme/velis/assets/brand/velis-logo-horizontal.svg', 'image/sv
 const logoWhite = b64('theme/velis/assets/brand/velis-logo-horizontal-white.svg', 'image/svg+xml');
 
 const { render } = await import(join(SRC, 'pages.mjs'));
-const pages = render({ home: json('mockup/src/data/home.json'), tgc: json('mockup/src/data/tgc.json'), mpp: json('mockup/src/data/mpp.json'), broker: json('mockup/src/data/broker.json'), content, img, usable: usableLogged, logo, logoWhite });
+const pages = render({ home: json('mockup/src/data/home.json'), tgc: json('mockup/src/data/tgc.json'), mpp: json('mockup/src/data/mpp.json'), broker: json('mockup/src/data/broker.json'), homeCu: json('mockup/src/data/home-cu.json'), content, img, usable: usableLogged, logo, logoWhite });
 
 mkdirSync(DIST, { recursive: true });
 for (const [name, { title, body }] of Object.entries(pages)) {

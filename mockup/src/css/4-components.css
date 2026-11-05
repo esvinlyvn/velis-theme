@@ -82,6 +82,7 @@
 /* B – framed photo on the Velis ground (files < 1920), text below it. The frame IS the content frame (NT-17); its height
    is what is left of the first screen (NT-49) and never taller than 1 : 2.4, so a cover crop of these 1,39–1,78 photos
    drops their bottom band – the printed badge – without the crop zoom (stretch ≤ 1,5: docs/reports/doi-cach-lam-buoc-2.md) */
+.hero--home { --hero-rest: 560px; } /* H1 + 2 intro paragraphs + 2 buttons stay in the first screen */
 .hero--b { background: var(--canvas); color: var(--ink); padding-top: var(--s4); }
 .hero--b .hero__media { width: min(100% - 2 * var(--gutter), var(--wrap)); margin-inline: auto; }
 .hero--b .hero__body { padding-block: var(--s4); }
@@ -256,38 +257,7 @@ img.is-marked { transform: scale(var(--zoom, 1.15)); transform-origin: 100% 0; }
 .chip[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: #fff; }
 [data-group] + [data-group], [data-group] + .prose { margin-top: var(--s8); }
 
-/* home – advice hero (broker positioning): who advises, short form, hotline + Zalo in the first screen.
-   The portrait is the user's clean cut-out (no crop zoom, no "ảnh tạm"), standing on the ground, cut across the torso */
-.advise { background: var(--canvas); padding-top: var(--s6); border-bottom: 1px solid var(--line); }
-.advise__grid { display: grid; gap: var(--s6); padding-bottom: var(--s8); }
-.advise h1 { margin-bottom: var(--s3); }
-.advise .hero__lead { margin-bottom: var(--s4); }
-.advise__ceo { display: grid; grid-template-columns: 112px 1fr; gap: var(--s4); align-items: center; margin: 0; }
-.advise__ceo figcaption { order: 2; }
-.advise__ceo figcaption b { display: block; font: 600 22px/1.3 var(--f-head); }
-.advise__ceo figcaption span { color: var(--muted); font-size: var(--fs-small); }
-.advise__img { display: block; aspect-ratio: 112 / 128; overflow: hidden; }
-.advise__img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
-.advise__form { align-self: start; padding: var(--s6); background: var(--surface); border: 1px solid var(--line); border-top: 2px solid var(--gold); }
-.advise__formhead { margin: 0; font: 600 22px/1.3 var(--f-head); }
-.form--short .form__row { grid-template-columns: 1fr; }
-.field select { min-height: 48px; padding: 10px 14px; border: 1px solid var(--line-strong); border-radius: var(--radius); background: #fff; color: var(--ink); }
-@media (min-width: 768px) {
-	.advise__grid { grid-template-columns: 1fr 1fr; align-items: end; }
-	.advise__ceo { display: flex; flex-direction: column; align-items: stretch; }
-	.advise__ceo figcaption { order: 0; }
-	.advise__img { aspect-ratio: 300 / 350; }
-	.advise__form { grid-column: 1 / -1; }
-}
-@media (min-width: 1024px) {
-	.advise__grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, .75fr) minmax(0, 1fr); gap: var(--s8); padding-bottom: 0; }
-	.advise__text { align-self: center; padding-bottom: var(--s8); }
-	.advise__form { align-self: center; margin-bottom: var(--s8); }
-	.advise__form { grid-column: auto; }
-	.advise__ceo { align-self: end; }
-}
-
-/* home – find by need: chips filter the project grid below (area · product type · developer) */
+/* home – project chips (developer · area, BRIEF) filter the project grid below */
 .finder { display: grid; gap: var(--s3); }
 .finder__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); }
 .finder__label { flex: 0 0 100%; font-weight: 600; font-size: var(--fs-small); }
@@ -299,7 +269,7 @@ img.is-marked { transform: scale(var(--zoom, 1.15)); transform-origin: 100% 0; }
 	.grid[data-n="1"] > .card .card__media { margin: 0; }
 }
 
-/* home – why Velis (verbatim from Giới thiệu) */
+/* home – why Velis: the 4 "Giá Trị Khác Biệt" items of Giới thiệu, verbatim */
 .why { display: grid; gap: var(--s8); }
 @media (min-width: 1024px) { .why { grid-template-columns: 1fr 1fr; gap: var(--s16); } }
 .values { list-style: none; padding: 0; margin: 0 0 var(--s6); display: grid; gap: var(--s4); }
@@ -307,12 +277,6 @@ img.is-marked { transform: scale(var(--zoom, 1.15)); transform-origin: 100% 0; }
 .values li { max-width: none; padding-top: var(--s3); border-top: 1px solid var(--gold); }
 .values b { display: block; margin-bottom: 4px; }
 .values span { color: var(--muted); font-size: var(--fs-small); line-height: 1.6; }
-.pending { padding: var(--s4); border: 1px dashed var(--line-strong); font-size: var(--fs-small); }
-
-/* posts by the CEO: small portrait before the author line */
-.card__meta--author { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; }
-.card__avatar { position: relative; z-index: 1; display: block; width: 32px; height: 32px; border-radius: 50%; overflow: hidden; background: var(--line); }
-.card__avatar img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
 
 /* project / zone pages – "Velis tư vấn dự án này": side column ≥ 1024, after the facts bar below */
 .advisor { display: grid; gap: var(--s3); padding: var(--s6); border: 1px solid var(--line); border-top: 2px solid var(--gold); background: var(--surface); }
@@ -330,3 +294,27 @@ img.is-marked { transform: scale(var(--zoom, 1.15)); transform-origin: 100% 0; }
 .draft { display: inline-block; margin-right: 6px; padding: 0 6px; border: 1px dashed var(--gold-text); color: var(--gold-text); font-size: 12px; line-height: 1.6; } /* [mockup] sentence waiting for approval */
 .advisor-inline { margin-bottom: var(--s8); }
 @media (min-width: 1024px) { .advisor-inline { display: none; } }
+
+/* home (old page + BRIEF): intro paragraphs of the hero, 4 numbers, partner logos, exam + careers pair */
+.hero__intro { max-width: 72ch; margin-bottom: var(--s3); }
+.hero__intro + .actions { margin-top: var(--s4); }
+.numbers--four { grid-template-columns: repeat(2, 1fr); margin-top: 0; }
+@media (min-width: 768px) { .numbers--four { grid-template-columns: repeat(4, 1fr); } }
+.partners { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s4); }
+@media (min-width: 768px) { .partners { grid-template-columns: repeat(4, 1fr); } }
+.partners li { max-width: none; }
+.partners a { display: grid; gap: var(--s2); color: var(--ink); text-decoration: none; font-weight: 600; font-size: var(--fs-small); text-align: center; }
+.partners img { width: 100%; height: auto; aspect-ratio: 1024 / 536; object-fit: contain; border: 1px solid var(--line); background: var(--surface); }
+.partners a:hover img { border-color: var(--gold); }
+.duo { display: grid; gap: var(--s4); }
+@media (min-width: 768px) { .duo { grid-template-columns: 1fr 1fr; } }
+.duo__item { display: grid; align-content: start; gap: var(--s3); padding: var(--s6); border: 1px solid var(--line); border-top: 2px solid var(--gold); background: var(--surface); }
+.duo__item > * { margin: 0; }
+.duo__title { font-size: var(--fs-h3); }
+/* home on phones: a 16:9 strip and the 2 buttons right after the first intro paragraph, so H1 + first button fit the first screen (NT-49 M5) */
+@media (max-width: 767.98px) {
+	.hero--home .hero__media { aspect-ratio: 16 / 9; }
+	.hero--home .hero__body { display: flex; flex-direction: column; }
+	.hero--home .actions { order: 1; margin-bottom: var(--s4); }
+	.hero--home .hero__intro + .hero__intro { order: 2; }
+}

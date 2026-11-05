@@ -14,7 +14,7 @@ export function heroMeasure({ screen, dpr }) {
 	const v = [], d = {};
 	const R = (el) => el.getBoundingClientRect();
 	const vh = innerHeight, vw = innerWidth, q = (s, r = document) => r.querySelector(s);
-	const hero = q('.hero'), isB = hero.matches('.hero--b'), home = !!q('.feats');
+	const hero = q('.hero'), isB = hero.matches('.hero--b'), home = hero.matches('.hero--home');
 	const h1 = q('h1', hero), chips = q('.chips', hero), lead = q('.hero__lead', hero), actions = q('.actions', hero);
 	const btns = [...actions.querySelectorAll('.btn')];
 	const seen = (el) => { const r = R(el); return r.top >= -0.5 && r.bottom <= vh + 0.5; };
@@ -22,11 +22,8 @@ export function heroMeasure({ screen, dpr }) {
 	if (isB && ['M1', 'M2', 'M3'].includes(screen)) {
 		d.btnBottom = Math.round(Math.max(...btns.map((b) => R(b).bottom)));
 		if (d.btnBottom > vh - 24) v.push(`NT-49 đáy nút ${d.btnBottom} > ${vh} − 24`);
-		for (const [n, el] of [['tên', h1], ['chip', chips], ['đoạn dẫn', lead]]) if (el && !seen(el)) v.push(`NT-49 ${n} không trọn trong màn đầu`);
-		if (home) {
-			d.railTop = Math.round(R(q('.feats .rail')).top);
-			if (d.railTop > vh - 40) v.push(`NT-49 dải nổi bật lộ ${vh - d.railTop}px < 40`);
-		} else {
+		for (const [n, el] of [['tên', h1], ['chip', chips], ['đoạn dẫn', lead], ['đoạn giới thiệu đầu', q('.hero__intro', hero)]]) if (el && !seen(el)) v.push(`NT-49 ${n} không trọn trong màn đầu`);
+		if (!home) {
 			const items = [...q('.facts__list').children];
 			const top0 = Math.min(...items.map((i) => Math.round(R(i).top)));
 			const row = items.filter((i) => Math.abs(R(i).top - top0) < 2);
@@ -50,7 +47,7 @@ export function heroMeasure({ screen, dpr }) {
 		if (cta && R(cta).width && Math.abs(R(cta).right - m.right) > 1) v.push(`NT-17 nút "Nhận tư vấn" header lệch mép phải ${(R(cta).right - m.right).toFixed(1)}px`);
 	}
 	// NT-18 buttons under the chips / lead, left with the title, ≤ 24 px; phones: stacked, equal width
-	const above = chips || lead || h1;
+	const above = chips || lead || [...hero.querySelectorAll('.hero__intro')].pop() || h1;
 	d.btnGap = Math.round(R(actions).top - R(above).bottom); d.btnDx = +(R(btns[0]).left - R(h1).left).toFixed(1);
 	if (d.btnGap > 24) v.push(`NT-18 nút cách chip ${d.btnGap}px > 24`);
 	if (Math.abs(d.btnDx) > 1) v.push(`NT-18 nút lệch trái tiêu đề ${d.btnDx}px`);
@@ -60,18 +57,6 @@ export function heroMeasure({ screen, dpr }) {
 	} else { // one row, or wrapped rows that each start at the title's left edge (never pushed to the right)
 		const rows = {}; btns.forEach((x) => (rows[Math.round(R(x).top)] ??= []).push(R(x)));
 		if (Object.values(rows).some((r) => Math.abs(Math.min(...r.map((x) => x.left)) - R(h1).left) > 1)) v.push('NT-18 hàng nút không bắt đầu ở mép trái tiêu đề');
-	}
-	// NT-10 featured strip (home): ≤ 4 cards in the frame, name 1 line never cut, cards equal height
-	if (home) {
-		const rail = q('.feats .rail'), rr = R(rail), cards = [...rail.children];
-		d.featsIn = cards.filter((c) => R(c).left >= rr.left - 1 && R(c).right <= rr.right + 1).length;
-		if (d.featsIn > 4) v.push(`NT-10 ${d.featsIn} thẻ trong khung > 4`);
-		for (const c of cards) {
-			const b = q('b', c), lh = parseFloat(getComputedStyle(b).lineHeight);
-			if (b.scrollWidth > b.clientWidth + 1 || R(b).right > R(c).right + 0.5 || R(b).height > lh * 1.5 || getComputedStyle(b).textOverflow === 'ellipsis') v.push(`NT-10 tên "${b.textContent}" bẻ / cắt`);
-		}
-		const hs = cards.map((c) => R(c).height);
-		if (Math.max(...hs) - Math.min(...hs) > 1) v.push('NT-10 thẻ cao lệch');
 	}
 	// NT-43 hero A ≥ 1366: overlay reaches 0 by ~55 %, ≥ 45 % of the photo untouched, text block ≤ 40 % and inside the dark part
 	if (!isB && vw >= 1366) {
@@ -99,44 +84,10 @@ export function heroMeasure({ screen, dpr }) {
 	return { v, d, ir: ir.width };
 }
 
-// Runs in the page. Home (broker positioning, vòng định vị): advice hero with the CEO portrait and the short form.
-// Face box of the portrait file (fractions of the 1440 × 1920 cut-out, read off the image): x 35–65 %, y 2–32 %.
-export function homeMeasure({ screen, dpr }) {
-	const v = [], d = {}, R = (el) => el.getBoundingClientRect(), vh = innerHeight, q = (x) => document.querySelector(x);
-	const form = q('.advise__form'), submit = form.querySelector('[type=submit]'), img = q('.advise__img img'), box = R(q('.advise__img'));
-	const scale = Math.max(box.width / 1440, box.height / 1920), dx = (box.width - 1440 * scale) / 2;
-	const face = { top: box.top + 0.02 * 1920 * scale, bottom: box.top + 0.32 * 1920 * scale, left: box.left + dx + 0.35 * 1440 * scale, right: box.left + dx + 0.65 * 1440 * scale };
-	d.submitBottom = Math.round(R(submit).bottom); d.faceBottom = Math.round(face.bottom); d.frame = `${Math.round(box.width)}×${Math.round(box.height)}`;
-	const headerB = R(q('.header')).bottom;
-	const faceIn = face.top >= headerB - 1 && face.bottom <= vh && face.bottom <= box.bottom + 1 && face.left >= box.left - 1 && face.right <= box.right + 1;
-	if (['M1', 'M2', 'M3'].includes(screen) && d.submitBottom > vh - 24) v.push(`2.1 đáy nút gửi ${d.submitBottom} > ${vh} − 24`);
-	if (screen === 'M5' && d.submitBottom > vh * 1.5) v.push(`2.1 M5 đáy nút gửi ${d.submitBottom} > 1,5 × ${vh}`);
-	if (['M1', 'M2', 'M5'].includes(screen)) {
-		if (!faceIn) v.push(`2.1 mặt CEO không trọn trong màn đầu (${Math.round(face.top)}–${Math.round(face.bottom)})`);
-		for (const [n, el] of [['H1 (Velis là ai)', q('h1')], ['hotline', q('.advise__contact a')], ['tên CEO', q('.advise__ceo b')]]) if (R(el).bottom > vh || R(el).top < headerB - 1) v.push(`2.1 ${n} ngoài màn đầu`);
-		if (screen !== 'M5' && R(form).bottom > vh) v.push('2.1 form ngắn không trọn');
-	}
-	// sharpness: the file shown ≥ frame × DPR (cover of a 3:4 file in the frame), and never wider than the 1440 px file needs
-	d.fileW = +((img.currentSrc.match(/data-file/) || [0])[0]) || 0;
-	d.need = Math.round(Math.max(box.width, box.height * 0.75) * dpr);
-	return { v, d };
-}
-
 if (import.meta.url === `file://${process.argv[1]}`) {
 	const b = await chromium.launch();
 	const rows = [];
-	const home = [];
-	for (const [s, w, h, dpr] of SCREENS) {
-		const p = await (await b.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: dpr, reducedMotion: 'reduce' })).newPage();
-		await p.goto(`${base}/trang-chu.html`, { waitUntil: 'load' });
-		await p.evaluate(() => document.querySelector('.advise__img img').decode());
-		const r = await p.evaluate(homeMeasure, { screen: s, dpr });
-		r.d.fileW = await p.evaluate(() => new Promise((ok) => { const x = new Image(); x.onload = () => ok(x.naturalWidth); x.src = document.querySelector('.advise__img img').currentSrc; }));
-		if (r.d.fileW < r.d.need) r.v.push(`ảnh CEO: file ${r.d.fileW}px < khung × DPR ${r.d.need}px`);
-		home.push({ s, h, ...r });
-		await p.context().close();
-	}
-	for (const page of PAGES.filter((x) => x !== 'trang-chu')) for (const hero of ['b', 'a']) for (const [s, w, h, dpr] of SCREENS) {
+	for (const page of PAGES) for (const hero of page === 'trang-chu' ? ['b'] : ['b', 'a']) for (const [s, w, h, dpr] of SCREENS) {
 		const ctx = await b.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: dpr, reducedMotion: 'reduce' });
 		const p = await ctx.newPage();
 		await p.goto(`${base}/${page}.html#hero-${hero}`, { waitUntil: 'load' });
@@ -146,14 +97,12 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 		await ctx.close();
 	}
 	await b.close();
-	const bad = [...home, ...rows].filter((r) => r.v.length);
+	const bad = rows.filter((r) => r.v.length);
 	const f = (x) => (x === undefined ? '–' : String(x).replace('.', ','));
-	const md = ['| Trang | Hero | Màn | Khung ảnh | Đáy nút (≤ cao − 24) | Đáy hàng 1 thanh TT / đỉnh dải nổi bật | Lệch mép T / P | Nút: cách chip · lệch trái | Thẻ nổi bật trong khung | NT-43: lớp phủ 0 tại · ảnh giữ sáng · khối chữ | Độ giãn | Vi phạm |', '|---|---|---|---|---|---|---|---|---|---|---|---|',
-		...rows.map((r) => `| ${r.page} | ${r.hero.toUpperCase()} | ${r.s} | ${r.d.frame} | ${f(r.d.btnBottom ?? r.d.btn1Bottom)} | ${f(r.d.factsRow1Bottom ?? r.d.railTop)} | ${r.d.edgeL === undefined ? '–' : f(r.d.edgeL) + ' / ' + f(r.d.edgeR)} | ${f(r.d.btnGap)} · ${f(r.d.btnDx)} | ${f(r.d.featsIn)} | ${r.d.overlayZero === undefined ? '–' : `${f(r.d.overlayZero)}% · ${f(r.d.brightPct)}% · ${f(r.d.textWidthPct)}%`} | ${f(r.d.stretch)} | ${r.v.length ? r.v.join('; ') : 0} |`)];
+	const md = ['| Trang | Hero | Màn | Khung ảnh | Đáy nút (≤ cao − 24) | Đáy hàng 1 thanh TT | Lệch mép T / P | Nút: cách chip · lệch trái | NT-43: lớp phủ 0 tại · ảnh giữ sáng · khối chữ | Độ giãn | Vi phạm |', '|---|---|---|---|---|---|---|---|---|---|---|',
+		...rows.map((r) => `| ${r.page} | ${r.hero.toUpperCase()} | ${r.s} | ${r.d.frame} | ${f(r.d.btnBottom ?? r.d.btn1Bottom)} | ${f(r.d.factsRow1Bottom ?? r.d.railTop)} | ${r.d.edgeL === undefined ? '–' : f(r.d.edgeL) + ' / ' + f(r.d.edgeR)} | ${f(r.d.btnGap)} · ${f(r.d.btnDx)} | ${r.d.overlayZero === undefined ? '–' : `${f(r.d.overlayZero)}% · ${f(r.d.brightPct)}% · ${f(r.d.textWidthPct)}%`} | ${f(r.d.stretch)} | ${r.v.length ? r.v.join('; ') : 0} |`)];
 	mkdirSync(dir, { recursive: true });
-	const hm = ['| Màn (cao) | Đáy nút gửi form ngắn (giới hạn) | Mặt CEO (đỉnh–đáy) trong màn đầu | Khung ảnh CEO | File hiển thị / cần (khung × DPR) | Vi phạm |', '|---|---|---|---|---|---|',
-		...home.map((r) => `| ${r.s} (${r.h}) | ${r.d.submitBottom} (${/^M[123]$/.test(r.s) ? '≤ ' + (r.h - 24) : r.s === 'M5' ? '≤ ' + Math.round(r.h * 1.5) : '–'}) | ${r.d.faceBottom} | ${r.d.frame} | ${r.d.fileW} / ${r.d.need} | ${r.v.length ? r.v.join('; ') : 0} |`)];
-	writeFileSync(`${dir}/do-hero.md`, `# Đo trang chủ (vòng định vị) + NT-49 / NT-17 / NT-18 / NT-43 – ${new Date().toISOString().slice(0, 10)}\n\nChưa cuộn. Màn hình cao: M1 768, M2 864, M3 1080, M4 540, M5 844, 768 → 1024, 1024 → 768.\n\n## Trang chủ – hero tư vấn (mục 2.1)\n\n${hm.join('\n')}\n\n## Trang dự án / phân khu – hero A/B\n\n${md.join('\n')}\n\n**Vi phạm: ${bad.reduce((n, r) => n + r.v.length, 0)}**\n`);
+	writeFileSync(`${dir}/do-hero.md`, `# Đo NT-49 / NT-17 / NT-18 / NT-43 – ${new Date().toISOString().slice(0, 10)}\n\nChưa cuộn. Màn hình cao: M1 768, M2 864, M3 1080, M4 540, M5 844, 768 → 1024, 1024 → 768. Trang chủ chỉ có hero B (ảnh 1200 px, X-02).\n\n${md.join('\n')}\n\n**Vi phạm: ${bad.reduce((n, r) => n + r.v.length, 0)}**\n`);
 	for (const r of bad) console.log(`${r.page || 'trang-chu'} ${r.hero || ''} ${r.s}: ${r.v.join('; ')}`);
 	console.log(`vi phạm: ${bad.reduce((n, r) => n + r.v.length, 0)}`);
 	process.exit(bad.length ? 1 : 0);

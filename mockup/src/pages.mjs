@@ -18,7 +18,7 @@ const S = {
 	gallery: [['(min-width: 1024px)', '820px'], ['', '86vw']],
 };
 
-export function render({ home, tgc, mpp, broker, content, img, usable, logo, logoWhite }) {
+export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, logo, logoWhite }) {
 	const sechead = (h, extra = '') => `<header class="sechead${extra ? ' sechead--row' : ''}"><div>${h.eyebrow ? `<p class="eyebrow">${esc(h.eyebrow)}</p>` : ''}<h2>${esc(h.title)}</h2>${h.lead ? `<p>${esc(h.lead)}</p>` : ''}</div>${extra}</header>`;
 
 	const header = () => `
@@ -98,13 +98,15 @@ export function render({ home, tgc, mpp, broker, content, img, usable, logo, log
 </div>`;
 
 	// hero: same text/button structure for A and B; B is the default, #hero-a switches before the image is chosen
-	const hero = (h, { lead, chips, buttons, home: isHome }) => `
+	// home: style B only (its photo is a 1200 px file, X-02) – no A switch; intro = the old home's 2 paragraphs, verbatim
+	const hero = (h, { lead, intro, chips, buttons, home: isHome }) => `
 <section class="hero hero--b${isHome ? ' hero--home' : ''}" aria-labelledby="h1">
-	<figure class="hero__media">${img(h.img, { alt: h.alt, sizes: S.heroB, frame: 2.4, lcp: true, tmp: 'ảnh tạm – ảnh thật sẽ nét' })}<script>if(/(^#|[,&])hero-a(?![\\w-])/.test(location.hash)){const s=document.currentScript,i=s.parentNode.querySelector('img');s.closest('.hero').classList.replace('hero--b','hero--a');i.dataset.sizesB=i.sizes;i.sizes='100vw'}</script></figure>
+	<figure class="hero__media">${img(h.img, { alt: h.alt, sizes: S.heroB, frame: 2.4, lcp: true, tmp: 'ảnh tạm – ảnh thật sẽ nét' })}${isHome ? '' : `<script>if(/(^#|[,&])hero-a(?![\\w-])/.test(location.hash)){const s=document.currentScript,i=s.parentNode.querySelector('img');s.closest('.hero').classList.replace('hero--b','hero--a');i.dataset.sizesB=i.sizes;i.sizes='100vw'}</script>`}</figure>
 	<div class="hero__body wrap">
-		<p class="eyebrow">${esc(h.eyebrow)}</p>
+		${h.eyebrow ? `<p class="eyebrow">${esc(h.eyebrow)}</p>` : ''}
 		<h1 id="h1">${esc(h.title)}</h1>
 		${lead ? `<p class="hero__lead">${esc(lead)}</p>` : ''}
+		${intro ? intro.map(p => `<p class="hero__intro">${p}</p>`).join('') : ''}
 		${chips ? `<ul class="chips">${chips.map(c => `<li>${esc(c)}</li>`).join('')}</ul>` : ''}
 		<div class="actions">${buttons}</div>
 	</div>
@@ -143,49 +145,43 @@ export function render({ home, tgc, mpp, broker, content, img, usable, logo, log
 
 	/* ---------- Trang chủ ---------- */
 	const H = home;
+	// Trang chủ theo trang cũ + BRIEF (vòng chốt): chữ nguyên văn trang chủ cũ (home-cu.json), Giới thiệu (broker.json), dữ liệu
+	// dự án / bài trên staging; thứ tự khối và đường đi tiếp học cách tổ chức của Newway Realty (docs/THAM-CHIEU.md)
+	const O = homeCu, sentence = (t) => t.charAt(0) + t.slice(1).toLowerCase(); // old headings were all caps (NT-55)
 	const homeBody = `${header()}
 <main id="noi-dung" tabindex="-1">
-<section class="advise" aria-labelledby="h1"><div class="wrap advise__grid">
-	<div class="advise__text">
-		<p class="eyebrow">${esc(H.hero.eyebrow)}</p>
-		<h1 id="h1">${esc(H.hero.title)}</h1>
-		<p class="hero__lead">${esc(H.hero.lead)}</p>
-		<div class="actions advise__contact"><a class="btn btn--line" href="#">Gọi ${PHONE}</a><a class="btn btn--line" href="#">Zalo</a></div>
-	</div>
-	<figure class="advise__ceo"><figcaption><b>${esc(CEO.name)}</b><span>${esc(CEO.role)}</span></figcaption><span class="advise__img">${img(CEO.img, { alt: `${CEO.name}, ${CEO.role}`, sizes: [['(min-width: 1024px)', '300px'], ['(min-width: 768px)', '(50vw - 36px)'], ['', '112px']], frame: 0.86, tmp: '', lcp: true })}</span></figure>
-	<form class="form form--short advise__form" novalidate aria-labelledby="nhanh-h"><p class="advise__formhead" id="nhanh-h">${esc(H.form.title)}</p>${fields('n-', { choose: true })}
-	</form>
-</div></section>
-<section class="section section--tight" id="tim-du-an" aria-labelledby="tim-h"><div class="wrap">
-	<header class="sechead sechead--row"><div><h2 id="tim-h">Tìm dự án theo nhu cầu</h2></div><a class="btn btn--text" href="#">Xem tất cả dự án →</a></header>
-	<div class="finder" data-filter="#du-an .grid" data-noun="dự án">
-		${[['khu', 'Khu vực', broker.regions.map(r => [r.slug, r.slug === 've-tinh' && r.sub.length ? r.sub.join(', ') : r.name]) /* vùng vệ tinh: tên thị trường của tiểu khu (Nhơn Trạch – Long Thành) */], ['loai', 'Loại sản phẩm', broker.types.map(t => [t.slug, t.name])], ['cdt', 'Chủ đầu tư', broker.devs.map(d => [d.slug, d.name])]]
-			.map(([key, label, opts]) => `<div class="finder__row" role="group" aria-label="${label}"><span class="finder__label">${label}</span>${opts.map(([v, t]) => `<button class="chip" type="button" data-key="${key}" value="${v}" aria-pressed="false">${esc(t)}</button>`).join('')}</div>`).join('')}
-		<div class="finder__foot"><p class="muted mb-0" data-count aria-live="polite">Hiển thị ${broker.projects.length}/${broker.projects.length} dự án</p><button class="btn btn--text" type="button" data-clear>Xóa lọc</button></div>
-	</div>
+${hero({ img: H.hero.img, alt: H.hero.alt, title: 'Công ty TNHH Velis Realty' }, { home: true, intro: O.paras, buttons: `<a class="btn" href="#tu-van">Nhận tư vấn</a><a class="btn btn--line" href="#">Gọi ${PHONE}</a>` })}
+<section class="section section--tight" aria-label="Velis Realty trong những con số"><div class="wrap">
+	<dl class="numbers numbers--four">${O.numbers.map(n => `<div><dt>${esc(n.label)}</dt><dd>${esc(n.value)}</dd></div>`).join('')}</dl>
 </div></section>
 <section class="section section--flush" id="du-an" aria-labelledby="du-an-h"><div class="wrap">
-	<header class="sechead"><div><p class="eyebrow">DỰ ÁN</p><h2 id="du-an-h">Dự án Velis đang tư vấn</h2></div></header>
+	<header class="sechead sechead--row"><div><h2 id="du-an-h">${sentence(O.featuredHead)}</h2></div><a class="btn btn--text" href="#">Xem tất cả dự án →</a></header>
+	<div class="finder" data-filter="#du-an .grid" data-noun="dự án">
+		${[['cdt', 'Chủ đầu tư', broker.devs.map(d => [d.slug, d.name])], ['khu', 'Khu vực', broker.regions.map(r => [r.slug, r.slug === 've-tinh' && r.sub.length ? r.sub.join(', ') : r.name])]]
+			.map(([key, label, opts]) => `<div class="finder__row" role="group" aria-label="Lọc theo ${label.toLowerCase()}"><span class="finder__label">${label}</span>${opts.map(([v, t]) => `<button class="chip" type="button" data-key="${key}" value="${v}" aria-pressed="false">${esc(t)}</button>`).join('')}</div>`).join('')}
+		<div class="finder__foot"><p class="muted mb-0" data-count aria-live="polite">Hiển thị ${broker.projects.length}/${broker.projects.length} dự án</p><button class="btn btn--text" type="button" data-clear>Xóa lọc</button></div>
+	</div>
 	${grid(broker.projects.map(p => {
 		const c = H.projects.find(x => x.title === p.title) || {}, hand = (c.lines || []).find(l => /^Bàn giao/.test(l));
 		return card({ title: p.title, img: c.noimg ? '' : c.img }, S.card3, { kicker: `${p.devs.map(d => d.name).join(', ')} · ${p.khu.join(', ')}`, lines: [p.types.join(', '), hand], more: 'Xem dự án →' })
 			.replace('<article class="card">', `<article class="card" data-khu="${p.regions.join(' ')}" data-loai="${p.typeSlugs.join(' ')}" data-cdt="${p.devs.map(d => d.slug).join(' ')}">`);
 	}), ' grid--three')}
 </div></section>
-<section class="section section--tint" id="ve-velis" aria-labelledby="ve-velis-h"><div class="wrap why">
-	<div><p class="eyebrow">${esc(H.about.eyebrow)}</p><h2 id="ve-velis-h">${esc(broker.who.head)}</h2><p>${esc(broker.who.text.slice(0, broker.who.text.indexOf('. ') + 1))}</p>
-		<dl class="numbers">${H.numbers.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
-		<p class="mb-0"><a class="btn btn--line" href="#">${esc(H.about.button)}</a></p></div>
-	<div><h3 class="mt-0">${esc(broker.values.head)}</h3><ul class="values">${broker.values.items.map(([t, d]) => `<li><b>${esc(t)}</b><span>${esc(d)}</span></li>`).join('')}</ul>
-		<div class="pending"><p class="eyebrow">CÁCH VELIS LÀM VIỆC · CHỜ NỘI DUNG</p><p class="mb-0">Trang Giới thiệu chưa có phần mô tả các bước Velis làm việc với khách. Khung này chờ nội dung của người dùng (ghi ở AUDIT-NOI-DUNG).</p></div></div>
+<section class="section section--tint" aria-labelledby="cdt-h"><div class="wrap">
+	<header class="sechead"><div><h2 id="cdt-h">${sentence(O.partnersHead)}</h2><p>${esc(broker.who.text.slice(0, broker.who.text.indexOf('. ') + 1))}</p></div></header>
+	<ul class="partners">${O.partners.map(pt => { const dv = broker.devs.find(x => x.name === pt.name); const slug = dv?.slug || pt.oldLink.split('/').filter(Boolean).pop(); return `<li><a href="#" data-href="/chu-dau-tu/${slug}/">${img(`img/doi-tac-${slug}.webp`, { alt: pt.name, sizes: [['', '200px']], frame: 1024 / 536, tmp: '' })}<span>${esc(pt.name)}</span></a></li>`; }).join('')}</ul>
 </div></section>
-<section class="section" aria-labelledby="cdt-h"><div class="wrap">
-	${sechead({ ...H.sections[1] }, `<a class="btn btn--text" href="#">${esc(H.sections[1].more)} →</a>`).replace('<h2>', '<h2 id="cdt-h">')}
-	<ul class="devs">${H.devs.map(([d, p]) => { const dv = broker.devs.find(x => x.name === d); return `<li>${dv?.path ? `<a href="#" data-href="${dv.path}"><b>${esc(d)}</b></a>` : `<b>${esc(d)}</b>`}<span class="muted">${esc(p)}</span></li>`; }).join('')}</ul>
+<section class="section" id="ve-velis" aria-labelledby="ve-velis-h"><div class="wrap why">
+	<div><p class="eyebrow">VÌ SAO CHỌN VELIS</p><h2 id="ve-velis-h">${esc(broker.values.head)}</h2><p class="mb-0"><a class="btn btn--line" href="#">${esc(H.about.button)}</a></p></div>
+	<ul class="values">${broker.values.items.map(([t, d]) => `<li><b>${esc(t)}</b><span>${esc(d)}</span></li>`).join('')}</ul>
 </div></section>
 <section class="section section--tint" aria-labelledby="bai-h"><div class="wrap">
-	${sechead(H.sections[2], `<a class="btn btn--text" href="#">${esc(H.sections[2].more)} →</a>`).replace('<h2>', '<h2 id="bai-h">')}
-	${grid(H.posts.map(p => postCard(p, S.card3).replace('<p class="card__meta">', `<p class="card__meta card__meta--author"><span class="card__avatar">${avatar(32)}</span>`)))}
+	${sechead({ title: sentence(O.postsHead) }, `<a class="btn btn--text" href="#">${esc(H.sections[2].more)} →</a>`).replace('<h2>', '<h2 id="bai-h">')}
+	${grid(H.posts.map(p => postCard(p, S.card3)))}
+</div></section>
+<section class="section section--tight" aria-label="Thi thử chứng chỉ môi giới và cơ hội nghề nghiệp"><div class="wrap duo">
+	<div class="duo__item"><h2 class="duo__title">${sentence(O.exam.button)}</h2><p class="mb-0"><a class="btn btn--line" href="#" data-href="${O.exam.link}">Thi thử CCMG</a></p></div>
+	<div class="duo__item"><h2 class="duo__title">${sentence(O.career.head)}</h2><p>${esc(O.career.line)}</p><p class="mb-0"><a class="btn btn--line" href="#" data-href="${O.career.link}">${sentence(O.career.button)}</a></p></div>
 </div></section>
 ${form(H.form.title, H.form.lead)}
 </main>

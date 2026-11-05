@@ -25,27 +25,26 @@ await p.click('.mk-float summary'); await p.click('.mk-float [data-mk-hero="b"]'
 check('Công tắc nổi góc dưới phải: đổi về hero B', await p.evaluate(() => !!document.querySelector('.hero.hero--b') && location.hash.startsWith('#hero-b')));
 await p.context().close();
 
-// home (broker positioning): no hero A/B; short form in the first screen; find-by-need chips filter the project grid
+// home (old page + BRIEF): hero B only, projects filtered by developer and area, full dark form with the CF7 hidden fields
 p = await open('/trang-chu.html?utm_source=thu&utm_medium=mockup');
-check('Trang chủ: không còn công tắc hero A/B', await p.evaluate(() => !document.querySelector('.hero') && !document.querySelector('[data-mk-hero]')));
-const sf = 'form.advise__form';
-await p.click(`${sf} [type=submit]`);
-const se = await p.evaluate((s) => ({ errs: document.querySelectorAll(`${s} .is-error`).length, focus: document.activeElement.id, sent: document.querySelector(s).dataset.sent || '' }), sf);
-check('Form ngắn: bỏ trống → báo lỗi từng trường, không gửi, focus ô đầu', se.errs === 3 && se.focus === 'n-ten' && !se.sent, se);
-let req = 0; p.on('request', (r) => { if (!r.url().startsWith('data:') && !r.url().startsWith('http://127.0.0.1')) req++; });
-await p.fill(`${sf} [name=ten]`, 'Nguyễn Văn Thử'); await p.fill(`${sf} [name=sdt]`, '0900000000');
-await p.selectOption(`${sf} [name=interest]`, 'The Global City'); await p.check(`${sf} [type=checkbox]`);
-await p.click(`${sf} [type=submit]`);
-const sent = JSON.parse(await p.evaluate((s) => document.querySelector(s).dataset.sent || '{}', sf));
-check('Form ngắn: gửi thử cục bộ đủ trường ẩn như form chính (dự án, URL trang, utm), không gọi mạng', sent.interest === 'The Global City' && /trang-chu\.html\?utm_source=thu/.test(sent['page-url']) && sent.utm === 'utm_source=thu&utm_medium=mockup' && req === 0, { sent, req });
-const hid = await p.evaluate(() => [...document.querySelectorAll('#tu-van form [type=hidden]')].map((i) => i.name).sort().join(','));
-check('Form chính: cùng trường ẩn interest, page-url, utm', hid === 'interest,page-url,utm', hid);
+check('Trang chủ: hero B cố định, không có công tắc hero A/B', await p.evaluate(() => !!document.querySelector('.hero.hero--b') && !document.querySelector('[data-mk-hero]')));
+await p.click('.finder [data-key="cdt"][value="masterise-homes"]');
 await p.click('.finder [data-key="khu"][value="khu-dong"]');
-await p.click('.finder [data-key="loai"][value="biet-thu"]');
 const fr = await p.evaluate(() => ({ count: document.querySelector('.finder [data-count]').textContent, n: document.querySelector('#du-an .grid').dataset.n, shown: [...document.querySelectorAll('#du-an .card:not([hidden]) .card__title')].map((t) => t.textContent) }));
-check('Tìm theo nhu cầu: Khu Đông + Biệt thự → 1 dự án (The Global City), lưới theo số thẻ', fr.n === '1' && fr.shown.join() === 'The Global City' && /1\/6/.test(fr.count), fr);
+check('Lọc dự án: Masterise Homes + Khu Đông → 1 dự án (The Global City), lưới theo số thẻ', fr.n === '1' && fr.shown.join() === 'The Global City' && /1\/6/.test(fr.count), fr);
+await p.click('.finder [data-key="cdt"][value="masterise-homes"]');
+const fr2 = await p.evaluate(() => document.querySelector('#du-an .grid').dataset.n);
+check('Lọc dự án: chỉ Khu Đông → 3 dự án (Palm City, The Global City, The Privé)', fr2 === '3', fr2);
 await p.click('.finder [data-clear]');
-check('Tìm theo nhu cầu: Xóa lọc → 6/6', await p.evaluate(() => document.querySelector('#du-an .grid').dataset.n === '6'));
+check('Lọc dự án: Xóa lọc → 6/6', await p.evaluate(() => document.querySelector('#du-an .grid').dataset.n === '6'));
+const hid = await p.evaluate(() => [...document.querySelectorAll('#tu-van form [type=hidden]')].map((i) => i.name).sort().join(','));
+check('Form tư vấn: trường ẩn interest, page-url, utm như CF7', hid === 'interest,page-url,utm', hid);
+let req = 0; p.on('request', (r) => { if (!r.url().startsWith('data:') && !r.url().startsWith('http://127.0.0.1')) req++; });
+const tf = '#tu-van form';
+await p.fill(`${tf} [name=ten]`, 'Nguyễn Văn Thử'); await p.fill(`${tf} [name=sdt]`, '0900000000'); await p.check(`${tf} [type=checkbox]`);
+await p.click(`${tf} [type=submit]`);
+const sent = JSON.parse(await p.evaluate((s) => document.querySelector(s).dataset.sent || '{}', tf));
+check('Form tư vấn: gửi thử cục bộ đủ trường ẩn (URL trang, utm), không gọi mạng', /trang-chu\.html\?utm_source=thu/.test(sent['page-url']) && sent.utm === 'utm_source=thu&utm_medium=mockup' && req === 0, { sent, req });
 await p.context().close();
 
 p = await open('/the-global-city.html');

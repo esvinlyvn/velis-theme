@@ -23,6 +23,27 @@ async function open(page, m, hash = '', query = '') {
 	return p;
 }
 const jpg = { type: 'jpeg', quality: 80 };
+// --r4 (trang chủ theo trang cũ + BRIEF): home first screen + full page M1–M5; old live home | new home at 1536×864 DPR 1,25
+if (full === '--r4') {
+	mkdirSync(`${dir}/ca-trang`, { recursive: true });
+	for (const m of Object.keys(M)) {
+		const p = await open('trang-chu', m);
+		await p.screenshot({ ...jpg, path: `${dir}/man-dau/trang-chu-${m}.jpg` });
+		await p.screenshot({ ...jpg, quality: 70, path: `${dir}/ca-trang/trang-chu-${m}.jpg`, fullPage: true });
+		await p.context().close();
+	}
+	// the old home on the live site: read-only GET of the public page, counters left to finish, nothing clicked but scroll
+	const ctx = await b.newContext({ viewport: { width: 1536, height: 864 }, deviceScaleFactor: 1.25, userAgent: 'Mozilla/5.0 (compatible; velis-redesign-audit)' });
+	const old = await ctx.newPage();
+	await old.goto('https://velisrealty.vn/', { waitUntil: 'load', timeout: 60000 });
+	await old.evaluate(async () => { for (let y = 0; y < document.documentElement.scrollHeight; y += 500) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 250)); } scrollTo(0, 0); });
+	await old.waitForTimeout(3000);
+	await old.screenshot({ ...jpg, quality: 70, path: `${dir}/ca-trang/trang-chu-cu-1536.jpg`, fullPage: true });
+	await ctx.close();
+	await b.close();
+	console.log('xong');
+	process.exit(0);
+}
 // --r3 (vòng định vị môi giới): new home – first screen + full page M1–M5; "Velis tư vấn" card on TGC / MPP (desktop + mobile)
 if (full === '--r3') {
 	mkdirSync(`${dir}/ca-trang`, { recursive: true });
