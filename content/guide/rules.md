@@ -27,10 +27,10 @@ thì ghi TODO và hỏi người dùng, không tự đặt.
 ## 4. Quét trước khi commit
 
 Trước khi commit bất kỳ bài viết nào: quét bài theo danh sách cấm bên dưới (không phân biệt hoa thường, cả dạng không dấu).
-Có trùng thì sửa, không được commit. Lệnh gợi ý:
+Có trùng thì sửa, không được commit. Lệnh (bỏ dấu, không phân biệt hoa thường, số điện thoại so theo dãy số; thoát mã 1 nếu trùng):
 
 ```bash
-grep -inFf <(sed -n '/^<!-- banned:start -->/,/^<!-- banned:end -->/p' content/guide/rules.md | grep '^- ' | sed 's/^- //; s/ *(.*//') <file-bài>
+python3 -I content/guide/scan_banned.py <file-bài> [...]
 ```
 
 Ngoại lệ: `content/samples/` (tài liệu phân tích đối thủ) được phép nhắc tên domain đối thủ để định danh nguồn,
@@ -40,7 +40,27 @@ nhưng phần "áp dụng cho Velis" thì không.
 
 Điền dần trong lúc crawl. Tên **chủ đầu tư / dự án** (Vinhomes, Masterise Homes, Sun Group, Ecopark…) KHÔNG nằm trong
 danh sách: đó là đối tượng Velis tư vấn, không phải thương hiệu đối thủ. Cấm là tên đơn vị phân phối, tên miền, tác giả,
-slogan, hotline của họ. Mỗi dòng một cụm; ghi chú loại trong ngoặc (phần ngoặc không dùng để quét).
+slogan, hotline của họ. Mỗi dòng: `- `cụm từ` (loại, nguồn)` — chỉ phần trong dấu `` ` `` được quét.
 
 <!-- banned:start -->
+### Chung (đơn vị phân phối đứng sau nhiều domain)
+
+- `SaleReal` (tên đơn vị; logo/ảnh tải từ salereal.vn trên mọi domain)
+- `Sale Real` (biến thể)
+- `salereal.vn` (tên miền)
+- `SR` (hậu tố thương hiệu gắn sau tên dự án/domain)
+- `Đại lý top 1` (USP trong popup)
+- `Thông tin chính thức từ` (tagline footer, dạng "thông tin chính thức từ <CĐT>")
+
+### vinhomeshocmonsr.vn
+
+- `vinhomeshocmonsr` (tên miền, Facebook)
+- `Vinhomes Hóc Môn SR` (tên site)
+- `Lê Quang Hưng` (tác giả trong schema)
+- `quanghung732005@gmail.com` (email tác giả)
+- `Sales Vinhomes` (byline bài viết)
+- `0938.007.778` (hotline, Zalo)
+- `0975442140` (điện thoại trong schema)
+- `Đại đô thị công viên sinh thái tri thức đáng sống bậc nhất` (slogan footer)
+
 <!-- banned:end -->
