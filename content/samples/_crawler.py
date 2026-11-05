@@ -388,8 +388,9 @@ def write_structure(out, host, recs, by_type, pages):
 
 
 def write_links(out, host, recs, pages):
-    tmap = {r["url"].rstrip("/"): r["type"] for r in recs}
-    tt = lambda u: tmap.get(u.rstrip("/"), "ngoài sitemap")
+    key = lambda u: u.split("://", 1)[-1].rstrip("/")  # sitemap có thể khai http:// trong khi link dùng https://
+    tmap = {key(r["url"]): r["type"] for r in recs}
+    tt = lambda u: tmap.get(key(u), "ngoài sitemap")
     ok = [p for p in pages if "links" in p]
     L = [f"# {host} – liên kết nội bộ (tự sinh, trên {len(ok)} trang mẫu)", "",
          "`khung` = link trong header/nav/footer/sidebar/menu/mục lục; `nội dung` = link trong thân bài.", ""]

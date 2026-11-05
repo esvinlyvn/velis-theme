@@ -71,4 +71,22 @@ slogan, hotline của họ. Mỗi dòng: `- `cụm từ` (loại, nguồn)` — 
 - `0915333387` (điện thoại trong schema)
 - (tác giả, email, hotline 0938.007.778 / 0975442140, byline: trùng mục vinhomeshocmonsr.vn)
 
+### vinhomebysalereal.vn
+
+- `vinhomebysalereal` (tên miền, Facebook)
+- `Vinhomes By SaleReal` (tên site)
+- `VBYSR` (hậu tố title, tên viết tắt)
+- `SaleReal Agency` (tên hiển thị trang chủ)
+- `Công ty TNHH Dịch vụ Bất động sản SaleReal` (pháp nhân)
+- `Lưu Trung Quân` (tác giả, CEO đơn vị phân phối)
+- `trungquan.luu` (Facebook tác giả)
+- `quanbds6669@gmail.com` (email)
+- `admin@wiwi.vn` (email trong meta)
+- `+84933186123` (điện thoại trong schema)
+- `0933186123` (cùng số, dạng nội địa)
+- `gem.phamnhu` (Facebook nhân viên)
+- `nguyen.duy.phap.2` (Facebook nhân viên)
+- `phucduymedia.tran` (Facebook nhân viên)
+- `Đơn vị phân phối của Vinhomes` (lời tự giới thiệu)
+
 <!-- banned:end -->
