@@ -79,3 +79,42 @@ test('every automated criterion and interaction carries an NT code of docs/NGHIE
 	assert.ok(names.length >= 34);
 	for (const n of names) assert.ok(known.has(n.split(' ')[0]), n);
 });
+
+// NT-47/48 (hero) and NT-66/67 (facts bar) – step 2 rules, on small fragments
+async function inPage(fn, html, width = 1366) {
+	const b = await chromium.launch();
+	const p = await (await b.newContext({ viewport: { width, height: 800 } })).newPage();
+	await p.setContent('<!doctype html><meta charset="utf-8"><body style="margin:0"><main>' + html + '</main>');
+	const r = await p.evaluate(fn);
+	await b.close();
+	return r;
+}
+const hero = (after, extra = '') => '<style>.hero{position:relative;height:500px}.hero__media{position:absolute;inset:0;margin:0}.hero__media::after{content:"";position:absolute;inset:0;' + after + '}.hero__body{position:relative}</style>'
+	+ '<section class="hero hero--a"><figure class="hero__media"></figure><div class="hero__body"><p class="eyebrow">A</p><h1>T</h1><ul class="chips"><li' + extra + '>Căn hộ</li></ul></div></section>';
+
+test('NT-47/48 hero overlay: one left → right gradient over the whole frame, no box behind text', async () => {
+	const { heroAudit } = await import('../ui_media.mjs');
+	const ok = await inPage(heroAudit, hero('background:linear-gradient(90deg,#000,transparent),linear-gradient(0deg,#0006,transparent)'));
+	assert.deepEqual([ok.overlay, ok.box], [[], []]);
+	const radial = await inPage(heroAudit, hero('background:radial-gradient(#000,transparent)'));
+	assert.ok(radial.overlay.length >= 1);
+	const patch = await inPage(heroAudit, hero('background:linear-gradient(90deg,#000,transparent);inset:auto;width:300px;height:200px;border-radius:8px'));
+	assert.ok(patch.overlay.some((x) => /≠ khung/.test(x)) && patch.overlay.some((x) => /bo góc/.test(x)));
+	const box = await inPage(heroAudit, hero('background:linear-gradient(90deg,#000,transparent)', ' style="background:rgba(0,0,0,.5);text-shadow:0 0 4px #000"'));
+	assert.equal(box.box.length, 2);
+});
+
+const facts = (n, w, val = 'Ngắn') => '<style>.facts__list{display:grid;gap:1px;margin:0;width:' + w + 'px;grid-template-columns:repeat(var(--c),1fr)}.facts__item{min-width:0}dd{margin:0}</style>'
+	+ '<dl class="facts__list" style="--c:4">' + Array.from({ length: n }, (_, i) => '<div class="facts__item"><dt>K' + i + '</dt><dd>' + val + '</dd></div>').join('') + '</dl>';
+
+test('NT-66/67 facts bar: rows by count, no empty cell, no cut value', async () => {
+	const { factsAudit } = await import('../ui_media.mjs');
+	const ok = await inPage(factsAudit, facts(8, 1200));
+	assert.deepEqual([ok.cut, ok.rows], [[], []]);
+	const gap = await inPage(factsAudit, facts(7, 1200)); // 4 + 3 with an empty cell
+	assert.ok(gap.rows.some((x) => /trống/.test(x)));
+	const cut = await inPage(factsAudit, facts(4, 1200, 'Đường Đỗ Xuân Hợp, Phường An Phú…'));
+	assert.ok(cut.cut.length >= 1);
+	const narrow = await inPage(factsAudit, facts(4, 900)); // 4 per row below 1200 px
+	assert.ok(narrow.rows.some((x) => /tối đa/.test(x)) || narrow.rows.some((x) => /< 240/.test(x)), JSON.stringify(narrow));
+});

@@ -13,7 +13,7 @@ export function layoutAudit() {
 
 	for (const img of body.querySelectorAll('img')) if (shown(img) && !loaded(img)) out.images.push(img.currentSrc || img.src);
 
-	for (const g of body.querySelectorAll('.v-grid, .v-feats ul')) {
+	for (const g of body.querySelectorAll('.v-grid, .v-feats ul, .grid, .rail')) {
 		const items = [...g.children].filter(shown);
 		if (!items.length || items.length > 2 || !shown(g)) continue;
 		const gw = g.getBoundingClientRect().width;
@@ -23,17 +23,17 @@ export function layoutAudit() {
 	}
 
 	const content = (el) => (el.innerText || '').trim() || [...el.querySelectorAll('img, iframe, video, svg, canvas, input, select, textarea, button')].some((m) => shown(m) && (m.tagName !== 'IMG' || loaded(m)));
-	for (const el of body.querySelectorAll('section, aside, figure, .v-wrap, .v-block, .v-sub, .v-section, .v-page__main, .v-page__side')) {
+	for (const el of body.querySelectorAll('section, aside, figure, .v-wrap, .v-block, .v-sub, .v-section, .v-page__main, .v-page__side, .wrap, .block, .page__main, .page__side')) {
 		if (shown(el) && el.getBoundingClientRect().height > 40 && !content(el)) out.empty.push(label(el));
 	}
 
-	for (const el of body.querySelectorAll('.v-map, .v-card__media:not(.v-media--empty:not(.is-broken)), .v-ratio, figure.wp-block-image, figure.wp-block-embed, figure:has(> img), .v-gallery__track li, .v-hero--full:not(.v-hero--noimg), .v-pricecard > img')) { // a hero rendered without photo is a text band, not a frame
+	for (const el of body.querySelectorAll('.v-map, .v-card__media:not(.v-media--empty:not(.is-broken)), .v-ratio, figure.wp-block-image, figure.wp-block-embed, figure:has(> img), .v-gallery__track li, .v-hero--full:not(.v-hero--noimg), .v-pricecard > img, .map, .card__media:not(.card__media--empty), .gallery__track li, .hero__media, .pic')) { // a hero rendered without photo is a text band, not a frame
 		if (!shown(el) || el.getBoundingClientRect().height <= 100) continue;
 		const pics = el.matches('img') ? [el] : [...el.querySelectorAll('img, iframe, video')];
 		if (!pics.some((m) => m.tagName !== 'IMG' || loaded(m))) out.media.push(label(el));
 	}
 
-	for (const el of body.querySelectorAll('.v-media--empty, .v-hero__fallback')) if (shown(el) && !(el.textContent || '').trim()) out.fallback.push(label(el));
+	for (const el of body.querySelectorAll('.v-media--empty, .v-hero__fallback, .card__media--empty')) if (shown(el) && !(el.textContent || '').trim()) out.fallback.push(label(el));
 
 	// smallest elements holding phone + email + address, outside header/footer
 	const has = (t) => /0911[\s.]?237[\s.]?979/.test(t) && /lienhe@velisrealty\.vn/i.test(t) && /Lương Định Của/i.test(t);

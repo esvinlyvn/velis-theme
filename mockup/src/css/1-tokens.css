@@ -1,0 +1,52 @@
+/* 1. Tokens – values from DESIGN.md only (bước 3 sinh lại từ theme.json). */
+@font-face { font-family: "Be Vietnam Pro"; src: url("../fonts/be-vietnam-pro-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Be Vietnam Pro"; src: url("../fonts/be-vietnam-pro-600.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Playfair Display"; src: url("../fonts/playfair-display-600.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Be Vietnam Pro Fallback"; src: local("Arial"), local("Liberation Sans"); size-adjust: 108.3%; ascent-override: 92.3%; descent-override: 24.5%; line-gap-override: 0%; }
+@font-face { font-family: "Playfair Fallback"; src: local("Times New Roman"), local("Liberation Serif"); size-adjust: 112.3%; ascent-override: 96.4%; descent-override: 22.4%; line-gap-override: 0%; }
+
+:root {
+	--ink: #1A1A1A;
+	--muted: #5C5C5C;
+	--canvas: #FAF8F5;
+	--surface: #FFFFFF;
+	--sunken: #F2EEE8;
+	--dark: #141414;
+	--line: #E4DED5;
+	--line-strong: #C9C1B5;
+	--red: #B8282E;
+	--red-hover: #9E1F26;
+	--gold: #B08D57;
+	--gold-text: #8A6A3A;
+	--gold-light: #EADBC0;
+	--champagne-soft: #F3ECDF;
+	--on-dark: #FFFFFF;
+	--on-dark-muted: #B9B9B9;
+	--error: #B3261E;
+
+	--f-head: "Playfair Display", "Playfair Fallback", Georgia, "Times New Roman", serif;
+	--f-body: "Be Vietnam Pro", "Be Vietnam Pro Fallback", Arial, sans-serif;
+	--fs-h1: clamp(32px, 2.4vw + 18px, 48px);
+	--fs-h2: clamp(26px, 1.5vw + 17px, 36px);
+	--fs-h3: clamp(20px, .6vw + 16px, 24px);
+	--fs-body: clamp(17px, .2vw + 16px, 18px);
+	--fs-small: 16px;
+	--fs-caption: 14px;
+	--fs-eyebrow: 13px;
+
+	--s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s6: 24px; --s8: 32px; --s12: 48px; --s16: 64px; --s24: 96px;
+	--section: 64px;
+	--gutter: 16px;
+	--wrap: 1200px;
+	--read: 720px;
+	--side: 340px;
+	--header-h: 64px;
+	--cta-h: 64px;
+	--radius: 2px;
+	--ease: cubic-bezier(.2, .6, .2, 1);
+	--shadow-hover: 0 8px 24px rgb(20 20 20 / .08);
+}
+@media (min-width: 768px) { :root { --gutter: 24px; --section: 96px; } }
+@media (min-width: 1024px) { :root { --header-h: 80px; --cta-h: 0px; } }
+@media (min-width: 1280px) { :root { --gutter: 32px; } }
+@media (min-width: 1600px) { :root { --wrap: 1320px; } }

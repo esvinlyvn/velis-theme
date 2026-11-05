@@ -32,7 +32,7 @@ if (process.argv[2] === '--suite' || process.argv[2] === '--sticky') {
 	process.exit(r.total.some((n) => n) ? 1 : 0);
 }
 
-const BASE = 'https://staging.velisrealty.vn';
+const BASE = process.env.BASE_URL || 'https://staging.velisrealty.vn'; // BASE_URL: e.g. the local mockup server (step 2)
 const [path = '/velis-style-guide/', out = 'screenshots/check', widthArg] = process.argv.slice(2);
 const WIDTHS = widthArg ? widthArg.split(',').map(Number) : [360, 390, 430, 600, 768, 1023, 1024, 1100, 1180, 1280, 1366, 1536, 1920]; // 12 frames + 1536 (gap rule): phones, tablet, breakpoint edges, common laptops
 mkdirSync(out, { recursive: true });
@@ -48,7 +48,7 @@ function audit() {
 		for (let n = el; n; n = n.parentElement) {
 			const s = getComputedStyle(n);
 			if (s.backgroundImage !== 'none' && !s.backgroundImage.startsWith('linear-gradient(to left')) return null; // text over image/gradient: judged by eye
-			if (n.matches('.v-hero--full, .v-ratio--overlay')) return null;
+			if (n.matches('.v-hero--full, .v-ratio--overlay, .hero--a .hero__body')) return null;
 			const c = parse(s.backgroundColor);
 			if (c.length >= 3 && (c[3] ?? 1) > 0.9) return c.slice(0, 3);
 		}
@@ -59,7 +59,7 @@ function audit() {
 
 	const vw = document.documentElement.clientWidth;
 	const overflow = document.documentElement.scrollWidth > vw
-		? [...document.querySelectorAll('body *')].filter((e) => { const r = e.getBoundingClientRect(); return r.right > vw + 1 && visible(e) && !e.closest('.v-table-wrap, .v-gallery__track, .v-tabs__list, dialog'); }).slice(0, 5).map(name)
+		? [...document.querySelectorAll('body *')].filter((e) => { const r = e.getBoundingClientRect(); return r.right > vw + 1 && visible(e) && !e.closest('.v-table-wrap, .v-gallery__track, .v-tabs__list, dialog, .table-wrap, .gallery__track, .tabs, .rail'); }).slice(0, 5).map(name)
 		: [];
 	const images = [...document.images].filter((i) => visible(i) && !(i.complete && i.naturalWidth > 0)).map((i) => i.currentSrc || i.src);
 
@@ -79,30 +79,32 @@ function audit() {
 
 	const targets = [];
 	for (const el of document.querySelectorAll('a[href], button, input:not([type=hidden]), select, textarea, summary, [role=tab]')) {
-		if (!visible(el) || el.closest('.v-sr, .screen-reader-text')) continue;
+		if (!visible(el) || el.closest('.v-sr, .screen-reader-text, .sr-only')) continue;
 		const inline = el.tagName === 'A' && getComputedStyle(el).display === 'inline' && el.closest('p, li, td, figcaption, label');
 		if (inline) continue; // WCAG 2.5.8 exempts links inside a sentence
 		const r = el.getBoundingClientRect();
 		// effective target: a checkbox's label row; a stretched card link covers its whole card
-		const box = el.matches('input[type=checkbox], input[type=radio]') ? (el.closest('label, .v-check') || el).getBoundingClientRect()
-			: el.matches('.v-card__title a') ? el.closest('.v-card').getBoundingClientRect() : r;
+		const box = el.matches('input[type=checkbox], input[type=radio]') ? (el.closest('label, .v-check, .check') || el).getBoundingClientRect()
+			: el.matches('.v-card__title a, .card__title a') ? el.closest('.v-card, .card').getBoundingClientRect() : r;
 		if (box.width < 44 - 0.5 || box.height < 44 - 0.5) targets.push(`${name(el)} "${txt(el)}" ${Math.round(box.width)}×${Math.round(box.height)}`);
 	}
 	return { overflow, images, contrast: [...new Set(contrast)], targets: [...new Set(targets)], cls: +(window.__cls || 0).toFixed(4) };
 }
 
-const pw = readFileSync(process.env.VIEW_PASSWORD_FILE, 'utf8').trim();
+const pw = process.env.VIEW_PASSWORD_FILE ? readFileSync(process.env.VIEW_PASSWORD_FILE, 'utf8').trim() : ''; // no gate on a local server
 const browser = await chromium.launch();
 const ctx = await browser.newContext();
 await ctx.addInitScript(() => {
 	window.__cls = 0;
 	new PerformanceObserver((l) => l.getEntries().forEach((e) => { if (!e.hadRecentInput) window.__cls += e.value; })).observe({ type: 'layout-shift', buffered: true });
 });
-const login = await ctx.newPage();
-await login.goto(BASE + '/', { waitUntil: 'domcontentloaded' });
-await login.fill('input[type=password]', pw);
-await Promise.all([login.waitForNavigation(), login.locator('input[type=submit], button[type=submit]').first().click()]);
-await login.close();
+if (pw) {
+	const login = await ctx.newPage();
+	await login.goto(BASE + '/', { waitUntil: 'domcontentloaded' });
+	await login.fill('input[type=password]', pw);
+	await Promise.all([login.waitForNavigation(), login.locator('input[type=submit], button[type=submit]').first().click()]);
+	await login.close();
+}
 
 // Text drawn over a photo (hero A): hide the text, screenshot its box, take the 98th-percentile background
 // luminance (ignores a few stray bright pixels) and compare with the text colour.
