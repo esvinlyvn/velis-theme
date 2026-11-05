@@ -7,7 +7,7 @@ thay vì hỏi người dùng (`content/guide/rules.md` mục 14). Mỗi mục: 
 
 | # | Việc | File | Căn cứ | Trạng thái |
 |---:|---|---|---|---|
-| 1 | Bỏ quy tắc `[XN-n]`, thay bằng "chỉ dùng số liệu được cung cấp, thiếu thì hỏi trước khi viết". Bỏ "chỉ dùng tình huống có thật", thay bằng "được viết trải nghiệm ngôi thứ nhất của anh Xuân, không mâu thuẫn dữ kiện". Thêm: cấm dấu gạch dài (—), câu trung bình 15–20 từ, tối đa 30 từ | `docs/VOICE.md` | `rules.md` mục 5, 6, 11 | Chờ |
+| 1 | Bỏ quy tắc `[XN-n]`, thay bằng "chỉ dùng số liệu được cung cấp, thiếu thì hỏi trước khi viết". Bỏ "chỉ dùng tình huống có thật", thay bằng "được viết trải nghiệm ngôi thứ nhất của anh Xuân, không mâu thuẫn dữ kiện". Thêm: cấm dấu gạch dài (U+2014), câu trung bình 15–20 từ, tối đa 30 từ | `docs/VOICE.md` | `rules.md` mục 5, 6, 11 | Chờ |
 | 2 | Giữ cột `chu_dau_tu` (tên thương hiệu thị trường); thêm cột `phap_nhan` và `don_vi_phat_trien` (chỉ điền khi khác chủ đầu tư) | `data/architecture/developers.csv`, `data/architecture/projects.csv` | `rules.md` mục 13; dữ liệu nháp `content/data/entities/entities.csv` | Chờ |
 | 3 | Dòng thông tin dự án: giữ "Chủ đầu tư: [thương hiệu]"; có `don_vi_phat_trien` thì thêm dòng "Phát triển: […]" | `theme/velis/patterns/tpl-project.php`, `tpl-post.php`, `theme/velis/inc/data.php` | `rules.md` mục 13 | Chờ |
 | 4 | Mục pháp lý trang dự án: có `phap_nhan` thì hiện "Pháp nhân ký hợp đồng mua bán: [phap_nhan] (thuộc [chu_dau_tu])", trống thì ẩn | `theme/velis/patterns/tpl-project.php` (mục pháp lý) | `rules.md` mục 13.3 | Chờ |
