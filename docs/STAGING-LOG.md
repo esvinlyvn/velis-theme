@@ -131,3 +131,10 @@ Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng th
 | Contact Form 7 (ID 20800) | còn Họ tên, Số điện thoại, đồng ý; trường ẩn `interest`, `page-url`, `utm`; email gồm đủ các trường (bản cũ: `scratchpad/cf7-before-r6.json`) |
 | Gửi thử | 1 lần (Kiểm thử hệ thống, 0900000000) từ thẻ "Nhận bảng giá" The Privé với `?utm_source=kiemthu` |
 | Nhật ký email (chỉ staging) | theme lưu email CF7 cuối cùng vào option `velis_cf7_last_mail`, đọc ở `/wp-json/velis/v1/last-lead` (admin) – vì staging tắt email |
+
+## 2026-11-05 – Giai đoạn 4, sửa tổng lần cuối
+
+| Mục | Thay đổi |
+|---|---|
+| Cỡ ảnh | Theme đăng ký thêm cỡ `velis-600/900/1600/2000/2560`; tạo lại cỡ cho 239 ảnh qua REST `media/<id>/post-process` (create-image-subsizes) – chỉ thêm file cỡ mới, không xóa/sửa ảnh gốc |
+| Theme | ảnh không phóng, khung ≤ cỡ file/DPR, khung dự phòng có tên, lưới ảnh tiến độ, khối "Về Velis", mũi tên dải dự án |

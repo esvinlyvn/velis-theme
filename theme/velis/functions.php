@@ -82,7 +82,7 @@ add_filter( 'max_srcset_image_width', fn() => 2560 );
 add_filter( 'wp_get_attachment_image_attributes', function ( $attr, $att, $size ) {
 	$src = wp_get_attachment_image_src( $att->ID, $size );
 	$nw  = velis_max_candidate( (string) ( $attr['srcset'] ?? '' ), (int) ( $src[1] ?? 0 ) );
-	if ( $nw ) {
+	if ( $nw && ! str_contains( (string) ( $attr['style'] ?? '' ), '--nw' ) ) {
 		$attr['style'] = trim( rtrim( (string) ( $attr['style'] ?? '' ), '; ' ) . '; --nw: ' . $nw . 'px', '; ' );
 	}
 	return $attr;

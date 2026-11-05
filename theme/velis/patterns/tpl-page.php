@@ -21,7 +21,7 @@ if ( 'lien-he' === $slug ) {
 	$out .= '<div class="v-wrap v-pagehead"><h1>' . esc_html( $title ) . '</h1><p class="v-lead">Gọi, nhắn Zalo hoặc để lại số điện thoại, Velis phản hồi trong giờ làm việc.</p>'
 		. '<ul class="v-channels"><li><a class="v-btn" href="tel:' . VELIS_PHONE_TEL . '">Gọi ' . VELIS_PHONE . '</a></li><li><a class="v-btn v-btn--secondary" href="' . esc_url( VELIS_ZALO ) . '" rel="noopener" target="_blank">Nhắn Zalo</a></li><li><a class="v-btn v-btn--secondary" href="#tu-van">Gửi yêu cầu</a></li></ul>' . velis_project_links()
 		. velis_facts_html( array( 'Văn phòng' => VELIS_ADDRESS, 'Giờ làm việc' => VELIS_HOURS, 'Email' => VELIS_EMAIL ), null ) . '</div>';
-	$out .= '<div class="v-wrap"><div class="v-map">' . ( $map ? wp_get_attachment_image( $map[0], 'large', false, array( 'loading' => 'eager', 'alt' => 'Bản đồ văn phòng Velis Realty' ) ) : '' )
+	$out .= '<div class="v-wrap"><div class="v-map">' . ( $map ? wp_get_attachment_image( $map[0], 'full', false, array( 'loading' => 'eager', 'sizes' => '(min-width: 1320px) 1320px, 100vw', 'alt' => 'Bản đồ văn phòng Velis Realty' ) ) : '' )
 		. '<a class="v-btn" href="' . esc_url( 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode( 'Velis Realty ' . VELIS_ADDRESS ) ) . '" target="_blank" rel="noopener">Chỉ đường trên Google Maps</a></div><p class="v-source">Bản đồ © OpenStreetMap contributors.</p></div>';
 	$out .= velis_form_html( '', wp_list_pluck( velis_top_projects(), 'post_title' ), 'Gửi yêu cầu tư vấn', false );
 } else {
