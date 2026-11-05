@@ -134,6 +134,12 @@ slogan, hotline của họ. Mỗi dòng: `- `cụm từ` (loại, nguồn)` — 
 - `CEO của SaleReal` (chức danh tác giả)
 - `Đại lý chiến lược của Ecopark` (lời tự giới thiệu)
 
+### sunvungtausr.vn
+
+- `sunvungtausr` (tên miền, Facebook)
+- `Sales Sun Group` (byline bài viết – dùng tên CĐT làm byline)
+- (tác giả, email, hotline 0938.007.778 / 0938910329: trùng mục trên; tên dự án/CĐT không cấm)
+
 <!-- banned:end -->
 
 ### Đã xác nhận – KHÔNG cấm (người dùng xác nhận 2026-11-05)
