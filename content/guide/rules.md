@@ -95,4 +95,13 @@ slogan, hotline của họ. Mỗi dòng: `- `cụm từ` (loại, nguồn)` — 
 - `Sales Đất Xanh` (byline bài viết – dùng tên CĐT làm byline)
 - (tác giả, email, hotline 0938.007.778 / 0975442140 / 0938910329: trùng mục trên. Tên dự án/CĐT không cấm)
 
+### masterisehomesbysalereal.vn
+
+- `masterisehomesbysalereal` (tên miền, Facebook)
+- `Masterise Homes By SaleReal` (tên site)
+- `MBYSR` (hậu tố title)
+- `CEO SaleReal` (chức danh tác giả trong schema)
+- `Đại lý chiến lược của Masterise Homes` (lời tự giới thiệu)
+- (tác giả, email, Facebook nhân viên, hotline: trùng mục vinhomebysalereal.vn)
+
 <!-- banned:end -->
