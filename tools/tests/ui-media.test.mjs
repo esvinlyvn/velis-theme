@@ -67,3 +67,15 @@ test('round 8 layout rules', async () => {
 	assert.equal(r.edge.length, 1);
 	assert.equal(r.meta.length, 1);
 });
+
+test('every automated criterion and interaction carries an NT code of docs/NGHIEM-THU.md', async () => {
+	const { CRIT, INFO } = await import('../ui_media.mjs');
+	const { readFileSync } = await import('node:fs');
+	const doc = readFileSync(new URL('../../docs/NGHIEM-THU.md', import.meta.url), 'utf8');
+	const known = new Set([...doc.matchAll(/^\| (NT-\d+) \|/gm)].map((m) => m[1]));
+	for (const [k, label] of [...CRIT, ...INFO]) assert.ok(known.has(label.split(' ')[0]), `${k}: ${label}`);
+	const src = readFileSync(new URL('../interactions.mjs', import.meta.url), 'utf8');
+	const names = [...src.matchAll(/check\('([^']+)'/g)].map((m) => m[1]);
+	assert.ok(names.length >= 34);
+	for (const n of names) assert.ok(known.has(n.split(' ')[0]), n);
+});

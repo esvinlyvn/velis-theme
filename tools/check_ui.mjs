@@ -159,8 +159,8 @@ for (const w of WIDTHS) {
 	const lay = await p.evaluate(layoutAudit);
 	report[w] = { ...(await p.evaluate(audit)), cls, gaps: [] };
 	report[w].images = [...new Set([...report[w].images, ...lay.images])];
-	report[w].layout = [...lay.grid.map((x) => `hàng lưới 1 thẻ ≤ 50%: ${x}`), ...lay.empty.map((x) => `khung trống > 40px: ${x}`), ...lay.media.map((x) => `khung ảnh/bản đồ không có ảnh: ${x}`),
-		...lay.fallback.map((x) => `khung dự phòng không tên: ${x}`), ...lay.contact.map((x) => `khối liên hệ lặp: ${x}`)];
+	report[w].layout = [...lay.grid.map((x) => `NT-06 hàng lưới 1 thẻ ≤ 50%: ${x}`), ...lay.empty.map((x) => `NT-04 khung trống > 40px: ${x}`), ...lay.media.map((x) => `NT-25 khung ảnh/bản đồ không có ảnh: ${x}`),
+		...lay.fallback.map((x) => `NT-24 khung dự phòng không tên: ${x}`), ...lay.contact.map((x) => `NT-14 khối liên hệ lặp: ${x}`)];
 	if (w >= 1024) {
 		const g = await p.evaluate(contentBands);
 		const at = async (y) => p.evaluate((y) => { const el = [...document.querySelectorAll('main section, main .v-wrap, main article, main aside')].find((e) => { const r = e.getBoundingClientRect(); return r.top + scrollY <= y && r.bottom + scrollY > y; }); return el ? el.tagName.toLowerCase() + (el.id ? '#' + el.id : '') + (el.className ? '.' + String(el.className).trim().split(/\s+/).slice(0, 2).join('.') : '') : 'body'; }, y);
@@ -168,7 +168,7 @@ for (const w of WIDTHS) {
 	}
 	const photo = await photoContrast(p);
 	report[w].photo = photo;
-	report[w].contrast.push(...photo.filter((x) => !x.ok).map((x) => `chữ trên ảnh "${x.text}" ${x.ratio} < ${x.need}`));
+	report[w].contrast.push(...photo.filter((x) => !x.ok).map((x) => `NT-42 chữ trên ảnh "${x.text}" ${x.ratio} < ${x.need}`));
 	await p.evaluate(() => scrollTo(0, 0));
 	await p.screenshot({ path: `${out}/page-${w}.png`, fullPage: true });
 	if (w === 390 || w === 1366) { // header collapsed state
@@ -185,4 +185,4 @@ const photoLine = WIDTHS.map((w) => `${w}px: ` + report[w].photo.map((x) => `${x
 const rows = WIDTHS.map((w) => { const r = report[w]; return `| ${w} | ${r.overflow.length ? 'CÓ' : 'không'} | ${r.images.length} | ${r.contrast.length} | ${r.targets.length} | ${r.gaps.length} | ${r.layout.length} | ${r.cls} |`; });
 const details = WIDTHS.flatMap((w) => { const r = report[w]; return [...r.overflow.map((x) => `- ${w}px tràn ngang: ${x}`), ...r.images.map((x) => `- ${w}px ảnh rỗng: ${x}`), ...r.contrast.map((x) => `- ${w}px tương phản: ${x}`), ...r.targets.map((x) => `- ${w}px vùng bấm: ${x}`), ...r.gaps.map((x) => `- ${w}px ${x}`), ...r.layout.map((x) => `- ${w}px ${x}`)]; });
 writeFileSync(`${out}/report.json`, JSON.stringify(report, null, 1));
-writeFileSync(`${out}/report.md`, `# Kiểm tra tự động – ${path}\n\n| Khung | Tràn ngang | Ảnh rỗng | Tương phản lỗi | Vùng bấm < 44px | Khoảng trống > 30% | Bố cục | CLS |\n|---|---|---|---|---|---|---|---|\n${rows.join('\n')}\n\n${details.length ? details.join('\n') : 'Không có lỗi.'}\n\n## Tương phản chữ trên ảnh hero (nền sáng nhất phân vị 98)\n- ${photoLine}\n`);
+writeFileSync(`${out}/report.md`, `# Kiểm tra tự động – ${path}\n\n| Khung | NT-02 Tràn ngang | NT-20 Ảnh rỗng | NT-85 Tương phản lỗi | NT-86 Vùng bấm < 44px | NT-03 Khoảng trống > 30% | Bố cục (NT-06/04/25/24/14) | NT-91 CLS |\n|---|---|---|---|---|---|---|---|\n${rows.join('\n')}\n\n${details.length ? details.join('\n') : 'Không có lỗi.'}\n\n## Tương phản chữ trên ảnh hero (nền sáng nhất phân vị 98)\n- ${photoLine}\n`);

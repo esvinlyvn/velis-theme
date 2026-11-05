@@ -125,26 +125,27 @@ export function stickyAudit() {
 	const out = [];
 	const stuckOrBefore = r.top >= top - 1; // after the article ends the column scrolls away with it – no longer "dính"
 	if (r.bottom > 0 && r.top < innerHeight && stuckOrBefore) {
-		if (r.top < hb + 16 - 0.5) out.push(`đỉnh ${Math.round(r.top)} < đáy header ${Math.round(hb)} + 16`);
-		if (r.bottom > innerHeight - 16 + 0.5) out.push(`đáy ${Math.round(r.bottom)} > ${innerHeight} − 16`);
+		if (r.top < hb + 16 - 0.5) out.push(`NT-60 đỉnh ${Math.round(r.top)} < đáy header ${Math.round(hb)} + 16`);
+		if (r.bottom > innerHeight - 16 + 0.5) out.push(`NT-60 đáy ${Math.round(r.bottom)} > ${innerHeight} − 16`);
 		const cta = side.querySelector('.v-btn');
-		if (cta) { const c = cta.getBoundingClientRect(); if (c.top < hb || c.bottom > innerHeight) out.push(`nút tư vấn ngoài màn hình (${Math.round(c.top)}–${Math.round(c.bottom)})`); }
+		if (cta) { const c = cta.getBoundingClientRect(); if (c.top < hb || c.bottom > innerHeight) out.push(`NT-60 nút tư vấn ngoài màn hình (${Math.round(c.top)}–${Math.round(c.bottom)})`); }
 		for (const s of side.querySelectorAll('*')) { // inner scrollbars may only sit on the TOC list
 			const cs = getComputedStyle(s);
 			if (s === side || s.closest('.v-toc')) continue;
-			if (/(auto|scroll)/.test(cs.overflowY) && s.scrollHeight > s.clientHeight + 1) { out.push('thanh cuộn bên trong: ' + s.className); break; }
+			if (/(auto|scroll)/.test(cs.overflowY) && s.scrollHeight > s.clientHeight + 1) { out.push('NT-60 thanh cuộn bên trong: ' + s.className); break; }
 		}
-		if (/(auto|scroll)/.test(getComputedStyle(side).overflowY) && side.scrollHeight > side.clientHeight + 1) out.push('cả cột cuộn bên trong');
+		if (/(auto|scroll)/.test(getComputedStyle(side).overflowY) && side.scrollHeight > side.clientHeight + 1) out.push('NT-60 cả cột cuộn bên trong');
 	}
 	const foot = document.querySelector('footer, .v-footer');
-	if (foot) { const f = foot.getBoundingClientRect(); if (r.bottom > f.top + 0.5 && r.top < f.bottom) out.push('đè footer'); }
+	if (foot) { const f = foot.getBoundingClientRect(); if (r.bottom > f.top + 0.5 && r.top < f.bottom) out.push('NT-60 đè footer'); }
 	return out;
 }
 
-const CRIT = [['broken', 'Ảnh hỏng'], ['wrong', 'Chọn sai file'], ['dpr', 'Lệch theo DPR > 1px'], ['mixed', 'Nhóm thẻ trộn thiếu khung'], ['noname', 'Khung dự phòng không tên'],
-	['feats', 'Dải nổi bật lệch cao'], ['photos', 'Ảnh lẻ lưới tiến độ'], ['edge', 'Bản đồ/lưới lệch cột chữ'], ['postgrid', 'Ô trống lưới bài'], ['meta', 'Meta ngắt "phút"'],
-	['empty', 'Khối trống'], ['table', 'Bảng < 2 hàng'], ['overflow', 'Tràn ngang'], ['h1', 'H1 ≠ 1'], ['caps', 'Heading HOA'], ['gaps', 'Khoảng trống > 30%']];
-const INFO = [['lowres', 'Ảnh nguồn thiếu độ phân giải'], ['blurryOld', 'Ảnh mờ (cách đo cũ)'], ['gridinfo', 'Ô trống lưới khác']];
+// labels start with the NT code of docs/NGHIEM-THU.md (reports print by NT code; test: ui-media.test.mjs)
+const CRIT = [['broken', 'NT-20 Ảnh hỏng'], ['wrong', 'NT-21 Chọn sai file'], ['dpr', 'NT-01 Lệch theo DPR > 1px'], ['mixed', 'NT-24 Nhóm thẻ trộn thiếu khung'], ['noname', 'NT-24 Khung dự phòng không tên'],
+	['feats', 'NT-09 Dải nổi bật lệch cao'], ['photos', 'NT-29 Ảnh lẻ lưới tiến độ'], ['edge', 'NT-28 Bản đồ/lưới lệch cột chữ'], ['postgrid', 'NT-07 Ô trống lưới bài'], ['meta', 'NT-54 Meta ngắt "phút"'],
+	['empty', 'NT-04 Khối trống'], ['table', 'NT-53 Bảng < 2 hàng'], ['overflow', 'NT-02 Tràn ngang'], ['h1', 'NT-56 H1 ≠ 1'], ['caps', 'NT-55 Heading HOA'], ['gaps', 'NT-03 Khoảng trống > 30%']];
+const INFO = [['lowres', 'NT-22 Ảnh nguồn thiếu độ phân giải'], ['blurryOld', 'NT-21 Ảnh mờ (cách đo cũ)'], ['gridinfo', 'NT-08 Ô trống lưới khác']];
 
 const settle = async (p) => {
 	await p.evaluate(async () => { for (let y = 0; y < document.documentElement.scrollHeight; y += innerHeight * 0.6) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 150)); } });

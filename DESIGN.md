@@ -233,7 +233,7 @@ Cao tối thiểu 48 px (vùng bấm ≥ 44 × 44). Đổi màu 150–200 ms.
 - Bộ đo bắt buộc: `node tools/check_ui.mjs --suite tools/suite-pages.txt <thư mục>` – DPR 1 / 1,25 / 2 × viewport 390 /
   1066 / 1366 / 1536 / 1920, cuộn thật, chờ ảnh. Độ nét đo bằng bề rộng thật của file đang hiện (nạp `currentSrc` vào
   `new Image()`), không dùng `img.naturalWidth`. Mọi cột lỗi = 0; "ảnh nguồn thiếu độ phân giải" chỉ để thông tin
-  (`docs/ANH-CAN-THAY.md`). Cột phải bài viết: `--sticky tools/sticky-pages.txt`.
+  (`docs/KIEM-KE-ANH.md`, chuẩn `docs/CHUAN-ANH.md`). Cột phải bài viết: `--sticky tools/sticky-pages.txt`.
 
 ### Đầu mục section
 Eyebrow → tiêu đề Playfair (H2) → đoạn dẫn ≤ 2 dòng màu `body-muted` → đường kẻ champagne 48 × 1 px. Nhịp: 96/64 px giữa
