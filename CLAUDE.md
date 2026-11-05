@@ -8,6 +8,8 @@ dữ liệu mốc SEO và công cụ kiểm tra.
 - Nhánh `content` chỉ sửa trong `content/`. Không đụng code giao diện (`theme/`, `tools/`, `assets/`…),
   `package.json` hay file config.
 - Trước khi viết hoặc sửa bài: đọc **toàn bộ** `content/guide/`.
+- Trước khi commit bất kỳ bài viết nào, quét bài theo danh sách cấm trong
+  content/guide/rules.md. Có trùng thì sửa, không được commit.
 - Repo tham khảo viết bài: `~/refs/claude-blog` (`/root/refs/claude-blog`).
 
 ## Quy tắc làm việc (người dùng chốt 2026-11-04)

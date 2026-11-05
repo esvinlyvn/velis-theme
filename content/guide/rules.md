@@ -1,0 +1,46 @@
+# Quy tắc bắt buộc khi học từ website đối thủ
+
+Áp dụng cho mọi việc trong `content/` (phân tích mẫu, soạn guide, viết bài). Người dùng chốt 2026-11-05.
+
+## 1. Chỉ học kỹ thuật
+
+Website trong `content/samples/` là của công ty khác. Chỉ học **kỹ thuật**: cấu trúc trang, cách tổ chức slug,
+sitemap, liên kết nội bộ, cách trình bày thông tin, nhịp văn.
+
+## 2. Tuyệt đối không lấy về cho Velis bất cứ thứ gì thuộc thương hiệu của họ
+
+- tên công ty, tên thương hiệu, slogan, tagline, khẩu hiệu, USP;
+- tên tác giả, byline, chức danh, chữ ký, lời giới thiệu bản thân;
+- hotline, email, địa chỉ, tên nhân viên, cam kết dịch vụ riêng của họ;
+- câu chữ nguyên văn, số liệu, giá, đánh giá, hình ảnh.
+
+Trong file phân tích chỉ mô tả bằng lời của mình; trích ví dụ tối đa 1 câu ngắn và ghi rõ
+"ví dụ của đối thủ, không dùng". Số liệu/giá dự án cho bài Velis phải lấy từ nguồn gốc (chủ đầu tư, văn bản pháp lý,
+dữ liệu thật trên velisrealty.vn), không lấy từ site đối thủ.
+
+## 3. Người viết
+
+Người viết toàn bộ nội dung Velis là **CEO Velis Realty – Vũ Xuân** (nguồn: `BRIEF.md`; trang tác giả `/chuyen-gia/vu-xuan/`).
+Không dùng tên, chức danh hay lời giới thiệu của bất kỳ ai khác. Thông tin CEO chưa có trong repo (tiểu sử, năm kinh nghiệm…)
+thì ghi TODO và hỏi người dùng, không tự đặt.
+
+## 4. Quét trước khi commit
+
+Trước khi commit bất kỳ bài viết nào: quét bài theo danh sách cấm bên dưới (không phân biệt hoa thường, cả dạng không dấu).
+Có trùng thì sửa, không được commit. Lệnh gợi ý:
+
+```bash
+grep -inFf <(sed -n '/^<!-- banned:start -->/,/^<!-- banned:end -->/p' content/guide/rules.md | grep '^- ' | sed 's/^- //; s/ *(.*//') <file-bài>
+```
+
+Ngoại lệ: `content/samples/` (tài liệu phân tích đối thủ) được phép nhắc tên domain đối thủ để định danh nguồn,
+nhưng phần "áp dụng cho Velis" thì không.
+
+## 5. Danh sách tên đối thủ cấm xuất hiện
+
+Điền dần trong lúc crawl. Tên **chủ đầu tư / dự án** (Vinhomes, Masterise Homes, Sun Group, Ecopark…) KHÔNG nằm trong
+danh sách: đó là đối tượng Velis tư vấn, không phải thương hiệu đối thủ. Cấm là tên đơn vị phân phối, tên miền, tác giả,
+slogan, hotline của họ. Mỗi dòng một cụm; ghi chú loại trong ngoặc (phần ngoặc không dùng để quét).
+
+<!-- banned:start -->
+<!-- banned:end -->
