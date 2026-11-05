@@ -104,4 +104,28 @@ slogan, hotline của họ. Mỗi dòng: `- `cụm từ` (loại, nguồn)` — 
 - `Đại lý chiến lược của Masterise Homes` (lời tự giới thiệu)
 - (tác giả, email, Facebook nhân viên, hotline: trùng mục vinhomebysalereal.vn)
 
+### sungroupsr.vn
+
+- `sungroupsr` (tên miền, Facebook)
+- `Sun Group SR` (tên site)
+- `SGSR` (hậu tố title)
+- `SaleReal Investment` (pháp nhân liên quan)
+- `Trần Duy Phúc` (nhà sáng lập – chủ tịch, trang giới thiệu)
+- `Nhật Phạm` (đồng sáng lập)
+- `Nguyễn Duy Pháp` (giám đốc sàn)
+- `Hồ Phúc Hậu` (giám đốc sàn)
+- `Phạm Như Ngọc` (giám đốc sàn)
+- `Nguyễn Minh Quý` (giám đốc sàn)
+- `Sàn Kaizen` (tên sàn)
+- `Sàn Shinka` (tên sàn)
+- `Sàn Kaito` (tên sàn)
+- `hophuchau94` (Facebook)
+- `MinhQuyR` (Facebook)
+- `pham.nhat.113671` (Facebook)
+
 <!-- banned:end -->
+
+### Chờ người dùng xác nhận (KHÔNG nằm trong danh sách quét)
+
+- Vũ Thanh Xuân — "giám đốc sàn" trên trang giới thiệu đội ngũ của sungroupsr.vn (Facebook `xuanvu.bp`). Tên gần trùng CEO Velis
+  (Vũ Xuân). Chưa rõ là người khác hay cùng một người → chưa cấm; hỏi người dùng. Tuyệt đối không cấm cụm "Vũ Xuân".
