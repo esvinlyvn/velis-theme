@@ -159,9 +159,10 @@ function velis_grid( array $cards, string $mod = '4', string $attrs = '' ): stri
 	$cards = array_map( fn( $c ) => preg_replace_callback( '#<span hidden data-nomedia="([^"]*)"></span>#', fn( $m ) => $any ? velis_media_empty( html_entity_decode( $m[1], ENT_QUOTES ) ) : '', $c ), $cards );
 	$n     = count( $cards );
 	$mod = $n <= 2 && ! str_contains( $mod, 'rail' ) && ! str_contains( $attrs, 'data-' ) ? ( 1 === $n ? 'wide' : '2' ) : $mod; // ≤ 2 items: never a row with empty slots
-	$wide  = array( 'wide' => '(min-width: 768px) min(56vw, 740px), 100vw', '2' => '(min-width: 768px) 600px, 100vw' )[ $mod ] ?? '';
+	$wide  = array( 'wide' => '(min-width: 768px) min(70vw, 1000px), 100vw', '2' => '(min-width: 768px) 600px, 100vw' )[ $mod ] ?? '';
 	if ( $wide ) { // cards are wider than in 3–4 column grids: the photo needs a bigger file
-		$cards = preg_replace( '#(<div class="v-card__media"[^>]*><img\b[^>]*?\s)sizes="[^"]*"#', '$1sizes="' . esc_attr( velis_sizes( $wide ) ) . '"', $cards );
+		// × 4/3: a 16:9 photo cropped into a 4:3 card frame is fetched at the frame's height
+		$cards = preg_replace( '#(<div class="v-card__media"[^>]*><img\b[^>]*?\s)sizes="[^"]*"#', '$1sizes="' . esc_attr( velis_sizes( $wide, 1.15 * 4 / 3 ) ) . '"', $cards );
 	}
 	return $cards ? '<div class="v-grid v-grid--' . esc_attr( $mod ) . '"' . $attrs . '>' . implode( '', $cards ) . '</div>' : '';
 }
@@ -669,7 +670,7 @@ function velis_map_html( $p, bool $with_image = true ): string { // false: the t
 	if ( ! $map || ! $with_image ) {
 		return $addr || ! $with_image ? ( $addr ? '<p class="v-source">' . esc_html( $addr ) . '</p>' : '' ) . '<p>' . $link . '</p>' : '';
 	}
-	return '<div class="v-map">' . wp_get_attachment_image( $map, 'large', false, array( 'loading' => 'lazy', 'sizes' => '(min-width: 768px) 720px, 100vw', 'alt' => $area ? 'Bản đồ khu vực ' . $area : 'Bản đồ vị trí ' . $p->post_title ) ) . $link . '</div>'
+	return '<div class="v-map">' . wp_get_attachment_image( $map, 'large', false, array( 'loading' => 'lazy', 'sizes' => velis_sizes( VELIS_SIZES_MAIN, 1 ), 'alt' => $area ? 'Bản đồ khu vực ' . $area : 'Bản đồ vị trí ' . $p->post_title ) ) . $link . '</div>'
 		. '<p class="v-source">' . esc_html( ( $area ? 'Vị trí khu vực ' . $area . ' (chưa có tọa độ riêng của dự án). ' : '' ) . ( $addr ? 'Địa chỉ: ' . $addr . '. ' : '' ) . 'Bản đồ © OpenStreetMap contributors.' ) . '</p>';
 }
 

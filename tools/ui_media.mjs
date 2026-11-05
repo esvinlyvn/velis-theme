@@ -149,7 +149,7 @@ const INFO = [['lowres', 'Ảnh nguồn thiếu độ phân giải'], ['blurryOl
 const settle = async (p) => {
 	await p.evaluate(async () => { for (let y = 0; y < document.documentElement.scrollHeight; y += innerHeight * 0.6) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 150)); } });
 	await p.waitForFunction(() => [...document.images].every((i) => i.complete), null, { timeout: 20000 }).catch(() => {});
-	await p.evaluate(() => scrollTo(0, 0)); await p.waitForTimeout(300);
+	await p.evaluate(() => scrollTo(0, 0)); await p.waitForTimeout(900); // header back to full size (transitions 0.2–0.4 s)
 };
 
 async function loginState(b, base, password) {
