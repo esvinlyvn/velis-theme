@@ -9,7 +9,30 @@ const check = (name, ok, info = '') => { rows.push([name, ok]); console.log(`${o
 const b = await chromium.launch();
 const open = async (path, w = 1366, h = 768) => { const p = await (await b.newContext({ viewport: { width: w, height: h }, reducedMotion: 'reduce' })).newPage(); await p.goto(base + path); return p; };
 
-let p = await open('/the-global-city.html');
+// [mockup] switches change the page in place (no reload), state in the hash, read back on open
+let p = await open('/masteri-park-place.html');
+await p.evaluate(() => { window.__same = 1; });
+await p.click('.mk [data-mk-hero="a"]');
+const sw = await p.evaluate(() => ({ same: window.__same === 1, a: !!document.querySelector('.hero.hero--a'), hash: location.hash, search: location.search }));
+check('Công tắc mockup: đổi hero A tại chỗ, không tải lại, ghi #hero-a', sw.same && sw.a && sw.hash === '#hero-a' && !sw.search, sw);
+await p.click('.mk [data-mk-tam="0"]');
+const tg = await p.evaluate(() => ({ hidden: getComputedStyle(document.querySelector('.tmp')).display === 'none', hash: location.hash, same: window.__same === 1 }));
+check('Công tắc mockup: ẩn nhãn ảnh tạm tại chỗ, ghi #tam-0', tg.hidden && tg.same && /tam-0/.test(tg.hash), tg);
+await p.reload();
+const rd = await p.evaluate(() => ({ a: !!document.querySelector('.hero.hero--a'), tam: document.documentElement.dataset.tam, pressed: document.querySelector('.mk-float [data-mk-hero="a"]').getAttribute('aria-pressed') }));
+check('Công tắc mockup: mở lại đọc trạng thái từ #hash (A, nhãn ẩn)', rd.a && rd.tam === '0' && rd.pressed === 'true', rd);
+await p.click('.mk-float summary'); await p.click('.mk-float [data-mk-hero="b"]');
+check('Công tắc nổi góc dưới phải: đổi về hero B', await p.evaluate(() => !!document.querySelector('.hero.hero--b') && location.hash.startsWith('#hero-b')));
+await p.context().close();
+
+p = await open('/trang-chu.html');
+const f0 = await p.evaluate(() => [document.querySelector('.feats [data-prev]').disabled, document.querySelector('.feats .rail').scrollLeft]);
+await p.click('.feats [data-next]'); await p.waitForTimeout(400);
+const f1 = await p.evaluate(() => [document.querySelector('.feats [data-prev]').disabled, Math.round(document.querySelector('.feats .rail').scrollLeft)]);
+check('NT-10 dải nổi bật: mũi tên "sau" trượt 1 thẻ, mũi tên "trước" bật lại', f0[0] === true && f1[1] > 0 && f1[0] === false, { f0, f1 });
+await p.context().close();
+
+p = await open('/the-global-city.html');
 await p.click('.tabs a[href="#vi-tri"]'); await p.waitForTimeout(300);
 const vt = await p.evaluate(() => ({ top: Math.round(document.getElementById('vi-tri').getBoundingClientRect().top), cur: document.querySelector('.tabs a[aria-current="true"]')?.textContent }));
 check('NT-72 thanh mục: bấm cuộn tới Vị trí, tô mục đang xem', vt.top >= 0 && vt.top < 200 && /Vị trí/.test(vt.cur), vt);

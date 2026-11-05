@@ -3,13 +3,43 @@
 	const q = new URLSearchParams(location.search);
 	const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
-	// [mockup] "ảnh tạm" tags on/off (?tam=0) + hero A/B switch (?hero=a; the hero itself is set before first paint)
-	const tam = q.get('tam') === '0' ? '0' : '1';
-	document.documentElement.dataset.tam = tam;
-	const go = (k, v) => { q.set(k, v); location.search = q.toString(); };
-	const hero = q.get('hero') === 'a' ? 'a' : 'b';
-	$$('[data-mk-hero]').forEach(b => { b.setAttribute('aria-pressed', String(hero === b.dataset.mkHero)); b.onclick = () => go('hero', b.dataset.mkHero); });
-	$$('[data-mk-tam]').forEach(b => { b.setAttribute('aria-pressed', String(b.dataset.mkTam === tam)); b.onclick = () => go('tam', b.dataset.mkTam); });
+	// [mockup] hero A/B + "ảnh tạm" tags, switched in place; state kept in the hash (#hero-a / #hero-b, #tam-0), read on
+	// open (the hero and the tags are already set before first paint by inline scripts)
+	const st = { hero: document.querySelector('.hero--a') ? 'a' : 'b', tam: document.documentElement.dataset.tam || '1' };
+	const save = () => history.replaceState(null, '', '#' + [st.hero === 'a' ? 'hero-a' : 'hero-b', st.tam === '0' ? 'tam-0' : ''].filter(Boolean).join(','));
+	const paint = () => {
+		$$('.hero').forEach(h => {
+			h.classList.toggle('hero--a', st.hero === 'a'); h.classList.toggle('hero--b', st.hero !== 'a');
+			const i = h.querySelector('.hero__media img');
+			if (i) { i.dataset.sizesB ??= i.sizes; i.sizes = st.hero === 'a' ? '100vw' : i.dataset.sizesB; }
+		});
+		document.documentElement.dataset.tam = st.tam;
+		$$('[data-mk-hero]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mkHero === st.hero)));
+		$$('[data-mk-tam]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mkTam === st.tam)));
+	};
+	$$('[data-mk-hero]').forEach(b => { b.onclick = () => { st.hero = b.dataset.mkHero; paint(); save(); }; });
+	$$('[data-mk-tam]').forEach(b => { b.onclick = () => { st.tam = b.dataset.mkTam; paint(); save(); }; });
+	paint();
+	// in-page links scroll without touching the hash, so the switch state survives; dead "#" links do nothing
+	document.addEventListener('click', e => {
+		const a = e.target.closest('a[href^="#"]');
+		if (!a) return;
+		e.preventDefault();
+		const t = a.hash.length > 1 && document.getElementById(a.hash.slice(1));
+		if (t) { t.scrollIntoView({ block: 'start' }); if (t.id === 'noi-dung') t.focus({ preventScroll: true }); }
+	});
+
+	// featured strip: ≤ 4 in the frame, arrows / swipe for the rest, never automatic (NT-10)
+	$$('.feats').forEach(f => {
+		const rail = f.querySelector('.rail'), prev = f.querySelector('[data-prev]'), next = f.querySelector('[data-next]');
+		const step = () => rail.children[0].getBoundingClientRect().width + parseFloat(getComputedStyle(rail).columnGap || 0);
+		const sync = () => { prev.disabled = rail.scrollLeft < 2; next.disabled = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 2; };
+		prev.onclick = () => rail.scrollBy({ left: -step() });
+		next.onclick = () => rail.scrollBy({ left: step() });
+		rail.addEventListener('scroll', sync, { passive: true });
+		addEventListener('resize', sync);
+		sync();
+	});
 
 	// mobile menu: native <dialog>
 	const menu = document.getElementById('menu');

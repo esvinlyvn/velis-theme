@@ -21,7 +21,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 	const rows = [];
 	for (const page of PAGES) for (const [m, w, h, dpr] of M) {
 		const p = await (await b.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: dpr })).newPage();
-		await p.goto(`${base}/${page}.html?hero=a&tam=0`, { waitUntil: 'load' });
+		await p.goto(`${base}/${page}.html#hero-a,tam-0`, { waitUntil: 'load' });
 		await p.waitForFunction(() => document.querySelector('.hero img').complete);
 		// every text line in the hero body: [label, color, x, y, w, h] in CSS px; then hide the text
 		const lines = await p.evaluate(() => {

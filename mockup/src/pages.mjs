@@ -6,19 +6,19 @@ const PHONE = '0911 237 979';
 
 // sizes presets: [media query, slot width]; the last entry has no query
 const S = {
-	heroB: [['(min-width: 1024px)', '1120px'], ['(min-width: 768px)', '760px'], ['', '(100vw - 32px)']],
+	heroB: [['(min-width: 1600px)', '1320px'], ['(min-width: 1248px)', '1200px'], ['(min-width: 768px)', '(100vw - 48px)'], ['', '(100vw - 32px)']], // = .wrap (NT-17)
 	card3: [['(min-width: 1024px)', '380px'], ['(min-width: 768px)', '(50vw - 36px)'], ['', '(100vw - 32px)']],
 	card3side: [['(min-width: 1024px)', '250px'], ['(min-width: 768px)', '(50vw - 36px)'], ['', '(100vw - 32px)']],
 	card2side: [['(min-width: 1024px)', '390px'], ['(min-width: 768px)', '(50vw - 36px)'], ['', '(100vw - 32px)']],
 	wide: [['(min-width: 1024px)', '440px'], ['(min-width: 768px)', '(55vw - 40px)'], ['', '(100vw - 32px)']],
-	thumb: [['', '96px']],
+	thumb: [['', '64px']],
 	within: [['', '120px']],
 	half: [['(min-width: 1024px)', '(50vw - 64px)'], ['', '(100vw - 32px)']],
 	read: [['(min-width: 768px)', '720px'], ['', '(100vw - 32px)']],
 	gallery: [['(min-width: 1024px)', '820px'], ['', '86vw']],
 };
 
-export function render({ home, tgc, mpp, content, img, logo, logoWhite }) {
+export function render({ home, tgc, mpp, content, img, usable, logo, logoWhite }) {
 	const sechead = (h, extra = '') => `<header class="sechead${extra ? ' sechead--row' : ''}"><div>${h.eyebrow ? `<p class="eyebrow">${esc(h.eyebrow)}</p>` : ''}<h2>${esc(h.title)}</h2>${h.lead ? `<p>${esc(h.lead)}</p>` : ''}</div>${extra}</header>`;
 
 	const header = () => `
@@ -51,8 +51,9 @@ export function render({ home, tgc, mpp, content, img, logo, logoWhite }) {
 	<div class="footer__bottom"><p class="mb-0">${esc(copy)}</p><a href="#">${esc(policy)}</a></div>
 </div></footer>
 <nav class="cta" aria-label="Liên hệ nhanh"><a href="#">${esc(home.cta[0])}</a><a href="#">${esc(home.cta[1])}</a><a href="#tu-van">${esc(home.cta[2])}</a></nav>
+<details class="mk-float"><summary aria-label="Công tắc mockup">A/B</summary><div class="mk__row">Hero <button type="button" data-mk-hero="a">A</button><button type="button" data-mk-hero="b">B</button> Nhãn <button type="button" data-mk-tam="1">Hiện</button><button type="button" data-mk-tam="0">Ẩn</button></div></details>
 <aside class="mk" aria-label="Công tắc mockup"><div class="wrap">
-	<p><b>Mockup bước 2</b> – công tắc chỉ dùng để duyệt, không đưa vào theme.</p>
+	<p><b>Mockup bước 2</b> – công tắc chỉ dùng để duyệt, không đưa vào theme. Trạng thái ghi vào địa chỉ: <code>#hero-a</code> / <code>#hero-b</code>, <code>#tam-0</code>.</p>
 	<div class="mk__row">Hero: <button type="button" data-mk-hero="a">A – tràn</button><button type="button" data-mk-hero="b">B – khung có lề</button>
 	&nbsp; Nhãn ảnh tạm: <button type="button" data-mk-tam="1">Hiện</button><button type="button" data-mk-tam="0">Ẩn</button></div>
 </div></aside>`;
@@ -61,7 +62,7 @@ export function render({ home, tgc, mpp, content, img, logo, logoWhite }) {
 	const form = (title, lead) => {
 		const f = home.form;
 		return `
-<section class="section section--tint" id="tu-van" aria-labelledby="tu-van-h"><div class="wrap contact">
+<section class="section section--dark" id="tu-van" aria-labelledby="tu-van-h"><div class="wrap contact">
 	<div><p class="eyebrow">${esc(f.eyebrow)}</p><h2 id="tu-van-h">${esc(title)}</h2><p>${esc(lead ?? f.lead)}</p>
 		<dl>${f.contact.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl></div>
 	<form class="form" novalidate>
@@ -76,10 +77,10 @@ export function render({ home, tgc, mpp, content, img, logo, logoWhite }) {
 </div></section>`;
 	};
 
-	// hero: same text/button structure for A and B; B is the default, ?hero=a switches before the image is chosen
-	const hero = (h, { lead, chips, buttons }) => `
-<section class="hero hero--b" aria-labelledby="h1">
-	<figure class="hero__media">${img(h.img, { alt: h.alt, sizes: S.heroB, frame: 16 / 9, lcp: true, tmp: 'ảnh tạm – ảnh thật sẽ nét' })}<script>if(/[?&]hero=a(&|$)/.test(location.search)){const s=document.currentScript;s.closest('.hero').classList.replace('hero--b','hero--a');s.parentNode.querySelector('img').sizes='100vw'}</script></figure>
+	// hero: same text/button structure for A and B; B is the default, #hero-a switches before the image is chosen
+	const hero = (h, { lead, chips, buttons, home: isHome }) => `
+<section class="hero hero--b${isHome ? ' hero--home' : ''}" aria-labelledby="h1">
+	<figure class="hero__media">${img(h.img, { alt: h.alt, sizes: S.heroB, frame: 2.4, lcp: true, tmp: 'ảnh tạm – ảnh thật sẽ nét' })}<script>if(/(^#|[,&])hero-a(?![\\w-])/.test(location.hash)){const s=document.currentScript,i=s.parentNode.querySelector('img');s.closest('.hero').classList.replace('hero--b','hero--a');i.dataset.sizesB=i.sizes;i.sizes='100vw'}</script></figure>
 	<div class="hero__body wrap">
 		<p class="eyebrow">${esc(h.eyebrow)}</p>
 		<h1 id="h1">${esc(h.title)}</h1>
@@ -96,7 +97,7 @@ export function render({ home, tgc, mpp, content, img, logo, logoWhite }) {
 
 	const card = (c, sizes, { kicker = '', lines = [], more, frame = 4 / 3 } = {}) => `
 <article class="card">
-	${c.img ? `<div class="card__media">${img(c.img, { alt: '', sizes, frame })}</div>` : `<div class="card__media card__media--empty"><span>${esc(c.title)}</span></div>`}
+	${c.img && usable(c.img) ? `<div class="card__media">${img(c.img, { alt: '', sizes, frame })}</div>` : `<div class="card__media card__media--empty"><span>${esc(c.title)}</span></div>`}
 	<div class="card__body">
 	${kicker ? `<p class="eyebrow">${esc(kicker)}</p>` : ''}
 	<h3 class="card__title"><a href="#">${esc(c.title)}</a></h3>
@@ -125,10 +126,10 @@ export function render({ home, tgc, mpp, content, img, logo, logoWhite }) {
 	/* ---------- Trang chủ ---------- */
 	const H = home;
 	const homeBody = `${header()}
-<main id="noi-dung">
-${hero(H.hero, { lead: H.hero.lead, buttons: `<a class="btn" href="#tu-van">${esc(H.hero.buttons[0])}</a><a class="btn btn--line" href="#du-an">${esc(H.hero.buttons[1])}</a>` })}
-<section class="section section--tight" aria-labelledby="noi-bat-h"><div class="wrap">
-	<p class="eyebrow" id="noi-bat-h">DỰ ÁN NỔI BẬT</p>
+<main id="noi-dung" tabindex="-1">
+${hero(H.hero, { home: true, lead: H.hero.lead, buttons: `<a class="btn" href="#tu-van">${esc(H.hero.buttons[0])}</a><a class="btn btn--line" href="#du-an">${esc(H.hero.buttons[1])}</a>` })}
+<section class="section section--tight feats" aria-labelledby="noi-bat-h"><div class="wrap">
+	<div class="feats__head"><p class="eyebrow" id="noi-bat-h">DỰ ÁN NỔI BẬT</p><div class="feats__nav"><button type="button" data-prev aria-label="Dự án trước">‹</button><button type="button" data-next aria-label="Dự án sau">›</button></div></div>
 	<div class="rail" data-n="${H.feats.length}">${H.feats.map(f => `<a class="feat" href="#"><span class="feat__img">${img(f.img, { alt: '', sizes: S.thumb, frame: 4 / 3, tmp: '' })}</span><span><b>${esc(f.name)}</b><small>${esc(f.meta)}</small></span></a>`).join('')}</div>
 	<dl class="numbers">${H.numbers.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
 </div></section>
@@ -148,7 +149,7 @@ ${hero(H.hero, { lead: H.hero.lead, buttons: `<a class="btn" href="#tu-van">${es
 	${sechead(H.sections[2], `<a class="btn btn--text" href="#">${esc(H.sections[2].more)} →</a>`).replace('<h2>', '<h2 id="bai-h">')}
 	${grid(H.posts.map(p => postCard(p, S.card3)))}
 </div></section>
-${form(H.form.title, H.form.lead).replace('section--tint', '')}
+${form(H.form.title, H.form.lead)}
 </main>
 ${footer()}`;
 
@@ -159,11 +160,11 @@ ${footer()}`;
 	const high = T.zones.filter(z => !z.title.startsWith('Thấp tầng')), low = T.zones.filter(z => z.title.startsWith('Thấp tầng'));
 	const c = k => content[`tgc-${k}`];
 	const tgcBody = `${header()}
-<main id="noi-dung">
+<main id="noi-dung" tabindex="-1">
 ${crumbs(T.hero.crumbs)}
 ${tabs(T.nav)}
 ${hero(T.hero, { chips: T.hero.chips, buttons: `<a class="btn" href="#tu-van">Nhận bảng giá</a><a class="btn btn--line" href="#">Gọi ${PHONE}</a>` })}
-${facts([['Vị trí', F.velis_address, '#vi-tri'], ['Chủ đầu tư', 'Masterise Homes'], ['Quy mô', F.velis_scale], ['Số phân khu', '5'], ['Sản phẩm', 'Biệt thự, Căn hộ, Nhà phố liền kề, Shophouse'], ['Bàn giao', T.side.dl[1][1]], ['Pháp lý', F.velis_legal.replace(/^Hình thức sở hữu:\s*/, '')], ['Giá', 'Chưa công bố']])}
+${facts([['Chủ đầu tư', 'Masterise Homes'], ['Quy mô', F.velis_scale], ['Số phân khu', '5'], ['Giá', 'Chưa công bố'], ['Vị trí', F.velis_address, '#vi-tri'], ['Sản phẩm', 'Biệt thự, Căn hộ, Nhà phố liền kề, Shophouse'], ['Bàn giao', T.side.dl[1][1]], ['Pháp lý', F.velis_legal.replace(/^Hình thức sở hữu:\s*/, '')]])}
 <div class="wrap page">
 <div class="page__main">
 	<section class="block" id="tong-quan">${sechead(T.heads['tong-quan'])}${prose(c('tong-quan'), 'tong-quan')}</section>
@@ -196,11 +197,11 @@ ${footer()}`;
 	/* ---------- Masteri Park Place ---------- */
 	const M = mpp;
 	const mppBody = `${header()}
-<main id="noi-dung">
+<main id="noi-dung" tabindex="-1">
 ${crumbs(M.hero.crumbs)}
 ${tabs(M.nav)}
 ${hero(M.hero, { chips: M.hero.chips, buttons: `<a class="btn" href="#tu-van">Nhận bảng giá</a><a class="btn btn--line" href="#">Gọi ${PHONE}</a>` })}
-${facts([['Vị trí', M.overview[0][1], '#vi-tri'], ['Chủ đầu tư', 'Masterise Homes'], ['Quy mô', M.fields.velis_scale], ['Diện tích', M.fields.velis_area], ['Bàn giao', M.fields.velis_handover], ['Giá', 'Chưa công bố']])}
+${facts([['Chủ đầu tư', 'Masterise Homes'], ['Quy mô', M.fields.velis_scale], ['Giá', 'Chưa công bố'], ['Vị trí', M.overview[0][1], '#vi-tri'], ['Diện tích', M.fields.velis_area], ['Bàn giao', M.fields.velis_handover]])}
 <div class="wrap page">
 <div class="page__main">
 	<section class="block" id="tong-quan">${sechead(M.heads['tong-quan'])}

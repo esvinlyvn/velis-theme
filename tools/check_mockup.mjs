@@ -21,7 +21,7 @@ const res = {}; const boxes = {}; const details = [];
 for (const page of PAGES) for (const hero of ['a', 'b']) for (const [s, w, h, dpr] of SCREENS) {
 	const ctx = await b.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: dpr, reducedMotion: 'reduce' }); // no smooth scroll while measuring
 	const p = await ctx.newPage();
-	await p.goto(`${base}/${page}.html?hero=${hero}`, { waitUntil: 'load' });
+	await p.goto(`${base}/${page}.html#hero-${hero}`, { waitUntil: 'load' });
 	await p.evaluate(async () => { for (let y = 0; y < document.documentElement.scrollHeight; y += innerHeight * 0.6) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 60)); } scrollTo(0, 0); });
 	await p.evaluate(() => Promise.all([...document.images].map((i) => { i.loading = 'eager'; return i.decode().catch(() => {}); })));
 	await p.waitForTimeout(300);

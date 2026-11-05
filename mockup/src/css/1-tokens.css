@@ -23,6 +23,7 @@
 	--on-dark: #FFFFFF;
 	--on-dark-muted: #B9B9B9;
 	--error: #B3261E;
+	--error-on-dark: #F2B8B5; /* error text on --dark (NT-13 dark form); proposed for DESIGN.md */
 
 	--f-head: "Playfair Display", "Playfair Fallback", Georgia, "Times New Roman", serif;
 	--f-body: "Be Vietnam Pro", "Be Vietnam Pro Fallback", Arial, sans-serif;

@@ -21,6 +21,10 @@ const ZOOM = 1.15; // = --zoom in 4-components.css
 const ids = Object.fromEntries([...read('docs/KIEM-KE-ANH.md').matchAll(/`([^`]+\.(?:webp|jpe?g|png))` \(ID (\d+)\)/g)].map(m => [m[1], m[2]]));
 const marks = Object.fromEntries(read('data/kiem-ke-anh-mat.csv').trim().split('\n').slice(1).map(l => l.split(';')).map(([id, co]) => [id, co]));
 const flag = f => marks[ids[f]] ?? 'chua-soat';
+// NT-23: a logo / printed text the crop cannot hide → the photo is not used in hero / card / side column (named frame instead)
+const usable = ref => !/logo-cdt|chu-in-san|logo-khac/.test(flag(basename(ref)));
+const replaced = new Set();
+const usableLogged = ref => { const ok = usable(ref); if (!ok) replaced.add(basename(ref)); return ok; };
 
 // --- photos
 const images = json('mockup/src/data/images.json');
@@ -64,7 +68,7 @@ const logo = b64('theme/velis/assets/brand/velis-logo-horizontal.svg', 'image/sv
 const logoWhite = b64('theme/velis/assets/brand/velis-logo-horizontal-white.svg', 'image/svg+xml');
 
 const { render } = await import(join(SRC, 'pages.mjs'));
-const pages = render({ home: json('mockup/src/data/home.json'), tgc: json('mockup/src/data/tgc.json'), mpp: json('mockup/src/data/mpp.json'), content, img, logo, logoWhite });
+const pages = render({ home: json('mockup/src/data/home.json'), tgc: json('mockup/src/data/tgc.json'), mpp: json('mockup/src/data/mpp.json'), content, img, usable: usableLogged, logo, logoWhite });
 
 mkdirSync(DIST, { recursive: true });
 for (const [name, { title, body }] of Object.entries(pages)) {
@@ -75,6 +79,7 @@ for (const [name, { title, body }] of Object.entries(pages)) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>${title}</title>
+<script>document.documentElement.dataset.tam = /(^#|[,&])tam-0(?![\\w-])/.test(location.hash) ? '0' : '1'</script>
 <style>${css}</style>
 </head>
 <body>
@@ -92,5 +97,6 @@ ${body}
 	console.log(`${name}.html  ${mb.toFixed(2)} MB`);
 }
 const marked = new Set(used.filter(u => u.marked).map(u => u.f)), all = new Set(used.map(u => u.f));
+console.log(`NT-23 ảnh có logo không che được → khung có tên ở hero / thẻ / cột phải: ${[...replaced].join(", ") || "không"}`);
 console.log(`ảnh: ${all.size} file, phóng cắt ${marked.size} (X-03 = a), chưa soát: ${[...all].filter(f => flag(f) === 'chua-soat').join(', ') || 'không'}`);
 console.log(`CSS: ${cssKB.min.toFixed(1)} KB min (≤ 45), ${cssKB.gzip.toFixed(1)} KB gzip (≤ 12) – X-07 ${cssKB.min <= 45 && cssKB.gzip <= 12 ? 'ĐẠT' : 'KHÔNG ĐẠT'}`);
