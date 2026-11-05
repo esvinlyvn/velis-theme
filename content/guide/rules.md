@@ -23,7 +23,7 @@ dữ liệu thật trên velisrealty.vn), không lấy từ site đối thủ.
 Người viết toàn bộ nội dung Velis là **CEO Velis Realty – Vũ Xuân** (họ tên đầy đủ: Vũ Thanh Xuân, người dùng xác nhận 2026-11-05;
 nguồn: `BRIEF.md`; trang tác giả `/chuyen-gia/vu-xuan/`).
 Tiểu sử CEO cho Velis phải viết mới; không chép lời giới thiệu trên site đối thủ. Kinh nghiệm cũ chỉ mô tả chung
-("từng quản lý sàn tại một đơn vị phân phối"), không nêu tên đơn vị cũ hay tên sàn cũ, trừ khi người dùng quyết định khác.
+("từng quản lý sàn tại một đơn vị phân phối"), không nêu tên đơn vị cũ hay tên sàn cũ (người dùng duyệt 2026-11-05).
 Không dùng tên, chức danh hay lời giới thiệu của bất kỳ ai khác. Thông tin CEO chưa có trong repo (tiểu sử, năm kinh nghiệm…)
 thì ghi TODO và hỏi người dùng, không tự đặt.
 
