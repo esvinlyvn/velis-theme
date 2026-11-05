@@ -241,3 +241,8 @@ Dữ liệu: `content/data/entities/entities.csv`. Silo `/chu-dau-tu/` giữ ngu
 4. **Schema `Organization`**: `name` = thương hiệu; `legalName` = pháp nhân (chỉ khi đã xác minh).
 5. `so_huu_cong_ty_du_an` = **Chưa xác minh**: vẫn dùng tên thị trường như site đang làm, nhưng dòng đó có `uu_tien_kiem_tra`; khi viết bài mới
    cho dự án đó, báo người dùng trước.
+
+## 14. Việc ngoài `content/` (người dùng chốt 2026-11-05)
+
+Phát hiện việc cần làm ngoài `content/` (theme, `data/`, `docs/`, `tools/`, BRIEF…): **không tự làm, không hỏi người dùng**; ghi thêm một dòng
+vào `content/handoff-main.md` (việc, file, căn cứ, trạng thái) và nhắc trong báo cáo.
