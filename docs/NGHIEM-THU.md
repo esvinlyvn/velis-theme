@@ -22,8 +22,8 @@ cáo giai đoạn 3–4 (vòng r5 "ấn tượng đầu tiên", r6 "sửa tổng
 | M4 | 960×540 | 2 | Chrome phóng 200% trên màn 1920 (dưới 1024 px → bố cục tablet, header mobile) |
 | M5 | 390×844 | 2 | điện thoại |
 
-Bộ đo tự động chạy thêm 1066 px và DPR 1 / 1,25 / 2 cho từng viewport (để bắt lỗi phụ thuộc DPR); 7 khung cũ của CLAUDE.md
-(360/390/430/768/1024/1366/1920) – xem xung đột X-08.
+Quyết định X-08 = (a): ma trận M1–M5 dùng cho ảnh mốc và soát mắt; 7 khung của CLAUDE.md (360/390/430/768/1024/1366/1920)
+dùng cho kiểm tự động (tràn ngang, tương phản, vùng bấm…). Bộ đo `--suite` chạy thêm 1066 px và DPR 1 / 1,25 / 2 cho từng viewport.
 
 ### Trang chuẩn (30 trang của bộ đo – `tools/suite-pages.txt`)
 
@@ -81,7 +81,7 @@ Cột *Màn*: `MT` = ma trận M1–M5 · `BĐ` = viewport bộ đo 390/1066/136
 | NT-05 | Bố cục | Khung nội dung 1200 px, từ 1600 px là 1320 px; lề 16 / 24 / 32 px (mobile / ≥ 768 / ≥ 1280); khung đọc 720 px | soát mắt + bước 4 (đo `.v-wrap`) | đúng số | 30 | MT | DESIGN Layout, r6 mục 9 |
 | NT-06 | Bố cục | Danh sách ≤ 2 mục không để hàng có ô trống: 1 mục = thẻ ngang rộng hết khung, 2 mục = 2 cột | tự động: `ui_layout.mjs` `grid` (hàng 1 thẻ ≤ 50 %) | 0 | 30 | BĐ | DESIGN "Bố cục 2 cột", r6 |
 | NT-07 | Bố cục | Lưới bài ≥ 3 cột: 0 ô trống hàng cuối; được thêm tối đa 1 thẻ "Xem tất cả bài về {cụm} →" | tự động: `mediaAudit` `postgrid` | 0 ô | 30 | BĐ | r8 mục 9 |
-| NT-08 | Bố cục | Lưới khác (dự án, phân khu, chủ đầu tư): báo số ô trống hàng cuối | tự động: `mediaAudit` `gridinfo` (thông tin) | chỉ báo – xem X-06 | 30 | BĐ | r8 mục 9 |
+| NT-08 | Bố cục | Mọi lưới thẻ (dự án, phân khu, chủ đầu tư, bài): 0 ô trống hàng cuối – lấp bằng thẻ "Xem tất cả" hoặc đổi số cột theo số thẻ (X-06 = b) | tự động: `mediaAudit` `gridinfo` (lỗi từ 2026-11-05) | 0 ô | 30 | BĐ | r8 mục 9, quyết định X-06 |
 | NT-09 | Bố cục | Thẻ cùng một hàng / nhóm cao bằng nhau | tự động một phần: `mediaAudit` `feats` (dải nổi bật); lưới khác: bước 4 (so chiều cao thẻ cùng `top`) | lệch ≤ 1 px | 30 | BĐ ≥ 768 | DESIGN "Thẻ", r8 mục 7 |
 | NT-10 | Bố cục | Dải "Dự án nổi bật" ở hero trang chủ: mọi dự án có ảnh thật, 4 thẻ trong khung (nhiều hơn trượt ngang, có mũi tên mờ ở đầu/cuối), tên ≤ 2 dòng, khu vực 1 dòng "…", thẻ cao bằng nhau | tự động: `feats` + tương tác bước 4; soát mắt | lệch ≤ 1 px | TC | MT | r6 mục 12, r7 mục 9, r8 mục 7 |
 | NT-11 | Bố cục | Nhịp section 96 / 64 px; đầu mục: eyebrow → tiêu đề Playfair (H2) → đoạn dẫn ≤ 2 dòng → kẻ champagne 48×1 | soát mắt | đúng nhịp | 30 | MT | DESIGN "Đầu mục section" |
@@ -96,9 +96,9 @@ Cột *Màn*: `MT` = ma trận M1–M5 · `BĐ` = viewport bộ đo 390/1066/136
 | Mã | Nhóm | Mô tả | Cách đo | Ngưỡng | Trang | Màn | Nguồn |
 |---|---|---|---|---|---|---|---|
 | NT-20 | Ảnh | Không ảnh hỏng hiển thị; ảnh lỗi khi tải → thử cỡ 1024 rồi khung dự phòng có tên (`is-broken`) | tự động: `mediaAudit` `broken`; `audit()` `images`; `ui_layout` `images`; test `image-fallback.test.mjs` | 0 | 30 | BĐ | r6, r7, tương tác 14, 20 |
-| NT-21 | Ảnh | Chọn đúng file: nếu srcset có file ≥ khung × DPR × hệ số phóng × tỉ lệ cắt (cover) thì file đang hiện ≥ mức đó; không có thì là file lớn nhất | tự động: `mediaAudit` `wrong` (bề rộng thật qua `new Image(currentSrc)`) | 0 | 30 | BĐ | r8 mục 3, 4 |
+| NT-21 | Ảnh | Chọn đúng file (X-01 = d): **ảnh LCP** (ảnh lớn màn hình đầu) dùng file ≥ khung × DPR (× tỉ lệ cắt cover); **mọi ảnh khác** chọn theo khung × DPR, không nhân biên 1,15; không có file đủ thì là file lớn nhất | tự động: `mediaAudit` `wrong` (bề rộng thật qua `new Image(currentSrc)`); bước 3 tách ngưỡng ảnh LCP / ảnh khác | 0 | 30 | BĐ | r8 mục 3, 4; quyết định X-01 |
 | NT-22 | Ảnh | Ảnh nguồn đủ độ phân giải cho khung | tự động: `mediaAudit` `lowres` | **thông tin** đến khi ảnh đạt chuẩn được nạp (`docs/CHUAN-ANH.md`); sau đó 0 | 30 | BĐ | r8 mục 5 |
-| NT-23 | Ảnh | 0 watermark / huy hiệu / logo / chữ in sẵn nhìn thấy | soát mắt: `node tools/shots_r8.mjs --badges` (20 khung chứa ảnh, 1366 + 390); bước 4: tự động hóa khi có ảnh đạt chuẩn (NT-35) | 0 | 20 ảnh mẫu + màn hình đầu | M1, M5 | r8 mục 2 |
+| NT-23 | Ảnh | 0 watermark / huy hiệu / logo / chữ in sẵn nhìn thấy. Ảnh có dấu (cờ trong `data/kiem-ke-anh-mat.csv`) được cắt khung; **ảnh sạch không cắt** (X-03 = a) | soát mắt: `node tools/shots_r8.mjs --badges` (20 khung chứa ảnh, 1366 + 390); bước 3: thuộc tính cắt sinh từ cờ dấu | 0 dấu thấy; 0 ảnh sạch bị cắt | 20 ảnh mẫu + màn hình đầu | M1, M5 | r8 mục 2, quyết định X-03 |
 | NT-24 | Ảnh | Khung dự phòng: thẻ không ảnh trong nhóm có ảnh → khung có **tên** (Playfair, căn giữa, nền champagne nhạt), cùng tỉ lệ; cả nhóm không ảnh → thẻ chữ | tự động: `mediaAudit` `mixed` + `noname`; `ui_layout` `fallback` | 0 | 30 | BĐ | r7 mục 3, 4; r8 mục 8 |
 | NT-25 | Ảnh | Không khung ảnh / bản đồ > 100 px mà không có ảnh | tự động: `ui_layout` `media` | 0 | 30 | BĐ | r6 mục 0(c), 2 |
 | NT-26 | Ảnh | Ảnh có `width`/`height` và `alt`; lazy trừ ảnh màn hình đầu; ảnh LCP `fetchpriority="high"` | tự động: `check_onpage.mjs` rule `image`; Lighthouse; soát | 0 thiếu | 30 + toàn site | – | BRIEF Kỹ thuật, DESIGN |
@@ -108,7 +108,7 @@ Cột *Màn*: `MT` = ma trận M1–M5 · `BĐ` = viewport bộ đo 390/1066/136
 | NT-30 | Ảnh | Mặt bằng: ≤ 50 % cột, cao ≤ 520 px, `contain`, bấm phóng (`<dialog>`); file gốc hỏng → lùi cỡ 1024, khung vẫn theo thiết kế | soát mắt + tương tác TT-73 | – | DA | MT | DESIGN "Tab", r7 mục 1, r8 mục 6 |
 | NT-31 | Ảnh | Ảnh minh họa ở thẻ / hero không có chữ đè (không poster, không infographic) | soát mắt: `docs/KIEM-KE-ANH.md` + tờ ảnh | 0 | 30 | – | DESIGN "Ảnh", r6 mục 4 |
 | NT-32 | Ảnh | Kiểu hiển thị ảnh quyết định ở phía server theo **cỡ và tỉ lệ của file**, giống nhau trên mọi màn hình và DPR; không kéo giãn quá hệ số 1,5 (`docs/CHUAN-ANH.md` mục 3) | bước 4: so thuộc tính kiểu trên HTML với `media_details` + NT-01 | 0 sai kiểu | 30 | BĐ | bước 1 mục 2.2 |
-| NT-33 | Ảnh | Mọi ảnh dùng ở khung cắt (cover) có tiêu điểm (focal point) | bước 4: đọc trường tiêu điểm qua REST cho ảnh trong `KIEM-KE-ANH` | 100 % | toàn site | – | bước 1 mục 2.2 |
+| NT-33 | Ảnh | Mọi ảnh dùng ở khung cắt (cover) có tiêu điểm: **9 vị trí** (trái / giữa / phải × trên / giữa / dưới) chọn bằng danh sách thả xuống (F-B) | bước 4: đọc trường tiêu điểm qua REST cho ảnh trong `KIEM-KE-ANH` | 100 % | toàn site | – | bước 1 mục 2.2, quyết định F-B |
 | NT-34 | Ảnh | Mỗi trang dự án đúng 1 bản đồ vị trí (bản đồ trong nội dung cũ thắng bản đồ khu vực) | soát + bước 4 (đếm `.v-map` + ảnh bản đồ trong `.v-prose`) | 1 | DA | – | r7 mục 6 |
 | NT-35 | Ảnh | Ảnh đầu vào đạt `docs/CHUAN-ANH.md` (cỡ, tỉ lệ, không dấu) cho vị trí đang dùng | tự động: `tools/kiem_ke_anh.mjs` (cỡ) + `data/kiem-ke-anh-mat.csv` (soát mắt dấu) | thông tin; mục tiêu 100 % hero + thẻ trước ra mắt – X-02 | DA, TC, BV | – | bước 1 mục 2 |
 | NT-36 | Ảnh | Hộp "Nằm trong" luôn có ảnh nhỏ (của cha, không có thì của đại đô thị) | soát mắt | – | phân khu, dòng thấp tầng | M1 | r6 mục 3 |
@@ -118,21 +118,23 @@ Cột *Màn*: `MT` = ma trận M1–M5 · `BĐ` = viewport bộ đo 390/1066/136
 
 | Mã | Nhóm | Mô tả | Cách đo | Ngưỡng | Trang | Màn | Nguồn |
 |---|---|---|---|---|---|---|---|
-| NT-40 | Hero | Kiểu hero chọn theo quy tắc `CHUAN-ANH.md` mục 3 (ảnh đạt → hero A tràn toàn khung; dưới chuẩn → kiểu dự phòng định sẵn), giống nhau ở mọi DPR | NT-01 + NT-32 + soát màn hình đầu | đúng kiểu | TC, DA | MT | r8 mục 1, bước 1 mục 2.2 |
+| NT-40 | Hero | Kiểu hero chọn ở server theo cỡ **file** (X-02 = b): ảnh đạt chuẩn → kiểu A "tràn"; dưới chuẩn → kiểu B "khung có lề" (ảnh trong khung có lề trên nền Velis, chữ ngoài ảnh, kéo giãn ≤ 1,5 ở M1–M5). Hai kiểu cùng cấu trúc chữ và nút; giống nhau ở mọi DPR | NT-01 + NT-32 + soát màn hình đầu | đúng kiểu | TC, DA | MT | r8 mục 1, bước 1 mục 2.2, quyết định X-02 |
 | NT-41 | Hero | Lớp phủ tối sau khối chữ là **chuyển sắc liền mạch** từ mép khối chữ ra ngoài; không thành mảng mờ có cạnh / bo góc nhìn thấy, không thấy biên trên nền trời | soát mắt (màn hình đầu M1–M4); bước 4: lấy độ sáng dọc 1 hàng ngang qua vùng trời, đạo hàm lớn nhất < ngưỡng | 0 biên nhìn thấy | TC, DA | M1–M4 | người soát sau r8 |
 | NT-42 | Hero | Tương phản chữ trên ảnh hero (eyebrow, H1, lead, chip) đo bằng điểm ảnh, nền = phân vị 98 độ sáng | tự động: `check_ui.mjs` `photoContrast` | ≥ 4,5:1 (chữ ≥ 24 px hoặc ≥ 18,66 px đậm: 3:1) | TC, DA | MT + 7 khung | DESIGN Hero A, r6 mục 6 |
 | NT-43 | Hero | Desktop: ≥ 60 % diện tích ảnh hero giữ độ sáng gốc; khối chữ ≤ min(600 px, 46vw), góc trái dưới | soát mắt + bước 4 (tỉ lệ điểm ảnh bị phủ) | ≥ 60 % | TC, DA | M1–M3 | DESIGN Hero A, r6 mục 6 |
 | NT-44 | Hero | Thành phần hero: breadcrumb (nền nhỏ riêng), eyebrow chủ đầu tư · khu vực, H1, 3–4 chip, 2 nút; trang dự án ~60vh; mobile: ảnh 4:3 trên, chữ trên dải tối đặc, không bóng chữ | soát mắt | đủ thành phần | TC, DA | MT | DESIGN, r7 mục 11 |
 | NT-45 | Hero | Chip ghép nhãn + giá trị không viết hoa giữa câu ("Bàn giao từ tháng 11/2023") | test `components-test.php` (`velis_label_value`); bước 4: DOM – chip khớp `/\s(Từ|Dự kiến|Quý|Năm|Tháng)\b/` = lỗi | 0 | DA | – | r8 mục 14 |
 | NT-46 | Hero | Bài test 5 giây màn hình đầu: trả lời được **A** Velis là ai · **B** trang gì · **C** có sản phẩm gì · **D** làm gì tiếp | soát mắt màn hình đầu 6 trang Đ + bài dài | 4/4 ở cả 5 màn | Đ | MT | r5 |
+| NT-47 | Hero | Lớp phủ hero kiểu A: **một** lớp chuyển sắc tuyến tính phủ **toàn bộ** khung hero, trái → phải (được thêm một lớp dọc nhẹ ở đáy cho vùng nút); cấm mảng phủ có kích thước riêng, bo góc, blur, `radial-gradient`, `box-shadow` / `text-shadow` làm nền chữ; không thấy cạnh / biên ở M1–M5; tương phản chữ ≥ 4,5:1 đo tại **5 điểm nền** sau mỗi dòng chữ trên ảnh sáng nhất đang dùng | tự động: `mediaAudit` `heroOverlay` (CSS: số lớp, loại gradient, phủ đủ khung, không radius / filter / shadow); `tools/mockup_contrast.mjs` (5 điểm / dòng); soát mắt ảnh cận ranh giới | 0 vi phạm; ≥ 4,5:1 mọi điểm | TC, DA | M1–M5 | người dùng soát staging 05/11 |
+| NT-48 | Hero | Không hộp nền riêng sau breadcrumb, dòng chủ đầu tư / khu vực, chip, tiêu đề trên hero; chữ đặt thẳng trên vùng tối; chip chỉ viền mảnh, nền trong suốt; mobile (< 768 px) ảnh ở trên, chữ ở dưới trên nền liền màu, không phủ | tự động: `mediaAudit` `heroBox` (nền + `box-shadow` của chữ hero và tổ tiên trong hero) | 0 | TC, DA | M1–M5 | người dùng soát staging 05/11 |
 
 ### 2.4 Thẻ, dữ liệu, chữ
 
 | Mã | Nhóm | Mô tả | Cách đo | Ngưỡng | Trang | Màn | Nguồn |
 |---|---|---|---|---|---|---|---|
 | NT-50 | Thẻ | Thẻ: ảnh 4:3, cả thẻ bấm được, một link chữ cùng kiểu ở đáy ("Xem dự án →"…); không trạng thái → không nhãn; khu vực cấp cụ thể nhất; thẻ chủ đầu tư thiếu logo → khung logo trung tính | soát mắt + NT-87 | – | 30 | MT | DESIGN "Thẻ", TEMPLATES vòng sửa 2 |
-| NT-51 | Dữ liệu | Thiếu dữ liệu → ẩn khối, không chữ giữ chỗ ("đang cập nhật"); quy tắc giá – xem X-05 | soát mắt + test `components-test.php` (`velis_table`) | 0 chữ giữ chỗ | 30 | – | DESIGN "Khi thiếu dữ liệu" |
-| NT-52 | Dữ liệu | Thanh thông tin nhanh: đủ ô có dữ liệu, giá trị ≤ ~45 ký tự (dài thì "…" + "Chi tiết"), ≤ 2 dòng, ô cùng chiều cao, không ô lẻ; 2 cột mobile / 3 tablet / 6 desktop ≥ 1280 | soát mắt + bước 4 (chiều cao ô) | lệch ≤ 1 px | DA | MT | DESIGN, r6 mục 20 |
+| NT-51 | Dữ liệu | Thiếu dữ liệu → ẩn khối, không chữ giữ chỗ ("đang cập nhật"). Giá (X-05 = a): **thẻ không hiện dòng giá**; trang dự án / phân khu hiện ô Giá = "Chưa công bố" trên thanh thông tin | soát mắt + test `components-test.php` (`velis_table`) | 0 chữ giữ chỗ | 30 | – | DESIGN "Khi thiếu dữ liệu", quyết định X-05 |
+| NT-52 | Dữ liệu | Thanh thông tin nhanh: đủ ô có dữ liệu + ô Giá; bố cục và chữ theo NT-66, NT-67 (thay quy tắc cũ "≤ ~45 ký tự + …") | NT-66, NT-67 | – | DA | MT | DESIGN, r6 mục 20 |
 | NT-53 | Dữ liệu | Bảng: ≥ 2 hàng dữ liệu; bảng so sánh chỉ khi ≥ 2 hàng có dữ liệu thật, ô thiếu "Chưa công bố", là vùng full-width riêng, không cuộn ngang khi ≤ 5 cột; bảng trong nội dung rộng 100 % cột | tự động: `mediaAudit` `table`; tương tác 33 | 0 | 30 | BĐ | r6 mục 16, 22; r7 mục 5 |
 | NT-54 | Chữ | Dòng meta thẻ bài (tác giả · ngày · N phút đọc) không ngắt giữa một mục | tự động: `mediaAudit` `meta` | 0 dòng bắt đầu bằng "phút" | 30 | BĐ | r8 mục 10 |
 | NT-55 | Chữ | Không heading viết HOA toàn bộ (tiếng Việt) | tự động: `mediaAudit` `caps` (≥ 6 chữ cái, ≥ 85 % hoa) | 0 | 30 | BĐ | DESIGN Typography |
@@ -140,6 +142,8 @@ Cột *Màn*: `MT` = ma trận M1–M5 · `BĐ` = viewport bộ đo 390/1066/136
 | NT-57 | Chữ | Văn bản dài của bài trụ cột cũ thu gọn sau ~250 từ (Tổng quan ~150) với nút "Đọc tiếp"; bấm thì mở hết | tự động: `interactions.mjs` 30 | đạt | DA | M1 | DESIGN, r6 mục 15 |
 | NT-58 | Chữ | Không tiêu đề trùng ý ("Tổng quan X" + "Thông tin tổng quan X"); bỏ "Bài viết liên quan" và đoạn liên hệ cũ trong nội dung | test `components-test.php` (`velis_chunks`, `velis_strip_related`, `velis_strip_contact`) + soát | 0 | DA, BV | – | r6 mục 17, 21 |
 | NT-59 | Chữ | Đoạn văn ≤ 68 ký tự; cỡ chữ nội dung ≥ 17 px mobile; thang chữ H1 48/32 … theo DESIGN | soát + bước 4 (đo `font-size`) | đúng số | 30 | MT | BRIEF, DESIGN |
+| NT-66 | Dữ liệu | Thanh thông tin không cắt chữ: không "…" giữa giá trị; giá trị dài xuống dòng đầy đủ, tối đa 3 dòng; dùng bản rút gọn có sẵn trong dữ liệu nếu có, không tự viết câu mới; "Chi tiết" chỉ khi có khối chi tiết để dẫn tới, tối đa 1 lần trên thanh | tự động: `mediaAudit` `factsCut` | 0 | DA | BĐ + MT | người dùng soát staging 05/11 |
+| NT-67 | Dữ liệu | Thanh thông tin chia hàng theo số ô: khung ≥ 1200 px tối đa 4 ô / hàng, 5–8 ô chia 2 hàng đều (6 → 3 + 3, 5 → 3 + 2 với ô cuối rộng gấp đôi, 7 → 4 + 3 với ô cuối rộng gấp đôi); 768–1199 px 2 ô / hàng; < 768 px 1 ô / hàng; không ô trống, không ô hẹp hơn 240 px; ô cùng hàng cao bằng nhau | tự động: `mediaAudit` `factsRows` | 0 | DA | BĐ + MT | người dùng soát staging 05/11 |
 
 ### 2.5 Bài viết & cột phải
 
@@ -162,7 +166,7 @@ Cột *Màn*: `MT` = ma trận M1–M5 · `BĐ` = viewport bộ đo 390/1066/136
 | NT-73 | Tương tác | Tab dòng sản phẩm: tab có dữ liệu = bảng thông số + mặt bằng; tab chưa có dữ liệu = câu hướng dẫn + nút; không JS vẫn hiện đủ | tự động: 6, 7 | 2/2 | the-prive | M1 | DESIGN "Tab" |
 | NT-74 | Tương tác | "Nhận bảng giá" cuộn tới form và điền sẵn dòng sản phẩm; thẻ cột phải mở form gọn tại chỗ; thẻ cột phải dự án: ảnh không đè nhãn, trạng thái / loại SP / giá (nếu có) / bàn giao, Nhận bảng giá · Gọi · Zalo | tự động: 8, 9, 31; soát thẻ | 3/3 | the-prive, the-global-city | M1 | r6 mục 19 |
 | NT-75 | Tương tác | Thư viện: nút "ảnh sau" đổi bộ đếm; bấm ảnh mở lightbox; lăn chuột trên thư viện vẫn cuộn trang | tự động: 12, 13, 15 | 3/3 | the-prive | M1 | BRIEF, r5 |
-| NT-76 | Tương tác | Form: chỉ Họ tên + SĐT (+ đồng ý NĐ 13/2023 có link chính sách); bỏ trống → lỗi ngay tại ô, không gửi; gửi được, email đủ trường ẩn (dự án, URL trang, utm); GA4 `generate_lead` | tự động: 18, 32; GA4 – X-09 | 2/2 + GA4 | the-prive, the-global-city | M1 | BRIEF, DESIGN Form, r6 mục 10 |
+| NT-76 | Tương tác | Form: chỉ Họ tên + SĐT (+ đồng ý NĐ 13/2023 có link chính sách); bỏ trống → lỗi ngay tại ô, không gửi; gửi được, email đủ trường ẩn (dự án, URL trang, utm). GA4 `generate_lead` kiểm ngày ra mắt (NT-132, X-09 = b) | tự động: 18, 32 | 2/2 | the-prive, the-global-city | M1 | BRIEF, DESIGN Form, r6 mục 10 |
 | NT-77 | Tương tác | Lọc: `/du-an/` theo Khu vực (Vùng → Tiểu khu) / Chủ đầu tư / Loại SP, chế độ "Theo phân khu & sản phẩm"; đại đô thị: chip lọc phân khu, chế độ "Theo loại sản phẩm"; trạng thái lọc trong URL, canonical về trang gốc | tự động: 19, 21, 22, 34 | 4/4 | du-an, the-global-city | M1 | DESIGN Listing, r6 mục 23 |
 | NT-78 | Tương tác | Tìm kiếm khớp tên dự án / phân khu trong câu ("căn hộ palm river" → Palm River đầu tiên); kết quả 2 nhóm Dự án / Bài viết | tự động: 23 | 1/1 | tim-kiem | M1 | TEMPLATES |
 | NT-79 | Tương tác | Mobile: menu toàn màn hình mở / đóng; thanh CTA đáy (Gọi · Zalo · Nhận tư vấn, 64 px, safe-area) ẩn ở đầu trang, hiện khi nút hero ra khỏi màn, ẩn lại khi về đầu; ẩn khi menu / bộ lọc mở; không che nội dung | tự động: 24, 26, 27, 28 | 4/4 | the-prive | M5 | DESIGN, r6 mục 7 |
@@ -187,7 +191,7 @@ Tương tác 14 và 20 (không ảnh vỡ) → NT-20; 30 ("Đọc tiếp") → N
 | NT-91 | Hiệu năng | LCP / CLS / INP / TBT | tự động: Lighthouse (lab); field data sau ra mắt (NT-135) | LCP ≤ 2,5 s (mục tiêu 2,0); CLS ≤ 0,1 (mục tiêu 0,05); INP ≤ 200 ms | L | mobile | BRIEF ngân sách, người soát |
 | NT-92 | Hiệu năng | Tổng dung lượng ảnh tải trong màn hình đầu | bước 4: Playwright đếm `transferSize` ảnh trước khi cuộn | ≤ 400 KB | L | M1, M2, M5 | người soát sau r8 – X-01 |
 | NT-93 | Hiệu năng | Tổng dung lượng ảnh cả trang chủ (cuộn hết) | bước 4: như trên, sau khi cuộn hết | ≤ 1 MB | trang-chu | M1, M2 | người soát sau r8 – X-01 |
-| NT-94 | Hiệu năng | CSS (min) ≤ 51 200 byte (bước 3 đặt lại ngân sách sau khi viết lại); JS tải ban đầu ≤ 60 KB nén, không jQuery, không thư viện JS; font ≤ 3 file woff2, preload 2 | tự động: `build_css.py` (in số byte); Lighthouse network | đúng ngân sách | 30 | – | BRIEF, DESIGN, r7–r8 |
+| NT-94 | Hiệu năng | CSS sau khi viết lại (X-07 = b): **≤ 45 KB min, ≤ 12 KB gzip**; JS tải ban đầu ≤ 60 KB nén, không jQuery, không thư viện JS; font ≤ 3 file woff2, preload 2 | tự động: `build_css.py` / `build_mockup.mjs` (in số byte min + gzip); Lighthouse network | đúng ngân sách | 30 | – | BRIEF, DESIGN, r7–r8, quyết định X-07 |
 | NT-95 | Hiệu năng | Ảnh đầu trang (LCP) | tự động: Lighthouse (`largest-contentful-paint-element` + `network-requests`) | ≤ 150 KB, WebP/AVIF – X-01 | L | mobile | BRIEF "Ảnh đầu trang" |
 
 ### 2.9 SEO on-page & schema
@@ -220,7 +224,7 @@ Tương tác 14 và 20 (không ảnh vỡ) → NT-20; 30 ("Đọc tiếp") → N
 | NT-134 | Ra mắt | Không title / meta trùng (= NT-100 trên site thật) | `check_onpage.mjs` site thật (chỉ đọc) | 0 | toàn site | – | BRIEF |
 | NT-135 | Ra mắt | Core Web Vitals mobile (dữ liệu thật) 10 trang mẫu | Search Console / CrUX | LCP ≤ 2,5 s, CLS ≤ 0,1, INP ≤ 200 ms | 10 | – | BRIEF nghiệm thu |
 
-**Số tiêu chí: 93** – tự động hôm nay 47 (NT-01, 02, 03, 04, 06, 07, 08, 14, 20, 21, 22, 24, 25, 26, 28, 29, 35, 37, 42, 53, 54, 55, 56, 57, 58, 60, 65, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 85, 88, 90, 91, 94, 95, 100, 101, 102) · tự động một phần / sẽ tự động ở bước 4 21 (NT-05, 09, 10, 12, 16, 23, 32, 33, 34, 41, 43, 45, 52, 59, 61, 62, 63, 86, 87, 92, 93) · soát mắt 13 (NT-11, 13, 15, 27, 30, 31, 36, 40, 44, 46, 50, 51, 64) · thiết bị, quy trình, ra mắt 12 (NT-110, 111, 112, 113, 114, 120, 130, 131, 132, 133, 134, 135). Đếm lại: `grep -c '^| NT-' docs/NGHIEM-THU.md`.
+**Số tiêu chí: 97** – tự động hôm nay 52 (NT-01, 02, 03, 04, 06, 07, 08, 14, 20, 21, 22, 24, 25, 26, 28, 29, 35, 37, 42, 47, 48, 52, 53, 54, 55, 56, 57, 58, 60, 65, 66, 67, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 85, 88, 90, 91, 94, 95, 100, 101, 102) · tự động một phần / sẽ tự động ở bước 3–4 21 (NT-05, 09, 10, 12, 16, 23, 32, 33, 34, 40, 41, 43, 45, 59, 61, 62, 63, 86, 87, 92, 93) · soát mắt 12 (NT-11, 13, 15, 27, 30, 31, 36, 44, 46, 50, 51, 64) · thiết bị, quy trình, ra mắt 12 (NT-110, 111, 112, 113, 114, 120, 130, 131, 132, 133, 134, 135). Đếm lại: `grep -c '^| NT-' docs/NGHIEM-THU.md`.
 
 ## 3. Bảng đối chiếu tiêu chí cũ → mã NT
 
@@ -385,7 +389,23 @@ Mọi tiêu chí trong các nguồn dưới đây đã có mã; cột cuối = m
 | r8 mục 1–16 | NT-01, NT-23, NT-21, NT-21/NT-22 (đo), NT-22/NT-35, NT-30, NT-10, NT-24, NT-07, NT-54, NT-28, NT-29, NT-27, NT-45, NT-60, NT-63 |
 | Sau r8 (người soát): hero thành mảng mờ có cạnh; thẻ dự án cột phải thiếu tên; mục lục < 5 dòng; ngân sách hiệu năng; CSS; Safari / DPR 1,5 / 3 | NT-41, NT-62, NT-61, NT-90–93, NT-94, NT-110, NT-111 |
 
-## 4. Xung đột cần người dùng quyết (chưa tự chọn)
+## 4. Xung đột – người dùng đã quyết (2026-11-05)
+
+| Mã | Quyết định | Tiêu chí cập nhật |
+|---|---|---|
+| X-01 | **(d)** chỉ ảnh LCP lấy file ≥ khung × DPR; mọi ảnh khác chọn theo khung × DPR, không biên 1,15. Ngân sách NT-90 / 92 / 93 giữ nguyên | NT-21 |
+| X-02 | **(b)** ảnh hero dưới chuẩn dùng kiểu dự phòng = ảnh trong khung có lề kiểu Aman (`CHUAN-ANH.md` 3.1); chọn kiểu theo cỡ file ở server | NT-40 |
+| X-03 | **(a)** chỉ cắt khung ảnh có dấu (cờ trong `data/kiem-ke-anh-mat.csv`); ảnh sạch không cắt | NT-23 |
+| X-04 | **A + B** ảnh web sạch, bản quyền trong IPTC + điều khoản chân trang; bản có dấu chỉ cho mạng xã hội / Zalo | `CHUAN-ANH.md` 2.3 |
+| X-05 | **(a)** thẻ không hiện dòng giá; trang dự án / phân khu hiện "Chưa công bố" ở thanh thông tin | NT-51, NT-52 |
+| X-06 | **(b)** ô trống ở mọi lưới là lỗi; lấp bằng thẻ "Xem tất cả" hoặc đổi số cột theo số thẻ | NT-08 |
+| X-07 | **(b)** CSS sau khi viết lại ≤ 45 KB min, ≤ 12 KB gzip | NT-94 |
+| X-08 | **(a)** ma trận M1–M5 cho ảnh mốc + soát mắt; 7 khung cho kiểm tự động | mục 1 |
+| X-09 | **(b)** kiểm GA4 vào ngày ra mắt | NT-76, NT-132 |
+| Tiêu điểm | **F-B** 9 vị trí chọn bằng danh sách thả xuống | NT-33 |
+
+Các phương án đã cân nhắc (giữ để tra cứu):
+
 
 | Mã | Mâu thuẫn | Phương án |
 |---|---|---|
@@ -423,4 +443,6 @@ Mọi tiêu chí trong các nguồn dưới đây đã có mã; cột cuối = m
 
 | Ngày | Mã | Thay đổi | Duyệt |
 |---|---|---|---|
-| 2026-11-05 | NT-01 → NT-135, X-01 → X-09, B-01 → B-15 | Lập danh sách (Đổi cách làm bước 1) | chờ người dùng duyệt |
+| 2026-11-05 | NT-01 → NT-135, X-01 → X-09, B-01 → B-15 | Lập danh sách (Đổi cách làm bước 1) | người dùng, 2026-11-05 |
+| 2026-11-05 | X-01 → X-09, tiêu điểm | Ghi quyết định; cập nhật NT-08, NT-21, NT-23, NT-33, NT-40, NT-51, NT-52, NT-76, NT-94, mục 1 (X-08) | người dùng, 2026-11-05 |
+| 2026-11-05 | NT-47, NT-48, NT-66, NT-67 | Thêm 4 tiêu chí (nguồn: người dùng soát staging 05/11): lớp phủ hero, không hộp nền sau chữ hero, thanh thông tin không cắt chữ, thanh thông tin chia hàng theo số ô | người dùng, 2026-11-05 |

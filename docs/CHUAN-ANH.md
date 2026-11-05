@@ -1,6 +1,6 @@
 # Chuẩn ảnh đầu vào
 
-Lập 2026-11-05 (Đổi cách làm, bước 1). Đặc tả **độc lập với ảnh đang có**: ảnh hiện tại phần lớn đã bị resize về ngang 1200 px
+Lập 2026-11-05 (Đổi cách làm, bước 1); quyết định ghi ở mục 2.3, 3.1–3.3 và nhật ký. Đặc tả **độc lập với ảnh đang có**: ảnh hiện tại phần lớn đã bị resize về ngang 1200 px
 trước khi upload, khác nhau về tỉ lệ, có huy hiệu VELIS và chữ in sẵn (`docs/KIEM-KE-ANH.md`), nên **không** suy kiểu hero hay
 bố cục từ ảnh hiện tại. Tiêu chí liên quan: NT-21, NT-22, NT-23, NT-31, NT-32, NT-33, NT-35, NT-40 (`docs/NGHIEM-THU.md`).
 Hướng dẫn ngắn cho người gửi ảnh: `docs/HUONG-DAN-GUI-ANH.md`.
@@ -57,7 +57,11 @@ dùng được cho mọi vị trí trừ `hero-b`, `ve-velis` (4:3 ≥ 1920×144
 - Một chủ thể rõ, nằm trong vùng an toàn của vị trí; hero cần một mảng yên (trời, nước, mảng tối) ở góc trái dưới cho khối chữ.
 - Ảnh phối cảnh ghi nguồn (CĐT); ảnh thực tế (tiến độ) ghi ngày chụp và người chụp trong chú thích, không in lên ảnh.
 
-### 2.3 Bảo vệ ảnh khi không in dấu (người dùng quyết – X-04)
+### 2.3 Bảo vệ ảnh khi không in dấu – **đã chọn A + B** (X-04, người dùng 2026-11-05)
+
+Ảnh trên website luôn sạch, bản quyền ghi trong IPTC (Copyright / Credit) + điều khoản sử dụng ảnh ở chân trang; bản có dấu chỉ
+xuất cho mạng xã hội / Zalo. C và D không dùng.
+
 
 | Phương án | Cách làm | Được | Mất |
 |---|---|---|---|
@@ -81,7 +85,13 @@ truy cập file `-scaled` gốc (ghi `.htaccess` – phải duyệt riêng theo 
 Nguyên tắc chung (đã chốt): **kiểu hiển thị do cỡ và tỉ lệ của FILE quyết định, ở phía server**, giống nhau trên mọi màn hình và
 DPR; không bao giờ kéo giãn quá hệ số 1,5 so với file. Mỗi quy tắc dưới đây có ≥ 2 phương án – người dùng chọn.
 
-### 3.1 Hero dưới chuẩn (file < 1920 rộng)
+### 3.1 Hero dưới chuẩn (file < 1920 rộng) – **đã chọn: kiểu dự phòng "khung có lề"** (X-02 = b, người dùng 2026-11-05)
+
+Kiểu dự phòng là ảnh đặt trong khung có lề kiểu Aman trên nền Velis, chữ ngoài ảnh (gần H-A nhưng ảnh nằm trong khung có lề, không
+phải dải tràn); kiểu được chọn ở server theo cỡ **file** (≥ 1920 → kiểu A "tràn"; < 1920 → kiểu B "khung có lề"). Bề rộng khung
+chọn sao cho file 1200 px kéo giãn ≤ 1,5 ở M1–M5 (phép tính: `docs/reports/doi-cach-lam-buoc-2.md`). Bảng phương án dưới đây
+giữ để tra cứu.
+
 
 Hệ số kéo giãn ở M2/M3/M4 (1920 điểm ảnh) = 1920 / bề rộng file; ≤ 1,5 ⇔ file ≥ 1280. Ảnh hero hiện tại đều 1200 px (hệ số 1,6).
 
@@ -91,7 +101,7 @@ Hệ số kéo giãn ở M2/M3/M4 (1920 điểm ảnh) = 1920 / bề rộng file
 | H-B | Hero A | Hero A | **Hero chia đôi** (kiểu hero B): chữ trên nền ngà bên trái, ảnh 4:3 bên phải | Trang dự án mất cảm giác "ảnh lớn"; đồng bộ với trang tổng |
 | H-C | Hero A | Hero A | **Hero chữ** (không ảnh, nền tối + tên chìm như hero hiện có khi thiếu ảnh), ảnh đưa xuống thư viện | Ấn tượng thấp nhất; tránh hoàn toàn ảnh mờ |
 
-### 3.2 Tiêu điểm (focal point) cho mọi tỉ lệ đầu vào
+### 3.2 Tiêu điểm (focal point) cho mọi tỉ lệ đầu vào – **đã chọn F-B** (9 vị trí, danh sách thả xuống; người dùng 2026-11-05)
 
 | Phương án | Cách làm | Cái giá |
 |---|---|---|
@@ -99,7 +109,10 @@ Hệ số kéo giãn ở M2/M3/M4 (1920 điểm ảnh) = 1920 / bề rộng file
 | F-B | 9 vị trí định sẵn (trái / giữa / phải × trên / giữa / dưới) chọn bằng danh sách thả xuống | Ít chính xác hơn; không cần JS |
 | F-C | Mặc định giữa ảnh, chỉ đặt ngoại lệ bằng F-B | Nhanh nhất; ảnh lệch chủ thể bị cắt sai đến khi có người phát hiện |
 
-### 3.3 Ảnh có watermark / huy hiệu / chữ in sẵn (đang là hầu hết ảnh – `KIEM-KE-ANH.md`)
+### 3.3 Ảnh có watermark / huy hiệu / chữ in sẵn – **đã chọn W-A có cờ** (X-03 = a, người dùng 2026-11-05)
+
+Chỉ cắt khung ảnh có cờ dấu trong `data/kiem-ke-anh-mat.csv` (`co_dau` ≠ `khong`); ảnh sạch không cắt.
+
 
 | Phương án | Cách xử lý từng vị trí | Cái giá |
 |---|---|---|
@@ -132,4 +145,5 @@ phải; chỉ dùng trong nội dung hoặc thư viện (hiện trọn, `contain
 
 | Ngày | Thay đổi | Duyệt |
 |---|---|---|
-| 2026-11-05 | Lập chuẩn (bước 1) | chờ người dùng duyệt |
+| 2026-11-05 | Lập chuẩn (bước 1) | người dùng, 2026-11-05 |
+| 2026-11-05 | Ghi quyết định: X-02 = b (kiểu dự phòng khung có lề, chọn theo cỡ file ở server), X-03 = a (chỉ cắt ảnh có cờ dấu), X-04 = A + B, tiêu điểm F-B; X-01 = d (chỉ ảnh LCP lấy file ≥ khung × DPR, ảnh khác theo khung × DPR không biên) áp cho `sizes` | người dùng, 2026-11-05 |
