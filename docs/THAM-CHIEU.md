@@ -130,3 +130,38 @@ cả trang chủ (thu về rộng 768 px) `moi-gioi-<site>-ca-trang.jpg`.
 | Cách Velis làm việc / vì sao chọn Velis | Knight Frank (khối giá trị + con số), Savills ("Why Savills"), Engel & Völkers (3 lý do) – **nội dung nguyên văn trang Giới thiệu** |
 | Phân tích từ CEO | Savills ("Insight & Opinion") |
 | Form tư vấn nền tối cuối trang | Engel & Völkers ("Contact your personal advisor") + NT-13 |
+
+## Newway Realty – cách tổ chức (người dùng chọn, 2026-11-05)
+
+Chỉ học **cách tổ chức**: có những khối nào, thứ tự, mỗi khối chứa thông tin gì, dẫn người xem đi đâu. **Không** lấy bố cục,
+màu, font, kiểu thẻ, hiệu ứng, ảnh, logo, chữ hay mã của Newway – giao diện Velis giữ 100 % DESIGN.md + mockup đã duyệt.
+Chụp https://newwayrealty.vn/ (không bị chặn) sau khi đóng popup, cuộn hết để chạy hiệu ứng: `docs/tham-chieu/newway-desktop-man-dau.jpg`,
+`newway-desktop-ca-trang.jpg` (1536×864 DPR 1,25, thu về rộng 768), `newway-mobile-man-dau.jpg`, `newway-mobile-ca-trang.jpg`
+(390×844 DPR 2). Ảnh cả trang chụp lúc vài khối còn mờ do hiệu ứng hiện dần – nội dung đọc từ HTML (bảng dưới).
+
+### Các khối trang chủ
+
+| # | Khối | Mục đích (người xem được gì) | Gồm thông tin gì | Dẫn tới | Velis có nội dung tương ứng? |
+|---|---|---|---|---|---|
+| 1 | Hero video | Biết đây là đơn vị phân phối BĐS từ chủ đầu tư | Nhãn "Chuyên phân phối BĐS từ chủ đầu tư", câu định vị, dòng chủ đầu tư đối tác, 1 câu con số nhân sự | không có nút | **Có**: H1 + 2 đoạn giới thiệu trang chủ cũ + 2 nút (trang cũ có nút, giữ) |
+| 2 | Con số | Tin quy mô công ty | Tiêu đề, 1 đoạn dẫn, ảnh dự án, 4 số có nhãn (nhân sự, giao dịch/năm, CTV, dự án) | không | **Có**: 4 con số trang cũ (10+ · +50 · +999 · +99) |
+| 3 | Danh mục dự án | Xem dự án đang phân phối, chọn theo vùng | Tiêu đề, tab lọc theo miền (Tất cả/Bắc/Trung/Nam), thẻ: ảnh + tên + tỉnh; 1 câu dưới lưới; "Xem tất cả dự án" | trang dự án, `/du-an/` | **Có**: 6 dự án đang tư vấn, lọc chủ đầu tư + khu vực (BRIEF), "Xem tất cả dự án" |
+| 4 | Branded Residences | Mảng hàng hiệu cao cấp | Tiêu đề, 3 nhãn lợi ích, ảnh, đoạn mô tả, "Liên hệ tư vấn" | form tư vấn | **Chưa có** (Velis không có mảng riêng) |
+| 5 | Đối tác chiến lược | Tin vì làm việc với CĐT lớn | 1 câu "đại lý phân phối chính thức của…", 5 logo | không link | **Có**: 4 logo trang cũ + câu "Velis Realty là đơn vị chuyên tư vấn và phân phối…" (Giới thiệu); thêm link tới trang chủ đầu tư đã có |
+| 6 | "Mỗi năm 1000+ khách hàng chọn…" – quy trình 5 bước | Biết làm việc với công ty thế nào | Tiêu đề, "Chỉ 5 bước…", 4–5 thẻ bước (tên + 1 câu + thời gian), "Liên hệ tư vấn" | form | **Một phần**: 4 mục "Giá Trị Khác Biệt" (Giới thiệu) – không có các bước làm việc |
+| 7 | Giải thưởng & chứng nhận | Tin uy tín | Tiêu đề, 1 câu, ảnh cúp | không | **Chưa có** |
+| 8 | Top đại lý theo tháng | Tin uy tín gần đây | 3 huy hiệu Top (dự án, CĐT, tháng) | không | **Chưa có** |
+| 9 | Đánh giá khách hàng | Nghe khách thật | 3 câu nhận xét + tên, nơi ở | không | **Chưa có** (BRIEF: chỉ khi có đồng ý) |
+| 10 | Tin tức & Thị trường | Đọc phân tích mới | 4 bài: ảnh, tiêu đề, ngày; "Xem tất cả" | bài, `/tin-tuc/` | **Có**: "Bài phân tích chuyên sâu" – 3 bài (nhãn cụm, tiêu đề, ngày, tác giả) + "Đọc blog Velis" |
+| 11 | Câu hỏi thường gặp | Giải đáp trước khi liên hệ | 6 câu hỏi mở/đóng, "Liên hệ tư vấn" | form | **Chưa có** ở trang chủ (FAQ có ở trang dự án) |
+| 12 | Tuyển CTV | Tuyển cộng tác viên | Tiêu đề, 4 lợi ích, ảnh người, "Trở thành CTV ngay" | form | **Tương ứng**: "Cơ hội nghề nghiệp" (Tuyển dụng) + "Thi thử chứng chỉ môi giới" |
+| 13 | Liên hệ + đăng ký tư vấn | Liên hệ ngay | Trụ sở, hotline, email, giờ làm, bản đồ văn phòng các tỉnh; form Họ tên · SĐT · Email · Lời nhắn | gửi form | **Có**: form tư vấn nền tối (Họ tên · SĐT · đồng ý) + hotline, Zalo, email, giờ làm |
+
+### Header, footer, kênh liên hệ
+
+| Phần | Newway | Velis |
+|---|---|---|
+| Menu | Trang chủ · Branded Residences · Giới thiệu · Dự án · Tin tức · Tuyển dụng | Dự án · Chủ đầu tư · Blog · Về Velis · Liên hệ + hotline + "Nhận tư vấn" (giữ) |
+| Footer | Thông tin liên hệ (trụ sở, hotline, email, giờ) + form đăng ký; tên công ty + câu định vị; nhóm "Dự án" (3 dự án), "Về Newway"; mạng xã hội; © + Chính sách bảo mật, Điều khoản | Câu định vị + hotline, email, địa chỉ, giờ; Khám phá; Ứng dụng (Thi thử); Theo dõi Velis; © + Chính sách bảo mật (giữ) |
+| Nút nổi | Cụm nổi bên trái màn desktop: Gọi · Chat Zalo · Yêu cầu tư vấn · Đăng ký nhận thông tin (2 nút sau dẫn `/lien-he/`) | Thanh CTA dính đáy trên mobile (Gọi · Zalo · Nhận tư vấn); desktop: nút "Nhận tư vấn" + hotline ở header |
+| Form | Form ở cuối trang + form trong cửa sổ bật lên (cùng trường) | Form tư vấn nền tối cuối trang; không cửa sổ bật lên |
