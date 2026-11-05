@@ -126,3 +126,27 @@ Nguồn: nội dung trên staging, đọc qua REST ngày 2026-11-05 (trùng nộ
   Chiếc, phường An Phú, Quận 2 (nay là TP. Thủ Đức)" rồi "The Privé tọa lạc tại khu dân cư Nam Rạch Chiếc…"). Kiểm tra tự
   động (chuỗi ô địa chỉ có nguyên văn trong nội dung): thêm The Global City, Spring Ville, Persa Place, Ansana by Kita,
   Vinhomes Saigon Park – cần xem từng trang khi sửa (ẩn dòng địa chỉ hay sửa câu văn).
+
+## 9. Thấy khi dựng mockup bước 2 (2026-11-05) – chỉ ghi, chưa sửa
+
+Nguồn: 3 trang staging đọc ngày 2026-11-05 (chỉ đọc, `tools/mockup_extract.mjs`): `/`, `/du-an/the-global-city/`,
+`/du-an/the-global-city/masteri-park-place/`. Mockup dùng nguyên văn; các điểm dưới đây **không** sửa trong nội dung.
+
+- **Lỗi mẫu (theme, sửa ở bước 3)**: bảng so sánh ở trang phân khu lặp cột phân khu đang xem (cột đầu **và** cột cuối,
+  tiêu đề dính chữ "Masteri Park PlaceTrang này"); thẻ "Nhận bảng giá" cột phải trang The Global City lặp 2 lần cặp
+  "Loại sản phẩm / Bàn giao". Mockup bỏ cột/hàng lặp.
+- **Masteri Cosmo Central**: bảng so sánh ghi "Chưa công bố" cho quy mô / diện tích / bàn giao, nhưng mục Phân khu của bài trụ
+  cột có "Diện tích: 47m² – 138.8m²", "Thời gian bàn giao: Dự kiến Quý 3/2028" → chủ site xác nhận rồi nhập vào trường dữ liệu
+  (không tự suy). Phân khu này chưa có ảnh đại diện, trong Media có `phoi-canh-masteri-cosmo.webp` (đang dùng ở thư viện).
+- **Ảnh có chữ / logo in sẵn chưa có trong `data/kiem-ke-anh-mat.csv`**: `can-ho-masteri-grand-view.webp` có logo "MASTERI"
+  in trên kính cửa sổ giữa ảnh (thấy ở thẻ phân khu) – phóng cắt không che được. `shophouse-soho-tgc.webp` có logo TGC (trái
+  trên) và Masterise (phải trên) – phóng cắt chỉ che huy hiệu trái dưới. `mat-bang-the-global-city.webp` là mặt bằng nên
+  không phóng cắt → huy hiệu VELIS còn thấy. Cả 3 cần file gốc sạch.
+- **Video tiến độ** ở mục Tiến độ chỉ là ảnh xem trước YouTube có `alt="hqdefault"` (tên file) → cần alt mô tả hoặc nhúng video
+  đúng cách; mockup thay bằng khung có tên.
+- **Ô địa chỉ dùng đơn vị cũ** "Phường An Phú, Quận 2, TP. Thủ Đức" (đã ghi ở mục 8) – xuất hiện ở thanh thông tin, mục Vị
+  trí, chú thích bản đồ của cả The Global City và Masteri Park Place.
+- **Trang chủ**: đoạn giới thiệu hero nhắc "Sun Group" nhưng danh sách chủ đầu tư đối tác (6) và dự án đang tư vấn (6) không có
+  dự án Sun Group → chủ site xác nhận.
+- **Khoảng trắng thừa trước dấu phẩy**: "120 – 160 triệu VNĐ/m² cho sản phẩm sơ cấp , đi kèm…" (mục Tổng quan The Global City).
+- **Số liệu theo thời điểm**: Hỏi đáp The Global City ghi "tháng 4/2026" (2 câu) – cần ngày cập nhật hoặc sửa lại theo hiện tại.
