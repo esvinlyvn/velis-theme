@@ -172,3 +172,23 @@ Nguồn: REST staging (chỉ đọc) ngày 2026-11-05 – trang `/gioi-thieu/` (
   {chủ đầu tư}." – nháp theo lệnh, gắn nhãn "câu chờ duyệt".
 - **Lọc theo khu vực**: dùng tên khu vực thị trường có dự án (Khu Đông, Khu Tây, Tây Bắc, Nhơn Trạch – Long Thành); không dùng
   "Thủ Đức" vì TP. Thủ Đức không còn là đơn vị hành chính từ 01/07/2025 và không có trong taxonomy khu vực.
+
+## 11. Trang chủ theo trang cũ + BRIEF (2026-11-05) – chờ người dùng
+
+Nguồn: trang chủ cũ trên site thật (GET công khai, chỉ đọc, `tools/mockup_extract_r4.mjs` → `mockup/src/data/home-cu.json`).
+
+- **Con số trang cũ**: lệnh ghi "10+ · 48 · 954 · 95", nhưng HTML trang cũ đặt giá trị đích bộ đếm `data-counter-value` = **10 ·
+  50 · 999 · 99** (Năm kinh nghiệm · Đối tác · Giao dịch · Dự án). 48 / 954 / 95 là khung hình chụp lúc bộ đếm đang chạy
+  (`screenshots/day1/home-1366.jpg`); ảnh chụp hôm nay cũng dừng giữa chừng ở "998". Mockup dùng **giá trị HTML** (10+ · +50 · +999 ·
+  +99, đúng vị trí dấu "+" như trang cũ). Cần chọn số chính thức; lưu ý "99 dự án", "999 giao dịch" trông như số đặt tạm (site đang
+  tư vấn 6 dự án, đối tác trên trang cũ có 4 logo).
+- **Thi thử chứng chỉ môi giới**: trang cũ chỉ có nút "THI THỬ CHỨNG CHỈ MÔI GIỚI" (không có câu mô tả) → ô này chỉ có tên + nút
+  "Thi thử CCMG" (chữ nút ở chân trang cũ). Cần 1 câu mô tả nếu muốn ô cân với ô Tuyển dụng.
+- **Cơ hội nghề nghiệp**: dùng câu đầu trang Tuyển dụng (staging, sửa 2026-11-04) + nút "Ứng tuyển ngay" (trang cũ).
+- **Khách hàng nói gì**: chưa có nội dung được khách đồng ý → không làm (BRIEF). Cần: 3–5 nhận xét thật + tên/khu vực + đồng ý
+  đăng.
+- **Đối tác**: trang cũ có 4 logo Vinhomes, Masterise Homes, Sun Group, Gamuda Land (link cũ `/du-an/{cdt}/`); mockup dẫn tới
+  `/chu-dau-tu/{slug}/` đã có. Chưa có logo của Kita Group, Tập đoàn Đất Xanh, Berjaya Việt Nam, Hướng Việt Holdings (có dự án đang
+  tư vấn) và Ecopark (nêu trong đoạn giới thiệu) – cần ảnh logo nếu muốn đủ.
+- Các vòng "định vị môi giới" trước (hero CEO + form ngắn, tìm theo nhu cầu, "Cách Velis làm việc", câu vai trò chờ duyệt ở trang
+  chủ) đã **bỏ** theo lệnh; ghi chú mục 10 về khung "Cách Velis làm việc" không còn áp dụng cho trang chủ.

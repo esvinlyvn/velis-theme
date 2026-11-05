@@ -3,7 +3,7 @@
 Ngày 2026-11-05. Nhánh `claude/doi-cach-lam-b2`. **Không sửa theme, không ghi gì lên staging** (chỉ đọc 4 URL qua cổng mật
 khẩu xem + REST GET). Site thật không đụng tới.
 
-> **Vòng định vị môi giới: mục 10** · **Vòng sửa 2026-11-05: xem mục 9** (mục 1–8 là kết quả vòng đầu, giữ để đối chiếu; số đo mới ở 9.2–9.3).
+> **Trang chủ chốt (theo trang cũ + Newway): mục 11** · **Vòng định vị môi giới: mục 10** · **Vòng sửa 2026-11-05: xem mục 9** (mục 1–8 là kết quả vòng đầu, giữ để đối chiếu; số đo mới ở 9.2–9.3).
 
 ## 1. Kết quả
 
@@ -410,6 +410,99 @@ và form (liên hệ thế nào); M1/M2 form hiện trọn. Vùng mặt = 35–6
 | Form nền tối cuối trang | | | | | NT-13 |
 
 
+## 11. Trang chủ theo trang cũ + cách tổ chức Newway (chốt, 2026-11-05)
+
+Bỏ hướng "định vị môi giới" của mục 10 trên **trang chủ** (hero CEO + form ngắn, ô tìm theo nhu cầu, khung "Cách Velis làm việc").
+Trang chủ dựng lại từ **các khối của trang chủ cũ Velis + BRIEF** ("Giới thiệu Velis trong 5 giây, dẫn vào dự án"), chữ nguyên văn;
+chỉ **cách tổ chức** học từ Newway Realty; giao diện 100 % hệ Velis đã duyệt. Trang dự án và phân khu giữ nguyên (gồm thẻ "Velis tư
+vấn dự án này" của mục 10 – tôi hiểu "Bỏ hẳn khối Người tư vấn" là ở trang chủ; nếu cũng bỏ ở trang dự án thì báo lại).
+
+Nguồn chữ: trang chủ cũ trên site thật (GET công khai, chỉ đọc, `tools/mockup_extract_r4.mjs` → `mockup/src/data/home-cu.json`,
+đọc 2026-11-05), trang Giới thiệu và Tuyển dụng, dự án, bài viết trên staging (REST chỉ đọc).
+
+### 11.1 Phân tích cách tổ chức của Newway (mục 1)
+
+Bảng đầy đủ 13 khối + header / footer / kênh liên hệ: `docs/THAM-CHIEU.md` mục "Newway Realty – cách tổ chức"; ảnh
+`docs/tham-chieu/newway-{desktop,mobile}-{man-dau,ca-trang}.jpg` (không bị chặn). Tóm tắt thứ tự Newway: Hero → Con số → Danh mục
+dự án (lọc theo vùng) → Branded Residences → Đối tác → Quy trình 5 bước → Giải thưởng → Top đại lý → Đánh giá khách hàng → Tin tức →
+FAQ → Tuyển CTV → Liên hệ + form → Footer; nút nổi Gọi · Zalo · Tư vấn · Đăng ký.
+
+### 11.2 Đối chiếu trang cũ → trang mới → điều học từ Newway (mục 3)
+
+| Khối trang cũ Velis | Khối mới (thứ tự) | Học từ Newway (chỉ tổ chức / thông tin) |
+|---|---|---|
+| H1 "CÔNG TY TNHH VELIS REALTY" + 2 đoạn + "NHẬN TƯ VẤN" · "GỌI 0911 237 979" | **a. Hero B**: ảnh dự án (The Privé, 1200 px → dải có lề) + H1 "Công ty TNHH Velis Realty" + 2 đoạn nguyên văn + "Nhận tư vấn" · "Gọi 0911 237 979" | Hero nói công ty là ai ngay từ đầu; Velis giữ 2 nút (Newway không có nút) |
+| 4 con số (bộ đếm chạy) | **b. Con số**: 4 ô 10+ · +50 · +999 · +99, có sẵn trong HTML (không đếm chạy) | Con số đặt ngay sau hero |
+| Banner thương hiệu đỏ (ảnh logo) | **bỏ** – thay bằng ảnh dự án ở hero (lệnh 2.3) | – |
+| Nút "THI THỬ CHỨNG CHỈ MÔI GIỚI" (giữa trang) | **g. ô Thi thử** – dời xuống cuối, cạnh Tuyển dụng | Newway đặt khối tuyển CTV / nghề nghiệp ở cuối, trước liên hệ |
+| "CÁC DỰ ÁN NỔI BẬT" (3 thẻ) | **c. Các dự án nổi bật**: 6 thẻ (ảnh, tên, chủ đầu tư · khu vực, loại sản phẩm, bàn giao; không giá), lọc theo chủ đầu tư + khu vực (BRIEF), "Xem tất cả dự án" | Lọc ngay trên khối dự án + "Xem tất cả dự án" ở khối; thẻ Newway chỉ có tên + tỉnh – Velis đã có nhiều trường hơn nên không thêm |
+| "ĐỐI TÁC CỦA CHÚNG TÔI" (4 logo, carousel tự chạy) | **d. Đối tác của chúng tôi**: 4 logo + tên, đứng yên, dẫn tới `/chu-dau-tu/{slug}/` | Thêm 1 câu dẫn dưới tiêu đề (Velis: câu đầu "Chúng Tôi Là Ai?" của Giới thiệu, nguyên văn) |
+| – (trang Giới thiệu) | **e. Vì sao chọn Velis**: "Giá Trị Khác Biệt Tại Velis Realty" – 4 mục nguyên văn + "Tìm hiểu Velis" | Newway đặt khối "vì sao chọn / cách làm việc" ngay sau đối tác |
+| "BÀI PHÂN TÍCH CHUYÊN SÂU" (12 bài) | **f. Bài phân tích chuyên sâu**: 3 bài mới (nhãn cụm, tiêu đề, tác giả · ngày · phút đọc) + "Đọc blog Velis" | Tin tức có "Xem tất cả" |
+| "CƠ HỘI NGHỀ NGHIỆP" + "ỨNG TUYỂN NGAY" | **g. 2 ô cạnh nhau**: Thi thử chứng chỉ môi giới (nút "Thi thử CCMG" → `/thi/`, chỉ đặt link) · Cơ hội nghề nghiệp (câu đầu trang Tuyển dụng + "Ứng tuyển ngay" → `/tuyen-dung/`) | như trên |
+| Địa chỉ + hotline + email + form (Tên, SĐT/Zalo) | **h. Form tư vấn nền tối** (Họ tên · SĐT · đồng ý; trường ẩn interest / page-url / utm) + Footer | Liên hệ + form cuối trang |
+| Nút nổi Zalo + Gọi (desktop) | thanh CTA dính đáy mobile (giữ như đã duyệt) | Newway: cụm nổi cả desktop – xem đề xuất |
+
+**0 khối trang cũ bị mất không lý do**: banner đỏ bỏ theo lệnh; "Khách hàng nói gì" (BRIEF) không làm vì chưa có nội dung được đồng
+ý (AUDIT mục 11). Thứ tự a–h giữ như lệnh – trùng với thứ tự Newway (hero → số → dự án → đối tác → vì sao → bài → nghề nghiệp →
+liên hệ), chỉ "Thi thử" dời từ giữa trang cũ xuống g.
+
+Đổi chữ: tiêu đề trang cũ viết HOA toàn bộ → viết thường câu (NT-55); H1 "Công ty TNHH Velis Realty". Nhãn "VÌ SAO CHỌN VELIS"
+và "Xem tất cả dự án" là nhãn lệnh / BRIEF đưa ra.
+
+### 11.3 Khối Newway có mà Velis chưa có – chỉ đề xuất (không tự thêm)
+
+| Khối | Velis cần chuẩn bị |
+|---|---|
+| Quy trình làm việc (các bước từ tư vấn tới nhận nhà) | 4–5 bước thật Velis đang làm, mỗi bước 1 câu (có thể kèm thời gian) |
+| Đánh giá khách hàng | 3–5 nhận xét thật + tên / khu vực + đồng ý đăng (BRIEF) |
+| Giải thưởng / Top đại lý | Ảnh chứng nhận, tên giải, đơn vị trao, tháng |
+| Câu hỏi thường gặp ở trang chủ | 5–6 câu hỏi về Velis (đại lý chính thức của ai, phí tư vấn, quy trình…) + trả lời |
+| Mảng hàng hiệu (Branded Residences) | Chỉ khi Velis có mảng riêng |
+| Cụm nút nổi desktop (Gọi · Zalo · Tư vấn) | Quyết định có hiện trên desktop không (hiện: chỉ mobile + header) |
+| Form có Email / Lời nhắn | Quyết định có thêm trường (CF7 hiện: Họ tên, SĐT, đồng ý) |
+
+### 11.4 Component mới (dựng bằng token sẵn có – xin duyệt)
+
+| Component | Dùng ở | Token |
+|---|---|---|
+| `.numbers--four` (biến thể của `.numbers` đã duyệt) | 4 con số: 2 cột mobile, 4 cột ≥ 768 | như `.numbers` |
+| `.partners` | lưới logo đối tác 2 / 4 cột, ảnh `contain` trong khung viền `--line`, tên dưới | `--line`, `--surface`, `--gold` (hover), `--ink` |
+| `.duo` | 2 ô cạnh nhau (Thi thử · Tuyển dụng) | giống thẻ cột phải: `--surface`, viền `--line`, viền trên `--gold`, `--fs-h3` |
+| `.hero__intro` | đoạn giới thiệu trong hero (cỡ chữ thân bài, rộng ≤ 72ch) | `--fs-body` |
+
+0 màu / font ngoài DESIGN.md (logo đối tác là ảnh nội dung). Đã gỡ CSS / JS của trang chủ mục 10 (hero CEO, form ngắn, ảnh đại diện
+bài, khung chờ nội dung) và dải nổi bật cũ.
+
+### 11.5 Màn hình đầu (chưa cuộn) – `screenshots/mockup-b2-r4/kiem-tra/do-hero.md`
+
+| Màn (cao) | Khung ảnh hero B | Đáy nút (giới hạn) | Ghi chú |
+|---|---|---|---|
+| M1 1366×768 | 1200×208 | 650 (≤ 744) | H1 + 2 đoạn + 2 nút trọn |
+| M2 1536×864 | 1200×304 | 746 (≤ 840) | trọn |
+| M3 1920×1080 | 1320×520 | 962 (≤ 1056) | trọn |
+| M5 390×844 | 358×201 | nút đầu 752 (≤ 844) | điện thoại: dải ảnh 16:9, 2 nút đặt ngay sau đoạn đầu (đoạn 2 xuống dưới nút) |
+| M4 960×540 | 912×180 | – | độ giãn 1,52 (như mục 9.2, phương án a) |
+
+### 11.6 Bộ đo (bản build cuối)
+
+| Bộ đo | Kết quả |
+|---|---|
+| Bộ NT (`check_mockup.mjs`, 3 trang × A/B × 11 màn) | **0 lỗi** |
+| check_ui 7 khung (trang chủ + TGC/MPP × A/B) | **0 lỗi** – `screenshots/mockup-b2-r4/kiem-tra/check-ui.md` |
+| Hero (NT-49/17/18/43) | 0 vi phạm ngoài M4 1,52 ở hero B (3 trang) |
+| Tương tác | **23/23**: 17 cũ + hero B cố định ở trang chủ; lọc Masterise Homes + Khu Đông → 1 dự án; chỉ Khu Đông → 3; Xóa lọc → 6/6; form có trường ẩn CF7; gửi thử cục bộ đủ page-url / utm, 0 yêu cầu mạng |
+| Tương phản hero A (TGC, MPP) | đạt mọi điểm |
+| Build | trang-chu 2,9 MB · the-global-city 9,9 MB · masteri-park-place 3,1 MB; **CSS 26,2 KB min / 5,9 KB gzip** |
+
+### 11.7 Ảnh – `screenshots/mockup-b2-r4/`
+
+- `man-dau/trang-chu-M1..M5.jpg`, `ca-trang/trang-chu-M1..M5.jpg`.
+- `canh-nhau-trang-cu-trang-moi-1536.jpg`: trang cũ velisrealty.vn (trái, chụp chỉ đọc 2026-11-05) | trang mới (phải), 1536×864.
+  Không đặt cạnh Newway.
+- `ca-trang/trang-chu-cu-1536.jpg` – ảnh gốc trang cũ.
+
+
 ---
-Đã bỏ qua / chưa kiểm tra: Lighthouse không chạy lại; Safari/iPhone thật chưa thử; chưa có logo chủ đầu tư trong Media (khối e dùng tên); ô chọn khu vực / loại chưa mở `/du-an/` đã lọc sẵn (bộ lọc theme không đọc tham số URL – cần quyết ở bước 3).
-Rủi ro: tên hiển thị CEO (Vũ Xuân / Vũ Thanh Xuân) và câu vai trò "câu chờ duyệt" chờ người dùng chọn; khung "Cách Velis làm việc" chờ nội dung; M4 độ giãn hero B 1,52 vẫn như vòng sửa.
+Đã bỏ qua / chưa kiểm tra: Lighthouse không chạy lại; Safari/iPhone thật chưa thử; logo đối tác chỉ có 4 (theo trang cũ).
+Rủi ro: con số trang chủ dùng giá trị HTML trang cũ (10 · 50 · 999 · 99), khác số trong lệnh (48 · 954 · 95) – chờ chọn (AUDIT mục 11); M4 độ giãn hero B 1,52; thẻ "Velis tư vấn dự án này" vẫn ở trang dự án (chờ xác nhận).
