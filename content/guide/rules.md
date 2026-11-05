@@ -89,4 +89,10 @@ slogan, hotline của họ. Mỗi dòng: `- `cụm từ` (loại, nguồn)` — 
 - `phucduymedia.tran` (Facebook nhân viên)
 - `Đơn vị phân phối của Vinhomes` (lời tự giới thiệu)
 
+### theprivesr.vn
+
+- `theprivesr` (tên miền, Facebook)
+- `Sales Đất Xanh` (byline bài viết – dùng tên CĐT làm byline)
+- (tác giả, email, hotline 0938.007.778 / 0975442140 / 0938910329: trùng mục trên. Tên dự án/CĐT không cấm)
+
 <!-- banned:end -->
