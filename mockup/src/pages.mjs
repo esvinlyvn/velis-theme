@@ -18,7 +18,7 @@ const S = {
 	gallery: [['(min-width: 1024px)', '820px'], ['', '86vw']],
 };
 
-export function render({ home, tgc, mpp, content, img, usable, logo, logoWhite }) {
+export function render({ home, tgc, mpp, broker, content, img, usable, logo, logoWhite }) {
 	const sechead = (h, extra = '') => `<header class="sechead${extra ? ' sechead--row' : ''}"><div>${h.eyebrow ? `<p class="eyebrow">${esc(h.eyebrow)}</p>` : ''}<h2>${esc(h.title)}</h2>${h.lead ? `<p>${esc(h.lead)}</p>` : ''}</div>${extra}</header>`;
 
 	const header = () => `
@@ -36,8 +36,9 @@ export function render({ home, tgc, mpp, content, img, usable, logo, logoWhite }
 	<div class="menu__actions"><a class="btn btn--line" href="#">Gọi hotline ${PHONE}</a><a class="btn" href="#tu-van">${esc(home.header.cta)}</a></div>
 </dialog>`;
 
-	const footer = () => {
+	const footer = ({ heroSwitch = true } = {}) => {
 		const [brand, explore, apps, follow] = home.footer.cols;
+		const sw = (big) => heroSwitch ? (big ? 'Hero: <button type="button" data-mk-hero="a">A – tràn</button><button type="button" data-mk-hero="b">B – khung có lề</button>\n\t&nbsp; ' : 'Hero <button type="button" data-mk-hero="a">A</button><button type="button" data-mk-hero="b">B</button> ') : '';
 		const [copy, policy] = home.footer.bottom.split(/\n+/);
 		const social = ['Facebook', 'YouTube', 'TikTok', 'Instagram', 'LinkedIn', 'X', 'Pinterest'];
 		return `
@@ -51,31 +52,50 @@ export function render({ home, tgc, mpp, content, img, usable, logo, logoWhite }
 	<div class="footer__bottom"><p class="mb-0">${esc(copy)}</p><a href="#">${esc(policy)}</a></div>
 </div></footer>
 <nav class="cta" aria-label="Liên hệ nhanh"><a href="#">${esc(home.cta[0])}</a><a href="#">${esc(home.cta[1])}</a><a href="#tu-van">${esc(home.cta[2])}</a></nav>
-<details class="mk-float"><summary aria-label="Công tắc mockup">A/B</summary><div class="mk__row">Hero <button type="button" data-mk-hero="a">A</button><button type="button" data-mk-hero="b">B</button> Nhãn <button type="button" data-mk-tam="1">Hiện</button><button type="button" data-mk-tam="0">Ẩn</button></div></details>
+<details class="mk-float"><summary aria-label="Công tắc mockup">${heroSwitch ? 'A/B' : 'Nhãn'}</summary><div class="mk__row">${sw(false)}Nhãn <button type="button" data-mk-tam="1">Hiện</button><button type="button" data-mk-tam="0">Ẩn</button></div></details>
 <aside class="mk" aria-label="Công tắc mockup"><div class="wrap">
-	<p><b>Mockup bước 2</b> – công tắc chỉ dùng để duyệt, không đưa vào theme. Trạng thái ghi vào địa chỉ: <code>#hero-a</code> / <code>#hero-b</code>, <code>#tam-0</code>.</p>
-	<div class="mk__row">Hero: <button type="button" data-mk-hero="a">A – tràn</button><button type="button" data-mk-hero="b">B – khung có lề</button>
-	&nbsp; Nhãn ảnh tạm: <button type="button" data-mk-tam="1">Hiện</button><button type="button" data-mk-tam="0">Ẩn</button></div>
+	<p><b>Mockup bước 2</b> – công tắc chỉ dùng để duyệt, không đưa vào theme. Trạng thái ghi vào địa chỉ: ${heroSwitch ? '<code>#hero-a</code> / <code>#hero-b</code>, ' : ''}<code>#tam-0</code>.</p>
+	<div class="mk__row">${sw(true)}Nhãn ảnh tạm: <button type="button" data-mk-tam="1">Hiện</button><button type="button" data-mk-tam="0">Ẩn</button></div>
 </div></aside>`;
 	};
 
-	const form = (title, lead) => {
+	// form fields shared by the full form and the short one; hidden fields = the live CF7 form (interest, page-url, utm)
+	const fields = (id, { interest = '', choose = false } = {}) => {
+		const f = home.form;
+		return `
+		<div class="form__row">
+			<p class="field"><label for="${id}ten">Họ và tên</label><input id="${id}ten" name="ten" autocomplete="name" required data-rule="name" aria-describedby="${id}ten-loi"><span class="field__error" id="${id}ten-loi" hidden></span></p>
+			<p class="field"><label for="${id}sdt">Số điện thoại</label><input id="${id}sdt" name="sdt" type="tel" inputmode="tel" autocomplete="tel" required data-rule="phone" aria-describedby="${id}sdt-loi"><span class="field__error" id="${id}sdt-loi" hidden></span></p>
+		</div>
+		${choose ? `<p class="field"><label for="${id}du-an">Dự án quan tâm</label><select id="${id}du-an" name="interest"><option value="">Chưa chọn</option>${broker.projects.map(p => `<option>${esc(p.title)}</option>`).join('')}</select></p>` : `<input type="hidden" name="interest" value="${esc(interest)}">`}
+		<input type="hidden" name="page-url" value=""><input type="hidden" name="utm" value="">
+		<div class="check"><input id="${id}dong-y" type="checkbox" data-rule="consent" aria-describedby="${id}dong-y-loi"><div><label for="${id}dong-y">${esc(f.consent)}</label><p class="field__error" id="${id}dong-y-loi" hidden></p></div></div>
+		<p class="mb-0"><button class="btn" type="submit">${esc(f.submit)}</button></p>
+		<p class="mb-0 muted" role="status"></p>`;
+	};
+
+	const form = (title, lead, interest = '') => {
 		const f = home.form;
 		return `
 <section class="section section--dark" id="tu-van" aria-labelledby="tu-van-h"><div class="wrap contact">
 	<div><p class="eyebrow">${esc(f.eyebrow)}</p><h2 id="tu-van-h">${esc(title)}</h2><p>${esc(lead ?? f.lead)}</p>
 		<dl>${f.contact.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl></div>
-	<form class="form" novalidate>
-		<div class="form__row">
-			<p class="field"><label for="ten">Họ và tên</label><input id="ten" name="ten" autocomplete="name" required data-rule="name" aria-describedby="ten-loi"><span class="field__error" id="ten-loi" hidden></span></p>
-			<p class="field"><label for="sdt">Số điện thoại</label><input id="sdt" name="sdt" type="tel" inputmode="tel" autocomplete="tel" required data-rule="phone" aria-describedby="sdt-loi"><span class="field__error" id="sdt-loi" hidden></span></p>
-		</div>
-		<div class="check"><input id="dong-y" type="checkbox" data-rule="consent" aria-describedby="dong-y-loi"><div><label for="dong-y">${esc(f.consent)}</label><p class="field__error" id="dong-y-loi" hidden></p></div></div>
-		<p class="mb-0"><button class="btn" type="submit">${esc(f.submit)}</button></p>
-		<p class="mb-0 muted" role="status"></p>
+	<form class="form" novalidate>${fields('', { interest })}
 	</form>
 </div></section>`;
 	};
+
+	// [CEO] portrait (user-supplied, clean: no crop, no "ảnh tạm" tag) + the advisor card of project pages
+	const CEO = { img: 'img/vu-thanh-xuan-ceo-velis.webp', name: 'Vũ Xuân', role: 'CEO Velis Realty' };
+	const avatar = (px) => img(CEO.img, { alt: '', sizes: [['', `${px}px`]], frame: 1, tmp: '', widths: [720] });
+	const advisor = (name, devName, dl, cls = '') => `<div class="advisor${cls}">
+	<p class="eyebrow">VELIS TƯ VẤN DỰ ÁN NÀY</p>
+	<div class="advisor__who"><span class="advisor__img">${avatar(80)}</span><p class="mb-0"><b>${esc(CEO.name)}</b><span>${esc(CEO.role)}</span></p></div>
+	<p class="advisor__role"><span class="draft">câu chờ duyệt</span> Velis Realty là đơn vị tư vấn, phân phối; chủ đầu tư dự án là ${esc(devName)}.</p>
+	<p class="pricecard__title mb-0">${esc(name)}</p>
+	<dl>${dl.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
+	<a class="btn" href="#tu-van">Nhận bảng giá</a><a class="btn btn--line" href="#">Gọi ${PHONE}</a><a class="btn btn--text" href="#">Zalo</a>
+</div>`;
 
 	// hero: same text/button structure for A and B; B is the default, #hero-a switches before the image is chosen
 	const hero = (h, { lead, chips, buttons, home: isHome }) => `
@@ -115,11 +135,9 @@ export function render({ home, tgc, mpp, content, img, usable, logo, logoWhite }
 	});
 	const grid = (items, cls = '') => `<div class="grid${cls}" data-n="${items.length}">${items.join('')}</div>`;
 	const prose = (html, id) => `<div class="prose clamp" id="${id}-noi-dung">${html}</div>`;
-	const side = (name, dl) => `<aside class="page__side" aria-label="Nhận bảng giá"><div class="pricecard"><div class="pricecard__body">
-	<p class="eyebrow">NHẬN BẢNG GIÁ</p><p class="pricecard__title">${esc(name)}</p>
-	<dl>${dl.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
-	<a class="btn" href="#tu-van">Nhận bảng giá</a><a class="btn btn--line" href="#">Gọi ${PHONE}</a><a class="btn btn--text" href="#">Zalo</a>
-</div></div></aside>`;
+	// project / zone pages: the advisor card sits in the side column (≥ 1024) and right after the facts bar (phones)
+	const side = (name, dl) => `<aside class="page__side" aria-label="Velis tư vấn dự án này">${advisor(name, 'Masterise Homes', dl)}</aside>`;
+	const advisorInline = (name, dl) => `<div class="wrap advisor-inline">${advisor(name, 'Masterise Homes', dl, ' advisor--inline')}</div>`;
 	const map = (m, extra = '') => `<figure class="map">${img(m.img, { alt: m.alt, sizes: S.read, frame: 16 / 9 })}<a class="btn btn--line" href="#">Xem trên Google Maps</a></figure>${extra}<p class="source">${esc(m.source)}</p>`;
 	const page = (title, body) => ({ title, body });
 
@@ -127,31 +145,51 @@ export function render({ home, tgc, mpp, content, img, usable, logo, logoWhite }
 	const H = home;
 	const homeBody = `${header()}
 <main id="noi-dung" tabindex="-1">
-${hero(H.hero, { home: true, lead: H.hero.lead, buttons: `<a class="btn" href="#tu-van">${esc(H.hero.buttons[0])}</a><a class="btn btn--line" href="#du-an">${esc(H.hero.buttons[1])}</a>` })}
-<section class="section section--tight feats" aria-labelledby="noi-bat-h"><div class="wrap">
-	<div class="feats__head"><p class="eyebrow" id="noi-bat-h">DỰ ÁN NỔI BẬT</p><div class="feats__nav"><button type="button" data-prev aria-label="Dự án trước">‹</button><button type="button" data-next aria-label="Dự án sau">›</button></div></div>
-	<div class="rail" data-n="${H.feats.length}">${H.feats.map(f => `<a class="feat" href="#"><span class="feat__img">${img(f.img, { alt: '', sizes: S.thumb, frame: 4 / 3, tmp: '' })}</span><span><b>${esc(f.name)}</b><small>${esc(f.meta)}</small></span></a>`).join('')}</div>
-	<dl class="numbers">${H.numbers.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
+<section class="advise" aria-labelledby="h1"><div class="wrap advise__grid">
+	<div class="advise__text">
+		<p class="eyebrow">${esc(H.hero.eyebrow)}</p>
+		<h1 id="h1">${esc(H.hero.title)}</h1>
+		<p class="hero__lead">${esc(H.hero.lead)}</p>
+		<div class="actions advise__contact"><a class="btn btn--line" href="#">Gọi ${PHONE}</a><a class="btn btn--line" href="#">Zalo</a></div>
+	</div>
+	<figure class="advise__ceo"><figcaption><b>${esc(CEO.name)}</b><span>${esc(CEO.role)}</span></figcaption><span class="advise__img">${img(CEO.img, { alt: `${CEO.name}, ${CEO.role}`, sizes: [['(min-width: 1024px)', '300px'], ['(min-width: 768px)', '(50vw - 36px)'], ['', '112px']], frame: 0.86, tmp: '', lcp: true })}</span></figure>
+	<form class="form form--short advise__form" novalidate aria-labelledby="nhanh-h"><p class="advise__formhead" id="nhanh-h">${esc(H.form.title)}</p>${fields('n-', { choose: true })}
+	</form>
 </div></section>
-<section class="section" id="du-an" aria-labelledby="du-an-h"><div class="wrap">
-	<header class="sechead sechead--row"><div><p class="eyebrow">DỰ ÁN</p><h2 id="du-an-h">Dự án đang tư vấn</h2></div><a class="btn btn--text" href="#">Xem dự án →</a></header>
-	${grid(H.projects.map(p => { const [lead, ...rest] = p.lines; return card({ ...p, img: p.noimg ? '' : p.img }, S.card3, { kicker: lead, lines: [rest.join(' · ')], more: 'Xem dự án →' }); }), ' grid--three')}
+<section class="section section--tight" id="tim-du-an" aria-labelledby="tim-h"><div class="wrap">
+	<header class="sechead sechead--row"><div><h2 id="tim-h">Tìm dự án theo nhu cầu</h2></div><a class="btn btn--text" href="#">Xem tất cả dự án →</a></header>
+	<div class="finder" data-filter="#du-an .grid" data-noun="dự án">
+		${[['khu', 'Khu vực', broker.regions.map(r => [r.slug, r.slug === 've-tinh' && r.sub.length ? r.sub.join(', ') : r.name]) /* vùng vệ tinh: tên thị trường của tiểu khu (Nhơn Trạch – Long Thành) */], ['loai', 'Loại sản phẩm', broker.types.map(t => [t.slug, t.name])], ['cdt', 'Chủ đầu tư', broker.devs.map(d => [d.slug, d.name])]]
+			.map(([key, label, opts]) => `<div class="finder__row" role="group" aria-label="${label}"><span class="finder__label">${label}</span>${opts.map(([v, t]) => `<button class="chip" type="button" data-key="${key}" value="${v}" aria-pressed="false">${esc(t)}</button>`).join('')}</div>`).join('')}
+		<div class="finder__foot"><p class="muted mb-0" data-count aria-live="polite">Hiển thị ${broker.projects.length}/${broker.projects.length} dự án</p><button class="btn btn--text" type="button" data-clear>Xóa lọc</button></div>
+	</div>
 </div></section>
-<section class="section section--tint" aria-labelledby="ve-velis-h"><div class="wrap split">
-	<div class="card__media about__media">${img(H.about.img, { alt: H.about.alt, sizes: S.half, frame: 3 / 2 })}</div>
-	<div><p class="eyebrow">${esc(H.about.eyebrow)}</p><h2 id="ve-velis-h">${esc(H.about.title)}</h2><blockquote class="quote">${esc(H.about.quote)}</blockquote><a class="btn btn--line" href="#">${esc(H.about.button)}</a></div>
+<section class="section section--flush" id="du-an" aria-labelledby="du-an-h"><div class="wrap">
+	<header class="sechead"><div><p class="eyebrow">DỰ ÁN</p><h2 id="du-an-h">Dự án Velis đang tư vấn</h2></div></header>
+	${grid(broker.projects.map(p => {
+		const c = H.projects.find(x => x.title === p.title) || {}, hand = (c.lines || []).find(l => /^Bàn giao/.test(l));
+		return card({ title: p.title, img: c.noimg ? '' : c.img }, S.card3, { kicker: `${p.devs.map(d => d.name).join(', ')} · ${p.khu.join(', ')}`, lines: [p.types.join(', '), hand], more: 'Xem dự án →' })
+			.replace('<article class="card">', `<article class="card" data-khu="${p.regions.join(' ')}" data-loai="${p.typeSlugs.join(' ')}" data-cdt="${p.devs.map(d => d.slug).join(' ')}">`);
+	}), ' grid--three')}
+</div></section>
+<section class="section section--tint" id="ve-velis" aria-labelledby="ve-velis-h"><div class="wrap why">
+	<div><p class="eyebrow">${esc(H.about.eyebrow)}</p><h2 id="ve-velis-h">${esc(broker.who.head)}</h2><p>${esc(broker.who.text.slice(0, broker.who.text.indexOf('. ') + 1))}</p>
+		<dl class="numbers">${H.numbers.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
+		<p class="mb-0"><a class="btn btn--line" href="#">${esc(H.about.button)}</a></p></div>
+	<div><h3 class="mt-0">${esc(broker.values.head)}</h3><ul class="values">${broker.values.items.map(([t, d]) => `<li><b>${esc(t)}</b><span>${esc(d)}</span></li>`).join('')}</ul>
+		<div class="pending"><p class="eyebrow">CÁCH VELIS LÀM VIỆC · CHỜ NỘI DUNG</p><p class="mb-0">Trang Giới thiệu chưa có phần mô tả các bước Velis làm việc với khách. Khung này chờ nội dung của người dùng (ghi ở AUDIT-NOI-DUNG).</p></div></div>
 </div></section>
 <section class="section" aria-labelledby="cdt-h"><div class="wrap">
 	${sechead({ ...H.sections[1] }, `<a class="btn btn--text" href="#">${esc(H.sections[1].more)} →</a>`).replace('<h2>', '<h2 id="cdt-h">')}
-	<ul class="devs">${H.devs.map(([d, p]) => `<li><b>${esc(d)}</b><span class="muted">${esc(p)}</span></li>`).join('')}</ul>
+	<ul class="devs">${H.devs.map(([d, p]) => { const dv = broker.devs.find(x => x.name === d); return `<li>${dv?.path ? `<a href="#" data-href="${dv.path}"><b>${esc(d)}</b></a>` : `<b>${esc(d)}</b>`}<span class="muted">${esc(p)}</span></li>`; }).join('')}</ul>
 </div></section>
 <section class="section section--tint" aria-labelledby="bai-h"><div class="wrap">
 	${sechead(H.sections[2], `<a class="btn btn--text" href="#">${esc(H.sections[2].more)} →</a>`).replace('<h2>', '<h2 id="bai-h">')}
-	${grid(H.posts.map(p => postCard(p, S.card3)))}
+	${grid(H.posts.map(p => postCard(p, S.card3).replace('<p class="card__meta">', `<p class="card__meta card__meta--author"><span class="card__avatar">${avatar(32)}</span>`)))}
 </div></section>
 ${form(H.form.title, H.form.lead)}
 </main>
-${footer()}`;
+${footer({ heroSwitch: false })}`;
 
 	/* ---------- The Global City ---------- */
 	const T = tgc, F = T.fields;
@@ -165,6 +203,7 @@ ${crumbs(T.hero.crumbs)}
 ${tabs(T.nav)}
 ${hero(T.hero, { chips: T.hero.chips, buttons: `<a class="btn" href="#tu-van">Nhận bảng giá</a><a class="btn btn--line" href="#">Gọi ${PHONE}</a>` })}
 ${facts([['Chủ đầu tư', 'Masterise Homes'], ['Quy mô', F.velis_scale], ['Số phân khu', '5'], ['Giá', 'Chưa công bố'], ['Vị trí', F.velis_address, '#vi-tri'], ['Sản phẩm', 'Biệt thự, Căn hộ, Nhà phố liền kề, Shophouse'], ['Bàn giao', T.side.dl[1][1]], ['Pháp lý', F.velis_legal.replace(/^Hình thức sở hữu:\s*/, '')]])}
+${advisorInline(T.hero.title, T.side.dl.slice(0, 2))}
 <div class="wrap page">
 <div class="page__main">
 	<section class="block" id="tong-quan">${sechead(T.heads['tong-quan'])}${prose(c('tong-quan'), 'tong-quan')}</section>
@@ -190,7 +229,7 @@ ${facts([['Chủ đầu tư', 'Masterise Homes'], ['Quy mô', F.velis_scale], ['
 </div>
 ${side(T.hero.title, T.side.dl.slice(0, 2))}
 </div>
-${form(T.form.title)}
+${form(T.form.title, undefined, T.hero.title)}
 </main>
 ${footer()}`;
 
@@ -202,6 +241,7 @@ ${crumbs(M.hero.crumbs)}
 ${tabs(M.nav)}
 ${hero(M.hero, { chips: M.hero.chips, buttons: `<a class="btn" href="#tu-van">Nhận bảng giá</a><a class="btn btn--line" href="#">Gọi ${PHONE}</a>` })}
 ${facts([['Chủ đầu tư', 'Masterise Homes'], ['Quy mô', M.fields.velis_scale], ['Giá', 'Chưa công bố'], ['Vị trí', M.overview[0][1], '#vi-tri'], ['Diện tích', M.fields.velis_area], ['Bàn giao', M.fields.velis_handover]])}
+${advisorInline(M.hero.title, [['Loại sản phẩm', 'Căn hộ'], ['Bàn giao', M.fields.velis_handover]])}
 <div class="wrap page">
 <div class="page__main">
 	<section class="block" id="tong-quan">${sechead(M.heads['tong-quan'])}
@@ -214,7 +254,7 @@ ${facts([['Chủ đầu tư', 'Masterise Homes'], ['Quy mô', M.fields.velis_sca
 </div>
 ${side(M.hero.title, [['Loại sản phẩm', 'Căn hộ'], ['Bàn giao', M.fields.velis_handover]])}
 </div>
-${form(M.form.title)}
+${form(M.form.title, undefined, M.hero.title)}
 </main>
 ${footer()}`;
 

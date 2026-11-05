@@ -191,6 +191,8 @@ function report(cache) {
 		const more = where.length > 4 ? ` (+${where.length - 4})` : '';
 		out.push(`| ${img.id} | \`${img.file}\` | ${img.real.error ? 'hỏng: ' + img.real.error : `${W(img)}×${H(img)}`} | ${ratio(W(img), H(img))} | ${markText(marks[img.id])} | ${where.slice(0, 4).join('<br>')}${more} | ${clue(img)} |`);
 	}
+	const extra = join(ROOT, 'docs/kiem-ke-anh/them-tay.md'); // images supplied by the user, not (yet) in Media – kept on every run
+	if (existsSync(extra)) out.push('', readFileSync(extra, 'utf8').trim());
 	writeFileSync(join(ROOT, 'docs/KIEM-KE-ANH.md'), out.join('\n') + '\n');
 
 	const csv = ['du_an,vi_tri,file_hien_tai,mo_ta_noi_dung_anh,ti_le,co_toi_thieu'];

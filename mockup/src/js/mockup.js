@@ -29,18 +29,6 @@
 		if (t) { t.scrollIntoView({ block: 'start' }); if (t.id === 'noi-dung') t.focus({ preventScroll: true }); }
 	});
 
-	// featured strip: ≤ 4 in the frame, arrows / swipe for the rest, never automatic (NT-10)
-	$$('.feats').forEach(f => {
-		const rail = f.querySelector('.rail'), prev = f.querySelector('[data-prev]'), next = f.querySelector('[data-next]');
-		const step = () => rail.children[0].getBoundingClientRect().width + parseFloat(getComputedStyle(rail).columnGap || 0);
-		const sync = () => { prev.disabled = rail.scrollLeft < 2; next.disabled = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 2; };
-		prev.onclick = () => rail.scrollBy({ left: -step() });
-		next.onclick = () => rail.scrollBy({ left: step() });
-		rail.addEventListener('scroll', sync, { passive: true });
-		addEventListener('resize', sync);
-		sync();
-	});
-
 	// mobile menu: native <dialog>
 	const menu = document.getElementById('menu');
 	if (menu) {
@@ -50,7 +38,7 @@
 	}
 
 	// mobile bottom CTA: hidden while the hero buttons are on screen (NT-79)
-	const cta = document.querySelector('.cta'), heroBtns = document.querySelector('.hero .actions');
+	const cta = document.querySelector('.cta'), heroBtns = document.querySelector('.hero .actions, .advise__form');
 	// scroll check, not IntersectionObserver: a jump past buttons that start below the fold never crosses a threshold
 	const ctaSync = () => cta.classList.toggle('is-on', heroBtns.getBoundingClientRect().bottom < 0);
 	if (cta && heroBtns) { addEventListener('scroll', ctaSync, { passive: true }); ctaSync(); }
@@ -92,21 +80,26 @@
 		show();
 	});
 
-	// zone filter by product type; the grid count follows so no cell is left empty (X-06)
+	// quick filters (zones by type; home: projects by area / type / developer): OR inside a group, AND across groups;
+	// the grid count follows and visible cards come first, so no cell is left empty (X-06)
 	$$('[data-filter]').forEach(f => {
-		const grids = $$(f.dataset.filter), out = f.querySelector('[data-count]');
+		const grids = $$(f.dataset.filter), out = f.querySelector('[data-count]'), noun = f.dataset.noun || 'phân khu';
 		const total = grids.reduce((t, g) => t + g.children.length, 0);
+		grids.forEach(g => [...g.children].forEach((c, i) => { c.dataset.i = i; }));
 		const apply = () => {
-			const on = $$('button[aria-pressed="true"]', f).map(b => b.value);
+			const on = {};
+			$$('button[aria-pressed="true"]', f).forEach(b => (on[b.dataset.key || 'loai'] ??= []).push(b.value));
 			let all = 0;
 			grids.forEach(g => {
-				let n = 0;
-				[...g.children].forEach(c => { const hit = !on.length || on.some(v => c.dataset.loai.split(' ').includes(v)); c.hidden = !hit; n += hit; });
+				const cards = [...g.children].sort((a, b) => a.dataset.i - b.dataset.i);
+				cards.forEach(c => { c.hidden = !Object.entries(on).every(([k, vals]) => vals.some(v => (c.dataset[k] || '').split(' ').includes(v))); });
+				[...cards.filter(c => !c.hidden), ...cards.filter(c => c.hidden)].forEach(c => g.append(c));
+				const n = cards.filter(c => !c.hidden).length;
 				g.dataset.n = n;
-				g.parentNode.hidden = !n;
+				if (g.parentNode.matches('[data-group]')) g.parentNode.hidden = !n;
 				all += n;
 			});
-			out.textContent = `Hiển thị ${all}/${total} phân khu`;
+			out.textContent = `Hiển thị ${all}/${total} ${noun}`;
 		};
 		$$('button[value]', f).forEach(b => { b.onclick = () => { b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true')); apply(); }; });
 		f.querySelector('[data-clear]').onclick = () => { $$('button[value]', f).forEach(b => b.setAttribute('aria-pressed', 'false')); apply(); };
@@ -134,11 +127,16 @@
 	$$('form.form').forEach(form => form.addEventListener('submit', e => {
 		e.preventDefault();
 		const bad = check(form);
-		if (bad) bad.focus();
-		else form.querySelector('[role="status"]').textContent = 'Mockup: biểu mẫu hợp lệ, không gửi đi đâu.';
+		if (bad) { bad.focus(); return; }
+		// same hidden fields as the live CF7 form (interest, page-url, utm); the mockup sends nothing, it only shows them
+		form.elements['page-url'].value = location.href.split('#')[0];
+		form.elements.utm.value = [...q].filter(([k]) => k.startsWith('utm_')).map(([k, v]) => `${k}=${v}`).join('&');
+		const sent = Object.fromEntries(['interest', 'page-url', 'utm'].map(k => [k, form.elements[k].value]));
+		form.dataset.sent = JSON.stringify(sent);
+		form.querySelector('[role="status"]').textContent = `Mockup: hợp lệ, không gửi đi đâu – dự án: ${sent.interest || '(chưa chọn)'}, trang: ${sent['page-url']}, utm: ${sent.utm || '(không có)'}.`;
 	}));
 	if (q.get('trang-thai') === 'loi-form') {
-		const f = document.querySelector('form.form');
+		const f = document.querySelector('#tu-van form.form');
 		f.querySelector('[data-rule="phone"]').value = '0911 23';
 		check(f);
 	}

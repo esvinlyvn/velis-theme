@@ -25,11 +25,27 @@ await p.click('.mk-float summary'); await p.click('.mk-float [data-mk-hero="b"]'
 check('Công tắc nổi góc dưới phải: đổi về hero B', await p.evaluate(() => !!document.querySelector('.hero.hero--b') && location.hash.startsWith('#hero-b')));
 await p.context().close();
 
-p = await open('/trang-chu.html');
-const f0 = await p.evaluate(() => [document.querySelector('.feats [data-prev]').disabled, document.querySelector('.feats .rail').scrollLeft]);
-await p.click('.feats [data-next]'); await p.waitForTimeout(400);
-const f1 = await p.evaluate(() => [document.querySelector('.feats [data-prev]').disabled, Math.round(document.querySelector('.feats .rail').scrollLeft)]);
-check('NT-10 dải nổi bật: mũi tên "sau" trượt 1 thẻ, mũi tên "trước" bật lại', f0[0] === true && f1[1] > 0 && f1[0] === false, { f0, f1 });
+// home (broker positioning): no hero A/B; short form in the first screen; find-by-need chips filter the project grid
+p = await open('/trang-chu.html?utm_source=thu&utm_medium=mockup');
+check('Trang chủ: không còn công tắc hero A/B', await p.evaluate(() => !document.querySelector('.hero') && !document.querySelector('[data-mk-hero]')));
+const sf = 'form.advise__form';
+await p.click(`${sf} [type=submit]`);
+const se = await p.evaluate((s) => ({ errs: document.querySelectorAll(`${s} .is-error`).length, focus: document.activeElement.id, sent: document.querySelector(s).dataset.sent || '' }), sf);
+check('Form ngắn: bỏ trống → báo lỗi từng trường, không gửi, focus ô đầu', se.errs === 3 && se.focus === 'n-ten' && !se.sent, se);
+let req = 0; p.on('request', (r) => { if (!r.url().startsWith('data:') && !r.url().startsWith('http://127.0.0.1')) req++; });
+await p.fill(`${sf} [name=ten]`, 'Nguyễn Văn Thử'); await p.fill(`${sf} [name=sdt]`, '0900000000');
+await p.selectOption(`${sf} [name=interest]`, 'The Global City'); await p.check(`${sf} [type=checkbox]`);
+await p.click(`${sf} [type=submit]`);
+const sent = JSON.parse(await p.evaluate((s) => document.querySelector(s).dataset.sent || '{}', sf));
+check('Form ngắn: gửi thử cục bộ đủ trường ẩn như form chính (dự án, URL trang, utm), không gọi mạng', sent.interest === 'The Global City' && /trang-chu\.html\?utm_source=thu/.test(sent['page-url']) && sent.utm === 'utm_source=thu&utm_medium=mockup' && req === 0, { sent, req });
+const hid = await p.evaluate(() => [...document.querySelectorAll('#tu-van form [type=hidden]')].map((i) => i.name).sort().join(','));
+check('Form chính: cùng trường ẩn interest, page-url, utm', hid === 'interest,page-url,utm', hid);
+await p.click('.finder [data-key="khu"][value="khu-dong"]');
+await p.click('.finder [data-key="loai"][value="biet-thu"]');
+const fr = await p.evaluate(() => ({ count: document.querySelector('.finder [data-count]').textContent, n: document.querySelector('#du-an .grid').dataset.n, shown: [...document.querySelectorAll('#du-an .card:not([hidden]) .card__title')].map((t) => t.textContent) }));
+check('Tìm theo nhu cầu: Khu Đông + Biệt thự → 1 dự án (The Global City), lưới theo số thẻ', fr.n === '1' && fr.shown.join() === 'The Global City' && /1\/6/.test(fr.count), fr);
+await p.click('.finder [data-clear]');
+check('Tìm theo nhu cầu: Xóa lọc → 6/6', await p.evaluate(() => document.querySelector('#du-an .grid').dataset.n === '6'));
 await p.context().close();
 
 p = await open('/the-global-city.html');

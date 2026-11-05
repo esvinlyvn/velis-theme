@@ -7,7 +7,7 @@ import { createRequire } from 'node:module';
 import { writeFileSync } from 'node:fs';
 const { chromium } = createRequire(import.meta.url)('playwright');
 const [base = 'http://127.0.0.1:8765', out = 'contrast.json'] = process.argv.slice(2);
-const PAGES = ['trang-chu', 'the-global-city', 'masteri-park-place'];
+const PAGES = ['the-global-city', 'masteri-park-place']; // trang chủ không còn hero ảnh (vòng định vị)
 const M = [['M1', 1366, 768, 1], ['M2', 1536, 864, 1.25], ['M3', 1920, 1080, 1], ['M4', 960, 540, 2], ['M5', 390, 844, 2]];
 
 export const lum = ([r, g, b]) => [r, g, b].map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }).reduce((s, v, i) => s + v * [0.2126, 0.7152, 0.0722][i], 0);

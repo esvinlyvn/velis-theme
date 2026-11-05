@@ -1,0 +1,296 @@
+{
+ "source": {
+  "url": "https://staging.velisrealty.vn/gioi-thieu/",
+  "modified": "2026-11-04T22:39:49",
+  "read": "2026-11-05"
+ },
+ "who": {
+  "head": "Chúng Tôi Là Ai?",
+  "text": "Velis Realty là đơn vị chuyên tư vấn và phân phối bất động sản cao cấp, tập trung vào dự án của các chủ đầu tư có hồ sơ bàn giao và pháp lý công khai. Với nền tảng kiến thức sâu rộng và sự am hiểu thị trường thực chiến, chúng tôi tự hào là đối tác chiến lược của các “ông lớn” trong ngành như:"
+ },
+ "values": {
+  "head": "Giá Trị Khác Biệt Tại Velis Realty",
+  "items": [
+   [
+    "Thông Tin Có Nguồn",
+    "Chúng tôi cung cấp thông tin dự án đầy đủ, chính xác về pháp lý và quy hoạch, giúp khách hàng yên tâm trước mỗi quyết định."
+   ],
+   [
+    "Hỗ Trợ Sau Bán",
+    "Từ lúc tư vấn, ký kết hợp đồng đến khi nhận nhà và quản lý vận hành, Velis Realty luôn hiện diện để hỗ trợ."
+   ],
+   [
+    "Tư Duy Chiến Lược",
+    "Không chỉ bán sản phẩm, chúng tôi cung cấp giải pháp. Velis Realty phân tích dòng tiền, đánh giá tiềm năng tăng giá và tính thanh khoản của từng vị trí."
+   ],
+   [
+    "Cập Nhật Quỹ Căn Và Chính Sách",
+    "Cập nhật quỹ căn và chính sách bán hàng ngay khi chủ đầu tư công bố."
+   ]
+  ]
+ },
+ "regions": [
+  {
+   "slug": "khu-tay",
+   "name": "Khu Tây",
+   "sub": []
+  },
+  {
+   "slug": "khu-dong",
+   "name": "Khu Đông",
+   "sub": [
+    "Nam Rạch Chiếc"
+   ]
+  },
+  {
+   "slug": "ve-tinh",
+   "name": "Vùng vệ tinh",
+   "sub": [
+    "Nhơn Trạch – Long Thành"
+   ]
+  },
+  {
+   "slug": "tay-bac",
+   "name": "Tây Bắc",
+   "sub": []
+  }
+ ],
+ "types": [
+  {
+   "slug": "can-ho",
+   "name": "Căn hộ"
+  },
+  {
+   "slug": "shophouse",
+   "name": "Shophouse"
+  },
+  {
+   "slug": "nha-pho",
+   "name": "Nhà phố liền kề"
+  },
+  {
+   "slug": "biet-thu",
+   "name": "Biệt thự"
+  },
+  {
+   "slug": "dinh-thu",
+   "name": "Dinh thự"
+  }
+ ],
+ "devs": [
+  {
+   "slug": "kita-group",
+   "name": "Kita Group",
+   "path": "/chu-dau-tu/kita-group/"
+  },
+  {
+   "slug": "huong-viet-holdings",
+   "name": "Hướng Việt Holdings",
+   "path": ""
+  },
+  {
+   "slug": "gamuda-land",
+   "name": "Gamuda Land",
+   "path": "/chu-dau-tu/gamuda-land/"
+  },
+  {
+   "slug": "masterise-homes",
+   "name": "Masterise Homes",
+   "path": "/chu-dau-tu/masterise-homes/"
+  },
+  {
+   "slug": "dat-xanh",
+   "name": "Tập đoàn Đất Xanh",
+   "path": "/chu-dau-tu/dat-xanh/"
+  },
+  {
+   "slug": "vinhomes",
+   "name": "Vinhomes",
+   "path": "/chu-dau-tu/vinhomes/"
+  },
+  {
+   "slug": "berjaya-viet-nam",
+   "name": "Berjaya Việt Nam",
+   "path": "/chu-dau-tu/berjaya-viet-nam/"
+  }
+ ],
+ "projects": [
+  {
+   "slug": "ansana-by-kita",
+   "path": "/du-an/ansana-by-kita/",
+   "title": "Ansana by Kita",
+   "khu": [
+    "Khu Tây"
+   ],
+   "regions": [
+    "khu-tay"
+   ],
+   "types": [
+    "Căn hộ",
+    "Shophouse"
+   ],
+   "typeSlugs": [
+    "can-ho",
+    "shophouse"
+   ],
+   "devs": [
+    {
+     "slug": "kita-group",
+     "name": "Kita Group",
+     "path": "/chu-dau-tu/kita-group/"
+    }
+   ],
+   "handover": "Dự kiến Quý 3/2028"
+  },
+  {
+   "slug": "palm-city",
+   "path": "/du-an/palm-city/",
+   "title": "Palm City",
+   "khu": [
+    "Nam Rạch Chiếc"
+   ],
+   "regions": [
+    "khu-dong"
+   ],
+   "types": [
+    "Căn hộ",
+    "Shophouse"
+   ],
+   "typeSlugs": [
+    "can-ho",
+    "shophouse"
+   ],
+   "devs": [
+    {
+     "slug": "huong-viet-holdings",
+     "name": "Hướng Việt Holdings",
+     "path": ""
+    }
+   ],
+   "handover": ""
+  },
+  {
+   "slug": "spring-ville",
+   "path": "/du-an/spring-ville/",
+   "title": "Spring Ville",
+   "khu": [
+    "Nhơn Trạch – Long Thành"
+   ],
+   "regions": [
+    "ve-tinh"
+   ],
+   "types": [
+    "Căn hộ",
+    "Nhà phố liền kề",
+    "Shophouse"
+   ],
+   "typeSlugs": [
+    "can-ho",
+    "nha-pho",
+    "shophouse"
+   ],
+   "devs": [
+    {
+     "slug": "gamuda-land",
+     "name": "Gamuda Land",
+     "path": "/chu-dau-tu/gamuda-land/"
+    }
+   ],
+   "handover": "Quý II/2027"
+  },
+  {
+   "slug": "the-global-city",
+   "path": "/du-an/the-global-city/",
+   "title": "The Global City",
+   "khu": [
+    "Nam Rạch Chiếc"
+   ],
+   "regions": [
+    "khu-dong"
+   ],
+   "types": [
+    "Biệt thự",
+    "Căn hộ",
+    "Nhà phố liền kề",
+    "Shophouse"
+   ],
+   "typeSlugs": [
+    "biet-thu",
+    "can-ho",
+    "nha-pho",
+    "shophouse"
+   ],
+   "devs": [
+    {
+     "slug": "masterise-homes",
+     "name": "Masterise Homes",
+     "path": "/chu-dau-tu/masterise-homes/"
+    }
+   ],
+   "handover": "Từ tháng 11/2023 (đối với phân khu thấp tầng đã hoàn thiện); dự kiến từ năm 2026 (đối với các phân khu tiếp theo)"
+  },
+  {
+   "slug": "the-prive",
+   "path": "/du-an/the-prive/",
+   "title": "The Privé",
+   "khu": [
+    "Nam Rạch Chiếc"
+   ],
+   "regions": [
+    "khu-dong"
+   ],
+   "types": [
+    "Căn hộ"
+   ],
+   "typeSlugs": [
+    "can-ho"
+   ],
+   "devs": [
+    {
+     "slug": "dat-xanh",
+     "name": "Tập đoàn Đất Xanh",
+     "path": "/chu-dau-tu/dat-xanh/"
+    }
+   ],
+   "handover": "Năm 2027 (Hoàn thiện nội thất chuẩn Châu Âu)"
+  },
+  {
+   "slug": "vinhomes-saigon-park",
+   "path": "/du-an/vinhomes-saigon-park/",
+   "title": "Vinhomes Saigon Park",
+   "khu": [
+    "Tây Bắc"
+   ],
+   "regions": [
+    "tay-bac"
+   ],
+   "types": [
+    "Biệt thự",
+    "Căn hộ",
+    "Dinh thự",
+    "Nhà phố liền kề",
+    "Shophouse"
+   ],
+   "typeSlugs": [
+    "biet-thu",
+    "can-ho",
+    "dinh-thu",
+    "nha-pho",
+    "shophouse"
+   ],
+   "devs": [
+    {
+     "slug": "vinhomes",
+     "name": "Vinhomes",
+     "path": "/chu-dau-tu/vinhomes/"
+    },
+    {
+     "slug": "berjaya-viet-nam",
+     "name": "Berjaya Việt Nam",
+     "path": "/chu-dau-tu/berjaya-viet-nam/"
+    }
+   ],
+   "handover": ""
+  }
+ ]
+}

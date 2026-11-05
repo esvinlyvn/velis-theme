@@ -20,24 +20,26 @@ const ZOOM = 1.15; // = --zoom in 4-components.css
 // --- flagged photos (badge / printed text): file → co_dau via the ID column of docs/KIEM-KE-ANH.md
 const ids = Object.fromEntries([...read('docs/KIEM-KE-ANH.md').matchAll(/`([^`]+\.(?:webp|jpe?g|png))` \(ID (\d+)\)/g)].map(m => [m[1], m[2]]));
 const marks = Object.fromEntries(read('data/kiem-ke-anh-mat.csv').trim().split('\n').slice(1).map(l => l.split(';')).map(([id, co]) => [id, co]));
-const flag = f => marks[ids[f]] ?? 'chua-soat';
+// images supplied by the user (not in Media yet): checked by eye, docs/kiem-ke-anh/them-tay.md
+const SUPPLIED = { 'vu-thanh-xuan-ceo-velis.webp': { co: 'khong', meta: { w: 1440, h: 1920, files: { 720: 'img/vu-thanh-xuan-ceo-velis-720.webp', 1440: 'img/vu-thanh-xuan-ceo-velis-1440.webp' } } } };
+const flag = f => SUPPLIED[f]?.co ?? marks[ids[f]] ?? 'chua-soat';
 // NT-23: a logo / printed text the crop cannot hide → the photo is not used in hero / card / side column (named frame instead)
 const usable = ref => !/logo-cdt|chu-in-san|logo-khac/.test(flag(basename(ref)));
 const replaced = new Set();
 const usableLogged = ref => { const ok = usable(ref); if (!ok) replaced.add(basename(ref)); return ok; };
 
 // --- photos
-const images = json('mockup/src/data/images.json');
+const images = { ...json('mockup/src/data/images.json'), ...Object.fromEntries(Object.entries(SUPPLIED).map(([f, x]) => [f, x.meta])) };
 const uri = new Map();
 const dataUri = p => uri.get(p) ?? uri.set(p, b64(join('mockup/src', p), 'image/webp')).get(p);
 const used = [];
-function img(ref, { alt = '', sizes, frame = null, lcp = false, tmp = 'ảnh tạm', plan = false }) {
+function img(ref, { alt = '', sizes, frame = null, lcp = false, tmp = 'ảnh tạm', plan = false, widths: only = null }) {
 	const f = basename(ref), meta = images[f];
 	assert(meta, `ảnh không có trong images.json: ${f}`);
 	const marked = flag(f) !== 'khong' && !plan; // plans keep their full drawing (badge stays: file must be replaced)
 	const k = Math.max(1, frame ? meta.w / meta.h / frame : 1) * (marked ? ZOOM : 1);
 	const sz = sizes.map(([mq, w]) => `${mq ? mq + ' ' : ''}${k === 1 && !w.startsWith('(') ? w : `calc(${w} * ${k.toFixed(3)})`}`).join(', ');
-	const files = Object.entries(meta.files).sort((a, b) => a[0] - b[0]);
+	const files = Object.entries(meta.files).filter(([w]) => !only || only.includes(+w)).sort((a, b) => a[0] - b[0]); // widths: a small avatar never needs the big file
 	const widths = files.map(([w]) => Math.min(+w, meta.w));
 	const srcset = files.map(([, p], i) => `${dataUri(p)} ${widths[i]}w`).join(', ');
 	used.push({ f, lcp, marked, flag: flag(f), k: +k.toFixed(3) });
@@ -68,7 +70,7 @@ const logo = b64('theme/velis/assets/brand/velis-logo-horizontal.svg', 'image/sv
 const logoWhite = b64('theme/velis/assets/brand/velis-logo-horizontal-white.svg', 'image/svg+xml');
 
 const { render } = await import(join(SRC, 'pages.mjs'));
-const pages = render({ home: json('mockup/src/data/home.json'), tgc: json('mockup/src/data/tgc.json'), mpp: json('mockup/src/data/mpp.json'), content, img, usable: usableLogged, logo, logoWhite });
+const pages = render({ home: json('mockup/src/data/home.json'), tgc: json('mockup/src/data/tgc.json'), mpp: json('mockup/src/data/mpp.json'), broker: json('mockup/src/data/broker.json'), content, img, usable: usableLogged, logo, logoWhite });
 
 mkdirSync(DIST, { recursive: true });
 for (const [name, { title, body }] of Object.entries(pages)) {

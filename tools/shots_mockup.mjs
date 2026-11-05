@@ -23,6 +23,34 @@ async function open(page, m, hash = '', query = '') {
 	return p;
 }
 const jpg = { type: 'jpeg', quality: 80 };
+// --r3 (vòng định vị môi giới): new home – first screen + full page M1–M5; "Velis tư vấn" card on TGC / MPP (desktop + mobile)
+if (full === '--r3') {
+	mkdirSync(`${dir}/ca-trang`, { recursive: true });
+	for (const m of Object.keys(M)) {
+		const p = await open('trang-chu', m);
+		await p.screenshot({ ...jpg, path: `${dir}/man-dau/trang-chu-${m}.jpg` });
+		await p.screenshot({ ...jpg, quality: 70, path: `${dir}/ca-trang/trang-chu-${m}.jpg`, fullPage: true });
+		await p.context().close();
+	}
+	for (const page of ['the-global-city', 'masteri-park-place']) {
+		let p = await open(page, 'M1', '#hero-b');
+		await p.evaluate(() => scrollTo(0, document.querySelector('#tong-quan').getBoundingClientRect().top + scrollY - 160)); await p.waitForTimeout(300);
+		await p.locator('.page__side .advisor').screenshot({ ...jpg, path: `${dir}/can-canh/velis-tu-van-${page}-M1.jpg` });
+		await p.screenshot({ ...jpg, path: `${dir}/can-canh/velis-tu-van-${page}-M1-ca-man.jpg` });
+		await p.context().close();
+		p = await open(page, 'M5', '#hero-b');
+		await p.locator('.advisor--inline').screenshot({ ...jpg, path: `${dir}/can-canh/velis-tu-van-${page}-M5.jpg` });
+		await p.context().close();
+	}
+	for (const [n, sel, m] of [['form-ngan', '.advise__form', 'M1'], ['tim-du-an', '#tim-du-an', 'M1'], ['vi-sao-velis', '#ve-velis', 'M1'], ['form-toi', '#tu-van', 'M1']]) {
+		const p = await open('trang-chu', m);
+		await p.locator(sel).screenshot({ ...jpg, path: `${dir}/can-canh/trang-chu-${n}-${m}.jpg` });
+		await p.context().close();
+	}
+	await b.close();
+	console.log('xong');
+	process.exit(0);
+}
 for (const page of PAGES) for (const hero of ['a', 'b']) for (const m of Object.keys(M)) {
 	const p = await open(page, m, `#hero-${hero}`);
 	await p.screenshot({ ...jpg, path: `${dir}/man-dau/${page}-${hero}-${m}.jpg` });

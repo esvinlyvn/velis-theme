@@ -99,10 +99,44 @@ export function heroMeasure({ screen, dpr }) {
 	return { v, d, ir: ir.width };
 }
 
+// Runs in the page. Home (broker positioning, vòng định vị): advice hero with the CEO portrait and the short form.
+// Face box of the portrait file (fractions of the 1440 × 1920 cut-out, read off the image): x 35–65 %, y 2–32 %.
+export function homeMeasure({ screen, dpr }) {
+	const v = [], d = {}, R = (el) => el.getBoundingClientRect(), vh = innerHeight, q = (x) => document.querySelector(x);
+	const form = q('.advise__form'), submit = form.querySelector('[type=submit]'), img = q('.advise__img img'), box = R(q('.advise__img'));
+	const scale = Math.max(box.width / 1440, box.height / 1920), dx = (box.width - 1440 * scale) / 2;
+	const face = { top: box.top + 0.02 * 1920 * scale, bottom: box.top + 0.32 * 1920 * scale, left: box.left + dx + 0.35 * 1440 * scale, right: box.left + dx + 0.65 * 1440 * scale };
+	d.submitBottom = Math.round(R(submit).bottom); d.faceBottom = Math.round(face.bottom); d.frame = `${Math.round(box.width)}×${Math.round(box.height)}`;
+	const headerB = R(q('.header')).bottom;
+	const faceIn = face.top >= headerB - 1 && face.bottom <= vh && face.bottom <= box.bottom + 1 && face.left >= box.left - 1 && face.right <= box.right + 1;
+	if (['M1', 'M2', 'M3'].includes(screen) && d.submitBottom > vh - 24) v.push(`2.1 đáy nút gửi ${d.submitBottom} > ${vh} − 24`);
+	if (screen === 'M5' && d.submitBottom > vh * 1.5) v.push(`2.1 M5 đáy nút gửi ${d.submitBottom} > 1,5 × ${vh}`);
+	if (['M1', 'M2', 'M5'].includes(screen)) {
+		if (!faceIn) v.push(`2.1 mặt CEO không trọn trong màn đầu (${Math.round(face.top)}–${Math.round(face.bottom)})`);
+		for (const [n, el] of [['H1 (Velis là ai)', q('h1')], ['hotline', q('.advise__contact a')], ['tên CEO', q('.advise__ceo b')]]) if (R(el).bottom > vh || R(el).top < headerB - 1) v.push(`2.1 ${n} ngoài màn đầu`);
+		if (screen !== 'M5' && R(form).bottom > vh) v.push('2.1 form ngắn không trọn');
+	}
+	// sharpness: the file shown ≥ frame × DPR (cover of a 3:4 file in the frame), and never wider than the 1440 px file needs
+	d.fileW = +((img.currentSrc.match(/data-file/) || [0])[0]) || 0;
+	d.need = Math.round(Math.max(box.width, box.height * 0.75) * dpr);
+	return { v, d };
+}
+
 if (import.meta.url === `file://${process.argv[1]}`) {
 	const b = await chromium.launch();
 	const rows = [];
-	for (const page of PAGES) for (const hero of ['b', 'a']) for (const [s, w, h, dpr] of SCREENS) {
+	const home = [];
+	for (const [s, w, h, dpr] of SCREENS) {
+		const p = await (await b.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: dpr, reducedMotion: 'reduce' })).newPage();
+		await p.goto(`${base}/trang-chu.html`, { waitUntil: 'load' });
+		await p.evaluate(() => document.querySelector('.advise__img img').decode());
+		const r = await p.evaluate(homeMeasure, { screen: s, dpr });
+		r.d.fileW = await p.evaluate(() => new Promise((ok) => { const x = new Image(); x.onload = () => ok(x.naturalWidth); x.src = document.querySelector('.advise__img img').currentSrc; }));
+		if (r.d.fileW < r.d.need) r.v.push(`ảnh CEO: file ${r.d.fileW}px < khung × DPR ${r.d.need}px`);
+		home.push({ s, h, ...r });
+		await p.context().close();
+	}
+	for (const page of PAGES.filter((x) => x !== 'trang-chu')) for (const hero of ['b', 'a']) for (const [s, w, h, dpr] of SCREENS) {
 		const ctx = await b.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: dpr, reducedMotion: 'reduce' });
 		const p = await ctx.newPage();
 		await p.goto(`${base}/${page}.html#hero-${hero}`, { waitUntil: 'load' });
@@ -112,13 +146,15 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 		await ctx.close();
 	}
 	await b.close();
-	const bad = rows.filter((r) => r.v.length);
+	const bad = [...home, ...rows].filter((r) => r.v.length);
 	const f = (x) => (x === undefined ? '–' : String(x).replace('.', ','));
 	const md = ['| Trang | Hero | Màn | Khung ảnh | Đáy nút (≤ cao − 24) | Đáy hàng 1 thanh TT / đỉnh dải nổi bật | Lệch mép T / P | Nút: cách chip · lệch trái | Thẻ nổi bật trong khung | NT-43: lớp phủ 0 tại · ảnh giữ sáng · khối chữ | Độ giãn | Vi phạm |', '|---|---|---|---|---|---|---|---|---|---|---|---|',
 		...rows.map((r) => `| ${r.page} | ${r.hero.toUpperCase()} | ${r.s} | ${r.d.frame} | ${f(r.d.btnBottom ?? r.d.btn1Bottom)} | ${f(r.d.factsRow1Bottom ?? r.d.railTop)} | ${r.d.edgeL === undefined ? '–' : f(r.d.edgeL) + ' / ' + f(r.d.edgeR)} | ${f(r.d.btnGap)} · ${f(r.d.btnDx)} | ${f(r.d.featsIn)} | ${r.d.overlayZero === undefined ? '–' : `${f(r.d.overlayZero)}% · ${f(r.d.brightPct)}% · ${f(r.d.textWidthPct)}%`} | ${f(r.d.stretch)} | ${r.v.length ? r.v.join('; ') : 0} |`)];
 	mkdirSync(dir, { recursive: true });
-	writeFileSync(`${dir}/do-hero.md`, `# Đo NT-49 / NT-17 / NT-18 / NT-10 / NT-43 – ${new Date().toISOString().slice(0, 10)}\n\nChưa cuộn. Màn hình cao: M1 768, M2 864, M3 1080, M4 540, M5 844, 768 → 1024, 1024 → 768.\n\n${md.join('\n')}\n\n**Vi phạm: ${bad.reduce((n, r) => n + r.v.length, 0)}**\n`);
-	for (const r of bad) console.log(`${r.page} ${r.hero} ${r.s}: ${r.v.join('; ')}`);
+	const hm = ['| Màn (cao) | Đáy nút gửi form ngắn (giới hạn) | Mặt CEO (đỉnh–đáy) trong màn đầu | Khung ảnh CEO | File hiển thị / cần (khung × DPR) | Vi phạm |', '|---|---|---|---|---|---|',
+		...home.map((r) => `| ${r.s} (${r.h}) | ${r.d.submitBottom} (${/^M[123]$/.test(r.s) ? '≤ ' + (r.h - 24) : r.s === 'M5' ? '≤ ' + Math.round(r.h * 1.5) : '–'}) | ${r.d.faceBottom} | ${r.d.frame} | ${r.d.fileW} / ${r.d.need} | ${r.v.length ? r.v.join('; ') : 0} |`)];
+	writeFileSync(`${dir}/do-hero.md`, `# Đo trang chủ (vòng định vị) + NT-49 / NT-17 / NT-18 / NT-43 – ${new Date().toISOString().slice(0, 10)}\n\nChưa cuộn. Màn hình cao: M1 768, M2 864, M3 1080, M4 540, M5 844, 768 → 1024, 1024 → 768.\n\n## Trang chủ – hero tư vấn (mục 2.1)\n\n${hm.join('\n')}\n\n## Trang dự án / phân khu – hero A/B\n\n${md.join('\n')}\n\n**Vi phạm: ${bad.reduce((n, r) => n + r.v.length, 0)}**\n`);
+	for (const r of bad) console.log(`${r.page || 'trang-chu'} ${r.hero || ''} ${r.s}: ${r.v.join('; ')}`);
 	console.log(`vi phạm: ${bad.reduce((n, r) => n + r.v.length, 0)}`);
 	process.exit(bad.length ? 1 : 0);
 }

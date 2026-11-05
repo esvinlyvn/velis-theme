@@ -32,11 +32,5 @@
 	.grid--three[data-n="6"] { grid-template-columns: repeat(3, 1fr); }
 	.page__main .grid--three[data-n="6"] { grid-template-columns: repeat(3, 1fr); }
 }
-.rail { display: grid; grid-auto-flow: column; grid-auto-columns: 84%; gap: var(--s3); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: var(--s1); }
-.rail > * { scroll-snap-align: start; }
-@media (min-width: 768px) { .rail { grid-auto-columns: calc((100% - var(--s3)) / 2); } }
-@media (min-width: 1024px) { .rail { grid-auto-columns: calc((100% - 2 * var(--s3)) / 3); } }
-@media (min-width: 1280px) { .rail { grid-auto-columns: calc((100% - 3 * var(--s3)) / 4); } } /* NT-10: ≤ 4 in the frame */
-
 .split { display: grid; gap: var(--s8); }
 @media (min-width: 1024px) { .split { grid-template-columns: 1fr 1fr; gap: var(--s16); align-items: center; } }
