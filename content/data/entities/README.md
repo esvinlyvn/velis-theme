@@ -1,18 +1,17 @@
-# Thực thể và vai trò (chủ đầu tư / đơn vị phát triển)
+# Chủ đầu tư / đơn vị phát triển theo dự án
 
-**BẢN NHÁP 2026-11-05.** Lập từ những gì site velisrealty.vn đang ghi (đọc REST công khai, chỉ đọc). Mọi dòng đang **"Chưa xác minh"**:
-theo `content/guide/rules.md` mục 13, chưa được viết về vai trò nào cho tới khi người dùng xác nhận. Không thêm dữ liệu từ site đối thủ.
+**BẢN NHÁP 2026-11-05.** Quy tắc: `content/guide/rules.md` mục 13. Lập từ những gì site velisrealty.vn đang ghi (REST công khai, chỉ đọc);
+không dùng dữ liệu site đối thủ. Một dòng một dự án/phân khu.
 
 | Cột | Ý nghĩa |
 |---|---|
 | `du_an` | slug trong `data/architecture/projects.csv` |
-| `vai_tro` | `chu_dau_tu` (chỉ pháp nhân pháp lý) · `don_vi_phat_trien` (thương hiệu) |
-| `to_chuc` | Tên đầy đủ: pháp nhân ghi đủ loại hình (Công ty TNHH/CP …); thương hiệu ghi tên thương hiệu |
-| `loai_to_chuc` | `phap_nhan` · `thuong_hieu` · `tap_doan` |
-| `thuoc_tap_doan` | Tập đoàn mẹ → schema `parentOrganization` |
-| `ten_ngan` | Tên ngắn dùng từ lần nhắc thứ hai trong bài |
-| `trang_thai` | `Đã xác minh` (kèm nguồn văn bản) · `Chưa xác minh` |
-| `nguon_hien_co` | Site đang ghi gì, ở đâu (để đối chiếu khi xác minh) |
-| `ghi_chu` | Mâu thuẫn, việc cần làm |
-
-Khi xác minh: đổi `trang_thai` thành `Đã xác minh`, điền nguồn (giấy phép, quyết định chủ trương đầu tư, công bố của doanh nghiệp) và ngày vào `ghi_chu`.
+| `ten_thi_truong` | Tên thương hiệu dự án dùng để marketing; tên hiển thị ở mọi nơi |
+| `so_huu_cong_ty_du_an` | Thương hiệu có sở hữu/chi phối công ty dự án: `Có` · `Không` · `Chưa xác minh` |
+| `chu_dau_tu_hien_thi` | Có hoặc Chưa xác minh → thương hiệu; Không → bên sở hữu |
+| `don_vi_phat_trien` | Chỉ điền khi `so_huu_cong_ty_du_an` = Không (thương hiệu) |
+| `phap_nhan` | Pháp nhân ký hợp đồng mua bán; chỉ hiện ở mục pháp lý trang dự án và `legalName` khi đã có nguồn |
+| `thuoc_tap_doan` | Thương hiệu/tập đoàn của pháp nhân, dùng trong câu "(thuộc …)" |
+| `nguon`, `ngay` | Văn bản xác minh (giấy phép, quyết định chủ trương, hợp đồng mẫu, công bố doanh nghiệp) và ngày |
+| `uu_tien_kiem_tra` | `Cao` khi có mâu thuẫn hoặc nghi không sở hữu; `Trung bình` khi chỉ thiếu nguồn |
+| `ghi_chu` | Site đang ghi gì, ở đâu |

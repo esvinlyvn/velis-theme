@@ -71,17 +71,16 @@ Quy tắc đầy đủ: `rules.md` mục 12. Thành phần bắt buộc trong b�
    - mục "Rủi ro và điều cần kiểm tra" nêu rủi ro riêng của dự án chưa khai thác (tiến độ bàn giao, nguồn cung cho thuê cùng thời điểm).
 3. Loại bài theo BRIEF: **Nhận định thị trường** (lợi suất, cho thuê); kèm hộp công bố đầu tư.
 
-## D5. Vai trò chủ đầu tư / đơn vị phát triển
+## D5. Chủ đầu tư / đơn vị phát triển
 
 Quy tắc đầy đủ: `rules.md` mục 13; dữ liệu: `content/data/entities/entities.csv`.
 
-1. **Trong bài, title, meta, FAQ**: "chủ đầu tư" chỉ đi với pháp nhân pháp lý; thương hiệu là "đơn vị phát triển" hoặc "thuộc tập đoàn …".
-   Lần nhắc đầu: "[Dự án] do [pháp nhân] làm chủ đầu tư, [thương hiệu] phát triển"; các lần sau dùng `ten_ngan`.
-2. **Trang chủ đầu tư** (`/chu-dau-tu/{…}/`): nêu đúng vai trò của từng tổ chức với từng dự án theo entities; không gọi thương hiệu là chủ đầu tư
-   ở H1, đoạn mở, FAQ, bảng thông tin.
-3. **Schema**: mỗi tổ chức một nút `Organization` (`@id` cố định); pháp nhân chủ đầu tư có `parentOrganization` → tập đoàn;
-   trên trang dự án, quan hệ dự án ↔ tổ chức theo đúng vai trò trong entities. Vai trò chưa xác minh thì không khai báo.
-4. Vai trò "Chưa xác minh" → không viết, không khai schema; hỏi người dùng.
+1. **Tên hiển thị**: tên thị trường của thương hiệu (`ten_thi_truong`) ở title, H1, meta, bảng tổng quan, thân bài, FAQ; không ghi công ty con.
+2. **Vai trò**: "Chủ đầu tư: [thương hiệu]" khi `so_huu_cong_ty_du_an` = Có. Khi = Không: "Chủ đầu tư: [bên sở hữu]" và
+   "Đơn vị phát triển: [thương hiệu]". Khi = Chưa xác minh: dùng tên thị trường như site hiện tại, báo người dùng trước khi viết bài mới.
+3. **Trang dự án, mục pháp lý** (duy nhất một chỗ): "Pháp nhân ký hợp đồng mua bán: [pháp nhân] (thuộc [thương hiệu])", chỉ khi pháp nhân đã có nguồn.
+   Bài blog không ghi pháp nhân.
+4. **Schema**: `Organization` với `name` = thương hiệu, `legalName` = pháp nhân (khi đã xác minh).
 
 ## Quyết định về chỗ lệch refs / BRIEF (người dùng chốt 2026-11-05)
 

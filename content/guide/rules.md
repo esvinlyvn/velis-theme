@@ -74,11 +74,11 @@ nhưng phần "áp dụng cho Velis" thì không.
 7. Không có dấu gạch dài (—), script ở bước 1 tự báo; câu ≤ 30 từ, đoạn ≤ 80 từ (mục 11).
 8. Bài/đoạn về cho thuê, lợi suất của dự án chưa khai thác: chỉ dùng số liệu tham khảo đã duyệt trong `content/data/comparables/`,
    ghi rõ dự án, loại căn, thời điểm; lợi suất dạng khoảng + giả định; có câu "chưa khai thác, không phải cam kết" (mục 12).
-9. Vai trò chủ đầu tư / đơn vị phát triển đúng `content/data/entities/entities.csv`; không viết vai trò "Chưa xác minh" (mục 13).
+9. Chủ đầu tư / đơn vị phát triển ghi theo tên thị trường và vai trò trong `content/data/entities/entities.csv`; không đưa pháp nhân lên bài blog (mục 13).
 
 ## 9. Danh sách tên đối thủ cấm xuất hiện
 
-Điền dần trong lúc crawl. Tên **pháp nhân chủ đầu tư, đơn vị phát triển, dự án** (Vinhomes, Masterise Homes, Sun Group, Ecopark…) KHÔNG nằm trong
+Điền dần trong lúc crawl. Tên **chủ đầu tư / dự án** (Vinhomes, Masterise Homes, Sun Group, Ecopark…) KHÔNG nằm trong
 danh sách: đó là đối tượng Velis tư vấn, không phải thương hiệu đối thủ. Cấm là tên đơn vị phân phối, tên miền, tác giả,
 slogan, hotline của họ. Mỗi dòng: `- `cụm từ` (loại, nguồn)` — chỉ phần trong dấu `` ` `` được quét.
 
@@ -227,14 +227,17 @@ slogan, hotline của họ. Mỗi dòng: `- `cụm từ` (loại, nguồn)` — 
 4. Lưu số liệu đã duyệt vào `content/data/comparables/<du-an>.csv` (cột nguồn, ngày; mẫu `_mau.csv`) để bài sau dùng lại
    và mọi trang dùng cùng một con số. Bài chỉ lấy số từ file này.
 
-## 13. Vai trò chủ đầu tư / đơn vị phát triển (người dùng chốt 2026-11-05)
+## 13. Vai trò chủ đầu tư / đơn vị phát triển (người dùng chốt 2026-11-05, thay bản trước cùng ngày)
 
-Nguồn duy nhất: `content/data/entities/entities.csv`. Áp dụng cho bài, trang (kể cả trang chủ đầu tư), title, meta, FAQ và schema.
+Dữ liệu: `content/data/entities/entities.csv`. Silo `/chu-dau-tu/` giữ nguyên URL và nhãn "Chủ đầu tư".
 
-- **"Chủ đầu tư" chỉ dùng cho pháp nhân pháp lý** (Công ty TNHH/CP … ghi trong hồ sơ dự án). Thương hiệu lớn ghi là **"đơn vị phát triển"**
-  hoặc **"thuộc tập đoàn …"**. Không gọi đơn vị phát triển là chủ đầu tư.
-- **Lần nhắc đầu** trong bài ghi đủ: "[Dự án] do [pháp nhân] làm chủ đầu tư, [thương hiệu] phát triển". Các lần sau dùng `ten_ngan` trong entities.
-- **Schema `Organization`**: pháp nhân chủ đầu tư khai `parentOrganization` trỏ về tập đoàn (`thuoc_tap_doan`).
-- Vai trò nào đang **"Chưa xác minh"** thì **không viết về vai trò đó**; hỏi người dùng trước. Được nhắc tên thương hiệu khi nói về sản phẩm
-  nhưng không gán vai trò.
-
+1. **Tên hiển thị = tên thương hiệu dự án dùng để marketing** (cột `ten_thi_truong`, ví dụ "Chủ đầu tư: Hướng Việt") ở title, H1, meta,
+   bảng tổng quan, thân bài, FAQ. Không cần ghi tên công ty con.
+2. **Điều kiện gọi thương hiệu là "chủ đầu tư"**: thương hiệu sở hữu hoặc chi phối công ty dự án (công ty con, đã mua lại)
+   (`so_huu_cong_ty_du_an` = Có). Nếu thương hiệu chỉ phát triển / vận hành / phân phối mà không sở hữu (= Không): chủ đầu tư là bên sở hữu,
+   thương hiệu ghi là **"đơn vị phát triển"**.
+3. **Pháp nhân** chỉ ghi **một lần**, ở mục pháp lý của **trang dự án**: "Pháp nhân ký hợp đồng mua bán: [tên pháp nhân] (thuộc [thương hiệu])".
+   Không đưa pháp nhân lên bài blog. Chỉ ghi khi `phap_nhan` đã có nguồn.
+4. **Schema `Organization`**: `name` = thương hiệu; `legalName` = pháp nhân (chỉ khi đã xác minh).
+5. `so_huu_cong_ty_du_an` = **Chưa xác minh**: vẫn dùng tên thị trường như site đang làm, nhưng dòng đó có `uu_tien_kiem_tra`; khi viết bài mới
+   cho dự án đó, báo người dùng trước.
