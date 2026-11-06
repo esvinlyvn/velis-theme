@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Velis Data
  * Description: Mô hình dữ liệu Velis: Chủ đầu tư, Dự án (đại đô thị → phân khu → dòng thấp tầng, dự án độc lập), dòng căn hộ, loại sản phẩm, khu vực 2 cấp, trạng thái. Form nhập liệu trong wp-admin.
- * Version: 0.2.6
+ * Version: 0.3.0
  * Author: Velis Realty
  * Requires PHP: 8.0
  *
@@ -16,6 +16,7 @@ const VELIS_CPT_DEVELOPER = 'chu-dau-tu';
 
 require __DIR__ . '/inc/fields.php'; // after the constants: inc/admin.php uses them at load time
 require __DIR__ . '/inc/admin.php';
+require __DIR__ . '/inc/media.php'; // per-image flags: printed mark (X-03) + focal point (F-B)
 
 add_action( 'init', 'velis_register' );
 

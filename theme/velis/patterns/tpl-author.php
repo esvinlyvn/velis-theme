@@ -31,11 +31,20 @@ $facts = array_filter( array(
 	'Mạng xã hội' => implode( ' · ', array_map( fn( $l ) => '<a href="' . esc_url( $l ) . '" rel="me noopener" target="_blank">' . esc_html( wp_parse_url( $l, PHP_URL_HOST ) ) . '</a>', $urls ) ),
 ) );
 $dl  = implode( '', array_map( fn( $k, $v ) => '<div><dt>' . esc_html( $k ) . '</dt><dd>' . $v . '</dd></div>', array_keys( $facts ), $facts ) );
-$out = velis_breadcrumb_html( velis_trail() ) . '<div class="v-wrap"><section class="v-profile' . ( $photo ? ' has-photo' : '' ) . '">' . ( $photo ? velis_img( $photo, $u->display_name, 'medium', array( 'loading' => 'eager', 'class' => 'v-profile__photo' ) ) : '' )
-	. '<div><p class="v-eyebrow">Chuyên gia · ' . esc_html( $role ) . '</p><h1>' . esc_html( $u->display_name ) . ( $paged > 1 ? ' – trang ' . $paged : '' ) . '</h1>'
-	. ( $u->description ? '<p class="v-lead">' . esc_html( $u->description ) . '</p>' : '' ) . ( $dl ? '<dl class="v-overview">' . $dl . '</dl>' : '' )
-	. '<div class="v-row">' . velis_btn( 'Liên hệ ' . $u->display_name, '#tu-van' ) . '</div></div></section></div>';
-$out .= velis_section( velis_sechead( 'Bài viết của ' . $u->display_name, $q->found_posts . ' bài' ) . velis_grid( array_map( 'velis_card_post', $q->posts ), '3' ) . velis_pagination( $q ) );
+$stats = array_filter( array( 'bài phân tích' => (int) count_user_posts( $u->ID, 'post', true ), 'cụm dự án theo dõi' => count( $areas ), 'năm kinh nghiệm' => (int) $years ) );
+// Profile = hero B (photo when there is one) + the numbers band (mockup) + the facts as the advisor card.
+$out = velis_breadcrumb_html( velis_trail() ) . velis_hero_b( array(
+	'eyebrow' => 'Chuyên gia · ' . $role,
+	'title'   => $u->display_name . ( $paged > 1 ? ' – trang ' . $paged : '' ),
+	'lead'    => $u->description,
+	'buttons' => velis_btn( 'Liên hệ ' . $u->display_name, '#tu-van' ),
+) );
+if ( $stats ) {
+	$out .= velis_section( '<dl class="numbers" aria-label="' . esc_attr( $u->display_name ) . ' bằng con số">' . implode( '', array_map( fn( $k, $v ) => '<div><dt>' . esc_html( $k ) . '</dt><dd>' . esc_html( (string) $v ) . '</dd></div>', array_keys( $stats ), $stats ) ) . '</dl>', '', 'section--tight section--tint' );
+}
+$side = $dl ? '<aside class="page__side" aria-label="Thông tin tác giả"><div class="advisor"><p class="eyebrow">Hồ sơ</p>' . ( $photo ? '<div class="advisor__who"><span class="advisor__img">' . velis_img( $photo, $u->display_name, 'thumbnail', array( 'zoom' => 1, 'sizes' => '80px' ) ) . '</span><p><b>' . esc_html( $u->display_name ) . '</b><span>' . esc_html( $role ) . '</span></p></div>' : '<p class="pricecard__title">' . esc_html( $u->display_name ) . '</p>' ) . '<dl>' . $dl . '</dl></div></aside>' : '';
+$grid = velis_sechead( 'Bài viết của ' . $u->display_name, $q->found_posts . ' bài' ) . velis_grid( array_map( 'velis_card_post', $q->posts ), $side ? '' : 'three' ) . velis_pagination( $q );
+$out .= $side ? '<div class="wrap page"><div class="page__main"><div class="block">' . $grid . '</div><div class="block advisor-inline">' . str_replace( array( '<aside class="page__side" aria-label="Thông tin tác giả">', '</aside>' ), '', $side ) . '</div></div>' . $side . '</div>' : velis_section( $grid );
 $out .= velis_form_html();
 ?>
 <!-- wp:html -->

@@ -1,0 +1,25 @@
+ĐẠT  Công tắc mockup: đổi hero A tại chỗ, không tải lại, ghi #hero-a – {"same":true,"a":true,"hash":"#hero-a","search":""}
+ĐẠT  Công tắc mockup: bật nhãn ảnh tạm tại chỗ (mặc định ẩn, 1.8), ghi #tam-1 – {"shown":true,"hash":"#hero-a,tam-1","same":true}
+ĐẠT  Công tắc mockup: mở lại đọc trạng thái từ #hash (A, nhãn hiện) – {"a":true,"tam":"1","pressed":"true"}
+ĐẠT  Công tắc nổi góc dưới phải: đổi về hero B
+ĐẠT  Trang chủ: hero tràn 0.9.8 (.hero--home), không có công tắc hero A/B, nhãn ảnh tạm mặc định ẩn
+ĐẠT  Dải "Dự án nổi bật": mũi tên sau trượt dải, mũi tên trước tắt ở đầu rồi bật, không tự chạy – {"x0":0,"x1":303,"d0":true,"d1":false}
+ĐẠT  Tab khu vực: Khu Đông → 3 dự án (Palm City, The Global City, The Privé), chỉ 1 tab được chọn – {"n":"3","shown":"Palm City, The Global City, The Privé","pressed":["Khu Đông"],"count":"Hiển thị 3/6 dự án"}
+ĐẠT  Tab khu vực: Khu Tây → 1 dự án (Ansana by Kita) thành thẻ rộng, Khu Đông tự bỏ chọn – {"n":"1","shown":"Ansana by Kita","pressed":["Khu Tây"],"count":"Hiển thị 1/6 dự án"}
+ĐẠT  Tab khu vực: Tất cả → 6 dự án, tab "Tất cả" được chọn – {"n":"6","shown":"Ansana by Kita, Palm City, Spring Ville, The Global City, The Privé, Vinhomes Saigon Park","pressed":["Tất cả"],"count":"Hiển thị 6/6 dự án"}
+ĐẠT  Form tư vấn: trường ẩn interest, page-url, utm như CF7 – "interest,page-url,utm"
+ĐẠT  Form tư vấn: gửi thử cục bộ đủ trường ẩn (URL trang, utm), không gọi mạng – {"sent":{"interest":"","page-url":"http://127.0.0.1:8765/trang-chu.html?utm_source=thu&utm_medium=mockup","utm":"utm_source=thu&utm_medium=mockup"},"req":0}
+ĐẠT  NT-72 thanh mục: bấm cuộn tới Vị trí, tô mục đang xem – {"top":136,"cur":"Vị trí & tiện ích"}
+ĐẠT  NT-75 thư viện: nút "ảnh sau" đổi bộ đếm, không tự chạy – "1/11 → 2/11"
+ĐẠT  NT-57 "Đọc tiếp" mở toàn bộ đoạn dài – [420,1823]
+ĐẠT  NT-77 lọc phân khu theo loại (chip), lưới theo số thẻ còn lại – {"zc":"Hiển thị 1/5 phân khu","shownN":["0/0","1/1"]}
+ĐẠT  NT-76 form báo lỗi khi bỏ trống, không gửi, focus ô lỗi đầu – {"errs":3,"focused":"ten"}
+ĐẠT  NT-87 viền focus khi dùng bàn phím – "solid 2px"
+ĐẠT  NT-79 mobile: menu mở
+ĐẠT  NT-79 mobile: menu đóng
+ĐẠT  NT-79 mobile: thanh CTA đáy ẩn ở đầu trang
+ĐẠT  NT-79 mobile: thanh CTA đáy hiện sau khi cuộn qua nút hero
+ĐẠT  NT-79 mobile: về đầu trang thì thanh CTA ẩn lại
+ĐẠT  NT-72 mobile: thanh mục cuộn ngang khi dài hơn khung – {"sw":385,"cw":358,"ox":"auto"}
+ĐẠT  NT-80 mobile: breadcrumb ≤ 2 dòng – "2 dòng"
+24/24 đạt

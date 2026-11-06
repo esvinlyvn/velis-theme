@@ -19,26 +19,29 @@ $ceo   = $ceo ? $ceo[0] : null;
 $out   = velis_breadcrumb_html( velis_trail() ) . velis_hero_b( array(
 	'eyebrow' => 'Velis Realty',
 	'title'   => wp_strip_all_tags( get_the_title( $pg ) ),
-	'lead'    => $pg->post_excerpt,
+	'lead'    => $pg->post_excerpt ?: 'Đơn vị chuyên tư vấn và phân phối bất động sản cao cấp, tập trung vào dự án của các chủ đầu tư có hồ sơ bàn giao và pháp lý công khai.', // sentence from the page itself
 	'img'     => (int) get_post_thumbnail_id( $pg ),
-	'buttons' => velis_btn( 'Liên hệ Velis', '/lien-he/' ) . velis_call_btn( 'secondary' ),
+	'buttons' => velis_btn( 'Liên hệ Velis', '/lien-he/' ) . velis_call_btn( 'line' ),
 ) );
+// Rhythm (1.5): story (ivory, 2 columns with the "Đang tư vấn" card) → CEO (white) → steps / values / company alternating.
 if ( trim( $pg->post_content ) ) {
-	$out .= velis_section( velis_sechead( 'Câu chuyện Velis', 'Về chúng tôi' ) . '<div class="v-prose">' . velis_content( $pg->post_content ) . '</div>' );
+	$out .= '<div class="wrap page"><div class="page__main"><div class="block prose">' . velis_sechead( 'Câu chuyện Velis', 'Về chúng tôi' ) . velis_strip_contact( velis_content( $pg->post_content ) ) . velis_project_links() . '</div></div>' . velis_highlight_card() . '</div>';
 }
+$band = array( 'section--tint', '' );
+$i    = 0;
 if ( $ceo && $ceo->description ) {
-	$out .= velis_section( velis_sechead( $ceo->display_name . ' – CEO Velis Realty', 'Người sáng lập' ) . '<p class="v-lead">' . esc_html( $ceo->description ) . '</p>' . velis_btn( 'Bài viết của ' . $ceo->display_name, get_author_posts_url( $ceo->ID ), 'secondary' ) );
+	$out .= velis_section( velis_sechead( $ceo->display_name . ' – CEO Velis Realty', 'Người sáng lập' ) . '<p class="hero__lead">' . esc_html( $ceo->description ) . '</p>' . velis_btn( 'Bài viết của ' . $ceo->display_name, get_author_posts_url( $ceo->ID ), 'line' ), '', $band[ $i++ % 2 ] );
 }
-if ( $steps = $lines( 'velis_steps' ) ) {
-	$out .= velis_section( velis_sechead( 'Cách Velis làm việc', 'Quy trình' ) . '<ol class="v-steps">' . implode( '', array_map( fn( $s ) => '<li>' . esc_html( $s ) . '</li>', $steps ) ) . '</ol>' );
-}
-if ( $values = $lines( 'velis_values' ) ) {
-	$out .= velis_section( velis_sechead( 'Giá trị Velis theo đuổi', 'Giá trị' ) . '<ul class="v-list">' . implode( '', array_map( fn( $s ) => '<li>' . esc_html( $s ) . '</li>', $values ) ) . '</ul>' );
+// Steps and values = the numbered values list of the home page (01–04 …); company facts = the facts list.
+foreach ( array( 'velis_steps' => array( 'Cách Velis làm việc', 'Quy trình' ), 'velis_values' => array( 'Giá trị Velis theo đuổi', 'Giá trị' ) ) as $key => list( $h, $eb ) ) {
+	if ( $items = $lines( $key ) ) {
+		$out .= velis_section( velis_sechead( $h, $eb ) . '<ol class="values">' . implode( '', array_map( fn( $t ) => '<li><p>' . esc_html( $t ) . '</p></li>', $items ) ) . '</ol>', '', $band[ $i++ % 2 ] );
+	}
 }
 if ( $company = $lines( 'velis_company' ) ) {
-	$out .= velis_section( velis_sechead( 'Thông tin pháp nhân', 'Pháp nhân' ) . '<ul class="v-list">' . implode( '', array_map( fn( $s ) => '<li>' . esc_html( $s ) . '</li>', $company ) ) . '</ul>' );
+	$out .= velis_section( velis_sechead( 'Thông tin pháp nhân', 'Pháp nhân' ) . '<div class="prose"><ul>' . implode( '', array_map( fn( $t ) => '<li>' . esc_html( $t ) . '</li>', $company ) ) . '</ul></div>', '', $band[ $i++ % 2 ] );
 }
-$out .= velis_form_html( '', wp_list_pluck( velis_top_projects(), 'post_title' ) );
+$out .= velis_form_html();
 wp_reset_postdata();
 ?>
 <!-- wp:html -->

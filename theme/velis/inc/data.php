@@ -169,23 +169,20 @@ function velis_reading_minutes( $post ): int {
 	return max( 1, (int) round( str_word_count( wp_strip_all_tags( get_post_field( 'post_content', $post ) ), 0, 'àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ' ) / 200 ) );
 }
 
-/** Post kind: stored meta (velis-data), else guessed from the title. */
+/** Post kind set by hand in velis-data; '' when not set (no guessing: a wrong label is worse than none). */
 function velis_post_kind( $post ): string {
 	$k = (string) get_post_meta( get_post( $post )->ID, 'velis_post_kind', true );
-	if ( isset( VELIS_KINDS[ $k ] ) ) {
-		return $k;
-	}
-	return velis_guess_kind( get_the_title( $post ) );
+	return isset( VELIS_KINDS[ $k ] ) ? $k : '';
 }
 
-function velis_guess_kind( string $title ): string {
-	$t = mb_strtolower( $title );
-	foreach ( array( 'so-sanh' => '/(so sánh|\bvs\b|khác gì)/u', 'huong-dan' => '/(hướng dẫn|thủ tục|quy trình|pháp lý|sổ hồng|vay|hợp đồng|kinh nghiệm mua|lưu ý)/u', 'tin' => '/(tiến độ|chính sách|cập nhật|mở bán|bảng giá|ra mắt)/u', 'nhan-dinh' => '/(thị trường|nhận định|xu hướng|dự báo|triển vọng|tiềm năng)/u' ) as $k => $re ) {
-		if ( preg_match( $re, $t ) ) {
-			return $k;
-		}
+/** Label above a post title: its kind when set by hand, else the cluster (project) name. */
+function velis_post_label( $post ): string {
+	$k = velis_post_kind( $post );
+	if ( '' !== $k ) {
+		return VELIS_KINDS[ $k ];
 	}
-	return 'phan-tich';
+	$cat = velis_primary_category( $post );
+	return $cat ? $cat->name : '';
 }
 
 /** Projects linked from a blog post (velis_projects), published only. */

@@ -3,7 +3,7 @@
 	"version": 3,
 	"settings": {
 		"appearanceTools": true,
-		"useRootPaddingAwareAlignments": true,
+		"useRootPaddingAwareAlignments": false,
 		"color": {
 			"defaultPalette": false,
 			"defaultGradients": false,
@@ -24,7 +24,7 @@
 				{
 					"slug": "canvas",
 					"name": "Nền ngà",
-					"color": "#FAF8F5"
+					"color": "#FAF7F2"
 				},
 				{
 					"slug": "surface",
@@ -39,7 +39,7 @@
 				{
 					"slug": "surface-dark",
 					"name": "Nền tối",
-					"color": "#141414"
+					"color": "#111111"
 				},
 				{
 					"slug": "hairline",
@@ -164,52 +164,44 @@
 				{
 					"slug": "body",
 					"name": "body",
-					"size": "18px",
-					"fluid": {
-						"min": "17px",
-						"max": "18px"
-					}
+					"size": "17px",
+					"fluid": false
 				},
 				{
 					"slug": "heading-4",
 					"name": "h4",
-					"size": "20px",
-					"fluid": {
-						"min": "18px",
-						"max": "20px"
-					}
+					"size": "19px",
+					"fluid": false
 				},
 				{
 					"slug": "heading-3",
 					"name": "h3",
-					"size": "24px",
-					"fluid": {
-						"min": "20px",
-						"max": "24px"
-					}
+					"size": "22px",
+					"fluid": false
 				},
 				{
 					"slug": "heading-2",
 					"name": "h2",
-					"size": "36px",
+					"size": "40px",
 					"fluid": {
-						"min": "26px",
-						"max": "36px"
+						"min": "28px",
+						"max": "40px"
 					}
 				},
 				{
 					"slug": "heading-1",
 					"name": "h1",
-					"size": "48px",
+					"size": "56px",
 					"fluid": {
-						"min": "32px",
-						"max": "48px"
+						"min": "36px",
+						"max": "56px"
 					}
 				}
 			]
 		},
 		"spacing": {
 			"defaultSpacingSizes": false,
+			"blockGap": null,
 			"units": [
 				"px",
 				"rem",
@@ -218,19 +210,9 @@
 			],
 			"spacingSizes": [
 				{
-					"slug": "1",
-					"name": "1",
-					"size": "4px"
-				},
-				{
 					"slug": "2",
 					"name": "2",
 					"size": "8px"
-				},
-				{
-					"slug": "3",
-					"name": "3",
-					"size": "12px"
 				},
 				{
 					"slug": "4",
@@ -265,7 +247,7 @@
 			]
 		},
 		"layout": {
-			"contentSize": "720px",
+			"contentSize": "576px",
 			"wideSize": "1200px"
 		},
 		"custom": {
@@ -288,7 +270,8 @@
 			},
 			"section": {
 				"desktop": "96px",
-				"mobile": "64px"
+				"tablet": "64px",
+				"mobile": "48px"
 			},
 			"gutter": {
 				"desktop": "24px",
@@ -311,133 +294,7 @@
 			]
 		}
 	},
-	"styles": {
-		"color": {
-			"background": "var(--wp--preset--color--canvas)",
-			"text": "var(--wp--preset--color--ink)"
-		},
-		"typography": {
-			"fontFamily": "var(--wp--preset--font-family--body)",
-			"fontSize": "var(--wp--preset--font-size--body)",
-			"lineHeight": "1.7"
-		},
-		"spacing": {
-			"blockGap": "var(--wp--preset--spacing--6)",
-			"padding": {
-				"left": "var(--wp--custom--gutter--mobile)",
-				"right": "var(--wp--custom--gutter--mobile)"
-			}
-		},
-		"elements": {
-			"h1": {
-				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--heading)",
-					"fontSize": "var(--wp--preset--font-size--heading-1)",
-					"fontWeight": "600",
-					"lineHeight": "1.2"
-				}
-			},
-			"h2": {
-				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--heading)",
-					"fontSize": "var(--wp--preset--font-size--heading-2)",
-					"fontWeight": "600",
-					"lineHeight": "1.2"
-				}
-			},
-			"h3": {
-				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--body)",
-					"fontSize": "var(--wp--preset--font-size--heading-3)",
-					"fontWeight": "600",
-					"lineHeight": "1.35"
-				}
-			},
-			"h4": {
-				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--body)",
-					"fontSize": "var(--wp--preset--font-size--heading-4)",
-					"fontWeight": "600",
-					"lineHeight": "1.4"
-				}
-			},
-			"link": {
-				"color": {
-					"text": "var(--wp--preset--color--velis-red)"
-				},
-				":hover": {
-					"color": {
-						"text": "var(--wp--preset--color--velis-red-hover)"
-					}
-				}
-			},
-			"button": {
-				"color": {
-					"background": "var(--wp--preset--color--velis-red)",
-					"text": "var(--wp--preset--color--on-dark)"
-				},
-				"border": {
-					"radius": "2px"
-				},
-				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--body)",
-					"fontWeight": "600",
-					"fontSize": "16px",
-					"lineHeight": "1.25"
-				},
-				"spacing": {
-					"padding": {
-						"top": "14px",
-						"bottom": "14px",
-						"left": "28px",
-						"right": "28px"
-					}
-				},
-				":hover": {
-					"color": {
-						"background": "var(--wp--preset--color--velis-red-hover)"
-					}
-				},
-				":focus": {
-					"outline": {
-						"color": "var(--wp--preset--color--ink)",
-						"width": "2px",
-						"style": "solid",
-						"offset": "2px"
-					}
-				}
-			},
-			"caption": {
-				"typography": {
-					"fontSize": "var(--wp--preset--font-size--caption)"
-				},
-				"color": {
-					"text": "var(--wp--preset--color--body-muted)"
-				}
-			}
-		},
-		"blocks": {
-			"core/image": {
-				"border": {
-					"radius": "0px"
-				}
-			},
-			"core/separator": {
-				"color": {
-					"text": "var(--wp--preset--color--hairline)"
-				}
-			},
-			"core/quote": {
-				"border": {
-					"left": {
-						"color": "var(--wp--preset--color--champagne)",
-						"width": "2px",
-						"style": "solid"
-					}
-				}
-			}
-		}
-	},
+	"styles": {},
 	"templateParts": [
 		{
 			"name": "header",
@@ -448,15 +305,6 @@
 			"name": "footer",
 			"title": "Footer",
 			"area": "footer"
-		}
-	],
-	"customTemplates": [
-		{
-			"name": "page-style-guide",
-			"title": "Style guide Velis",
-			"postTypes": [
-				"page"
-			]
 		}
 	]
 }

@@ -4,65 +4,43 @@
  * Slug: velis/header
  * Inserter: no
  *
- * Desktop (≥1024px): links + "Dự án" mega menu + "Về Velis" submenu (<details>), hotline, CTA.
- * Below 1024px: full-screen <dialog> menu (logo + close, Dự án expandable by developer, hotline at the bottom).
+ * Mockup header: logo, 5 links, hotline (≥ 1280), "Nhận tư vấn"; below 1024 px a full-screen <dialog> menu. Rendered
+ * inline by every template (no template-part wrapper, so the header itself is sticky). "Dự án" and "Về Velis" open a
+ * drop-down (hover, click, keyboard – velis.js); in the mobile menu their links are sub-items (decision 2026-11-06).
  */
-// Chủ đầu tư → dự án from the velis-data plugin (empty when the plugin is inactive).
-$projects = function_exists( 'velis_project_menu' ) ? velis_project_menu() : array();
-$about = array( 'Giới thiệu' => '/gioi-thieu/', 'Tuyển dụng' => '/tuyen-dung/' );
 $logo  = esc_url( get_theme_file_uri( 'assets/brand/velis-logo-horizontal.svg' ) );
-$phone = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>';
-$link  = function ( $label, $url ) {
-	return '<a href="' . esc_url( $url ) . '">' . esc_html( $label ) . '</a>';
-};
+$projs = array_slice( velis_top_projects(), 0, 6 );
+$subs  = array(
+	'Dự án'    => array_merge( array_map( fn( $p ) => array( $p->post_title, get_permalink( $p ) ), $projs ), array( array( 'Tất cả dự án', '/du-an/' ) ) ),
+	'Về Velis' => array( array( 'Giới thiệu', '/gioi-thieu/' ), array( 'Tuyển dụng', '/tuyen-dung/' ), array( 'Liên hệ', '/lien-he/' ) ),
+);
+$nav   = array( 'Dự án' => '/du-an/', 'Chủ đầu tư' => '/chu-dau-tu/', 'Blog' => '/blog/', 'Về Velis' => '/gioi-thieu/', 'Liên hệ' => '/lien-he/' );
+$list  = fn( $items ) => implode( '', array_map( fn( $x ) => '<li><a href="' . esc_url( $x[1] ) . '">' . esc_html( $x[0] ) . '</a></li>', $items ) );
+$desk  = '';
+$mob   = '';
+foreach ( $nav as $l => $u ) {
+	if ( isset( $subs[ $l ] ) ) {
+		$id    = 'sub-' . sanitize_title( $l );
+		$desk .= '<li class="header__item" data-sub><button type="button" class="header__toggle" aria-expanded="false" aria-controls="' . $id . '">' . esc_html( $l ) . '</button><ul class="header__sub" id="' . $id . '">' . $list( $subs[ $l ] ) . '</ul></li>';
+		$mob  .= '<li><a href="' . esc_url( $u ) . '">' . esc_html( $l ) . '</a><ul class="menu__sub">' . $list( $subs[ $l ] ) . '</ul></li>';
+	} else {
+		$desk .= '<li><a href="' . esc_url( $u ) . '">' . esc_html( $l ) . '</a></li>';
+		$mob  .= '<li><a href="' . esc_url( $u ) . '">' . esc_html( $l ) . '</a></li>';
+	}
+}
 ?>
-<!-- wp:group {"tagName":"header","className":"v-header","layout":{"type":"constrained","contentSize":"1200px"}} -->
-<header class="wp-block-group v-header">
 <!-- wp:html -->
-<div class="v-header__bar">
-	<a class="v-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo $logo; ?>" width="191" height="44" alt="Velis Realty – trang chủ"></a>
-	<nav class="v-nav" aria-label="Menu chính">
-		<ul>
-			<li><details class="v-dd v-dd--mega" data-dd data-hover><summary>Dự án</summary>
-				<div class="v-dd__panel v-mega__panel">
-				<?php foreach ( $projects as $dev => $list ) : ?>
-					<div><p class="v-eyebrow"><?php echo esc_html( $dev ); ?></p><ul><?php foreach ( $list as $label => $item ) : ?><li><?php echo $link( $label, $item['url'] ); ?>
-					<?php if ( $item['zones'] ) : ?><ul class="v-mega__zones"><?php foreach ( $item['zones'] as $zl => $zu ) : ?><li><?php echo $link( $zl, $zu ); ?></li><?php endforeach; ?><?php if ( $item['more'] ) : ?><li><?php echo $link( 'Xem tất cả phân khu', $item['url'] . '#phan-khu' ); ?></li><?php endif; ?></ul><?php endif; ?></li><?php endforeach; ?></ul></div>
-				<?php endforeach; ?>
-					<p class="v-mega__all"><a class="v-btn v-btn--secondary" href="/du-an/">Xem tất cả dự án</a></p>
-				</div></details></li>
-			<li><?php echo $link( 'Chủ đầu tư', '/chu-dau-tu/' ); ?></li>
-			<li><?php echo $link( 'Blog', '/blog/' ); ?></li>
-			<li><details class="v-dd" data-dd data-hover><summary>Về Velis</summary><ul class="v-dd__panel"><?php foreach ( $about as $label => $url ) : ?><li><?php echo $link( $label, $url ); ?></li><?php endforeach; ?></ul></details></li>
-			<li><?php echo $link( 'Liên hệ', '/lien-he/' ); ?></li>
-		</ul>
-	</nav>
-	<a class="v-header__phone" href="tel:0911237979"><?php echo $phone; // phpcs:ignore -- static SVG ?><span class="v-sr">Gọi hotline </span>0911 237 979</a>
-	<a class="v-btn v-header__cta" href="#tu-van">Nhận tư vấn</a>
-	<button class="v-menu-open" type="button" data-menu-open aria-haspopup="dialog" aria-controls="v-menu"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg><span class="v-sr">Mở menu</span></button>
-</div>
-<dialog class="v-menu" id="v-menu" aria-label="Menu">
-	<div class="v-menu__top">
-		<a class="v-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo $logo; ?>" width="156" height="36" alt="Velis Realty – trang chủ"></a>
-		<form method="dialog"><button class="v-menu-close" type="submit"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="v-sr">Đóng menu</span></button></form>
-	</div>
-	<nav class="v-menu__nav" aria-label="Menu chính">
-		<details><summary>Dự án</summary>
-		<?php foreach ( $projects as $dev => $list ) : ?>
-			<p class="v-eyebrow"><?php echo esc_html( $dev ); ?></p><ul><?php foreach ( $list as $label => $item ) : ?><li><?php echo $link( $label, $item['url'] ); ?></li><?php endforeach; ?></ul>
-		<?php endforeach; ?>
-			<p class="v-menu__all"><a href="/du-an/">Xem tất cả dự án →</a></p>
-		</details>
-		<?php echo $link( 'Chủ đầu tư', '/chu-dau-tu/' ); ?>
-		<?php echo $link( 'Blog', '/blog/' ); ?>
-		<details><summary>Về Velis</summary><ul><?php foreach ( $about as $label => $url ) : ?><li><?php echo $link( $label, $url ); ?></li><?php endforeach; ?></ul></details>
-		<?php echo $link( 'Liên hệ', '/lien-he/' ); ?>
-	</nav>
-	<div class="v-menu__bottom">
-		<a class="v-menu__phone" href="tel:0911237979"><?php echo $phone; // phpcs:ignore ?>0911 237 979</a>
-		<a class="v-btn" href="#tu-van" data-menu-close>Nhận tư vấn</a>
-	</div>
+<a class="sr-only" href="#noi-dung">Bỏ qua đến nội dung</a>
+<header class="header"><div class="wrap header__bar">
+	<a class="header__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo $logo; ?>" width="191" height="44" alt="Velis Realty – trang chủ"></a>
+	<nav class="header__nav" aria-label="Menu chính"><ul><?php echo $desk; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped above ?></ul></nav>
+	<a class="header__phone" href="tel:<?php echo esc_attr( VELIS_PHONE_TEL ); ?>">Gọi hotline <?php echo esc_html( VELIS_PHONE ); ?></a>
+	<a class="btn header__cta" href="#tu-van">Nhận tư vấn</a>
+	<button class="header__menu" type="button" data-menu-open aria-haspopup="dialog" aria-controls="menu"><span></span><b class="sr-only">Mở menu</b></button>
+</div></header>
+<dialog class="menu" id="menu" aria-label="Menu">
+	<div class="menu__top"><img src="<?php echo $logo; ?>" width="156" height="36" alt="Velis Realty"><button class="menu__close" type="button" data-menu-close aria-label="Đóng menu">×</button></div>
+	<nav aria-label="Menu chính (di động)"><ul><?php echo $mob; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped above ?></ul></nav>
+	<div class="menu__actions"><a class="btn btn--line" href="tel:<?php echo esc_attr( VELIS_PHONE_TEL ); ?>">Gọi hotline <?php echo esc_html( VELIS_PHONE ); ?></a><a class="btn" href="#tu-van" data-menu-close>Nhận tư vấn</a></div>
 </dialog>
 <!-- /wp:html -->
-</header>
-<!-- /wp:group -->

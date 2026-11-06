@@ -5,6 +5,8 @@
 node_modules/
 __pycache__/
 dist/
+# mockup bước 2: 3 file tự chứa, commit để người dùng mở trực tiếp
+!mockup/dist/
 *.zip
 
 # raw crawl data and large captures

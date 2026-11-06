@@ -13,15 +13,11 @@ function wp_parse_url( $u, $c = -1 ) { return parse_url( $u, $c ); }
 function wp_get_attachment_url( $id ) { return 'https://x.vn/wp-content/uploads/2026/04/the-prive.webp'; }
 function remove_accents( $s ) { return strtr( $s, array( 'ă' => 'a', 'ộ' => 'o', 'é' => 'e', 'ư' => 'u' ) ); }
 require __DIR__ . '/../../theme/velis/inc/data.php';
+require __DIR__ . '/../../theme/velis/inc/components.php';
 require __DIR__ . '/../../theme/velis/inc/ui.php';
 require __DIR__ . '/../../theme/velis/inc/seo.php';
 $check = function ( $ok, $msg ) { if ( ! $ok ) { fwrite( STDERR, "FAIL: $msg\n" ); exit( 1 ); } };
 
-$check( 'so-sanh' === velis_guess_kind( 'So sánh The Privé và Palm River' ), 'so sánh' );
-$check( 'phan-tich' === velis_guess_kind( 'Shophouse SOHO có nên đầu tư hay không' ), '"hay" alone is not a comparison' );
-$check( 'huong-dan' === velis_guess_kind( 'Thủ tục mua căn hộ cho người nước ngoài' ), 'hướng dẫn' );
-$check( 'tin' === velis_guess_kind( 'Cập nhật tiến độ Persa Place tháng 10' ), 'tin tiến độ' );
-$check( 'nhan-dinh' === velis_guess_kind( 'Thị trường căn hộ khu Đông 2027' ), 'nhận định' );
 
 $t = velis_fit( 'Masteri Cosmo Central – The Global City: giá, mặt bằng, pháp lý' );
 $check( mb_strlen( $t ) <= 60 && str_starts_with( $t, 'Masteri Cosmo Central' ), 'title fitted: ' . $t );
@@ -34,7 +30,7 @@ $check( str_contains( $html, '<h2 id="gia">' ) && str_contains( $html, '<h2 id="
 $check( 3 === substr_count( $toc, '<li>' ), 'TOC lists H2 only' );
 list( $toc ) = velis_toc( '<h2>a</h2><h2>b</h2><h2>c</h2>', 800 );
 $check( '' === $toc, 'no TOC under 1.200 words' );
-$check( '<p class="v-card__title">x</p>' === velis_heading_to_p( '<h3 class="v-card__title">x</h3>' ), 'embedded card title is not a heading' );
+$check( '<p class="card__title">x</p>' === velis_heading_to_p( '<h3 class="card__title">x</h3>' ), 'embedded card title is not a heading' );
 $check( '<h2 class="a">T</h2><h2>U</h2>' === velis_content( '<h1 class="a">T</h1><h2>U</h2>' ), 'content H1 demoted' );
 $check( 'Năm 2027' === velis_short( 'Năm 2027 (Hoàn thiện nội thất chuẩn Châu Âu và nhiều tiện ích khác)' ), 'short keeps the first clause' );
 $check( mb_strlen( velis_short( str_repeat( 'Đường Đỗ Xuân Hợp, ', 5 ) ) ) <= 46, 'short cuts at a word' );

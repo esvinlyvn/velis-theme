@@ -13,16 +13,22 @@ $posts = $s ? get_posts( array( 's' => $s, 'post_type' => 'post', 'numberposts' 
 if ( $s && ! $posts && $projs ) { // "căn hộ palm river": no post has every word – show posts about the matched project
 	$posts = velis_project_posts( $projs[0], 6 );
 }
-$form = '<form role="search" method="get" class="v-search" action="' . esc_url( home_url( '/' ) ) . '"><label for="s-q" class="v-sr">Tìm dự án hoặc bài viết</label><input id="s-q" type="search" name="s" value="' . esc_attr( $s ) . '" placeholder="Ví dụ: The Global City"><button class="v-btn" type="submit">Tìm</button></form>';
-$out  = velis_breadcrumb_html( velis_trail() ) . '<div class="v-wrap v-pagehead"><h1>' . ( $s ? 'Kết quả cho “' . esc_html( $s ) . '”' : 'Tìm kiếm' ) . '</h1>' . $form . '</div>';
+$out  = velis_breadcrumb_html( velis_trail() ) . velis_hero_b( array(
+	'eyebrow' => 'Tìm kiếm',
+	'title'   => $s ? 'Kết quả cho “' . $s . '”' : 'Tìm kiếm',
+	'after'   => velis_search_form( 's-q', $s ),
+) );
+$band = array( 'section--tint', '' );
+$i    = 0;
 if ( $projs ) {
-	$out .= velis_section( velis_sechead( 'Dự án', count( $projs ) . ' kết quả' ) . velis_first_eager( velis_grid( array_map( 'velis_card_project', $projs ), 'zones' ) ) );
+	$out .= velis_section( velis_sechead( 'Dự án', count( $projs ) . ' kết quả' ) . velis_first_eager( velis_grid( array_map( 'velis_card_project', $projs ), 'three' ) ), '', $band[ $i++ % 2 ] );
 }
 if ( $posts ) {
-	$out .= velis_section( velis_sechead( 'Bài viết', count( $posts ) . ' kết quả' ) . ( $projs ? velis_grid( array_map( 'velis_card_post', $posts ), '3' ) : velis_first_eager( velis_grid( array_map( 'velis_card_post', $posts ), '3' ) ) ) );
+	$grid = velis_grid( array_map( 'velis_card_post', $posts ), 'three' );
+	$out .= velis_section( velis_sechead( 'Bài viết', count( $posts ) . ' kết quả' ) . ( $projs ? $grid : velis_first_eager( $grid ) ), '', $band[ $i++ % 2 ] );
 }
 if ( ! $projs && ! $posts ) {
-	$out .= velis_section( '<p>Chưa tìm thấy nội dung phù hợp. Anh chị thử tên dự án hoặc xem các dự án Velis đang tư vấn.</p>' . velis_grid( array_map( 'velis_card_project', array_slice( velis_top_projects(), 0, 3 ) ), 'zones' ) );
+	$out .= velis_section( velis_sechead( 'Dự án Velis đang tư vấn', 'Chưa tìm thấy nội dung phù hợp', 'Anh chị thử tên dự án hoặc xem các dự án dưới đây.' ) . velis_grid( array_map( 'velis_card_project', array_slice( velis_top_projects(), 0, 3 ) ) ), '', 'section--tint' );
 }
 ?>
 <!-- wp:html -->
