@@ -38,6 +38,8 @@
 	--fs-small: 14px;
 	--fs-label: 13px;
 	--fs-number: 48px;
+	--fs-h2-text: 22px;    /* H2 / H3 inside page text: below the block title (vòng sửa 2.3) */
+	--fs-h3-text: 19px;
 
 	/* thang khoảng cách 1.2 – chỉ 8 · 16 · 24 · 32 · 48 · 64 · 96 (+ 40: tiêu đề khối → nội dung, desktop) */
 	--s2: 8px; --s4: 16px; --s6: 24px; --s8: 32px; --s12: 48px; --s16: 64px; --s24: 96px;
@@ -45,8 +47,8 @@
 	--head-gap: 32px;
 	--gutter: 16px;
 	--wrap: 1200px;
-	--read: 720px;
-	--side: 340px;
+	--read: 640px;      /* cột đọc / cột chính: chữ 19 px ≤ 68 ký tự (vòng sửa 2.1) */
+	--side: 340px;      /* tối thiểu; cột phải nhận phần còn lại của khung */
 	--header-h: 64px;
 	--cta-h: 64px;
 	--radius: 2px;
@@ -54,6 +56,6 @@
 	--shadow-hover: 0 8px 24px rgb(20 20 20 / .08);
 }
 @media (min-width: 768px) { :root { --gutter: 24px; --section: 64px; } }
-@media (min-width: 1024px) { :root { --header-h: 80px; --cta-h: 0px; --section: 96px; --head-gap: 40px; --fs-h1: 56px; --fs-h2: 40px; } }
+@media (min-width: 1024px) { :root { --header-h: 80px; --cta-h: 0px; --section: 96px; --head-gap: 40px; --fs-h1: 56px; --fs-h2: 40px; --fs-h2-text: 28px; --fs-h3-text: 22px; } }
 @media (min-width: 1280px) { :root { --gutter: 32px; } }
 @media (min-width: 1600px) { :root { --wrap: 1320px; } }

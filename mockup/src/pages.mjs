@@ -91,10 +91,10 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 	const advisor = (name, devName, dl, cls = '') => `<div class="advisor${cls}">
 	<p class="eyebrow">VELIS TƯ VẤN DỰ ÁN NÀY</p>
 	<div class="advisor__who"><span class="advisor__img">${avatar(80)}</span><p class="mb-0"><b>${esc(CEO.name)}</b><span>${esc(CEO.role)}</span></p></div>
-	<p class="advisor__role"><span class="draft">câu chờ duyệt</span> Velis Realty là đơn vị tư vấn, phân phối; chủ đầu tư dự án là ${esc(devName)}.</p>
 	<p class="pricecard__title mb-0">${esc(name)}</p>
 	<dl>${dl.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
-	<a class="btn" href="#tu-van">Nhận bảng giá</a><a class="btn btn--line" href="#">Gọi ${PHONE}</a><a class="btn btn--text" href="#">Zalo</a>
+	<a class="btn" href="#tu-van">Nhận bảng giá</a><a class="btn btn--line" href="#">Gọi ${PHONE}</a><a class="btn btn--line" href="#">Zalo</a>
+	${devName ? `<p class="advisor__role">Velis Realty là đơn vị tư vấn, phân phối; chủ đầu tư dự án là ${esc(devName)}.</p>` : ''}
 </div>`;
 
 	// hero: same text/button structure for A and B; B is the default, #hero-a switches before the image is chosen
@@ -159,7 +159,7 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 	const aboutLead = O.paras;
 	const LOGOS = { vinhomes: [712, 325], 'masterise-homes': [486, 330], 'sun-group': [712, 226], 'gamuda-land': [711, 144] }; // = build_mockup.mjs SUPPLIED
 	// partner logos: same visual area (±15 %), ≤ 48 px high, ≤ 160 px wide, from each logo's own ratio (duyệt 2026-11-06)
-	const logoBox = (w, h, area = 3600) => { const r = w / h; let lh = Math.min(48, Math.sqrt(area / r)), lw = lh * r; if (lw > 160) { lw = 160; lh = lw / r; } return [Math.round(lw), Math.round(lh)]; };
+	const logoBox = (w, h, area = 2304) => { const r = w / h; const lw = Math.min(160, Math.min(48, Math.sqrt(area / r)) * r); return [Math.round(lw), Math.round(lw / r)]; }; // = velis_logo_box() (theme)
 	const withImg = broker.projects.filter(p => (H.projects.find(x => x.title === p.title) || {}).img), noImg = broker.projects.filter(p => !withImg.includes(p));
 	const projCard = p => {
 		const c = H.projects.find(x => x.title === p.title) || {}, hand = (c.lines || []).find(l => /^Bàn giao/.test(l));
@@ -187,7 +187,7 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 <section class="section" id="du-an" aria-labelledby="du-an-h"><div class="wrap">
 	<header class="sechead"><h2 id="du-an-h">${sentence(O.featuredHead)}</h2></header>
 	<div class="ftabs" role="group" aria-label="Lọc theo khu vực" data-filter="#du-an .grid" data-noun="dự án" data-single>
-		<button type="button" data-clear aria-pressed="true">Tất cả</button>${broker.regions.slice().sort((x, y) => ['khu-dong', 'khu-tay', 've-tinh', 'tay-bac'].indexOf(x.slug) - ['khu-dong', 'khu-tay', 've-tinh', 'tay-bac'].indexOf(y.slug)).map(r => `<button type="button" data-key="khu" value="${r.slug}" aria-pressed="false">${esc(r.slug === 've-tinh' && r.sub.length ? r.sub.join(', ') : r.name)}</button>`).join('')}
+		<button type="button" data-clear aria-pressed="true">Tất cả</button>${broker.regions.slice().sort((x, y) => ['khu-dong', 'khu-tay', 've-tinh', 'tay-bac'].indexOf(x.slug) - ['khu-dong', 'khu-tay', 've-tinh', 'tay-bac'].indexOf(y.slug)).map(r => `<button type="button" data-key="khu" value="${r.slug}" aria-pressed="false">${esc(r.name)}</button>`).join('')}
 		<p class="sr-only" data-count aria-live="polite">Hiển thị ${broker.projects.length}/${broker.projects.length} dự án</p>
 	</div>
 	${grid([...withImg, ...noImg].map(projCard), ' grid--three')}
@@ -199,7 +199,7 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 </div></section>
 <section class="section" id="ve-velis" aria-labelledby="ve-velis-h"><div class="wrap">
 	<header class="sechead"><h2 id="ve-velis-h">Công ty TNHH Velis Realty</h2><div class="about__lead">${aboutLead.map(t => `<p>${t}</p>`).join('')}</div></header>
-	<p class="eyebrow values-head">${esc(broker.values.head)}</p>
+	<h2 class="values-head">Giá trị khác biệt tại Velis Realty</h2>
 	<ul class="values">${broker.values.items.map(([t, d]) => `<li><h3>${esc(t)}</h3><p>${esc(d)}</p></li>`).join('')}</ul>
 	<p class="mb-0"><a class="btn btn--line" href="#">${esc(H.about.button)}</a></p>
 </div></section>

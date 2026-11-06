@@ -57,15 +57,25 @@
 		spy();
 	}
 
-	// long blocks: show ~420 px, then "Đọc tiếp"
+	// long blocks (one per page): ~420 px, cut at a child boundary; only the paragraph at the cut fades, a heading never
+	// (same as theme velis.js, vòng sửa 2.4)
+	const longs = $$('.clamp'); // the theme marks only the longest text block per page (server side); same here
+	longs.forEach(e => e !== longs.reduce((x, y) => (y.textContent.length > x.textContent.length ? y : x), longs[0]) && e.classList.remove('clamp'));
 	$$('.clamp').forEach(el => {
 		if (el.scrollHeight <= 520) return;
+		const kids = [...el.children], top = el.getBoundingClientRect().top;
+		let i = kids.findIndex(k => k.getBoundingClientRect().bottom - top > 420);
+		if (i < 1) return;
+		while (i > 0 && /^H\d$/.test(kids[i].tagName)) i--;
+		const fade = kids[i], cut = kids.slice(i + 1);
+		cut.forEach(k => { k.hidden = true; });
+		fade.classList.add('clamp__fade');
 		el.classList.add('is-clamped');
 		const b = document.createElement('button');
 		b.type = 'button';
 		b.className = 'btn btn--text clamp__more';
 		b.textContent = 'Đọc tiếp';
-		b.onclick = () => { el.classList.remove('is-clamped'); b.hidden = true; };
+		b.onclick = () => { cut.forEach(k => { k.hidden = false; }); fade.classList.remove('clamp__fade'); el.classList.remove('is-clamped'); b.hidden = true; };
 		el.after(b);
 	});
 

@@ -96,7 +96,10 @@ $check( str_contains( $zones, 'data-filter=".zones"' ) && str_contains( $zones, 
 $check( str_contains( velis_section_nav( array( 'a' => 'A', 'b' => 'B' ) ), 'class="tabs"' ) && str_contains( velis_breadcrumb_html( array( array( 'Trang chủ', '/' ), array( 'Dự án', '' ) ) ), 'class="crumbs"' ), 'tabs + crumbs' );
 $toc = velis_toc( '<h2>A</h2><p>x</p><h2>B</h2><h2>C</h2>', 1300 )[0];
 $check( str_starts_with( $toc, '<div class="faq"><details data-toc>' ), 'table of contents = FAQ row' );
-$check( str_contains( velis_text_page( '<p>x</p>', '<aside class="page__side"></aside>' ), 'class="wrap page"' ) && str_contains( velis_text_page( '<p>x</p>' ), '<div class="wrap"><div class="block prose">' ), 'text page: 2 columns only with a side card' );
+$check( str_contains( velis_text_page( '<p>x</p>', '<aside class="page__side"></aside>' ), 'class="wrap page"' ) && str_contains( velis_text_page( '<p>x</p>' ), '<div class="wrap--read"><div class="block prose">' ), 'text page: 2 columns only with a side card, else one centred reading column' );
+// 2.9: logo boxes – same visual area within ±15 %, ≤ 48 × 160 px
+$areas = array_map( fn( $r ) => array_product( velis_logo_box( $r ) ), array( 1.0, 1.47, 2.19, 3.15, 4.9, 7.0, 11.0 ) );
+$check( max( $areas ) / min( $areas ) <= 1.15 && max( array_map( fn( $r ) => velis_logo_box( $r )[1], array( 0.5, 1.0 ) ) ) <= 48 && velis_logo_box( 11.0 )[0] <= 160, 'logo boxes: equal area ±15 %, caps 48 / 160 px' );
 $check( str_contains( velis_search_form( 's' ), 'class="field"' ) && str_contains( velis_search_form( 's' ), 'class="btn"' ), 'search form = form row components' );
 $check( '' === velis_grid_sizes( 3, 1 ) && str_contains( velis_grid_sizes( 1, 0 ), '707px' ) && str_contains( velis_grid_sizes( 5, 0 ), '872px' ) && '' === velis_grid_sizes( 5, 1 ) && str_contains( velis_grid_sizes( 4, 3 ), '648px' ), 'grid photo sizes follow the column span' );
 $all = $card . $grid . $facts . $adv . $form . $gal . $zones . $home . $toc;

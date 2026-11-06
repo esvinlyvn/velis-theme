@@ -11,6 +11,25 @@ if (menu) {
 	$$('[data-menu-close], #menu a').forEach((b) => b.addEventListener('click', () => menu.close()));
 }
 
+// Header drop-downs ("Dự án", "Về Velis"): hover, click, keyboard (↓ opens + first link, ↑↓ move, Esc closes); one open at a time.
+const subs = $$('[data-sub]');
+const setSub = (li, on) => { li.querySelector('.header__toggle').setAttribute('aria-expanded', String(on)); li.classList.toggle('is-open', on); };
+subs.forEach((li) => {
+	const btn = li.querySelector('.header__toggle'), links = () => $$('a', li);
+	let t;
+	btn.addEventListener('click', () => { const on = btn.getAttribute('aria-expanded') !== 'true'; subs.forEach((o) => setSub(o, false)); setSub(li, on); });
+	li.addEventListener('mouseenter', () => { clearTimeout(t); subs.forEach((o) => o !== li && setSub(o, false)); setSub(li, true); });
+	li.addEventListener('mouseleave', () => { t = setTimeout(() => setSub(li, false), 200); });
+	li.addEventListener('keydown', (e) => {
+		const i = links().indexOf(document.activeElement);
+		if (e.key === 'Escape') { setSub(li, false); btn.focus(); }
+		else if (e.key === 'ArrowDown') { e.preventDefault(); setSub(li, true); links()[Math.min(i + 1, links().length - 1)].focus(); }
+		else if (e.key === 'ArrowUp' && i >= 0) { e.preventDefault(); i ? links()[i - 1].focus() : btn.focus(); }
+	});
+	li.addEventListener('focusout', (e) => { if (!li.contains(e.relatedTarget)) setSub(li, false); });
+});
+document.addEventListener('click', (e) => subs.forEach((li) => li.contains(e.target) || setSub(li, false)));
+
 // Section tabs (project pages): highlight the last section whose top has passed 35 % of the screen; scroll only the strip.
 $$('[data-secnav]').forEach((nav) => {
 	const links = $$('a[href^="#"]', nav);
@@ -99,11 +118,18 @@ $$('[data-filter]').forEach((f) => {
 		const on = b.getAttribute('aria-pressed') !== 'true';
 		if (single) btns.forEach((o) => o.setAttribute('aria-pressed', 'false'));
 		b.setAttribute('aria-pressed', String(on));
+		if (b.parentNode.scrollWidth > b.parentNode.clientWidth) b.parentNode.scrollTo({ left: b.offsetLeft - 16 }); // 2.16: the chosen tab stays in view
 		apply();
 	}));
 	clear?.addEventListener('click', () => { btns.forEach((b) => b.setAttribute('aria-pressed', 'false')); apply(); });
 	if (f.hasAttribute('data-url')) btns.forEach((b) => (q.get(key(b)) || '').split(',').includes(b.value) && b.setAttribute('aria-pressed', 'true'));
+	// phones (2.6): one <select> per group drives the same chips; chips and selects stay in step
+	const sels = $$('select[data-key]', f);
+	const syncSel = () => sels.forEach((s) => { s.value = btns.find((b) => key(b) === s.dataset.key && b.getAttribute('aria-pressed') === 'true')?.value || ''; });
+	sels.forEach((s) => s.addEventListener('change', () => { btns.filter((b) => key(b) === s.dataset.key).forEach((b) => b.setAttribute('aria-pressed', String(b.value === s.value))); apply(); }));
+	f.addEventListener('click', () => setTimeout(syncSel));
 	apply();
+	syncSel();
 });
 
 // Broken image (e.g. a corrupt original): try the other size in data-alt once, then the named frame.
@@ -184,15 +210,25 @@ $$('.feats').forEach((box) => {
 });
 
 // Long text (old pillar posts): ~420 px, then "Đọc tiếp" (all text stays in the page).
+// Only one region per page (the server marks the longest). The cut falls at a child boundary: children past ~420 px are
+// hidden, the paragraph crossing the line fades out; a heading is never faded – it is hidden with what follows it.
 $$('.clamp').forEach((el) => {
 	if (el.scrollHeight <= 520) return;
+	const kids = [...el.children], top = el.getBoundingClientRect().top;
+	let i = kids.findIndex((k) => k.getBoundingClientRect().bottom - top > 420);
+	if (i < 1) return;
+	if (/^H\d$/.test(kids[i].tagName)) i--; // cut before the heading; the paragraph above it fades
+	while (i > 0 && /^H\d$/.test(kids[i].tagName)) i--;
+	const fade = kids[i], cut = kids.slice(i + 1);
+	cut.forEach((k) => { k.hidden = true; });
+	fade.classList.add('clamp__fade');
 	el.classList.add('is-clamped');
 	const b = document.createElement('button');
 	b.type = 'button';
 	b.className = 'btn btn--text clamp__more';
 	b.textContent = 'Đọc tiếp';
 	b.setAttribute('aria-expanded', 'false');
-	b.addEventListener('click', () => { el.classList.remove('is-clamped'); b.remove(); });
+	b.addEventListener('click', () => { cut.forEach((k) => { k.hidden = false; }); fade.classList.remove('clamp__fade'); el.classList.remove('is-clamped'); b.remove(); });
 	el.after(b);
 });
 

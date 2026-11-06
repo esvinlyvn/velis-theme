@@ -98,7 +98,7 @@ add_filter( 'wp_content_img_tag', function ( $tag, $context, $id ) {
 	$ratio  = preg_match( '/\sheight="(\d+)"/', $tag, $h ) && ! empty( $w[1] ) ? 'aspect-ratio: ' . (int) $w[1] . ' / ' . (int) $h[1] . '; ' : '';
 	$style  = $ratio . ( $marked ? '--zoom: 1.12; ' : '' );
 	$tag    = preg_match( '/\sstyle="/', $tag ) ? preg_replace( '/\sstyle="/', ' style="' . $style, $tag, 1 ) : preg_replace( '/^<img/', '<img style="' . trim( $style ) . '"', $tag ); // keep a style the editor set
-	$tag    = preg_replace( '/^<img/', '<img sizes="' . esc_attr( velis_sizes( '(min-width: 768px) min(720px, ' . $max . 'px), min(100vw - 32px, ' . $max . 'px)', $marked ? 1.12 : 1 ) ) . '"', $tag );
+	$tag    = preg_replace( '/^<img/', '<img sizes="' . esc_attr( velis_sizes( '(min-width: 768px) min(640px, ' . $max . 'px), min(100vw - 32px, ' . $max . 'px)', $marked ? 1.12 : 1 ) ) . '"', $tag );
 	$tag    = $marked ? preg_replace( '/^<img([^>]*?)\sclass="/', '<img$1 class="is-marked ', $tag, 1, $n ) : $tag;
 	$tag    = $marked && empty( $n ) ? preg_replace( '/^<img/', '<img class="is-marked"', $tag ) : $tag;
 	return $marked ? '<span class="pic" style="max-width: ' . $max . 'px">' . $tag . '</span>' : $tag;
@@ -140,3 +140,16 @@ function velis_cf7_form_id(): int {
  * use (.page = the 2-column grid, mockup naming without prefix). Only the admin bar marker is kept.
  */
 add_filter( 'body_class', fn( $c ) => array_values( array_intersect( $c, array( 'admin-bar', 'logged-in' ) ) ), 99 );
+
+// Old pages /du-an/{developer}/ now 404 (the path belongs to the projects post type – docs/AUDIT-NOI-DUNG.md §12): links in
+// migrated text point straight at the developer page instead (no internal link to a 404; content itself unchanged).
+add_filter( 'the_content', function ( $html ) {
+	static $devs = null;
+	$devs ??= get_posts( array( 'post_type' => 'chu-dau-tu', 'numberposts' => 100, 'fields' => 'ids', 'post_status' => array( 'publish' ) ) );
+	$slugs = array_map( fn( $d ) => preg_quote( get_post_field( 'post_name', $d ), '#' ), $devs );
+	if ( ! $slugs || ! str_contains( $html, '/du-an/' ) ) {
+		return $html;
+	}
+	$host = preg_quote( (string) wp_parse_url( home_url(), PHP_URL_HOST ), '#' );
+	return preg_replace( '#href="((?:https?://(?:www\.)?(?:' . $host . '|velisrealty\.vn))?)/du-an/(' . implode( '|', $slugs ) . ')/?(["\#?])#', 'href="$1/chu-dau-tu/$2/$3', $html );
+}, 20 );

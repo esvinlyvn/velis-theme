@@ -23,7 +23,7 @@ $li = fn( array $l ) => implode( '', array_map( fn( $t, $u ) => '<li><a href="' 
 	<div class="footer__grid">
 		<div><img src="<?php echo esc_url( get_theme_file_uri( 'assets/brand/velis-logo-horizontal-white.svg' ) ); ?>" width="174" height="40" alt="Velis Realty" loading="lazy">
 			<p>Tư vấn bất động sản cao cấp, phân tích theo dòng tiền và giá vốn thực.</p>
-			<p><a href="tel:<?php echo esc_attr( VELIS_PHONE_TEL ); ?>"><?php echo esc_html( VELIS_PHONE ); ?></a><br><a href="mailto:<?php echo esc_attr( VELIS_EMAIL ); ?>"><?php echo esc_html( VELIS_EMAIL ); ?></a><br><?php echo esc_html( VELIS_ADDRESS ); ?><br><?php echo esc_html( VELIS_HOURS ); ?></p></div>
+			<p class="footer__contact"><a href="tel:<?php echo esc_attr( VELIS_PHONE_TEL ); ?>"><?php echo esc_html( VELIS_PHONE ); ?></a><a href="mailto:<?php echo esc_attr( VELIS_EMAIL ); ?>"><?php echo esc_html( VELIS_EMAIL ); ?></a><?php echo esc_html( VELIS_ADDRESS ); ?><br><?php echo esc_html( VELIS_HOURS ); ?></p></div>
 		<nav aria-label="Khám phá"><p class="eyebrow">Khám phá</p><ul><?php echo $li( array( 'Dự án' => '/du-an/', 'Chủ đầu tư' => '/chu-dau-tu/', 'Blog' => '/blog/', 'Giới thiệu' => '/gioi-thieu/', 'Tuyển dụng' => '/tuyen-dung/', 'Liên hệ' => '/lien-he/' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?></ul></nav>
 		<nav aria-label="Ứng dụng"><p class="eyebrow">Ứng dụng</p><ul><?php echo $li( array( 'Thi thử chứng chỉ môi giới' => '/thi/' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?></ul></nav>
 		<div><p class="eyebrow">Theo dõi Velis</p><ul class="footer__social">

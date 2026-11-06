@@ -14,7 +14,7 @@ if ( ! is_page() ) {
 $pg = get_queried_object();
 setup_postdata( $GLOBALS['post'] = $pg ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride
 $slug    = $pg->post_name;
-$title   = wp_strip_all_tags( get_the_title( $pg ) );
+$title   = velis_display_title( wp_strip_all_tags( get_the_title( $pg ) ) );
 $content = trim( $pg->post_content ) ? velis_content( $pg->post_content ) : ''; // phpcs:ignore
 $out     = velis_breadcrumb_html( velis_trail() );
 if ( 'lien-he' === $slug ) {
@@ -42,8 +42,9 @@ if ( 'lien-he' === $slug ) {
 	if ( $cv ) {
 		$side = velis_contact_card( 'cv', 'mailto:' . VELIS_EMAIL . '?subject=' . rawurlencode( 'Ứng tuyển – ' . $title ) );
 	} else {
-		list( $toc, $content ) = velis_toc( $content, 1300 ); // long policy pages: table of contents on the side
-		$side = $toc ? '<aside class="page__side" aria-label="Mục lục">' . $toc . '</aside>' : velis_contact_card(); // no TOC: the contact card keeps the text on the frame edge without a 40 % empty band (1.1, NT-03)
+		list( $toc, $content ) = velis_toc( $content, 1300 ); // policy pages: one centred reading column, the table of contents on top (2026-11-06)
+		$content = $toc . $content;
+		$side    = '';
 	}
 	$out .= $content ? velis_text_page( $content, $side ) : '';
 	$out .= velis_form_html( '', array(), $cv ? 'Đăng ký ứng tuyển' : 'Nhận tư vấn' );

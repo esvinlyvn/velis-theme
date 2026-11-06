@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Width of the main column of a 2-column page (content wrap − 340 px side column − 48 px gap); phones: wrap − gutters.
-const VELIS_SIZES_MAIN = '(min-width: 1600px) 932px, (min-width: 1024px) min(100vw - 436px, 812px), (min-width: 768px) calc(100vw - 48px), calc(100vw - 32px)';
+const VELIS_SIZES_MAIN = '(min-width: 768px) 640px, calc(100vw - 32px)'; // main column = --read (vòng sửa 2.1)
 const VELIS_SIZES_CARD = '(min-width: 1600px) 424px, (min-width: 1024px) 384px, (min-width: 768px) calc(50vw - 36px), calc(100vw - 32px)'; // 3 cards in the frame: (1320 | 1200 − 2 × 24) / 3
 const VELIS_SIZES_HERO_B = '(min-width: 1600px) 1320px, (min-width: 1248px) 1200px, (min-width: 768px) calc(100vw - 48px), calc(100vw - 32px)'; // = .wrap (NT-17)
 const VELIS_CEO = array( 'name' => 'Vũ Xuân', 'role' => 'CEO Velis Realty', 'img' => 'assets/brand/ceo-vu-xuan-160.webp' );
@@ -160,14 +160,20 @@ function velis_card_project( $p, string $kicker = '', $mode = '' ): string {
 		. velis_more( $more ) . '</div></article>';
 }
 
+/** Developers with at least one project Velis advises on – the one source of every developer count (2.10). */
+function velis_active_developers(): array {
+	static $cache = null;
+	return $cache ??= array_values( array_filter( get_posts( array( 'post_type' => 'chu-dau-tu', 'numberposts' => 100, 'orderby' => 'title', 'order' => 'ASC' ) ), fn( $d ) => velis_developer_projects( $d ) ) );
+}
+
+/** Developer card (2.10): logo (same area rule as the partner row) + name + project count + regions + link; no repeated label. */
 function velis_card_developer( $d ): string {
 	$d       = get_post( $d );
-	$logo    = (int) get_post_meta( $d->ID, 'velis_logo', true );
 	$projs   = velis_developer_projects( $d );
 	$regions = array_unique( array_filter( array_map( 'velis_region_label', $projs ) ) );
 	$meta    = implode( ' · ', array_filter( array( $projs ? count( $projs ) . ' dự án đang tư vấn' : '', implode( ', ', $regions ) ) ) );
-	$media   = $logo ? '<div class="card__media">' . velis_img( $logo, 'Logo ' . $d->post_title, 'medium', array( 'zoom' => 1 ) ) . '</div>' : ''; // no logo uploaded yet: text card, not a row of empty frames
-	return '<article class="card">' . $media . '<div class="card__body"><p class="eyebrow">Chủ đầu tư</p><h3 class="card__title"><a href="' . esc_url( get_permalink( $d ) ) . '">' . esc_html( $d->post_title ) . '</a></h3>'
+	$logo    = velis_dev_logo( $d );
+	return '<article class="card">' . ( $logo ? '<p class="card__logo">' . $logo . '</p>' : '' ) . '<div class="card__body"><h3 class="card__title"><a href="' . esc_url( get_permalink( $d ) ) . '">' . esc_html( $d->post_title ) . '</a></h3>'
 		. ( $meta ? '<p class="card__text">' . esc_html( $meta ) . '</p>' : '' ) . velis_more( 'Xem chủ đầu tư' ) . '</div></article>';
 }
 
@@ -203,6 +209,8 @@ function velis_grid( array $cards, string $mod = '', string $attrs = '' ): strin
 	$cards = array_values( array_filter( $cards, fn( $c ) => ! str_starts_with( $c, '<p class="more-center">' ) ) );
 	$any   = (bool) array_filter( $cards, fn( $c ) => str_contains( $c, 'class="card__media"' ) );
 	$cards = array_map( fn( $c ) => preg_replace_callback( '#<span hidden data-nomedia="([^"]*)"></span>#', fn( $m ) => $any ? velis_media_empty( html_entity_decode( $m[1], ENT_QUOTES ) ) : '', $c ), $cards );
+	// 2.5: cards with a photo first, named fallback frames after (stable inside each group)
+	$cards = array_merge( array_values( array_filter( $cards, fn( $c ) => ! str_contains( $c, 'card__media--empty' ) ) ), array_values( array_filter( $cards, fn( $c ) => str_contains( $c, 'card__media--empty' ) ) ) );
 	$cls   = array( 'three' => ' grid--three', 'zones' => ' zones' )[ $mod ] ?? '';
 	$n     = count( $cards );
 	foreach ( $cards as $i => $c ) { // a card wider than a third of the frame needs a bigger file (NT-21): sizes from its real column span
@@ -316,7 +324,13 @@ function velis_advisor( $p, bool $inline = false ): string {
 		. '<div class="advisor__who"><span class="advisor__img"><img src="' . esc_url( get_theme_file_uri( VELIS_CEO['img'] ) ) . '" width="80" height="80" alt="" loading="lazy"></span><p><b>' . esc_html( VELIS_CEO['name'] ) . '</b><span>' . esc_html( VELIS_CEO['role'] ) . '</span></p></div>'
 		. '<p class="pricecard__title">' . esc_html( $name ) . '</p>' . ( $dl ? '<dl>' . $dl . '</dl>' : '' )
 		. velis_btn( 'Nhận bảng giá', '#tu-van', '', ' data-interest="' . esc_attr( $name ) . '" data-open-form aria-expanded="false"' ) . '<div data-mini-form hidden>' . velis_form_tag( $name, 'mini' ) . '</div>'
-		. velis_call_btn( 'line' ) . velis_btn( 'Zalo', VELIS_ZALO, 'text', ' rel="noopener" target="_blank"' ) . '</div>';
+		. velis_call_btn( 'line' ) . velis_btn( 'Zalo', VELIS_ZALO, 'line', ' rel="noopener" target="_blank"' ) . velis_role_sentence( $p ) . '</div>';
+}
+
+/** Role sentence (approved 2026-11-06): last line of the advisor block; hidden when no developer is known. */
+function velis_role_sentence( $p ): string {
+	$devs = velis_developers( $p ) ?: velis_developers( velis_root( $p ) );
+	return $devs ? '<p class="advisor__role">Velis Realty là đơn vị tư vấn, phân phối; chủ đầu tư dự án là ' . esc_html( implode( ', ', wp_list_pluck( $devs, 'post_title' ) ) ) . '.</p>' : '';
 }
 
 /** Kept name for older callers: the side column of a project page is the advisor card. */
@@ -345,7 +359,7 @@ function velis_project_links(): string {
 /** Side card of the about page: what Velis advises on – the advisor component with a link list. */
 function velis_highlight_card(): string {
 	$projs = velis_top_projects();
-	$devs  = array_values( array_filter( get_posts( array( 'post_type' => 'chu-dau-tu', 'numberposts' => 20, 'orderby' => 'title', 'order' => 'ASC' ) ), fn( $d ) => velis_developer_projects( $d ) ) );
+	$devs  = velis_active_developers();
 	$dl    = implode( '', array_map( fn( $p ) => '<div><dt><a href="' . esc_url( get_permalink( $p ) ) . '">' . esc_html( $p->post_title ) . '</a></dt><dd>' . esc_html( velis_region_label( $p ) ) . '</dd></div>', $projs ) );
 	return '<aside class="page__side" aria-label="Dự án Velis đang tư vấn"><div class="advisor"><p class="eyebrow">Đang tư vấn</p><p class="pricecard__title">' . count( $projs ) . ' dự án · ' . count( $devs ) . ' chủ đầu tư</p>'
 		. ( $dl ? '<dl>' . $dl . '</dl>' : '' ) . velis_btn( 'Xem tất cả dự án', (string) get_post_type_archive_link( 'du-an' ), 'line' ) . '</div></aside>';
@@ -379,6 +393,11 @@ function velis_call_btn( string $mod = 'line' ): string {
 	return velis_btn( 'Gọi ' . VELIS_PHONE, 'tel:' . VELIS_PHONE_TEL, $mod );
 }
 
+/** Page title as shown (H1, breadcrumb): the site-name suffix of old page titles ("Tuyển dụng – Velis Realty") is dropped (2.13). */
+function velis_display_title( string $t ): string {
+	return trim( preg_replace( '/\s+[–-]\s+Velis Realty$/u', '', html_entity_decode( $t, ENT_QUOTES, 'UTF-8' ) ) );
+}
+
 function velis_breadcrumb_html( array $trail, bool $wrap = true ): string {
 	if ( count( $trail ) < 2 ) {
 		return '';
@@ -386,6 +405,7 @@ function velis_breadcrumb_html( array $trail, bool $wrap = true ): string {
 	$li   = array();
 	$last = count( $trail ) - 1;
 	foreach ( $trail as $i => list( $name, $url ) ) {
+		$name = velis_display_title( (string) $name );
 		$li[] = $i === $last ? '<li aria-current="page">' . esc_html( $name ) . '</li>' : '<li><a href="' . esc_url( $url ) . '">' . esc_html( $name ) . '</a></li>';
 	}
 	$ol = '<ol class="crumbs">' . implode( '', $li ) . '</ol>';
@@ -490,11 +510,16 @@ function velis_compare_html( array $posts, array $crit, string $caption, $curren
 			$cells[ $p->ID ][ $label ] = '' === $v ? $miss : $v;
 		}
 	}
-	$posts = array_values( array_filter( $posts, fn( $p ) => array_diff( $cells[ $p->ID ], array( $miss ) ) ) );
+	// rows = criteria that differ; a column that is "Chưa công bố" on every shown row is dropped (2.12) – repeat until stable
+	$labels = array_keys( $crit );
+	do {
+		$n      = count( $posts );
+		$posts  = array_values( array_filter( $posts, fn( $p ) => array_diff( array_intersect_key( $cells[ $p->ID ], array_flip( $labels ) ), array( $miss ) ) ) );
+		$labels = array_values( array_filter( array_keys( $crit ), fn( $l ) => count( array_unique( array_map( fn( $p ) => $cells[ $p->ID ][ $l ], $posts ) ) ) > 1 ) );
+	} while ( $n !== count( $posts ) && count( $posts ) >= 2 );
 	if ( count( $posts ) < 2 ) {
 		return '';
 	}
-	$labels = array_filter( array_keys( $crit ), fn( $l ) => count( array_unique( array_map( fn( $p ) => $cells[ $p->ID ][ $l ], $posts ) ) ) > 1 );
 	if ( count( array_filter( $labels, fn( $l ) => array_filter( $posts, fn( $p ) => $miss !== $cells[ $p->ID ][ $l ] ) ) ) < 2 ) {
 		return ''; // fewer than 2 rows with real data: nothing to compare (round 7)
 	}
@@ -503,7 +528,7 @@ function velis_compare_html( array $posts, array $crit, string $caption, $curren
 	foreach ( $posts as $p ) {
 		$cur   = $current && $current->ID === $p->ID;
 		$head .= '<th scope="col"' . ( $cur ? ' class="is-current"' : '' ) . '>' . esc_html( velis_short_name( $p ) ) . ( $cur ? ' <small class="muted">(trang này)</small>' : '' ) . '</th>';
-		$cta  .= '<td>' . ( $cur ? '' : '<a href="' . esc_url( get_permalink( $p ) ) . '">Xem<span class="sr-only"> ' . esc_html( $p->post_title ) . '</span></a>' ) . '</td>';
+		$cta  .= '<td>' . ( $cur ? '' : '<a class="btn btn--text" href="' . esc_url( get_permalink( $p ) ) . '">' . esc_html( array( 'phan-khu' => 'Xem phân khu', 'thap-tang' => 'Xem dòng sản phẩm' )[ velis_level( $p ) ] ?? 'Xem dự án' ) . ' →<span class="sr-only"> ' . esc_html( $p->post_title ) . '</span></a>' ) . '</td>';
 	}
 	$body = '';
 	foreach ( $labels as $l ) {
@@ -545,7 +570,7 @@ function velis_gallery_html( array $ids, string $name, string $label = 'Thư vi�
 		$alt  = trim( (string) get_post_meta( $id, '_wp_attachment_image_alt', true ) ) ?: $name;
 		$cap  = wp_get_attachment_caption( $id );
 		$plan = 1 === $late( $id );
-		$img  = velis_img( $id, $alt, 'large', array( 'sizes' => '(min-width: 1024px) 812px, 86vw', 'ratio' => 16 / 9 ) + ( $plan ? array( 'zoom' => 1, 'class' => 'is-plan' ) : array() ) );
+		$img  = velis_img( $id, $alt, 'large', array( 'sizes' => '(min-width: 768px) 576px, calc(100vw - 80px)', 'ratio' => 16 / 9 ) + ( $plan ? array( 'zoom' => 1, 'class' => 'is-plan' ) : array() ) );
 		$li  .= '<li><figure><button type="button" data-zoom="' . esc_url( wp_get_attachment_image_url( $id, 'large' ) ) . '" aria-label="' . esc_attr( 'Phóng to: ' . $alt ) . '">' . $img . '</button>'
 			. ( $cap && ! velis_auto_caption( (string) $cap ) ? '<figcaption class="sr-only">' . esc_html( $cap ) . '</figcaption>' : '' ) . '</figure></li>';
 	}
@@ -580,7 +605,10 @@ function velis_project_listing( array $projects ): string {
 			}
 		}
 	}
-	$row = fn( $key, $label, $items ) => count( $items ) >= 2 ? '<div class="actions" role="group" aria-label="' . esc_attr( $label ) . '">' . implode( '', array_map( fn( $k, $v ) => '<button class="chip" type="button" data-key="' . $key . '" value="' . esc_attr( $k ) . '" aria-pressed="false">' . esc_html( $v ) . '</button>', array_keys( $items ), $items ) ) . '</div>' : '';
+	// 2.6: three labelled groups, one row each; phones: a <select> per group instead of the chips (same filter, velis.js)
+	$row = fn( $key, $label, $items ) => count( $items ) >= 2 ? '<div class="zfilter__row"><p class="zfilter__label" id="loc-' . $key . '">' . esc_html( $label ) . '</p>'
+		. '<div class="actions" role="group" aria-labelledby="loc-' . $key . '">' . implode( '', array_map( fn( $k, $v ) => '<button class="chip" type="button" data-key="' . $key . '" value="' . esc_attr( $k ) . '" aria-pressed="false">' . esc_html( $v ) . '</button>', array_keys( $items ), $items ) ) . '</div>'
+		. '<select class="zfilter__select" data-key="' . $key . '" aria-labelledby="loc-' . $key . '"><option value="">Tất cả</option>' . implode( '', array_map( fn( $k, $v ) => '<option value="' . esc_attr( $k ) . '">' . esc_html( $v ) . '</option>', array_keys( $items ), $items ) ) . '</select></div>' : '';
 	$rows = $row( 'khu', 'Khu vực', $khu ) . $row( 'cdt', 'Chủ đầu tư', $devs ) . $row( 'loai', 'Loại sản phẩm', $types );
 	$n    = count( $projects );
 	return ( $rows ? '<div class="zfilter" data-filter="#du-an-luoi" data-noun="dự án" data-url><p class="muted mb-0" data-count aria-live="polite">Hiển thị ' . $n . '/' . $n . ' dự án</p>' . $rows . '<button class="btn btn--text" type="button" data-clear>Xóa lọc</button></div>' : '' )
@@ -698,14 +726,15 @@ function velis_toc( string $content, int $words ): array {
 
 /** Search form = the form row of the lead form (.field + .btn), no new style. */
 function velis_search_form( string $id, string $value = '', string $label = 'Tìm dự án hoặc bài viết' ): string {
-	return '<form role="search" method="get" class="form" action="' . esc_url( home_url( '/' ) ) . '"><p class="field"><label for="' . esc_attr( $id ) . '">' . esc_html( $label ) . '</label>'
-		. '<input id="' . esc_attr( $id ) . '" type="search" name="s" value="' . esc_attr( $value ) . '" placeholder="Ví dụ: The Global City"></p><p class="mb-0"><button class="btn" type="submit">Tìm</button></p></form>';
+	// field + "Tìm" on one row (phones: the button under it, full width); 24 px from what is above (2.14)
+	return '<form role="search" method="get" class="form search" action="' . esc_url( home_url( '/' ) ) . '"><div class="field"><label for="' . esc_attr( $id ) . '">' . esc_html( $label ) . '</label>'
+		. '<div class="search__row"><input id="' . esc_attr( $id ) . '" type="search" name="s" value="' . esc_attr( $value ) . '" placeholder="Ví dụ: The Global City"><button class="btn" type="submit">Tìm</button></div></div></form>';
 }
 
 /** Text page body: one reading column, or the 2-column page (text | sticky side card) when there is a side card. */
 function velis_text_page( string $html, string $side = '' ): string {
 	return $side ? '<div class="wrap page"><div class="page__main"><div class="block prose">' . $html . '</div></div>' . $side . '</div>'
-		: '<div class="wrap"><div class="block prose">' . $html . '</div></div>'; // 1.1: text starts on the frame edge, under the title (.prose caps the width)
+		: '<div class="wrap--read"><div class="block prose">' . $html . '</div></div>'; // policy pages: one centred reading column, no side column (2026-11-06)
 }
 
 /** Pagination: a row of outline buttons (existing button component). */
@@ -809,4 +838,30 @@ function velis_strip_dup_image( string $html, int $thumb ): string {
 /** The first image of a block above the fold is the page's LCP: load it now, not lazily. */
 function velis_first_eager( string $html ): string {
 	return preg_replace( '/loading="lazy"/', 'loading="eager" fetchpriority="high"', $html, 1 );
+}
+
+/** Logo box of a given width/height ratio: every logo the same visual area (areas within ±15 %), ≤ 48 px high, ≤ 160 px wide (2.9). */
+function velis_logo_box( float $r ): array {
+	$h = min( 48, sqrt( 2304 / $r ) ); // 2 304 px² = a square logo at the 48 px cap, so every logo from square to 11:1 reaches it
+	$w = min( 160, $h * $r );
+	return array( (int) round( $w ), (int) round( $w / $r ) );
+}
+
+/**
+ * Developer logo <img> sized by velis_logo_box(): the developer's velis_logo, else the cleaned copy of the old home's partner
+ * row bundled in the theme (assets/brand/doi-tac/{slug}.webp) – staging has no developer logo uploaded yet. '' when none.
+ */
+function velis_dev_logo( $d ): string {
+	$d    = get_post( $d );
+	$id   = (int) get_post_meta( $d->ID, 'velis_logo', true );
+	$file = get_theme_file_path( 'assets/brand/doi-tac/' . $d->post_name . '.webp' );
+	if ( $id && ( $m = wp_get_attachment_metadata( $id ) ) && ! empty( $m['height'] ) ) {
+		list( $w, $h ) = velis_logo_box( $m['width'] / $m['height'] );
+		return wp_get_attachment_image( $id, 'medium', false, array( 'alt' => $d->post_title, 'loading' => 'lazy', 'sizes' => $w . 'px', 'style' => "--w: {$w}px; --h: {$h}px" ) );
+	}
+	if ( is_readable( $file ) && ( $s = getimagesize( $file ) ) ) {
+		list( $w, $h ) = velis_logo_box( $s[0] / $s[1] );
+		return '<img src="' . esc_url( get_theme_file_uri( 'assets/brand/doi-tac/' . $d->post_name . '.webp' ) ) . '" width="' . $s[0] . '" height="' . $s[1] . '" alt="' . esc_attr( $d->post_title ) . '" loading="lazy" decoding="async" style="--w: ' . $w . 'px; --h: ' . $h . 'px">';
+	}
+	return '';
 }

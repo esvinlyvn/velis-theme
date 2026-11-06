@@ -14,7 +14,7 @@ $d = get_queried_object();
 setup_postdata( $GLOBALS['post'] = $d ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride
 $projs = velis_developer_projects( $d );
 $img   = $projs ? velis_image_id( $projs[0] ) : 0;
-$logo  = (int) get_post_meta( $d->ID, 'velis_logo', true );
+$logo  = velis_dev_logo( $d ); // same area rule as the home partner row (2.9)
 $out   = velis_breadcrumb_html( velis_trail() );
 $out  .= velis_hero_b( array(
 	'eyebrow' => 'Chủ đầu tư',
@@ -42,7 +42,7 @@ $band     = array( 'section--tint', '' );
 $i        = 0;
 $sections = '';
 if ( $dl || $logo ) {
-	$sections .= velis_section( velis_sechead( 'Thông tin nhanh về ' . $d->post_title, 'Dữ kiện công khai' ) . ( $logo ? '<ul class="partners"><li>' . velis_img( $logo, 'Logo ' . $d->post_title, 'medium', array( 'zoom' => 1, 'sizes' => '160px' ) ) . '</li></ul>' : '' ) . ( $dl ? '<dl class="facts__list" data-n="' . substr_count( $dl, '<div>' ) . '">' . str_replace( '<div>', '<div class="facts__item">', $dl ) . '</dl>' : '' ), '', $band[ $i++ % 2 ] );
+	$sections .= velis_section( velis_sechead( 'Thông tin nhanh về ' . $d->post_title, 'Dữ kiện công khai' ) . ( $logo ? '<ul class="partners"><li>' . $logo . '</li></ul>' : '' ) . ( $dl ? '<dl class="facts__list" data-n="' . substr_count( $dl, '<div>' ) . '">' . str_replace( '<div>', '<div class="facts__item">', $dl ) . '</dl>' : '' ), '', $band[ $i++ % 2 ] );
 }
 if ( $projs ) {
 	$st = array();

@@ -53,10 +53,7 @@ foreach ( $projects as $p ) {
 	}
 }
 uksort( $tabs, fn( $a, $b ) => ( array_search( $a, $order, true ) === false ? 99 : array_search( $a, $order, true ) ) <=> ( array_search( $b, $order, true ) === false ? 99 : array_search( $b, $order, true ) ) );
-$label = function ( $t ) { // "Vùng vệ tinh" says nothing on its own: its places (Nhơn Trạch – Long Thành) instead (mockup)
-	$sub = array_filter( $t['sub'] ?? array() );
-	return str_starts_with( $t['top']->name, 'Vùng' ) && $sub ? implode( ', ', $sub ) : $t['top']->name;
-};
+$label = fn( $t ) => $t['top']->name; // 2.6: region names are the khu-vuc data names everywhere (home tabs = /du-an/ filter)
 $cards = array_map( fn( $p ) => preg_replace( '/^<article class="card"/', '<article class="card" data-khu="' . esc_attr( implode( ' ', velis_region_slugs( $p ) ) ) . '"', velis_card_project( $p ) ), array_merge( $with, $none ) );
 $n     = count( $cards );
 $out  .= '<section class="section" id="du-an" aria-labelledby="du-an-h"><div class="wrap"><header class="sechead"><h2 id="du-an-h">Các dự án nổi bật</h2></header>'
@@ -67,28 +64,9 @@ $out  .= '<section class="section" id="du-an" aria-labelledby="du-an-h"><div cla
 	. '<p class="more-center"><a class="btn btn--line" href="' . esc_url( (string) get_post_type_archive_link( 'du-an' ) ) . '" data-filter-link="khu">Xem tất cả dự án</a></p></div></section>';
 
 // d. partners: developers with a logo, every logo the same visual area (±15 %), ≤ 48 px high, ≤ 160 px wide (duyệt 2026-11-06)
-$logo_box = function ( float $r ) {
-	$h = min( 48, sqrt( 3600 / $r ) );
-	$w = $h * $r;
-	if ( $w > 160 ) {
-		$w = 160;
-		$h = $w / $r;
-	}
-	return array( (int) round( $w ), (int) round( $h ) );
-};
-// Logo: the developer's velis_logo, else the cleaned copy of the old home's partner row bundled in the theme
-// (assets/brand/doi-tac/{slug}.webp, 320 px wide) – staging has no developer logo uploaded yet.
 $logos = '';
 foreach ( get_posts( array( 'post_type' => 'chu-dau-tu', 'numberposts' => 50, 'orderby' => 'title', 'order' => 'ASC' ) ) as $d ) {
-	$id   = (int) get_post_meta( $d->ID, 'velis_logo', true );
-	$file = get_theme_file_path( 'assets/brand/doi-tac/' . $d->post_name . '.webp' );
-	if ( $id && ( $m = wp_get_attachment_metadata( $id ) ) && ! empty( $m['height'] ) ) {
-		list( $w, $h ) = $logo_box( $m['width'] / $m['height'] );
-		$img = wp_get_attachment_image( $id, 'medium', false, array( 'alt' => $d->post_title, 'loading' => 'lazy', 'sizes' => $w . 'px', 'style' => "--w: {$w}px; --h: {$h}px" ) );
-	} elseif ( is_readable( $file ) && ( $s = getimagesize( $file ) ) ) {
-		list( $w, $h ) = $logo_box( $s[0] / $s[1] );
-		$img = '<img src="' . esc_url( get_theme_file_uri( 'assets/brand/doi-tac/' . $d->post_name . '.webp' ) ) . '" width="' . $s[0] . '" height="' . $s[1] . '" alt="' . esc_attr( $d->post_title ) . '" loading="lazy" decoding="async" style="--w: ' . $w . 'px; --h: ' . $h . 'px">';
-	} else {
+	if ( '' === ( $img = velis_dev_logo( $d ) ) ) {
 		continue;
 	}
 	$logos .= '<li><a href="' . esc_url( get_permalink( $d ) ) . '" aria-label="' . esc_attr( $d->post_title ) . '">' . $img . '</a></li>';
@@ -112,7 +90,7 @@ $values = array(
 );
 $about = get_page_by_path( 'gioi-thieu' );
 $out  .= '<section class="section" id="ve-velis" aria-labelledby="ve-velis-h"><div class="wrap"><header class="sechead"><h2 id="ve-velis-h">Công ty TNHH Velis Realty</h2><div class="about__lead">'
-	. implode( '', array_map( fn( $t ) => '<p>' . esc_html( $t ) . '</p>', $intro ) ) . '</div></header><p class="eyebrow values-head">Giá Trị Khác Biệt Tại Velis Realty</p>'
+	. implode( '', array_map( fn( $t ) => '<p>' . esc_html( $t ) . '</p>', $intro ) ) . '</div></header><h2 class="values-head">Giá trị khác biệt tại Velis Realty</h2>' // 2.8: an H2, not a small label
 	. '<ul class="values">' . implode( '', array_map( fn( $t, $d ) => '<li><h3>' . esc_html( $t ) . '</h3><p>' . esc_html( $d ) . '</p></li>', array_keys( $values ), $values ) ) . '</ul>'
 	. ( $about ? '<p class="mb-0">' . velis_btn( 'Tìm hiểu Velis', (string) get_permalink( $about ), 'line' ) . '</p>' : '' ) . '</div></section>';
 

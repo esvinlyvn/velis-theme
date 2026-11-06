@@ -4,7 +4,7 @@
  * Slug: velis/tpl-developers
  * Inserter: no
  */
-$devs = get_posts( array( 'post_type' => 'chu-dau-tu', 'numberposts' => 50, 'orderby' => 'title', 'order' => 'ASC' ) );
+$devs = velis_active_developers(); // 2.10: developers with 0 projects keep their page but are not listed
 // Developers with projects first: they are the root of a silo.
 usort( $devs, fn( $a, $b ) => count( velis_developer_projects( $b ) ) <=> count( velis_developer_projects( $a ) ) ?: strcmp( $a->post_title, $b->post_title ) );
 $intro = get_post_type_object( 'chu-dau-tu' )->description;

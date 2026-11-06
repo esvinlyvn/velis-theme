@@ -39,13 +39,24 @@ a.chip { display: inline-flex; align-items: center; color: inherit; text-decorat
 	.header__cta { display: inline-flex; }
 	.header__menu { display: none; }
 }
-@media (min-width: 1280px) { .header__phone { display: inline-flex; } .header__nav a { padding: 0 var(--s4); } }
+/* drop-downs "Dự án" / "Về Velis" (decision 2026-11-06): the toggle looks like a nav link; the panel is a white card */
+.header__item { position: relative; }
+.header__toggle { display: inline-flex; align-items: center; gap: var(--s2); min-height: 44px; padding: 0 var(--s2); border: 0; background: none; color: var(--ink); font-weight: 600; font-size: var(--fs-card); cursor: pointer; }
+.header__toggle::after { content: ""; width: 8px; height: 8px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-2px) rotate(45deg); }
+.header__toggle:hover, .header__item.is-open .header__toggle { color: var(--red); }
+.header__sub { display: none; position: absolute; top: 100%; left: 0; z-index: 60; min-width: 240px; margin: 0; padding: var(--s2) 0; list-style: none; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-hover); }
+.header__item.is-open .header__sub, html:not(.js) .header__item:is(:hover, :focus-within) .header__sub { display: block; }
+.header__sub a { display: flex; width: 100%; padding: 0 var(--s4); white-space: nowrap; font-weight: 400; }
+.header__sub li:last-child a { font-weight: 600; }
+@media (min-width: 1280px) { .header__phone { display: inline-flex; } .header__nav a, .header__toggle { padding: 0 var(--s4); } .header__sub a { padding: 0 var(--s4); } }
 .menu { width: 100%; max-width: none; height: 100dvh; max-height: none; margin: 0; padding: 0 var(--gutter) var(--s8); border: 0; background: var(--canvas); color: var(--ink); }
 .menu::backdrop { background: var(--canvas); }
 .menu__top { display: flex; align-items: center; justify-content: space-between; height: var(--header-h); border-bottom: 1px solid var(--line); margin-bottom: var(--s4); }
 .menu__close { min-width: 48px; min-height: 48px; padding: 0; border: 0; background: none; font-size: var(--fs-h2); line-height: 1; cursor: pointer; }
 .menu ul { list-style: none; padding: 0; margin: 0 0 var(--s8); }
 .menu li a { display: flex; align-items: center; min-height: 56px; border-bottom: 1px solid var(--line); color: var(--ink); text-decoration: none; font: 600 var(--fs-h3)/1.3 var(--f-body); }
+.menu .menu__sub { margin: 0; padding-left: var(--s4); }
+.menu .menu__sub a { min-height: 44px; font: 400 var(--fs-card)/1.55 var(--f-body); }
 .menu__actions { display: grid; gap: var(--s4); }
 
 /* breadcrumb + section tabs */
@@ -59,6 +70,13 @@ a.chip { display: inline-flex; align-items: center; color: inherit; text-decorat
 .tabs a { display: inline-flex; align-items: center; min-height: 52px; padding: 0 var(--s4); color: var(--ink); text-decoration: none; font-weight: 600; font-size: var(--fs-small); white-space: nowrap; border-bottom: 2px solid transparent; }
 .tabs li:first-child a { padding-left: 0; }
 .tabs a[aria-current="true"] { color: var(--red); border-bottom-color: var(--red); }
+/* 2.16 phones: the strips scroll sideways, the right edge fades instead of cutting a word; the current item is scrolled into view (velis.js) */
+@media (max-width: 1023px) {
+	.tabs ul, .ftabs { -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent); }
+	.tabs ul { padding-right: 40px; }
+	.ftabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-right: 40px; }
+	.ftabs button { flex: none; white-space: nowrap; }
+}
 
 /* hero – project / zone pages: one structure, two frames (bước 3 picks the frame from the FILE size, server side) */
 .hero { position: relative; }
@@ -187,7 +205,7 @@ a.chip { display: inline-flex; align-items: center; color: inherit; text-decorat
 .card__title a::after { content: ""; position: absolute; inset: 0; }
 .card__text { margin: 0; color: var(--muted); font-size: var(--fs-card); line-height: 1.55; }
 .card__body { display: flex; flex-direction: column; flex: 1; }
-.card__more { margin-top: auto; padding-top: var(--s4); color: var(--red); font-weight: 600; font-size: var(--fs-card); }
+.card__more { display: flex; align-items: flex-end; min-height: 60px; margin-top: auto; padding-top: var(--s4); color: var(--red); font-weight: 600; font-size: var(--fs-card); } /* 2.15: 44 px target under the 16 px gap */
 .card:hover .card__title a { color: var(--red); }
 .card--post .card__title { font-family: var(--f-body); }
 .card__meta { font-size: var(--fs-small); line-height: 1.5; color: var(--muted); margin: 0; }
@@ -205,7 +223,10 @@ a.chip { display: inline-flex; align-items: center; color: inherit; text-decorat
 .prose table { display: block; overflow-x: auto; font-size: inherit; } /* bảng trong bài theo cỡ thân: khối ≤ 3 cỡ (1.3) */
 /* core blocks of migrated content, drawn with existing components: H2 opens a part, quote = the note box (.disclosure),
    button block = .btn (class added in functions.php), details = the FAQ row */
-.prose h2 { margin-top: var(--s12); }
+.prose h2 { margin-top: var(--s12); font-size: var(--fs-h2-text); }
+.prose h3 { font-size: var(--fs-h3-text); }
+/* 2.3: block title > content H2 > H3 – a content H2 right under the template's block title shows at H3 size */
+.sechead ~ .prose > h2:first-child { font-size: var(--fs-h3-text); margin-top: 0; }
 .prose > :first-child { margin-top: 0; }
 .prose blockquote { margin: var(--s6) 0; padding: var(--s4) var(--s6); background: var(--sunken); border-left: 2px solid var(--gold); }
 .prose blockquote p:last-child, .prose blockquote cite { margin-bottom: 0; }
@@ -216,7 +237,7 @@ a.chip { display: inline-flex; align-items: center; color: inherit; text-decorat
 .prose .wp-block-embed .pic { aspect-ratio: 16 / 9; }
 .prose .wp-block-embed .pic img { width: 100%; height: 100%; object-fit: cover; }
 .prose .wp-block-embed .pic .btn { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); } /* the poster alone does not say "video" */
-.clamp.is-clamped { max-height: 420px; overflow: hidden; -webkit-mask-image: linear-gradient(#000 70%, transparent); mask-image: linear-gradient(#000 70%, transparent); }
+.clamp__fade { max-height: 5lh; overflow: hidden; -webkit-mask-image: linear-gradient(#000 30%, transparent); mask-image: linear-gradient(#000 30%, transparent); } /* only the paragraph at the cut fades (2.4) */
 .clamp__more { margin-top: var(--s2); }
 .pic { display: block; position: relative; overflow: hidden; } /* photo in long content: clips the badge crop, carries the tag */
 
@@ -224,6 +245,8 @@ a.chip { display: inline-flex; align-items: center; color: inherit; text-decorat
 .table-wrap { position: relative; overflow-x: auto; } /* contains the absolute .sr-only labels, else they widen the page */
 .table-wrap table { min-width: 640px; }
 .table-wrap th[scope="row"] { white-space: nowrap; }
+.table-wrap thead th { min-width: 9em; } /* 2.12: column names ≤ 2 lines */
+.table-wrap .btn--text { white-space: nowrap; }
 .is-current { background: var(--sunken); }
 
 /* gallery (manual only) */
@@ -268,6 +291,9 @@ a.chip { display: inline-flex; align-items: center; color: inherit; text-decorat
 .field { display: grid; gap: var(--s2); margin: 0; }
 .field label { font-weight: 600; } /* 17 như thân: khối form ≤ 3 cỡ (1.3) */
 .field input { min-height: 48px; padding: 0 var(--s4); border: 1px solid var(--line-strong); border-radius: var(--radius); background: #fff; color: var(--ink); }
+.search { margin-top: var(--s6); max-width: var(--read); }
+.search__row { display: grid; gap: var(--s4); }
+@media (min-width: 768px) { .search__row { grid-template-columns: minmax(0, 1fr) auto; } }
 .field.is-error input { border-color: var(--error); box-shadow: 0 0 0 1px var(--error); }
 .field__error { color: var(--error); font-size: var(--fs-small); margin: 0; }
 .check { min-height: 44px; display: flex; gap: var(--s4); align-items: flex-start; font-size: var(--fs-small); line-height: 1.5; margin: 0; }
@@ -289,6 +315,7 @@ a.chip { display: inline-flex; align-items: center; color: inherit; text-decorat
 .footer ul { list-style: none; padding: 0; margin: 0; }
 .footer li a { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; text-decoration: none; }
 .footer__bottom a { display: inline-flex; align-items: center; min-height: 44px; }
+.footer__contact a { display: flex; align-items: center; width: max-content; min-height: 44px; } /* 2.15: hotline / email ≥ 44 px tall */
 .footer .eyebrow { color: var(--gold-light); }
 .footer__social { display: flex; flex-wrap: wrap; gap: var(--s2); }
 .footer__social a { min-width: 44px; padding: 0 var(--s2); border: 1px solid rgb(255 255 255 / .3); border-radius: 999px; justify-content: center; }
@@ -307,6 +334,14 @@ img.is-marked { transform: scale(var(--zoom, 1.15)); transform-origin: 100% 0; }
 .zfilter { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--s4); margin-bottom: var(--s6); }
 .zfilter:has(.actions + .actions) > * { flex-basis: 100%; } /* several filter rows (/du-an/): every row starts on the frame edge (1.1) */
 .zfilter:has(.actions + .actions) > .btn--text { flex-basis: auto; }
+/* /du-an/ (2.6): a labelled row per group; phones get one drop-down per group instead of the chip rows */
+.zfilter:has(.zfilter__row) { display: grid; justify-content: stretch; gap: var(--s4); }
+.zfilter:has(.zfilter__row) > .btn--text { justify-self: start; }
+.zfilter__row { display: grid; gap: var(--s2); }
+.zfilter__label { margin: 0; font-weight: 600; font-size: var(--fs-small); }
+.zfilter__select { min-height: 48px; padding: 0 var(--s4); border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--surface); color: var(--ink); }
+@media (max-width: 767px) { .zfilter__row .actions { display: none; } }
+@media (min-width: 768px) { .zfilter__row { grid-template-columns: 160px minmax(0, 1fr); align-items: center; gap: var(--s4); } .zfilter__select { display: none; } }
 [data-group] + [data-group], [data-group] + .prose { margin-top: var(--s8); }
 
 /* project / zone pages – "Velis tư vấn dự án này": side column ≥ 1024, after the facts bar below */
@@ -320,8 +355,8 @@ img.is-marked { transform: scale(var(--zoom, 1.15)); transform-origin: 100% 0; }
 .advisor__role { font-size: var(--fs-small); line-height: 1.5; }
 .pricecard__title { font: 600 var(--fs-h3)/1.3 var(--f-head); }
 .advisor dl { display: grid; gap: var(--s2); font-size: var(--fs-card); line-height: 1.55; }
-.advisor dl div { display: flex; justify-content: space-between; gap: var(--s4); border-bottom: 1px solid var(--line); padding-bottom: var(--s2); }
-.advisor dd { font-weight: 600; text-align: right; }
+.advisor dl div { display: flex; flex-wrap: wrap; justify-content: space-between; column-gap: var(--s4); border-bottom: 1px solid var(--line); padding-bottom: var(--s2); }
+.advisor dd { flex-shrink: 0; max-width: 100%; margin-left: auto; font-weight: 600; } /* 2.11: a value longer than the row wraps under its label, left-aligned */
 .advisor .btn { width: 100%; }
 .advisor-inline { margin-bottom: var(--s8); }
 @media (min-width: 1024px) { .advisor-inline { display: none; } }
@@ -346,6 +381,9 @@ img.is-marked { transform: scale(var(--zoom, 1.15)); transform-origin: 100% 0; }
 /* home d – partner logos: one row, same 40 px height, dark grey until hover, no boxes, names in alt */
 .partners { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: var(--s8) var(--s16); } /* left like every block (1.1) */
 .partners li { max-width: none; }
+.card__logo { display: flex; align-items: center; min-height: 96px; margin: 0; padding: var(--s6); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.card__logo img { width: var(--w); height: var(--h); }
+@media (max-width: 767px) { .partners { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s6); } .partners a { justify-content: center; } } /* 2.9: 2 equal columns, logo centred in its cell */
 .partners a { display: flex; align-items: center; min-height: 48px; }
 .partners img { width: var(--w); height: var(--h); filter: grayscale(1) brightness(.45); transition: filter .2s var(--ease); }
 .partners a:hover img, .partners a:focus-visible img { filter: none; }
@@ -368,7 +406,7 @@ img.is-marked { transform: scale(var(--zoom, 1.15)); transform-origin: 100% 0; }
 .duo__item { display: flex; flex-direction: column; align-items: flex-start; gap: var(--s4); padding: var(--s6); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
 .duo__item > * { margin: 0; }
 .duo__item .btn { margin-top: auto; }
-.values-head { margin: var(--s8) 0 0; }
+.values-head { margin: var(--s12) 0 0; } /* 2.8: second H2 of the block, H2 size */
 .duo__title { font-size: var(--fs-h3); line-height: 1.3; font-family: var(--f-body); }
 
 /* lightbox – theme only (photos, plans and construction photos with [data-zoom] open whole); new style, to approve */

@@ -26,8 +26,13 @@ $eyebrow = implode( ' · ', array_filter( array(
 ) ) );
 $hand  = (string) get_post_meta( $p->ID, 'velis_handover', true );
 $price = velis_price( $p );
+// 2.5: a dòng sản phẩm without a usable photo of its own borrows its phân khu's, then its project's; text frame only when none
+$hid = velis_image_id( $p );
+for ( $up = $parent; 'thap-tang' === $level && $up && ! ( $hid && velis_usable( $hid ) ); $up = $up->post_parent ? get_post( $up->post_parent ) : null ) {
+	$hid = velis_image_id( $up ) ?: $hid;
+}
 $hero  = velis_hero_a( array(
-	'img' => velis_image_id( $p ), 'title' => $name, 'h1' => true, 'eyebrow' => $eyebrow, 'alt' => 'Phối cảnh ' . $name,
+	'img' => $hid, 'title' => $name, 'h1' => true, 'eyebrow' => $eyebrow, 'alt' => 'Phối cảnh ' . $name,
 	'chips' => array( velis_status( $p ), implode( ', ', velis_type_names( $p ) ), $hand ? velis_label_value( 'Bàn giao', velis_short( $hand, 28 ) ) : '', '' !== $price ? 'Giá từ ' . $price : '' ),
 	'buttons' => velis_btn( 'thap-tang' === $level ? 'Nhận bảng giá ' . mb_strtolower( velis_short_name( $p ) ) : 'Nhận bảng giá', '#tu-van', '', ' data-interest="' . esc_attr( $name ) . '"' ) . velis_call_btn(),
 ) );
@@ -44,7 +49,7 @@ $cb     = function ( $slot, $html = null ) use ( $chunks ) { // $html: the slot'
 	}
 	$words = count( preg_split( '/\s+/u', trim( wp_strip_all_tags( $h ) ), -1, PREG_SPLIT_NO_EMPTY ) );
 	$cut   = 'tong-quan' === $slot ? 180 : 300;
-	return '<div class="prose' . ( $words > $cut ? ' clamp' : '' ) . '">' . velis_content( $h ) . '</div>';
+	return '<div class="prose"' . ( $words > $cut ? ' data-words="' . $words . '"' : '' ) . '>' . velis_content( $h ) . '</div>'; // longest one gets the clamp below (2.4)
 };
 
 // Tổng quan: "Nằm trong" box, answer-first summary, every fact in full, editorial content (CEO view, FAQ – phase 4).
@@ -201,6 +206,12 @@ foreach ( $groups as $gid => list( $label, $ids ) ) {
 		$blocks .= '<section class="block' . $cls . '" id="' . esc_attr( $id ) . '">' . $html . '</section>';
 	}
 }
+// 2.4: at most one "Đọc tiếp" region per page – the longest text block over its threshold
+if ( preg_match_all( '/<div class="prose" data-words="(\d+)">/', $blocks, $m ) ) {
+	$max    = max( array_map( 'intval', $m[1] ) );
+	$blocks = preg_replace( '/<div class="prose" data-words="' . $max . '">/', '<div class="prose clamp">', $blocks, 1 );
+}
+$blocks = preg_replace( '/<div class="prose" data-words="\d+">/', '<div class="prose">', $blocks );
 $nav['tu-van'] = 'Tư vấn';
 $src  = (string) get_post_meta( $p->ID, 'velis_price_source', true );
 $keys = array( 'Chủ đầu tư', 'Quy mô', 'Số phân khu', 'Vị trí', 'Sản phẩm', 'Diện tích', 'Bàn giao', 'Pháp lý' ); // mockup order; Giá goes 4th
