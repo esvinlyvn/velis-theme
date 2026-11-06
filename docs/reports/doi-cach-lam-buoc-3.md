@@ -290,7 +290,7 @@ tư dự án là Masterise Homes."; Nhà phố Spring Ville: "…là Gamuda Land
 
 | Bộ đo | Kết quả | File |
 |---|---|---|
-| Bộ NT (`check_ui --suite`, 30 trang chuẩn × DPR 1 / 1,25 / 2 × M1–M5) | @@NT@@ | `kiem-tra/suite/bang.md` |
+| Bộ NT (`check_ui --suite`, 30 trang chuẩn × DPR 1 / 1,25 / 2 × M1–M5) | **0 lỗi** ở mọi cột lỗi (chạy 6 phần × 5 trang rồi gộp – `tools/merge_suite.mjs`; lượt giữa vòng: The Privé NT-20 ảnh hỏng 9 ở DPR 2 – file gốc mặt bằng hỏng, đã sửa) | `kiem-tra/suite/bang.md` |
 | check_ui 7 khung (360 · 390 · 430 · 768 · 1024 · 1366 · 1920), 30 trang | **0 lỗi / 210 dòng** (lượt giữa vòng: Spring Ville tràn ngang 360 / 390 vì nút dài trong nội dung – đã sửa) | `kiem-tra/check-ui.md` |
 | Thang chữ 1.3 + khoảng cách 1.2 + dòng ≤ 68 ký tự (`mockup_scale --staging`), 30 trang + 404 × 5 màn | **0 ngoại lệ** (lượt đầu: 226 – đoạn văn 69–74 ký tự ở cột 640 px, ghi chú 14 px 78–95 ký tự → cột 576 px + đệm trong; 1 ô cột phải trang tác giả 1920 px → chia đều dòng) | `kiem-tra/thang-staging.md` |
 | Đo máy 2.1–2.16 (`tools/check_b3r2.mjs`) | **268/268 đạt** | `kiem-tra/do-may.md` |
