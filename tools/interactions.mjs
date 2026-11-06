@@ -1,11 +1,9 @@
-// 34 interaction checks on STAGING (guest view behind the staging password) – rewritten in round 8 from the list of
-// round 6/7 (screenshots/phase4-r7/tuong-tac.txt). One form test submission (check 32) is sent to Contact Form 7 on staging
-// (emails are off there); its stored copy is read back from /wp-json/velis/v1/last-lead with the Application Password
-// (env WP_USER / WP_APP_PASSWORD, passed to curl on stdin – never printed).
-// Usage: VIEW_PASSWORD_FILE=… node tools/interactions.mjs <out-file>   (NO_SEND=1: skip the test submission while debugging)
+// 31 interaction checks on STAGING (34 of round 8 − header hide/show ×2 − "Theo loại sản phẩm" table, dropped 2026-11-06) (guest view behind the staging password) – rewritten in round 8 from the list of
+// round 6/7 (screenshots/phase4-r7/tuong-tac.txt). The form check intercepts the CF7 request in the
+// browser and answers it locally: nothing is submitted to staging (decision 2026-11-06).
+// Usage: VIEW_PASSWORD_FILE=… node tools/interactions.mjs <out-file>
 import { createRequire } from 'node:module';
 import { readFileSync, writeFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
 const { chromium } = createRequire(import.meta.url)('playwright');
 
 const BASE = 'https://staging.velisrealty.vn';
@@ -27,14 +25,28 @@ const desk = await b.newContext({ storageState, viewport: { width: 1366, height:
 const mob = await b.newContext({ storageState, viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
 const open = async (ctx, path) => { const p = await ctx.newPage(); await p.goto(BASE + path, { waitUntil: 'load', timeout: 120000 }); return p; };
 
-// 1–5 mega menu – removed in step 3 (header = mockup header, plain links)
+// 1–5 header drop-downs (rebuilt 2026-11-06, replace the old mega menu checks): hover, click, keyboard, mobile sub-items
 let p = await open(desk, '/du-an/the-prive/');
-const noMega = 'đã bỏ mega menu ở bước 3 – chờ duyệt';
-skip('NT-70 mega menu mở khi rê chuột', noMega);
-skip('NT-70 mega menu đóng sau ~200 ms khi rời chuột', noMega);
-skip('NT-70 mega menu mở khi bấm', noMega);
-skip('NT-70 mega menu có phân khu', noMega);
-skip('NT-70 mega menu mở bằng bàn phím (Enter)', noMega);
+const sub = (name) => p.evaluate((n) => { const li = [...document.querySelectorAll('[data-sub]')].find((x) => x.querySelector('.header__toggle').textContent.trim() === n); const u = li?.querySelector('.header__sub'); return { open: !!u && getComputedStyle(u).display !== 'none', expanded: li?.querySelector('.header__toggle').getAttribute('aria-expanded'), links: u ? [...u.querySelectorAll('a')].map((a) => a.textContent.trim()) : [] }; }, name);
+await p.hover('.header__toggle >> text=Dự án'); await p.waitForTimeout(150);
+const h1 = await sub('Dự án');
+check('NT-70 menu thả xuống "Dự án" mở khi rê chuột: 6 dự án + "Tất cả dự án"', h1.open && h1.expanded === 'true' && h1.links.length === 7 && h1.links.at(-1) === 'Tất cả dự án', h1);
+await p.mouse.move(5, 500); await p.waitForTimeout(400);
+check('NT-70 menu thả xuống đóng sau ~200 ms khi rời chuột', !(await sub('Dự án')).open);
+await p.click('.header__toggle >> text=Về Velis'); await p.waitForTimeout(150);
+const vv = await sub('Về Velis');
+check('NT-70 menu "Về Velis" mở khi bấm: Giới thiệu, Tuyển dụng, Liên hệ', vv.open && vv.links.join() === 'Giới thiệu,Tuyển dụng,Liên hệ', vv);
+await p.mouse.click(5, 500); await p.waitForTimeout(150);
+await p.focus('.header__toggle >> text=Dự án'); await p.keyboard.press('Enter'); await p.keyboard.press('ArrowDown'); await p.waitForTimeout(100);
+const k1 = await p.evaluate(() => document.activeElement.closest('.header__sub') ? document.activeElement.textContent.trim() : '');
+await p.keyboard.press('Escape'); await p.waitForTimeout(100);
+const k2 = await p.evaluate(() => ({ cls: document.activeElement.className, open: document.querySelector('[data-sub].is-open') !== null }));
+check('NT-70 menu thả xuống bằng bàn phím: Enter mở, ↓ vào mục đầu, Esc đóng và trả focus', !!k1 && k2.cls.includes('header__toggle') && !k2.open, { k1, k2 });
+const mm = await open(mob, '/');
+await mm.click('[data-menu-open]'); await mm.waitForTimeout(200);
+const ms = await mm.evaluate(() => [...document.querySelectorAll('#menu .menu__sub')].map((u) => u.querySelectorAll('a').length));
+check('NT-70 menu thả xuống trên mobile: "Dự án" (7) và "Về Velis" (3) là mục con trong menu', ms.join() === '7,3', ms);
+await mm.close();
 
 // 6–9 product tabs + price button
 const tabs = await p.evaluate(() => [...document.querySelectorAll('[role=tab]')].map((t) => { const pane = document.getElementById(t.getAttribute('aria-controls')); return { id: t.id || '', name: t.textContent.trim(), data: !!pane?.querySelector('.facts__list, dl, table'), plan: !!pane?.querySelector('.pic img, [data-zoom] img'), btn: !!pane?.querySelector('.btn') }; }));
@@ -79,10 +91,6 @@ await p.mouse.move(box.x + box.width / 2, box.y + 40); await p.mouse.wheel(0, 40
 const y1 = await p.evaluate(() => scrollY);
 check('NT-75 lăn chuột trên thư viện ảnh vẫn cuộn trang', y1 > y0, `${Math.round(y0)} → ${Math.round(y1)}`);
 
-// 16–17 header hide/show – removed in step 3 (sticky mockup header)
-skip('NT-71 cuộn xuống: header ẩn, thanh điều hướng ở top 0', 'header dính cố định theo mockup – chờ duyệt');
-skip('NT-71 cuộn lên: header hiện, thanh điều hướng sát dưới header', 'header dính cố định theo mockup – chờ duyệt');
-
 // 18 form validation
 let sent = 0;
 p.on('request', (r) => { if (r.url().includes('contact-form-7') && r.method() === 'POST') sent++; });
@@ -110,7 +118,6 @@ const t = await open(desk, '/du-an/the-global-city/');
 await t.locator('[data-filter] .chip', { hasText: 'Biệt thự' }).first().click(); await t.waitForTimeout(400);
 const zc = (await t.locator('[data-count]').first().textContent()).trim();
 check('NT-77 lọc phân khu theo loại (chip)', /Hiển thị \d+\/5/.test(zc) && !/5\/5/.test(zc), zc);
-skip('NT-77 chuyển chế độ "Theo loại sản phẩm"', 'bảng "Theo loại sản phẩm" đã bỏ ở bước 3 (mockup chỉ có lọc chip) – chờ duyệt');
 const cmp = await t.evaluate(() => { const w = document.querySelector('#so-sanh .table-wrap'); return w ? { sw: w.scrollWidth, cw: w.clientWidth } : null; });
 
 // 23 search
@@ -148,19 +155,22 @@ check('NT-57 "Đọc tiếp" mở toàn bộ đoạn dài', before > 0 && opened
 await r.evaluate(() => scrollTo(0, 900)); await r.waitForTimeout(300);
 await r.locator('.page__side [data-open-form]').filter({ visible: true }).first().click(); await r.waitForTimeout(300);
 check('NT-74 thẻ cột phải: "Nhận bảng giá" mở form gọn tại chỗ', await r.locator('.page__side [data-mini-form]').filter({ visible: true }).count() === 1);
-if (process.env.NO_SEND) skip('NT-76 gửi thử: đủ trường ẩn (dự án, URL trang, utm)', 'không gửi thật (NO_SEND) – không tính là đạt'); else {
+// NT-76: the form request is intercepted in the browser and answered locally – nothing reaches staging (vòng sửa 2026-11-06:
+// no submission this round); the check reads the multipart body the theme would send to CF7.
+{
 const side = r.locator('.page__side [data-mini-form]').filter({ visible: true }).first();
+let body = '', reached = 0;
+r.on('request', (x) => { if (x.url().includes('contact-form-7') && x.method() === 'POST') reached++; });
+await r.route('**/contact-form-7/**', (route) => { body = route.request().postData() || ''; route.fulfill({ status: 200, contentType: 'application/json', body: '{"status":"mail_sent","message":"ok"}' }); });
 await side.locator('[name=your-name]').fill('Kiểm thử hệ thống');
 await side.locator('[name=your-phone]').fill('0900000000');
 await side.locator('input[type=checkbox]').first().check();
 await r.evaluate(() => history.replaceState(null, '', location.pathname + '?utm_source=kiemthu'));
-const resp = r.waitForResponse((x) => x.url().includes('contact-form-7') && x.request().method() === 'POST', { timeout: 30000 }).catch(() => null);
-await side.locator('[type=submit]').click();
-const res = await resp;
-let lead = '';
-try { lead = execFileSync('curl', ['-sS', '-K', '-', '--cacert', '/root/.ccr/ca-bundle.crt', BASE + '/wp-json/velis/v1/last-lead'], { input: `user = "${process.env.WP_USER}:${process.env.WP_APP_PASSWORD}"\n` }).toString(); } catch { lead = ''; }
-const hasAll = /The Global City/.test(lead) && /the-global-city/.test(lead) && /kiemthu/.test(lead);
-check('NT-76 gửi thử: đủ trường ẩn (dự án, URL trang, utm)', !!res && res.ok() && hasAll, `${lead.length} byte`);
+await side.locator('[type=submit]').click(); await r.waitForTimeout(800);
+const field = (n) => (body.match(new RegExp('name="' + n + '"\\r?\\n\\r?\\n([^\\r\\n]*)')) || [])[1] || '';
+const hid = { interest: field('interest'), pageUrl: field('page-url'), utm: field('utm') };
+check('NT-76 form (chặn yêu cầu, không gửi): đủ trường ẩn dự án, URL trang, utm', /The Global City/.test(hid.interest) && /the-global-city/.test(hid.pageUrl) && /kiemthu/.test(hid.utm) && reached === 1, hid);
+await r.unroute('**/contact-form-7/**');
 }
 
 check('NT-53 bảng so sánh full-width, không cuộn ngang', !!cmp && cmp.sw <= cmp.cw + 1, cmp);

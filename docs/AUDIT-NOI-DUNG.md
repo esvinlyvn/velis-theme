@@ -192,3 +192,16 @@ Nguồn: trang chủ cũ trên site thật (GET công khai, chỉ đọc, `tools
   tư vấn) và Ecopark (nêu trong đoạn giới thiệu) – cần ảnh logo nếu muốn đủ.
 - Các vòng "định vị môi giới" trước (hero CEO + form ngắn, tìm theo nhu cầu, "Cách Velis làm việc", câu vai trò chờ duyệt ở trang
   chủ) đã **bỏ** theo lệnh; ghi chú mục 10 về khung "Cách Velis làm việc" không còn áp dụng cho trang chủ.
+
+## 12. Bước 3, vòng sửa (2026-11-06) – URL `/du-an/{chu-dau-tu}/` trả 404
+
+| ID trang | URL | Vì sao 404 |
+|---|---|---|
+| 19593 | `/du-an/vinhomes/` | Trang con của trang "Dự án" (19537) từ site cũ; đường dẫn `/du-an/…` nay thuộc loại nội dung Dự án (`du-an`, có lưu trữ), WordPress tìm dự án tên "vinhomes", không có → 404 |
+| 19633 | `/du-an/masterise-homes/` | như trên |
+| 19625 | `/du-an/sun-group/` | như trên |
+| 19637 | `/du-an/gamuda-land/` | như trên |
+
+Nội dung tương ứng nay ở `/chu-dau-tu/{slug}/`. Theme không phát link nội bộ nào tới 4 URL này (logo đối tác trang chủ dẫn tới
+`/chu-dau-tu/{slug}/`); quét toàn site ở bước kiểm chứng. 301 về `/chu-dau-tu/{slug}/` đã có trong bảng redirect ngày ra mắt
+(`data/url-map.csv`, dòng vinhomes / masterise-homes …) – không sửa nội dung trang ở vòng này.

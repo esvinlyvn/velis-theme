@@ -76,7 +76,7 @@ test('every automated criterion and interaction carries an NT code of docs/NGHIE
 	for (const [k, label] of [...CRIT, ...INFO]) assert.ok(known.has(label.split(' ')[0]), `${k}: ${label}`);
 	const src = readFileSync(new URL('../interactions.mjs', import.meta.url), 'utf8');
 	const names = [...src.matchAll(/(?:check|skip)\('([^']+)'/g)].map((m) => m[1]); // skip = removed feature, still listed
-	assert.ok(names.length >= 34);
+	assert.ok(names.length >= 31); // 34 − 3 checks of features dropped 2026-11-06
 	for (const n of names) assert.ok(known.has(n.split(' ')[0]), n);
 });
 

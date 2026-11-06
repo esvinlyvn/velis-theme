@@ -69,7 +69,7 @@ layout:
   columns: 12
   content: 1200px
   content-1600: 1320px
-  reading: 720px
+  reading: 640px
   gutter-desktop: 24px
   gutter-mobile: 16px
   breakpoints: [375px, 768px, 1024px, 1440px]
@@ -270,10 +270,16 @@ Thứ tự: con số → dự án (tab khu vực) → đối tác → giá trị
 - Trang dự án: hero B ở M4 giãn ảnh 1,52 – chấp nhận (2026-11-06).
 
 ### Bố cục 2 cột & nhịp thị giác (vòng 5)
-- **Trang có văn bản dài** (dự án mọi cấp; Giới thiệu, Tuyển dụng; chính sách có mục lục): từ 1024 px là cột nội dung
+- **Trang có văn bản dài** (dự án mọi cấp; Giới thiệu, Tuyển dụng): từ 1024 px là cột nội dung
   (phần còn lại) + **cột phải dính 340 px** – dự án: thẻ "Nhận bảng giá {tên}" (ảnh, trạng thái, giá nếu có, bàn giao,
-  Nhận bảng giá → form điền sẵn, Gọi, Zalo); Giới thiệu: thẻ liên hệ; Tuyển dụng: thẻ "Gửi CV"; chính sách: mục lục.
-  Không có gì hữu ích cho cột phải → một cột đọc 760 px canh giữa. < 1024 px: một cột + thanh CTA đáy (kể cả tablet).
+  Nhận bảng giá → form điền sẵn, Gọi, Zalo); Giới thiệu: thẻ liên hệ; Tuyển dụng: thẻ "Gửi CV".
+  **Trang chính sách và trang không có gì hữu ích cho cột phải → một cột đọc canh giữa** (chốt 2026-11-06).
+  Cột chính: tiêu đề, đoạn văn, ảnh, bảng, bản đồ, lưới thẻ cùng một mép trái và một mép phải (±1 px); đoạn ≤ 68 ký tự
+  nhờ cỡ chữ + khoảng đệm, không thu hẹp riêng đoạn văn; khe cột chính – cột phải ≤ 48 px. Khoảng dọc giữa 2 khối ≤ 96 px,
+  2 khối cùng nền không cộng dồn đệm. Thứ bậc nhìn thấy: tiêu đề khối > H2 nội dung > H3 (H2 nội dung đứng ngay sau tiêu đề
+  khối hiện cỡ H3). Mỗi trang dự án tối đa 1 vùng "Đọc tiếp" (khối dài nhất); tiêu đề trong vùng mờ không mờ.
+  Khối "Velis tư vấn dự án này" kết thúc bằng câu vai trò (chữ phụ 14 px): "Velis Realty là đơn vị tư vấn, phân phối; chủ
+  đầu tư dự án là {chủ đầu tư}." – chủ đầu tư từ dữ liệu, nối bằng dấu phẩy; không có thì ẩn câu (duyệt 2026-11-06). < 1024 px: một cột + thanh CTA đáy (kể cả tablet).
 - Khối rộng (danh sách phân khu, so sánh, thư viện, bản đồ) **vừa cột nội dung**: phân khu 2 cột, bảng so sánh cuộn ngang
   có cột tên ghim – để cột phải dính liên tục suốt trang (đẹp và nhất quán hơn việc ngắt cột cho một khối full-width).
 - **Nhịp**: không lặp một khuôn suốt trang. Trang dự án (vòng 6): các section cùng một kiểu nền ngà (không khung trắng có
@@ -316,9 +322,10 @@ Mặt bằng và bản đồ dùng `contain`/không cắt nội dung. Chú thíc
 
 ### Header & menu
 Logo 44 px (40 px khi thu gọn) desktop, 36 px mobile; hotline bấm gọi được; nút "Nhận tư vấn". Một điểm chuyển 1024 px.
-Desktop: "Dự án" mở mega menu (chủ đầu tư → dự án, `<details>`), "Về Velis" mở menu con; một menu mở một lúc, đóng
-khi bấm ra ngoài hoặc Esc. Dưới 1024 px: menu toàn màn hình `<dialog>` – hàng đầu logo + nút đóng; "Dự án" mở ra theo
-chủ đầu tư, cuối danh sách có "Xem tất cả dự án →"; hotline + "Nhận tư vấn" ở cuối menu.
+Desktop (chốt 2026-11-06): "Dự án" mở menu thả xuống (6 dự án + "Tất cả dự án"), "Về Velis" mở menu con (Giới thiệu,
+Tuyển dụng, Liên hệ) – dựng bằng component header, mở bằng hover, click và bàn phím (Enter / Space / mũi tên, Esc đóng);
+một menu mở một lúc, đóng khi bấm ra ngoài. Header không tự ẩn khi cuộn. Dưới 1024 px: menu toàn màn hình `<dialog>` –
+"Dự án" và "Về Velis" là mục có mục con; hotline + "Nhận tư vấn" ở cuối menu.
 
 ### Thẻ (dự án, chủ đầu tư, bài viết, phân khu)
 Cùng ảnh 4:3; cao bằng nhau trong một hàng; **cả thẻ bấm được** + **một link chữ ở đáy cùng một kiểu** ("Xem dự án →",
@@ -347,9 +354,9 @@ nhất. Thẻ chủ đầu tư: khung logo trung tính dùng chung (biểu tư�
   không cột bộ lọc** (mọi khung). Từ 2 nhóm trở lên: desktop cột bộ lọc bên trái + sắp xếp + số kết quả + xóa lọc. Dưới 1024 px: ngăn kéo trượt từ dưới lên, có đầu (tiêu đề + đóng) và chân dính ("Xóa lọc" | "Xem N kết quả",
   N cập nhật khi chọn). Nhóm theo loại sản phẩm: chỉ căn hộ → Cao tầng; có cả căn hộ và thấp tầng → Hỗn hợp; còn lại →
   Thấp tầng. Giá trị trống không khớp bộ lọc đang bật.
-- **Listing dự án**: desktop là thanh lọc ngang gồm các ô thả xuống – Khu vực ▾ (cây Vùng → Tiểu khu), Chủ đầu tư ▾,
-  Loại sản phẩm ▾ – kèm "(n)" số mục đã chọn, "Xóa lọc" và số kết quả; mỗi lúc mở một ô, đóng khi bấm ra ngoài. Mobile:
-  cùng các nhóm trong ngăn kéo. Trong nhóm: khớp bất kỳ; giữa các nhóm: khớp tất cả. Chọn Vùng là chọn mọi Tiểu khu;
+- **Listing dự án** (chốt 2026-11-06): 3 nhóm có nhãn "Khu vực", "Chủ đầu tư", "Loại sản phẩm", mỗi nhóm một hàng chip;
+  mobile: 3 ô chọn thả xuống. Tên khu vực lấy từ dữ liệu khu vực, thống nhất toàn site. Lưới: thẻ có ảnh trước, khung
+  dự phòng sau. Trong nhóm: khớp bất kỳ; giữa các nhóm: khớp tất cả. Chọn Vùng là chọn mọi Tiểu khu;
   Tiểu khu chọn một phần thì Vùng ở trạng thái "một phần".
   Trạng thái lọc trong URL (`?loai=can-ho`), canonical về trang đại đô thị, noindex.
 - **Thư viện ảnh**: desktop có mũi tên + bộ đếm "1/12", mobile lộ một phần ảnh kế tiếp + bộ đếm.
@@ -412,7 +419,7 @@ Lưới thẻ 4/3 → 2 → 1 cột; thông tin nhanh 6 → 3 → 2 cột; bản
 `srcset` nhiều kích thước, AVIF/WebP, lazy-load trừ ảnh đầu trang (`fetchpriority="high"`), ảnh đầu trang ≤ 150 KB.
 
 ## Ngân sách hiệu năng
-LCP ≤ 2,0 s · CLS ≤ 0,05 · INP ≤ 200 ms · JS ban đầu ≤ 60 KB nén · CSS ≤ 50 KB · font ≤ 3 file.
+LCP ≤ 2,0 s (đo lại ngày ra mắt khi bật LiteSpeed; số đo ở staging tắt cache chỉ để tham khảo – 2026-11-06) · CLS ≤ 0,05 · INP ≤ 200 ms · JS ban đầu ≤ 60 KB nén · CSS ≤ 50 KB · font ≤ 3 file.
 
 ## Iteration Guide
 Sửa token ở phần đầu file này rồi chạy `python3 -I tools/build_theme_json.py` để sinh lại `theme/velis/theme.json`.
