@@ -1,0 +1,6 @@
+trang-chu  perf 94 a11y 100 bp 100 seo 66 | LCP 2.7 s CLS 0.000 TBT 30 ms | JS 4KB CSS 7KB ảnh 859KB font 3
+the-global-city perf 98 a11y 100 bp 100 seo 66 | LCP 2.2 s CLS 0.000 TBT 0 ms | JS 4KB CSS 7KB ảnh 403KB font 3
+bai-viet   perf 99 a11y 100 bp 100 seo 66 | LCP 1.9 s CLS 0.001 TBT 13 ms | JS 4KB CSS 7KB ảnh 214KB font 3
+du-an      perf 99 a11y 100 bp 100 seo 66 | LCP 2.1 s CLS 0.000 TBT 0 ms | JS 4KB CSS 7KB ảnh 564KB font 3
+trang-chu-2 perf 93 a11y 100 bp 100 seo 66 | LCP 2.7 s CLS 0.000 TBT 0 ms | JS 4KB CSS 7KB ảnh 859KB font 3
+trang-chu-3 perf 97 a11y 100 bp 100 seo 66 | LCP 2.5 s CLS 0.000 TBT 0 ms | JS 4KB CSS 7KB ảnh 859KB font 3

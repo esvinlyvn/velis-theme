@@ -70,6 +70,10 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 	for (const page of list || PAGES) for (const [s, w, h] of SCREENS) {
 		const p = await (await b.newContext({ viewport: { width: w, height: h }, storageState })).newPage();
 		await p.goto(STAGING ? base + page : `${base}/${page}.html`, { waitUntil: 'load', timeout: 120000 });
+		// staging under load: a page whose theme stylesheet did not arrive (5xx) is loaded again, ≤ 3 times
+		for (let i = 0; STAGING && i < 3 && !(await p.evaluate(() => [...document.styleSheets].some((x) => /velis\.min\.css/.test(x.href || '') && x.cssRules.length))); i++) {
+			await p.waitForTimeout(5000); await p.reload({ waitUntil: 'load', timeout: 120000 });
+		}
 		const r = await p.evaluate(scaleAudit, { FONT, SPACE });
 		const n = r.font.length + r.space.length + r.chars.length; total += n;
 		lines.push(`- ${page} ${s}: ${n} ngoại lệ${n ? ' – ' + [...r.font.map(([k, c]) => `chữ ${k} ×${c}`), ...r.space.map(([k, c]) => `${k} ×${c}`), ...r.chars.map(([k, c]) => `dòng ${k} ×${c}`)].join('; ') : ''}`);

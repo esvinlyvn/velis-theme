@@ -14,6 +14,7 @@
 .chips { display: flex; flex-wrap: wrap; gap: var(--s2); list-style: none; padding: 0; margin: 0 0 var(--s4); }
 .chips li { padding: var(--s2) var(--s4); border: 1px solid var(--line-strong); border-radius: 999px; font-size: var(--fs-small); line-height: 1.5; background: transparent; }
 .chip { min-height: 44px; padding: 0 var(--s4); border: 1px solid var(--line-strong); border-radius: 999px; background: transparent; font-size: var(--fs-small); cursor: pointer; }
+a.chip { display: inline-flex; align-items: center; color: inherit; text-decoration: none; }
 .chip[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: #fff; }
 .muted { color: var(--muted); }
 
@@ -260,7 +261,7 @@
 @media (min-width: 1024px) { .contact { grid-template-columns: 5fr 7fr; gap: var(--s16); align-items: start; } }
 .contact dl { display: grid; gap: var(--s4); margin: 0; }
 .contact dd { font-weight: 600; }
-.contact dd a { display: inline-flex; align-items: center; min-height: 44px; } /* NT-86: hotline / Zalo / email are tap targets */
+.contact dd a, .page__side :is(dd, li) a:not(.btn), dl :is(dt, dd) > a:not(.btn) { display: inline-flex; align-items: center; min-height: 44px; } /* NT-86: hotline / Zalo / email and side-card links are tap targets */
 .form { display: grid; gap: var(--s4); }
 .form__row { display: grid; gap: var(--s4); }
 @media (min-width: 768px) { .form__row { grid-template-columns: 1fr 1fr; } }

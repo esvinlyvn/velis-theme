@@ -305,14 +305,14 @@
    "lowres": [
     "960px: can-ho-the-prive.webp [hero]: cần 1824px, lớn nhất 1200px",
     "960px: can-ho-the-prive.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px",
-    "960px: can-ho-1pn-the-prive-1024x683.webp [khác]: cần 1824px, lớn nhất 1024px",
+    "960px: can-ho-1pn-the-prive.webp [khác]: cần 1824px, lớn nhất 1200px",
     "960px: mat-bang-thap-9-the-prive.webp [ảnh nội dung]: cần 1614px, lớn nhất 1200px",
     "960px: vi-tri-chien-luoc-the-prive.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px",
     "960px: kinh-doanh-airbnb-the-prive.webp [ảnh nội dung]: cần 1614px, lớn nhất 1200px",
     "960px: kinh-doanh-airbnb-the-prive.webp [thư viện]: cần 1677px, lớn nhất 1200px",
-    "960px: can-ho-1pn-the-prive-1024x683.webp [thư viện]: cần 1677px, lớn nhất 1024px",
+    "960px: can-ho-1pn-the-prive.webp [thư viện]: cần 1677px, lớn nhất 1200px",
     "960px: can-ho-2pn-the-prive-1024x683.webp [thư viện]: cần 1677px, lớn nhất 1024px",
-    "960px: can-ho-3pn-the-prive.webp [thư viện]: cần 1677px, lớn nhất 1200px",
+    "960px: can-ho-3pn-the-prive-1024x683.webp [thư viện]: cần 1677px, lớn nhất 1024px",
     "960px: loi-nhuan-dau-tu-the-prive.webp [thư viện]: cần 1677px, lớn nhất 1200px",
     "960px: vi-tri-chien-luoc-the-prive.webp [thư viện]: cần 1459px, lớn nhất 1200px",
     "960px: mat-bang-thap-9-the-prive.webp [thư viện]: cần 1459px, lớn nhất 1200px",
@@ -399,14 +399,14 @@
    "blurryOld": [
     "960px: can-ho-the-prive.webp khung 912px × 2 > file 1200px × 1,15",
     "960px: can-ho-the-prive.webp khung 806px × 2 > file 1200px × 1,15",
-    "960px: can-ho-1pn-the-prive-1024x683.webp khung 912px × 2 > file 1024px × 1,15",
+    "960px: can-ho-1pn-the-prive.webp khung 912px × 2 > file 1200px × 1,15",
     "960px: mat-bang-thap-9-the-prive.webp khung 806px × 2 > file 1200px × 1,15",
     "960px: vi-tri-chien-luoc-the-prive.webp khung 806px × 2 > file 1200px × 1,15",
     "960px: kinh-doanh-airbnb-the-prive.webp khung 806px × 2 > file 1200px × 1,15",
     "960px: kinh-doanh-airbnb-the-prive.webp khung 839px × 2 > file 1200px × 1,15",
-    "960px: can-ho-1pn-the-prive-1024x683.webp khung 839px × 2 > file 1024px × 1,15",
+    "960px: can-ho-1pn-the-prive.webp khung 839px × 2 > file 1200px × 1,15",
     "960px: can-ho-2pn-the-prive-1024x683.webp khung 839px × 2 > file 1024px × 1,15",
-    "960px: can-ho-3pn-the-prive.webp khung 839px × 2 > file 1200px × 1,15",
+    "960px: can-ho-3pn-the-prive-1024x683.webp khung 839px × 2 > file 1024px × 1,15",
     "960px: loi-nhuan-dau-tu-the-prive.webp khung 839px × 2 > file 1200px × 1,15",
     "960px: vi-tri-chien-luoc-the-prive.webp khung 729px × 2 > file 1200px × 1,15",
     "960px: mat-bang-thap-9-the-prive.webp khung 729px × 2 > file 1200px × 1,15",
@@ -494,8 +494,8 @@
    "caps": [],
    "gaps": [],
    "lowres": [
-    "960px: can-ho-1pn-the-prive-1024x683.webp [khác]: cần 1140px, lớn nhất 1024px",
-    "960px: can-ho-1pn-the-prive-1024x683.webp [thư viện]: cần 1048px, lớn nhất 1024px",
+    "960px: can-ho-2pn-the-prive-1024x683.webp [thư viện]: cần 1048px, lớn nhất 1024px",
+    "960px: can-ho-3pn-the-prive-1024x683.webp [thư viện]: cần 1048px, lớn nhất 1024px",
     "1366px: can-ho-the-prive.webp [hero]: cần 1500px, lớn nhất 1200px",
     "1366px: can-ho-1pn-the-prive-1024x683.webp [thư viện]: cần 1075px, lớn nhất 1024px",
     "1366px: can-ho-2pn-the-prive-1024x683.webp [thư viện]: cần 1075px, lớn nhất 1024px",
@@ -818,14 +818,7 @@
   "2": {
    "broken": [],
    "wrong": [],
-   "dpr": [
-    "390px: 26 figure.wp-block-image.size-large [16,7537.4,358,536.7] → [16,7509.3,358,536.7]",
-    "390px: 27 img.is-marked.wp-image-20375 [-27,7537.4,401,601.1] → [-27,7509.3,401,601.1]",
-    "390px: 28 figure.wp-block-image.size-large [16,9457.9,358,543.1] → [16,9429.8,358,543.1]",
-    "390px: 29 img.is-marked.wp-image-20376 [-27,9457.9,401,608.3] → [-27,9429.8,401,608.3]",
-    "390px: 30 figure.wp-block-image.size-large [16,11696.6,358,536.7] → [16,11668.6,358,536.7]",
-    "390px: … và 9 hộp khác"
-   ],
+   "dpr": [],
    "mixed": [],
    "noname": [],
    "feats": [],
@@ -1039,14 +1032,7 @@
   "1.25": {
    "broken": [],
    "wrong": [],
-   "dpr": [
-    "1536px: 0 img [168,18,191,44] → null",
-    "1536px: 1 section.hero.hero--b [0,194,1536,598.8] → null",
-    "1536px: 2 figure.hero__media [168,210,1200,344] → null",
-    "1536px: 3 img.is-marked [168,210,1200,344] → null",
-    "1536px: 4 section.wrap.facts [168,808.8,1200,200.4] → null",
-    "1536px: … và 96 hộp khác"
-   ],
+   "dpr": [],
    "mixed": [],
    "noname": [],
    "feats": [],
@@ -1057,15 +1043,15 @@
    "empty": [],
    "table": [],
    "overflow": [],
-   "h1": [
-    "1536px: 0 H1"
-   ],
+   "h1": [],
    "caps": [],
    "gaps": [],
    "lowres": [
     "960px: vinhomes-saigon-park-3.webp [thư viện]: cần 1205px, lớn nhất 1200px",
     "1366px: vinhomes-saigon-park-2.webp [hero]: cần 1500px, lớn nhất 1200px",
     "1366px: vinhomes-saigon-park-3.webp [thư viện]: cần 1236px, lớn nhất 1200px",
+    "1536px: vinhomes-saigon-park-2.webp [hero]: cần 1500px, lớn nhất 1200px",
+    "1536px: vinhomes-saigon-park-3.webp [thư viện]: cần 1236px, lớn nhất 1200px",
     "1920px: vinhomes-saigon-park-2.webp [hero]: cần 1650px, lớn nhất 1200px",
     "1920px: vinhomes-saigon-park-2.webp [thư viện]: cần 1248px, lớn nhất 1200px",
     "1920px: tien-ich-vinhomes-saigon-park.webp [thư viện]: cần 1248px, lớn nhất 1200px",
@@ -1083,6 +1069,7 @@
    ],
    "blurryOld": [
     "1366px: vinhomes-saigon-park-2.webp khung 1200px × 1.25 > file 1200px × 1,15",
+    "1536px: vinhomes-saigon-park-2.webp khung 1200px × 1.25 > file 1200px × 1,15",
     "1920px: vinhomes-saigon-park-2.webp khung 1320px × 1.25 > file 1200px × 1,15"
    ],
    "gridinfo": []
@@ -1172,9 +1159,7 @@
  },
  "spring-ville": {
   "1": {
-   "broken": [
-    "390px: https://staging.velisrealty.vn/wp-content/uploads/2026/03/phoi-canh-persa-place-3-600x338.webp"
-   ],
+   "broken": [],
    "wrong": [],
    "dpr": [],
    "mixed": [],
@@ -1186,9 +1171,7 @@
    "meta": [],
    "empty": [],
    "table": [],
-   "overflow": [
-    "390px: 414 > 390"
-   ],
+   "overflow": [],
    "h1": [],
    "caps": [],
    "gaps": [],
@@ -1201,14 +1184,7 @@
   "2": {
    "broken": [],
    "wrong": [],
-   "dpr": [
-    "390px: 13 section#tong-quan.block [16,2069,358,2802.5] → [16,2069,358,686.4]",
-    "390px: 18 section#phan-khu.block [16,4871.5,358,921] → [16,2755.4,358,921]",
-    "390px: 19 article.card [16,5257,358,487.5] → [16,3140.9,358,487.5]",
-    "390px: 20 img.is-marked [-37.7,5257,411.7,308.8] → [-37.7,3140.9,411.7,308.8]",
-    "390px: 21 section#dong-san-pham.block [16,5792.5,358,3754.2] → [16,3676.4,358,710.4]",
-    "390px: … và 44 hộp khác"
-   ],
+   "dpr": [],
    "mixed": [],
    "noname": [],
    "feats": [],
@@ -1292,14 +1268,7 @@
   "1.25": {
    "broken": [],
    "wrong": [],
-   "dpr": [
-    "390px: 13 section#tong-quan.block [16,2069,358,2802.5] → [16,2069,358,686.4]",
-    "390px: 18 section#phan-khu.block [16,4871.5,358,921] → [16,2755.4,358,921]",
-    "390px: 19 article.card [16,5257,358,487.5] → [16,3140.9,358,487.5]",
-    "390px: 20 img.is-marked [-37.7,5257,411.7,308.8] → [-37.7,3140.9,411.7,308.8]",
-    "390px: 21 section#dong-san-pham.block [16,5792.5,358,3754.2] → [16,3676.4,358,710.4]",
-    "390px: … và 44 hộp khác"
-   ],
+   "dpr": [],
    "mixed": [],
    "noname": [],
    "feats": [],
@@ -1792,47 +1761,19 @@
    "empty": [],
    "table": [],
    "overflow": [],
-   "h1": [
-    "390px: 0 H1",
-    "960px: 0 H1",
-    "1536px: 0 H1",
-    "1920px: 0 H1"
-   ],
+   "h1": [],
    "caps": [],
    "gaps": [],
-   "lowres": [],
+   "lowres": [
+    "1920px: palm-city.webp [hero]: cần 1320px, lớn nhất 1200px"
+   ],
    "blurryOld": [],
    "gridinfo": []
   },
   "2": {
    "broken": [],
    "wrong": [],
-   "dpr": [
-    "390px: 0 img null → [16,14,156,35.9]",
-    "390px: 1 section.hero.hero--b null → [0,178,390,565.3]",
-    "390px: 2 figure.hero__media null → [16,194,358,268.5]",
-    "390px: 3 img.is-marked null → [-27,194,401,300.7]",
-    "390px: 4 section.wrap.facts null → [16,759.3,358,634.4]",
-    "390px: … và 116 hộp khác",
-    "960px: 0 img null → [24,14,156,35.9]",
-    "960px: 1 section.hero.hero--b null → [0,178,960,576.8]",
-    "960px: 2 figure.hero__media null → [24,194,912,344]",
-    "960px: 3 img.is-marked null → [24,194,912,344]",
-    "960px: 4 section.wrap.facts null → [24,770.8,912,349.2]",
-    "960px: … và 116 hộp khác",
-    "1536px: 0 img null → [168,18,191,44]",
-    "1536px: 1 section.hero.hero--b null → [0,194,1536,598.8]",
-    "1536px: 2 figure.hero__media null → [168,210,1200,344]",
-    "1536px: 3 img.is-marked null → [168,210,1200,344]",
-    "1536px: 4 section.wrap.facts null → [168,808.8,1200,200.4]",
-    "1536px: … và 117 hộp khác",
-    "1920px: 0 img null → [300,18,191,44]",
-    "1920px: 1 section.hero.hero--b null → [0,194,1920,598.8]",
-    "1920px: 2 figure.hero__media null → [300,210,1320,344]",
-    "1920px: 3 img.is-marked null → [300,210,1320,344]",
-    "1920px: 4 section.wrap.facts null → [300,808.8,1320,200.4]",
-    "1920px: … và 117 hộp khác"
-   ],
+   "dpr": [],
    "mixed": [],
    "noname": [],
    "feats": [],
@@ -2068,32 +2009,7 @@
   "1.25": {
    "broken": [],
    "wrong": [],
-   "dpr": [
-    "390px: 0 img null → [16,14,156,35.9]",
-    "390px: 1 section.hero.hero--b null → [0,178,390,565.3]",
-    "390px: 2 figure.hero__media null → [16,194,358,268.5]",
-    "390px: 3 img.is-marked null → [-27,194,401,300.7]",
-    "390px: 4 section.wrap.facts null → [16,759.3,358,634.4]",
-    "390px: … và 116 hộp khác",
-    "960px: 0 img null → [24,14,156,35.9]",
-    "960px: 1 section.hero.hero--b null → [0,178,960,576.8]",
-    "960px: 2 figure.hero__media null → [24,194,912,344]",
-    "960px: 3 img.is-marked null → [24,194,912,344]",
-    "960px: 4 section.wrap.facts null → [24,770.8,912,349.2]",
-    "960px: … và 116 hộp khác",
-    "1536px: 0 img null → [168,18,191,44]",
-    "1536px: 1 section.hero.hero--b null → [0,194,1536,598.8]",
-    "1536px: 2 figure.hero__media null → [168,210,1200,344]",
-    "1536px: 3 img.is-marked null → [168,210,1200,344]",
-    "1536px: 4 section.wrap.facts null → [168,808.8,1200,200.4]",
-    "1536px: … và 117 hộp khác",
-    "1920px: 0 img null → [300,18,191,44]",
-    "1920px: 1 section.hero.hero--b null → [0,194,1920,598.8]",
-    "1920px: 2 figure.hero__media null → [300,210,1320,344]",
-    "1920px: 3 img.is-marked null → [300,210,1320,344]",
-    "1920px: 4 section.wrap.facts null → [300,808.8,1320,200.4]",
-    "1920px: … và 117 hộp khác"
-   ],
+   "dpr": [],
    "mixed": [],
    "noname": [],
    "feats": [],
@@ -2490,7 +2406,7 @@
    "caps": [],
    "gaps": [],
    "lowres": [
-    "960px: truong-quoc-te-vinschool-1024x682.webp [khác]: cần 2098px, lớn nhất 1024px",
+    "960px: truong-quoc-te-vinschool.webp [khác]: cần 2098px, lớn nhất 1200px",
     "960px: vinhomes-ocean-park-2.webp [thẻ]: cần 1296px, lớn nhất 1200px",
     "1366px: truong-quoc-te-vinschool.webp [khác]: cần 1868px, lớn nhất 1200px",
     "1536px: truong-quoc-te-vinschool.webp [khác]: cần 1868px, lớn nhất 1200px",
@@ -2498,7 +2414,7 @@
     "1920px: vinhomes-ocean-park-2.webp [thẻ]: cần 1238px, lớn nhất 1200px"
    ],
    "blurryOld": [
-    "960px: truong-quoc-te-vinschool-1024x682.webp khung 1049px × 2 > file 1024px × 1,15",
+    "960px: truong-quoc-te-vinschool.webp khung 1049px × 2 > file 1200px × 1,15",
     "1366px: truong-quoc-te-vinschool.webp khung 934px × 2 > file 1200px × 1,15",
     "1536px: truong-quoc-te-vinschool.webp khung 934px × 2 > file 1200px × 1,15",
     "1920px: truong-quoc-te-vinschool.webp khung 1072px × 2 > file 1200px × 1,15"
@@ -2508,13 +2424,7 @@
   "1.25": {
    "broken": [],
    "wrong": [],
-   "dpr": [
-    "1920px: 16 img.is-marked [1132.4,10990,487.6,365.7] → null",
-    "1920px: 17 section#tu-van.section.section--dark [0,11603.3,1920,598.5] → null",
-    "1920px: 18 img [300,12266.8,174,40.1] → null",
-    "1920px: 16 section#tu-van.section.section--dark null → [0,11603.3,1920,598.5]",
-    "1920px: 17 img null → [300,12266.8,174,40.1]"
-   ],
+   "dpr": [],
    "mixed": [],
    "noname": [],
    "feats": [],

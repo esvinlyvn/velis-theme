@@ -32,7 +32,7 @@ Cỡ chữ cho phép: 56 · 48 · 40 · 36 · 28 · 22 · 19 · 17 · 16 · 14 �
 - /du-an/palm-city/ 768: 0 ngoại lệ
 - /du-an/palm-city/ 1024: 0 ngoại lệ
 - /du-an/palm-city/ M3: 0 ngoại lệ
-- /du-an/spring-ville/ M1: 68 ngoại lệ – chữ h1 32px ×1; chữ h2 24px ×12; chữ h2.wp-block-heading 24px ×5; button.header__menu padding-top 1px ×1; button.header__menu padding-bottom 1px ×1; button.header__menu padding-left 6px ×1; button.header__menu padding-right 6px ×1; h1 margin-top 21.44px ×1; h1 margin-bottom 21.44px ×1; h2 margin-top 19.92px ×12; h2 margin-bottom 19.92px ×12; h2.wp-block-heading margin-top 19.92px ×5; h2.wp-block-heading margin-bottom 19.92px ×5; button.chip padding-top 1px ×2; button.chip padding-bottom 1px ×2; button.chip padding-left 6px ×2; button.chip padding-right 6px ×2; button.btn padding-top 1px ×2; button.btn padding-bottom 1px ×2; button.btn padding-left 6px ×2; button.btn padding-right 6px ×2; h3 margin-top 18.72px ×1; h3 margin-bottom 18.72px ×1; h3.card__title margin-top 18.72px ×9; h3.card__title margin-bottom 18.72px ×9; h3.wp-block-heading margin-top 18.72px ×3; h3.wp-block-heading margin-bottom 18.72px ×3; a.btn padding-top 12.672px ×3; a.btn padding-bottom 12.672px ×3; a.btn padding-left 23.328px ×3; a.btn padding-right 23.328px ×3; input padding-top 1px ×2; input padding-bottom 1px ×2; input padding-left 2px ×2; input padding-right 2px ×2; input margin-top 3px ×1; input margin-bottom 3px ×1; input margin-left 4px ×1; input margin-right 3px ×1; dòng p.wp-block-paragraph 205 ký tự ×4; dòng p.wp-block-paragraph 206 ký tự ×9; dòng p.wp-block-paragraph 198 ký tự ×1; dòng p.wp-block-paragraph 141 ký tự ×1; dòng li 72 ký tự ×1; dòng li 75 ký tự ×1; dòng p.wp-block-paragraph 200 ký tự ×2; dòng p.wp-block-paragraph 194 ký tự ×1; dòng p.wp-block-paragraph 209 ký tự ×2; dòng p.wp-block-paragraph 78 ký tự ×1; dòng p.wp-block-paragraph 203 ký tự ×4; dòng p.wp-block-paragraph 210 ký tự ×5; dòng p.wp-block-paragraph 207 ký tự ×7; dòng p.wp-block-paragraph 208 ký tự ×5; dòng p.wp-block-paragraph 202 ký tự ×2; dòng p.wp-block-paragraph 199 ký tự ×2; dòng p.wp-block-paragraph 176 ký tự ×1; dòng p.wp-block-paragraph 170 ký tự ×1; dòng p.wp-block-paragraph 190 ký tự ×1; dòng p.wp-block-paragraph 204 ký tự ×2; dòng p.wp-block-paragraph 165 ký tự ×1; dòng p.wp-block-paragraph 213 ký tự ×1; dòng p.wp-block-paragraph 91 ký tự ×1; dòng p.wp-block-paragraph 72 ký tự ×1; dòng p.wp-block-paragraph 149 ký tự ×1; dòng p.disclosure 213 ký tự ×1; dòng p 108 ký tự ×1; dòng p 70 ký tự ×1; dòng p.mb-0 107 ký tự ×1
+- /du-an/spring-ville/ M1: 0 ngoại lệ
 - /du-an/spring-ville/ M5: 0 ngoại lệ
 - /du-an/spring-ville/ 768: 0 ngoại lệ
 - /du-an/spring-ville/ 1024: 0 ngoại lệ
@@ -153,4 +153,4 @@ Cỡ chữ cho phép: 56 · 48 · 40 · 36 · 28 · 22 · 19 · 17 · 16 · 14 �
 - /khong-ton-tai-xyz/ 1024: 0 ngoại lệ
 - /khong-ton-tai-xyz/ M3: 0 ngoại lệ
 
-**Tổng ngoại lệ: 68**
+**Tổng ngoại lệ: 0**

@@ -148,7 +148,7 @@ check('NT-57 "Đọc tiếp" mở toàn bộ đoạn dài', before > 0 && opened
 await r.evaluate(() => scrollTo(0, 900)); await r.waitForTimeout(300);
 await r.locator('.page__side [data-open-form]').filter({ visible: true }).first().click(); await r.waitForTimeout(300);
 check('NT-74 thẻ cột phải: "Nhận bảng giá" mở form gọn tại chỗ', await r.locator('.page__side [data-mini-form]').filter({ visible: true }).count() === 1);
-if (process.env.NO_SEND) check('NT-76 gửi thử: đủ trường ẩn (dự án, URL trang, utm)', true, 'BỎ QUA (NO_SEND, chạy dò lỗi)'); else {
+if (process.env.NO_SEND) skip('NT-76 gửi thử: đủ trường ẩn (dự án, URL trang, utm)', 'không gửi thật (NO_SEND) – không tính là đạt'); else {
 const side = r.locator('.page__side [data-mini-form]').filter({ visible: true }).first();
 await side.locator('[name=your-name]').fill('Kiểm thử hệ thống');
 await side.locator('[name=your-phone]').fill('0900000000');

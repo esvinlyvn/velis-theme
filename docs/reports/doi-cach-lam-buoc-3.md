@@ -54,7 +54,7 @@ Staging chưa có logo chủ đầu tư nên theme mang sẵn 4 logo đã làm s
 
 Toàn bộ CSS cũ đã xóa (style.css chỉ còn phần đầu WordPress). Kiến trúc tokens → base → layout → components → utilities,
 không lớp vá, không `!important` (build từ chối nếu có). Token kiểm khớp DESIGN.md mỗi lần build; `theme.json` sinh lại.
-CSS của hero trang chủ chuyển sang kiến trúc mới, hiển thị như 2.1. Dung lượng: {{CSS}}.
+CSS của hero trang chủ chuyển sang kiến trúc mới, hiển thị như 2.1. Dung lượng: **30,9 KB min / 6,8 KB gzip** (ngân sách 45 / 12 KB).
 
 ### 2.4 Template
 
@@ -84,6 +84,7 @@ mockup); bảng "Theo loại sản phẩm" ở trang đại đô thị; chế đ
 | Logo trang chủ đầu tư | hàng logo đối tác |
 | 2 danh sách ở Giới thiệu | danh sách số 01–04 (giá trị) |
 | Dòng căn hộ (tab) | chip + danh sách thông tin |
+| "Dự án đang tư vấn" (Liên hệ, Giới thiệu) | hàng chip (vùng bấm 44 px) |
 
 ### 2.5 Ảnh (phía server, giống nhau ở mọi màn / DPR)
 
@@ -107,7 +108,33 @@ Theme 0.9.8 → 1.0.0, velis-data 0.2.7 → 0.3.0 qua wp-admin (Tải lên → t
 
 ## 3. Kiểm chứng (trên staging)
 
-{{KIEM_CHUNG}}
+### 3.1 Hero trang chủ (trước 0.9.8 | sau 1.0.0) – `screenshots/b3/hero/`, `screenshots/b3/sau/`
+
+| Đo | Kết quả |
+|---|---|
+| Hộp H1, đoạn dẫn, nút 1, nút 2, dải (M1–M5) so với mốc | **0,0 px** ở mọi hộp, chữ giống hệt; trừ **dải ở M4 hẹp hơn 288 px** (912 thay vì 1200 – chờ duyệt, mục 4) – `sau/so-moc-0.9.8.txt` |
+| Ảnh trước \| sau | `hero/truoc-sau-M1..M5.jpg`: chỉ khác lớp phủ và thẻ trong dải |
+| Lớp phủ | một `linear-gradient(90deg …)` trên `.hero--home::before`; không mảng phủ, blur, radial, bo góc, hộp nền sau chữ – ảnh cận `hero/can-ranh-gioi-lop-phu-M2.jpg` (sau) và `…-truoc.jpg` (0.9.8: mảng mờ + hộp nhãn) |
+| Tương phản chữ hero, 5 điểm / dòng (nhãn, H1, đoạn dẫn, "Dự án nổi bật") | **đạt mọi điểm**; thấp nhất trang chủ 6,91 (M3), TGC / MPP hero A thấp nhất 7,67 – `kiem-tra/tuong-phan-hero.json` (`tools/mockup_contrast.mjs` chế độ staging) |
+| Ảnh hero ≠ ảnh thẻ đầu lưới | hero The Privé, thẻ đầu Ansana by Kita; ảnh The Privé được cắt khung che huy hiệu |
+
+### 3.2 So với mockup – hộp component chính (`tools/compare_mockup.mjs`, `screenshots/b3/so-mockup/so-hop.md`)
+
+Lệch x / rộng / cao của hộp thứ n cùng selector (header, hero, nút, dải, thanh thông tin, thanh mục, đầu khối, thẻ, số liệu,
+đối tác, giá trị, Thi thử / Tuyển dụng, cột phải, thư viện, hỏi đáp, form, footer). Ảnh cạnh nhau mockup | staging ở 1536:
+`so-mockup/*-mockup-staging-1536.jpg`.
+
+| Trang | M1–M3 | M4 | M5 |
+|---|---|---|---|
+| Trang chủ | 25/25 hộp ≤ 2 px | 25/25 | 25/25 |
+| The Global City (A và B) | 34/35 – cột phải thấp hơn 79 px | 34/34 | 32/34 – 1 thẻ phân khu cao hơn 25 px, hỏi đáp thấp hơn 224 px |
+| Masteri Park Place (A và B) | 19/20 – cột phải thấp hơn 79 px | 19/19 | 19/19 |
+
+Phần lệch còn lại đều do **chữ**, không do giao diện: cột phải – mockup có câu chờ duyệt ("Velis Realty là đơn vị tư vấn,
+phân phối; chủ đầu tư dự án là …", gắn nhãn chờ duyệt), theme chưa hiện câu chưa duyệt; thẻ phân khu M5 – dữ liệu staging
+dài hơn bản trích mockup ("616 căn hộ (8 căn/sàn)" xuống thêm 1 dòng); hỏi đáp M5 – câu trả lời đầu trên staging ngắn hơn bản
+trích. Đã sửa để khớp mockup trong vòng này: thẻ dự án bỏ "N phân khu ·", thanh thông tin (bàn giao ngắn, pháp lý bỏ nhãn lặp,
+phân khu không có ô "Sản phẩm"), phân khu thấp tầng có khung tên, hỏi đáp mở câu đầu, form không còn dòng trạng thái rỗng.
 
 ### 3.3 Soát mắt 1.1–1.8 – mọi loại trang (mục 2.4)
 
@@ -142,10 +169,56 @@ mép trái; breadcrumb trên mobile xuống 4 dòng → 1 dòng cuộn ngang. C�
 chưa có dự án chỉ có đầu trang + form; tên vùng ở `/du-an/` là "Vùng vệ tinh" (tên mục khu vực) còn tab trang chủ là
 "Nhơn Trạch – Long Thành".
 
+### 3.4 Đo máy – bản cuối trên staging
+
+| Bộ đo | Kết quả | File |
+|---|---|---|
+| Bộ NT (`check_ui --suite`): 30 trang chuẩn × DPR 1 / 1,25 / 2 × M5 / M4 / M1 / M2 / M3 | **0 lỗi** ở mọi cột lỗi (cột thông tin: NT-22 ảnh nguồn thiếu độ phân giải 785, NT-21 cách đo cũ 598, NT-08 0) | `kiem-tra/suite/bang.md` |
+| check_ui 7 khung (360 · 390 · 430 · 768 · 1024 · 1366 · 1920), 30 trang | **0 lỗi** / 210 dòng (tràn ngang, ảnh rỗng, tương phản, vùng bấm, khoảng trống, bố cục); CLS lớn nhất 0,008 | `kiem-tra/check-ui.md` |
+| Thang chữ 1.3 + khoảng cách 1.2 + dòng ≤ 68 ký tự (`mockup_scale --staging`), 30 trang × 5 màn | **0 ngoại lệ** | `kiem-tra/thang-staging.md` |
+| Tương tác – 24 của mockup trên staging (`tools/interactions_b3.mjs`) | **24/24 đạt** | `kiem-tra/tuong-tac-mockup-24.txt` |
+| Tương tác – bộ 34 (`tools/interactions.mjs`) | **25 đạt, 0 lỗi, 9 bỏ**: 8 kiểm chức năng đã bỏ (mega menu ×5, header ẩn khi cuộn ×2, bảng "Theo loại sản phẩm" ×1) + 1 gửi thử (xem dưới) | `kiem-tra/tuong-tac-34.txt` |
+| Gửi thử form thật | **không gửi**: trước khi gửi đã đọc `/wp-json/velis/v1/last-lead` – staging đã ghi 1 lần gửi trong ngày 2026-11-06 (không phải của bộ đo), nên theo quy tắc "đúng 1 lần mỗi vòng" không gửi thêm. Trường ẩn `interest` / `page-url` / `utm` kiểm bằng yêu cầu CF7 chặn tại máy (bộ 24) | – |
+| on-page (crawl từ trang chủ) | **173 trang, 0 lỗi** template / nội dung, 0 link hỏng | `kiem-tra/onpage/` |
+| Schema (28 trang, validator.schema.org + thuộc tính bắt buộc Google) | **0 lỗi, 0 cảnh báo** | `kiem-tra/schema.md` |
+| Lighthouse mobile (trang chủ, The Global City, bài viết, /du-an/) | hiệu năng **94 · 98 · 99 · 99** (≥ 90 đạt); LCP 2,7 · 2,2 · 1,9 · 2,1 s – **trang chủ chưa đạt ≤ 2,5 s** (chạy lại: 2,7 và 2,5 s); a11y 100, BP 100; SEO 66 do staging đặt noindex | `kiem-tra/lighthouse.txt` |
+| CSS | 30,9 KB min / 6,8 KB gzip (≤ 45 / 12) | `tools/build_css.py` |
+
+LCP trang chủ: phần lớn là thời gian chờ máy chủ (TTFB 0,9–2,4 s – staging đang tắt cache LiteSpeed từ ngày 1); ảnh hero tải
+0,2–1,1 s. Cần đo lại khi bật cache / trên site thật (bước 4).
+
+Bộ đo được sửa trong vòng này (không nới tiêu chí): `ui_media` đếm ô lưới theo số cột thẻ chiếm (thẻ đầu rộng 2 cột ở lưới 5 /
+7 thẻ không còn bị tính là ô trống) và tải lại trang khi staging trả 5xx / ảnh lỗi do quá tải (≤ 3 lần); `ui_layout` không coi
+khung có tên (ảnh không che được dấu) ở hero là "khung ảnh rỗng"; `mockup_scale` không đếm breadcrumb là đoạn văn và tải lại
+khi CSS theme chưa về; `interactions.mjs` kiểm "Đọc tiếp" đúng khối được bấm, chế độ không gửi ghi là "bỏ", không phải "đạt";
+thêm `tools/compare_mockup.mjs`, `tools/interactions_b3.mjs`, chế độ staging cho `tools/mockup_contrast.mjs`.
+
+Sửa theme sau đo (B3-5): `sizes` của thẻ theo đúng số cột (thẻ rộng, thẻ 2 cột, ảnh tiến độ, thẻ dự án giữa bài, hero B
+mobile 4:3); ảnh trong bài giữ tỉ lệ khung theo thuộc tính (không lệch theo DPR); ảnh tiến độ 2 cột trên điện thoại (NT-29);
+bảng / đường kẻ / chú thích ảnh trong bài theo thang 1.2; vùng bấm 44 px cho hotline / Zalo / email ở khối form và thẻ cột
+phải, link trong danh sách, nút "Trang sau"; "Dự án đang tư vấn" thành hàng chip; breadcrumb mobile 1 dòng cuộn ngang;
+`aria-current` chỉ ở mục đang xem.
 
 ## 4. Việc chờ người dùng duyệt
 
-{{CHO_DUYET}}
+1. **Dải "Dự án nổi bật" ở M4 rộng 912 px** thay vì 1200 px của 0.9.8 (bản cũ tràn mép màn hình). Cần gọn trong khung để
+   tên dự án 1 dòng và tối đa 4 thẻ. Đây là hộp duy nhất của hero lệch > 2 px so với mốc.
+2. **Ảnh nhỏ trong thẻ của dải 104 → 72 px** (để tên 1 dòng ở mọi khung).
+3. **Dải tối dưới ảnh hero trên điện thoại #141414 → #111111** (token tối chung).
+4. **Chức năng đã bỏ theo mockup** (mục 2.4) và **8 mục tương tác SKIP** tương ứng của bộ 34: mega menu (5), header ẩn khi
+   cuộn (2), bảng "Theo loại sản phẩm" ở đại đô thị (1). Muốn giữ chức năng nào thì phải dựng lại (cần kiểu mới).
+5. **Kiểu mới duy nhất đã thêm: khung phóng ảnh (lightbox)**, và danh sách "cần kiểu mới – chờ duyệt" ở mục 2.4 (tìm kiếm,
+   mục lục, phân trang, hồ sơ tác giả, trích dẫn, logo chủ đầu tư … đang vẽ bằng component sẵn có).
+6. **Câu chờ duyệt trong khối "Velis tư vấn"** ("Velis Realty là đơn vị tư vấn, phân phối; chủ đầu tư dự án là …") có ở
+   mockup (gắn nhãn chờ duyệt) nhưng theme chưa hiện – lý do khối cột phải thấp hơn mockup 79 px (mục 3.2). Duyệt câu thì
+   theme hiện câu và hộp khớp.
+7. **Trang chính sách không có mục lục**: cột phải là thẻ "Liên hệ Velis" (component có sẵn) – để chữ thẳng mép khung mà
+   không bỏ trống 40 % bên phải. DESIGN.md cũ ghi "một cột đọc 760 px canh giữa" – cần chọn một trong hai.
+8. Giữ / bỏ: `/du-an/masterise-homes/` và 3 trang cùng kiểu trả 404 (trang đã đăng nhưng địa chỉ trùng loại nội dung dự án)
+   – không phải lỗi theme, cần quyết định nội dung.
 
 ---
-{{CUOI}}
+Đã bỏ qua / chưa kiểm tra: không gửi thử form thật trong vòng này (staging đã có 1 lần gửi trong ngày); Safari / iPhone thật
+chưa thử; Lighthouse đo trên staging tắt cache.
+Rủi ro: LCP trang chủ 2,5–2,7 s (> 2,5) do TTFB staging; các mục ở phần 4 (dải M4, chức năng đã bỏ, kiểu mới, câu chờ duyệt)
+cần người dùng chọn trước bước 4.

@@ -1,4 +1,4 @@
-# Bộ đo ảnh & bố cục – 30 trang × DPR 1 / 1,25 / 2 × viewport 390 / 1066 / 1366 / 1536 / 1920
+# Bộ đo ảnh & bố cục – 30 trang × DPR 1 / 1,25 / 2 × viewport 390 / 960 / 1366 / 1536 / 1920 (= M5 / M4 / M1 / M2 / M3)
 
 Mỗi ô = số mục cộng qua 5 viewport. Cột lỗi (in đậm ở dòng tổng) phải = 0; 3 cột cuối chỉ để thông tin.
 
@@ -20,14 +20,14 @@ Mỗi ô = số mục cộng qua 5 viewport. Cột lỗi (in đậm ở dòng t�
 | the-global-city | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 19 | 7 | 0 |
 | the-global-city | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 80 | 78 | 0 |
 | vinhomes-saigon-park | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 |
-| vinhomes-saigon-park | 1.25 | 0 | 0 | 6 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 17 | 2 | 0 |
-| vinhomes-saigon-park | 2 | 0 | 0 | 6 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 98 | 93 | 0 |
+| vinhomes-saigon-park | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 19 | 3 | 0 |
+| vinhomes-saigon-park | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 98 | 93 | 0 |
 | palm-city | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | palm-city | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | palm-city | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 10 | 5 | 0 |
-| spring-ville | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 1 | 0 | 0 |
-| spring-ville | 1.25 | 0 | 0 | 6 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 3 | 0 |
-| spring-ville | 2 | 0 | 0 | 6 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 33 | 28 | 0 |
+| spring-ville | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 |
+| spring-ville | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 3 | 0 |
+| spring-ville | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 33 | 28 | 0 |
 | ansana | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 |
 | ansana | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 8 | 3 | 0 |
 | ansana | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 56 | 40 | 0 |
@@ -37,9 +37,9 @@ Mỗi ô = số mục cộng qua 5 viewport. Cột lỗi (in đậm ở dòng t�
 | persa-place | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 |
 | persa-place | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 12 | 3 | 0 |
 | persa-place | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 56 | 56 | 0 |
-| palm-river | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 0 | 0 | 0 | 0 | 0 |
-| palm-river | 1.25 | 0 | 0 | 24 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 22 | 3 | 0 |
-| palm-river | 2 | 0 | 0 | 24 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 112 | 101 | 0 |
+| palm-river | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 |
+| palm-river | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 22 | 3 | 0 |
+| palm-river | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 112 | 101 | 0 |
 | ivy-park | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | ivy-park | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | ivy-park | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 8 | 5 | 0 |
@@ -53,7 +53,7 @@ Mỗi ô = số mục cộng qua 5 viewport. Cột lỗi (in đậm ở dòng t�
 | bai-prive | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 0 | 0 |
 | bai-prive | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 5 | 5 | 0 |
 | bai-vinhomes | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| bai-vinhomes | 1.25 | 0 | 0 | 5 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 |
+| bai-vinhomes | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 |
 | bai-vinhomes | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 4 | 0 |
 | bai-tgc | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | bai-tgc | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 |
@@ -94,7 +94,7 @@ Mỗi ô = số mục cộng qua 5 viewport. Cột lỗi (in đậm ở dòng t�
 | tim-kiem | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | tim-kiem | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 0 | 0 |
 | tim-kiem | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 3 | 0 |
-| **Tổng** | | **1** | **0** | **77** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **1** | **5** | **0** | **0** | 782 | 597 | 0 |
+| **Tổng** | | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | 785 | 598 | 0 |
 
 ## Chi tiết
 
@@ -156,14 +156,14 @@ Mỗi ô = số mục cộng qua 5 viewport. Cột lỗi (in đậm ở dòng t�
 - the-prive · DPR 1 · NT-22 Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-the-prive.webp [hero]: cần 1320px, lớn nhất 1200px
 - the-prive · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: can-ho-the-prive.webp [hero]: cần 1824px, lớn nhất 1200px
 - the-prive · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: can-ho-the-prive.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
-- the-prive · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: can-ho-1pn-the-prive-1024x683.webp [khác]: cần 1824px, lớn nhất 1024px
+- the-prive · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: can-ho-1pn-the-prive.webp [khác]: cần 1824px, lớn nhất 1200px
 - the-prive · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: mat-bang-thap-9-the-prive.webp [ảnh nội dung]: cần 1614px, lớn nhất 1200px
 - the-prive · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: vi-tri-chien-luoc-the-prive.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
 - the-prive · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: kinh-doanh-airbnb-the-prive.webp [ảnh nội dung]: cần 1614px, lớn nhất 1200px
 - the-prive · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: kinh-doanh-airbnb-the-prive.webp [thư viện]: cần 1677px, lớn nhất 1200px
-- the-prive · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: can-ho-1pn-the-prive-1024x683.webp [thư viện]: cần 1677px, lớn nhất 1024px
+- the-prive · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: can-ho-1pn-the-prive.webp [thư viện]: cần 1677px, lớn nhất 1200px
 - the-prive · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: can-ho-2pn-the-prive-1024x683.webp [thư viện]: cần 1677px, lớn nhất 1024px
-- the-prive · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: can-ho-3pn-the-prive.webp [thư viện]: cần 1677px, lớn nhất 1200px
+- the-prive · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: can-ho-3pn-the-prive-1024x683.webp [thư viện]: cần 1677px, lớn nhất 1024px
 - the-prive · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: loi-nhuan-dau-tu-the-prive.webp [thư viện]: cần 1677px, lớn nhất 1200px
 - the-prive · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: vi-tri-chien-luoc-the-prive.webp [thư viện]: cần 1459px, lớn nhất 1200px
 - the-prive · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: mat-bang-thap-9-the-prive.webp [thư viện]: cần 1459px, lớn nhất 1200px
@@ -248,14 +248,14 @@ Mỗi ô = số mục cộng qua 5 viewport. Cột lỗi (in đậm ở dòng t�
 - the-prive · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-the-prive-04.webp [thẻ]: cần 1392px, lớn nhất 1200px
 - the-prive · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 960px: can-ho-the-prive.webp khung 912px × 2 > file 1200px × 1,15
 - the-prive · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 960px: can-ho-the-prive.webp khung 806px × 2 > file 1200px × 1,15
-- the-prive · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 960px: can-ho-1pn-the-prive-1024x683.webp khung 912px × 2 > file 1024px × 1,15
+- the-prive · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 960px: can-ho-1pn-the-prive.webp khung 912px × 2 > file 1200px × 1,15
 - the-prive · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 960px: mat-bang-thap-9-the-prive.webp khung 806px × 2 > file 1200px × 1,15
 - the-prive · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 960px: vi-tri-chien-luoc-the-prive.webp khung 806px × 2 > file 1200px × 1,15
 - the-prive · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 960px: kinh-doanh-airbnb-the-prive.webp khung 806px × 2 > file 1200px × 1,15
 - the-prive · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 960px: kinh-doanh-airbnb-the-prive.webp khung 839px × 2 > file 1200px × 1,15
-- the-prive · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 960px: can-ho-1pn-the-prive-1024x683.webp khung 839px × 2 > file 1024px × 1,15
+- the-prive · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 960px: can-ho-1pn-the-prive.webp khung 839px × 2 > file 1200px × 1,15
 - the-prive · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 960px: can-ho-2pn-the-prive-1024x683.webp khung 839px × 2 > file 1024px × 1,15
-- the-prive · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 960px: can-ho-3pn-the-prive.webp khung 839px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 960px: can-ho-3pn-the-prive-1024x683.webp khung 839px × 2 > file 1024px × 1,15
 - the-prive · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 960px: loi-nhuan-dau-tu-the-prive.webp khung 839px × 2 > file 1200px × 1,15
 - the-prive · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 960px: vi-tri-chien-luoc-the-prive.webp khung 729px × 2 > file 1200px × 1,15
 - the-prive · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 960px: mat-bang-thap-9-the-prive.webp khung 729px × 2 > file 1200px × 1,15
@@ -322,8 +322,8 @@ Mỗi ô = số mục cộng qua 5 viewport. Cột lỗi (in đậm ở dòng t�
 - the-prive · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 1920px: tien-do-the-prive-02.webp khung 998px × 2 > file 1200px × 1,15
 - the-prive · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 1920px: tien-do-the-prive-03.webp khung 998px × 2 > file 1200px × 1,15
 - the-prive · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 1920px: tien-do-the-prive-04.webp khung 998px × 2 > file 1200px × 1,15
-- the-prive · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: can-ho-1pn-the-prive-1024x683.webp [khác]: cần 1140px, lớn nhất 1024px
-- the-prive · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: can-ho-1pn-the-prive-1024x683.webp [thư viện]: cần 1048px, lớn nhất 1024px
+- the-prive · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: can-ho-2pn-the-prive-1024x683.webp [thư viện]: cần 1048px, lớn nhất 1024px
+- the-prive · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: can-ho-3pn-the-prive-1024x683.webp [thư viện]: cần 1048px, lớn nhất 1024px
 - the-prive · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-the-prive.webp [hero]: cần 1500px, lớn nhất 1200px
 - the-prive · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-1pn-the-prive-1024x683.webp [thư viện]: cần 1075px, lớn nhất 1024px
 - the-prive · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-2pn-the-prive-1024x683.webp [thư viện]: cần 1075px, lớn nhất 1024px
@@ -543,12 +543,6 @@ Mỗi ô = số mục cộng qua 5 viewport. Cột lỗi (in đậm ở dòng t�
 - the-global-city · DPR 1.25 · NT-21 Ảnh mờ (cách đo cũ): 1920px: the-global-city-3-1.webp khung 1320px × 1.25 > file 1200px × 1,15
 - the-global-city · DPR 1.25 · NT-21 Ảnh mờ (cách đo cũ): 1920px: hqdefault.jpg khung 720px × 1.25 > file 480px × 1,15
 - vinhomes-saigon-park · DPR 1 · NT-22 Ảnh nguồn thiếu độ phân giải: 1920px: vinhomes-saigon-park-2.webp [hero]: cần 1320px, lớn nhất 1200px
-- vinhomes-saigon-park · DPR 2 · NT-01 Lệch theo DPR > 1px: 390px: 26 figure.wp-block-image.size-large [16,7537.4,358,536.7] → [16,7509.3,358,536.7]
-- vinhomes-saigon-park · DPR 2 · NT-01 Lệch theo DPR > 1px: 390px: 27 img.is-marked.wp-image-20375 [-27,7537.4,401,601.1] → [-27,7509.3,401,601.1]
-- vinhomes-saigon-park · DPR 2 · NT-01 Lệch theo DPR > 1px: 390px: 28 figure.wp-block-image.size-large [16,9457.9,358,543.1] → [16,9429.8,358,543.1]
-- vinhomes-saigon-park · DPR 2 · NT-01 Lệch theo DPR > 1px: 390px: 29 img.is-marked.wp-image-20376 [-27,9457.9,401,608.3] → [-27,9429.8,401,608.3]
-- vinhomes-saigon-park · DPR 2 · NT-01 Lệch theo DPR > 1px: 390px: 30 figure.wp-block-image.size-large [16,11696.6,358,536.7] → [16,11668.6,358,536.7]
-- vinhomes-saigon-park · DPR 2 · NT-01 Lệch theo DPR > 1px: 390px: … và 9 hộp khác
 - vinhomes-saigon-park · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: vinhomes-saigon-park-2.webp [hero]: cần 1824px, lớn nhất 1200px
 - vinhomes-saigon-park · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: vinhomes-saigon-park-2.webp [ảnh nội dung]: cần 1614px, lớn nhất 1200px
 - vinhomes-saigon-park · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: phan-khu-1-vinhomes-saigon-park.webp [ảnh nội dung]: cần 1524px, lớn nhất 1200px
@@ -740,16 +734,11 @@ Mỗi ô = số mục cộng qua 5 viewport. Cột lỗi (in đậm ở dòng t�
 - vinhomes-saigon-park · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 1920px: mat-bang-tong-vinhomes-saigon-park.webp khung 868px × 2 > file 1200px × 1,15
 - vinhomes-saigon-park · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 1920px: tien-do-vinhomes-saigon-park.webp khung 998px × 2 > file 1200px × 1,15
 - vinhomes-saigon-park · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 1920px: thap-tang-vinhomes-saigon-park.webp khung 705px × 2 > file 1200px × 1,15
-- vinhomes-saigon-park · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1536px: 0 img [168,18,191,44] → null
-- vinhomes-saigon-park · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1536px: 1 section.hero.hero--b [0,194,1536,598.8] → null
-- vinhomes-saigon-park · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1536px: 2 figure.hero__media [168,210,1200,344] → null
-- vinhomes-saigon-park · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1536px: 3 img.is-marked [168,210,1200,344] → null
-- vinhomes-saigon-park · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1536px: 4 section.wrap.facts [168,808.8,1200,200.4] → null
-- vinhomes-saigon-park · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1536px: … và 96 hộp khác
-- vinhomes-saigon-park · DPR 1.25 · NT-56 H1 ≠ 1: 1536px: 0 H1
 - vinhomes-saigon-park · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: vinhomes-saigon-park-3.webp [thư viện]: cần 1205px, lớn nhất 1200px
 - vinhomes-saigon-park · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 1366px: vinhomes-saigon-park-2.webp [hero]: cần 1500px, lớn nhất 1200px
 - vinhomes-saigon-park · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 1366px: vinhomes-saigon-park-3.webp [thư viện]: cần 1236px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 1536px: vinhomes-saigon-park-2.webp [hero]: cần 1500px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 1536px: vinhomes-saigon-park-3.webp [thư viện]: cần 1236px, lớn nhất 1200px
 - vinhomes-saigon-park · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 1920px: vinhomes-saigon-park-2.webp [hero]: cần 1650px, lớn nhất 1200px
 - vinhomes-saigon-park · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 1920px: vinhomes-saigon-park-2.webp [thư viện]: cần 1248px, lớn nhất 1200px
 - vinhomes-saigon-park · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 1920px: tien-ich-vinhomes-saigon-park.webp [thư viện]: cần 1248px, lớn nhất 1200px
@@ -765,6 +754,7 @@ Mỗi ô = số mục cộng qua 5 viewport. Cột lỗi (in đậm ở dòng t�
 - vinhomes-saigon-park · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 1920px: vinhomes-saigon-park-3.webp [thư viện]: cần 1435px, lớn nhất 1200px
 - vinhomes-saigon-park · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-vinhomes-saigon-park.webp [thư viện]: cần 1248px, lớn nhất 1200px
 - vinhomes-saigon-park · DPR 1.25 · NT-21 Ảnh mờ (cách đo cũ): 1366px: vinhomes-saigon-park-2.webp khung 1200px × 1.25 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 1.25 · NT-21 Ảnh mờ (cách đo cũ): 1536px: vinhomes-saigon-park-2.webp khung 1200px × 1.25 > file 1200px × 1,15
 - vinhomes-saigon-park · DPR 1.25 · NT-21 Ảnh mờ (cách đo cũ): 1920px: vinhomes-saigon-park-2.webp khung 1320px × 1.25 > file 1200px × 1,15
 - palm-city · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: palm-city.webp [thẻ]: cần 1252px, lớn nhất 1200px
 - palm-city · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: ban-do-khu-vuc-nam-rach-chiec.webp [bản đồ]: cần 1440px, lớn nhất 1200px
@@ -781,15 +771,7 @@ Mỗi ô = số mục cộng qua 5 viewport. Cột lỗi (in đậm ở dòng t�
 - palm-city · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 1536px: ban-do-khu-vuc-nam-rach-chiec.webp khung 720px × 2 > file 1200px × 1,15
 - palm-city · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 1920px: ban-do-khu-vuc-nam-rach-chiec.webp khung 720px × 2 > file 1200px × 1,15
 - palm-city · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 1920px: dong-von-dau-tu-nam-rach-chiec.webp khung 705px × 2 > file 1200px × 1,15
-- spring-ville · DPR 1 · NT-20 Ảnh hỏng: 390px: https://staging.velisrealty.vn/wp-content/uploads/2026/03/phoi-canh-persa-place-3-600x338.webp
-- spring-ville · DPR 1 · NT-02 Tràn ngang: 390px: 414 > 390
 - spring-ville · DPR 1 · NT-22 Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-spring-ville.webp [hero]: cần 1320px, lớn nhất 1200px
-- spring-ville · DPR 2 · NT-01 Lệch theo DPR > 1px: 390px: 13 section#tong-quan.block [16,2069,358,2802.5] → [16,2069,358,686.4]
-- spring-ville · DPR 2 · NT-01 Lệch theo DPR > 1px: 390px: 18 section#phan-khu.block [16,4871.5,358,921] → [16,2755.4,358,921]
-- spring-ville · DPR 2 · NT-01 Lệch theo DPR > 1px: 390px: 19 article.card [16,5257,358,487.5] → [16,3140.9,358,487.5]
-- spring-ville · DPR 2 · NT-01 Lệch theo DPR > 1px: 390px: 20 img.is-marked [-37.7,5257,411.7,308.8] → [-37.7,3140.9,411.7,308.8]
-- spring-ville · DPR 2 · NT-01 Lệch theo DPR > 1px: 390px: 21 section#dong-san-pham.block [16,5792.5,358,3754.2] → [16,3676.4,358,710.4]
-- spring-ville · DPR 2 · NT-01 Lệch theo DPR > 1px: 390px: … và 44 hộp khác
 - spring-ville · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: phoi-canh-spring-ville.webp [hero]: cần 1322px, lớn nhất 1200px
 - spring-ville · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: phoi-canh-spring-ville.webp [hero]: cần 1824px, lớn nhất 1200px
 - spring-ville · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: phoi-canh-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
@@ -851,12 +833,6 @@ Mỗi ô = số mục cộng qua 5 viewport. Cột lỗi (in đậm ở dòng t�
 - spring-ville · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 1920px: spring-house.webp khung 806px × 2 > file 1200px × 1,15
 - spring-ville · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 1920px: nha-mau-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
 - spring-ville · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 1920px: tien-ich-cong-vien-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
-- spring-ville · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 390px: 13 section#tong-quan.block [16,2069,358,2802.5] → [16,2069,358,686.4]
-- spring-ville · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 390px: 18 section#phan-khu.block [16,4871.5,358,921] → [16,2755.4,358,921]
-- spring-ville · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 390px: 19 article.card [16,5257,358,487.5] → [16,3140.9,358,487.5]
-- spring-ville · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 390px: 20 img.is-marked [-37.7,5257,411.7,308.8] → [-37.7,3140.9,411.7,308.8]
-- spring-ville · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 390px: 21 section#dong-san-pham.block [16,5792.5,358,3754.2] → [16,3676.4,358,710.4]
-- spring-ville · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 390px: … và 44 hộp khác
 - spring-ville · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-spring-ville.webp [hero]: cần 1500px, lớn nhất 1200px
 - spring-ville · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-spring-ville.webp [hero]: cần 1500px, lớn nhất 1200px
 - spring-ville · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-spring-ville.webp [hero]: cần 1650px, lớn nhất 1200px
@@ -1107,34 +1083,7 @@ Mỗi ô = số mục cộng qua 5 viewport. Cột lỗi (in đậm ở dòng t�
 - persa-place · DPR 1.25 · NT-21 Ảnh mờ (cách đo cũ): 1366px: phoi-canh-persa-place-3.webp khung 1200px × 1.25 > file 1200px × 1,15
 - persa-place · DPR 1.25 · NT-21 Ảnh mờ (cách đo cũ): 1536px: phoi-canh-persa-place-3.webp khung 1200px × 1.25 > file 1200px × 1,15
 - persa-place · DPR 1.25 · NT-21 Ảnh mờ (cách đo cũ): 1920px: phoi-canh-persa-place-3.webp khung 1320px × 1.25 > file 1200px × 1,15
-- palm-river · DPR 1 · NT-56 H1 ≠ 1: 390px: 0 H1
-- palm-river · DPR 1 · NT-56 H1 ≠ 1: 960px: 0 H1
-- palm-river · DPR 1 · NT-56 H1 ≠ 1: 1536px: 0 H1
-- palm-river · DPR 1 · NT-56 H1 ≠ 1: 1920px: 0 H1
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 390px: 0 img null → [16,14,156,35.9]
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 390px: 1 section.hero.hero--b null → [0,178,390,565.3]
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 390px: 2 figure.hero__media null → [16,194,358,268.5]
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 390px: 3 img.is-marked null → [-27,194,401,300.7]
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 390px: 4 section.wrap.facts null → [16,759.3,358,634.4]
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 390px: … và 116 hộp khác
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 960px: 0 img null → [24,14,156,35.9]
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 960px: 1 section.hero.hero--b null → [0,178,960,576.8]
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 960px: 2 figure.hero__media null → [24,194,912,344]
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 960px: 3 img.is-marked null → [24,194,912,344]
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 960px: 4 section.wrap.facts null → [24,770.8,912,349.2]
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 960px: … và 116 hộp khác
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 1536px: 0 img null → [168,18,191,44]
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 1536px: 1 section.hero.hero--b null → [0,194,1536,598.8]
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 1536px: 2 figure.hero__media null → [168,210,1200,344]
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 1536px: 3 img.is-marked null → [168,210,1200,344]
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 1536px: 4 section.wrap.facts null → [168,808.8,1200,200.4]
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 1536px: … và 117 hộp khác
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 1920px: 0 img null → [300,18,191,44]
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 1920px: 1 section.hero.hero--b null → [0,194,1920,598.8]
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 1920px: 2 figure.hero__media null → [300,210,1320,344]
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 1920px: 3 img.is-marked null → [300,210,1320,344]
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 1920px: 4 section.wrap.facts null → [300,808.8,1320,200.4]
-- palm-river · DPR 2 · NT-01 Lệch theo DPR > 1px: 1920px: … và 117 hộp khác
+- palm-river · DPR 1 · NT-22 Ảnh nguồn thiếu độ phân giải: 1920px: palm-city.webp [hero]: cần 1320px, lớn nhất 1200px
 - palm-river · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: palm-city.webp [hero]: cần 1824px, lớn nhất 1200px
 - palm-river · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: phoi-canh-palm-river-2.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
 - palm-river · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: phoi-canh-palm-river-1.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
@@ -1348,30 +1297,6 @@ Mỗi ô = số mục cộng qua 5 viewport. Cột lỗi (in đậm ở dòng t�
 - palm-river · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 1920px: tien-do-palm-city-3.webp khung 998px × 2 > file 1200px × 1,15
 - palm-river · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 1920px: tien-do-palm-city-4.webp khung 998px × 2 > file 1200px × 1,15
 - palm-river · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 1920px: bao-ve-tai-san-lam-phat-palm-river.webp khung 705px × 2 > file 1200px × 1,15
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 390px: 0 img null → [16,14,156,35.9]
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 390px: 1 section.hero.hero--b null → [0,178,390,565.3]
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 390px: 2 figure.hero__media null → [16,194,358,268.5]
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 390px: 3 img.is-marked null → [-27,194,401,300.7]
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 390px: 4 section.wrap.facts null → [16,759.3,358,634.4]
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 390px: … và 116 hộp khác
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 960px: 0 img null → [24,14,156,35.9]
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 960px: 1 section.hero.hero--b null → [0,178,960,576.8]
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 960px: 2 figure.hero__media null → [24,194,912,344]
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 960px: 3 img.is-marked null → [24,194,912,344]
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 960px: 4 section.wrap.facts null → [24,770.8,912,349.2]
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 960px: … và 116 hộp khác
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1536px: 0 img null → [168,18,191,44]
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1536px: 1 section.hero.hero--b null → [0,194,1536,598.8]
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1536px: 2 figure.hero__media null → [168,210,1200,344]
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1536px: 3 img.is-marked null → [168,210,1200,344]
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1536px: 4 section.wrap.facts null → [168,808.8,1200,200.4]
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1536px: … và 117 hộp khác
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1920px: 0 img null → [300,18,191,44]
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1920px: 1 section.hero.hero--b null → [0,194,1920,598.8]
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1920px: 2 figure.hero__media null → [300,210,1320,344]
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1920px: 3 img.is-marked null → [300,210,1320,344]
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1920px: 4 section.wrap.facts null → [300,808.8,1320,200.4]
-- palm-river · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1920px: … và 117 hộp khác
 - palm-river · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 1366px: palm-city.webp [hero]: cần 1500px, lớn nhất 1200px
 - palm-river · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 1536px: palm-city.webp [hero]: cần 1500px, lớn nhất 1200px
 - palm-river · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 1920px: palm-city.webp [hero]: cần 1650px, lớn nhất 1200px
@@ -1439,21 +1364,16 @@ Mỗi ô = số mục cộng qua 5 viewport. Cột lỗi (in đậm ở dòng t�
 - bai-prive · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: ty-suat-loi-nhuan-the-prive.webp [khác]: cần 1311px, lớn nhất 1200px
 - bai-prive · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: can-ho-the-prive.webp [thẻ]: cần 1380px, lớn nhất 1200px
 - bai-prive · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 1920px: ty-suat-loi-nhuan-the-prive.webp [khác]: cần 1340px, lớn nhất 1200px
-- bai-vinhomes · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: truong-quoc-te-vinschool-1024x682.webp [khác]: cần 2098px, lớn nhất 1024px
+- bai-vinhomes · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: truong-quoc-te-vinschool.webp [khác]: cần 2098px, lớn nhất 1200px
 - bai-vinhomes · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: vinhomes-ocean-park-2.webp [thẻ]: cần 1296px, lớn nhất 1200px
 - bai-vinhomes · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 1366px: truong-quoc-te-vinschool.webp [khác]: cần 1868px, lớn nhất 1200px
 - bai-vinhomes · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 1536px: truong-quoc-te-vinschool.webp [khác]: cần 1868px, lớn nhất 1200px
 - bai-vinhomes · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 1920px: truong-quoc-te-vinschool.webp [khác]: cần 2144px, lớn nhất 1200px
 - bai-vinhomes · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 1920px: vinhomes-ocean-park-2.webp [thẻ]: cần 1238px, lớn nhất 1200px
-- bai-vinhomes · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 960px: truong-quoc-te-vinschool-1024x682.webp khung 1049px × 2 > file 1024px × 1,15
+- bai-vinhomes · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 960px: truong-quoc-te-vinschool.webp khung 1049px × 2 > file 1200px × 1,15
 - bai-vinhomes · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 1366px: truong-quoc-te-vinschool.webp khung 934px × 2 > file 1200px × 1,15
 - bai-vinhomes · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 1536px: truong-quoc-te-vinschool.webp khung 934px × 2 > file 1200px × 1,15
 - bai-vinhomes · DPR 2 · NT-21 Ảnh mờ (cách đo cũ): 1920px: truong-quoc-te-vinschool.webp khung 1072px × 2 > file 1200px × 1,15
-- bai-vinhomes · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1920px: 16 img.is-marked [1132.4,10990,487.6,365.7] → null
-- bai-vinhomes · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1920px: 17 section#tu-van.section.section--dark [0,11603.3,1920,598.5] → null
-- bai-vinhomes · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1920px: 18 img [300,12266.8,174,40.1] → null
-- bai-vinhomes · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1920px: 16 section#tu-van.section.section--dark null → [0,11603.3,1920,598.5]
-- bai-vinhomes · DPR 1.25 · NT-01 Lệch theo DPR > 1px: 1920px: 17 img null → [300,12266.8,174,40.1]
 - bai-vinhomes · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: truong-quoc-te-vinschool.webp [khác]: cần 1311px, lớn nhất 1200px
 - bai-vinhomes · DPR 1.25 · NT-22 Ảnh nguồn thiếu độ phân giải: 1920px: truong-quoc-te-vinschool.webp [khác]: cần 1340px, lớn nhất 1200px
 - bai-tgc · DPR 2 · NT-22 Ảnh nguồn thiếu độ phân giải: 960px: khu-pho-thuong-mai-soho-fb.webp [khác]: cần 2098px, lớn nhất 1200px

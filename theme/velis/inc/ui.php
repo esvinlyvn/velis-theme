@@ -338,7 +338,8 @@ function velis_contact_card( string $mode = 'contact', string $mail = '' ): stri
 /** One line of links to the projects Velis advises on (answers "what do they sell" on contact / about pages). */
 function velis_project_links(): string {
 	$p = velis_top_projects();
-	return $p ? '<p>Dự án đang tư vấn: ' . implode( ', ', array_map( fn( $x ) => '<a href="' . esc_url( get_permalink( $x ) ) . '">' . esc_html( $x->post_title ) . '</a>', $p ) ) . '</p>' : '';
+	// a row of chips (existing component, 44 px tap targets – NT-86) instead of inline links in a sentence
+	return $p ? '<p class="muted mb-0">Dự án đang tư vấn</p><div class="actions">' . implode( '', array_map( fn( $x ) => '<a class="chip" href="' . esc_url( get_permalink( $x ) ) . '">' . esc_html( $x->post_title ) . '</a>', $p ) ) . '</div>' : '';
 }
 
 /** Side card of the about page: what Velis advises on – the advisor component with a link list. */
