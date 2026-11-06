@@ -10,6 +10,7 @@
 .btn--text:hover { background: none; color: var(--red-hover); text-decoration: underline; }
 .actions { display: flex; flex-wrap: wrap; gap: var(--s4); }
 .eyebrow { font: 600 var(--fs-label)/1.4 var(--f-body); letter-spacing: .12em; text-transform: uppercase; color: var(--gold-text); margin: 0 0 var(--s2); }
+.eyebrow a { color: inherit; } /* developer link in a hero label keeps the label colour (contrast on dark) */
 .chips { display: flex; flex-wrap: wrap; gap: var(--s2); list-style: none; padding: 0; margin: 0 0 var(--s4); }
 .chips li { padding: var(--s2) var(--s4); border: 1px solid var(--line-strong); border-radius: 999px; font-size: var(--fs-small); line-height: 1.5; background: transparent; }
 .chip { min-height: 44px; padding: 0 var(--s4); border: 1px solid var(--line-strong); border-radius: 999px; background: transparent; font-size: var(--fs-small); cursor: pointer; }
@@ -347,3 +348,11 @@ img.is-marked { transform: scale(var(--zoom, 1.15)); transform-origin: 100% 0; }
 .duo__item .btn { margin-top: auto; }
 .values-head { margin: var(--s8) 0 0; }
 .duo__title { font-size: var(--fs-h3); line-height: 1.3; font-family: var(--f-body); }
+
+/* lightbox – theme only (photos, plans and construction photos with [data-zoom] open whole); new style, to approve */
+button[data-zoom] { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.lightbox { max-width: min(100vw - 2 * var(--gutter), 1200px); max-height: 100dvh; padding: 0; border: 0; background: none; }
+.lightbox::backdrop { background: rgb(17 17 17 / .9); }
+.lightbox form { display: flex; justify-content: flex-end; margin-bottom: var(--s2); }
+.lightbox .btn--line { color: #fff; border-color: #fff; }
+.lightbox img { display: block; max-width: 100%; max-height: calc(100dvh - 96px); width: auto; height: auto; margin-inline: auto; }

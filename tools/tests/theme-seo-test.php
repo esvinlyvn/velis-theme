@@ -30,7 +30,7 @@ $check( str_contains( $html, '<h2 id="gia">' ) && str_contains( $html, '<h2 id="
 $check( 3 === substr_count( $toc, '<li>' ), 'TOC lists H2 only' );
 list( $toc ) = velis_toc( '<h2>a</h2><h2>b</h2><h2>c</h2>', 800 );
 $check( '' === $toc, 'no TOC under 1.200 words' );
-$check( '<p class="v-card__title">x</p>' === velis_heading_to_p( '<h3 class="v-card__title">x</h3>' ), 'embedded card title is not a heading' );
+$check( '<p class="card__title">x</p>' === velis_heading_to_p( '<h3 class="card__title">x</h3>' ), 'embedded card title is not a heading' );
 $check( '<h2 class="a">T</h2><h2>U</h2>' === velis_content( '<h1 class="a">T</h1><h2>U</h2>' ), 'content H1 demoted' );
 $check( 'Năm 2027' === velis_short( 'Năm 2027 (Hoàn thiện nội thất chuẩn Châu Âu và nhiều tiện ích khác)' ), 'short keeps the first clause' );
 $check( mb_strlen( velis_short( str_repeat( 'Đường Đỗ Xuân Hợp, ', 5 ) ) ) <= 46, 'short cuts at a word' );

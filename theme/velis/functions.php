@@ -12,16 +12,13 @@ require __DIR__ . '/inc/seo.php';
 
 add_action( 'after_setup_theme', function () {
 	add_theme_support( 'editor-styles' );
-	add_editor_style( 'style.css' );
+	add_editor_style( 'assets/velis.min.css' ); // the same CSS as the front end (built from css/, tools/build_css.py)
 } );
 
 add_action( 'wp_enqueue_scripts', function () {
 	$ver = wp_get_theme()->get( 'Version' );
-	wp_enqueue_style( 'velis', get_theme_file_uri( 'assets/velis.min.css' ), array(), $ver ); // minified style.css (tools/build_css.py)
+	wp_enqueue_style( 'velis', get_theme_file_uri( 'assets/velis.min.css' ), array(), $ver ); // css/1-tokens … 5-utilities, built by tools/build_css.py
 	wp_enqueue_script( 'velis', get_theme_file_uri( 'assets/js/velis.js' ), array(), $ver, array( 'strategy' => 'defer', 'in_footer' => true ) );
-	if ( is_page( 'velis-style-guide' ) ) { // internal showcase only
-		wp_enqueue_style( 'velis-style-guide', get_theme_file_uri( 'assets/style-guide.css' ), array( 'velis' ), $ver );
-	}
 } );
 
 // Preload the two above-the-fold fonts (DESIGN.md: preload 2 of 3 files).
@@ -80,17 +77,21 @@ add_action( 'after_setup_theme', function () {
 } );
 add_filter( 'max_srcset_image_width', fn() => 2560 );
 add_filter( 'wp_img_tag_add_auto_sizes', '__return_false' ); // "auto" = layout width, which leaves out the crop zoom
-// Images in post/page text: same crop as every photo (badge printed bottom-left), inside a clipping box no wider than the
-// widest file – a small file shows at its own size, centred (round 8).
-add_filter( 'wp_content_img_tag', function ( $tag, $context ) {
+// Images in post/page text: a flagged photo (velis_mark) gets the same crop as every photo (badge printed bottom-left),
+// inside a clipping box no wider than the widest file; a clean one is shown whole (X-03 = a). Sized to the reading column
+// (X-01: frame × DPR, no margin).
+add_filter( 'wp_content_img_tag', function ( $tag, $context, $id ) {
 	if ( 'the_content' !== $context || ! preg_match( '/\ssrcset="([^"]+)"/', $tag, $m ) ) { // not the theme's own template images
 		return $tag;
 	}
-	$max = velis_max_candidate( $m[1], preg_match( '/\swidth="(\d+)"/', $tag, $w ) ? (int) $w[1] : 0 );
-	$tag = preg_replace( '/\ssizes="[^"]*"/', '', $tag );
-	$tag = preg_replace( '/^<img/', '<img sizes="' . esc_attr( velis_sizes( '(min-width: 768px) min(720px, ' . $max . 'px), min(100vw - 32px, ' . $max . 'px)', 1.12 ) ) . '" style="--focus: 100% 0%; --zoom: 1.12"', $tag );
-	return '<span class="v-crop" style="max-width: ' . $max . 'px">' . $tag . '</span>';
-}, 10, 2 );
+	$max    = velis_max_candidate( $m[1], preg_match( '/\swidth="(\d+)"/', $tag, $w ) ? (int) $w[1] : 0 );
+	$marked = '' !== velis_mark( (int) $id );
+	$tag    = preg_replace( '/\ssizes="[^"]*"/', '', $tag );
+	$tag    = preg_replace( '/^<img/', '<img sizes="' . esc_attr( velis_sizes( '(min-width: 768px) min(720px, ' . $max . 'px), min(100vw - 32px, ' . $max . 'px)', $marked ? 1.12 : 1 ) ) . '"' . ( $marked ? ' style="--zoom: 1.12"' : '' ), $tag );
+	$tag    = $marked ? preg_replace( '/^<img([^>]*?)\sclass="/', '<img$1 class="is-marked ', $tag, 1, $n ) : $tag;
+	$tag    = $marked && empty( $n ) ? preg_replace( '/^<img/', '<img class="is-marked"', $tag ) : $tag;
+	return $marked ? '<span class="pic" style="max-width: ' . $max . 'px">' . $tag . '</span>' : $tag;
+}, 10, 3 );
 
 // Theme block styles: secondary (outline) and text buttons.
 add_action( 'init', function () {
@@ -104,7 +105,7 @@ add_action( 'init', function () {
  */
 add_action( 'wp_enqueue_scripts', function () {
 	$keep_js  = array( 'velis', 'admin-bar' );
-	$keep_css = array( 'velis', 'velis-style-guide', 'global-styles', 'wp-block-library', 'admin-bar', 'dashicons', 'core-block-supports' );
+	$keep_css = array( 'velis', 'global-styles', 'wp-block-library', 'admin-bar', 'dashicons', 'core-block-supports' );
 	foreach ( wp_scripts()->queue as $h ) {
 		in_array( $h, $keep_js, true ) || wp_dequeue_script( $h );
 	}
@@ -122,3 +123,9 @@ function velis_cf7_form_id(): int {
 	}
 	return $id;
 }
+
+/**
+ * <body> classes: WordPress adds page, search, home, blog, single, archive, author, category… – names the theme's components
+ * use (.page = the 2-column grid, mockup naming without prefix). Only the admin bar marker is kept.
+ */
+add_filter( 'body_class', fn( $c ) => array_values( array_intersect( $c, array( 'admin-bar', 'logged-in' ) ) ), 99 );

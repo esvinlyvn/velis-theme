@@ -25,7 +25,7 @@ function velis_table( array $t ): string {
 		array_map( fn( $r ) => wp_strip_all_tags( $r['label'] ), array_udiff( $t['rows'], $rows, fn( $a, $b ) => $a <=> $b ) )
 	);
 
-	$html = '<div class="v-table-wrap ' . esc_attr( $t['wrap'] ?? '' ) . '"><table class="v-table ' . esc_attr( $t['class'] ?? '' ) . '">';
+	$html = '<div class="table-wrap"><table>';
 	$html .= '<caption>' . $t['caption'] . '</caption><thead><tr><th scope="col">' . ( $t['corner'] ?? '' ) . '</th>';
 	foreach ( $cols as $c ) {
 		$html .= '<th scope="col" class="is-' . esc_attr( $c[1] ?? 'short' ) . '">' . $c[0] . '</th>';
@@ -40,7 +40,7 @@ function velis_table( array $t ): string {
 	}
 	$html .= ( $t['after'] ?? '' ) . '</tbody></table></div>';
 	if ( $hidden ) {
-		$html .= '<p class="v-source">' . esc_html( ( $t['missing'] ?? 'Chưa công bố' ) . ': ' . mb_strtolower( implode( ', ', $hidden ) ) . '.' ) . '</p>';
+		$html .= '<p class="source">' . esc_html( ( $t['missing'] ?? 'Chưa công bố' ) . ': ' . mb_strtolower( implode( ', ', $hidden ) ) . '.' ) . '</p>';
 	}
 	return $html;
 }
@@ -51,10 +51,9 @@ function velis_area( string $net, string $gross ): string {
 		return '';
 	}
 	if ( '' === $net ) {
-		return '<span class="v-area"><b>' . esc_html( $gross ) . '</b> <small>tim tường</small></span>';
+		return '<span><b>' . esc_html( $gross ) . '</b> tim tường</span>';
 	}
-	return '<span class="v-area"><b>' . esc_html( $net ) . '</b> <small>thông thủy</small>'
-		. ( '' !== $gross ? '<small class="v-area__alt">' . esc_html( $gross ) . ' tim tường</small>' : '' ) . '</span>';
+	return '<span><b>' . esc_html( $net ) . '</b> thông thủy' . ( '' !== $gross ? ' · ' . esc_html( $gross ) . ' tim tường' : '' ) . '</span>';
 }
 
 /**
@@ -116,7 +115,7 @@ function velis_youtube_id( string $url ): string {
 
 /** Click-to-load YouTube: a thumbnail link (works without JS); velis.js swaps in the player on click. */
 function velis_youtube_facade( string $id, string $caption = '' ): string {
-	return '<figure class="wp-block-embed is-type-video is-provider-youtube v-yt"><a class="v-yt__btn" href="https://www.youtube.com/watch?v=' . esc_attr( $id ) . '" data-yt="' . esc_attr( $id ) . '" aria-label="Phát video trên YouTube">'
+	return '<figure class="wp-block-embed is-type-video is-provider-youtube"><a class="pic" href="https://www.youtube.com/watch?v=' . esc_attr( $id ) . '" data-yt="' . esc_attr( $id ) . '" aria-label="Phát video trên YouTube">'
 		. '<img src="https://i.ytimg.com/vi/' . esc_attr( $id ) . '/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"></a>'
 		. ( '' !== $caption ? '<figcaption>' . $caption . '</figcaption>' : '' ) . '</figure>';
 }
@@ -158,12 +157,16 @@ function velis_label_value( string $label, string $value ): string {
 }
 
 /**
- * `sizes` with the crop zoom in it: each slot length L becomes calc(z * (L)), so the browser fetches the file the zoomed
- * picture needs. $rules: a normal sizes value, e.g. "(min-width: 1024px) 400px, 100vw".
+ * `sizes` with the crop zoom / cover factor in it: each slot length L becomes calc(z * (L)), so the browser fetches the file
+ * the zoomed picture needs. $rules: a normal sizes value, e.g. "(min-width: 1024px) 400px, 100vw".
+ * X-01 = d: only the page's main picture ($lcp) gets a pick margin (× 1.15: above 1x Chromium may take the next smaller file
+ * when the density sits below the geometric mean of two widths); every other picture is sized to frame × DPR, no margin.
  */
-function velis_sizes( string $rules, float $z = 1.15 ): string {
-	$z = round( $z * 1.15, 3 ); // + pick margin: above 1x Chromium may take the next smaller file when the density sits below
-	// the geometric mean of two widths (√1.28 ≈ 1.13 for the widest step from 600 px up: 600/768/900/1024/1200/1600/2000/2560)
+function velis_sizes( string $rules, float $z = 1, bool $lcp = false ): string {
+	$z = round( $z * ( $lcp ? 1.15 : 1 ), 3 );
+	if ( 1.0 === $z ) {
+		return $rules;
+	}
 	return implode( ', ', array_map( function ( $r ) use ( $z ) {
 		$r = trim( $r );
 		return preg_match( '/^(\([^)]*\)\s+)?(.+)$/', $r, $m ) ? $m[1] . 'calc(' . $z . ' * (' . $m[2] . '))' : $r;
