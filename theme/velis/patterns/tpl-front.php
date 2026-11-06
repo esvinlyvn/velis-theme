@@ -67,9 +67,7 @@ $out  .= '<section class="section" id="du-an" aria-labelledby="du-an-h"><div cla
 	. '<p class="more-center"><a class="btn btn--line" href="' . esc_url( (string) get_post_type_archive_link( 'du-an' ) ) . '" data-filter-link="khu">Xem tất cả dự án</a></p></div></section>';
 
 // d. partners: developers with a logo, every logo the same visual area (±15 %), ≤ 48 px high, ≤ 160 px wide (duyệt 2026-11-06)
-$logo_box = function ( int $id ) {
-	$m = wp_get_attachment_metadata( $id );
-	$r = ! empty( $m['height'] ) ? $m['width'] / $m['height'] : 2;
+$logo_box = function ( float $r ) {
 	$h = min( 48, sqrt( 3600 / $r ) );
 	$w = $h * $r;
 	if ( $w > 160 ) {
@@ -78,12 +76,23 @@ $logo_box = function ( int $id ) {
 	}
 	return array( (int) round( $w ), (int) round( $h ) );
 };
-$devs  = array_filter( get_posts( array( 'post_type' => 'chu-dau-tu', 'numberposts' => 50, 'orderby' => 'title', 'order' => 'ASC' ) ), fn( $d ) => get_post_meta( $d->ID, 'velis_logo', true ) && velis_developer_projects( $d ) );
-$logos = implode( '', array_map( function ( $d ) use ( $logo_box ) {
-	$id         = (int) get_post_meta( $d->ID, 'velis_logo', true );
-	list( $w, $h ) = $logo_box( $id );
-	return '<li><a href="' . esc_url( get_permalink( $d ) ) . '" aria-label="' . esc_attr( $d->post_title ) . '">' . wp_get_attachment_image( $id, 'medium', false, array( 'alt' => $d->post_title, 'loading' => 'lazy', 'sizes' => $w . 'px', 'style' => "--w: {$w}px; --h: {$h}px" ) ) . '</a></li>';
-}, $devs ) );
+// Logo: the developer's velis_logo, else the cleaned copy of the old home's partner row bundled in the theme
+// (assets/brand/doi-tac/{slug}.webp, 320 px wide) – staging has no developer logo uploaded yet.
+$logos = '';
+foreach ( get_posts( array( 'post_type' => 'chu-dau-tu', 'numberposts' => 50, 'orderby' => 'title', 'order' => 'ASC' ) ) as $d ) {
+	$id   = (int) get_post_meta( $d->ID, 'velis_logo', true );
+	$file = get_theme_file_path( 'assets/brand/doi-tac/' . $d->post_name . '.webp' );
+	if ( $id && ( $m = wp_get_attachment_metadata( $id ) ) && ! empty( $m['height'] ) ) {
+		list( $w, $h ) = $logo_box( $m['width'] / $m['height'] );
+		$img = wp_get_attachment_image( $id, 'medium', false, array( 'alt' => $d->post_title, 'loading' => 'lazy', 'sizes' => $w . 'px', 'style' => "--w: {$w}px; --h: {$h}px" ) );
+	} elseif ( is_readable( $file ) && ( $s = getimagesize( $file ) ) ) {
+		list( $w, $h ) = $logo_box( $s[0] / $s[1] );
+		$img = '<img src="' . esc_url( get_theme_file_uri( 'assets/brand/doi-tac/' . $d->post_name . '.webp' ) ) . '" width="' . $s[0] . '" height="' . $s[1] . '" alt="' . esc_attr( $d->post_title ) . '" loading="lazy" decoding="async" style="--w: ' . $w . 'px; --h: ' . $h . 'px">';
+	} else {
+		continue;
+	}
+	$logos .= '<li><a href="' . esc_url( get_permalink( $d ) ) . '" aria-label="' . esc_attr( $d->post_title ) . '">' . $img . '</a></li>';
+}
 if ( $logos ) {
 	$out .= '<section class="section section--tint" aria-labelledby="cdt-h"><div class="wrap"><header class="sechead"><h2 id="cdt-h">Đối tác của chúng tôi</h2>'
 		. '<p>Velis Realty là đơn vị chuyên tư vấn và phân phối bất động sản cao cấp, tập trung vào dự án của các chủ đầu tư có hồ sơ bàn giao và pháp lý công khai.</p></header>'

@@ -146,3 +146,12 @@ Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng th
 | Theme | velis 0.9.0 → **0.9.8** (tải zip qua wp-admin → Giao diện → Tải lên → thay bản đang dùng; 7 lần trong vòng, lần cuối = commit cuối của vòng r8): khung ảnh không phụ thuộc DPR, phóng cắt ẩn huy hiệu, `sizes` tính hệ số phóng, các mục 7–16 |
 | Gửi thử form | 1 lần (Kiểm thử hệ thống, 0900000000, `?utm_source=kiemthu`) từ thẻ cột phải The Global City – `tools/interactions.mjs` |
 | Media / nội dung | không đổi (không có bản gốc lớn hơn để tải lên – `docs/ANH-CAN-THAY.md`) |
+
+## 2026-11-06 – Bước 3 (viết lại giao diện theo mockup)
+
+| Mục | Thay đổi |
+|---|---|
+| Plugin velis-data | 0.2.7 → **0.3.0** (wp-admin → Plugin → Tải lên → thay bản đang dùng): meta ảnh `velis_mark` (sạch / cắt / không che được) + `velis_focus` (9 vị trí, ô chọn trong màn sửa Media) |
+| Cờ ảnh | `tools/import_image_flags.py --write`: 178 ảnh nhận `velis_mark` qua REST `media/<id>` (134 cắt, 44 không che được; 6 dòng CSV chưa đánh giá – không ghi); chỉ ghi meta, không đổi file ảnh |
+| Theme velis | 0.9.8 → **1.0.0** (Giao diện → Tải lên → thay bản đang dùng), 2 lần trong ngày: bản đầu (commit 7606c06) + bản sửa sau soát trên staging (logo đối tác đóng gói trong theme, link trong khối tối, tràn ngang bảng so sánh mobile, khoảng ảnh đầu bài, breadcrumb, thẻ chủ đầu tư chưa có logo, nút "Phát video") |
+| Không đụng | nội dung bài / trang, `.htaccess`, 7 ứng dụng, plugin khác |

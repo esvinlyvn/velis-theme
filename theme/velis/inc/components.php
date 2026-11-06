@@ -116,7 +116,7 @@ function velis_youtube_id( string $url ): string {
 /** Click-to-load YouTube: a thumbnail link (works without JS); velis.js swaps in the player on click. */
 function velis_youtube_facade( string $id, string $caption = '' ): string {
 	return '<figure class="wp-block-embed is-type-video is-provider-youtube"><a class="pic" href="https://www.youtube.com/watch?v=' . esc_attr( $id ) . '" data-yt="' . esc_attr( $id ) . '" aria-label="Phát video trên YouTube">'
-		. '<img src="https://i.ytimg.com/vi/' . esc_attr( $id ) . '/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"></a>'
+		. '<img src="https://i.ytimg.com/vi/' . esc_attr( $id ) . '/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"><span class="btn" aria-hidden="true">Phát video</span></a>'
 		. ( '' !== $caption ? '<figcaption>' . $caption . '</figcaption>' : '' ) . '</figure>';
 }
 

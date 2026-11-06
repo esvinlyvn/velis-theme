@@ -167,7 +167,7 @@ function velis_card_developer( $d ): string {
 	$projs   = velis_developer_projects( $d );
 	$regions = array_unique( array_filter( array_map( 'velis_region_label', $projs ) ) );
 	$meta    = implode( ' · ', array_filter( array( $projs ? count( $projs ) . ' dự án đang tư vấn' : '', implode( ', ', $regions ) ) ) );
-	$media   = $logo ? '<div class="card__media">' . velis_img( $logo, 'Logo ' . $d->post_title, 'medium', array( 'zoom' => 1 ) ) . '</div>' : velis_media_empty( $d->post_title );
+	$media   = $logo ? '<div class="card__media">' . velis_img( $logo, 'Logo ' . $d->post_title, 'medium', array( 'zoom' => 1 ) ) . '</div>' : ''; // no logo uploaded yet: text card, not a row of empty frames
 	return '<article class="card">' . $media . '<div class="card__body"><p class="eyebrow">Chủ đầu tư</p><h3 class="card__title"><a href="' . esc_url( get_permalink( $d ) ) . '">' . esc_html( $d->post_title ) . '</a></h3>'
 		. ( $meta ? '<p class="card__text">' . esc_html( $meta ) . '</p>' : '' ) . velis_more( 'Xem chủ đầu tư' ) . '</div></article>';
 }

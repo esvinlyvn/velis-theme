@@ -49,7 +49,7 @@
 
 /* breadcrumb + section tabs */
 .crumbs { list-style: none; display: flex; flex-wrap: wrap; column-gap: var(--s2); margin: 0; padding: var(--s2) 0; font-size: var(--fs-small); line-height: 1.5; color: var(--muted); }
-.crumbs li { display: inline-flex; align-items: center; }
+.crumbs li { display: inline-flex; align-items: center; max-width: none; }
 .crumbs li + li::before { content: "›"; margin-right: var(--s2); }
 .crumbs a { color: inherit; display: inline-flex; align-items: center; min-width: 44px; min-height: 44px; }
 .tabs { position: sticky; top: var(--header-h); z-index: 40; background: var(--canvas); border-bottom: 1px solid var(--line); }
@@ -210,12 +210,13 @@
 .prose .wp-block-embed { margin: var(--s6) 0; }
 .prose .wp-block-embed .pic { aspect-ratio: 16 / 9; }
 .prose .wp-block-embed .pic img { width: 100%; height: 100%; object-fit: cover; }
+.prose .wp-block-embed .pic .btn { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); } /* the poster alone does not say "video" */
 .clamp.is-clamped { max-height: 420px; overflow: hidden; -webkit-mask-image: linear-gradient(#000 70%, transparent); mask-image: linear-gradient(#000 70%, transparent); }
 .clamp__more { margin-top: var(--s2); }
 .pic { display: block; position: relative; overflow: hidden; } /* photo in long content: clips the badge crop, carries the tag */
 
 /* tables */
-.table-wrap { overflow-x: auto; }
+.table-wrap { position: relative; overflow-x: auto; } /* contains the absolute .sr-only labels, else they widen the page */
 .table-wrap table { min-width: 640px; }
 .table-wrap th[scope="row"] { white-space: nowrap; }
 .is-current { background: var(--sunken); }
@@ -267,6 +268,7 @@
 .check input { width: 24px; height: 24px; margin: 0; flex: none; accent-color: var(--red); }
 .section--dark .muted, .section--dark dt, .section--dark [role="status"] { color: var(--on-dark-muted); }
 .section--dark :focus-visible { outline-color: var(--on-dark); }
+.section--dark a:not(.btn), .block--dark a:not(.btn) { color: var(--on-dark); } /* red link on #111 is 2.9:1 */
 .section--dark .field.is-error input { border-color: var(--error-on-dark); box-shadow: 0 0 0 1px var(--error-on-dark); }
 .section--dark .field__error { color: var(--error-on-dark); }
 
