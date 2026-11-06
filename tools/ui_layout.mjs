@@ -46,11 +46,11 @@ export function layoutAudit() {
 // Step 3 round 2, item 2.2: vertical gap between the visible content of two consecutive blocks (text, picture, table,
 // form control – not padding) must be ≤ max px. Blocks: hero, facts bar, sections, the blocks of the main column and the
 // picture over an article. Runs in the page; returns [{ from, to, gap }] over the limit.
-export function blockGaps(max = 96) {
+export function blockGaps(max = 96, tol = 2) { // tol: glyph boxes sit 1–2 px inside their line box
 	const SEL = '.hero, section.facts, body > section, main > section, .page__main > .block, .page__main > section, .page__main > .pic, .wrap--read > .block, .advisor-inline';
 	const all = [...document.querySelectorAll(SEL)].filter((e) => e.getBoundingClientRect().height > 0 && !e.closest('[hidden], dialog'));
 	const blocks = all.filter((e) => !all.some((o) => o !== e && o.contains(e)));
-	const leafs = 'img, svg, picture, video, iframe, table, input, select, textarea, button, hr';
+	const leafs = 'img, svg, picture, video, iframe, table, input, select, textarea, button, a.btn, hr, .advisor, .within, .disclosure, .card__logo'; // boxed components count by their border
 	const box = (e) => {
 		let top = Infinity, bottom = -Infinity;
 		const add = (r) => { if (r.height > 0 && r.width > 0) { top = Math.min(top, r.top); bottom = Math.max(bottom, r.bottom); } };
@@ -68,7 +68,7 @@ export function blockGaps(max = 96) {
 		const a = box(blocks[i - 1]), b = box(blocks[i]);
 		if (!isFinite(a.bottom) || !isFinite(b.top)) continue;
 		const gap = Math.round(b.top - a.bottom);
-		if (gap > max) out.push({ from: name(blocks[i - 1]), to: name(blocks[i]), gap });
+		if (gap > max + tol) out.push({ from: name(blocks[i - 1]), to: name(blocks[i]), gap });
 	}
 	return out;
 }

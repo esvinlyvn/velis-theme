@@ -173,7 +173,8 @@ function velis_card_developer( $d ): string {
 	$regions = array_unique( array_filter( array_map( 'velis_region_label', $projs ) ) );
 	$meta    = implode( ' · ', array_filter( array( $projs ? count( $projs ) . ' dự án đang tư vấn' : '', implode( ', ', $regions ) ) ) );
 	$logo    = velis_dev_logo( $d );
-	return '<article class="card">' . ( $logo ? '<p class="card__logo">' . $logo . '</p>' : '' ) . '<div class="card__body"><h3 class="card__title"><a href="' . esc_url( get_permalink( $d ) ) . '">' . esc_html( $d->post_title ) . '</a></h3>'
+	$any     = (bool) array_filter( velis_active_developers(), 'velis_dev_logo' ); // some have a logo: the others get their name in the same frame
+	return '<article class="card">' . ( $logo ? '<p class="card__logo">' . $logo . '</p>' : ( $any ? '<p class="card__logo card__logo--empty"><span>' . esc_html( $d->post_title ) . '</span></p>' : '' ) ) . '<div class="card__body"><h3 class="card__title"><a href="' . esc_url( get_permalink( $d ) ) . '">' . esc_html( $d->post_title ) . '</a></h3>'
 		. ( $meta ? '<p class="card__text">' . esc_html( $meta ) . '</p>' : '' ) . velis_more( 'Xem chủ đầu tư' ) . '</div></article>';
 }
 
@@ -511,11 +512,10 @@ function velis_compare_html( array $posts, array $crit, string $caption, $curren
 		}
 	}
 	// rows = criteria that differ; a column that is "Chưa công bố" on every shown row is dropped (2.12) – repeat until stable
-	$labels = array_keys( $crit );
 	do {
 		$n      = count( $posts );
-		$posts  = array_values( array_filter( $posts, fn( $p ) => array_diff( array_intersect_key( $cells[ $p->ID ], array_flip( $labels ) ), array( $miss ) ) ) );
 		$labels = array_values( array_filter( array_keys( $crit ), fn( $l ) => count( array_unique( array_map( fn( $p ) => $cells[ $p->ID ][ $l ], $posts ) ) ) > 1 ) );
+		$posts  = array_values( array_filter( $posts, fn( $p ) => array_diff( array_intersect_key( $cells[ $p->ID ], array_flip( $labels ) ), array( $miss ) ) ) );
 	} while ( $n !== count( $posts ) && count( $posts ) >= 2 );
 	if ( count( $posts ) < 2 ) {
 		return '';

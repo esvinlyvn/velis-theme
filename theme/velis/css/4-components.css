@@ -24,7 +24,7 @@ a.chip { display: inline-flex; align-items: center; color: inherit; text-decorat
 .header__logo { display: flex; align-items: center; min-height: 44px; width: 156px; flex: none; }
 .header__logo img { width: 100%; height: auto; }
 .header__nav { display: none; margin-left: auto; }
-.header__nav ul { display: flex; gap: var(--s2); list-style: none; margin: 0; padding: 0; }
+.header__nav > ul { display: flex; gap: var(--s2); list-style: none; margin: 0; padding: 0; }
 .header__nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--s2); color: var(--ink); text-decoration: none; font-weight: 600; font-size: var(--fs-card); }
 .header__nav a:hover { color: var(--red); }
 .header__phone { display: none; align-items: center; min-height: 44px; color: var(--ink); text-decoration: none; font-weight: 600; font-size: var(--fs-card); white-space: nowrap; }
@@ -72,10 +72,7 @@ a.chip { display: inline-flex; align-items: center; color: inherit; text-decorat
 .tabs a[aria-current="true"] { color: var(--red); border-bottom-color: var(--red); }
 /* 2.16 phones: the strips scroll sideways, the right edge fades instead of cutting a word; the current item is scrolled into view (velis.js) */
 @media (max-width: 1023px) {
-	.tabs ul, .ftabs { -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent); }
-	.tabs ul { padding-right: 40px; }
-	.ftabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-right: 40px; }
-	.ftabs button { flex: none; white-space: nowrap; }
+	.tabs ul { padding-right: 40px; -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent); }
 }
 
 /* hero – project / zone pages: one structure, two frames (bước 3 picks the frame from the FILE size, server side) */
@@ -207,6 +204,8 @@ a.chip { display: inline-flex; align-items: center; color: inherit; text-decorat
 .card__body { display: flex; flex-direction: column; flex: 1; }
 .card__more { display: flex; align-items: flex-end; min-height: 60px; margin-top: auto; padding-top: var(--s4); color: var(--red); font-weight: 600; font-size: var(--fs-card); } /* 2.15: 44 px target under the 16 px gap */
 .card:hover .card__title a { color: var(--red); }
+.card__title a::after { content: ""; position: absolute; inset: 0; z-index: 1; } /* 2.15: the whole card is the tap target of its link */
+.card a:not(.card__title a) { position: relative; z-index: 2; }
 .card--post .card__title { font-family: var(--f-body); }
 .card__meta { font-size: var(--fs-small); line-height: 1.5; color: var(--muted); margin: 0; }
 .card__meta span { white-space: nowrap; }
@@ -358,7 +357,7 @@ img.is-marked { transform: scale(var(--zoom, 1.15)); transform-origin: 100% 0; }
 .advisor dl div { display: flex; flex-wrap: wrap; justify-content: space-between; column-gap: var(--s4); border-bottom: 1px solid var(--line); padding-bottom: var(--s2); }
 .advisor dd { flex-shrink: 0; max-width: 100%; margin-left: auto; font-weight: 600; } /* 2.11: a value longer than the row wraps under its label, left-aligned */
 .advisor .btn { width: 100%; }
-.advisor-inline { margin-bottom: var(--s8); }
+.advisor-inline { margin-bottom: var(--s4); } /* 2.2: ≤ 96 px to the first block */
 @media (min-width: 1024px) { .advisor-inline { display: none; } }
 
 /* home b – numbers band: white, 4 equal columns, thin champagne rules between columns, number is the focal point (1.4) */
@@ -376,6 +375,10 @@ img.is-marked { transform: scale(var(--zoom, 1.15)); transform-origin: 100% 0; }
 .ftabs { display: flex; flex-wrap: wrap; gap: 0 var(--s6); margin-bottom: var(--head-gap); border-bottom: 1px solid var(--line); }
 .ftabs button { min-height: 48px; padding: 0; border: 0; border-bottom: 2px solid transparent; background: none; color: var(--muted); font-weight: 600; font-size: var(--fs-card); cursor: pointer; }
 .ftabs button[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--red); }
+@media (max-width: 1023px) { /* 2.16: home area tabs = one row that scrolls sideways, right edge fades */
+	.ftabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-right: 40px; -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent); }
+	.ftabs button { flex: none; white-space: nowrap; }
+}
 .more-center { max-width: none; display: flex; justify-content: center; margin: var(--head-gap) 0 0; }
 
 /* home d – partner logos: one row, same 40 px height, dark grey until hover, no boxes, names in alt */
@@ -383,6 +386,7 @@ img.is-marked { transform: scale(var(--zoom, 1.15)); transform-origin: 100% 0; }
 .partners li { max-width: none; }
 .card__logo { display: flex; align-items: center; min-height: 96px; margin: 0; padding: var(--s6); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
 .card__logo img { width: var(--w); height: var(--h); }
+.card__logo--empty span { font: 600 var(--fs-h3)/1.3 var(--f-head); color: var(--muted); } /* developer without a logo: its name in the same frame (grid stays even) */
 @media (max-width: 767px) { .partners { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s6); } .partners a { justify-content: center; } } /* 2.9: 2 equal columns, logo centred in its cell */
 .partners a { display: flex; align-items: center; min-height: 48px; }
 .partners img { width: var(--w); height: var(--h); filter: grayscale(1) brightness(.45); transition: filter .2s var(--ease); }

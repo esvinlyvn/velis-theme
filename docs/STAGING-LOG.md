@@ -156,3 +156,12 @@ Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng th
 | Theme velis | 0.9.8 → **1.0.0** (Giao diện → Tải lên → thay bản đang dùng), 2 lần trong ngày: bản đầu (commit 7606c06) + bản sửa sau soát trên staging (logo đối tác đóng gói trong theme, link trong khối tối, tràn ngang bảng so sánh mobile, khoảng ảnh đầu bài, breadcrumb, thẻ chủ đầu tư chưa có logo, nút "Phát video") |
 | Theme velis 1.0.0 – kiểm chứng (B3-5) | thêm các lần tải lên cùng số phiên bản (Giao diện → Tải lên → thay bản đang dùng), mỗi lần sau một lô sửa: thẻ dự án theo mockup (bỏ "N phân khu"), thanh thông tin (bàn giao ngắn, pháp lý bỏ nhãn lặp), phân khu thấp tầng có khung tên, hỏi đáp mở câu đầu, form không dòng trạng thái rỗng; trang văn bản thẳng mép khung; hàng lọc /du-an/ thẳng trái; breadcrumb mobile 1 dòng; `aria-current` chỉ ở mục đang xem; `sizes` thẻ (1600 px: 424 px) và hero B mobile (tỉ lệ cắt 4:3); bảng / đường kẻ / chú thích ảnh trong bài theo thang 1.2. thêm vùng bấm 44 px cho hotline / Zalo / email trong khối form, nút phân trang "Trang sau"; ảnh trong bài giữ tỉ lệ khung theo thuộc tính (không lệch theo DPR); trang chính sách không mục lục có thẻ liên hệ cột phải; link trong thẻ cột phải / danh sách 44 px; "Dự án đang tư vấn" thành hàng chip. Gửi thử form: **không gửi** (staging đã có 1 lần gửi trong ngày, không phải của bộ đo). **8 lần tải lên** trong B3-5 (cùng số 1.0.0), lần cuối = commit cuối của bước 3 |
 | Không đụng | nội dung bài / trang, `.htaccess`, 7 ứng dụng, plugin khác |
+
+## 2026-11-06 – Bước 3, vòng sửa
+
+| Mục | Thay đổi |
+|---|---|
+| Theme velis 1.0.0 | **5 lần tải lên** (Giao diện → Tải lên → thay bản đang dùng, cùng số phiên bản), mỗi lần sau một lô sửa của vòng: (1) mục 2.1–2.16 + menu thả xuống "Dự án" / "Về Velis"; (2) menu con hiện nhầm khi chưa mở, cột so sánh toàn "Chưa công bố", khung tên chủ đầu tư chưa có logo, tab khu vực mobile 1 hàng, breadcrumb Tuyển dụng; (3) khoảng dọc giữa khối ≤ 96 px (đệm trang, lề cuối khối), cả thẻ là vùng bấm; (4) khối cuối của section; (5) bấm "Về Velis" ngay sau khi rê chuột không đóng menu |
+| Ảnh đầu trang | trang chủ: The Privé (19968, có huy hiệu – cắt che); /du-an/: The Global City (20092, có huy hiệu – cắt che); Giới thiệu: văn phòng Velis (20120, sạch) – không trùng nhau |
+| Gửi form | **không gửi** (lượt gửi 06/11 trên staging là của người dùng); trường ẩn kiểm bằng chặn yêu cầu trong trình duyệt |
+| Không đụng | nội dung bài / trang, media, plugin, `.htaccess`, 7 ứng dụng |

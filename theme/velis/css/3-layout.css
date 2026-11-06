@@ -10,7 +10,7 @@
 .section--flush { padding-top: 0; }
 
 /* page with a sticky side column (≥ 1024 px) */
-.page { padding-block: var(--s8) var(--section); }
+.page { padding-block: var(--s4) 0; } /* 2.2: the last block's 48 px is the whole gap to what follows; ≤ 96 px under the facts bar */
 .page__side { display: none; }
 /* main column (2.1): everything in it shares one left and one right edge; ≤ 68 characters a line come from the column
    width (--read) and the 19 px text size, not from narrower paragraphs; the side column takes the rest, 48 px away */
@@ -26,6 +26,8 @@
 	.page__side { display: block; position: sticky; top: calc(var(--header-h) + 56px + var(--s6)); }
 }
 .block { padding-block: var(--s12); }
+.block > :last-child, .block > .prose > :last-child, .block.prose > :last-child { margin-bottom: 0; } /* 2.2: no trailing margin on top of the block padding */
+.section > .wrap > .block:last-child { padding-bottom: 0; } /* a block closing a section: the section padding is the gap */
 .block:first-child, .pic + .block { padding-top: var(--s6); } /* article: text right under its photo */
 /* 2.2: two neighbours on the same ground do not stack their padding (one 48 px gap, never more than 96 px) */
 .block:not(.block--dark) + .block:not(.block--dark) { padding-top: 0; }

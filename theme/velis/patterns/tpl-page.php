@@ -16,7 +16,11 @@ setup_postdata( $GLOBALS['post'] = $pg ); // phpcs:ignore WordPress.WP.GlobalVar
 $slug    = $pg->post_name;
 $title   = velis_display_title( wp_strip_all_tags( get_the_title( $pg ) ) );
 $content = trim( $pg->post_content ) ? velis_content( $pg->post_content ) : ''; // phpcs:ignore
-$out     = velis_breadcrumb_html( velis_trail() );
+$trail   = velis_trail();
+if ( 'tuyen-dung' === $slug ) {
+	$trail[ count( $trail ) - 1 ][0] = 'Tuyển dụng'; // 2.13: the trail ends on the section name, not the job title
+}
+$out     = velis_breadcrumb_html( $trail );
 if ( 'lien-he' === $slug ) {
 	$map  = get_posts( array( 'post_type' => 'attachment', 'name' => 'ban-do-van-phong-velis', 'numberposts' => 1, 'fields' => 'ids' ) );
 	$out .= velis_hero_b( array(

@@ -23,6 +23,8 @@ await Promise.all([lp.waitForNavigation(), lp.locator('input[type=submit], butto
 const storageState = await login.storageState();
 const desk = await b.newContext({ storageState, viewport: { width: 1366, height: 900 } });
 const mob = await b.newContext({ storageState, viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
+// wait until a smooth scroll has stopped (long pages take more than a second)
+const still = async (pg) => { let y = -1; for (let i = 0; i < 40; i++) { const n = await pg.evaluate(() => scrollY); if (n === y) return; y = n; await pg.waitForTimeout(150); } };
 const open = async (ctx, path) => { const p = await ctx.newPage(); await p.goto(BASE + path, { waitUntil: 'load', timeout: 120000 }); return p; };
 
 // 1–5 header drop-downs (rebuilt 2026-11-06, replace the old mega menu checks): hover, click, keyboard, mobile sub-items
@@ -57,7 +59,7 @@ check('NT-73 tab chưa có dữ liệu: câu hướng dẫn + nút', !bare || ba
 await p.locator('[role=tab]', { hasText: full?.name || '' }).first().click(); await p.waitForTimeout(200);
 const priceBtn = p.locator('[role=tabpanel]:not([hidden]) a[data-interest]').first();
 const want = await priceBtn.getAttribute('data-interest');
-await priceBtn.click(); await p.waitForTimeout(1200);
+await priceBtn.click(); await p.waitForTimeout(300); await still(p);
 const formTop = await p.evaluate(() => Math.round(document.querySelector('#tu-van').getBoundingClientRect().top));
 check('NT-74 "Nhận bảng giá" cuộn tới form', formTop >= 0 && formTop < 300, `top=${formTop}`);
 const interest = await p.evaluate(() => document.querySelector('#tu-van [name=interest]')?.value || '');
@@ -65,7 +67,7 @@ check('NT-74 "Nhận bảng giá" điền sẵn dòng sản phẩm', interest ==
 
 // 10–11 section nav
 await p.evaluate(() => scrollTo(0, 0)); await p.waitForTimeout(300);
-await p.locator('[data-secnav] a[href="#vi-tri"]').first().click(); await p.waitForTimeout(1200);
+await p.locator('[data-secnav] a[href="#vi-tri"]').first().click(); await p.waitForTimeout(300); await still(p);
 const vt = await p.evaluate(() => { const n = document.querySelector('[data-secnav]').getBoundingClientRect(); const s = document.querySelector('#vi-tri').getBoundingClientRect(); return { gap: Math.round(s.top - n.bottom) }; });
 check('NT-72 thanh điều hướng mục: bấm cuộn tới Vị trí', vt.gap >= -2 && vt.gap < 120, vt);
 const cur = await p.evaluate(() => document.querySelector('[data-secnav] a[aria-current]')?.textContent.trim() || '');
@@ -144,7 +146,7 @@ const bc = await m.evaluate(() => { const items = [...document.querySelectorAll(
 check('NT-80 mobile: breadcrumb tối đa 2 dòng', bc >= 1 && bc <= 2, `${bc} dòng`);
 
 // 30–32 read more, side card mini form, test submission
-const r = await open(desk, '/du-an/the-global-city/');
+const r = await open(desk, '/du-an/the-global-city/?utm_source=kiemthu'); // utm is read from the address on load
 // 1.0: every long section of a project page is clamped – check the one whose button is clicked
 const before = await r.evaluate(() => Math.round(document.querySelector('.clamp.is-clamped')?.getBoundingClientRect().height || 0));
 await r.evaluate(() => document.querySelector('.clamp.is-clamped').setAttribute('data-test-clamp', ''));
@@ -165,7 +167,6 @@ await r.route('**/contact-form-7/**', (route) => { body = route.request().postDa
 await side.locator('[name=your-name]').fill('Kiểm thử hệ thống');
 await side.locator('[name=your-phone]').fill('0900000000');
 await side.locator('input[type=checkbox]').first().check();
-await r.evaluate(() => history.replaceState(null, '', location.pathname + '?utm_source=kiemthu'));
 await side.locator('[type=submit]').click(); await r.waitForTimeout(800);
 const field = (n) => (body.match(new RegExp('name="' + n + '"\\r?\\n\\r?\\n([^\\r\\n]*)')) || [])[1] || '';
 const hid = { interest: field('interest'), pageUrl: field('page-url'), utm: field('utm') };

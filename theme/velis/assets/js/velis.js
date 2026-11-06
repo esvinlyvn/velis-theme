@@ -17,8 +17,9 @@ const setSub = (li, on) => { li.querySelector('.header__toggle').setAttribute('a
 subs.forEach((li) => {
 	const btn = li.querySelector('.header__toggle'), links = () => $$('a', li);
 	let t;
-	btn.addEventListener('click', () => { const on = btn.getAttribute('aria-expanded') !== 'true'; subs.forEach((o) => setSub(o, false)); setSub(li, on); });
-	li.addEventListener('mouseenter', () => { clearTimeout(t); subs.forEach((o) => o !== li && setSub(o, false)); setSub(li, true); });
+	let hoverAt = 0; // a click right after the pointer opened it (hover) must not close it again
+	btn.addEventListener('click', () => { const on = btn.getAttribute('aria-expanded') !== 'true' || Date.now() - hoverAt < 500; subs.forEach((o) => setSub(o, false)); setSub(li, on); });
+	li.addEventListener('mouseenter', () => { clearTimeout(t); hoverAt = Date.now(); subs.forEach((o) => o !== li && setSub(o, false)); setSub(li, true); });
 	li.addEventListener('mouseleave', () => { t = setTimeout(() => setSub(li, false), 200); });
 	li.addEventListener('keydown', (e) => {
 		const i = links().indexOf(document.activeElement);
