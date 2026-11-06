@@ -47,7 +47,7 @@
 	--head-gap: 32px;
 	--gutter: 16px;
 	--wrap: 1200px;
-	--read: 640px;      /* cột đọc / cột chính: chữ 19 px ≤ 68 ký tự (vòng sửa 2.1) */
+	--read: 576px;      /* cột đọc / cột chính: chữ 19 px ≤ 68 ký tự đếm thật (vòng sửa 2.1; 640 px còn 69–74 ký tự) */
 	--side: 340px;      /* tối thiểu; cột phải nhận phần còn lại của khung */
 	--header-h: 64px;
 	--cta-h: 64px;

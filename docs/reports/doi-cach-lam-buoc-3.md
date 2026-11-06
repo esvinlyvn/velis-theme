@@ -217,8 +217,108 @@ phải, link trong danh sách, nút "Trang sau"; "Dự án đang tư vấn" thà
 8. Giữ / bỏ: `/du-an/masterise-homes/` và 3 trang cùng kiểu trả 404 (trang đã đăng nhưng địa chỉ trùng loại nội dung dự án)
    – không phải lỗi theme, cần quyết định nội dung.
 
+
+## 5. Vòng sửa (2026-11-06)
+
+Một vòng sửa duy nhất trên nhánh `claude/doi-cach-lam-b3` (PR #8), theme 1.0.0 trên staging. Vòng này **không gửi form**
+(lượt gửi trong ngày trên staging là của người dùng); trường ẩn kiểm bằng chặn yêu cầu CF7 tại máy đo.
+
+### 5.1 Quyết định đã ghi (`docs/NGHIEM-THU.md`, "Duyệt: người dùng, 2026-11-06")
+
+- Đồng ý: dải nổi bật M4 912 px, ảnh thẻ dải 72 px, nền dải mobile #111.
+- Dựng lại menu thả xuống "Dự án" (6 dự án + "Tất cả dự án") và "Về Velis" (Giới thiệu, Tuyển dụng, Liên hệ): mở bằng
+  hover, bấm và bàn phím; mobile là mục con trong menu. Header tự ẩn khi cuộn và bảng "Theo loại sản phẩm": bỏ hẳn, bài
+  kiểm tra tương ứng đã xóa khỏi `tools/interactions.mjs` (còn 31 mục, 5 mục menu thả xuống thay 5 mục mega menu).
+- Component tự dựng (tìm kiếm, mục lục, phân trang, hộp tác giả, trích dẫn, khung phóng ảnh): đạt.
+- Câu vai trò trong khối "Velis tư vấn dự án này" được duyệt, hiện trên mọi trang dự án / phân khu / dòng sản phẩm; bỏ nhãn
+  "câu chờ duyệt" trong mockup.
+- Trang chính sách: một cột đọc canh giữa, không cột phải (DESIGN.md đã sửa).
+- `/du-an/{chu-dau-tu}/` trả 404: ghi ở `docs/AUDIT-NOI-DUNG.md` mục 12 (trang 19593, 19633, 19625, 19637; 301 đã có
+  trong `data/url-map.csv`); theme đổi link `/du-an/{chủ đầu tư}/` trong nội dung thành `/chu-dau-tu/{slug}/`.
+- LCP: đo lại ngày ra mắt khi bật LiteSpeed; không tính lỗi ở staging.
+
+### 5.2 Đã sửa (áp cho mọi trang cùng loại)
+
+| Mục | Đã làm |
+|---|---|
+| 2.1 | Cột chính 640 px, chữ thân 19 px từ 768 px (bỏ giới hạn 46ch riêng cho đoạn văn) → ≤ 68 ký tự/dòng; tiêu đề, đoạn, ảnh, bảng, bản đồ, lưới cùng 2 mép; khe cột chính ↔ cột phải 48 px |
+| 2.2 | Khối liền nhau cùng nền không cộng đệm; bỏ lề thừa cuối khối; khoảng dọc giữa 2 khối ≤ 96 px (ảnh đầu bài → chữ, "Thuộc phân khu" → Vị trí …) |
+| 2.3 | H2 nội dung 28 px desktop / 22 px mobile, H3 22 / 19; H2 đứng ngay dưới tiêu đề khối hiện cỡ H3 (chỉ hiển thị) |
+| 2.4 | Chỉ khối chữ dài nhất được thu gọn (chọn ở server); điểm cắt nằm giữa các phần tử, chỉ đoạn văn mờ, tiêu đề không mờ |
+| 2.5 | Lưới xếp thẻ có ảnh trước, thẻ khung tên sau; trang dòng sản phẩm không có ảnh riêng dùng ảnh phân khu → dự án cha |
+| 2.6 | /du-an/: 3 hàng có nhãn "Khu vực", "Chủ đầu tư", "Loại sản phẩm"; mobile 3 ô chọn thả xuống (đồng bộ với chip và URL). Tên khu vực lấy từ dữ liệu: **"Nhơn Trạch – Long Thành" → "Vùng vệ tinh"** ở tab trang chủ (theme + mockup); thẻ dự án vẫn ghi tiểu khu của dữ liệu (vd. Spring Ville: "Nhơn Trạch – Long Thành") |
+| 2.7 | Ảnh hero: trang chủ The Privé (19968, huy hiệu đã cắt khung); /du-an/ The Global City (20092, trước là The Privé; huy hiệu cắt khung); Giới thiệu văn phòng Velis (20120, sạch) |
+| 2.8 | Trang chủ: H2 "Công ty TNHH Velis Realty" → 2 đoạn → H2 "Giá trị khác biệt tại Velis Realty" (cỡ H2) → 4 mục → nút (theme + mockup) |
+| 2.9 | Một quy tắc cỡ logo cho mọi nơi (trang chủ, danh sách và trang chủ đầu tư): cùng diện tích 2 304 px², cao ≤ 48, rộng ≤ 160; mobile 2 cột đều, logo căn giữa ô; logo trong thẻ /chu-dau-tu/ căn giữa khung (sửa ở vòng kiểm chứng) |
+| 2.10 | /chu-dau-tu/: thẻ = logo + tên + số dự án + khu vực + link, bỏ nhãn "Chủ đầu tư" lặp; chủ đầu tư 0 dự án không hiện (trang vẫn còn); một danh sách dùng chung cho số đếm ở /chu-dau-tu/ và Giới thiệu |
+| 2.11 | Zalo nút viền như Gọi; "Loại sản phẩm" nhiều dòng căn trái dưới nhãn; câu vai trò ở cuối khối, 14 px, lấy chủ đầu tư từ dữ liệu (nhiều chủ đầu tư nối dấu phẩy; không có thì ẩn) |
+| 2.12 | Tên cột ≤ 2 dòng (bề rộng tối thiểu 9em); cột toàn "Chưa công bố" ẩn; link "Xem phân khu →" (hoặc "Xem dự án →" / "Xem dòng sản phẩm →") vùng bấm 44 px |
+| 2.13 | Tuyển dụng: mục cuối breadcrumb "Tuyển dụng"; H1 bỏ đuôi "– Velis Realty" (chỉ hiển thị) |
+| 2.14 | 404: ô tìm + nút "Tìm" cùng hàng (mobile nút dưới, rộng hết); nhãn cách hàng nút 24 px |
+| 2.15 | Cả thẻ là vùng bấm của link thẻ (dải nổi bật, thẻ dự án, thẻ bài); hotline / email footer cao 44 px |
+| 2.16 | Mobile: thanh mục trang dự án và tab khu vực trang chủ là 1 hàng cuộn ngang, mờ mép phải, mục đang chọn tự cuộn vào khung |
+
+Triển khai: `docs/STAGING-LOG.md` mục "2026-11-06 – Bước 3, vòng sửa" (6 lần tải theme 1.0.0: 5 ở phần sửa, 1 ở phần
+kiểm chứng – logo thẻ chủ đầu tư căn giữa).
+
+### 5.3 Kiểm chứng (staging)
+
+Ảnh trước (theme 1.0.0 @4dd3f69) | sau: `screenshots/b3-r2/truoc-sau/` (42 ảnh, từng ảnh gốc ở `truoc/`, `sau/`; công cụ
+`tools/shots_b3r2.mjs`). Đo máy mục 2.1–2.16: `tools/check_b3r2.mjs` → `screenshots/b3-r2/kiem-tra/do-may.md`.
+
+| Mục | Loại trang (M1–M5) | Đo máy | Soát mắt | Ảnh trước \| sau |
+|---|---|---|---|---|
+| 2.1 | TGC, MPP, dòng, dự án độc lập, bài viết, Giới thiệu, Tuyển dụng | lệch mép cột chính **0,0 px** (35/35; cột chính 576 px); khe cột phải **48 px** (21/21, ≥ 1024) | ĐẠT | `2-01-cot-*` |
+| 2.2 | 11 trang (trang chủ, /du-an/, /chu-dau-tu/, /blog/ + 7 trang trên) | khe dọc > 96 px: **0 chỗ** (55/55) | ĐẠT | `2-02-*` |
+| 2.3 | TGC, MPP, dòng, dự án độc lập | tiêu đề khối 40 > H2 nội dung ≤ 28 ≥ H3 (desktop; H2 trùng ý đứng ngay dưới tiêu đề khối hiện 22) – 20/20 | ĐẠT | `2-03-tieu-de-tgc` |
+| 2.4 | TGC, MPP, dòng, dự án độc lập | ≤ 1 vùng thu gọn, 0 tiêu đề bị mờ – 20/20 | ĐẠT | `2-04-doc-tiep-tgc` |
+| 2.5 | trang chủ, /du-an/, TGC (phân khu) | 0/3 lưới sai thứ tự – 15/15 | ĐẠT (hero dòng dùng ảnh cha) | `2-05-*` |
+| 2.6 | /du-an/ | 3 nhãn; M5: 3 ô chọn, 0 chip – 5/5 | ĐẠT | `2-06-loc-du-an-*` |
+| 2.7 | trang chủ, /du-an/, Giới thiệu | 3 ảnh hero khác nhau – 15/15 | ĐẠT (không chữ in sẵn thấy được) | `2-07-hero-*` |
+| 2.8 | trang chủ | H2 → 2 đoạn → H2 (40 px, cùng cỡ) → 4 mục → nút – 5/5 | ĐẠT | `2-08-gia-tri` |
+| 2.9 | trang chủ, /chu-dau-tu/ | chênh diện tích logo **3,6 %**, 0 vượt 48 × 160; M5 lệch tâm ≤ 1 px – 10/10 | ĐẠT | `2-09-doi-tac-*`, `2-10-chu-dau-tu` |
+| 2.10 | /chu-dau-tu/ | 6 thẻ (= "6 chủ đầu tư" ở Giới thiệu), 0 nhãn lặp – 5/5 | ĐẠT | `2-10-chu-dau-tu` |
+| 2.11 | TGC, MPP, dòng, dự án độc lập | câu vai trò cuối khối 14 px, Zalo nút viền, giá trị nhiều dòng căn trái – 20/20 | ĐẠT | `2-11-*` |
+| 2.12 | TGC, MPP | tên cột ≤ 2 dòng, 0 cột lặp, 0 cột rỗng, "Xem phân khu →" 0 < 44 px – 10/10 (MPP: sửa trong vòng kiểm chứng – cột "trang này" bị lặp, tên 3 dòng) | ĐẠT | `2-12-so-sanh-*` |
+| 2.13 | Tuyển dụng | breadcrumb "Tuyển dụng"; H1 không đuôi – 5/5 | ĐẠT | `2-13-tuyen-dung-*` |
+| 2.14 | 404 | cùng hàng (M1–M4), M5 nút dưới rộng hết; nhãn cách 24 px – 5/5 | ĐẠT | `2-14-404-*` |
+| 2.15 | trang chủ, /blog/, /du-an/, TGC | vùng bấm < 44 px ngoài đoạn văn: **0** – 20/20 | ĐẠT | `2-15-*` |
+| 2.16 | TGC, trang chủ (M5) | 1 hàng, 0 mục xuống dòng, cuộn ngang, mục chọn trong khung – 2/2 | ĐẠT | `2-16-*` |
+
+Ảnh cận khối "Velis tư vấn" có câu vai trò: `sau/2-11-cau-vai-tro-{tgc,mpp,dong}-{M1,M5}.jpg` (The Global City: "…chủ đầu
+tư dự án là Masterise Homes."; Nhà phố Spring Ville: "…là Gamuda Land.").
+
+| Bộ đo | Kết quả | File |
+|---|---|---|
+| Bộ NT (`check_ui --suite`, 30 trang chuẩn × DPR 1 / 1,25 / 2 × M1–M5) | @@NT@@ | `kiem-tra/suite/bang.md` |
+| check_ui 7 khung (360 · 390 · 430 · 768 · 1024 · 1366 · 1920), 30 trang | **0 lỗi / 210 dòng** (lượt giữa vòng: Spring Ville tràn ngang 360 / 390 vì nút dài trong nội dung – đã sửa) | `kiem-tra/check-ui.md` |
+| Thang chữ 1.3 + khoảng cách 1.2 + dòng ≤ 68 ký tự (`mockup_scale --staging`), 30 trang + 404 × 5 màn | **0 ngoại lệ** (lượt đầu: 226 – đoạn văn 69–74 ký tự ở cột 640 px, ghi chú 14 px 78–95 ký tự → cột 576 px + đệm trong; 1 ô cột phải trang tác giả 1920 px → chia đều dòng) | `kiem-tra/thang-staging.md` |
+| Đo máy 2.1–2.16 (`tools/check_b3r2.mjs`) | **268/268 đạt** | `kiem-tra/do-may.md` |
+| Tương tác – 24 của mockup trên staging | **24/24** | `kiem-tra/tuong-tac-mockup-24.txt` |
+| Tương tác – bộ cũ (`tools/interactions.mjs`, 31 mục gồm 5 mục menu thả xuống: rê chuột, bấm, bàn phím, mobile) | **31/31** (lượt giữa vòng: NT-53 bảng so sánh cuộn ngang 618/576 px – đã sửa) | `kiem-tra/tuong-tac-31.txt` |
+| Gửi form | **không gửi** – trường ẩn kiểm bằng chặn yêu cầu CF7 trong trình duyệt | – |
+| So mockup (`tools/compare_mockup.mjs`, hộp ≤ 2 px) | trang chủ 25/25 ở M1–M5; Masteri Park Place 20/20 (M1–M3), 19/19 (M4–M5) – **cột phải có câu vai trò khớp mockup**; The Global City 34/35 (M1–M4): hộp hỏi đáp +77 px, M5 thêm 3 thẻ phân khu ±25–50 px – nội dung staging dài/ngắn hơn bản trích của mockup, không phải bố cục | `so-mockup/so-hop.md`, ảnh cạnh nhau `so-mockup/*-mockup-staging-1536.jpg` |
+| On-page (crawl toàn site từ trang chủ, loại 7 ứng dụng) | **173 trang, 0 lỗi, 0 link nội bộ hỏng**, 0 link tới URL cũ đã chuyển hướng | `kiem-tra/onpage/` |
+| Schema (30 trang) | **0 lỗi, 0 cảnh báo** | `kiem-tra/schema.md` |
+| Lighthouse mobile (tham khảo – LCP đo lại ngày ra mắt) | hiệu năng 95 · 99 · 99 · 98 (trang chủ, The Global City, bài viết, /du-an/); LCP 2,5 · 2,1 · 2,0 · 2,3 s | `kiem-tra/lighthouse.txt` |
+| CSS | 35,5 KB min / 7,6 KB gzip (≤ 45 / 12) | `tools/build_css.py` |
+
+Sửa thêm trong lúc kiểm chứng (6 lần tải theme 1.0.0, ghi ở STAGING-LOG):
+- **2.1:** cột đọc 640 → **576 px**. Đo thật ở 640 px đoạn văn còn 69–74 ký tự/dòng. Ghi chú 14 px (nguồn, lưu ý) giữ nguyên mép cột, chữ được giữ ≤ 68 ký tự bằng đệm trong 64 px.
+- **2.9:** logo trong thẻ /chu-dau-tu/ căn giữa khung.
+- **2.12:** bảng so sánh Masteri Park Place lặp cột "trang này"; tên phân khu 3 dòng. Đã dọn trùng; cột "Tiêu chí" co theo nhãn, ô đệm ngang 8 px (bảng 4 cột vừa 576 px, không cuộn – NT-53).
+- **Nút trong nội dung:** chữ dài xuống dòng trên điện thoại (Spring Ville tràn ngang).
+- **Ảnh mặt bằng The Privé:** file gốc không giải mã được (19976–19978) không còn vào srcset; bản 1024 px là bản lớn nhất (trước đó NT-20 báo 9 ảnh hỏng ở DPR 2).
+- **Cột phải rộng (≥ 1600 px):** giá trị nhiều dòng chia đều dòng.
+
+### 5.4 Còn lại cho người dùng
+
+- **Header mockup** chưa có menu thả xuống. Theme đã dựng lại theo quyết định; mockup chỉ còn là chuẩn thị giác cho phần dưới header.
+- **Logo chủ đầu tư:** staging chưa có logo trong Media. Danh sách /chu-dau-tu/ và trang chủ dùng 4 logo đã làm sạch đóng gói trong theme; chủ đầu tư khác hiện khung tên. Tải logo vào Media (ô "Logo" của chủ đầu tư) thì theme dùng ngay.
+- **Ảnh hero:** /du-an/ đổi sang The Global City (20092), cùng nguồn với thẻ The Global City trong lưới bên dưới. Ảnh không trùng giữa 3 trang như yêu cầu, nhưng nếu muốn khác cả ảnh thẻ thì cần một phối cảnh khác.
+- **Tên khu vực:** tab trang chủ nay là "Vùng vệ tinh" (tên khu vực cha trong dữ liệu); thẻ Spring Ville vẫn ghi tiểu khu "Nhơn Trạch – Long Thành". Muốn đổi tên hiển thị thì đổi tên mục khu vực trong wp-admin.
+- **3 mặt bằng The Privé:** file gốc hỏng, cần tải lại bản gốc sạch (đã ở `docs/ANH-CAN-THAY.md` / KIEM-KE-ANH).
+
 ---
-Đã bỏ qua / chưa kiểm tra: không gửi thử form thật trong vòng này (staging đã có 1 lần gửi trong ngày); Safari / iPhone thật
-chưa thử; Lighthouse đo trên staging tắt cache.
-Rủi ro: LCP trang chủ 2,5–2,7 s (> 2,5) do TTFB staging; các mục ở phần 4 (dải M4, chức năng đã bỏ, kiểu mới, câu chờ duyệt)
-cần người dùng chọn trước bước 4.
+Đã bỏ qua / chưa kiểm tra: không gửi form (theo yêu cầu vòng sửa); Safari / iPhone thật chưa thử; LCP chỉ tham khảo trên staging tắt cache (đo lại ngày ra mắt với LiteSpeed).
+Rủi ro: cột đọc hẹp lại 576 px (vì quy tắc ≤ 68 ký tự) nên trang văn bản dài hơn; 3 mặt bằng The Privé hiển thị bản 1024 px tới khi có file gốc sạch.

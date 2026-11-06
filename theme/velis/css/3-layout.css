@@ -19,6 +19,8 @@
 	.page__main { max-width: var(--read); }
 	.page__main .prose, .wrap--read .prose { font-size: var(--fs-lead); line-height: 1.6; }
 	.page__main .prose table, .wrap--read .prose table { font-size: var(--fs-body); }
+	/* 14 px notes keep the column edges; the text is held to ≤ 68 characters by inner padding, not by a narrower box */
+	.page__main :is(.source, .disclosure), .wrap--read :is(.source, .disclosure) { padding-inline: var(--s16); }
 }
 @media (min-width: 1024px) {
 	.page { display: grid; grid-template-columns: minmax(0, var(--read)) minmax(var(--side), 1fr); gap: var(--s12); align-items: start; }

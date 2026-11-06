@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Width of the main column of a 2-column page (content wrap − 340 px side column − 48 px gap); phones: wrap − gutters.
-const VELIS_SIZES_MAIN = '(min-width: 768px) 640px, calc(100vw - 32px)'; // main column = --read (vòng sửa 2.1)
+const VELIS_SIZES_MAIN = '(min-width: 768px) 576px, calc(100vw - 32px)'; // main column = --read (vòng sửa 2.1)
 const VELIS_SIZES_CARD = '(min-width: 1600px) 424px, (min-width: 1024px) 384px, (min-width: 768px) calc(50vw - 36px), calc(100vw - 32px)'; // 3 cards in the frame: (1320 | 1200 − 2 × 24) / 3
 const VELIS_SIZES_HERO_B = '(min-width: 1600px) 1320px, (min-width: 1248px) 1200px, (min-width: 768px) calc(100vw - 48px), calc(100vw - 32px)'; // = .wrap (NT-17)
 const VELIS_CEO = array( 'name' => 'Vũ Xuân', 'role' => 'CEO Velis Realty', 'img' => 'assets/brand/ceo-vu-xuan-160.webp' );

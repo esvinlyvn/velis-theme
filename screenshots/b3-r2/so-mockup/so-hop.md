@@ -9,15 +9,15 @@ Cặp hộp thứ n của cùng selector; đạt khi lệch x, rộng, cao ≤ 2
 | trang-chu | M3 | 25/25 | – |
 | trang-chu | M4 | 25/25 | – |
 | trang-chu | M5 | 25/25 | – |
-| the-global-city A | M1 | 32/35 | .card[2] x0 w0 h24.8; .card[3] x0 w0 h24.8; .faq[0] x0 w0 h40.8 |
-| the-global-city A | M2 | 32/35 | .card[2] x0 w0 h24.8; .card[3] x0 w0 h24.8; .faq[0] x0 w0 h40.8 |
-| the-global-city A | M3 | 32/35 | .card[2] x0 w0 h24.8; .card[3] x0 w0 h24.8; .faq[0] x0 w0 h40.8 |
-| the-global-city A | M4 | 31/34 | .card[2] x0 w0 h24.8; .card[3] x0 w0 h24.8; .faq[0] x0 w0 h40.8 |
+| the-global-city A | M1 | 34/35 | .faq[0] x0 w0 h77 |
+| the-global-city A | M2 | 34/35 | .faq[0] x0 w0 h77 |
+| the-global-city A | M3 | 34/35 | .faq[0] x0 w0 h77 |
+| the-global-city A | M4 | 33/34 | .faq[0] x0 w0 h77 |
 | the-global-city A | M5 | 30/34 | .card[1] x0 w0 h49.6; .card[2] x0 w0 h-49.6; .card[3] x0 w0 h24.8; .faq[0] x0 w0 h-6 |
-| the-global-city B | M1 | 32/35 | .card[2] x0 w0 h24.8; .card[3] x0 w0 h24.8; .faq[0] x0 w0 h40.8 |
-| the-global-city B | M2 | 32/35 | .card[2] x0 w0 h24.8; .card[3] x0 w0 h24.8; .faq[0] x0 w0 h40.8 |
-| the-global-city B | M3 | 32/35 | .card[2] x0 w0 h24.8; .card[3] x0 w0 h24.8; .faq[0] x0 w0 h40.8 |
-| the-global-city B | M4 | 31/34 | .card[2] x0 w0 h24.8; .card[3] x0 w0 h24.8; .faq[0] x0 w0 h40.8 |
+| the-global-city B | M1 | 34/35 | .faq[0] x0 w0 h77 |
+| the-global-city B | M2 | 34/35 | .faq[0] x0 w0 h77 |
+| the-global-city B | M3 | 34/35 | .faq[0] x0 w0 h77 |
+| the-global-city B | M4 | 33/34 | .faq[0] x0 w0 h77 |
 | the-global-city B | M5 | 30/34 | .card[1] x0 w0 h49.6; .card[2] x0 w0 h-49.6; .card[3] x0 w0 h24.8; .faq[0] x0 w0 h-6 |
 | masteri-park-place A | M1 | 20/20 | – |
 | masteri-park-place A | M2 | 20/20 | – |

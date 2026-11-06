@@ -96,15 +96,16 @@ const CHECKS = [
 		const okM = multi.every((d) => getComputedStyle(d).textAlign !== 'right' && getComputedStyle(d).textAlign !== 'end');
 		return { v: `${role ? '"' + role.textContent.trim().slice(-30) + '"' : 'không có câu'}; Zalo ${zalo?.className || '–'}; ${multi.length} giá trị nhiều dòng`, ok: !!(okRole && okZ && okM) };
 	}],
-	['2.12', 'bảng so sánh: tên cột ≤ 2 dòng; cột toàn "Chưa công bố"; link "Xem phân khu →" ≥ 44 px', [TGC], () => {
+	['2.12', 'bảng so sánh: tên cột ≤ 2 dòng; cột toàn "Chưa công bố"; link "Xem phân khu →" ≥ 44 px; không lặp cột', [TGC, MPP], () => {
 		const t = document.querySelector('#so-sanh table'); if (!t) return null;
 		const ths = [...t.querySelectorAll('thead th')].slice(1);
 		const lines = ths.map((th) => { const r = document.createRange(); r.selectNodeContents(th); return new Set([...r.getClientRects()].map((x) => Math.round(x.top))).size; });
 		const rows = [...t.querySelectorAll('tbody tr')].filter((r) => !r.querySelector('a'));
+		const names = ths.map((th) => th.childNodes[0]?.textContent.trim()), dup = names.length - new Set(names).size;
 		const empty = ths.filter((_, i) => rows.length && rows.every((r) => /Chưa công bố/.test(r.children[i + 1]?.textContent || ''))).length;
 		const vis = (a) => [...a.childNodes].filter((n) => !(n.nodeType === 1 && n.matches('.sr-only'))).map((n) => n.textContent).join('').trim(); // text a sighted reader sees
 		const links = [...t.querySelectorAll('a')], small = links.filter((a) => a.getBoundingClientRect().height < 44).length;
-		return { v: `dòng tên cột tối đa ${Math.max(...lines)}; ${empty} cột rỗng; ${links.length} link "${links[0] ? vis(links[0]) : ''}", ${small} < 44 px`, ok: Math.max(...lines) <= 2 && !empty && !small && links.every((a) => /^Xem (phân khu|dự án|dòng sản phẩm) →$/.test(vis(a))) };
+		return { v: `dòng tên cột tối đa ${Math.max(...lines)}; ${dup} cột lặp; ${empty} cột rỗng; ${links.length} link "${links[0] ? vis(links[0]) : ''}", ${small} < 44 px`, ok: Math.max(...lines) <= 2 && !dup && !empty && !small && links.every((a) => /^Xem (phân khu|dự án|dòng sản phẩm) →$/.test(vis(a))) };
 	}],
 	['2.13', 'Tuyển dụng: mục cuối breadcrumb; H1', ['/tuyen-dung/'], () => {
 		const last = [...document.querySelectorAll('.crumbs li')].pop()?.textContent.trim(), h1 = document.querySelector('h1')?.textContent.trim();

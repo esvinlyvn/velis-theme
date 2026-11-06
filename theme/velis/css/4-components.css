@@ -229,6 +229,8 @@ a.chip { display: inline-flex; align-items: center; color: inherit; text-decorat
 .prose blockquote { margin: var(--s6) 0; padding: var(--s4) var(--s6); background: var(--sunken); border-left: 2px solid var(--gold); }
 .prose blockquote p:last-child, .prose blockquote cite { margin-bottom: 0; }
 .prose .wp-block-buttons { display: flex; flex-wrap: wrap; gap: var(--s4); margin-bottom: var(--s4); }
+.prose .wp-block-button { max-width: 100%; }
+.prose .wp-block-button .btn { max-width: 100%; padding-block: var(--s2); white-space: normal; text-align: center; } /* long button text in content wraps instead of spilling past a phone screen */
 .prose details { border-bottom: 1px solid var(--line); margin: 0; }
 .prose summary { min-height: 56px; padding-block: var(--s4); font-weight: 600; }
 .prose .wp-block-embed { margin: var(--s6) 0; }
@@ -241,9 +243,11 @@ a.chip { display: inline-flex; align-items: center; color: inherit; text-decorat
 
 /* tables */
 .table-wrap { position: relative; overflow-x: auto; } /* contains the absolute .sr-only labels, else they widen the page */
-.table-wrap table { min-width: 640px; }
+.table-wrap table { min-width: var(--read); }
 .table-wrap th[scope="row"] { white-space: nowrap; }
 .table-wrap thead th { min-width: 9em; } /* 2.12: column names ≤ 2 lines */
+.table-wrap thead th:first-child { min-width: 0; } /* the "Tiêu chí" column holds short row labels; its width goes to the record names */
+.table-wrap :is(th, td) { padding-inline: var(--s2); } /* 4 columns fit the 576 px reading column without sideways scroll (NT-53) */
 .table-wrap .btn--text { white-space: nowrap; }
 .is-current { background: var(--sunken); }
 
@@ -354,7 +358,7 @@ img.is-marked { transform: scale(var(--zoom, 1.15)); transform-origin: 100% 0; }
 .pricecard__title { font: 600 var(--fs-h3)/1.3 var(--f-head); }
 .advisor dl { display: grid; gap: var(--s2); font-size: var(--fs-card); line-height: 1.55; }
 .advisor dl div { display: flex; flex-wrap: wrap; justify-content: space-between; column-gap: var(--s4); border-bottom: 1px solid var(--line); padding-bottom: var(--s2); }
-.advisor dd { flex-shrink: 0; max-width: 100%; margin-left: auto; font-weight: 600; } /* 2.11: a value longer than the row wraps under its label, left-aligned */
+.advisor dd { flex-shrink: 0; max-width: 100%; margin-left: auto; font-weight: 600; text-wrap: balance; } /* 2.11: a value longer than the row wraps under its label, left-aligned; balanced lines stay ≤ 68 characters in a wide side column (1.6) */
 .advisor .btn { width: 100%; }
 .advisor-inline { margin-bottom: var(--s4); } /* 2.2: ≤ 96 px to the first block */
 @media (min-width: 1024px) { .advisor-inline { display: none; } }

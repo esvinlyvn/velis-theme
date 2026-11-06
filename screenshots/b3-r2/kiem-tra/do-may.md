@@ -11,7 +11,7 @@ Mỗi dòng = mục × trang × màn. Ảnh hero: /gioi-thieu/ → `vp-velis-rea
 | 2.4 | vùng "Đọc tiếp" (≤ 1); tiêu đề trong vùng mờ không mờ | /du-an/the-global-city/ | M1 | 1 vùng, 0 tiêu đề mờ | ĐẠT |
 | 2.5 | thẻ có ảnh xếp trước thẻ khung tên (lưới sai thứ tự) | /du-an/the-global-city/ | M1 | 0/3 lưới | ĐẠT |
 | 2.11 | câu vai trò (14 px, cuối khối); Zalo nút viền; giá trị nhiều dòng căn trái | /du-an/the-global-city/ | M1 | "u tư dự án là Masterise Homes."; Zalo btn btn--line; 0 giá trị nhiều dòng | ĐẠT |
-| 2.12 | bảng so sánh: tên cột ≤ 2 dòng; cột toàn "Chưa công bố"; link "Xem phân khu →" ≥ 44 px | /du-an/the-global-city/ | M1 | dòng tên cột tối đa 1; 0 cột rỗng; 3 link "Xem phân khu →", 0 < 44 px | ĐẠT |
+| 2.12 | bảng so sánh: tên cột ≤ 2 dòng; cột toàn "Chưa công bố"; link "Xem phân khu →" ≥ 44 px; không lặp cột | /du-an/the-global-city/ | M1 | dòng tên cột tối đa 1; 0 cột lặp; 0 cột rỗng; 3 link "Xem phân khu →", 0 < 44 px | ĐẠT |
 | 2.15 | vùng bấm ngoài đoạn văn < 44 px (số chỗ) | /du-an/the-global-city/ | M1 | 0 | ĐẠT |
 | 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/the-global-city/masteri-park-place/ | M1 | 0.0 / 10 phần tử | ĐẠT |
 | 2.1 | khe cột chính ↔ cột phải (px) | /du-an/the-global-city/masteri-park-place/ | M1 | 48 | ĐẠT |
@@ -19,13 +19,14 @@ Mỗi dòng = mục × trang × màn. Ảnh hero: /gioi-thieu/ → `vp-velis-rea
 | 2.3 | cỡ tiêu đề khối > H2 nội dung > H3 (px) | /du-an/the-global-city/masteri-park-place/ | M1 | 40 > – ≥ – | ĐẠT |
 | 2.4 | vùng "Đọc tiếp" (≤ 1); tiêu đề trong vùng mờ không mờ | /du-an/the-global-city/masteri-park-place/ | M1 | 0 vùng, 0 tiêu đề mờ | ĐẠT |
 | 2.11 | câu vai trò (14 px, cuối khối); Zalo nút viền; giá trị nhiều dòng căn trái | /du-an/the-global-city/masteri-park-place/ | M1 | "u tư dự án là Masterise Homes."; Zalo btn btn--line; 0 giá trị nhiều dòng | ĐẠT |
+| 2.12 | bảng so sánh: tên cột ≤ 2 dòng; cột toàn "Chưa công bố"; link "Xem phân khu →" ≥ 44 px; không lặp cột | /du-an/the-global-city/masteri-park-place/ | M1 | dòng tên cột tối đa 2; 0 cột lặp; 0 cột rỗng; 2 link "Xem phân khu →", 0 < 44 px | ĐẠT |
 | 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/spring-ville/nha-pho/ | M1 | 0.0 / 7 phần tử | ĐẠT |
 | 2.1 | khe cột chính ↔ cột phải (px) | /du-an/spring-ville/nha-pho/ | M1 | 48 | ĐẠT |
 | 2.2 | khe dọc giữa 2 khối > 96 px (số chỗ) | /du-an/spring-ville/nha-pho/ | M1 | 0 | ĐẠT |
 | 2.3 | cỡ tiêu đề khối > H2 nội dung > H3 (px) | /du-an/spring-ville/nha-pho/ | M1 | 40 > – ≥ – | ĐẠT |
 | 2.4 | vùng "Đọc tiếp" (≤ 1); tiêu đề trong vùng mờ không mờ | /du-an/spring-ville/nha-pho/ | M1 | 0 vùng, 0 tiêu đề mờ | ĐẠT |
 | 2.11 | câu vai trò (14 px, cuối khối); Zalo nút viền; giá trị nhiều dòng căn trái | /du-an/spring-ville/nha-pho/ | M1 | "ủ đầu tư dự án là Gamuda Land."; Zalo btn btn--line; 0 giá trị nhiều dòng | ĐẠT |
-| 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/the-prive/ | M1 | 0.0 / 110 phần tử | ĐẠT |
+| 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/the-prive/ | M1 | 0.0 / 108 phần tử | ĐẠT |
 | 2.1 | khe cột chính ↔ cột phải (px) | /du-an/the-prive/ | M1 | 48 | ĐẠT |
 | 2.2 | khe dọc giữa 2 khối > 96 px (số chỗ) | /du-an/the-prive/ | M1 | 0 | ĐẠT |
 | 2.3 | cỡ tiêu đề khối > H2 nội dung > H3 (px) | /du-an/the-prive/ | M1 | 40 > 22 ≥ 22 | ĐẠT |
@@ -58,7 +59,7 @@ Mỗi dòng = mục × trang × màn. Ảnh hero: /gioi-thieu/ → `vp-velis-rea
 | 2.10 | /chu-dau-tu/: số thẻ; nhãn "Chủ đầu tư" lặp | /chu-dau-tu/ | M1 | 6 thẻ, 0 nhãn lặp | ĐẠT |
 | 2.2 | khe dọc giữa 2 khối > 96 px (số chỗ) | /blog/ | M1 | 0 | ĐẠT |
 | 2.15 | vùng bấm ngoài đoạn văn < 44 px (số chỗ) | /blog/ | M1 | 0 | ĐẠT |
-| 2.14 | 404: ô tìm + nút cùng hàng (mobile: nút dưới, rộng hết); nhãn cách hàng nút | /khong-ton-tai-xyz/ | M1 | cùng hàng, nút 80/544 px; nhãn cách 24 px | ĐẠT |
+| 2.14 | 404: ô tìm + nút cùng hàng (mobile: nút dưới, rộng hết); nhãn cách hàng nút | /khong-ton-tai-xyz/ | M1 | cùng hàng, nút 80/480 px; nhãn cách 24 px | ĐẠT |
 | 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/the-global-city/ | M2 | 0.0 / 108 phần tử | ĐẠT |
 | 2.1 | khe cột chính ↔ cột phải (px) | /du-an/the-global-city/ | M2 | 48 | ĐẠT |
 | 2.2 | khe dọc giữa 2 khối > 96 px (số chỗ) | /du-an/the-global-city/ | M2 | 0 | ĐẠT |
@@ -66,7 +67,7 @@ Mỗi dòng = mục × trang × màn. Ảnh hero: /gioi-thieu/ → `vp-velis-rea
 | 2.4 | vùng "Đọc tiếp" (≤ 1); tiêu đề trong vùng mờ không mờ | /du-an/the-global-city/ | M2 | 1 vùng, 0 tiêu đề mờ | ĐẠT |
 | 2.5 | thẻ có ảnh xếp trước thẻ khung tên (lưới sai thứ tự) | /du-an/the-global-city/ | M2 | 0/3 lưới | ĐẠT |
 | 2.11 | câu vai trò (14 px, cuối khối); Zalo nút viền; giá trị nhiều dòng căn trái | /du-an/the-global-city/ | M2 | "u tư dự án là Masterise Homes."; Zalo btn btn--line; 0 giá trị nhiều dòng | ĐẠT |
-| 2.12 | bảng so sánh: tên cột ≤ 2 dòng; cột toàn "Chưa công bố"; link "Xem phân khu →" ≥ 44 px | /du-an/the-global-city/ | M2 | dòng tên cột tối đa 1; 0 cột rỗng; 3 link "Xem phân khu →", 0 < 44 px | ĐẠT |
+| 2.12 | bảng so sánh: tên cột ≤ 2 dòng; cột toàn "Chưa công bố"; link "Xem phân khu →" ≥ 44 px; không lặp cột | /du-an/the-global-city/ | M2 | dòng tên cột tối đa 1; 0 cột lặp; 0 cột rỗng; 3 link "Xem phân khu →", 0 < 44 px | ĐẠT |
 | 2.15 | vùng bấm ngoài đoạn văn < 44 px (số chỗ) | /du-an/the-global-city/ | M2 | 0 | ĐẠT |
 | 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/the-global-city/masteri-park-place/ | M2 | 0.0 / 10 phần tử | ĐẠT |
 | 2.1 | khe cột chính ↔ cột phải (px) | /du-an/the-global-city/masteri-park-place/ | M2 | 48 | ĐẠT |
@@ -74,13 +75,14 @@ Mỗi dòng = mục × trang × màn. Ảnh hero: /gioi-thieu/ → `vp-velis-rea
 | 2.3 | cỡ tiêu đề khối > H2 nội dung > H3 (px) | /du-an/the-global-city/masteri-park-place/ | M2 | 40 > – ≥ – | ĐẠT |
 | 2.4 | vùng "Đọc tiếp" (≤ 1); tiêu đề trong vùng mờ không mờ | /du-an/the-global-city/masteri-park-place/ | M2 | 0 vùng, 0 tiêu đề mờ | ĐẠT |
 | 2.11 | câu vai trò (14 px, cuối khối); Zalo nút viền; giá trị nhiều dòng căn trái | /du-an/the-global-city/masteri-park-place/ | M2 | "u tư dự án là Masterise Homes."; Zalo btn btn--line; 0 giá trị nhiều dòng | ĐẠT |
+| 2.12 | bảng so sánh: tên cột ≤ 2 dòng; cột toàn "Chưa công bố"; link "Xem phân khu →" ≥ 44 px; không lặp cột | /du-an/the-global-city/masteri-park-place/ | M2 | dòng tên cột tối đa 2; 0 cột lặp; 0 cột rỗng; 2 link "Xem phân khu →", 0 < 44 px | ĐẠT |
 | 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/spring-ville/nha-pho/ | M2 | 0.0 / 7 phần tử | ĐẠT |
 | 2.1 | khe cột chính ↔ cột phải (px) | /du-an/spring-ville/nha-pho/ | M2 | 48 | ĐẠT |
 | 2.2 | khe dọc giữa 2 khối > 96 px (số chỗ) | /du-an/spring-ville/nha-pho/ | M2 | 0 | ĐẠT |
 | 2.3 | cỡ tiêu đề khối > H2 nội dung > H3 (px) | /du-an/spring-ville/nha-pho/ | M2 | 40 > – ≥ – | ĐẠT |
 | 2.4 | vùng "Đọc tiếp" (≤ 1); tiêu đề trong vùng mờ không mờ | /du-an/spring-ville/nha-pho/ | M2 | 0 vùng, 0 tiêu đề mờ | ĐẠT |
 | 2.11 | câu vai trò (14 px, cuối khối); Zalo nút viền; giá trị nhiều dòng căn trái | /du-an/spring-ville/nha-pho/ | M2 | "ủ đầu tư dự án là Gamuda Land."; Zalo btn btn--line; 0 giá trị nhiều dòng | ĐẠT |
-| 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/the-prive/ | M2 | 0.0 / 110 phần tử | ĐẠT |
+| 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/the-prive/ | M2 | 0.0 / 108 phần tử | ĐẠT |
 | 2.1 | khe cột chính ↔ cột phải (px) | /du-an/the-prive/ | M2 | 48 | ĐẠT |
 | 2.2 | khe dọc giữa 2 khối > 96 px (số chỗ) | /du-an/the-prive/ | M2 | 0 | ĐẠT |
 | 2.3 | cỡ tiêu đề khối > H2 nội dung > H3 (px) | /du-an/the-prive/ | M2 | 40 > 22 ≥ 22 | ĐẠT |
@@ -113,7 +115,7 @@ Mỗi dòng = mục × trang × màn. Ảnh hero: /gioi-thieu/ → `vp-velis-rea
 | 2.10 | /chu-dau-tu/: số thẻ; nhãn "Chủ đầu tư" lặp | /chu-dau-tu/ | M2 | 6 thẻ, 0 nhãn lặp | ĐẠT |
 | 2.2 | khe dọc giữa 2 khối > 96 px (số chỗ) | /blog/ | M2 | 0 | ĐẠT |
 | 2.15 | vùng bấm ngoài đoạn văn < 44 px (số chỗ) | /blog/ | M2 | 0 | ĐẠT |
-| 2.14 | 404: ô tìm + nút cùng hàng (mobile: nút dưới, rộng hết); nhãn cách hàng nút | /khong-ton-tai-xyz/ | M2 | cùng hàng, nút 80/544 px; nhãn cách 24 px | ĐẠT |
+| 2.14 | 404: ô tìm + nút cùng hàng (mobile: nút dưới, rộng hết); nhãn cách hàng nút | /khong-ton-tai-xyz/ | M2 | cùng hàng, nút 80/480 px; nhãn cách 24 px | ĐẠT |
 | 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/the-global-city/ | M3 | 0.0 / 108 phần tử | ĐẠT |
 | 2.1 | khe cột chính ↔ cột phải (px) | /du-an/the-global-city/ | M3 | 48 | ĐẠT |
 | 2.2 | khe dọc giữa 2 khối > 96 px (số chỗ) | /du-an/the-global-city/ | M3 | 0 | ĐẠT |
@@ -121,7 +123,7 @@ Mỗi dòng = mục × trang × màn. Ảnh hero: /gioi-thieu/ → `vp-velis-rea
 | 2.4 | vùng "Đọc tiếp" (≤ 1); tiêu đề trong vùng mờ không mờ | /du-an/the-global-city/ | M3 | 1 vùng, 0 tiêu đề mờ | ĐẠT |
 | 2.5 | thẻ có ảnh xếp trước thẻ khung tên (lưới sai thứ tự) | /du-an/the-global-city/ | M3 | 0/3 lưới | ĐẠT |
 | 2.11 | câu vai trò (14 px, cuối khối); Zalo nút viền; giá trị nhiều dòng căn trái | /du-an/the-global-city/ | M3 | "u tư dự án là Masterise Homes."; Zalo btn btn--line; 0 giá trị nhiều dòng | ĐẠT |
-| 2.12 | bảng so sánh: tên cột ≤ 2 dòng; cột toàn "Chưa công bố"; link "Xem phân khu →" ≥ 44 px | /du-an/the-global-city/ | M3 | dòng tên cột tối đa 1; 0 cột rỗng; 3 link "Xem phân khu →", 0 < 44 px | ĐẠT |
+| 2.12 | bảng so sánh: tên cột ≤ 2 dòng; cột toàn "Chưa công bố"; link "Xem phân khu →" ≥ 44 px; không lặp cột | /du-an/the-global-city/ | M3 | dòng tên cột tối đa 1; 0 cột lặp; 0 cột rỗng; 3 link "Xem phân khu →", 0 < 44 px | ĐẠT |
 | 2.15 | vùng bấm ngoài đoạn văn < 44 px (số chỗ) | /du-an/the-global-city/ | M3 | 0 | ĐẠT |
 | 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/the-global-city/masteri-park-place/ | M3 | 0.0 / 10 phần tử | ĐẠT |
 | 2.1 | khe cột chính ↔ cột phải (px) | /du-an/the-global-city/masteri-park-place/ | M3 | 48 | ĐẠT |
@@ -129,13 +131,14 @@ Mỗi dòng = mục × trang × màn. Ảnh hero: /gioi-thieu/ → `vp-velis-rea
 | 2.3 | cỡ tiêu đề khối > H2 nội dung > H3 (px) | /du-an/the-global-city/masteri-park-place/ | M3 | 40 > – ≥ – | ĐẠT |
 | 2.4 | vùng "Đọc tiếp" (≤ 1); tiêu đề trong vùng mờ không mờ | /du-an/the-global-city/masteri-park-place/ | M3 | 0 vùng, 0 tiêu đề mờ | ĐẠT |
 | 2.11 | câu vai trò (14 px, cuối khối); Zalo nút viền; giá trị nhiều dòng căn trái | /du-an/the-global-city/masteri-park-place/ | M3 | "u tư dự án là Masterise Homes."; Zalo btn btn--line; 0 giá trị nhiều dòng | ĐẠT |
+| 2.12 | bảng so sánh: tên cột ≤ 2 dòng; cột toàn "Chưa công bố"; link "Xem phân khu →" ≥ 44 px; không lặp cột | /du-an/the-global-city/masteri-park-place/ | M3 | dòng tên cột tối đa 2; 0 cột lặp; 0 cột rỗng; 2 link "Xem phân khu →", 0 < 44 px | ĐẠT |
 | 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/spring-ville/nha-pho/ | M3 | 0.0 / 7 phần tử | ĐẠT |
 | 2.1 | khe cột chính ↔ cột phải (px) | /du-an/spring-ville/nha-pho/ | M3 | 48 | ĐẠT |
 | 2.2 | khe dọc giữa 2 khối > 96 px (số chỗ) | /du-an/spring-ville/nha-pho/ | M3 | 0 | ĐẠT |
 | 2.3 | cỡ tiêu đề khối > H2 nội dung > H3 (px) | /du-an/spring-ville/nha-pho/ | M3 | 40 > – ≥ – | ĐẠT |
 | 2.4 | vùng "Đọc tiếp" (≤ 1); tiêu đề trong vùng mờ không mờ | /du-an/spring-ville/nha-pho/ | M3 | 0 vùng, 0 tiêu đề mờ | ĐẠT |
 | 2.11 | câu vai trò (14 px, cuối khối); Zalo nút viền; giá trị nhiều dòng căn trái | /du-an/spring-ville/nha-pho/ | M3 | "ủ đầu tư dự án là Gamuda Land."; Zalo btn btn--line; 0 giá trị nhiều dòng | ĐẠT |
-| 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/the-prive/ | M3 | 0.0 / 110 phần tử | ĐẠT |
+| 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/the-prive/ | M3 | 0.0 / 108 phần tử | ĐẠT |
 | 2.1 | khe cột chính ↔ cột phải (px) | /du-an/the-prive/ | M3 | 48 | ĐẠT |
 | 2.2 | khe dọc giữa 2 khối > 96 px (số chỗ) | /du-an/the-prive/ | M3 | 0 | ĐẠT |
 | 2.3 | cỡ tiêu đề khối > H2 nội dung > H3 (px) | /du-an/the-prive/ | M3 | 40 > 22 ≥ 22 | ĐẠT |
@@ -168,26 +171,27 @@ Mỗi dòng = mục × trang × màn. Ảnh hero: /gioi-thieu/ → `vp-velis-rea
 | 2.10 | /chu-dau-tu/: số thẻ; nhãn "Chủ đầu tư" lặp | /chu-dau-tu/ | M3 | 6 thẻ, 0 nhãn lặp | ĐẠT |
 | 2.2 | khe dọc giữa 2 khối > 96 px (số chỗ) | /blog/ | M3 | 0 | ĐẠT |
 | 2.15 | vùng bấm ngoài đoạn văn < 44 px (số chỗ) | /blog/ | M3 | 0 | ĐẠT |
-| 2.14 | 404: ô tìm + nút cùng hàng (mobile: nút dưới, rộng hết); nhãn cách hàng nút | /khong-ton-tai-xyz/ | M3 | cùng hàng, nút 80/544 px; nhãn cách 24 px | ĐẠT |
+| 2.14 | 404: ô tìm + nút cùng hàng (mobile: nút dưới, rộng hết); nhãn cách hàng nút | /khong-ton-tai-xyz/ | M3 | cùng hàng, nút 80/480 px; nhãn cách 24 px | ĐẠT |
 | 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/the-global-city/ | M4 | 0.0 / 108 phần tử | ĐẠT |
 | 2.2 | khe dọc giữa 2 khối > 96 px (số chỗ) | /du-an/the-global-city/ | M4 | 0 | ĐẠT |
 | 2.3 | cỡ tiêu đề khối > H2 nội dung > H3 (px) | /du-an/the-global-city/ | M4 | 28 > 19 ≥ 19 | ĐẠT |
 | 2.4 | vùng "Đọc tiếp" (≤ 1); tiêu đề trong vùng mờ không mờ | /du-an/the-global-city/ | M4 | 1 vùng, 0 tiêu đề mờ | ĐẠT |
 | 2.5 | thẻ có ảnh xếp trước thẻ khung tên (lưới sai thứ tự) | /du-an/the-global-city/ | M4 | 0/3 lưới | ĐẠT |
 | 2.11 | câu vai trò (14 px, cuối khối); Zalo nút viền; giá trị nhiều dòng căn trái | /du-an/the-global-city/ | M4 | "u tư dự án là Masterise Homes."; Zalo btn btn--line; 0 giá trị nhiều dòng | ĐẠT |
-| 2.12 | bảng so sánh: tên cột ≤ 2 dòng; cột toàn "Chưa công bố"; link "Xem phân khu →" ≥ 44 px | /du-an/the-global-city/ | M4 | dòng tên cột tối đa 1; 0 cột rỗng; 3 link "Xem phân khu →", 0 < 44 px | ĐẠT |
+| 2.12 | bảng so sánh: tên cột ≤ 2 dòng; cột toàn "Chưa công bố"; link "Xem phân khu →" ≥ 44 px; không lặp cột | /du-an/the-global-city/ | M4 | dòng tên cột tối đa 1; 0 cột lặp; 0 cột rỗng; 3 link "Xem phân khu →", 0 < 44 px | ĐẠT |
 | 2.15 | vùng bấm ngoài đoạn văn < 44 px (số chỗ) | /du-an/the-global-city/ | M4 | 0 | ĐẠT |
 | 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/the-global-city/masteri-park-place/ | M4 | 0.0 / 10 phần tử | ĐẠT |
 | 2.2 | khe dọc giữa 2 khối > 96 px (số chỗ) | /du-an/the-global-city/masteri-park-place/ | M4 | 0 | ĐẠT |
 | 2.3 | cỡ tiêu đề khối > H2 nội dung > H3 (px) | /du-an/the-global-city/masteri-park-place/ | M4 | 28 > – ≥ – | ĐẠT |
 | 2.4 | vùng "Đọc tiếp" (≤ 1); tiêu đề trong vùng mờ không mờ | /du-an/the-global-city/masteri-park-place/ | M4 | 0 vùng, 0 tiêu đề mờ | ĐẠT |
 | 2.11 | câu vai trò (14 px, cuối khối); Zalo nút viền; giá trị nhiều dòng căn trái | /du-an/the-global-city/masteri-park-place/ | M4 | "u tư dự án là Masterise Homes."; Zalo btn btn--line; 0 giá trị nhiều dòng | ĐẠT |
+| 2.12 | bảng so sánh: tên cột ≤ 2 dòng; cột toàn "Chưa công bố"; link "Xem phân khu →" ≥ 44 px; không lặp cột | /du-an/the-global-city/masteri-park-place/ | M4 | dòng tên cột tối đa 2; 0 cột lặp; 0 cột rỗng; 2 link "Xem phân khu →", 0 < 44 px | ĐẠT |
 | 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/spring-ville/nha-pho/ | M4 | 0.0 / 7 phần tử | ĐẠT |
 | 2.2 | khe dọc giữa 2 khối > 96 px (số chỗ) | /du-an/spring-ville/nha-pho/ | M4 | 0 | ĐẠT |
 | 2.3 | cỡ tiêu đề khối > H2 nội dung > H3 (px) | /du-an/spring-ville/nha-pho/ | M4 | 28 > – ≥ – | ĐẠT |
 | 2.4 | vùng "Đọc tiếp" (≤ 1); tiêu đề trong vùng mờ không mờ | /du-an/spring-ville/nha-pho/ | M4 | 0 vùng, 0 tiêu đề mờ | ĐẠT |
 | 2.11 | câu vai trò (14 px, cuối khối); Zalo nút viền; giá trị nhiều dòng căn trái | /du-an/spring-ville/nha-pho/ | M4 | "ủ đầu tư dự án là Gamuda Land."; Zalo btn btn--line; 0 giá trị nhiều dòng | ĐẠT |
-| 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/the-prive/ | M4 | 0.0 / 110 phần tử | ĐẠT |
+| 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/the-prive/ | M4 | 0.0 / 108 phần tử | ĐẠT |
 | 2.2 | khe dọc giữa 2 khối > 96 px (số chỗ) | /du-an/the-prive/ | M4 | 0 | ĐẠT |
 | 2.3 | cỡ tiêu đề khối > H2 nội dung > H3 (px) | /du-an/the-prive/ | M4 | 28 > 19 ≥ 19 | ĐẠT |
 | 2.4 | vùng "Đọc tiếp" (≤ 1); tiêu đề trong vùng mờ không mờ | /du-an/the-prive/ | M4 | 1 vùng, 0 tiêu đề mờ | ĐẠT |
@@ -216,14 +220,14 @@ Mỗi dòng = mục × trang × màn. Ảnh hero: /gioi-thieu/ → `vp-velis-rea
 | 2.10 | /chu-dau-tu/: số thẻ; nhãn "Chủ đầu tư" lặp | /chu-dau-tu/ | M4 | 6 thẻ, 0 nhãn lặp | ĐẠT |
 | 2.2 | khe dọc giữa 2 khối > 96 px (số chỗ) | /blog/ | M4 | 0 | ĐẠT |
 | 2.15 | vùng bấm ngoài đoạn văn < 44 px (số chỗ) | /blog/ | M4 | 0 | ĐẠT |
-| 2.14 | 404: ô tìm + nút cùng hàng (mobile: nút dưới, rộng hết); nhãn cách hàng nút | /khong-ton-tai-xyz/ | M4 | cùng hàng, nút 80/544 px; nhãn cách 24 px | ĐẠT |
+| 2.14 | 404: ô tìm + nút cùng hàng (mobile: nút dưới, rộng hết); nhãn cách hàng nút | /khong-ton-tai-xyz/ | M4 | cùng hàng, nút 80/480 px; nhãn cách 24 px | ĐẠT |
 | 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/the-global-city/ | M5 | 0.0 / 107 phần tử | ĐẠT |
 | 2.2 | khe dọc giữa 2 khối > 96 px (số chỗ) | /du-an/the-global-city/ | M5 | 0 | ĐẠT |
 | 2.3 | cỡ tiêu đề khối > H2 nội dung > H3 (px) | /du-an/the-global-city/ | M5 | 28 > 19 ≥ 19 | ĐẠT |
 | 2.4 | vùng "Đọc tiếp" (≤ 1); tiêu đề trong vùng mờ không mờ | /du-an/the-global-city/ | M5 | 1 vùng, 0 tiêu đề mờ | ĐẠT |
 | 2.5 | thẻ có ảnh xếp trước thẻ khung tên (lưới sai thứ tự) | /du-an/the-global-city/ | M5 | 0/3 lưới | ĐẠT |
 | 2.11 | câu vai trò (14 px, cuối khối); Zalo nút viền; giá trị nhiều dòng căn trái | /du-an/the-global-city/ | M5 | "u tư dự án là Masterise Homes."; Zalo btn btn--line; 1 giá trị nhiều dòng | ĐẠT |
-| 2.12 | bảng so sánh: tên cột ≤ 2 dòng; cột toàn "Chưa công bố"; link "Xem phân khu →" ≥ 44 px | /du-an/the-global-city/ | M5 | dòng tên cột tối đa 1; 0 cột rỗng; 3 link "Xem phân khu →", 0 < 44 px | ĐẠT |
+| 2.12 | bảng so sánh: tên cột ≤ 2 dòng; cột toàn "Chưa công bố"; link "Xem phân khu →" ≥ 44 px; không lặp cột | /du-an/the-global-city/ | M5 | dòng tên cột tối đa 1; 0 cột lặp; 0 cột rỗng; 3 link "Xem phân khu →", 0 < 44 px | ĐẠT |
 | 2.15 | vùng bấm ngoài đoạn văn < 44 px (số chỗ) | /du-an/the-global-city/ | M5 | 0 | ĐẠT |
 | 2.16 | mobile: tab dự án cuộn ngang, không cắt chữ, mục chọn trong khung; tab khu vực 1 hàng | /du-an/the-global-city/ | M5 | 1 hàng, 0 mục xuống dòng, overflow-x auto, mục chọn trong khung | ĐẠT |
 | 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/the-global-city/masteri-park-place/ | M5 | 0.0 / 10 phần tử | ĐẠT |
@@ -231,6 +235,7 @@ Mỗi dòng = mục × trang × màn. Ảnh hero: /gioi-thieu/ → `vp-velis-rea
 | 2.3 | cỡ tiêu đề khối > H2 nội dung > H3 (px) | /du-an/the-global-city/masteri-park-place/ | M5 | 28 > – ≥ – | ĐẠT |
 | 2.4 | vùng "Đọc tiếp" (≤ 1); tiêu đề trong vùng mờ không mờ | /du-an/the-global-city/masteri-park-place/ | M5 | 0 vùng, 0 tiêu đề mờ | ĐẠT |
 | 2.11 | câu vai trò (14 px, cuối khối); Zalo nút viền; giá trị nhiều dòng căn trái | /du-an/the-global-city/masteri-park-place/ | M5 | "u tư dự án là Masterise Homes."; Zalo btn btn--line; 0 giá trị nhiều dòng | ĐẠT |
+| 2.12 | bảng so sánh: tên cột ≤ 2 dòng; cột toàn "Chưa công bố"; link "Xem phân khu →" ≥ 44 px; không lặp cột | /du-an/the-global-city/masteri-park-place/ | M5 | dòng tên cột tối đa 2; 0 cột lặp; 0 cột rỗng; 2 link "Xem phân khu →", 0 < 44 px | ĐẠT |
 | 2.1 | mép trái/phải cột chính (lệch tối đa, px) | /du-an/spring-ville/nha-pho/ | M5 | 0.0 / 7 phần tử | ĐẠT |
 | 2.2 | khe dọc giữa 2 khối > 96 px (số chỗ) | /du-an/spring-ville/nha-pho/ | M5 | 0 | ĐẠT |
 | 2.3 | cỡ tiêu đề khối > H2 nội dung > H3 (px) | /du-an/spring-ville/nha-pho/ | M5 | 28 > – ≥ – | ĐẠT |
@@ -268,4 +273,4 @@ Mỗi dòng = mục × trang × màn. Ảnh hero: /gioi-thieu/ → `vp-velis-rea
 | 2.15 | vùng bấm ngoài đoạn văn < 44 px (số chỗ) | /blog/ | M5 | 0 | ĐẠT |
 | 2.14 | 404: ô tìm + nút cùng hàng (mobile: nút dưới, rộng hết); nhãn cách hàng nút | /khong-ton-tai-xyz/ | M5 | nút dưới, nút 358/358 px; nhãn cách 24 px | ĐẠT |
 
-**Không đạt: 0 / 263**
+**Không đạt: 0 / 268**

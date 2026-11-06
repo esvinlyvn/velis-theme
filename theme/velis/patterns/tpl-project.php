@@ -109,6 +109,7 @@ if ( in_array( $level, array( 'du-an', 'phan-khu' ), true ) ) {
 		$cmp = array_merge( array_filter( velis_children( $parent, 'phan-khu' ), fn( $s ) => $s->ID !== $p->ID ), $cmp );
 	}
 	$cmp  = array_merge( array( $p ), array_filter( $cmp, fn( $x ) => $apart( $x ) === $apart( $p ) ) );
+	$cmp  = array_values( array_column( array_map( fn( $x ) => array( $x->ID, $x ), $cmp ), 1, 0 ) ); // once per record: the compare list may already name this page
 	$crit = array(
 		'Chủ đầu tư' => fn( $x ) => implode( ', ', wp_list_pluck( velis_developers( $x ), 'post_title' ) ),
 		'Loại sản phẩm' => fn( $x ) => implode( ', ', velis_type_names( $x ) ),

@@ -60,7 +60,8 @@ const c0 = await p.textContent('.gallery__count');
 await p.click('.gallery [data-next]'); await p.waitForTimeout(600);
 const c1 = await p.textContent('.gallery__count');
 check('NT-75 thư viện: nút "ảnh sau" đổi bộ đếm, không tự chạy', c0.startsWith('1/') && c1.startsWith('2/'), `${c0} → ${c1}`);
-const clamp = await p.evaluate(() => { const el = document.querySelector('#tong-quan .clamp'); const h = el.clientHeight; el.nextElementSibling.click(); return [h, el.clientHeight]; });
+// 2.4: the one collapsed block is the longest one on the page, wherever it is
+const clamp = await p.evaluate(() => { const el = document.querySelector('.clamp.is-clamped') || document.querySelector('.clamp'); const h = el.clientHeight; el.nextElementSibling.click(); return [h, el.clientHeight]; });
 check('NT-57 "Đọc tiếp" mở toàn bộ đoạn dài', clamp[0] > 0 && clamp[1] > clamp[0], clamp);
 await p.click('[data-filter] button[value="biet-thu"]'); await p.waitForTimeout(300);
 const zc = await p.textContent('#phan-khu [data-count]');
