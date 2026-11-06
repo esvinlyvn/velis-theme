@@ -69,7 +69,7 @@ layout:
   columns: 12
   content: 1200px
   content-1600: 1320px
-  reading: 640px
+  reading: 576px
   gutter-desktop: 24px
   gutter-mobile: 16px
   breakpoints: [375px, 768px, 1024px, 1440px]
