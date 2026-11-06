@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // DESIGN.md "Quy tắc bố cục" 1.2 / 1.3: every rendered font size and every margin / padding / gap of the 3 mockup pages
-// must come from the scales. Lists the exceptions (must be 0). Mockup-only parts (switches, "ảnh tạm" tag) are skipped.
+// must come from the scales. Lists the exceptions (must be 0). Mockup-only parts (switches, "ảnh tạm" tag) are skipped,
+// and so is the home hero: it is the staging 0.9.8 hero kept with its own sizes (duyệt 2026-11-06, DESIGN.md "Hero").
 // Usage: node tools/mockup_scale.mjs http://127.0.0.1:8765 [out.md]
 import { createRequire } from 'node:module';
 import { writeFileSync } from 'node:fs';
@@ -18,7 +19,7 @@ export function scaleAudit({ FONT, SPACE }) {
 	const name = (e) => e.tagName.toLowerCase() + (typeof e.className === 'string' && e.className.trim() ? '.' + e.className.trim().split(/\s+/)[0] : '');
 	const font = new Map(), space = new Map();
 	for (const e of document.querySelectorAll('body *')) {
-		if (e.matches(skip) || e.closest('.mk, .mk-float, [hidden]')) continue;
+		if (e.matches(skip) || e.closest('.mk, .mk-float, [hidden], .hero--home')) continue;
 		const r = e.getBoundingClientRect(), s = getComputedStyle(e);
 		if (s.display === 'none' || s.visibility === 'hidden') continue;
 		if ([...e.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim()) && r.width) {
@@ -39,7 +40,7 @@ export function scaleAudit({ FONT, SPACE }) {
 	// 1.6: characters per rendered line of running text (p, li, dd), counted glyph by glyph; > 68 is an exception
 	const chars = new Map();
 	for (const e of document.querySelectorAll('main p, main li, main dd, footer p')) {
-		if (e.matches(skip) || e.closest('.mk, .mk-float, [hidden]') || !e.getClientRects().length) continue;
+		if (e.matches(skip) || e.closest('.mk, .mk-float, [hidden], .hero--home') || !e.getClientRects().length) continue;
 		const lines = new Map(), w = document.createTreeWalker(e, NodeFilter.SHOW_TEXT), rg = document.createRange();
 		for (let t; (t = w.nextNode());) for (let i = 0; i < t.length; i++) {
 			rg.setStart(t, i); rg.setEnd(t, i + 1);
@@ -64,7 +65,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 		await p.context().close();
 	}
 	await b.close();
-	const md = `# Đo thang chữ (1.3) và thang khoảng cách (1.2) – ${new Date().toISOString().slice(0, 10)}\n\nCỡ chữ cho phép: ${FONT.join(' · ')} px. Khoảng cách (margin, padding, gap): ${SPACE.join(' · ')} px. Dòng chữ (p, li, dd) ≤ 68 ký tự (1.6), đếm từng ký tự trên dòng hiển thị. Bỏ qua phần chỉ có ở mockup (công tắc, nhãn ảnh tạm, nhãn câu chờ duyệt).\n\n${lines.join('\n')}\n\n**Tổng ngoại lệ: ${total}**\n`;
+	const md = `# Đo thang chữ (1.3) và thang khoảng cách (1.2) – ${new Date().toISOString().slice(0, 10)}\n\nCỡ chữ cho phép: ${FONT.join(' · ')} px. Khoảng cách (margin, padding, gap): ${SPACE.join(' · ')} px. Dòng chữ (p, li, dd) ≤ 68 ký tự (1.6), đếm từng ký tự trên dòng hiển thị. Bỏ qua hero trang chủ (giữ nguyên hero 0.9.8, duyệt 2026-11-06) và phần chỉ có ở mockup (công tắc, nhãn ảnh tạm, nhãn câu chờ duyệt).\n\n${lines.join('\n')}\n\n**Tổng ngoại lệ: ${total}**\n`;
 	if (out) writeFileSync(out, md);
 	console.log(lines.join('\n').slice(0, 6000)); console.log('tổng ngoại lệ:', total);
 	process.exit(total ? 1 : 0);

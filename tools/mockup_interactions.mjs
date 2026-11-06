@@ -27,7 +27,10 @@ await p.context().close();
 
 // home (round 5): split hero, no hero switch, "ảnh tạm" hidden by default, one-at-a-time area tabs, dark form with the CF7 hidden fields
 p = await open('/trang-chu.html?utm_source=thu&utm_medium=mockup');
-check('Trang chủ: hero tách đôi, không có công tắc hero A/B, nhãn ảnh tạm mặc định ẩn', await p.evaluate(() => !!document.querySelector('.hero.hero--split') && !document.querySelector('.hero--a, .hero--b, [data-mk-hero]') && document.documentElement.dataset.tam === '0' && [...document.querySelectorAll('.tmp')].every((t) => getComputedStyle(t).display === 'none')));
+check('Trang chủ: hero tràn 0.9.8 (.hero--home), không có công tắc hero A/B, nhãn ảnh tạm mặc định ẩn', await p.evaluate(() => !!document.querySelector('.hero.hero--home > img.hero__img') && !document.querySelector('.hero--a, .hero--b, [data-mk-hero]') && document.documentElement.dataset.tam === '0' && [...document.querySelectorAll('.tmp')].every((t) => getComputedStyle(t).display === 'none')));
+const st = await p.evaluate(async () => { const ul = document.querySelector('.feats ul'), [prev, next] = document.querySelectorAll('.feats__nav button'), x0 = ul.scrollLeft, d0 = prev.disabled; next.click(); await new Promise((r) => setTimeout(r, 600)); return { x0, x1: ul.scrollLeft, d0, d1: prev.disabled }; });
+check('Dải "Dự án nổi bật": mũi tên sau trượt dải, mũi tên trước tắt ở đầu rồi bật, không tự chạy', st.x0 === 0 && st.x1 > 0 && st.d0 && !st.d1, st);
+await p.evaluate(() => { document.querySelector('.feats ul').scrollLeft = 0; });
 const tabs = (v) => p.click(v ? `.ftabs [value="${v}"]` : '.ftabs [data-clear]');
 const fs = () => p.evaluate(() => ({ n: document.querySelector('#du-an .grid').dataset.n, shown: [...document.querySelectorAll('#du-an .card:not([hidden]) .card__title')].map((t) => t.textContent).sort().join(', '), pressed: [...document.querySelectorAll('.ftabs [aria-pressed="true"]')].map((x) => x.textContent.trim()), count: document.querySelector('#du-an [data-count]').textContent }));
 await tabs('khu-dong'); const f1 = await fs();

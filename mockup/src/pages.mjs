@@ -127,7 +127,7 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 	${more ? `<span class="card__more" aria-hidden="true">${esc(more)}</span>` : ''}
 	</div>
 </article>`;
-	const postCard = (p, sizes) => card(p, sizes, { kicker: p.kicker }).replace('<article class="card">', '<article class="card card--post">')
+	const postCard = (p, sizes) => card(p, sizes, { kicker: p.kicker, more: 'Đọc bài →' }).replace('<article class="card">', '<article class="card card--post">')
 		.replace('</h3>', `</h3>\n\t<p class="card__meta">${esc(p.meta).split(' · ').map(x => `<span>${x}</span>`).join(' · ')}</p>`);
 	// MPP compare table: the template repeats the current zone as first AND last column → keep the first, mark it
 	const dropDupCol = html => html.replace(/<tr>(.*?)<\/tr>/gs, (m, row) => {
@@ -150,7 +150,16 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 	const O = homeCu, sentence = (t) => t.charAt(0) + t.slice(1).toLowerCase(); // old headings were all caps (NT-55)
 	// round 5 (layout rules): the first sentence of intro paragraph 1 is the hero lead; the rest of both paragraphs goes,
 	// word for word, to block e. Nothing is rewritten.
-	const cut = O.paras[0].indexOf('. ') + 1, heroLead = O.paras[0].slice(0, cut), aboutLead = [O.paras[0].slice(cut + 1), O.paras[1]];
+	// home hero = staging 0.9.8 hero, text and photos as they are there (read 2026-11-06); the old home's 2 intro paragraphs go
+	// whole, word for word, to the values block under the H2 "Công ty TNHH Velis Realty" (duyệt 2026-11-06)
+	const HERO = { title: 'Tư vấn bất động sản cao cấp tại TP.HCM và vùng lân cận', lead: 'Căn hộ hạng sang, villa nghỉ dưỡng, shophouse của Vinhomes, Sun Group, Masterise Homes, Gamuda Land cho người mua ở và nhà đầu tư. CEO Vũ Xuân trực tiếp phân tích dòng tiền và rủi ro từng dự án.',
+		feats: [['Ansana by Kita', 'Khu Tây', 'vi-tri-ansana-by-kita.webp'], ['Spring Ville', 'Nhơn Trạch – Long Thành', 'phoi-canh-spring-ville.webp'], ['The Global City', 'Nam Rạch Chiếc', 'the-global-city-3-1.webp'], ['The Privé', 'Nam Rạch Chiếc', 'can-ho-the-prive.webp'], ['Vinhomes Saigon Park', 'Tây Bắc', 'vinhomes-saigon-park-2.webp']] };
+	const heroImg = img('img/can-ho-the-prive.webp', { alt: 'Phối cảnh dự án The Privé', sizes: [['', '100vw']], lcp: true, tmp: '' })
+		.replace('<img ', '<img style="--focus: 85% 30%; --focus-m: 72% 0%; --zoom: 1.12" ').replace(/ class="[^"]*"/, '').replace('<img ', '<img class="hero__img" ');
+	const aboutLead = O.paras;
+	const LOGOS = { vinhomes: [712, 325], 'masterise-homes': [486, 330], 'sun-group': [712, 226], 'gamuda-land': [711, 144] }; // = build_mockup.mjs SUPPLIED
+	// partner logos: same visual area (±15 %), ≤ 48 px high, ≤ 160 px wide, from each logo's own ratio (duyệt 2026-11-06)
+	const logoBox = (w, h, area = 3600) => { const r = w / h; let lh = Math.min(48, Math.sqrt(area / r)), lw = lh * r; if (lw > 160) { lw = 160; lh = lw / r; } return [Math.round(lw), Math.round(lh)]; };
 	const withImg = broker.projects.filter(p => (H.projects.find(x => x.title === p.title) || {}).img), noImg = broker.projects.filter(p => !withImg.includes(p));
 	const projCard = p => {
 		const c = H.projects.find(x => x.title === p.title) || {}, hand = (c.lines || []).find(l => /^Bàn giao/.test(l));
@@ -159,15 +168,19 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 	};
 	const homeBody = `${header()}
 <main id="noi-dung" tabindex="-1">
-<section class="hero hero--split hero--home" aria-labelledby="h1"><div class="wrap hero__grid">
+<section class="hero hero--home" aria-label="${esc(HERO.title)}">
+	${heroImg}
 	<div class="hero__body">
-		<p class="eyebrow">VELIS REALTY</p>
-		<h1 id="h1">Công ty TNHH Velis Realty</h1>
-		<p class="hero__lead">${heroLead}</p>
-		<div class="actions"><a class="btn" href="#tu-van">Nhận tư vấn</a><a class="btn btn--line" href="#">Gọi ${PHONE}</a></div>
+		<p class="eyebrow">Velis Realty</p>
+		<h1 id="h1">${esc(HERO.title)}</h1>
+		<p class="hero__lead">${esc(HERO.lead)}</p>
+		<div class="actions"><a class="btn" href="#tu-van">Nhận tư vấn</a><a class="btn btn--line" href="#du-an">Xem dự án</a></div>
 	</div>
-	<figure class="hero__media" style="--focus: 50% 50%">${img('img/vi-tri-ansana-by-kita.webp', { alt: 'Phối cảnh Ansana by Kita', sizes: [['(min-width: 1600px)', '760px'], ['(min-width: 1248px)', '690px'], ['(min-width: 768px)', '((100vw - 312px) * 7 / 12 + 144px)'], ['', '(100vw - 32px)']], frame: 4 / 3, lcp: true, tmp: 'ảnh tạm – ảnh thật sẽ nét' })}</figure>
-</div></section>
+	<div class="hero__after"><div class="feats">
+		<div class="feats__head"><p class="eyebrow">Dự án nổi bật</p><span class="feats__nav" hidden><button type="button" aria-label="Dự án trước"><span aria-hidden="true">‹</span></button><button type="button" aria-label="Dự án sau"><span aria-hidden="true">›</span></button></span></div>
+		<ul>${HERO.feats.map(([name, region, file]) => `<li><a class="feat" href="#"><span class="feat__img">${img(`img/${file}`, { alt: `Phối cảnh ${name}`, sizes: [['', '72px']], frame: 13 / 9, lcp: true, tmp: '' })}</span><span><b>${esc(name)}</b><small>${esc(region)}</small></span></a></li>`).join('')}</ul>
+	</div></div>
+</section>
 <section class="section section--tight section--tint" aria-label="Velis Realty trong những con số"><div class="wrap">
 	<dl class="numbers">${O.numbers.map(n => `<div><dt>${esc(n.label)}</dt><dd>${esc(n.value.replace('+', ''))}+</dd></div>`).join('')}</dl>
 </div></section>
@@ -181,11 +194,12 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 	<p class="more-center"><a class="btn btn--line" href="#">Xem tất cả dự án</a></p>
 </div></section>
 <section class="section section--tint" aria-labelledby="cdt-h"><div class="wrap">
-	<header class="sechead sechead--center"><h2 id="cdt-h">${sentence(O.partnersHead)}</h2><p>${esc(broker.who.text.slice(0, broker.who.text.indexOf('. ') + 1))}</p></header>
-	<ul class="partners">${O.partners.map(pt => { const dv = broker.devs.find(x => x.name === pt.name); const slug = dv?.slug || pt.oldLink.split('/').filter(Boolean).pop(); return `<li><a href="#" data-href="/chu-dau-tu/${slug}/" aria-label="${esc(pt.name)}">${img(`img/doi-tac-${slug}.webp`, { alt: pt.name, sizes: [['', '200px']], tmp: '' })}</a></li>`; }).join('')}</ul>
+	<header class="sechead"><h2 id="cdt-h">${sentence(O.partnersHead)}</h2><p>${esc(broker.who.text.slice(0, broker.who.text.indexOf('. ') + 1))}</p></header>
+	<ul class="partners">${O.partners.map(pt => { const dv = broker.devs.find(x => x.name === pt.name); const slug = dv?.slug || pt.oldLink.split('/').filter(Boolean).pop(); const [lw, lh] = logoBox(...LOGOS[slug]); return `<li><a href="#" data-href="/chu-dau-tu/${slug}/" aria-label="${esc(pt.name)}">${img(`img/doi-tac-${slug}.webp`, { alt: pt.name, sizes: [['', `${lw}px`]], tmp: '' }).replace('<img ', `<img style="--w: ${lw}px; --h: ${lh}px" `)}</a></li>`; }).join('')}</ul>
 </div></section>
 <section class="section" id="ve-velis" aria-labelledby="ve-velis-h"><div class="wrap">
-	<header class="sechead"><h2 id="ve-velis-h">${esc(broker.values.head)}</h2><div class="about__lead">${aboutLead.map(t => `<p>${t}</p>`).join('')}</div></header>
+	<header class="sechead"><h2 id="ve-velis-h">Công ty TNHH Velis Realty</h2><div class="about__lead">${aboutLead.map(t => `<p>${t}</p>`).join('')}</div></header>
+	<p class="eyebrow values-head">${esc(broker.values.head)}</p>
 	<ul class="values">${broker.values.items.map(([t, d]) => `<li><h3>${esc(t)}</h3><p>${esc(d)}</p></li>`).join('')}</ul>
 	<p class="mb-0"><a class="btn btn--line" href="#">${esc(H.about.button)}</a></p>
 </div></section>
@@ -194,7 +208,7 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 	${grid(H.posts.map(p => postCard(p, S.card3)))}
 </div></section>
 <section class="section section--tight section--soft" aria-label="Thi thử chứng chỉ môi giới và cơ hội nghề nghiệp"><div class="wrap duo">
-	<div class="duo__item"><h2 class="duo__title">${sentence(O.exam.button)}</h2><a class="btn" href="#" data-href="${O.exam.link}">Thi thử CCMG</a></div>
+	<div class="duo__item"><h2 class="duo__title">${sentence(O.exam.button)}</h2><p>Ôn luyện và thi thử chứng chỉ hành nghề môi giới bất động sản miễn phí.</p><a class="btn" href="#" data-href="${O.exam.link}">Thi thử CCMG</a></div>
 	<div class="duo__item"><h2 class="duo__title">${sentence(O.career.head)}</h2><p>${esc(O.career.line)}</p><a class="btn" href="#" data-href="${O.career.link}">${sentence(O.career.button)}</a></div>
 </div></section>
 ${form(H.form.title, H.form.lead)}

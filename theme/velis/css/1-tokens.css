@@ -1,7 +1,7 @@
 /* 1. Tokens – values from DESIGN.md only ("Quy tắc bố cục" 1.1–1.8; bước 3 sinh lại từ theme.json). */
-@font-face { font-family: "Be Vietnam Pro"; src: url("../fonts/be-vietnam-pro-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Be Vietnam Pro"; src: url("../fonts/be-vietnam-pro-600.woff2") format("woff2"); font-weight: 600; font-display: swap; }
-@font-face { font-family: "Playfair Display"; src: url("../fonts/playfair-display-600.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Be Vietnam Pro"; src: url("../assets/fonts/be-vietnam-pro-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Be Vietnam Pro"; src: url("../assets/fonts/be-vietnam-pro-600.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Playfair Display"; src: url("../assets/fonts/playfair-display-600.woff2") format("woff2"); font-weight: 600; font-display: swap; }
 @font-face { font-family: "Be Vietnam Pro Fallback"; src: local("Arial"), local("Liberation Sans"); size-adjust: 108.3%; ascent-override: 92.3%; descent-override: 24.5%; line-gap-override: 0%; }
 @font-face { font-family: "Playfair Fallback"; src: local("Times New Roman"), local("Liberation Serif"); size-adjust: 112.3%; ascent-override: 96.4%; descent-override: 22.4%; line-gap-override: 0%; }
 

@@ -172,12 +172,17 @@ Không có cỡ nào khác (đo bằng `tools/mockup_scale.mjs`). `h4` trong fro
   dùng kiểu `eyebrow`.
 - Không viết hoa toàn bộ tiêu đề tiếng Việt (dấu chồng lên nhau khó đọc); chữ hoa chỉ cho `eyebrow` ngắn.
 
-## Quy tắc bố cục (chốt 2026-11-05, áp cho cả 3 trang mockup)
+## Quy tắc bố cục (chốt 2026-11-05, sửa 2026-11-06 – áp cho mockup và theme)
+
+**Chuẩn thị giác (duyệt: người dùng, 2026-11-06):** mockup PR #7 bản `eda87a0` + các quy tắc 1.1–1.8 dưới đây, **trừ hero trang chủ**
+(= hero staging 0.9.8, xem "Hero"). CSS dùng chung một nguồn: `theme/velis/css/1-tokens.css` → `2-base.css` → `3-layout.css`
+→ `4-components.css` → `5-utilities.css` (mockup đọc cùng file + `mockup/src/css/mockup.css` cho công tắc duyệt). Mockup và
+DESIGN.md không được nói khác nhau.
 
 Đo được thì có bộ đo; còn lại soát bằng mắt (bảng trong `docs/reports/doi-cach-lam-buoc-2.md` mục 12). Cách đếm ghi ngay dưới từng quy tắc.
 
 **1.1 Lưới.** 12 cột, khung 1200 px (1320 px từ 1600 px), khe 24 px. Mọi khối thẳng mép khung (logo, chữ, ảnh, nút "Nhận tư vấn"
-ở header); không khối nào tự thụt vào. Hero tách đôi trang chủ: chữ 5/12 trái, ảnh 7/12 phải (đo mép bằng `tools/mockup_heroB.mjs`).
+ở header); không khối nào tự thụt vào, kể cả khối đối tác (căn trái như mọi khối). Chữ hero trang chủ thẳng mép trái khung.
 
 **1.2 Thang khoảng cách.** Chỉ 8 · 16 · 24 · 32 · 48 · 64 · 96. Khoảng đệm section 96 desktop / 64 tablet / 48 mobile; tiêu đề khối →
 nội dung 40 desktop / 32 mobile (giá trị 40 duy nhất ngoài thang); giữa các thẻ 24. Đếm: mọi margin / padding / gap đã tính của
@@ -188,10 +193,10 @@ không tính đầu khối (nhãn + H1/H2 + đoạn dẫn – mẫu NT-11) và n
 
 **1.4 Một điểm nhìn.** Mỗi khối đúng một tiêu điểm thị giác; không đặt hai thứ nặng ngang nhau cạnh nhau.
 
-**1.5 Nhịp nền.** Xen kẽ ngà #FAF7F2 và trắng; hai khối liền nhau không cùng nền trừ khi có tiêu đề ngăn. Chỉ **một** khối tối
-(#111111) ngay trước footer (form tư vấn). Footer nền khác (#1A1A1A) + đường champagne 1 px ở mép trên. Dải "Thi thử + Tuyển dụng"
-nền champagne nhạt #F3ECDF để tách rõ khỏi khối tối. Ngoại lệ đã chốt: khung Thư viện ảnh tối ở trang dự án (NT-13/NT-27)
-là khung ảnh trong khối, không phải khối tối thứ hai.
+**1.5 Nhịp nền** (sửa 2026-11-06). Xen kẽ ngà #FAF7F2 và trắng; hai khối liền nhau không cùng nền trừ khi có tiêu đề ngăn. **Nền tối
+(#111111) chỉ dùng cho thư viện ảnh và khối form tư vấn** (ngay trước footer). Footer nền khác (#1A1A1A) + đường champagne 1 px ở
+mép trên. Dải "Thi thử + Tuyển dụng" nền champagne nhạt #F3ECDF để tách rõ khỏi khối tối. Hero trang chủ (ảnh + lớp phủ) không
+phải khối nền.
 
 **1.6 Chữ và đường kẻ.** Dòng ≤ 68 ký tự (đếm từng ký tự trên dòng hiển thị, bỏ dấu cách ở chỗ xuống dòng – `tools/mockup_scale.mjs`).
 Dùng khoảng trắng thay đường kẻ; viền chỉ cho thẻ và ô nhập. Được giữ: gạch champagne 48 px dưới tiêu đề khối (dấu nhấn NT-11),
@@ -231,10 +236,16 @@ Chính (đỏ, chữ trắng) · Phụ (viền đen, hover nền đen) · Viền
 Cao tối thiểu 48 px (vùng bấm ≥ 44 × 44). Đổi màu 150–200 ms.
 
 ### Hero (đã chốt)
-- **Trang chủ (chốt 2026-11-05): hero tách đôi** – trái 5/12: nhãn, H1, đoạn dẫn, 2 nút; phải 7/12: ảnh dự án 4:3 có lề,
-  điểm lấy nét F-B; mobile ảnh trên, chữ dưới. M1–M3: H1, đoạn dẫn, 2 nút và trọn ảnh trong màn đầu (đáy nút ≤ cao − 24).
-  Không có công tắc A/B, không dải dự án trong hero (dự án ở khối "Các dự án nổi bật" ngay sau dải số liệu).
-- **A** – trang dự án, trang phân khu (vòng 6; mô tả dải dự án dưới đây là bản trang chủ cũ, đã thay). Ảnh tràn rộng. **Desktop (≥ 1024 px): không phủ cả ảnh** – chỉ
+- **Trang chủ (duyệt: người dùng, 2026-11-06): giữ hero staging 0.9.8** – ngoại lệ có chủ đích của X-02: trang chủ luôn hero tràn,
+  kể cả ảnh 1200 px. Ảnh tràn (The Privé, phóng cắt 1,12), nhãn "Velis Realty", H1 "Tư vấn bất động sản cao cấp tại TP.HCM và vùng
+  lân cận" (khối chữ rộng 600 px, thẳng mép trái khung), đoạn dẫn, 2 nút ("Nhận tư vấn" đỏ, "Xem dự án" viền trắng), dải "Dự án
+  nổi bật" ở đáy hero. Mobile: ảnh ở trên, chữ trên dải tối liền màu. **Chỉ 2 điểm khác 0.9.8:** (a) **một** lớp chuyển sắc tuyến
+  tính trái → phải phủ toàn khung (cấm mảng phủ riêng, bo góc, blur, radial, hộp nền sau nhãn / chữ), chữ ≥ 4,5:1 tại 5 điểm /
+  dòng; (b) thẻ trong dải cao bằng nhau ±1 px, tên dự án 1 dòng (không bẻ, không "…"), khu vực được xuống dòng, tối đa 4 thẻ trong
+  khung, trượt bằng mũi tên / vuốt, không tự chạy. Ảnh hero khác ảnh thẻ đầu tiên của lưới dự án, không có chữ / biển in sẵn
+  (ảnh Ansana – tên đường trong cảnh – chỉ dùng ở thẻ / nội dung).
+- **A** – trang dự án, trang phân khu (vòng 6; mô tả dải dự án dưới đây là bản trang chủ cũ, đã thay; lớp phủ theo NT-47: một
+  chuyển sắc trái → phải phủ toàn khung). Ảnh tràn rộng. **Desktop (≥ 1024 px): không phủ cả ảnh** – chỉ
   một lớp nền mờ cục bộ (#141414 82 %, blur 36 px) sau khối chữ ở góc trái dưới (khối chữ ≤ min(600 px, 46vw)), ≥ 60 % diện tích
   ảnh giữ độ sáng gốc; breadcrumb có nền nhỏ riêng; chữ ≥ 4,5:1 (đo bằng điểm ảnh, `tools/check_ui.mjs`). Tablet: lớp phủ từ dưới
   lên; mobile: ảnh 4:3 ở trên, chữ trên dải tối. Trong hero: breadcrumb, eyebrow chủ đầu tư · khu vực, H1, 3–4 chip, 2 nút.
@@ -245,6 +256,18 @@ Cao tối thiểu 48 px (vùng bấm ≥ 44 × 44). Đổi màu 150–200 ms.
   trang dự án mở form gọn tại chỗ.
 - **Khung**: 1200 px; từ 1600 px là 1320 px. Thanh CTA đáy (mobile/tablet) chỉ hiện sau khi cuộn qua nút của hero.
 - **B** – trang tổng (Dự án, Chủ đầu tư, Blog, cụm blog). Chia đôi 5:6, chữ trên nền ngà, tiêu đề `text-wrap: balance`.
+
+### Trang chủ dưới hero (duyệt: người dùng, 2026-11-06)
+Thứ tự: con số → dự án (tab khu vực) → đối tác → giá trị khác biệt → bài phân tích → thi thử + tuyển dụng → form → footer.
+- **Con số** 10+ · 50+ · 999+ · 99+ (dấu + sau số), dải trắng 4 cột, Playfair 48 champagne đậm.
+- **Dự án**: 1 hàng tab khu vực (chọn một), lưới 3 × 2, thẻ thiếu ảnh sạch xếp cuối; "Xem tất cả dự án" giữa dưới lưới.
+- **Đối tác**: căn trái như mọi khối; logo **cân theo diện tích thị giác** – mọi logo chiếm diện tích bao gần bằng nhau (±15 %),
+  cao ≤ 48 px, rộng ≤ 160 px (tính từ tỉ lệ gốc của logo: rộng × cao = diện tích chung, rồi kẹp); xám đậm, hover màu gốc.
+- **Giá trị khác biệt**: H2 "Công ty TNHH Velis Realty" + 2 đoạn giới thiệu nguyên văn trang cũ (đoạn dẫn), rồi 4 mục 01–04
+  **2×2 dưới 1600 px, 4 cột từ 1600 px**, nút "Tìm hiểu Velis". Trang chỉ có 1 H1 (của hero).
+- **Thẻ** (dự án, bài viết): link "Xem dự án" / "Đọc bài" ghim đáy thẻ – các link cùng hàng thẳng nhau ±1 px.
+- **Thi thử + Tuyển dụng**: 2 hộp cùng cao; câu hộp Thi thử: "Ôn luyện và thi thử chứng chỉ hành nghề môi giới bất động sản miễn phí."
+- Trang dự án: hero B ở M4 giãn ảnh 1,52 – chấp nhận (2026-11-06).
 
 ### Bố cục 2 cột & nhịp thị giác (vòng 5)
 - **Trang có văn bản dài** (dự án mọi cấp; Giới thiệu, Tuyển dụng; chính sách có mục lục): từ 1024 px là cột nội dung

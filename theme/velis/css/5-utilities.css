@@ -1,17 +1,6 @@
-/* 5. Utilities – single-purpose helpers + mockup-only switches (not carried into the theme). */
+/* 5. Utilities – single-purpose helpers. */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .mt-0 { margin-top: 0; }
 .mb-0 { margin-bottom: 0; }
 .center { text-align: center; }
 [hidden] { display: none; }
-html[data-tam="0"] .tmp { display: none; }
-.mk { background: var(--sunken); border-top: 1px solid var(--line); padding-block: var(--s6); font-size: var(--fs-caption); }
-.mk__row { display: flex; flex-wrap: wrap; gap: var(--s2); align-items: center; }
-.mk button { min-height: 44px; padding: 0 var(--s4); border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--surface); cursor: pointer; }
-.mk button[aria-pressed="true"] { border-color: var(--ink); font-weight: 600; }
-.mk-float { position: fixed; right: 12px; bottom: calc(var(--cta-h) + 12px); z-index: 70; font-size: var(--fs-caption); }
-.mk-float summary { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid var(--line-strong); border-radius: 50%; background: var(--surface); color: var(--ink); font-weight: 600; list-style: none; box-shadow: var(--shadow-hover); }
-.mk-float summary::-webkit-details-marker { display: none; }
-.mk-float .mk__row { position: absolute; right: 0; bottom: 56px; width: max-content; max-width: calc(100vw - 24px); padding: var(--s2); border: 1px solid var(--line-strong); background: var(--surface); box-shadow: var(--shadow-hover); }
-.mk-float button { min-height: 44px; min-width: 44px; padding: 0 var(--s3); border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--surface); cursor: pointer; }
-.mk-float button[aria-pressed="true"] { border-color: var(--ink); font-weight: 600; }

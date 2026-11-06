@@ -62,12 +62,13 @@ for (const n of readdirSync(join(SRC, 'content'))) {
 }
 
 // --- CSS: tokens → base → layout → components → utilities; fonts inlined after measuring
-const cssSrc = readdirSync(join(SRC, 'css')).sort().map(n => read(`mockup/src/css/${n}`)).join('\n');
+// one CSS source with the theme (theme/velis/css 1–5) + the mockup-only review switches
+const cssSrc = [...readdirSync(join(ROOT, 'theme/velis/css')).sort().map(n => read(`theme/velis/css/${n}`)), read('mockup/src/css/mockup.css')].join('\n');
 const bare = cssSrc.replace(/\/\*[\s\S]*?\*\//g, "");
 assert(!/!important/.test(bare), "CSS không được dùng !important");
 const min = cssSrc.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ').replace(/\s*([{}:;,>])\s*/g, '$1').replace(/;}/g, '}').trim();
 const cssKB = { min: min.length / 1024, gzip: gzipSync(min).length / 1024 };
-const css = min.replace(/url\("\.\.\/fonts\/([^"]+)"\)/g, (m, f) => `url("${b64(`theme/velis/assets/fonts/${f}`, 'font/woff2')}")`);
+const css = min.replace(/url\("\.\.\/assets\/fonts\/([^"]+)"\)/g, (m, f) => `url("${b64(`theme/velis/assets/fonts/${f}`, 'font/woff2')}")`);
 const js = read('mockup/src/js/mockup.js');
 const logo = b64('theme/velis/assets/brand/velis-logo-horizontal.svg', 'image/svg+xml');
 const logoWhite = b64('theme/velis/assets/brand/velis-logo-horizontal-white.svg', 'image/svg+xml');

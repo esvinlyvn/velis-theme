@@ -14,7 +14,7 @@ export function heroMeasure({ screen, dpr }) {
 	const v = [], d = {};
 	const R = (el) => el.getBoundingClientRect();
 	const vh = innerHeight, vw = innerWidth, q = (s, r = document) => r.querySelector(s);
-	const hero = q('.hero'), split = hero.matches('.hero--split'), isB = hero.matches('.hero--b'), home = hero.matches('.hero--home');
+	const hero = q('.hero'), isB = hero.matches('.hero--b'), home = hero.matches('.hero--home');
 	const h1 = q('h1', hero), chips = q('.chips', hero), lead = q('.hero__lead', hero), actions = q('.actions', hero);
 	const btns = [...actions.querySelectorAll('.btn')];
 	const seen = (el) => { const r = R(el); return r.top >= -0.5 && r.bottom <= vh + 0.5; };
@@ -32,16 +32,19 @@ export function heroMeasure({ screen, dpr }) {
 			if (!row.some((i) => /^Giá$/.test(q('dt', i).textContent.trim()))) v.push('NT-49 ô Giá không ở hàng đầu');
 		}
 	}
-	// split hero (home, round 5): H1, lead, both buttons and the whole photo on the first screen, M1–M3; edges on the frame (1.1)
-	if (split && ['M1', 'M2', 'M3'].includes(screen)) {
+	// home hero = staging 0.9.8 full-bleed hero (duyệt 2026-11-06): H1, lead, both buttons on the first screen M1–M3 (button
+	// bottom ≤ screen − 24); ONE left → right linear gradient over the whole frame (NT-47); the strip may be cut like in 0.9.8
+	if (home && ['M1', 'M2', 'M3'].includes(screen)) {
 		d.btnBottom = Math.round(Math.max(...btns.map((b) => R(b).bottom)));
 		if (d.btnBottom > vh - 24) v.push(`màn đầu: đáy nút ${d.btnBottom} > ${vh} − 24`);
-		for (const [n, el] of [['tên', h1], ['đoạn dẫn', lead], ['ảnh', q('.hero__media', hero)], ...btns.map((b, i) => [`nút ${i + 1}`, b])]) if (!seen(el)) v.push(`màn đầu: ${n} không trọn`);
+		for (const [n, el] of [['tên', h1], ['đoạn dẫn', lead], ...btns.map((b, i) => [`nút ${i + 1}`, b])]) if (!seen(el)) v.push(`màn đầu: ${n} không trọn`);
 	}
-	if (split && vw >= 768) {
-		const ref = R(q('.header__bar')), m = R(q('.hero__media', hero));
-		d.edgeL = +(R(h1).left - ref.left).toFixed(1); d.edgeR = +(m.right - ref.right).toFixed(1);
-		if (Math.abs(d.edgeL) > 1 || Math.abs(d.edgeR) > 1) v.push(`1.1 chữ lệch mép trái ${d.edgeL} / ảnh lệch mép phải ${d.edgeR}`);
+	if (home && vw >= 768) {
+		const ov = getComputedStyle(hero, '::before'), bg = ov.backgroundImage, hr = R(hero);
+		const one = (bg.match(/linear-gradient\(90deg/g) || []).length === 1 && !/radial|\)\s*,\s*\w/.test(bg) && parseFloat(ov.width) >= hr.width - 1 && parseFloat(ov.height) >= hr.height - 1 && ov.filter === 'none' && ov.borderRadius === '0px';
+		d.overlay = one ? '1 lớp 90deg' : bg;
+		if (!one) v.push(`NT-47 lớp phủ: ${bg}`);
+		for (const el of hero.querySelectorAll('.hero__body *')) { const cs = getComputedStyle(el); if (cs.backgroundColor !== 'rgba(0, 0, 0, 0)' && !el.matches('.btn')) v.push(`NT-48 hộp nền sau chữ: ${el.tagName}`); if (cs.textShadow !== 'none') v.push(`NT-47 text-shadow: ${el.tagName}`); }
 	}
 	if (screen === 'M5') {
 		d.h1Bottom = Math.round(R(h1).bottom); d.btn1Bottom = Math.round(R(btns[0]).bottom);
@@ -62,7 +65,7 @@ export function heroMeasure({ screen, dpr }) {
 	d.btnGap = Math.round(R(actions).top - R(above).bottom); d.btnDx = +(R(btns[0]).left - R(h1).left).toFixed(1);
 	if (d.btnGap > 24) v.push(`NT-18 nút cách chip ${d.btnGap}px > 24`);
 	if (Math.abs(d.btnDx) > 1) v.push(`NT-18 nút lệch trái tiêu đề ${d.btnDx}px`);
-	if (vw < 768) {
+	if (vw < 768 && !home) { // home: 2 buttons side by side as in 0.9.8
 		const rs = btns.map(R);
 		if (rs.some((r) => Math.abs(r.left - rs[0].left) > 1 || Math.abs(r.width - rs[0].width) > 1) || rs.some((r, i) => i && r.top < rs[i - 1].bottom - 1)) v.push('NT-18 mobile: nút không xếp dọc rộng đều');
 	} else { // one row, or wrapped rows that each start at the title's left edge (never pushed to the right)
@@ -70,7 +73,7 @@ export function heroMeasure({ screen, dpr }) {
 		if (Object.values(rows).some((r) => Math.abs(Math.min(...r.map((x) => x.left)) - R(h1).left) > 1)) v.push('NT-18 hàng nút không bắt đầu ở mép trái tiêu đề');
 	}
 	// NT-43 hero A ≥ 1366: overlay reaches 0 by ~55 %, ≥ 45 % of the photo untouched, text block ≤ 40 % and inside the dark part
-	if (!isB && !split && vw >= 1366) {
+	if (!isB && !home && vw >= 1366) {
 		const bg = getComputedStyle(q('.hero__media', hero), '::after').backgroundImage;
 		const layers = bg.split(/,\s*(?=linear-gradient)/);
 		const stops = [...layers[0].matchAll(/rgba?\(([^)]+)\)\s*([\d.]+)%/g)].map((m) => [+(m[1].split(',')[3] ?? 1), +m[2]]);
@@ -85,23 +88,24 @@ export function heroMeasure({ screen, dpr }) {
 		if (d.textWidthPct > 40) v.push(`NT-43 khối chữ rộng ${d.textWidthPct}% > 40`);
 	}
 	// stretch of the 1200 px file in the hero frame (cover, crop zoom included), ≤ 1,5 for hero B on M1–M5
-	const img = q('.hero__media img', hero), ir = R(img);
+	const img = q('.hero__media img, .hero__img', hero), ir = R(img);
 	const t = getComputedStyle(img).transform, zoom = t && t !== 'none' ? Math.hypot(...t.match(/-?[\d.e]+/g).slice(0, 2).map(Number)) : 1;
 	const fw = 1200, ratio = img.naturalWidth / img.naturalHeight || +img.getAttribute('width') / +img.getAttribute('height');
-	const box = R(q('.hero__media', hero));
+	const box = R(q('.hero__media', hero) || hero);
 	d.stretch = +(Math.max(box.width, box.height * ratio) * dpr * zoom / fw).toFixed(2);
 	d.frame = `${Math.round(box.width)}×${Math.round(box.height)}`;
-	if ((isB || split) && /^M[1-5]$/.test(screen) && d.stretch > 1.5) v.push(`độ giãn ảnh ${d.stretch} > 1,5`);
+	if (isB && /^M[1-5]$/.test(screen) && d.stretch > 1.5) // home: X-02 exception, stretch shown only
+		 v.push(`độ giãn ảnh ${d.stretch} > 1,5`);
 	return { v, d, ir: ir.width };
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
 	const b = await chromium.launch();
 	const rows = [];
-	for (const page of PAGES) for (const hero of page === 'trang-chu' ? ['tach'] : ['b', 'a']) for (const [s, w, h, dpr] of SCREENS) {
+	for (const page of PAGES) for (const hero of page === 'trang-chu' ? ['home'] : ['b', 'a']) for (const [s, w, h, dpr] of SCREENS) {
 		const ctx = await b.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: dpr, reducedMotion: 'reduce' });
 		const p = await ctx.newPage();
-		await p.goto(`${base}/${page}.html${hero === 'tach' ? '' : '#hero-' + hero}`, { waitUntil: 'load' });
+		await p.goto(`${base}/${page}.html${hero === 'home' ? '' : '#hero-' + hero}`, { waitUntil: 'load' });
 		await p.waitForFunction(() => document.querySelector('.hero img').complete);
 		const r = await p.evaluate(heroMeasure, { screen: s, dpr });
 		rows.push({ page, hero, s, ...r });
@@ -113,7 +117,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 	const md = ['| Trang | Hero | Màn | Khung ảnh | Đáy nút (≤ cao − 24) | Đáy hàng 1 thanh TT | Lệch mép T / P | Nút: cách chip · lệch trái | NT-43: lớp phủ 0 tại · ảnh giữ sáng · khối chữ | Độ giãn | Vi phạm |', '|---|---|---|---|---|---|---|---|---|---|---|',
 		...rows.map((r) => `| ${r.page} | ${r.hero.toUpperCase()} | ${r.s} | ${r.d.frame} | ${f(r.d.btnBottom ?? r.d.btn1Bottom)} | ${f(r.d.factsRow1Bottom ?? r.d.railTop)} | ${r.d.edgeL === undefined ? '–' : f(r.d.edgeL) + ' / ' + f(r.d.edgeR)} | ${f(r.d.btnGap)} · ${f(r.d.btnDx)} | ${r.d.overlayZero === undefined ? '–' : `${f(r.d.overlayZero)}% · ${f(r.d.brightPct)}% · ${f(r.d.textWidthPct)}%`} | ${f(r.d.stretch)} | ${r.v.length ? r.v.join('; ') : 0} |`)];
 	mkdirSync(dir, { recursive: true });
-	writeFileSync(`${dir}/do-hero.md`, `# Đo NT-49 / NT-17 / NT-18 / NT-43 – ${new Date().toISOString().slice(0, 10)}\n\nChưa cuộn. Màn hình cao: M1 768, M2 864, M3 1080, M4 540, M5 844, 768 → 1024, 1024 → 768. Trang chủ: hero tách đôi (vòng 5, "TACH"): H1, đoạn dẫn, 2 nút và trọn ảnh trong màn đầu M1–M3, đáy nút ≤ cao − 24; M5: H1 + nút đầu; mép chữ / mép ảnh trùng khung (1.1).\n\n${md.join('\n')}\n\n**Vi phạm: ${bad.reduce((n, r) => n + r.v.length, 0)}**\n`);
+	writeFileSync(`${dir}/do-hero.md`, `# Đo NT-49 / NT-17 / NT-18 / NT-43 – ${new Date().toISOString().slice(0, 10)}\n\nChưa cuộn. Màn hình cao: M1 768, M2 864, M3 1080, M4 540, M5 844, 768 → 1024, 1024 → 768. Trang chủ: hero tràn 0.9.8 (duyệt 2026-11-06, "HOME"): H1, đoạn dẫn, 2 nút trọn trong màn đầu M1–M3, đáy nút ≤ cao − 24; M5: H1 + nút đầu; lớp phủ = một chuyển sắc 90deg phủ khung (NT-47), không hộp nền / text-shadow (NT-48); độ giãn chỉ ghi (ngoại lệ X-02).\n\n${md.join('\n')}\n\n**Vi phạm: ${bad.reduce((n, r) => n + r.v.length, 0)}**\n`);
 	for (const r of bad) console.log(`${r.page || 'trang-chu'} ${r.hero || ''} ${r.s}: ${r.v.join('; ')}`);
 	console.log(`vi phạm: ${bad.reduce((n, r) => n + r.v.length, 0)}`);
 	process.exit(bad.length ? 1 : 0);

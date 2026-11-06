@@ -7,7 +7,7 @@ import { createRequire } from 'node:module';
 import { writeFileSync } from 'node:fs';
 const { chromium } = createRequire(import.meta.url)('playwright');
 const [base = 'http://127.0.0.1:8765', out = 'contrast.json'] = process.argv.slice(2);
-const PAGES = ['the-global-city', 'masteri-park-place']; // trang chủ không còn hero ảnh (vòng định vị)
+const PAGES = ['trang-chu', 'the-global-city', 'masteri-park-place']; // trang chủ: hero tràn 0.9.8 (duyệt 2026-11-06)
 const M = [['M1', 1366, 768, 1], ['M2', 1536, 864, 1.25], ['M3', 1920, 1080, 1], ['M4', 960, 540, 2], ['M5', 390, 844, 2]];
 
 export const lum = ([r, g, b]) => [r, g, b].map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }).reduce((s, v, i) => s + v * [0.2126, 0.7152, 0.0722][i], 0);
@@ -25,16 +25,15 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 		await p.waitForFunction(() => document.querySelector('.hero img').complete);
 		// every text line in the hero body: [label, color, x, y, w, h] in CSS px; then hide the text
 		const lines = await p.evaluate(() => {
-			const body = document.querySelector('.hero__body'), res = [];
-			const walk = document.createTreeWalker(body, NodeFilter.SHOW_TEXT);
-			for (let n; (n = walk.nextNode());) {
+			const res = [];
+			for (const body of document.querySelectorAll('.hero__body, .hero .feats__head')) for (let walk = document.createTreeWalker(body, NodeFilter.SHOW_TEXT), n; (n = walk.nextNode());) {
 				const el = n.parentElement;
 				if (!n.textContent.trim() || el.closest('.btn:not(.btn--line)')) continue; // a filled button carries its own ground
 				const rg = document.createRange(); rg.selectNodeContents(n);
 				for (const r of rg.getClientRects()) if (r.width > 2) res.push([n.textContent.trim().slice(0, 28), getComputedStyle(el).color, r.left, r.top, r.width, r.height]);
 			}
 			const st = document.createElement('style');
-			st.textContent = '.hero__body, .hero__body * { color: transparent !important; border-color: transparent !important; } .cta { display: none !important; }'; // measuring only, never shipped; the fixed CTA bar would cover the hero bottom at M4
+			st.textContent = '.hero__body, .hero__body *, .hero .feats__head * { color: transparent !important; border-color: transparent !important; } .cta { display: none !important; }'; // measuring only, never shipped; the fixed CTA bar would cover the hero bottom at M4
 			document.head.append(st);
 			return res;
 		});

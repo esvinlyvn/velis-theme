@@ -5,11 +5,11 @@
 
 	// [mockup] hero A/B + "ảnh tạm" tags (hidden by default, 1.8), switched in place; state kept in the hash (#hero-a /
 	// #hero-b, #tam-1), read on open (the hero and the tags are already set before first paint by inline scripts)
-	const ab = $$('.hero:not(.hero--split)').length > 0; // the home page has a split hero, no A/B switch
+	const ab = $$('.hero:not(.hero--home)').length > 0; // the home hero is always full-bleed (2026-11-06), no A/B switch
 	const st = { hero: document.querySelector('.hero--a') ? 'a' : 'b', tam: document.documentElement.dataset.tam || '0' };
 	const save = () => history.replaceState(null, '', '#' + [ab ? (st.hero === 'a' ? 'hero-a' : 'hero-b') : '', st.tam === '1' ? 'tam-1' : ''].filter(Boolean).join(','));
 	const paint = () => {
-		$$('.hero:not(.hero--split)').forEach(h => {
+		$$('.hero:not(.hero--home)').forEach(h => {
 			h.classList.toggle('hero--a', st.hero === 'a'); h.classList.toggle('hero--b', st.hero !== 'a');
 			const i = h.querySelector('.hero__media img');
 			if (i) { i.dataset.sizesB ??= i.sizes; i.sizes = st.hero === 'a' ? '100vw' : i.dataset.sizesB; }
@@ -67,6 +67,24 @@
 		b.textContent = 'Đọc tiếp';
 		b.onclick = () => { el.classList.remove('is-clamped'); b.hidden = true; };
 		el.after(b);
+	});
+
+	// home hero strip (NT-10): arrows only when more cards than fit, disabled at either end; fade on the right while more
+	// cards are hidden; no autoplay
+	$$('.feats').forEach(box => {
+		const ul = box.querySelector('ul'), nav = box.querySelector('.feats__nav'), [prev, next] = nav.querySelectorAll('button');
+		const sync = () => {
+			nav.hidden = ul.scrollWidth <= ul.clientWidth + 2;
+			prev.disabled = ul.scrollLeft <= 2;
+			next.disabled = ul.scrollLeft + ul.clientWidth >= ul.scrollWidth - 2;
+			ul.classList.toggle('has-more', !next.disabled);
+		};
+		const step = d => ul.scrollBy({ left: d * (ul.firstElementChild.getBoundingClientRect().width + 12), behavior: 'smooth' });
+		prev.onclick = () => step(-1);
+		next.onclick = () => step(1);
+		ul.addEventListener('scroll', sync, { passive: true });
+		addEventListener('resize', sync);
+		sync();
 	});
 
 	// gallery: manual prev/next only (no autoplay)
