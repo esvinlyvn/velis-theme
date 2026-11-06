@@ -44,7 +44,7 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 		return `
 <footer class="footer"><div class="wrap">
 	<div class="footer__grid">
-		<div><img src="${logoWhite}" width="174" height="40" alt="Velis Realty"><p>${esc(brand[0])}</p><p><a href="#">${esc(brand[1])}</a><br><a href="#">${esc(brand[2])}</a><br>${esc(brand[3])}<br>${esc(brand[4])}</p></div>
+		<div><img src="${logoWhite}" width="174" height="40" alt="Velis Realty"><p>${esc(brand[0])}</p><p class="footer__contact"><a href="#">${esc(brand[1])}</a><a href="#">${esc(brand[2])}</a>${esc(brand[3])}<br>${esc(brand[4])}</p></div>
 		<nav aria-label="Khám phá"><p class="eyebrow">${esc(explore[0])}</p><ul>${explore.slice(1).map(x => `<li><a href="#">${esc(x)}</a></li>`).join('')}</ul></nav>
 		<nav aria-label="Ứng dụng"><p class="eyebrow">${esc(apps[0])}</p><ul>${apps.slice(1).map(x => `<li><a href="#">${esc(x)}</a></li>`).join('')}</ul></nav>
 		<div><p class="eyebrow">${esc(follow[0])}</p><ul class="footer__social">${social.map(x => `<li><a href="#" aria-label="Velis Realty trên ${x}">${x}</a></li>`).join('')}</ul></div>

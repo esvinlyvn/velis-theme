@@ -162,6 +162,7 @@ Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng th
 | Mục | Thay đổi |
 |---|---|
 | Theme velis 1.0.0 | **5 lần tải lên** (Giao diện → Tải lên → thay bản đang dùng, cùng số phiên bản), mỗi lần sau một lô sửa của vòng: (1) mục 2.1–2.16 + menu thả xuống "Dự án" / "Về Velis"; (2) menu con hiện nhầm khi chưa mở, cột so sánh toàn "Chưa công bố", khung tên chủ đầu tư chưa có logo, tab khu vực mobile 1 hàng, breadcrumb Tuyển dụng; (3) khoảng dọc giữa khối ≤ 96 px (đệm trang, lề cuối khối), cả thẻ là vùng bấm; (4) khối cuối của section; (5) bấm "Về Velis" ngay sau khi rê chuột không đóng menu |
+| Theme velis 1.0.0 – kiểm chứng vòng sửa | **1 lần tải lên** (cùng số phiên bản): logo trong thẻ /chu-dau-tu/ căn giữa khung (mục 2.9), bỏ một quy tắc CSS trùng của link thẻ |
 | Ảnh đầu trang | trang chủ: The Privé (19968, có huy hiệu – cắt che); /du-an/: The Global City (20092, có huy hiệu – cắt che); Giới thiệu: văn phòng Velis (20120, sạch) – không trùng nhau |
 | Gửi form | **không gửi** (lượt gửi 06/11 trên staging là của người dùng); trường ẩn kiểm bằng chặn yêu cầu trong trình duyệt |
 | Không đụng | nội dung bài / trang, media, plugin, `.htaccess`, 7 ứng dụng |
