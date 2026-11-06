@@ -197,13 +197,17 @@ foreach ( $groups as $gid => list( $label, $ids ) ) {
 	}
 	foreach ( $ids as $id ) { // one block per part (mockup): its own id for deep links
 		$cls     = str_contains( $sections[ $id ][1], 'data-gallery' ) ? ' block--dark gallery' : ( 'hoi-dap' === $id ? ' faq' : '' ); // dark: galleries only (1.5)
-		$blocks .= '<section class="block' . $cls . '" id="' . esc_attr( $id ) . '">' . $sections[ $id ][1] . '</section>';
+		$html    = 'hoi-dap' === $id ? preg_replace( '/<details(?![^>]*\sopen)/', '<details open', $sections[ $id ][1], 1 ) : $sections[ $id ][1]; // first answer open, as in the mockup
+		$blocks .= '<section class="block' . $cls . '" id="' . esc_attr( $id ) . '">' . $html . '</section>';
 	}
 }
 $nav['tu-van'] = 'Tư vấn';
 $src  = (string) get_post_meta( $p->ID, 'velis_price_source', true );
 $keys = array( 'Chủ đầu tư', 'Quy mô', 'Số phân khu', 'Vị trí', 'Sản phẩm', 'Diện tích', 'Bàn giao', 'Pháp lý' ); // mockup order; Giá goes 4th
 $fact = 'thap-tang' === $level ? $facts : array_filter( array_merge( array_fill_keys( $keys, null ), $facts ), 'is_string' );
+if ( 'phan-khu' === $level ) {
+	unset( $fact['Sản phẩm'] ); // as the mockup MPP: no "Sản phẩm" cell on a phân khu
+}
 // mockup order: breadcrumb → section tabs → hero → facts → "Velis tư vấn" (phones) → 2 columns (blocks | advisor) → form
 $out  = velis_breadcrumb_html( velis_trail() ) . velis_section_nav( $nav ) . $hero
 	. velis_facts_html( $fact, $price, $src ? 'Nguồn giá: ' . $src : '', array( 'Vị trí' => '#vi-tri' ) )

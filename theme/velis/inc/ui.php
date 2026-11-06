@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
 
 // Width of the main column of a 2-column page (content wrap − 340 px side column − 48 px gap); phones: wrap − gutters.
 const VELIS_SIZES_MAIN = '(min-width: 1600px) 932px, (min-width: 1024px) min(100vw - 436px, 812px), (min-width: 768px) calc(100vw - 48px), calc(100vw - 32px)';
-const VELIS_SIZES_CARD = '(min-width: 1024px) 380px, (min-width: 768px) calc(50vw - 36px), calc(100vw - 32px)';
+const VELIS_SIZES_CARD = '(min-width: 1600px) 424px, (min-width: 1024px) 384px, (min-width: 768px) calc(50vw - 36px), calc(100vw - 32px)'; // 3 cards in the frame: (1320 | 1200 − 2 × 24) / 3
 const VELIS_SIZES_HERO_B = '(min-width: 1600px) 1320px, (min-width: 1248px) 1200px, (min-width: 768px) calc(100vw - 48px), calc(100vw - 32px)'; // = .wrap (NT-17)
 const VELIS_CEO = array( 'name' => 'Vũ Xuân', 'role' => 'CEO Velis Realty', 'img' => 'assets/brand/ceo-vu-xuan-160.webp' );
 
@@ -143,8 +143,7 @@ function velis_card_project( $p, string $kicker = '', $mode = '' ): string {
 	} elseif ( 'thap-tang' === $level ) {
 		$lines[] = implode( ' · ', array_filter( array_slice( velis_facts( $p ), 0, 3 ) ) );
 	} else {
-		$zones   = 'dai-do-thi' === $level ? count( velis_children( $p, 'phan-khu' ) ) : 0;
-		$lines[] = $zones ? $zones . ' phân khu · ' . implode( ', ', $types ) : implode( ', ', $types );
+		$lines[] = implode( ', ', $types ); // as the mockup card: product types only (the phân khu count is on the project page)
 	}
 	$lines[] = '' !== $price ? 'Giá ' . $price : '';
 	$lines[] = implode( ' · ', array_filter( array( $status, $hand ? velis_label_value( 'Bàn giao', velis_short( $hand, 32 ) ) : '' ) ) );
@@ -205,7 +204,33 @@ function velis_grid( array $cards, string $mod = '', string $attrs = '' ): strin
 	$any   = (bool) array_filter( $cards, fn( $c ) => str_contains( $c, 'class="card__media"' ) );
 	$cards = array_map( fn( $c ) => preg_replace_callback( '#<span hidden data-nomedia="([^"]*)"></span>#', fn( $m ) => $any ? velis_media_empty( html_entity_decode( $m[1], ENT_QUOTES ) ) : '', $c ), $cards );
 	$cls   = array( 'three' => ' grid--three', 'zones' => ' zones' )[ $mod ] ?? '';
-	return $cards ? '<div class="grid' . $cls . '" data-n="' . count( $cards ) . '"' . $attrs . '>' . implode( '', $cards ) . '</div>' . $after : '';
+	$n     = count( $cards );
+	foreach ( $cards as $i => $c ) { // a card wider than a third of the frame needs a bigger file (NT-21): sizes from its real column span
+		$rules = velis_grid_sizes( $n, $i );
+		$cards[ $i ] = $rules ? preg_replace_callback( '#(<div class="card__media"[^>]*><img\b[^>]*?\s)sizes="([^"]*)"#', fn( $m ) => $m[1] . 'sizes="' . esc_attr( velis_sizes( $rules, preg_match( '/calc\(([\d.]+) \* \(/', $m[2], $z ) ? (float) $z[1] : 1 ) ) . '"', $c, 1 ) : $c;
+	}
+	return $cards ? '<div class="grid' . $cls . '" data-n="' . $n . '"' . $attrs . '>' . implode( '', $cards ) . '</div>' . $after : '';
+}
+
+/**
+ * Photo width of card $i in a grid of $n cards (layout rules of css/3-layout.css, frame 1200 | 1320 px, gap 24 px), '' for an
+ * ordinary third-of-the-frame card (VELIS_SIZES_CARD). Upper bounds: inside the main column of a 2-column page the card is narrower.
+ */
+function velis_grid_sizes( int $n, int $i ): string {
+	$frame = '(min-width: 1600px) 1320px, (min-width: 1280px) 1200px, (min-width: 768px) calc(100vw - 48px), calc(100vw - 32px)';
+	if ( 1 === $n ) {
+		return '(min-width: 1600px) 707px, (min-width: 1280px) 642px, (min-width: 768px) calc(54.6vw - 39px), calc(100vw - 32px)'; // wide card: photo = 1.2fr of 2.2
+	}
+	if ( 5 === $n && 0 === $i ) {
+		return '(min-width: 1600px) 872px, (min-width: 1280px) 792px, (min-width: 768px) calc(66.7vw - 40px), calc(100vw - 32px)'; // 2 of 3 columns
+	}
+	if ( in_array( $n, array( 7, 11 ), true ) && 0 === $i ) {
+		return $frame; // full row
+	}
+	if ( in_array( $n, array( 2, 4, 6, 7, 8, 10, 11, 12 ), true ) ) {
+		return '(min-width: 1600px) 648px, (min-width: 1280px) 588px, (min-width: 768px) calc(50vw - 36px), calc(100vw - 32px)'; // half the frame
+	}
+	return '';
 }
 
 /* ---------- Heroes ---------- */
@@ -266,7 +291,8 @@ function velis_feature_strip( array $projects ): string {
 /** Index pages (Dự án, Chủ đầu tư, Blog …): hero B – framed photo when there is one, text below. $a: title, eyebrow, lead, img, buttons, after. */
 function velis_hero_b( array $a ): string {
 	$id  = (int) ( $a['img'] ?? 0 );
-	$fig = velis_usable( $id ) ? '<figure class="hero__media">' . velis_img( $id, $a['alt'] ?? '', 'large', array( 'lcp' => true, 'ratio' => 1e9, 'sizes' => VELIS_SIZES_HERO_B ) ) . '</figure>' : '';
+	$k   = $id ? velis_cover_k( $id, 4 / 3 ) : 1; // phones: 4:3 frame – a wider photo is fetched at the frame's height
+	$fig = velis_usable( $id ) ? '<figure class="hero__media">' . velis_img( $id, $a['alt'] ?? '', 'large', array( 'lcp' => true, 'ratio' => 1e9, 'sizes' => str_replace( 'calc(100vw - 32px)', 'calc(' . $k . ' * (100vw - 32px))', VELIS_SIZES_HERO_B ) ) ) . '</figure>' : '';
 	return '<section class="hero hero--b" aria-labelledby="h1">' . $fig . '<div class="hero__body wrap">'
 		. ( ! empty( $a['eyebrow'] ) ? '<p class="eyebrow">' . esc_html( $a['eyebrow'] ) . '</p>' : '' )
 		. '<h1 id="h1">' . esc_html( $a['title'] ) . '</h1>'
@@ -330,11 +356,12 @@ function velis_highlight_card(): string {
  */
 function velis_photo_grid( array $imgs ): string {
 	$li = array();
-	foreach ( array_values( $imgs ) as list( $id, $cap ) ) {
+	$n  = count( $imgs );
+	foreach ( array_values( $imgs ) as $i => list( $id, $cap ) ) {
 		$alt  = (string) get_post_meta( $id, '_wp_attachment_image_alt', true );
 		$cap  = velis_auto_caption( $cap ) ? '' : $cap;
 		$li[] = '<figure class="card"><button class="card__media" type="button" data-zoom="' . esc_url( wp_get_attachment_image_url( $id, 'large' ) ) . '" aria-label="' . esc_attr( 'Phóng to: ' . ( $alt ?: $cap ?: 'ảnh tiến độ' ) ) . '">'
-			. velis_img( $id, $alt ?: $cap, 'large', array( 'sizes' => '(min-width: 768px) 360px, calc(100vw - 32px)' ) ) . '</button>' . ( $cap ? '<figcaption class="card__meta">' . esc_html( $cap ) . '</figcaption>' : '' ) . '</figure>';
+			. velis_img( $id, $alt ?: $cap, 'large', array( 'sizes' => velis_grid_sizes( $n, $i ) ?: VELIS_SIZES_CARD ) ) . '</button>' . ( $cap ? '<figcaption class="card__meta">' . esc_html( $cap ) . '</figcaption>' : '' ) . '</figure>';
 	}
 	return $li ? '<div class="grid" data-n="' . count( $li ) . '">' . implode( '', $li ) . '</div>' . velis_lightbox() : '';
 }
@@ -390,6 +417,13 @@ function velis_facts_html( array $facts, ?string $price, string $note = '', arra
 	}
 	$cells = '';
 	$n     = 0;
+	// as the mockup: handover as short as on the side card (the full sentence is in Tổng quan), legal text without its own label
+	if ( ! empty( $facts['Bàn giao'] ) ) {
+		$facts['Bàn giao'] = velis_short( (string) $facts['Bàn giao'], 32 );
+	}
+	if ( ! empty( $facts['Pháp lý'] ) ) {
+		$facts['Pháp lý'] = preg_replace( '/^Hình thức sở hữu:\s*/u', '', (string) $facts['Pháp lý'] );
+	}
 	foreach ( $facts as $k => $v ) {
 		if ( null !== $v && '' === trim( (string) $v ) ) {
 			continue;
@@ -564,8 +598,10 @@ function velis_zone_listing( $root, array $zones ): string {
 		$groups[ $high && $low ? 'Hỗn hợp' : ( $high || ! $t ? 'Cao tầng' : 'Thấp tầng' ) ][] = $z;
 	}
 	$cards = '';
+	$any   = (bool) array_filter( $zones, 'velis_image_id' ); // a group without photos still gets named frames when another group has photos (mockup TGC)
 	foreach ( array_filter( $groups ) as $g => $list ) {
 		$c      = array_map( fn( $z ) => velis_card_project( $z, '', 'zone' ), $list );
+		$c      = $any ? preg_replace_callback( '#<span hidden data-nomedia="([^"]*)"></span>#', fn( $m ) => velis_media_empty( html_entity_decode( $m[1], ENT_QUOTES ) ), $c ) : $c;
 		$c      = 'Thấp tầng' === $g ? array_map( fn( $x ) => preg_replace( '/^<article class="card"/', '<article class="card card--wide"', $x ), $c ) : $c;
 		$cards .= '<div data-group><h3>' . esc_html( $g ) . '</h3>' . velis_grid( $c, 'zones' ) . '</div>';
 	}
@@ -668,13 +704,13 @@ function velis_search_form( string $id, string $value = '', string $label = 'Tì
 /** Text page body: one reading column, or the 2-column page (text | sticky side card) when there is a side card. */
 function velis_text_page( string $html, string $side = '' ): string {
 	return $side ? '<div class="wrap page"><div class="page__main"><div class="block prose">' . $html . '</div></div>' . $side . '</div>'
-		: '<div class="wrap--read"><div class="block prose">' . $html . '</div></div>';
+		: '<div class="wrap"><div class="block prose">' . $html . '</div></div>'; // 1.1: text starts on the frame edge, under the title (.prose caps the width)
 }
 
 /** Pagination: a row of outline buttons (existing button component). */
 function velis_pagination( WP_Query $q ): string {
 	$links = paginate_links( array( 'total' => $q->max_num_pages, 'current' => max( 1, (int) get_query_var( 'paged' ) ), 'type' => 'array', 'prev_text' => '‹<span class="sr-only"> Trang trước</span>', 'next_text' => '<span class="sr-only">Trang sau </span>›' ) );
-	$links = array_map( fn( $l ) => preg_replace( '/class="(page-numbers[^"]*)"/', 'class="btn btn--line $1"', $l ), (array) $links );
+	$links = array_map( fn( $l ) => preg_replace( '/class="([^"]*page-numbers[^"]*)"/', 'class="btn btn--line $1"', $l ), (array) $links );
 	return $links ? '<nav class="actions more-center" aria-label="Phân trang">' . implode( '', $links ) . '</nav>' : '';
 }
 

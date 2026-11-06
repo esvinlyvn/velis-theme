@@ -43,7 +43,7 @@ export function scaleAudit({ FONT, SPACE }) {
 	}
 	// 1.6: characters per rendered line of running text (p, li, dd), counted glyph by glyph; > 68 is an exception
 	const chars = new Map();
-	for (const e of document.querySelectorAll('main p, main li, main dd, footer p')) {
+	for (const e of document.querySelectorAll('main p, main li:not(.crumbs li), main dd, footer p')) { // a breadcrumb is navigation, not running text
 		if (e.matches(skip) || e.closest('.mk, .mk-float, [hidden], .hero--home') || !e.getClientRects().length) continue;
 		const lines = new Map(), w = document.createTreeWalker(e, NodeFilter.SHOW_TEXT), rg = document.createRange();
 		for (let t; (t = w.nextNode());) for (let i = 0; i < t.length; i++) {

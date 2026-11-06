@@ -20,7 +20,7 @@ $$('[data-secnav]').forEach((nav) => {
 		targets.forEach((t, i) => { if (t && t.getBoundingClientRect().top <= innerHeight * 0.35) cur = i; });
 		links.forEach((a, i) => {
 			if (i === cur && a.getAttribute('aria-current') !== 'true') a.closest('ul').scrollTo({ left: a.offsetLeft - 16 });
-			a.setAttribute('aria-current', String(i === cur));
+			i === cur ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current'); // only the current tab carries the attribute
 		});
 	};
 	addEventListener('scroll', mark, { passive: true });
@@ -203,7 +203,7 @@ $$('[data-toc]').forEach((toc) => {
 	const seen = new Set();
 	const mark = () => {
 		const cur = [...seen].sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top)[0];
-		links.forEach((a) => a.setAttribute('aria-current', String(!!cur && a.hash === '#' + cur.id)));
+		links.forEach((a) => (cur && a.hash === '#' + cur.id ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current')));
 	};
 	const obs = new IntersectionObserver((es) => { es.forEach((e) => (e.isIntersecting ? seen.add(e.target) : seen.delete(e.target))); mark(); }, { rootMargin: '-15% 0px -55% 0px' });
 	targets.forEach((t) => obs.observe(t));

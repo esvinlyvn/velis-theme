@@ -93,7 +93,12 @@ add_filter( 'wp_content_img_tag', function ( $tag, $context, $id ) {
 	$max    = velis_max_candidate( $m[1], preg_match( '/\swidth="(\d+)"/', $tag, $w ) ? (int) $w[1] : 0 );
 	$marked = '' !== velis_mark( (int) $id );
 	$tag    = preg_replace( '/\ssizes="[^"]*"/', '', $tag );
-	$tag    = preg_replace( '/^<img/', '<img sizes="' . esc_attr( velis_sizes( '(min-width: 768px) min(720px, ' . $max . 'px), min(100vw - 32px, ' . $max . 'px)', $marked ? 1.12 : 1 ) ) . '"' . ( $marked ? ' style="--zoom: 1.12"' : '' ), $tag );
+	// the box ratio comes from the width / height attributes, not from whichever srcset file loaded (files of one photo differ
+	// by a fraction of a pixel in ratio → the text below moved with the DPR, NT-01)
+	$ratio  = preg_match( '/\sheight="(\d+)"/', $tag, $h ) && ! empty( $w[1] ) ? 'aspect-ratio: ' . (int) $w[1] . ' / ' . (int) $h[1] . '; ' : '';
+	$style  = $ratio . ( $marked ? '--zoom: 1.12; ' : '' );
+	$tag    = preg_match( '/\sstyle="/', $tag ) ? preg_replace( '/\sstyle="/', ' style="' . $style, $tag, 1 ) : preg_replace( '/^<img/', '<img style="' . trim( $style ) . '"', $tag ); // keep a style the editor set
+	$tag    = preg_replace( '/^<img/', '<img sizes="' . esc_attr( velis_sizes( '(min-width: 768px) min(720px, ' . $max . 'px), min(100vw - 32px, ' . $max . 'px)', $marked ? 1.12 : 1 ) ) . '"', $tag );
 	$tag    = $marked ? preg_replace( '/^<img([^>]*?)\sclass="/', '<img$1 class="is-marked ', $tag, 1, $n ) : $tag;
 	$tag    = $marked && empty( $n ) ? preg_replace( '/^<img/', '<img class="is-marked"', $tag ) : $tag;
 	return $marked ? '<span class="pic" style="max-width: ' . $max . 'px">' . $tag . '</span>' : $tag;

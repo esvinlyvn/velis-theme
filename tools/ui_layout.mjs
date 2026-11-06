@@ -27,7 +27,7 @@ export function layoutAudit() {
 		if (shown(el) && el.getBoundingClientRect().height > 40 && !content(el)) out.empty.push(label(el));
 	}
 
-	for (const el of body.querySelectorAll('.v-map, .v-card__media:not(.v-media--empty:not(.is-broken)), .v-ratio, figure.wp-block-image, figure.wp-block-embed, figure:has(> img), .v-gallery__track li, .v-hero--full:not(.v-hero--noimg), .v-pricecard > img, .map, .card__media:not(.card__media--empty), .gallery__track li, .hero__media, .pic')) { // a hero rendered without photo is a text band, not a frame
+	for (const el of body.querySelectorAll('.v-map, .v-card__media:not(.v-media--empty:not(.is-broken)), .v-ratio, figure.wp-block-image, figure.wp-block-embed, figure:has(> img), .v-gallery__track li, .v-hero--full:not(.v-hero--noimg), .v-pricecard > img, .map, .card__media:not(.card__media--empty), .gallery__track li, .hero__media:not(.card__media--empty), .pic')) { // a hero rendered without photo is a text band, not a frame
 		if (!shown(el) || el.getBoundingClientRect().height <= 100) continue;
 		const pics = el.matches('img') ? [el] : [...el.querySelectorAll('img, iframe, video')];
 		if (!pics.some((m) => m.tagName !== 'IMG' || loaded(m))) out.media.push(label(el));

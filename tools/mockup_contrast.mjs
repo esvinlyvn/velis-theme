@@ -3,11 +3,14 @@
 // The text (and chip borders) is made transparent, the screen is captured, and the background colour is read at 10/30/50/70/90 %
 // of each line's width on its middle row; ratio = WCAG contrast of the text colour against that pixel. Read-only, local.
 // Usage: node tools/mockup_contrast.mjs http://127.0.0.1:8765 out.json
+//        VIEW_PASSWORD_FILE=… node tools/mockup_contrast.mjs https://staging.velisrealty.vn out.json   (staging, hero A forced)
 import { createRequire } from 'node:module';
-import { writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 const { chromium } = createRequire(import.meta.url)('playwright');
 const [base = 'http://127.0.0.1:8765', out = 'contrast.json'] = process.argv.slice(2);
 const PAGES = ['trang-chu', 'the-global-city', 'masteri-park-place']; // trang chủ: hero tràn 0.9.8 (duyệt 2026-11-06)
+const STAGING = base.startsWith('https://'); // staging: view-password login, project heroes forced to A (?velis_hero=a)
+const URL_OF = { 'trang-chu': '/', 'the-global-city': '/du-an/the-global-city/?velis_hero=a', 'masteri-park-place': '/du-an/the-global-city/masteri-park-place/?velis_hero=a' };
 const M = [['M1', 1366, 768, 1], ['M2', 1536, 864, 1.25], ['M3', 1920, 1080, 1], ['M4', 960, 540, 2], ['M5', 390, 844, 2]];
 
 export const lum = ([r, g, b]) => [r, g, b].map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }).reduce((s, v, i) => s + v * [0.2126, 0.7152, 0.0722][i], 0);
@@ -19,10 +22,18 @@ console.assert(Math.abs(ratio([0, 0, 0], [255, 255, 255]) - 21) < 0.01 && Math.a
 if (import.meta.url === `file://${process.argv[1]}`) {
 	const b = await chromium.launch();
 	const rows = [];
+	let state;
+	if (STAGING) {
+		const c = await b.newContext(), lp = await c.newPage();
+		await lp.goto(base + '/'); await lp.fill('input[type=password]', readFileSync(process.env.VIEW_PASSWORD_FILE, 'utf8').trim());
+		await Promise.all([lp.waitForNavigation(), lp.locator('input[type=submit], button[type=submit]').first().click()]);
+		state = await c.storageState(); await c.close();
+	}
 	for (const page of PAGES) for (const [m, w, h, dpr] of M) {
-		const p = await (await b.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: dpr })).newPage();
-		await p.goto(`${base}/${page}.html#hero-a,tam-0`, { waitUntil: 'load' });
-		await p.waitForFunction(() => document.querySelector('.hero img').complete);
+		const p = await (await b.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: dpr, storageState: state })).newPage();
+		await p.goto(STAGING ? base + URL_OF[page] : `${base}/${page}.html#hero-a,tam-0`, { waitUntil: 'load', timeout: 120000 });
+		await p.waitForFunction(() => document.querySelector('.hero img').complete, null, { timeout: 30000 });
+		if (STAGING) await p.addStyleTag({ content: '.header { visibility: hidden !important; }' }); // measuring only: a sticky header never sits over hero text in the capture
 		// every text line in the hero body: [label, color, x, y, w, h] in CSS px; then hide the text
 		const lines = await p.evaluate(() => {
 			const res = [];

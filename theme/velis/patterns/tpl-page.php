@@ -43,7 +43,7 @@ if ( 'lien-he' === $slug ) {
 		$side = velis_contact_card( 'cv', 'mailto:' . VELIS_EMAIL . '?subject=' . rawurlencode( 'Ứng tuyển – ' . $title ) );
 	} else {
 		list( $toc, $content ) = velis_toc( $content, 1300 ); // long policy pages: table of contents on the side
-		$side = $toc ? '<aside class="page__side" aria-label="Mục lục">' . $toc . '</aside>' : '';
+		$side = $toc ? '<aside class="page__side" aria-label="Mục lục">' . $toc . '</aside>' : velis_contact_card(); // no TOC: the contact card keeps the text on the frame edge without a 40 % empty band (1.1, NT-03)
 	}
 	$out .= $content ? velis_text_page( $content, $side ) : '';
 	$out .= velis_form_html( '', array(), $cv ? 'Đăng ký ứng tuyển' : 'Nhận tư vấn' );

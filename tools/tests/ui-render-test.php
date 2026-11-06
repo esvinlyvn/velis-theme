@@ -96,8 +96,9 @@ $check( str_contains( $zones, 'data-filter=".zones"' ) && str_contains( $zones, 
 $check( str_contains( velis_section_nav( array( 'a' => 'A', 'b' => 'B' ) ), 'class="tabs"' ) && str_contains( velis_breadcrumb_html( array( array( 'Trang chủ', '/' ), array( 'Dự án', '' ) ) ), 'class="crumbs"' ), 'tabs + crumbs' );
 $toc = velis_toc( '<h2>A</h2><p>x</p><h2>B</h2><h2>C</h2>', 1300 )[0];
 $check( str_starts_with( $toc, '<div class="faq"><details data-toc>' ), 'table of contents = FAQ row' );
-$check( str_contains( velis_text_page( '<p>x</p>', '<aside class="page__side"></aside>' ), 'class="wrap page"' ) && str_contains( velis_text_page( '<p>x</p>' ), 'class="wrap--read"' ), 'text page: 2 columns only with a side card' );
+$check( str_contains( velis_text_page( '<p>x</p>', '<aside class="page__side"></aside>' ), 'class="wrap page"' ) && str_contains( velis_text_page( '<p>x</p>' ), '<div class="wrap"><div class="block prose">' ), 'text page: 2 columns only with a side card' );
 $check( str_contains( velis_search_form( 's' ), 'class="field"' ) && str_contains( velis_search_form( 's' ), 'class="btn"' ), 'search form = form row components' );
+$check( '' === velis_grid_sizes( 3, 1 ) && str_contains( velis_grid_sizes( 1, 0 ), '707px' ) && str_contains( velis_grid_sizes( 5, 0 ), '872px' ) && '' === velis_grid_sizes( 5, 1 ) && str_contains( velis_grid_sizes( 4, 3 ), '648px' ), 'grid photo sizes follow the column span' );
 $all = $card . $grid . $facts . $adv . $form . $gal . $zones . $home . $toc;
 $check( ! preg_match( '/class="[^"]*\bv-/', $all ), 'no old v- class left' );
 // static scan: no `v-` class name anywhere in the theme (PHP, block templates, JS selectors, CSS)

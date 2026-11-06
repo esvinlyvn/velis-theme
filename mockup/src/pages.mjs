@@ -79,7 +79,7 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 		return `
 <section class="section section--dark" id="tu-van" aria-labelledby="tu-van-h"><div class="wrap contact">
 	<div><p class="eyebrow">${esc(f.eyebrow)}</p><h2 id="tu-van-h">${esc(title)}</h2><p>${esc(lead ?? f.lead)}</p>
-		<dl>${f.contact.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl></div>
+		<dl>${f.contact.map(([k, v]) => { const href = /^0[\d ]+$/.test(v) ? 'tel:' + v.replace(/\s/g, '') : /^zalo\.me/.test(v) ? '#' : /@/.test(v) ? 'mailto:' + v : ''; return `<div><dt>${esc(k)}</dt><dd>${href ? `<a href="${href}">${esc(v)}</a>` : esc(v)}</dd></div>`; }).join('')}</dl></div>
 	<form class="form" novalidate>${fields('', { interest })}
 	</form>
 </div></section>`;

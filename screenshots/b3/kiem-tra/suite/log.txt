@@ -1,0 +1,18 @@
+trang-chu DPR 1: broken:0 wrong:0 dpr:0 mixed:0 noname:0 feats:0 photos:0 edge:0 postgrid:0 meta:0 empty:0 table:0 overflow:0 h1:0 caps:0 gaps:0 lowres:4 blurryOld:3 gridinfo:0
+trang-chu DPR 1.25: broken:0 wrong:0 dpr:0 mixed:0 noname:0 feats:0 photos:0 edge:0 postgrid:0 meta:0 empty:0 table:0 overflow:0 h1:0 caps:0 gaps:0 lowres:4 blurryOld:3 gridinfo:0
+trang-chu DPR 2: broken:0 wrong:0 dpr:0 mixed:0 noname:0 feats:0 photos:0 edge:0 postgrid:0 meta:0 empty:0 table:0 overflow:0 h1:0 caps:0 gaps:0 lowres:11 blurryOld:4 gridinfo:0
+du-an DPR 1: broken:0 wrong:0 dpr:0 mixed:0 noname:0 feats:0 photos:0 edge:0 postgrid:0 meta:0 empty:0 table:0 overflow:0 h1:0 caps:0 gaps:0 lowres:1 blurryOld:0 gridinfo:0
+du-an DPR 1.25: broken:0 wrong:0 dpr:0 mixed:0 noname:0 feats:0 photos:0 edge:0 postgrid:0 meta:0 empty:0 table:0 overflow:0 h1:0 caps:0 gaps:0 lowres:3 blurryOld:3 gridinfo:0
+du-an DPR 2: broken:0 wrong:0 dpr:0 mixed:0 noname:0 feats:0 photos:0 edge:0 postgrid:0 meta:0 empty:0 table:0 overflow:0 h1:0 caps:0 gaps:0 lowres:11 blurryOld:4 gridinfo:0
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+page.evaluate: Target page, context or browser has been closed
+    at settle (/home/user/velis-theme/tools/ui_media.mjs:250:10)
+    at async runSuite (/home/user/velis-theme/tools/ui_media.mjs:281:5)
+    at async file:///home/user/velis-theme/tools/check_ui.mjs:28:12 {
+  log: []
+}
+
+Node.js v22.23.4

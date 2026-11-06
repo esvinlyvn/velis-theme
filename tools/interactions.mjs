@@ -138,10 +138,12 @@ check('NT-80 mobile: breadcrumb tối đa 2 dòng', bc >= 1 && bc <= 2, `${bc} d
 
 // 30–32 read more, side card mini form, test submission
 const r = await open(desk, '/du-an/the-global-city/');
+// 1.0: every long section of a project page is clamped – check the one whose button is clicked
 const before = await r.evaluate(() => Math.round(document.querySelector('.clamp.is-clamped')?.getBoundingClientRect().height || 0));
-await r.locator('.clamp__more').first().click();
+await r.evaluate(() => document.querySelector('.clamp.is-clamped').setAttribute('data-test-clamp', ''));
+await r.locator('[data-test-clamp] + .clamp__more').click();
 await r.waitForTimeout(400);
-const opened = await r.evaluate(() => !document.querySelector('.clamp.is-clamped'));
+const opened = await r.evaluate(() => !document.querySelector('[data-test-clamp]').classList.contains('is-clamped'));
 check('NT-57 "Đọc tiếp" mở toàn bộ đoạn dài', before > 0 && opened, `${before}px → ${opened ? 'mở' : 'vẫn thu'}`);
 await r.evaluate(() => scrollTo(0, 900)); await r.waitForTimeout(300);
 await r.locator('.page__side [data-open-form]').filter({ visible: true }).first().click(); await r.waitForTimeout(300);

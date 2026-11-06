@@ -52,7 +52,9 @@ export async function mediaAudit(dpr) {
 		const tops = [...new Set(cards.map((c) => Math.round(c.getBoundingClientRect().top)))];
 		if (tops.length < 2 && lefts.length === cards.length && g.scrollWidth > g.clientWidth + 2) continue; // one-row horizontal rail
 		const cols = lefts.length;
-		const gap = cols && cards.length % cols ? cols - (cards.length % cols) : 0;
+		// cells actually used: a card spanning 2 columns (grid-column: span 2 – first card of 5 / 7 / 11) fills 2 (step 3)
+		const cells = cards.reduce((n, c) => n + (+((getComputedStyle(c).gridColumnStart + ' ' + getComputedStyle(c).gridColumnEnd).match(/span (\d+)/) || [])[1] || 1), 0);
+		const gap = cols && cells % cols ? cols - (cells % cols) : 0;
 		if (!gap) continue;
 		const posts = cards.length && cards.every((c) => c.matches('.v-card--all, .card--all, .card--post') || (c.matches('article.v-card') && c.querySelector('a[href*="/blog/"]')));
 		(posts && cols >= 3 ? out.postgrid : out.gridinfo).push(`${label(g)}: ${cards.length} thẻ, ${cols} cột, ${gap} ô trống`);
@@ -244,6 +246,17 @@ const CRIT = [['broken', 'NT-20 Ảnh hỏng'], ['wrong', 'NT-21 Chọn sai file
 	['empty', 'NT-04 Khối trống'], ['table', 'NT-53 Bảng < 2 hàng'], ['overflow', 'NT-02 Tràn ngang'], ['h1', 'NT-56 H1 ≠ 1'], ['caps', 'NT-55 Heading HOA'], ['gaps', 'NT-03 Khoảng trống > 30%']];
 const INFO = [['lowres', 'NT-22 Ảnh nguồn thiếu độ phân giải'], ['blurryOld', 'NT-21 Ảnh mờ (cách đo cũ)'], ['gridinfo', 'NT-08 Ô trống lưới khác']];
 
+// staging under load sometimes answers 5xx (page or picture) – the page is loaded again (≤ 3 times) before measuring, so a
+// server hiccup is not counted as a theme error; a page that keeps failing is measured as it is
+const openSettled = async (p, url) => {
+	for (let i = 0; i < 3; i++) {
+		const r = await p.goto(url, { waitUntil: 'load', timeout: 120000 }).catch(() => null);
+		await settle(p);
+		const bad = await p.evaluate(() => [...document.images].some((im) => im.complete && !im.naturalWidth && im.getBoundingClientRect().width > 40));
+		if (r && r.status() < 500 && !bad && await p.locator('h1').count()) return;
+		await p.waitForTimeout(5000);
+	}
+};
 const settle = async (p) => {
 	await p.evaluate(async () => { for (let y = 0; y < document.documentElement.scrollHeight; y += innerHeight * 0.6) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 150)); } });
 	await p.waitForFunction(() => [...document.images].every((i) => i.complete), null, { timeout: 20000 }).catch(() => {});
@@ -277,8 +290,7 @@ export async function runSuite({ chromium, base, password, pages, dprs = [1, 1.2
 			for (const w of widths) {
 				const p = await ctx.newPage();
 				await p.setViewportSize({ width: w, height: w < 768 ? 844 : 900 });
-				await p.goto(base + path, { waitUntil: 'load', timeout: 120000 });
-				await settle(p);
+				await openSettled(p, base + path);
 				const m = await p.evaluate(mediaAudit, dpr);
 				(boxes[w] ??= {})[dpr] = m.boxes;
 				for (const [k] of [...CRIT, ...INFO]) {

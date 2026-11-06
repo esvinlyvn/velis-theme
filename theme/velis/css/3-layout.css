@@ -32,3 +32,8 @@
 	.grid[data-n="1"] > .card .card__media { margin: 0; }
 }
 @media (min-width: 1024px) { .grid--three[data-n="6"], .grid--three[data-n="12"] { grid-template-columns: repeat(3, 1fr); } }
+/* construction photos (NT-29): 2 columns on phones too, the first photo full width when the count is odd */
+@media (max-width: 767px) {
+	.grid:has(> figure > [data-zoom]) { grid-template-columns: repeat(2, 1fr); }
+	.grid:has(> figure > [data-zoom]) > :first-child:nth-last-child(odd) { grid-column: span 2; }
+}

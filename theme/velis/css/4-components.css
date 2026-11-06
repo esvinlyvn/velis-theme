@@ -52,6 +52,7 @@
 .crumbs li { display: inline-flex; align-items: center; max-width: none; }
 .crumbs li + li::before { content: "›"; margin-right: var(--s2); }
 .crumbs a { color: inherit; display: inline-flex; align-items: center; min-width: 44px; min-height: 44px; }
+@media (max-width: 767px) { .crumbs { flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; scrollbar-width: none; } } /* NT-80: one line on phones, the trail scrolls sideways */
 .tabs { position: sticky; top: var(--header-h); z-index: 40; background: var(--canvas); border-bottom: 1px solid var(--line); }
 .tabs ul { display: flex; list-style: none; margin: 0; padding: 0; overflow-x: auto; scrollbar-width: none; }
 .tabs a { display: inline-flex; align-items: center; min-height: 52px; padding: 0 var(--s4); color: var(--ink); text-decoration: none; font-weight: 600; font-size: var(--fs-small); white-space: nowrap; border-bottom: 2px solid transparent; }
@@ -196,7 +197,10 @@
 /* prose + "Đọc tiếp" */
 .prose { max-width: var(--read); }
 .prose figure { margin: var(--s6) 0; }
-.prose figcaption { font-size: var(--fs-small); color: var(--muted); margin-top: var(--s2); }
+.prose img { object-fit: cover; } /* box ratio set from the attributes (functions.php): never stretched */
+.prose figcaption, .prose .wp-element-caption { font-size: var(--fs-small); color: var(--muted); margin: var(--s2) 0 0; }
+.prose .wp-block-table :is(td, th) { padding: var(--s2) var(--s4); } /* core block CSS uses .5em: back on the 1.2 scale */
+.prose .wp-block-separator { margin-block: var(--s6); }
 .prose table { display: block; overflow-x: auto; font-size: inherit; } /* bảng trong bài theo cỡ thân: khối ≤ 3 cỡ (1.3) */
 /* core blocks of migrated content, drawn with existing components: H2 opens a part, quote = the note box (.disclosure),
    button block = .btn (class added in functions.php), details = the FAQ row */
@@ -256,6 +260,7 @@
 @media (min-width: 1024px) { .contact { grid-template-columns: 5fr 7fr; gap: var(--s16); align-items: start; } }
 .contact dl { display: grid; gap: var(--s4); margin: 0; }
 .contact dd { font-weight: 600; }
+.contact dd a { display: inline-flex; align-items: center; min-height: 44px; } /* NT-86: hotline / Zalo / email are tap targets */
 .form { display: grid; gap: var(--s4); }
 .form__row { display: grid; gap: var(--s4); }
 @media (min-width: 768px) { .form__row { grid-template-columns: 1fr 1fr; } }
@@ -299,6 +304,8 @@ img.is-marked { transform: scale(var(--zoom, 1.15)); transform-origin: 100% 0; }
 
 /* zone filter (product type, TGC) */
 .zfilter { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--s4); margin-bottom: var(--s6); }
+.zfilter:has(.actions + .actions) > * { flex-basis: 100%; } /* several filter rows (/du-an/): every row starts on the frame edge (1.1) */
+.zfilter:has(.actions + .actions) > .btn--text { flex-basis: auto; }
 [data-group] + [data-group], [data-group] + .prose { margin-top: var(--s8); }
 
 /* project / zone pages – "Velis tư vấn dự án này": side column ≥ 1024, after the facts bar below */

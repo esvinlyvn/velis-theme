@@ -4,3 +4,4 @@
 .mb-0 { margin-bottom: 0; }
 .center { text-align: center; }
 [hidden] { display: none; }
+[role="status"]:empty { display: none; } /* an empty live region takes no row (the form block keeps its mockup height) */
