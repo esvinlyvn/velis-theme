@@ -2,11 +2,15 @@
 // DESIGN.md "Quy tắc bố cục" 1.2 / 1.3: every rendered font size and every margin / padding / gap of the 3 mockup pages
 // must come from the scales. Lists the exceptions (must be 0). Mockup-only parts (switches, "ảnh tạm" tag) are skipped,
 // and so is the home hero: it is the staging 0.9.8 hero kept with its own sizes (duyệt 2026-11-06, DESIGN.md "Hero").
-// Usage: node tools/mockup_scale.mjs http://127.0.0.1:8765 [out.md]
+// Usage: node tools/mockup_scale.mjs http://127.0.0.1:8765 [out.md]                     (the 3 mockup pages)
+//        VIEW_PASSWORD_FILE=… node tools/mockup_scale.mjs --staging <paths.txt | /a/,/b/> [out.md]   (staging pages, guest view)
 import { createRequire } from 'node:module';
-import { writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 const { chromium } = createRequire(import.meta.url)('playwright');
-const [base = 'http://127.0.0.1:8765', out] = process.argv.slice(2);
+const STAGING = process.argv[2] === '--staging';
+const [base = 'http://127.0.0.1:8765', out] = STAGING ? ['https://staging.velisrealty.vn', process.argv[4]] : process.argv.slice(2);
+// staging: paths from a file (one per line, # comments) or a comma list; mockup: the 3 built pages
+const list = STAGING ? (existsSync(process.argv[3]) ? readFileSync(process.argv[3], 'utf8').split('\n') : process.argv[3].split(',')).map((x) => x.trim()).filter((x) => x && !x.startsWith('#')) : null;
 export const FONT = [56, 48, 40, 36, 28, 22, 19, 17, 16, 14, 13]; // H1 56/36 · số liệu 48 · H2 40/28 · H3 22 · dẫn 19 · thân 17 · thẻ 16 · phụ 14 · nhãn 13
 export const SPACE = [0, 8, 16, 24, 32, 40, 48, 64, 96]; // 40 = tiêu đề khối → nội dung (desktop)
 const PAGES = ['trang-chu', 'the-global-city', 'masteri-park-place'];
@@ -14,7 +18,7 @@ const SCREENS = [['M1', 1366, 768], ['M5', 390, 844], ['768', 768, 1024], ['1024
 
 // Runs in the page.
 export function scaleAudit({ FONT, SPACE }) {
-	const skip = '.mk, .mk-float, .tmp, .draft, .sr-only, script, style, svg, img, br, option, dialog:not([open]), dialog:not([open]) *';
+	const skip = '.mk, .mk-float, .tmp, .draft, .sr-only, .screen-reader-text, #wpadminbar, #wpadminbar *, script, style, svg, img, iframe, br, option, dialog:not([open]), dialog:not([open]) *';
 	const near = (v, set) => set.some((x) => Math.abs(v - x) < 0.5);
 	const name = (e) => e.tagName.toLowerCase() + (typeof e.className === 'string' && e.className.trim() ? '.' + e.className.trim().split(/\s+/)[0] : '');
 	const font = new Map(), space = new Map();
@@ -55,10 +59,17 @@ export function scaleAudit({ FONT, SPACE }) {
 
 if (import.meta.url === `file://${process.argv[1]}`) {
 	const b = await chromium.launch();
+	let storageState;
+	if (STAGING) { // guest view behind the staging password (same login as check_ui.mjs)
+		const c = await b.newContext(); const lp = await c.newPage();
+		await lp.goto(base + '/'); await lp.fill('input[type=password]', readFileSync(process.env.VIEW_PASSWORD_FILE, 'utf8').trim());
+		await Promise.all([lp.waitForNavigation(), lp.locator('input[type=submit], button[type=submit]').first().click()]);
+		storageState = await c.storageState(); await c.close();
+	}
 	const lines = []; let total = 0;
-	for (const page of PAGES) for (const [s, w, h] of SCREENS) {
-		const p = await (await b.newContext({ viewport: { width: w, height: h } })).newPage();
-		await p.goto(`${base}/${page}.html`, { waitUntil: 'load' });
+	for (const page of list || PAGES) for (const [s, w, h] of SCREENS) {
+		const p = await (await b.newContext({ viewport: { width: w, height: h }, storageState })).newPage();
+		await p.goto(STAGING ? base + page : `${base}/${page}.html`, { waitUntil: 'load', timeout: 120000 });
 		const r = await p.evaluate(scaleAudit, { FONT, SPACE });
 		const n = r.font.length + r.space.length + r.chars.length; total += n;
 		lines.push(`- ${page} ${s}: ${n} ngoại lệ${n ? ' – ' + [...r.font.map(([k, c]) => `chữ ${k} ×${c}`), ...r.space.map(([k, c]) => `${k} ×${c}`), ...r.chars.map(([k, c]) => `dòng ${k} ×${c}`)].join('; ') : ''}`);

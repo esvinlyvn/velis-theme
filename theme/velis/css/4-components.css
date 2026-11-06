@@ -198,6 +198,18 @@
 .prose figure { margin: var(--s6) 0; }
 .prose figcaption { font-size: var(--fs-small); color: var(--muted); margin-top: var(--s2); }
 .prose table { display: block; overflow-x: auto; font-size: inherit; } /* bảng trong bài theo cỡ thân: khối ≤ 3 cỡ (1.3) */
+/* core blocks of migrated content, drawn with existing components: H2 opens a part, quote = the note box (.disclosure),
+   button block = .btn (class added in functions.php), details = the FAQ row */
+.prose h2 { margin-top: var(--s12); }
+.prose > :first-child { margin-top: 0; }
+.prose blockquote { margin: var(--s6) 0; padding: var(--s4) var(--s6); background: var(--sunken); border-left: 2px solid var(--gold); }
+.prose blockquote p:last-child, .prose blockquote cite { margin-bottom: 0; }
+.prose .wp-block-buttons { display: flex; flex-wrap: wrap; gap: var(--s4); margin-bottom: var(--s4); }
+.prose details { border-bottom: 1px solid var(--line); margin: 0; }
+.prose summary { min-height: 56px; padding-block: var(--s4); font-weight: 600; }
+.prose .wp-block-embed { margin: var(--s6) 0; }
+.prose .wp-block-embed .pic { aspect-ratio: 16 / 9; }
+.prose .wp-block-embed .pic img { width: 100%; height: 100%; object-fit: cover; }
 .clamp.is-clamped { max-height: 420px; overflow: hidden; -webkit-mask-image: linear-gradient(#000 70%, transparent); mask-image: linear-gradient(#000 70%, transparent); }
 .clamp__more { margin-top: var(--s2); }
 .pic { display: block; position: relative; overflow: hidden; } /* photo in long content: clips the badge crop, carries the tag */

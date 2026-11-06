@@ -53,6 +53,12 @@ add_filter( 'render_block_core/embed', function ( $html, $block ) {
 	return velis_youtube_facade( $id, preg_match( '#<figcaption[^>]*>(.*?)</figcaption>#s', $html, $m ) ? wp_kses_post( $m[1] ) : '' );
 }, 10, 2 );
 
+// Button blocks in content take the theme button (.btn, outline style → .btn--line): no separate block-button style.
+add_filter( 'render_block_core/button', function ( $html ) {
+	$line = preg_match( '/is-style-(outline|secondary)/', $html );
+	return preg_replace( '/class="wp-block-button__link/', 'class="btn' . ( $line ? ' btn--line' : '' ) . ' wp-block-button__link', $html, 1 );
+} );
+
 // Image captions that are only a file name / auto title are dropped (round 5).
 add_filter( 'render_block_core/image', function ( $html ) {
 	return preg_replace_callback( '#<figcaption[^>]*>(.*?)</figcaption>#s', fn( $m ) => velis_auto_caption( $m[1] ) ? '' : $m[0], $html );

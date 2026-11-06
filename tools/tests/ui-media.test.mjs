@@ -75,7 +75,7 @@ test('every automated criterion and interaction carries an NT code of docs/NGHIE
 	const known = new Set([...doc.matchAll(/^\| (NT-\d+) \|/gm)].map((m) => m[1]));
 	for (const [k, label] of [...CRIT, ...INFO]) assert.ok(known.has(label.split(' ')[0]), `${k}: ${label}`);
 	const src = readFileSync(new URL('../interactions.mjs', import.meta.url), 'utf8');
-	const names = [...src.matchAll(/check\('([^']+)'/g)].map((m) => m[1]);
+	const names = [...src.matchAll(/(?:check|skip)\('([^']+)'/g)].map((m) => m[1]); // skip = removed feature, still listed
 	assert.ok(names.length >= 34);
 	for (const n of names) assert.ok(known.has(n.split(' ')[0]), n);
 });

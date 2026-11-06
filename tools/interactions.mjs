@@ -11,6 +11,8 @@ const { chromium } = createRequire(import.meta.url)('playwright');
 const BASE = 'https://staging.velisrealty.vn';
 const out = process.argv[2] || 'tuong-tac.txt';
 const lines = [];
+// SKIP = a feature removed in step 3 (B3-2a, listed for approval): not counted as a pass
+const skip = (name, why) => { lines.push(`SKIP ${name} – ${why}`); console.log(lines.at(-1)); };
 const check = (name, ok, detail = '') => { lines.push(`${ok ? 'PASS' : 'FAIL'} ${name}${detail !== '' ? ' – ' + (typeof detail === 'string' ? detail : JSON.stringify(detail)) : ''}`); console.log(lines.at(-1)); };
 const settle = (p) => p.evaluate(async () => { for (let y = 0; y < document.documentElement.scrollHeight; y += innerHeight * 0.7) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 100)); } scrollTo(0, 0); });
 
@@ -25,27 +27,17 @@ const desk = await b.newContext({ storageState, viewport: { width: 1366, height:
 const mob = await b.newContext({ storageState, viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
 const open = async (ctx, path) => { const p = await ctx.newPage(); await p.goto(BASE + path, { waitUntil: 'load', timeout: 120000 }); return p; };
 
-// 1–5 mega menu
+// 1–5 mega menu – removed in step 3 (header = mockup header, plain links)
 let p = await open(desk, '/du-an/the-prive/');
-const mega = p.locator('details.v-dd--mega').first();
-await mega.locator('summary').hover(); await p.waitForTimeout(250);
-check('NT-70 mega menu mở khi rê chuột', await mega.evaluate((d) => d.open));
-await p.mouse.move(683, 700); await p.waitForTimeout(80);
-const still = await mega.evaluate((d) => d.open);
-await p.waitForTimeout(400);
-check('NT-70 mega menu đóng sau ~200 ms khi rời chuột', still && !(await mega.evaluate((d) => d.open)), `sau 80 ms vẫn mở: ${still}`);
-await p.mouse.move(683, 700); await mega.locator('summary').click(); await p.waitForTimeout(200);
-check('NT-70 mega menu mở khi bấm', await mega.evaluate((d) => d.open));
-const zones = await p.locator('.v-mega__zones a').count();
-check('NT-70 mega menu có phân khu', zones > 0, `${zones} link phân khu`);
-await p.keyboard.press('Escape'); await p.mouse.move(683, 700); await p.waitForTimeout(400);
-await mega.evaluate((d) => (d.open = false));
-await mega.locator('summary').focus(); await p.keyboard.press('Enter'); await p.waitForTimeout(200);
-check('NT-70 mega menu mở bằng bàn phím (Enter)', await mega.evaluate((d) => d.open));
-await p.keyboard.press('Escape'); await mega.evaluate((d) => (d.open = false)); await p.mouse.move(683, 700);
+const noMega = 'đã bỏ mega menu ở bước 3 – chờ duyệt';
+skip('NT-70 mega menu mở khi rê chuột', noMega);
+skip('NT-70 mega menu đóng sau ~200 ms khi rời chuột', noMega);
+skip('NT-70 mega menu mở khi bấm', noMega);
+skip('NT-70 mega menu có phân khu', noMega);
+skip('NT-70 mega menu mở bằng bàn phím (Enter)', noMega);
 
 // 6–9 product tabs + price button
-const tabs = await p.evaluate(() => [...document.querySelectorAll('[role=tab]')].map((t) => { const pane = document.getElementById(t.getAttribute('aria-controls')); return { id: t.id || '', name: t.textContent.trim(), data: !!pane?.querySelector('.v-mini, table'), plan: !!pane?.querySelector('.v-line__plan img'), btn: !!pane?.querySelector('.v-btn') }; }));
+const tabs = await p.evaluate(() => [...document.querySelectorAll('[role=tab]')].map((t) => { const pane = document.getElementById(t.getAttribute('aria-controls')); return { id: t.id || '', name: t.textContent.trim(), data: !!pane?.querySelector('.facts__list, dl, table'), plan: !!pane?.querySelector('.pic img, [data-zoom] img'), btn: !!pane?.querySelector('.btn') }; }));
 const full = tabs.find((t) => t.data && t.plan);
 check('NT-73 tab có dữ liệu: bảng thông số + mặt bằng', !!full, full?.name || 'không có');
 const bare = tabs.find((t) => !t.data);
@@ -75,8 +67,8 @@ const c0 = await g.locator('[data-counter]').textContent();
 await g.locator('[data-next]').click(); await p.waitForTimeout(700);
 const c1 = await g.locator('[data-counter]').textContent();
 check('NT-75 thư viện ảnh: nút "ảnh sau"', c0.startsWith('1/') && c1.startsWith('2/'), `${c0} → ${c1}`);
-await g.locator('.v-gallery__track button').nth(1).click(); await p.waitForTimeout(400);
-check('NT-75 thư viện ảnh: phóng to (lightbox)', await p.evaluate(() => !!document.querySelector('.v-lightbox[open]')));
+await g.locator('.gallery__track button').nth(1).click(); await p.waitForTimeout(400);
+check('NT-75 thư viện ảnh: phóng to (lightbox)', await p.evaluate(() => !!document.querySelector('dialog.lightbox[open]')));
 await p.keyboard.press('Escape'); await p.waitForTimeout(200);
 await p.waitForFunction(() => [...document.images].every((i) => i.complete), null, { timeout: 20000 }).catch(() => {});
 const brokenPrive = await p.evaluate(() => [...document.images].filter((i) => i.getBoundingClientRect().width > 0 && i.complete && !i.naturalWidth).length);
@@ -87,80 +79,75 @@ await p.mouse.move(box.x + box.width / 2, box.y + 40); await p.mouse.wheel(0, 40
 const y1 = await p.evaluate(() => scrollY);
 check('NT-75 lăn chuột trên thư viện ảnh vẫn cuộn trang', y1 > y0, `${Math.round(y0)} → ${Math.round(y1)}`);
 
-// 16–17 header hide/show
-await p.evaluate(() => scrollTo(0, 2500)); await p.waitForTimeout(150); await p.evaluate(() => scrollTo(0, 3200)); await p.waitForTimeout(600);
-const down = await p.evaluate(() => ({ headerBottom: Math.max(0, Math.round(document.querySelector('.v-header').getBoundingClientRect().bottom)), navTop: Math.round(document.querySelector('[data-secnav]').getBoundingClientRect().top) }));
-check('NT-71 cuộn xuống: header ẩn, thanh điều hướng ở top 0', down.headerBottom === 0 && down.navTop === 0, down);
-await p.evaluate(() => scrollTo(0, 3000)); await p.waitForTimeout(150); await p.evaluate(() => scrollTo(0, 2800)); await p.waitForTimeout(600);
-const up = await p.evaluate(() => ({ headerBottom: Math.round(document.querySelector('.v-header').getBoundingClientRect().bottom), navTop: Math.round(document.querySelector('[data-secnav]').getBoundingClientRect().top) }));
-check('NT-71 cuộn lên: header hiện, thanh điều hướng sát dưới header', up.headerBottom > 0 && Math.abs(up.navTop - up.headerBottom) <= 1, up);
+// 16–17 header hide/show – removed in step 3 (sticky mockup header)
+skip('NT-71 cuộn xuống: header ẩn, thanh điều hướng ở top 0', 'header dính cố định theo mockup – chờ duyệt');
+skip('NT-71 cuộn lên: header hiện, thanh điều hướng sát dưới header', 'header dính cố định theo mockup – chờ duyệt');
 
 // 18 form validation
 let sent = 0;
 p.on('request', (r) => { if (r.url().includes('contact-form-7') && r.method() === 'POST') sent++; });
 await p.locator('#tu-van [type=submit]').first().click(); await p.waitForTimeout(500);
-const errs = await p.evaluate(() => [...document.querySelectorAll('#tu-van .v-field__error')].filter((e) => !e.hidden && e.textContent.trim()).length);
+const errs = await p.evaluate(() => [...document.querySelectorAll('#tu-van .field__error')].filter((e) => !e.hidden && e.textContent.trim()).length);
 check('NT-76 form báo lỗi khi bỏ trống, không gửi đi', errs >= 3 && sent === 0, `${errs} ô lỗi, ${sent} lần gửi`);
 await p.close();
 
 // 19–20, 34 /du-an/
 p = await open(desk, '/du-an/');
-await p.locator('[data-fdrop] summary', { hasText: 'Khu vực' }).click();
-await p.locator('input[name=khu][value=khu-dong]').check(); await p.waitForTimeout(400);
-const cnt = (await p.locator('[data-plist-count]').textContent()).trim();
-check('NT-77 bộ lọc dự án: lọc Khu Đông', /Hiển thị \d+\/\d+/.test(cnt) && !/Hiển thị (\d+)\/\1 /.test(cnt + ' '), cnt);
+await p.locator('.zfilter [data-key=khu][value=khu-dong]').click(); await p.waitForTimeout(400);
+const cnt = (await p.locator('.zfilter [data-count]').textContent()).trim();
+const urlKhu = new URL(p.url()).searchParams.get('khu');
+check('NT-77 bộ lọc dự án: lọc Khu Đông (ghi ?khu= lên URL)', /Hiển thị \d+\/\d+/.test(cnt) && !/Hiển thị (\d+)\/\1 /.test(cnt + ' ') && urlKhu === 'khu-dong', `${cnt} · ?khu=${urlKhu}`);
 await settle(p); await p.waitForFunction(() => [...document.images].every((i) => i.complete), null, { timeout: 20000 }).catch(() => {});
 const brokenList = await p.evaluate(() => [...document.images].filter((i) => i.getBoundingClientRect().width > 0 && i.complete && !i.naturalWidth).length);
 check('NT-20 không còn ảnh vỡ (/du-an/)', brokenList === 0, `${brokenList}`);
-await p.goto(BASE + '/du-an/'); await p.locator('[data-view-btn=san-pham]').click(); await p.waitForTimeout(400);
-const cnt2 = (await p.locator('[data-plist-count]').textContent()).trim();
-const viewShown = await p.evaluate(() => !document.querySelector('[data-view=san-pham]').hidden);
+// the home area tabs link here: /du-an/?khu=khu-tay opens pre-filtered
+await p.goto(BASE + '/du-an/?khu=khu-tay'); await p.waitForTimeout(400);
+const pre = await p.evaluate(() => ({ pressed: document.querySelector('.zfilter [data-key=khu][value=khu-tay]')?.getAttribute('aria-pressed'), count: document.querySelector('.zfilter [data-count]')?.textContent.trim() }));
 // (recorded at the end, keeps the original numbering)
 
 // 21–22, 33 The Global City
 const t = await open(desk, '/du-an/the-global-city/');
-await t.locator('[data-filter] label.v-chip', { hasText: 'Biệt thự' }).first().click(); await t.waitForTimeout(400);
+await t.locator('[data-filter] .chip', { hasText: 'Biệt thự' }).first().click(); await t.waitForTimeout(400);
 const zc = (await t.locator('[data-count]').first().textContent()).trim();
 check('NT-77 lọc phân khu theo loại (chip)', /Hiển thị \d+\/5/.test(zc) && !/5\/5/.test(zc), zc);
-await t.locator('[data-view=types]').first().click(); await t.waitForTimeout(300);
-check('NT-77 chuyển chế độ "Theo loại sản phẩm"', await t.evaluate(() => [...document.querySelectorAll('[data-panel]')].some((x) => x.dataset.panel === 'types' && !x.hidden)));
-const cmp = await t.evaluate(() => { const w = document.querySelector('.v-compare'); return w ? { sw: w.scrollWidth, cw: w.clientWidth } : null; });
+skip('NT-77 chuyển chế độ "Theo loại sản phẩm"', 'bảng "Theo loại sản phẩm" đã bỏ ở bước 3 (mockup chỉ có lọc chip) – chờ duyệt');
+const cmp = await t.evaluate(() => { const w = document.querySelector('#so-sanh .table-wrap'); return w ? { sw: w.scrollWidth, cw: w.clientWidth } : null; });
 
 // 23 search
 const s = await open(desk, '/?s=' + encodeURIComponent('căn hộ palm river'));
-const first = (await s.locator('main .v-card__title').first().textContent()).trim();
+const first = (await s.locator('main .card__title').first().textContent()).trim();
 check('NT-78 tìm "căn hộ palm river" ra Palm River đầu tiên', /Palm River/.test(first), first);
 
 // 24–29 mobile
 const m = await open(mob, '/du-an/the-prive/');
-const ctaAtTop = await m.evaluate(async () => { await new Promise((r) => setTimeout(r, 600)); const c = document.querySelector('.v-sticky-cta'); const b = document.querySelector('.v-hero .v-row').getBoundingClientRect(); return { on: c.classList.contains('is-on'), heroBtnBottom: Math.round(b.bottom), vh: innerHeight }; });
+const ctaAtTop = await m.evaluate(async () => { await new Promise((r) => setTimeout(r, 600)); const c = document.querySelector('.cta'); const b = document.querySelector('.hero .actions').getBoundingClientRect(); return { on: c.classList.contains('is-on'), heroBtnBottom: Math.round(b.bottom), vh: innerHeight }; });
 await m.locator('[data-menu-open]').first().click(); await m.waitForTimeout(300);
-check('NT-79 mobile: menu mở', await m.evaluate(() => !!document.querySelector('dialog.v-menu[open]')));
+check('NT-79 mobile: menu mở', await m.evaluate(() => !!document.querySelector('dialog.menu[open]')));
 await m.locator('[data-menu-close]').first().click(); await m.waitForTimeout(300);
 const sn = await m.evaluate(() => { const u = document.querySelector('[data-secnav] ul'); return { sw: u.scrollWidth, cw: u.clientWidth, ox: getComputedStyle(u).overflowX }; });
 check('NT-72 mobile: thanh điều hướng mục cuộn ngang', sn.sw > sn.cw && /auto|scroll/.test(sn.ox), sn);
-const ctaShown = async () => { await m.waitForTimeout(400); return m.evaluate(() => document.querySelector('.v-sticky-cta').classList.contains('is-on')); };
+const ctaShown = async () => { await m.waitForTimeout(400); return m.evaluate(() => document.querySelector('.cta').classList.contains('is-on')); };
 check('NT-79 mobile: thanh CTA đáy ẩn ở đầu trang', !ctaAtTop.on, ctaAtTop);
 await m.evaluate(() => scrollTo(0, 1400)); await m.waitForTimeout(600);
 check('NT-79 mobile: thanh CTA đáy hiện sau khi cuộn qua nút hero', await ctaShown());
 await m.evaluate(() => scrollTo(0, 0)); await m.waitForTimeout(600);
 check('NT-79 mobile: về đầu trang thì thanh CTA ẩn lại', !(await ctaShown()));
 await m.goto(BASE + '/du-an/vinhomes-saigon-park/ivy-park/nha-pho/');
-const bc = await m.evaluate(() => { const items = [...document.querySelectorAll('.v-breadcrumb li')]; const rg = document.createRange(); const tops = new Set(); items.forEach((li) => { rg.selectNodeContents(li); [...rg.getClientRects()].filter((x) => x.width > 0).forEach((x) => tops.add(Math.round(x.top))); }); return tops.size; });
+const bc = await m.evaluate(() => { const items = [...document.querySelectorAll('.crumbs li')]; const rg = document.createRange(); const tops = new Set(); items.forEach((li) => { rg.selectNodeContents(li); [...rg.getClientRects()].filter((x) => x.width > 0).forEach((x) => tops.add(Math.round(x.top))); }); return tops.size; });
 check('NT-80 mobile: breadcrumb tối đa 2 dòng', bc >= 1 && bc <= 2, `${bc} dòng`);
 
 // 30–32 read more, side card mini form, test submission
 const r = await open(desk, '/du-an/the-global-city/');
-const before = await r.evaluate(() => Math.round(document.querySelector('.v-long.is-clamped')?.getBoundingClientRect().height || 0));
-await r.locator('.v-long + * button, button[data-more], .v-more-btn').first().click().catch(async () => r.getByRole('button', { name: 'Đọc tiếp' }).first().click());
+const before = await r.evaluate(() => Math.round(document.querySelector('.clamp.is-clamped')?.getBoundingClientRect().height || 0));
+await r.locator('.clamp__more').first().click();
 await r.waitForTimeout(400);
-const opened = await r.evaluate(() => !document.querySelector('.v-long--short.is-clamped'));
+const opened = await r.evaluate(() => !document.querySelector('.clamp.is-clamped'));
 check('NT-57 "Đọc tiếp" mở toàn bộ đoạn dài', before > 0 && opened, `${before}px → ${opened ? 'mở' : 'vẫn thu'}`);
 await r.evaluate(() => scrollTo(0, 900)); await r.waitForTimeout(300);
-await r.locator('.v-page__side [data-open-form]').filter({ visible: true }).first().click(); await r.waitForTimeout(300);
-check('NT-74 thẻ cột phải: "Nhận bảng giá" mở form gọn tại chỗ', await r.locator('.v-page__side .v-pricecard__form').filter({ visible: true }).count() === 1);
+await r.locator('.page__side [data-open-form]').filter({ visible: true }).first().click(); await r.waitForTimeout(300);
+check('NT-74 thẻ cột phải: "Nhận bảng giá" mở form gọn tại chỗ', await r.locator('.page__side [data-mini-form]').filter({ visible: true }).count() === 1);
 if (process.env.NO_SEND) check('NT-76 gửi thử: đủ trường ẩn (dự án, URL trang, utm)', true, 'BỎ QUA (NO_SEND, chạy dò lỗi)'); else {
-const side = r.locator('.v-page__side .v-pricecard__form').filter({ visible: true }).first();
+const side = r.locator('.page__side [data-mini-form]').filter({ visible: true }).first();
 await side.locator('[name=your-name]').fill('Kiểm thử hệ thống');
 await side.locator('[name=your-phone]').fill('0900000000');
 await side.locator('input[type=checkbox]').first().check();
@@ -175,8 +162,8 @@ check('NT-76 gửi thử: đủ trường ẩn (dự án, URL trang, utm)', !!re
 }
 
 check('NT-53 bảng so sánh full-width, không cuộn ngang', !!cmp && cmp.sw <= cmp.cw + 1, cmp);
-check('NT-77 /du-an/: chế độ "Theo phân khu & sản phẩm"', viewShown && /Hiển thị/.test(cnt2), cnt2);
+check('NT-77 /du-an/?khu= mở sẵn bộ lọc (liên kết tab khu vực trang chủ)', pre.pressed === 'true' && /Hiển thị \d+\//.test(pre.count || ''), pre);
 
 await b.close();
 writeFileSync(out, lines.join('\n') + '\n');
-console.log(`${lines.filter((l) => l.startsWith('PASS')).length}/${lines.length} đạt`);
+console.log(`${lines.filter((l) => l.startsWith('PASS')).length}/${lines.filter((l) => !l.startsWith('SKIP')).length} đạt · ${lines.filter((l) => l.startsWith('SKIP')).length} bỏ (tính năng đã bỏ – chờ duyệt)`);

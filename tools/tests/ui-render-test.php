@@ -94,6 +94,18 @@ $check( str_contains( $gal, 'gallery__track' ) && str_contains( $gal, 'data-coun
 $zones = velis_zone_listing( get_post( 1 ), array( get_post( 6 ), get_post( 7 ) ) );
 $check( str_contains( $zones, 'data-filter=".zones"' ) && str_contains( $zones, 'class="grid zones"' ), 'zone filter (mockup)' );
 $check( str_contains( velis_section_nav( array( 'a' => 'A', 'b' => 'B' ) ), 'class="tabs"' ) && str_contains( velis_breadcrumb_html( array( array( 'Trang chủ', '/' ), array( 'Dự án', '' ) ) ), 'class="crumbs"' ), 'tabs + crumbs' );
-$all = $card . $grid . $facts . $adv . $form . $gal . $zones . $home;
+$toc = velis_toc( '<h2>A</h2><p>x</p><h2>B</h2><h2>C</h2>', 1300 )[0];
+$check( str_starts_with( $toc, '<div class="faq"><details data-toc>' ), 'table of contents = FAQ row' );
+$check( str_contains( velis_text_page( '<p>x</p>', '<aside class="page__side"></aside>' ), 'class="wrap page"' ) && str_contains( velis_text_page( '<p>x</p>' ), 'class="wrap--read"' ), 'text page: 2 columns only with a side card' );
+$check( str_contains( velis_search_form( 's' ), 'class="field"' ) && str_contains( velis_search_form( 's' ), 'class="btn"' ), 'search form = form row components' );
+$all = $card . $grid . $facts . $adv . $form . $gal . $zones . $home . $toc;
 $check( ! preg_match( '/class="[^"]*\bv-/', $all ), 'no old v- class left' );
+// static scan: no `v-` class name anywhere in the theme (PHP, block templates, JS selectors, CSS)
+$root = __DIR__ . '/../../theme/velis';
+foreach ( new RecursiveIteratorIterator( new RecursiveDirectoryIterator( $root, FilesystemIterator::SKIP_DOTS ) ) as $f ) {
+	if ( preg_match( '/\.(php|html|js|css)$/', $f ) && ! str_ends_with( $f, '.min.css' ) ) {
+		$src = file_get_contents( $f );
+		$check( ! preg_match( '/class="[^"]*\bv-|\.v-[a-z]|[\'"]v-[a-z][a-z-]*[\'"]/', $src ), 'old v- class in ' . substr( $f, strlen( $root ) + 1 ) );
+	}
+}
 echo "ui render: all checks passed\n";

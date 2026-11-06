@@ -37,7 +37,7 @@ export async function mediaAudit(dpr) {
 		const want = !cands.length ? 0 : up === undefined ? max : lcp || down === undefined ? up : need <= Math.sqrt(up * down) ? down : up;
 		if (cands.length && fw < want - 1) out.wrong.push(`${file}: khung ${Math.round(frame)}px × ${dpr} × ${zoom.toFixed(2)} = ${Math.round(need)}px, đang dùng file ${fw}px (srcset tới ${max}px)`);
 		if (max < need - 1) {
-			const at = i.closest('.v-hero--full, .hero') ? 'hero' : i.closest('.v-feats, .rail') ? 'dải dự án nổi bật' : i.closest('.v-page__side, .v-article__side, .page__side, .within') ? 'cột phải' : i.closest('.v-gallery, .gallery') ? 'thư viện' : i.closest('.v-map, .map') ? 'bản đồ' : i.closest('.v-photos') ? 'ảnh tiến độ' : i.closest('.v-card, .card') ? 'thẻ' : i.closest('.v-prose, .prose') ? 'ảnh nội dung' : i.closest('.v-postimg') ? 'ảnh đầu bài' : 'khác';
+			const at = i.closest('.v-hero--full, .hero') ? 'hero' : i.closest('.v-feats, .rail, .feats') ? 'dải dự án nổi bật' : i.closest('.v-page__side, .v-article__side, .page__side, .within') ? 'cột phải' : i.closest('.v-gallery, .gallery') ? 'thư viện' : i.closest('.v-map, .map') ? 'bản đồ' : i.closest('.v-photos') ? 'ảnh tiến độ' : i.closest('.v-card, .card') ? 'thẻ' : i.closest('.v-prose, .prose') ? 'ảnh nội dung' : i.closest('.v-postimg') ? 'ảnh đầu bài' : 'khác';
 			out.lowres.push(`${file} [${at}]: cần ${Math.round(need)}px, lớn nhất ${max}px`);
 		}
 		if (r.width * dpr > fw * 1.15) out.blurryOld.push(`${file} khung ${Math.round(r.width)}px × ${dpr} > file ${fw}px × 1,15`);
@@ -59,10 +59,10 @@ export async function mediaAudit(dpr) {
 	}
 	for (const f of document.querySelectorAll('.v-media--empty, .card__media--empty')) if (shown(f) && !(f.innerText || '').trim()) out.noname.push(label(f.closest('.v-card, .card') || f));
 	if (innerWidth >= 768) {
-		const hs = [...document.querySelectorAll('.v-feats .v-feat, .rail .feat')].map((li) => li.getBoundingClientRect().height).filter((h) => h > 0);
+		const hs = [...document.querySelectorAll('.v-feats .v-feat, .rail .feat, .feats .feat')].map((li) => li.getBoundingClientRect().height).filter((h) => h > 0);
 		if (hs.length > 1 && Math.max(...hs) - Math.min(...hs) > 1) out.feats.push(`cao ${Math.round(Math.min(...hs))}–${Math.round(Math.max(...hs))}px`);
 	}
-	for (const g of document.querySelectorAll('.v-photos')) {
+	for (const g of document.querySelectorAll('.v-photos, .block .grid:has(img[data-zoom], [data-zoom])')) {
 		if (!shown(g)) continue;
 		const li = [...g.children].filter(shown);
 		const rows = {}; li.forEach((x) => { const t = Math.round(x.getBoundingClientRect().top); rows[t] = (rows[t] || 0) + 1; });
@@ -213,9 +213,9 @@ export function factsAudit() {
 
 // Runs in the page. Post side column (round 8, item 15) at one scroll position: [problems].
 export function stickyAudit() {
-	const side = document.querySelector('.v-article__side');
+	const side = document.querySelector('.v-article__side, .page__side');
 	if (!side || getComputedStyle(side).display === 'none') return null;
-	const head = document.querySelector('.v-header');
+	const head = document.querySelector('.v-header, .header');
 	const hb = head ? head.getBoundingClientRect().bottom : 0;
 	const r = side.getBoundingClientRect();
 	const top = parseFloat(getComputedStyle(side).top) || 0;
@@ -224,11 +224,11 @@ export function stickyAudit() {
 	if (r.bottom > 0 && r.top < innerHeight && stuckOrBefore) {
 		if (r.top < hb + 16 - 0.5) out.push(`NT-60 đỉnh ${Math.round(r.top)} < đáy header ${Math.round(hb)} + 16`);
 		if (r.bottom > innerHeight - 16 + 0.5) out.push(`NT-60 đáy ${Math.round(r.bottom)} > ${innerHeight} − 16`);
-		const cta = side.querySelector('.v-btn');
+		const cta = side.querySelector('.v-btn, .btn');
 		if (cta) { const c = cta.getBoundingClientRect(); if (c.top < hb || c.bottom > innerHeight) out.push(`NT-60 nút tư vấn ngoài màn hình (${Math.round(c.top)}–${Math.round(c.bottom)})`); }
 		for (const s of side.querySelectorAll('*')) { // inner scrollbars may only sit on the TOC list
 			const cs = getComputedStyle(s);
-			if (s === side || s.closest('.v-toc')) continue;
+			if (s === side || s.closest('.v-toc, [data-toc]')) continue;
 			if (/(auto|scroll)/.test(cs.overflowY) && s.scrollHeight > s.clientHeight + 1) { out.push('NT-60 thanh cuộn bên trong: ' + s.className); break; }
 		}
 		if (/(auto|scroll)/.test(getComputedStyle(side).overflowY) && side.scrollHeight > side.clientHeight + 1) out.push('NT-60 cả cột cuộn bên trong');

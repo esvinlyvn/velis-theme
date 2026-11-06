@@ -37,7 +37,7 @@ export function contentBands() {
 		if (s.position === 'fixed') continue;
 		for (let i = Math.max(0, Math.floor(top / step)); i < Math.min(bands.length, Math.ceil(bottom / step)); i++) bands[i].push([r.left, r.right]);
 	}
-	const wrap = Math.min(parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--v-wide')) || 1200, innerWidth - 2 * parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--v-gutter') || 24));
+	const wrap = Math.min(parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--wrap')) || parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--v-wide')) || 1200, innerWidth - 2 * parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gutter') || getComputedStyle(document.documentElement).getPropertyValue('--v-gutter') || 24));
 	const left = (document.documentElement.clientWidth - wrap) / 2;
 	return { bands, left, right: left + wrap, step };
 }

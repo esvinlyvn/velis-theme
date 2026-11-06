@@ -575,12 +575,17 @@ function velis_zone_listing( $root, array $zones ): string {
 }
 
 /** Chip filter for a card grid (single dimension): data-$key on cards. $items slug => label. */
-function velis_chipbar( string $key, array $items, string $label ): string {
-	if ( count( $items ) < 2 ) {
-		return '';
+function velis_chipbar( string $key, array $items, string $label, string $noun = 'bài' ): string {
+	return velis_chipbars( array( $key => array( $label, $items ) ), $noun );
+}
+
+/** One filter with several chip rows (OR inside a row, AND across rows – velis.js): $rows key => [label, slug => name]. */
+function velis_chipbars( array $rows, string $noun = 'bài' ): string {
+	$html = '';
+	foreach ( $rows as $key => list( $label, $items ) ) {
+		$html .= count( $items ) >= 2 ? '<div class="actions" role="group" aria-label="' . esc_attr( $label ) . '">' . implode( '', array_map( fn( $k, $v ) => '<button class="chip" type="button" data-key="' . esc_attr( $key ) . '" value="' . esc_attr( $k ) . '" aria-pressed="false">' . esc_html( $v ) . '</button>', array_keys( $items ), $items ) ) . '</div>' : '';
 	}
-	$chips = implode( '', array_map( fn( $k, $v ) => '<button class="chip" type="button" data-key="' . esc_attr( $key ) . '" value="' . esc_attr( $k ) . '" aria-pressed="false">' . esc_html( $v ) . '</button>', array_keys( $items ), $items ) );
-	return '<div class="zfilter" data-filter="[data-chipgrid] .grid" data-noun="bài"><p class="muted mb-0" data-count aria-live="polite"></p><div class="actions" role="group" aria-label="' . esc_attr( $label ) . '">' . $chips . '<button class="btn btn--text" type="button" data-clear>Xóa lọc</button></div></div>';
+	return $html ? '<div class="zfilter" data-filter="[data-chipgrid] .grid" data-noun="' . esc_attr( $noun ) . '"><p class="muted mb-0" data-count aria-live="polite"></p>' . $html . '<button class="btn btn--text" type="button" data-clear>Xóa lọc</button></div>' : '';
 }
 
 /* ---------- Trust & conversion ---------- */
@@ -650,8 +655,20 @@ function velis_toc( string $content, int $words ): array {
 		}
 		return '<h' . $m[1] . $m[2] . '>' . $m[3] . '</h' . $m[1] . '>';
 	}, $content );
-	$toc = ( $words > 1200 && count( $items ) >= 3 ) ? '<details class="faq" data-toc><summary>Mục lục</summary><ol>' . implode( '', $items ) . '</ol></details>' : '';
+	$toc = ( $words > 1200 && count( $items ) >= 3 ) ? '<div class="faq"><details data-toc><summary>Mục lục</summary><ol>' . implode( '', $items ) . '</ol></details></div>' : '';
 	return array( $toc, $content );
+}
+
+/** Search form = the form row of the lead form (.field + .btn), no new style. */
+function velis_search_form( string $id, string $value = '', string $label = 'Tìm dự án hoặc bài viết' ): string {
+	return '<form role="search" method="get" class="form" action="' . esc_url( home_url( '/' ) ) . '"><p class="field"><label for="' . esc_attr( $id ) . '">' . esc_html( $label ) . '</label>'
+		. '<input id="' . esc_attr( $id ) . '" type="search" name="s" value="' . esc_attr( $value ) . '" placeholder="Ví dụ: The Global City"></p><p class="mb-0"><button class="btn" type="submit">Tìm</button></p></form>';
+}
+
+/** Text page body: one reading column, or the 2-column page (text | sticky side card) when there is a side card. */
+function velis_text_page( string $html, string $side = '' ): string {
+	return $side ? '<div class="wrap page"><div class="page__main"><div class="block prose">' . $html . '</div></div>' . $side . '</div>'
+		: '<div class="wrap--read"><div class="block prose">' . $html . '</div></div>';
 }
 
 /** Pagination: a row of outline buttons (existing button component). */

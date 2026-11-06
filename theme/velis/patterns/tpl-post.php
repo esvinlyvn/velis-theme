@@ -6,7 +6,7 @@
  *
  * BRIEF.md "Template bài viết" with 5 variants by post kind (velis_post_kind): phân tích, nhận định (point-in-time
  * note in the meta line), so sánh (comparison table of the related projects), hướng dẫn (numbered H2), tin (date first).
- * Right column (desktop): table of contents when the text is long, then "Dự án trong bài" + "Nhận tư vấn", sticky.
+ * Right column (≥ 1024): table of contents when the text is long, then "Velis tư vấn" for the post's project, sticky.
  */
 if ( ! is_singular( 'post' ) ) {
 	return;
@@ -32,10 +32,11 @@ $meta    = array(
 	'<a href="' . esc_url( get_author_posts_url( $p->post_author ) ) . '">' . esc_html( get_the_author_meta( 'display_name', $p->post_author ) ) . '</a>, CEO Velis Realty',
 );
 $out  = velis_breadcrumb_html( velis_trail() );
-$head = '<header class="v-posthead"><p class="v-eyebrow">' . implode( ' · ', array_filter( array( $kind ? esc_html( VELIS_KINDS[ $kind ] ) : '', $cat ? '<a href="' . esc_url( get_category_link( $cat ) ) . '">' . esc_html( $cat->name ) . '</a>' : '' ) ) ) . '</p>'
-	. '<h1>' . esc_html( get_the_title( $p ) ) . '</h1><p class="v-meta">' . implode( ' · ', array_filter( $meta ) ) . '</p></header>';
-$img  = $thumb ? '<figure class="v-postimg">' . wp_get_attachment_image( $thumb, 'large', false, array( 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => velis_sizes( '(min-width: 800px) 720px, 100vw - 32px', 1.12 ), 'style' => '--focus: 100% 0%; --zoom: 1.12', 'data-alt' => (string) wp_get_attachment_image_url( $thumb, 'medium_large' ) ) ) . ( wp_get_attachment_caption( $thumb ) && ! velis_auto_caption( wp_get_attachment_caption( $thumb ) ) ? '<figcaption>' . esc_html( wp_get_attachment_caption( $thumb ) ) . '</figcaption>' : '' ) . '</figure>' : '';
-$sum  = $p->post_excerpt ? '<aside class="v-summary" aria-label="Tóm tắt"><p class="v-eyebrow">Tóm tắt</p><p>' . esc_html( $p->post_excerpt ) . '</p></aside>' : '';
+$head = '<header class="block"><p class="eyebrow">' . implode( ' · ', array_filter( array( $kind ? esc_html( VELIS_KINDS[ $kind ] ) : '', $cat ? '<a href="' . esc_url( get_category_link( $cat ) ) . '">' . esc_html( $cat->name ) . '</a>' : '' ) ) ) . '</p>'
+	. '<h1>' . esc_html( get_the_title( $p ) ) . '</h1><p class="muted">' . implode( ' · ', array_filter( $meta ) ) . '</p>'
+	. ( $thumb ? '<figure class="pic">' . velis_img( $thumb, (string) get_post_meta( $thumb, '_wp_attachment_image_alt', true ) ?: get_the_title( $p ), 'large', array( 'lcp' => true, 'loading' => 'eager', 'fetchpriority' => 'high', 'ratio' => 1e9, 'sizes' => VELIS_SIZES_MAIN ) )
+		. ( wp_get_attachment_caption( $thumb ) && ! velis_auto_caption( wp_get_attachment_caption( $thumb ) ) ? '<figcaption>' . esc_html( wp_get_attachment_caption( $thumb ) ) . '</figcaption>' : '' ) . '</figure>' : '' )
+	. ( $p->post_excerpt ? '<p class="eyebrow">Tóm tắt</p><p class="hero__lead">' . esc_html( $p->post_excerpt ) . '</p>' : '' ) . '</header>';
 $top  = '';
 if ( 'so-sanh' === $kind && count( $projs ) >= 2 ) {
 	$top = velis_compare_html( $projs, array(
@@ -46,22 +47,24 @@ if ( 'so-sanh' === $kind && count( $projs ) >= 2 ) {
 		'Bàn giao' => fn( $x ) => get_post_meta( $x->ID, 'velis_handover', true ),
 	), 'So sánh nhanh' );
 }
-// Compact project card in the middle of the text (after the 3rd paragraph); hidden on wide screens where the side column shows it.
+// Project card in the middle of the text (after the 3rd paragraph) for phones; wide screens show the side column instead.
 if ( $projs ) {
-	$mid     = '<div class="v-embed">' . velis_card_project( $projs[0], 'Dự án trong bài', 'embed' ) . '</div>';
+	$mid     = '<div class="advisor-inline">' . velis_card_project( $projs[0], 'Dự án trong bài', 'embed' ) . '</div>';
 	$parts   = preg_split( '#(</p>)#', $content, 4, PREG_SPLIT_DELIM_CAPTURE );
 	$content = count( $parts ) > 6 ? implode( '', array_slice( $parts, 0, 6 ) ) . $mid . implode( '', array_slice( $parts, 6 ) ) : $content . $mid;
 }
-$aside = '<aside class="v-article__side">' . $toc . ( $pill ? '<div class="v-side__box">' . velis_card_project( $pill, 'Dự án trong bài', 'embed' ) . '</div>' : '' )
-	. '<div class="v-side__box"><p class="v-eyebrow">Cần tư vấn?</p><a class="v-btn" href="#tu-van">Nhận tư vấn</a> <a class="v-btn v-btn--secondary" href="tel:' . VELIS_PHONE_TEL . '">' . VELIS_PHONE . '</a></div></aside>';
-$disc  = in_array( $kind, array( 'phan-tich', 'nhan-dinh', 'so-sanh' ), true ) ? velis_disclosure( 'post' ) : '';
-$out  .= '<div class="v-wrap"><article class="v-article v-article--' . esc_attr( $kind ?: 'bai' ) . '"><div class="v-article__body">' . $head . $img . $sum . $top . '<div class="v-prose">' . $content . '</div>' . $disc . velis_author_box( (int) $p->post_author ) . '</div>' . $aside . '</article></div>';
+// Side column (≥ 1024): table of contents, then "Velis tư vấn" for the project of the post, else the contact card.
+$side = $pill ? '<aside class="page__side" aria-label="Velis tư vấn dự án trong bài">' . $toc . velis_advisor( $pill ) . '</aside>'
+	: str_replace( '<div class="advisor">', $toc . '<div class="advisor">', velis_contact_card() );
+$disc = in_array( $kind, array( 'phan-tich', 'nhan-dinh', 'so-sanh' ), true ) ? '<div class="block">' . velis_disclosure( 'post' ) . '</div>' : '';
+$out .= '<div class="wrap page"><article class="page__main">' . $head . ( $top ? '<div class="block">' . $top . '</div>' : '' ) . '<div class="block prose">' . $content . '</div>' . $disc
+	. '<div class="block">' . velis_author_box( (int) $p->post_author ) . '</div></article>' . $side . '</div>';
 
-// Same cluster: 3–6 other posts + the pillar project.
+// Same cluster: 3 or 6 other posts (grid never leaves an empty cell) + the pillar project.
 $same = $cat ? get_posts( array( 'numberposts' => 6, 'category' => $cat->term_id, 'exclude' => array( $p->ID ) ) ) : array();
 if ( $same ) {
-	$btn  = $pill ? velis_btn( 'Thông tin dự án ' . $pill->post_title, get_permalink( $pill ), 'secondary' ) : '';
-	$out .= velis_section( velis_sechead( 'Cùng chủ đề ' . $cat->name, 'Đọc tiếp', '', '', $btn ) . velis_grid( array_map( 'velis_card_post', array_slice( $same, 0, count( $same ) >= 6 ? 6 : 3 ) ), '3' ), '', 'v-section--band' );
+	$btn  = $pill ? '<a class="btn btn--text" href="' . esc_url( get_permalink( $pill ) ) . '">Thông tin dự án ' . esc_html( $pill->post_title ) . ' →</a>' : '';
+	$out .= velis_section( velis_sechead( 'Cùng chủ đề ' . $cat->name, 'Đọc tiếp', '', '', $btn ) . velis_grid( array_map( 'velis_card_post', array_slice( $same, 0, count( $same ) >= 6 ? 6 : 3 ) ), 'three' ), '', 'section--tint' );
 }
 $out .= velis_form_html( $pill ? $pill->post_title : '', array(), $pill ? 'Nhận bảng giá ' . $pill->post_title : 'Nhận tư vấn' );
 wp_reset_postdata();

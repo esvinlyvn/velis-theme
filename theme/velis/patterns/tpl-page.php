@@ -4,8 +4,9 @@
  * Slug: velis/tpl-page
  * Inserter: no
  *
- * Giới thiệu, Tuyển dụng, Chính sách bảo mật and any page: H1 + editor content (migrated in phase 4) + one main action.
- * Liên hệ: the 3 channels first (Gọi, Zalo, Form), address & hours, map on click, social profiles.
+ * Tuyển dụng, Chính sách bảo mật and any page: hero B (text) + editor content + one main action, mockup components only.
+ * Liên hệ: the 3 channels first (Gọi, Zalo, Form), address & hours (facts bar), map, form.
+ * Long pages (policy): table of contents in the side column (FAQ row style).
  */
 if ( ! is_page() ) {
 	return;
@@ -18,25 +19,34 @@ $content = trim( $pg->post_content ) ? velis_content( $pg->post_content ) : ''; 
 $out     = velis_breadcrumb_html( velis_trail() );
 if ( 'lien-he' === $slug ) {
 	$map  = get_posts( array( 'post_type' => 'attachment', 'name' => 'ban-do-van-phong-velis', 'numberposts' => 1, 'fields' => 'ids' ) );
-	$out .= '<div class="v-wrap v-pagehead"><h1>' . esc_html( $title ) . '</h1><p class="v-lead">Gọi, nhắn Zalo hoặc để lại số điện thoại, Velis phản hồi trong giờ làm việc.</p>'
-		. '<ul class="v-channels"><li><a class="v-btn" href="tel:' . VELIS_PHONE_TEL . '">Gọi ' . VELIS_PHONE . '</a></li><li><a class="v-btn v-btn--secondary" href="' . esc_url( VELIS_ZALO ) . '" rel="noopener" target="_blank">Nhắn Zalo</a></li><li><a class="v-btn v-btn--secondary" href="#tu-van">Gửi yêu cầu</a></li></ul>' . velis_project_links()
-		. velis_facts_html( array( 'Văn phòng' => VELIS_ADDRESS, 'Giờ làm việc' => VELIS_HOURS, 'Email' => VELIS_EMAIL ), null ) . '</div>';
-	$out .= '<div class="v-wrap"><div class="v-map">' . ( $map ? wp_get_attachment_image( $map[0], 'full', false, array( 'loading' => 'eager', 'sizes' => '(min-width: 1320px) 1320px, 100vw', 'alt' => 'Bản đồ văn phòng Velis Realty' ) ) : '' )
-		. '<a class="v-btn" href="' . esc_url( 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode( 'Velis Realty ' . VELIS_ADDRESS ) ) . '" target="_blank" rel="noopener">Chỉ đường trên Google Maps</a></div><p class="v-source">Bản đồ © OpenStreetMap contributors.</p></div>';
-	$out .= velis_form_html( '', wp_list_pluck( velis_top_projects(), 'post_title' ), 'Gửi yêu cầu tư vấn', false );
+	$out .= velis_hero_b( array(
+		'eyebrow' => 'Velis Realty',
+		'title'   => $title,
+		'lead'    => 'Gọi, nhắn Zalo hoặc để lại số điện thoại, Velis phản hồi trong giờ làm việc.',
+		'buttons' => velis_btn( 'Gọi ' . VELIS_PHONE, 'tel:' . VELIS_PHONE_TEL ) . velis_btn( 'Nhắn Zalo', VELIS_ZALO, 'line', ' rel="noopener" target="_blank"' ) . velis_btn( 'Gửi yêu cầu', '#tu-van', 'line' ),
+	) );
+	$out .= velis_facts_html( array( 'Văn phòng' => VELIS_ADDRESS, 'Giờ làm việc' => VELIS_HOURS, 'Email' => VELIS_EMAIL ), null );
+	$out .= velis_section( velis_sechead( 'Đường tới văn phòng Velis', 'Bản đồ' )
+		. '<div class="map">' . ( $map ? wp_get_attachment_image( $map[0], 'full', false, array( 'loading' => 'lazy', 'sizes' => '(min-width: 1024px) 720px, calc(100vw - 32px)', 'alt' => 'Bản đồ văn phòng Velis Realty' ) ) : '' )
+		. velis_btn( 'Chỉ đường trên Google Maps', 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode( 'Velis Realty ' . VELIS_ADDRESS ), 'line', ' target="_blank" rel="noopener"' ) . '</div>'
+		. '<p class="source">Bản đồ © OpenStreetMap contributors.</p>' . velis_project_links(), '', 'section--tint' );
+	$out .= velis_form_html( '', array(), 'Gửi yêu cầu tư vấn', false );
 } else {
-	$cta  = array( 'tuyen-dung' => array( 'Gửi CV', 'mailto:' . VELIS_EMAIL . '?subject=' . rawurlencode( 'Ứng tuyển – ' . $title ) ), 'gioi-thieu' => array( 'Liên hệ Velis', '/lien-he/' ) )[ $slug ] ?? null;
-	$out .= '<div class="v-wrap v-pagehead"><h1>' . esc_html( $title ) . '</h1>' . ( $cta ? '<div class="v-row">' . velis_btn( $cta[0], $cta[1] ) . velis_call_btn( 'secondary' ) . '</div>' : '' ) . '</div>';
-	if ( 'tuyen-dung' === $slug ) {
-		$side = velis_contact_card( 'cv', $cta[1] );
+	$cv   = 'tuyen-dung' === $slug;
+	$out .= velis_hero_b( array(
+		'eyebrow' => $cv ? 'Tuyển dụng' : 'Velis Realty',
+		'title'   => $title,
+		'lead'    => $pg->post_excerpt,
+		'buttons' => $cv ? velis_btn( 'Gửi CV', 'mailto:' . VELIS_EMAIL . '?subject=' . rawurlencode( 'Ứng tuyển – ' . $title ) ) . velis_call_btn( 'line' ) : '',
+	) );
+	if ( $cv ) {
+		$side = velis_contact_card( 'cv', 'mailto:' . VELIS_EMAIL . '?subject=' . rawurlencode( 'Ứng tuyển – ' . $title ) );
 	} else {
 		list( $toc, $content ) = velis_toc( $content, 1300 ); // long policy pages: table of contents on the side
-		$side = $toc ? '<aside class="v-page__side v-page__side--toc">' . $toc . '</aside>' : '';
+		$side = $toc ? '<aside class="page__side" aria-label="Mục lục">' . $toc . '</aside>' : '';
 	}
-	$out .= $content ? '<div class="v-wrap' . ( $side ? ' v-page--2col' : ' v-read' ) . '"><div class="v-page__main"><div class="v-prose">' . $content . '</div></div>' . $side . '</div>' : '';
-	if ( in_array( $slug, array( 'gioi-thieu', 'tuyen-dung' ), true ) ) {
-		$out .= velis_form_html( '', array(), 'tuyen-dung' === $slug ? 'Đăng ký ứng tuyển' : 'Nhận tư vấn' );
-	}
+	$out .= $content ? velis_text_page( $content, $side ) : '';
+	$out .= velis_form_html( '', array(), $cv ? 'Đăng ký ứng tuyển' : 'Nhận tư vấn' );
 }
 wp_reset_postdata();
 ?>

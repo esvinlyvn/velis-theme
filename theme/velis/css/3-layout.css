@@ -24,10 +24,11 @@
 /* card grids: 1 column on phones, then by count; 24 px between cards (1.2) */
 .grid { display: grid; gap: var(--s6); }
 @media (min-width: 768px) {
-	.grid[data-n="2"], .grid[data-n="4"], .grid[data-n="6"], .grid[data-n="8"] { grid-template-columns: repeat(2, 1fr); }
+	.grid[data-n="2"], .grid[data-n="4"], .grid[data-n="6"], .grid[data-n="8"], .grid[data-n="7"], .grid[data-n="10"], .grid[data-n="11"], .grid[data-n="12"] { grid-template-columns: repeat(2, 1fr); }
+	.grid[data-n="7"] > :first-child, .grid[data-n="11"] > :first-child { grid-column: span 2; } /* 7 → 1 + 6, 11 → 1 + 10 (listing pages) */
 	.grid[data-n="3"], .grid[data-n="5"], .grid[data-n="9"] { grid-template-columns: repeat(3, 1fr); }
 	.grid[data-n="5"] > :first-child { grid-column: span 2; } /* 5 → 2 + 3 */
 	.grid[data-n="1"] > .card { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--s6); align-items: center; } /* NT-06: one card = wide card */
 	.grid[data-n="1"] > .card .card__media { margin: 0; }
 }
-@media (min-width: 1024px) { .grid--three[data-n="6"] { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1024px) { .grid--three[data-n="6"], .grid--three[data-n="12"] { grid-template-columns: repeat(3, 1fr); } }

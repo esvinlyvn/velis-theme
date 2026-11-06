@@ -13,7 +13,7 @@ export function layoutAudit() {
 
 	for (const img of body.querySelectorAll('img')) if (shown(img) && !loaded(img)) out.images.push(img.currentSrc || img.src);
 
-	for (const g of body.querySelectorAll('.v-grid, .v-feats ul, .grid, .rail')) {
+	for (const g of body.querySelectorAll('.v-grid, .v-feats ul, .grid, .rail, .feats ul')) {
 		const items = [...g.children].filter(shown);
 		if (!items.length || items.length > 2 || !shown(g)) continue;
 		const gw = g.getBoundingClientRect().width;
@@ -33,11 +33,11 @@ export function layoutAudit() {
 		if (!pics.some((m) => m.tagName !== 'IMG' || loaded(m))) out.media.push(label(el));
 	}
 
-	for (const el of body.querySelectorAll('.v-media--empty, .v-hero__fallback, .card__media--empty')) if (shown(el) && !(el.textContent || '').trim()) out.fallback.push(label(el));
+	for (const el of body.querySelectorAll('.v-media--empty, .v-hero__fallback, .card__media--empty, .hero__media.card__media--empty')) if (shown(el) && !(el.textContent || '').trim()) out.fallback.push(label(el));
 
 	// smallest elements holding phone + email + address, outside header/footer
 	const has = (t) => /0911[\s.]?237[\s.]?979/.test(t) && /lienhe@velisrealty\.vn/i.test(t) && /Lương Định Của/i.test(t);
-	const blocks = [...body.querySelectorAll('*')].filter((el) => shown(el) && !el.closest('header, footer, .v-header, .v-footer') && has(el.innerText || ''));
+	const blocks = [...body.querySelectorAll('*')].filter((el) => shown(el) && !el.closest('header, footer, .v-header, .v-footer, .header, .footer') && has(el.innerText || ''));
 	const minimal = blocks.filter((el) => !blocks.some((o) => o !== el && el.contains(o)));
 	if (minimal.length > 1) out.contact.push(minimal.map(label).join(' + '));
 	return out;

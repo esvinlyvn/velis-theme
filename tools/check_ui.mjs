@@ -48,7 +48,7 @@ function audit() {
 		for (let n = el; n; n = n.parentElement) {
 			const s = getComputedStyle(n);
 			if (s.backgroundImage !== 'none' && !s.backgroundImage.startsWith('linear-gradient(to left')) return null; // text over image/gradient: judged by eye
-			if (n.matches('.v-hero--full, .v-ratio--overlay, .hero--a .hero__body')) return null;
+			if (n.matches('.v-hero--full, .v-ratio--overlay, .hero--a .hero__body, .hero--home')) return null;
 			const c = parse(s.backgroundColor);
 			if (c.length >= 3 && (c[3] ?? 1) > 0.9) return c.slice(0, 3);
 		}
@@ -59,7 +59,7 @@ function audit() {
 
 	const vw = document.documentElement.clientWidth;
 	const overflow = document.documentElement.scrollWidth > vw
-		? [...document.querySelectorAll('body *')].filter((e) => { const r = e.getBoundingClientRect(); return r.right > vw + 1 && visible(e) && !e.closest('.v-table-wrap, .v-gallery__track, .v-tabs__list, dialog, .table-wrap, .gallery__track, .tabs, .rail'); }).slice(0, 5).map(name)
+		? [...document.querySelectorAll('body *')].filter((e) => { const r = e.getBoundingClientRect(); return r.right > vw + 1 && visible(e) && !e.closest('.v-table-wrap, .v-gallery__track, .v-tabs__list, dialog, .table-wrap, .gallery__track, .tabs, .rail, .feats ul'); }).slice(0, 5).map(name)
 		: [];
 	const images = [...document.images].filter((i) => visible(i) && !(i.complete && i.naturalWidth > 0)).map((i) => i.currentSrc || i.src);
 
@@ -110,7 +110,7 @@ if (pw) {
 // luminance (ignores a few stray bright pixels) and compare with the text colour.
 async function photoContrast(p) {
 	const out = [];
-	for (const el of await p.$$('.v-hero--full :is(.v-eyebrow, .v-hero__title, .v-hero__lead)')) {
+	for (const el of await p.$$('.v-hero--full :is(.v-eyebrow, .v-hero__title, .v-hero__lead), :is(.hero--home, .hero--a) .hero__body :is(.eyebrow, h1, .hero__lead)')) {
 		const info = await el.evaluate((e) => {
 			const s = getComputedStyle(e);
 			e.dataset.prevStyle = e.getAttribute('style') || '';
@@ -165,7 +165,7 @@ for (const w of WIDTHS) {
 		...lay.fallback.map((x) => `NT-24 khung dự phòng không tên: ${x}`), ...lay.contact.map((x) => `NT-14 khối liên hệ lặp: ${x}`)];
 	if (w >= 1024) {
 		const g = await p.evaluate(contentBands);
-		const at = async (y) => p.evaluate((y) => { const el = [...document.querySelectorAll('main section, main .v-wrap, main article, main aside')].find((e) => { const r = e.getBoundingClientRect(); return r.top + scrollY <= y && r.bottom + scrollY > y; }); return el ? el.tagName.toLowerCase() + (el.id ? '#' + el.id : '') + (el.className ? '.' + String(el.className).trim().split(/\s+/).slice(0, 2).join('.') : '') : 'body'; }, y);
+		const at = async (y) => p.evaluate((y) => { const el = [...document.querySelectorAll('main section, main .v-wrap, main .wrap, main article, main aside')].find((e) => { const r = e.getBoundingClientRect(); return r.top + scrollY <= y && r.bottom + scrollY > y; }); return el ? el.tagName.toLowerCase() + (el.id ? '#' + el.id : '') + (el.className ? '.' + String(el.className).trim().split(/\s+/).slice(0, 2).join('.') : '') : 'body'; }, y);
 		for (const run of gapRuns(g.bands, g.left, g.right, g.step, w < 768 ? 800 : 900)) report[w].gaps.push(`khoảng trống ${run.pct}% từ y=${run.from} đến y=${run.to} (${await at(run.from)})`);
 	}
 	const photo = await photoContrast(p);

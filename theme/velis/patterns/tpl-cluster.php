@@ -18,7 +18,7 @@ $out   = velis_breadcrumb_html( velis_trail() ) . velis_hero_b( array(
 	'eyebrow' => 'Blog · ' . $cat->count . ' bài',
 	'title'   => 'Blog ' . $cat->name . ( $paged > 1 ? " – trang $paged" : '' ),
 	'lead'    => $cat->description ? wp_strip_all_tags( $cat->description ) : 'Phân tích ' . $cat->name . ' của CEO Vũ Xuân: giá, pháp lý, tiến độ và kinh nghiệm mua.',
-	'buttons' => $pill ? velis_btn( 'Thông tin dự án ' . $pill->post_title, get_permalink( $pill ), 'secondary' ) : '',
+	'buttons' => $pill ? velis_btn( 'Thông tin dự án ' . $pill->post_title, get_permalink( $pill ), 'line' ) : '',
 ) );
 $kinds = array();
 $pks   = array();
@@ -32,8 +32,8 @@ foreach ( $q->posts as $p ) {
 		}
 	}
 }
-$out .= velis_section( velis_sechead( 'Bài viết ' . $cat->name, $paged > 1 ? "Trang $paged" : 'Mới nhất' ) . '<div data-chipbox>' . velis_chipbar( 'kind', $kinds, 'Lọc theo loại bài' ) . velis_chipbar( 'pk', $pks, 'Lọc theo phân khu' )
-	. velis_grid( array_map( fn( $p ) => velis_card_post( $p, true ), $q->posts ), '3' ) . '<div class="v-empty" hidden data-chip-empty><p><b>Chưa có bài phù hợp.</b></p></div></div>' . velis_pagination( $q ) );
+$out .= velis_section( velis_sechead( 'Bài viết ' . $cat->name, $paged > 1 ? "Trang $paged" : 'Mới nhất' ) . '<div data-chipgrid>' . velis_chipbars( array( 'kind' => array( 'Lọc theo loại bài', $kinds ), 'pk' => array( 'Lọc theo phân khu', $pks ) ) )
+	. velis_grid( array_map( fn( $p ) => velis_card_post( $p, true ), $q->posts ), 'three' ) . '</div>' . velis_pagination( $q ), '', 'section--tint' );
 $out .= velis_form_html( $pill ? $pill->post_title : '' );
 ?>
 <!-- wp:html -->
