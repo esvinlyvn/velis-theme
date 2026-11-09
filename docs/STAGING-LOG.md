@@ -166,3 +166,10 @@ Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng th
 | Ảnh đầu trang | trang chủ: The Privé (19968, có huy hiệu – cắt che); /du-an/: The Global City (20092, có huy hiệu – cắt che); Giới thiệu: văn phòng Velis (20120, sạch) – không trùng nhau |
 | Gửi form | **không gửi** (lượt gửi 06/11 trên staging là của người dùng); trường ẩn kiểm bằng chặn yêu cầu trong trình duyệt |
 | Không đụng | nội dung bài / trang, media, plugin, `.htaccess`, 7 ứng dụng |
+
+## 2026-11-09 – Bước 4, sửa lỗi Safari
+
+| Mục | Thay đổi |
+|---|---|
+| Theme velis 1.0.0 | 3 lần tải lên (Giao diện → Tải lên → thay bản đang dùng), cùng số phiên bản: (1) bỏ `mask-image` ở dải "Dự án nổi bật" (điện thoại), tab khu vực trang chủ, thanh tab mục, lớp mờ "Đọc tiếp" → lớp phủ vẽ bằng phần tử, gradient từ chính màu nền alpha 0; chế độ in (bỏ lớp mờ, mở phần thu gọn, hàng cuộn xuống dòng); `beforeprint` nạp mọi ảnh lazy; logo footer / logo đối tác / ảnh CEO tải ngay; bảng 2 cột trong nội dung < 768 px: cột nhãn 35 %; (2) bảng 2 cột < 480 px xếp chồng nhãn trên – giá trị dưới; (3) sửa độ rộng ô khi xếp chồng |
+| Không đụng | nội dung bài / trang, plugin, `.htaccess`, 7 ứng dụng; không gửi form |

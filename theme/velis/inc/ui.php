@@ -294,7 +294,7 @@ function velis_feature_strip( array $projects ): string {
 			. '<span><b>' . esc_html( $p->post_title ) . '</b>' . ( $meta ? '<small>' . esc_html( $meta ) . '</small>' : '' ) . '</span></a></li>';
 	}, $projects );
 	$nav = '<span class="feats__nav" hidden><button type="button" data-feats="-1" aria-label="Dự án trước"><span aria-hidden="true">‹</span></button><button type="button" data-feats="1" aria-label="Dự án sau"><span aria-hidden="true">›</span></button></span>';
-	return $li ? '<div class="feats"><div class="feats__head"><p class="eyebrow">Dự án nổi bật</p>' . $nav . '</div><ul>' . implode( '', $li ) . '</ul></div>' : '';
+	return $li ? '<div class="feats"><div class="feats__head"><p class="eyebrow">Dự án nổi bật</p>' . $nav . '</div><div class="feats__row"><ul>' . implode( '', $li ) . '</ul></div></div>' : '';
 }
 
 /** Index pages (Dự án, Chủ đầu tư, Blog …): hero B – framed photo when there is one, text below. $a: title, eyebrow, lead, img, buttons, after. */
@@ -322,7 +322,7 @@ function velis_advisor( $p, bool $inline = false ): string {
 	$rows = array_filter( array( 'Loại sản phẩm' => implode( ', ', velis_type_names( $p ) ), 'Giá từ' => velis_price( $p ), 'Bàn giao' => $hand ? velis_short( $hand, 32 ) : '' ) );
 	$dl   = implode( '', array_map( fn( $k, $v ) => '<div><dt>' . esc_html( $k ) . '</dt><dd>' . esc_html( $v ) . '</dd></div>', array_keys( $rows ), $rows ) );
 	return '<div class="advisor' . ( $inline ? ' advisor--inline' : '' ) . '"><p class="eyebrow">Velis tư vấn dự án này</p>'
-		. '<div class="advisor__who"><span class="advisor__img"><img src="' . esc_url( get_theme_file_uri( VELIS_CEO['img'] ) ) . '" width="80" height="80" alt="" loading="lazy"></span><p><b>' . esc_html( VELIS_CEO['name'] ) . '</b><span>' . esc_html( VELIS_CEO['role'] ) . '</span></p></div>'
+		. '<div class="advisor__who"><span class="advisor__img"><img src="' . esc_url( get_theme_file_uri( VELIS_CEO['img'] ) ) . '" width="80" height="80" alt=""></span><p><b>' . esc_html( VELIS_CEO['name'] ) . '</b><span>' . esc_html( VELIS_CEO['role'] ) . '</span></p></div>'
 		. '<p class="pricecard__title">' . esc_html( $name ) . '</p>' . ( $dl ? '<dl>' . $dl . '</dl>' : '' )
 		. velis_btn( 'Nhận bảng giá', '#tu-van', '', ' data-interest="' . esc_attr( $name ) . '" data-open-form aria-expanded="false"' ) . '<div data-mini-form hidden>' . velis_form_tag( $name, 'mini' ) . '</div>'
 		. velis_call_btn( 'line' ) . velis_btn( 'Zalo', VELIS_ZALO, 'line', ' rel="noopener" target="_blank"' ) . velis_role_sentence( $p ) . '</div>';
@@ -857,11 +857,11 @@ function velis_dev_logo( $d ): string {
 	$file = get_theme_file_path( 'assets/brand/doi-tac/' . $d->post_name . '.webp' );
 	if ( $id && ( $m = wp_get_attachment_metadata( $id ) ) && ! empty( $m['height'] ) ) {
 		list( $w, $h ) = velis_logo_box( $m['width'] / $m['height'] );
-		return wp_get_attachment_image( $id, 'medium', false, array( 'alt' => $d->post_title, 'loading' => 'lazy', 'sizes' => $w . 'px', 'style' => "--w: {$w}px; --h: {$h}px" ) );
+		return wp_get_attachment_image( $id, 'medium', false, array( 'alt' => $d->post_title, 'loading' => 'eager', 'sizes' => $w . 'px', 'style' => "--w: {$w}px; --h: {$h}px" ) );
 	}
 	if ( is_readable( $file ) && ( $s = getimagesize( $file ) ) ) {
 		list( $w, $h ) = velis_logo_box( $s[0] / $s[1] );
-		return '<img src="' . esc_url( get_theme_file_uri( 'assets/brand/doi-tac/' . $d->post_name . '.webp' ) ) . '" width="' . $s[0] . '" height="' . $s[1] . '" alt="' . esc_attr( $d->post_title ) . '" loading="lazy" decoding="async" style="--w: ' . $w . 'px; --h: ' . $h . 'px">';
+		return '<img src="' . esc_url( get_theme_file_uri( 'assets/brand/doi-tac/' . $d->post_name . '.webp' ) ) . '" width="' . $s[0] . '" height="' . $s[1] . '" alt="' . esc_attr( $d->post_title ) . '" decoding="async" style="--w: ' . $w . 'px; --h: ' . $h . 'px">';
 	}
 	return '';
 }

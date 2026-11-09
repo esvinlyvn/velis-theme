@@ -233,6 +233,15 @@ $$('.clamp').forEach((el) => {
 	el.after(b);
 });
 
+// Print / "Lưu PDF" (Safari never scrolls, so native lazy images below the fold would print as empty boxes): load every
+// picture now and open the collapsed text. beforeprint where it fires, print media query where it does not.
+const forPrint = () => {
+	$$('img[loading="lazy"]').forEach((i) => { i.loading = 'eager'; });
+	$$('.clamp__more').forEach((b) => b.click());
+};
+addEventListener('beforeprint', forPrint);
+matchMedia('print').addEventListener?.('change', (e) => e.matches && forPrint());
+
 // Table of contents (long posts): highlight the section being read.
 $$('[data-toc]').forEach((toc) => {
 	const links = $$('a[href^="#"]', toc);

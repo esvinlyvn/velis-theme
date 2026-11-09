@@ -11,6 +11,7 @@
 	--canvas: #FAF7F2;      /* ngà – xen kẽ với trắng (1.5) */
 	--surface: #FFFFFF;
 	--sunken: #F2EEE8;
+	--fade: #FAF7F2; --fade-0: rgb(250 247 242 / 0); /* ground under an edge fade: same colour at alpha 0 → full (Safari: never `transparent` / mask-image) */
 	--dark: #111111;        /* khối tối duy nhất trước footer (form tư vấn) */
 	--footer: #1A1A1A;      /* footer: nền khác khối tối + đường champagne (1.5) */
 	--line: #E4DED5;

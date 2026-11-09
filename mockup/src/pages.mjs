@@ -178,7 +178,7 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 	</div>
 	<div class="hero__after"><div class="feats">
 		<div class="feats__head"><p class="eyebrow">Dự án nổi bật</p><span class="feats__nav" hidden><button type="button" aria-label="Dự án trước"><span aria-hidden="true">‹</span></button><button type="button" aria-label="Dự án sau"><span aria-hidden="true">›</span></button></span></div>
-		<ul>${HERO.feats.map(([name, region, file]) => `<li><a class="feat" href="#"><span class="feat__img">${img(`img/${file}`, { alt: `Phối cảnh ${name}`, sizes: [['', '72px']], frame: 13 / 9, lcp: true, tmp: '' })}</span><span><b>${esc(name)}</b><small>${esc(region)}</small></span></a></li>`).join('')}</ul>
+		<div class="feats__row"><ul>${HERO.feats.map(([name, region, file]) => `<li><a class="feat" href="#"><span class="feat__img">${img(`img/${file}`, { alt: `Phối cảnh ${name}`, sizes: [['', '72px']], frame: 13 / 9, lcp: true, tmp: '' })}</span><span><b>${esc(name)}</b><small>${esc(region)}</small></span></a></li>`).join('')}</ul></div>
 	</div></div>
 </section>
 <section class="section section--tight section--tint" aria-label="Velis Realty trong những con số"><div class="wrap">
