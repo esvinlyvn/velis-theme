@@ -70,3 +70,11 @@ bộ logo SVG, `tools/check_ui.mjs` (kiểm tra tự động 9 khung: 0 lỗi). 
 
 - Tắt Buttonizer trên site thật (thay bằng thanh CTA của theme).
 - Gỡ plugin `velis-staging-guard` không cần trên site thật (plugin tự không chạy ngoài staging, nhưng không cài lên site thật).
+
+## Giao diện khóa ngày 2026-11-09, theme 1.0.0
+
+- Mốc giao diện: `tests/visual/moc/` (Git LFS) – 30 trang chuẩn × M1–M5 (Chromium) + 6 trang × iPhone 14 (WebKit),
+  ngưỡng lệch 0,1 % điểm ảnh; chạy `npm run test:visual` (xem `docs/NGHIEM-THU.md` mục "Mốc giao diện (bước 4)").
+- Quy tắc: mọi thay đổi giao diện sau mốc này phải cập nhật ảnh mốc có chủ đích (`npm run test:visual:update`, soát ảnh khác
+  biệt, commit kèm lần duyệt) và **được người dùng duyệt** trước khi triển khai.
+- Việc còn lại sau ra mắt: `docs/SAU-RA-MAT.md`.

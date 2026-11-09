@@ -171,5 +171,11 @@ Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng th
 
 | Mục | Thay đổi |
 |---|---|
-| Theme velis 1.0.0 | 3 lần tải lên (Giao diện → Tải lên → thay bản đang dùng), cùng số phiên bản: (1) bỏ `mask-image` ở dải "Dự án nổi bật" (điện thoại), tab khu vực trang chủ, thanh tab mục, lớp mờ "Đọc tiếp" → lớp phủ vẽ bằng phần tử, gradient từ chính màu nền alpha 0; chế độ in (bỏ lớp mờ, mở phần thu gọn, hàng cuộn xuống dòng); `beforeprint` nạp mọi ảnh lazy; logo footer / logo đối tác / ảnh CEO tải ngay; bảng 2 cột trong nội dung < 768 px: cột nhãn 35 %; (2) bảng 2 cột < 480 px xếp chồng nhãn trên – giá trị dưới; (3) sửa độ rộng ô khi xếp chồng; (4) chế độ in: header không dính (`position: static`) – WebKit lặp header giữa các trang PDF |
+| Theme velis 1.0.0 | 4 lần tải lên (Giao diện → Tải lên → thay bản đang dùng), cùng số phiên bản: (1) bỏ `mask-image` ở dải "Dự án nổi bật" (điện thoại), tab khu vực trang chủ, thanh tab mục, lớp mờ "Đọc tiếp" → lớp phủ vẽ bằng phần tử, gradient từ chính màu nền alpha 0; chế độ in (bỏ lớp mờ, mở phần thu gọn, hàng cuộn xuống dòng); `beforeprint` nạp mọi ảnh lazy; logo footer / logo đối tác / ảnh CEO tải ngay; bảng 2 cột trong nội dung < 768 px: cột nhãn 35 %; (2) bảng 2 cột < 480 px xếp chồng nhãn trên – giá trị dưới; (3) sửa độ rộng ô khi xếp chồng; (4) chế độ in: header không dính (`position: static`) – WebKit lặp header giữa các trang PDF |
 | Không đụng | nội dung bài / trang, plugin, `.htaccess`, 7 ứng dụng; không gửi form |
+
+## 2026-11-09 – Bước 4, kiểm tra cuối
+
+| Mục | Thay đổi |
+|---|---|
+| Staging | chỉ đọc: bộ NT Chromium + WebKit, check_ui 7 khung, thang, 55 tương tác ×2 trình duyệt (yêu cầu form bị chặn trong trình duyệt, không gửi), on-page 173 trang, schema, Lighthouse CI – không tải lên, không ghi gì |

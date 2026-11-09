@@ -16,6 +16,12 @@ dữ liệu mốc SEO và công cụ kiểm tra.
 Nguồn sự thật: `BRIEF.md` (brief đã chốt) → `DESIGN.md` (giao diện) → `docs/` (SCOPE, BRAND, VOICE, CONTENT-MAP,
 CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của site thật).
 
+## Giao diện đã khóa (2026-11-09, theme 1.0.0)
+
+- Mốc ảnh `tests/visual/moc/` (Git LFS; `npm run test:visual`, ngưỡng 0,1 %). Thay đổi giao diện sau mốc này phải cập nhật
+  ảnh mốc có chủ đích (`npm run test:visual:update`, soát ảnh khác biệt) **và được người dùng duyệt** trước khi triển khai.
+- CSS một nguồn `theme/velis/css/1–5` (theme + mockup), build `python3 -I tools/build_css.py` (≤ 45 KB min, ≤ 12 KB gzip).
+
 ## Phạm vi & an toàn (ưu tiên cao nhất)
 
 - Site thật `https://velisrealty.vn` (biến `WP_URL`): **CHỈ ĐỌC**. Mọi thao tác ghi chỉ trên staging

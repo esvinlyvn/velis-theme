@@ -1,0 +1,194 @@
+{
+ "palm-city": {
+  "3": {
+   "broken": [],
+   "wrong": [],
+   "dpr": [],
+   "mixed": [],
+   "noname": [],
+   "feats": [],
+   "photos": [],
+   "edge": [],
+   "postgrid": [],
+   "meta": [],
+   "empty": [],
+   "table": [],
+   "overflow": [],
+   "h1": [],
+   "caps": [],
+   "gaps": [],
+   "lowres": [
+    "390px: ceo-vu-xuan-160.webp [khác]: cần 240px, lớn nhất 160px",
+    "390px: palm-city.webp [thẻ]: cần 1388px, lớn nhất 1200px",
+    "390px: dong-von-dau-tu-nam-rach-chiec.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: chu-ky-tang-gia-ven-song-giong-ong-to.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: bao-ve-tai-san-lam-phat-palm-river.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: hallmark-thu-thiem.webp [thẻ]: cần 1235px, lớn nhất 1200px"
+   ],
+   "blurryOld": [
+    "390px: ceo-vu-xuan-160.webp khung 80px × 3 > file 160px × 1,15"
+   ],
+   "gridinfo": []
+  }
+ },
+ "spring-ville": {
+  "3": {
+   "broken": [],
+   "wrong": [],
+   "dpr": [],
+   "mixed": [],
+   "noname": [],
+   "feats": [],
+   "photos": [],
+   "edge": [],
+   "postgrid": [],
+   "meta": [],
+   "empty": [],
+   "table": [],
+   "overflow": [],
+   "h1": [],
+   "caps": [],
+   "gaps": [],
+   "lowres": [
+    "390px: phoi-canh-spring-ville.webp [hero]: cần 1983px, lớn nhất 1200px",
+    "390px: ceo-vu-xuan-160.webp [khác]: cần 240px, lớn nhất 160px",
+    "390px: phoi-canh-spring-ville.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: phoi-canh-persa-place-3.webp [thẻ]: cần 1647px, lớn nhất 1200px",
+    "390px: nha-pho-spring-ville.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: shophouse-spring-ville.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: can-ho-spring-ville.webp [ảnh nội dung]: cần 1203px, lớn nhất 1013px",
+    "390px: mat-bang-spring-ville.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: vi-tri-spring-ville.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: spring-house.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: spring-maket.webp [ảnh nội dung]: cần 1204px, lớn nhất 1200px",
+    "390px: nha-mau-spring-ville.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: thiet-ke-biophilic-persa-place-nhon-trach.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: tieu-chuan-ban-giao-persa-place-gamuda-land.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: can-ho-mat-tien-ton-duc-thang-nhon-trach.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: layout-can-ho-2-phong-ngu-persa-place.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: can-ho-1-phong-ngu-persa-place-cho-thue.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: dac-quyen-booking-dot-1-persa-place.webp [thẻ]: cần 1241px, lớn nhất 1200px"
+   ],
+   "blurryOld": [
+    "390px: ceo-vu-xuan-160.webp khung 80px × 3 > file 160px × 1,15",
+    "390px: can-ho-spring-ville.webp khung 401px × 3 > file 1013px × 1,15"
+   ],
+   "gridinfo": []
+  }
+ },
+ "ansana": {
+  "3": {
+   "broken": [],
+   "wrong": [],
+   "dpr": [],
+   "mixed": [],
+   "noname": [],
+   "feats": [],
+   "photos": [],
+   "edge": [],
+   "postgrid": [],
+   "meta": [],
+   "empty": [],
+   "table": [],
+   "overflow": [],
+   "h1": [],
+   "caps": [],
+   "gaps": [],
+   "lowres": [
+    "390px: vi-tri-ansana-by-kita.webp [hero]: cần 1208px, lớn nhất 1200px",
+    "390px: ceo-vu-xuan-160.webp [khác]: cần 240px, lớn nhất 160px",
+    "390px: vi-tri-ansana-by-kita.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: phoi-canh-can-ho-3-pn-ansana-by-kita.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: nut-giao-ansana-kita.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: tien-ich-ansana-kita.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: do-xe-thong-minh-ansana.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: smart-living-ansana.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: tien-ich-ansana-kita.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: smart-living-ansana.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: can-ho-2pn-ansana.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: can-ho-studio-ansana.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: do-xe-thong-minh-ansana.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: tien-ich-y-te-ansana.webp [thẻ]: cần 1241px, lớn nhất 1200px"
+   ],
+   "blurryOld": [
+    "390px: ceo-vu-xuan-160.webp khung 80px × 3 > file 160px × 1,15"
+   ],
+   "gridinfo": []
+  }
+ },
+ "masteri-grand-view": {
+  "3": {
+   "broken": [],
+   "wrong": [],
+   "dpr": [],
+   "mixed": [],
+   "noname": [],
+   "feats": [],
+   "photos": [],
+   "edge": [],
+   "postgrid": [],
+   "meta": [],
+   "empty": [],
+   "table": [],
+   "overflow": [],
+   "h1": [],
+   "caps": [],
+   "gaps": [],
+   "lowres": [
+    "390px: ceo-vu-xuan-160.webp [khác]: cần 240px, lớn nhất 160px",
+    "390px: khu-pho-thuong-mai-soho-fb.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: bat-dong-san-tich-san-truyen-doi.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: suc-hut-dau-tu-the-global-city-1.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: thanh-khoan-vi-tri-can-goc.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: thiet-ke-shophouse-soho.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: lai-suat-vay-mua-nha-2026.webp [thẻ]: cần 1241px, lớn nhất 1200px"
+   ],
+   "blurryOld": [
+    "390px: ceo-vu-xuan-160.webp khung 80px × 3 > file 160px × 1,15"
+   ],
+   "gridinfo": []
+  }
+ },
+ "persa-place": {
+  "3": {
+   "broken": [],
+   "wrong": [],
+   "dpr": [],
+   "mixed": [],
+   "noname": [],
+   "feats": [],
+   "photos": [],
+   "edge": [],
+   "postgrid": [],
+   "meta": [],
+   "empty": [],
+   "table": [],
+   "overflow": [],
+   "h1": [],
+   "caps": [],
+   "gaps": [],
+   "lowres": [
+    "390px: phoi-canh-persa-place-3.webp [hero]: cần 1604px, lớn nhất 1200px",
+    "390px: ceo-vu-xuan-160.webp [khác]: cần 240px, lớn nhất 160px",
+    "390px: phoi-canh-persa-place-3.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: persa-place-27.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: persa-place-1pn-1.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: persa-place-2pn-1.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: persa-place-3pn.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: vi-tri-spring-ville.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: vi-tri-spring-ville-dau-tu.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: persa-place-28.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: thiet-ke-biophilic-persa-place-nhon-trach.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: tieu-chuan-ban-giao-persa-place-gamuda-land.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: can-ho-mat-tien-ton-duc-thang-nhon-trach.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: layout-can-ho-2-phong-ngu-persa-place.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: can-ho-1-phong-ngu-persa-place-cho-thue.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: dac-quyen-booking-dot-1-persa-place.webp [thẻ]: cần 1241px, lớn nhất 1200px"
+   ],
+   "blurryOld": [
+    "390px: ceo-vu-xuan-160.webp khung 80px × 3 > file 160px × 1,15"
+   ],
+   "gridinfo": []
+  }
+ }
+}

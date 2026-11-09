@@ -6,7 +6,8 @@
 // Usage: VIEW_PASSWORD_FILE=… node tools/interactions_b3.mjs out.txt
 import { createRequire } from 'node:module';
 import { readFileSync, writeFileSync } from 'node:fs';
-const { chromium } = createRequire(import.meta.url)('playwright');
+const PW = createRequire(import.meta.url)('playwright');
+const chromium = process.env.BROWSER === 'webkit' ? PW.webkit : PW.chromium; // BROWSER=webkit: Safari engine (bước 4)
 const BASE = 'https://staging.velisrealty.vn', TGC = '/du-an/the-global-city/', MPP = '/du-an/the-global-city/masteri-park-place/';
 const rows = [];
 const check = (name, ok, info = '') => { rows.push(`${ok ? 'PASS' : 'FAIL'} ${name}${info !== '' ? ' – ' + JSON.stringify(info) : ''}`); console.log(rows.at(-1)); };

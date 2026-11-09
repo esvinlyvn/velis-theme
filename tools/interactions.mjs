@@ -4,7 +4,8 @@
 // Usage: VIEW_PASSWORD_FILE=… node tools/interactions.mjs <out-file>
 import { createRequire } from 'node:module';
 import { readFileSync, writeFileSync } from 'node:fs';
-const { chromium } = createRequire(import.meta.url)('playwright');
+const PW = createRequire(import.meta.url)('playwright');
+const chromium = process.env.BROWSER === 'webkit' ? PW.webkit : PW.chromium; // BROWSER=webkit: Safari engine (bước 4)
 
 const BASE = 'https://staging.velisrealty.vn';
 const out = process.argv[2] || 'tuong-tac.txt';
