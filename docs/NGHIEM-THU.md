@@ -456,12 +456,12 @@ Các phương án đã cân nhắc (giữ để tra cứu):
 
 ## Mốc giao diện (bước 4)
 
-Trạng thái 2026-11-09: **hạ tầng sẵn sàng, chưa sinh mốc** – người dùng yêu cầu sửa lỗi Safari trước (CSS còn đổi), sinh mốc sau đó.
+Trạng thái 2026-11-09: **mốc đã lập** sau khi sửa lỗi Safari (theme 1.0.0 trên staging): 156 ca (150 Chromium + 6 WebKit), 163 file ảnh (trang dài trên WebKit chia đoạn), 167 MB, lưu bằng **Git LFS** (`.gitattributes`: `tests/visual/moc/**/*.png`). Chạy lại 2 lần liên tiếp: 156/156 đạt cả 2 lần, 0 lệch.
 
 - **Phạm vi:** 30 trang chuẩn (`tools/suite-pages.txt`) × M1–M5 trên Chromium (150 ảnh cả trang) + 6 trang chuẩn trên WebKit hồ sơ iPhone 14 (`tests/visual/playwright.config.mjs`, project `webkit-iphone14`). Trang dài trên WebKit được so theo từng đoạn (giới hạn 32 767 px mỗi ảnh). Hồ sơ iPhone SE và WebKit desktop 1440×900 có sẵn để thử tay (`VISUAL_ADHOC=1 … --project webkit-iphone-se`), không lập mốc.
 - **Ngưỡng:** lệch ≤ 0,1 % điểm ảnh (`maxDiffPixelRatio: 0.001`), `scale: 'css'`, tắt hoạt ảnh. Không nâng ngưỡng để qua test.
 - **Che (mask):** thẻ bài viết (thứ tự bài mới, ngày, phút đọc), video nhúng; ảnh chụp (nội dung ảnh là dữ liệu – khung, vị trí, cỡ vẫn được so). Tắt che ảnh: `MASK_IMG=0`.
-- **Chạy:** `npm run test:visual` (cần `STAGING_VIEW_PASSWORD` hoặc `VIEW_PASSWORD_FILE`). Mốc nằm ở `tests/visual/moc/{trang}-{màn}.png`.
+- **Chạy:** `npm run test:visual` (cần `STAGING_VIEW_PASSWORD` hoặc `VIEW_PASSWORD_FILE`). Mốc nằm ở `tests/visual/moc/{trang}-{màn}.png`. Lấy mốc về máy: `git lfs install` rồi `git lfs pull` (clone thường chỉ có con trỏ LFS). CI hiện không dùng mốc (job NT dùng `check_ui`), nên không cần `lfs: true` khi checkout.
 - **Cập nhật mốc có chủ đích** (chỉ sau khi người dùng duyệt một thay đổi giao diện): `npm run test:visual:update` → xem ảnh lệch trong `test-results/visual-report` → commit ảnh mốc mới, ghi trong thông điệp commit mã duyệt (ngày, người duyệt, mục thay đổi). Không cập nhật mốc để "làm xanh" một lần chạy lỗi.
 - **Ngân sách tự động:** `lighthouserc.json` (4 trang mobile: Performance ≥ 90, Accessibility ≥ 95, SEO ≥ 95, CLS ≤ 0,1; LCP chỉ cảnh báo – đo lại ngày ra mắt có LiteSpeed; trên staging bỏ mục `is-crawlable` vì staging cố ý noindex). CSS ≤ 45 KB min / 12 KB gzip chặn trong `npm run test:unit`.
 - **CI** (`.github/workflows/kiem-tra.yml`, mỗi PR): test đơn vị + ngân sách CSS; bộ NT rút gọn 6 trang × M1, M5 trên Chromium và WebKit (iPhone 14 = 390 px @3); Lighthouse CI. Cần secret `STAGING_VIEW_PASSWORD` trong cài đặt repo GitHub.
