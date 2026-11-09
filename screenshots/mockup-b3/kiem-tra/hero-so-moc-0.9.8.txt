@@ -1,0 +1,26 @@
+M1 h1: lệch 0.0 px
+M1 lead: lệch 0.0 px
+M1 btn1: lệch 0.0 px
+M1 btn2: lệch 0.0 px
+M1 dai: lệch 0.0 px
+M2 h1: lệch 0.0 px
+M2 lead: lệch 0.0 px
+M2 btn1: lệch 0.0 px
+M2 btn2: lệch 0.0 px
+M2 dai: lệch 0.0 px
+M3 h1: lệch 0.0 px
+M3 lead: lệch 0.0 px
+M3 btn1: lệch 0.0 px
+M3 btn2: lệch 0.0 px
+M3 dai: lệch 0.0 px
+M4 h1: lệch 0.0 px
+M4 lead: lệch 0.0 px
+M4 btn1: lệch 0.0 px
+M4 btn2: lệch 0.0 px
+M4 dai: lệch 288.0 px
+M5 h1: lệch 0.0 px
+M5 lead: lệch 0.0 px
+M5 btn1: lệch 0.0 px
+M5 btn2: lệch 0.0 px
+M5 dai: lệch 0.0 px
+vượt 2 px / khác chữ: 1
