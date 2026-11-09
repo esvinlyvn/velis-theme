@@ -4,7 +4,8 @@
 // gaps beside content (tools/ui_gaps.mjs), layout errors (tools/ui_layout.mjs), CLS.
 import { createRequire } from 'node:module';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
-const { chromium } = createRequire(import.meta.url)('playwright');
+const PW = createRequire(import.meta.url)('playwright');
+const chromium = process.env.BROWSER === 'webkit' ? PW.webkit : PW.chromium; // BROWSER=webkit: Safari engine (bước 4, CI)
 import { gapRuns, contentBands } from './ui_gaps.mjs';
 import { runSuite, runSticky } from './ui_media.mjs';
 import { layoutAudit } from './ui_layout.mjs';
@@ -18,7 +19,7 @@ if (process.argv[2] === '--suite' || process.argv[2] === '--sticky') {
 	const [list, dir, dprArg, wArg] = process.argv.slice(3);
 	const pages = readFileSync(list, 'utf8').trim().split('\n').map((l) => l.trim().split(/\s+/));
 	mkdirSync(dir, { recursive: true });
-	const opts = { chromium, base: 'https://staging.velisrealty.vn', password: readFileSync(process.env.VIEW_PASSWORD_FILE, 'utf8').trim(), pages, contentBands };
+	const opts = { chromium, base: 'https://staging.velisrealty.vn', password: (process.env.STAGING_VIEW_PASSWORD || readFileSync(process.env.VIEW_PASSWORD_FILE, 'utf8')).trim(), pages, contentBands };
 	if (process.argv[2] === '--sticky') {
 		const rows = await runSticky(opts);
 		writeFileSync(`${dir}/cot-dinh.json`, JSON.stringify(rows, null, 1));

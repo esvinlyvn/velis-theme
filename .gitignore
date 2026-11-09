@@ -20,3 +20,8 @@ screenshots/raw/
 .env
 .env.*
 *.pem
+
+# bước 4: kết quả test (báo cáo HTML, ảnh lệch, đăng nhập staging) – không commit
+test-results/
+playwright-report/
+.lighthouseci/
