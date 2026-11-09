@@ -9,6 +9,7 @@
 /* Print / "Lưu PDF" (Safari): no edge fades, nothing collapsed, scroll rows wrap; the sticky bars are screen-only */
 @media print {
 	.tabs, .cta, .feats__nav, .clamp__more, .header__menu { display: none; }
+	.header { position: static; } /* a sticky header repeats on every printed / PDF page in WebKit */
 	.feats__row::after, .tabs ul::after, .ftabs::after, .clamp__fade::after { content: none; }
 	.feats ul.has-more { mask-image: none; }
 	.clamp__fade { max-height: none; overflow: visible; }
