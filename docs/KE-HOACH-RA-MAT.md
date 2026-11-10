@@ -1,44 +1,46 @@
 # Kế hoạch ra mắt (site thật velisrealty.vn)
 
-Chỉ làm vào ngày ra mắt, sau khi người dùng duyệt giai đoạn 4. Mọi bước ghi lên site thật cần duyệt riêng (CLAUDE.md).
+Cập nhật 2026-11-10 (giai đoạn 5). Chỉ làm khi người dùng ra lệnh và chọn giờ (giai đoạn 6). Mọi bước ghi lên site thật cần
+người dùng duyệt (CLAUDE.md); bước ghi `.htaccess` (permalink, LiteSpeed) duyệt riêng.
 
-## Ngay trước khi ra mắt – làm mới dữ liệu (bắt buộc)
+## Cần người dùng chọn trước
 
-Ma trận redirect và bản đồ từ khóa dựng từ ảnh chụp site ngày 2026-11-04; site vẫn có bài, ảnh, redirect mới sau ngày đó.
+- **Cách đưa dữ liệu lên site thật.**
+  - **A (đề xuất): chuyển CSDL staging → site thật.** Staging là bản sao site thật đã có đủ dự án, nội dung đã chuyển, cờ ảnh,
+    cài đặt Rank Math, redirect – đã kiểm ở giai đoạn 5. Cần: so bài / trang / media mới phát sinh trên site thật sau ngày chụp
+    (2026-11-04) và nhập lại sau khi chuyển; search-replace `https://staging.velisrealty.vn` → `https://velisrealty.vn`.
+  - **B: cài plugin + chạy script nhập trên site thật** (`tools/import_staging.py`, `run_convert.py`… bản cho site thật). Ít đụng
+    CSDL hơn nhưng nhiều bước hơn, chưa chạy thử trên site thật.
+- **Giờ ra mắt:** chỉ có dữ liệu GSC theo ngày (`data/gsc/daily.csv`, 24/03–01/11/2026, không có theo giờ). Thứ Bảy thấp nhất
+  (TB 1,4 lượt nhấp / 32 lượt hiển thị mỗi ngày; Thứ Hai 2,6 / 50). **Đề xuất: sáng Thứ Bảy, bắt đầu 7:00** – giờ cụ thể là giả
+  định (chưa có dữ liệu theo giờ), người dùng xem GA4 → Báo cáo → theo giờ để chốt.
+- **Thời gian site thật bị ảnh hưởng (ước lượng):** A ≈ 60–90 phút ở chế độ bảo trì (bước 3–8); B ≈ 2–3 giờ. Sau đó 1–2 ngày
+  thứ hạng có thể dao động trong lúc Google đọc lại redirect.
 
-1. Đọc lại từ **site thật** (chỉ đọc, REST công khai + Rank Math → Chuyển hướng): bài viết, trang, chuyên mục, media,
-   redirect Rank Math → ghi đè `data/inventory/*`.
-2. Chạy lại `python3 -I tools/build_url_map.py` và `python3 -I tools/build_keyword_map.py`.
-3. Chạy toàn bộ test: `python3 -I -m unittest discover -s tools/tests -p 'test_*.py'`, `php tools/tests/data-model-test.php`,
-   `php tools/tests/plugin-load-test.php`, `php tools/tests/components-test.php`, `node tools/tests/listing-filter.test.mjs`.
-   Test nào đỏ (ví dụ số bài thay đổi) → xem lại, không sửa test cho xanh.
-4. So `data/url-map.csv` mới với bản đã duyệt; URL mới phát sinh thì báo người dùng trước khi nhập vào Rank Math.
+## Làm mới dữ liệu (ngay trước ngày ra mắt, chỉ đọc)
 
-## Thứ tự ra mắt
+Ma trận redirect và bản đồ từ khóa dựng từ ảnh chụp ngày 2026-11-04.
+1. Đọc lại từ site thật (REST công khai + Rank Math → Chuyển hướng) → ghi đè `data/inventory/*`.
+2. `python3 -I tools/build_url_map.py`, `python3 -I tools/build_keyword_map.py`, `python3 -I tools/build_rankmath_redirects.py`.
+3. `npm run test:unit` phải xanh; test đỏ → xem lại, không sửa test cho xanh.
+4. So `data/url-map.csv` mới với bản đã duyệt; URL mới phát sinh → báo người dùng trước khi nhập.
 
-1. Sao lưu (UpdraftPlus thủ công: tệp + CSDL).
-2. Cài + kích hoạt plugin `velis-data`; nhập dữ liệu dự án (`tools/import_staging.py` chỉnh sang site thật – chỉ khi được duyệt).
-3. Permalink `/blog/%category%/%postname%/`, tiền tố chuyên mục `blog`; tắt "Loại bỏ cơ sở danh mục" của Rank Math
-   (ghi `.htaccess` → duyệt riêng).
-4. Nhập ma trận redirect (`data/url-map.csv`) vào Rank Math: `301` theo cột `url_moi`; `410` cho 43 trang ảnh không gắn bài
-   (Rank Math → Chuyển hướng → "410 Content Deleted"); giữ nguyên các dòng "giữ nguyên".
-5. Kích hoạt theme `velis`.
-6. **Tắt Classic Editor**. Dự án, Chủ đầu tư, bài viết dùng block editor (plugin velis-data bật riêng cho 3 loại này, vì
-   WPBakery đang bật "Disable Gutenberg Editor"); trang (page) vẫn WPBakery tới khi chuyển xong nội dung.
-7. Tắt Buttonizer (thay bằng thanh CTA của theme).
-7a. Tạo form Contact Form 7 "Velis – Nhận tư vấn" trên site thật (cùng trường như staging: your-name, your-phone, need, interest,
-    note, consent) và gửi thử 1 lần; kiểm tra sự kiện `generate_lead` trong GA4 DebugView.
-7b. Chạy `tools/copy_featured_images.py` phiên bản cho site thật (chỉ khi được duyệt) hoặc gắn ảnh đại diện dự án bằng tay.
-7c. Tắt plugin **Header and Footer Scripts**. Mã cần giữ đã chuyển vào theme (`functions.php`, hook `wp_head`, chỉ in khi
-    host là `velisrealty.vn`): GA4 `G-QSJ8EH9CWB` (gtag.js), Pinterest `p:domain_verify` `61c508b8fea6f53c5988fd9613d8bc5d`,
-    Facebook `facebook-domain-verification` `n0tenm1utob7tp7q6fe7h7r03v505p`. Bỏ: font Merriweather (theme dùng 3 font riêng).
-    Sau khi đổi theme: xem nguồn trang chủ có đúng 1 thẻ gtag (không trùng với plugin) và GA4 Realtime nhận lượt xem.
-7e. Chuyển nội dung (giai đoạn 4) trên site thật: chạy `tools/run_convert.py`, `tools/shorten_meta.py` và chép nội dung bài trụ
-    cột vào 7 bản ghi dự án **phiên bản cho site thật, chỉ khi được duyệt**; chuyển 7 bài trụ cột sang nháp; sau đó tắt WPBakery Page Builder, Ultimate Addons
-    for WPBakery, Easy Table of Contents, Buttonizer, Header and Footer Scripts (đã thử trên staging – bảng dưới).
-7d. Sau ra mắt chạy `tools/check_onpage.mjs` trên site thật: canonical chỉ kiểm được khi trang được index.
-8. **Không** cài `velis-staging-guard` lên site thật.
-9. Kiểm tra sau ra mắt: 32 URL có lượt nhấp GSC trả đúng đích 1 bước; sitemap không có trang noindex; Search Console gửi sitemap.
+## Thứ tự thao tác ngày ra mắt
+
+| # | Thao tác | Thời gian | Người làm | Quay lui (rollback) |
+|---|---|---|---|---|
+| 1 | **Sao lưu site thật**: UpdraftPlus thủ công (tệp + CSDL) + bản sao lưu của hosting; tải 1 bản về máy | 20–30 phút | người dùng (Claude hướng dẫn) | – (đây là điểm quay lui của mọi bước sau) |
+| 2 | **Đọc lại redirect Rank Math** trên site thật, xuất CSV, so với `data/url-map.csv` | 10 phút | Claude (chỉ đọc) | – |
+| 3 | Bật chế độ bảo trì; **đưa theme `velis` 1.0.0 + plugin `velis-data` 0.3.1 + dữ liệu** (A: chuyển CSDL + search-replace; B: script nhập) | A 30 phút · B 90 phút | Claude + hosting (A: quyền CSDL) | khôi phục bản sao lưu bước 1 (UpdraftPlus → Khôi phục), kích hoạt lại theme The7 |
+| 4 | **Permalink** `/blog/%category%/%postname%/`, tiền tố chuyên mục `blog`; Rank Math tắt "Loại bỏ cơ sở danh mục" (ghi `.htaccess` – duyệt riêng) | 5 phút | Claude | đặt lại permalink cũ; `.htaccess` từ bản sao lưu |
+| 5 | **Redirect**: Rank Math → Chuyển hướng → Nhập CSV (`tools/build_rankmath_redirects.py`, host `velisrealty.vn`), như đã làm trên staging (434 × 301, 43 × 410) | 10 phút | Claude | xóa nhóm redirect vừa nhập (Rank Math lọc theo ngày tạo) |
+| 6 | **Tắt plugin cũ** (không xóa ngay): Classic Editor, WPBakery Page Builder, Ultimate Addons for WPBakery, Easy Table of Contents, Buttonizer, Header and Footer Scripts, Fast Velocity Minify, The7 CLI; Button Contact VR đã tắt | 10 phút | Claude | bật lại từng plugin |
+| 7 | **LiteSpeed Cache**: cache trang cho khách + Browser Cache (như cấu hình hiện tại trên site thật), tối ưu ảnh / WebP bật, **không** gộp / trì hoãn JS (theme chỉ có 1 tệp JS, defer sẵn), CSS gộp tắt (theme 1 tệp); xóa toàn bộ cache | 15 phút | Claude | tắt LiteSpeed; `.htaccess` từ bản sao lưu |
+| 8 | **Cho phép quét + canonical domain thật**: Cài đặt → Đọc bỏ "Ngăn công cụ tìm kiếm"; kiểm Địa chỉ WordPress / trang = `https://velisrealty.vn`; KHÔNG cài `velis-staging-guard`; robots.txt theo `docs/robots-ra-mat.txt`; tắt bảo trì | 10 phút | Claude | bật lại "Ngăn công cụ tìm kiếm" |
+| 9 | **Kiểm ngay**: `python3 -I tools/check_redirects.py` + `node tools/check_sitemap.mjs https://velisrealty.vn out.csv` (0 lỗi), 32 URL có lượt nhấp, gửi thử form 1 lần + GA4 DebugView (mục GA4), Lighthouse 4 trang (LCP, NT-93) | 30 phút | Claude + người dùng (hộp thư, GA4) | theo lỗi: quay lui bước liên quan |
+| 10 | **Search Console**: gửi `sitemap_index.xml`; Kiểm tra URL trang chủ + 1 dự án | 10 phút | người dùng | – |
+| 11 | **Theo dõi 404 trong 4 tuần**: Search Console → Trang (Không tìm thấy) + Rank Math 404 Monitor; mỗi tuần thêm redirect cho URL lỗi có lượt truy cập | 15 phút / tuần | Claude + người dùng | – |
+| 12 | Sau 2 tuần ổn định: xóa hẳn plugin đã tắt ở bước 6; giữ bản sao lưu bước 1 ít nhất 30 ngày | 10 phút | người dùng duyệt | – |
 
 ## Đã thử trên staging
 

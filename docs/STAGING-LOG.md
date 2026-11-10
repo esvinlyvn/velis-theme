@@ -190,3 +190,11 @@ Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng th
 | Theme velis 1.0.0 | Tải lên lại (cùng số): trang ảnh đính kèm không có bài cha trả **410** (`inc/seo.php`). Giao diện không đổi – so ảnh mốc 156/156 đạt, không cập nhật mốc |
 | Plugin velis-data | 0.3.0 → **0.3.1** (Plugin → Tải lên → thay bản đang dùng): trang dự án/phân khu/dòng đang noindex vì thiếu dữ liệu bị loại khỏi sitemap (bộ lọc cũ không chạy vì Rank Math truyền dòng DB thô) |
 | Không đụng | nội dung bài / trang, form (không gửi), `.htaccess`, robots.txt staging, cài đặt "Ngăn công cụ tìm kiếm" |
+
+## 2026-11-10 – Giai đoạn 5 (mục 4: gửi thử form thật)
+
+| Mục | Thay đổi |
+|---|---|
+| WP Mail SMTP → Linh tinh | "Không gửi" **tắt lúc 09:56:51**, **bật lại lúc 09:57:09** (giờ Việt Nam) – cửa sổ gửi thật 18 giây. Mailer SMTP (Gmail) có sẵn thông tin đăng nhập từ bản sao site thật; không nhập / đổi thông tin nào |
+| Gửi thử form | **Đúng 1 lần, 09:57:06**: khối "Nhận tư vấn" trang The Global City, `?utm_source=kiemthu&utm_medium=giai-doan-5`, dữ liệu thử "Kiểm thử hệ thống" / 0900000000. CF7 trả `mail_sent`; `/wp-json/velis/v1/last-lead` có dự án, URL trang, utm_source, utm_medium. **Chờ người dùng xác nhận** hộp thư sale đã nhận |
+| Chỉ đọc | cài đặt WP Mail SMTP, cập nhật chờ (update-core), người dùng quản trị, Lighthouse 4 trang, 6 trang × 5 thiết bị, so ảnh mốc 12 ca |
