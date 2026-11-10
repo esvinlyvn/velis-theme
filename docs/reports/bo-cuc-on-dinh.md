@@ -308,3 +308,15 @@ giá, hero A chữ trên ảnh, tìm kiếm chỉ phân trang nhóm bài, đổi
 ### 8.8 Khác
 - CSS và JS gắn phiên bản theo thời điểm file (trước: số 1.0.0) – staging trả CSS với cache 7 ngày nên bản tải lại cùng số 1.0.0 có thể
   hiện CSS cũ ở trình duyệt người soát.
+
+### 8.9 Đo máy sau sửa (phần sửa)
+- Khung 2 cột, link gạch chân: xem 8.2, 8.3 – 0 lỗi.
+- Thang chữ / khoảng cách / độ dài dòng (`tools/mockup_scale.mjs --staging`, 29 trang template × M1 / M5 / 768 / 1024 / M3, giới hạn mới
+  ≤ 90 ký tự): cỡ chữ và khoảng cách 0 ngoại lệ. Độ dài dòng còn 2 nhóm:
+  - **ghi chú 14 px** (`.source`, `.disclosure`) 93–119 ký tự vì quy tắc "không giới hạn trong cột chính" chạm cả ghi chú → đã sửa trong
+    CSS (ghi chú giữ 40ch; hộp `.disclosure` rộng hết cột, chữ trong ≤ 600 px). **Bản sửa này đã commit nhưng chưa tải lên staging**
+    (đã dùng hết 5 lần tải của phần này) – phần kiểm chứng tải lên rồi đo lại.
+  - **chữ nội dung ở khung 1 320 px (≥ 1 600)**: cột chính 848 px, chữ 19 px cho 91–95 ký tự / dòng ở bài, Giới thiệu, chủ đầu tư,
+    Persa Place (M3). Hai yêu cầu của vòng này mâu thuẫn ở đây (19 px **và** ≤ 90 ký tự trên cột 8/12 = 848 px). Chưa đổi – chờ
+    người dùng chọn: (a) chữ 20 px từ 1 600 (≈ 87 ký tự), (b) giữ 19 px và chấp nhận ≤ 95 ký tự, (c) khung tối đa 1 200 px ở mọi bề rộng
+    (cột 768, 19 px ≈ 84 ký tự).
