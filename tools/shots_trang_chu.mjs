@@ -14,7 +14,7 @@ export const CASES = [
 	// 1 header + menu
 	...['d', 'f', 'i'].map((s) => ['1-header', '/', s, 'el:header']),
 	['1-menu-mobile', '/', 'i', 'menu'],
-	['1-menu-ve-velis', '/', 'd', 'hover:.nav [data-dd]:last-of-type, .nav li:has(> ul):last-of-type'],
+	['1-menu-ve-velis', '/', 'd', 'hover:.header__item[data-sub] >> nth=1'],
 	// 1b link: breadcrumb, footer, đoạn bài có link (thường + rê chuột)
 	...['d', 'i'].map((s) => ['1b-breadcrumb', PERSA, s, 'el:.crumbs']),
 	...['d', 'i'].map((s) => ['1b-footer', '/', s, 'el:footer']),
@@ -41,7 +41,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 		const ctx = await b.newContext({ storageState: state, reducedMotion: 'reduce', ...(scr === 'i' ? devices['iPhone 14'] : SCREEN[scr]) });
 		const p = await ctx.newPage();
 		await p.goto(BASE + path, { waitUntil: 'load', timeout: 120000 });
-		await p.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 700) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 25)); } scrollTo(0, 0); document.querySelectorAll('img').forEach((i) => { i.loading = 'eager'; }); });
+		await p.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 700) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 120)); } scrollTo(0, 0); document.querySelectorAll('img').forEach((i) => { i.loading = 'eager'; }); });
+		await p.waitForFunction(() => [...document.images].every((i) => i.complete), null, { timeout: 20000 }).catch(() => {}); // lazy images started by the scroll
 		await p.waitForTimeout(300);
 		const file = { path: `${dir}/${name}-${scr}.jpg`, type: 'jpeg', quality: 55 };
 		try {

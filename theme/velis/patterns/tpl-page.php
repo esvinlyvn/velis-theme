@@ -31,7 +31,7 @@ if ( 'lien-he' === $slug ) {
 	) );
 	$out .= velis_facts_html( array( 'Văn phòng' => VELIS_ADDRESS, 'Giờ làm việc' => VELIS_HOURS, 'Email' => VELIS_EMAIL ), null );
 	$out .= velis_section( velis_sechead( 'Đường tới văn phòng Velis', 'Bản đồ' )
-		. '<div class="map">' . ( $map ? wp_get_attachment_image( $map[0], 'full', false, array( 'loading' => 'lazy', 'sizes' => '(min-width: 1024px) 720px, calc(100vw - 32px)', 'alt' => 'Bản đồ văn phòng Velis Realty' ) ) : '' )
+		. '<div class="map">' . ( $map ? wp_get_attachment_image( $map[0], 'full', false, array( 'loading' => 'lazy', 'sizes' => '(min-width: 1600px) 1320px, (min-width: 1280px) 1200px, (min-width: 768px) calc(100vw - 48px), calc(100vw - 32px)', 'alt' => 'Bản đồ văn phòng Velis Realty' ) ) : '' )
 		. velis_btn( 'Chỉ đường trên Google Maps', 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode( 'Velis Realty ' . VELIS_ADDRESS ), 'line', ' target="_blank" rel="noopener"' ) . '</div>'
 		. '<p class="source">Bản đồ © OpenStreetMap contributors.</p>' . velis_project_links(), '', 'section--tint' );
 	$out .= velis_form_html( '', array(), 'Gửi yêu cầu tư vấn', false );

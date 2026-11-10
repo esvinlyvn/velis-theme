@@ -5,7 +5,7 @@
 .mt-0 { margin-top: 0; }
 .mb-0 { margin-bottom: 0; }
 .center { text-align: center; }
-[hidden] { display: none; }
+[hidden][hidden][hidden] { display: none; } /* 0,3,0 in the last layer: beats every component / core-block display rule (.card, .is-layout-flex…) without !important */
 [role="status"]:empty { display: none; } /* an empty live region takes no row (the form block keeps its mockup height) */
 
 /* Print / "Lưu PDF" (Safari): no edge fades, nothing collapsed, scroll rows wrap; the sticky bars are screen-only */

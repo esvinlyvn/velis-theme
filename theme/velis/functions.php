@@ -107,7 +107,7 @@ add_filter( 'wp_content_img_tag', function ( $tag, $context, $id ) {
 	$ratio  = preg_match( '/\sheight="(\d+)"/', $tag, $h ) && ! empty( $w[1] ) ? 'aspect-ratio: ' . (int) $w[1] . ' / ' . (int) $h[1] . '; ' : '';
 	$style  = $ratio . ( $marked ? '--zoom: 1.12; ' : '' );
 	$tag    = preg_match( '/\sstyle="/', $tag ) ? preg_replace( '/\sstyle="/', ' style="' . $style, $tag, 1 ) : preg_replace( '/^<img/', '<img style="' . trim( $style ) . '"', $tag ); // keep a style the editor set
-	$tag    = preg_replace( '/^<img/', '<img sizes="' . esc_attr( velis_sizes( '(min-width: 1600px) min(816px, ' . $max . 'px), (min-width: 1024px) min(768px, ' . $max . 'px), min(100vw - 32px, ' . $max . 'px)', $marked ? 1.12 : 1 ) ) . '"', $tag );
+	$tag    = preg_replace( '/^<img/', '<img sizes="' . esc_attr( velis_sizes( '(min-width: 1600px) min(848px, ' . $max . 'px), (min-width: 1024px) min(768px, ' . $max . 'px), min(100vw - 32px, ' . $max . 'px)', $marked ? 1.12 : 1 ) ) . '"', $tag );
 	$tag    = $marked ? preg_replace( '/^<img([^>]*?)\sclass="/', '<img$1 class="is-marked ', $tag, 1, $n ) : $tag;
 	$tag    = $marked && empty( $n ) ? preg_replace( '/^<img/', '<img class="is-marked"', $tag ) : $tag;
 	return $marked ? '<span class="pic" style="max-width: ' . $max . 'px">' . $tag . '</span>' : $tag;

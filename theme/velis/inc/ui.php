@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Width of the main column of a 2-column page (content wrap − 340 px side column − 48 px gap); phones: wrap − gutters.
-const VELIS_SIZES_MAIN = '(min-width: 1600px) 816px, (min-width: 1280px) min(768px, (100vw - 112px) * 2 / 3), (min-width: 1024px) calc((100vw - 96px) * 2 / 3), (min-width: 768px) calc(100vw - 48px), calc(100vw - 32px)'; // main column = 8/12 of the frame (2026-11-11)
+const VELIS_SIZES_MAIN = '(min-width: 1600px) 848px, (min-width: 1280px) min(768px, (100vw - 112px) * 2 / 3), (min-width: 1024px) calc((100vw - 96px) * 2 / 3), (min-width: 768px) calc(100vw - 48px), calc(100vw - 32px)'; // main column = 8/12 of the frame (2026-11-11)
 const VELIS_SIZES_CARD = '(min-width: 1600px) 424px, (min-width: 1024px) 384px, (min-width: 768px) calc(50vw - 36px), calc(100vw - 32px)'; // 3 cards in the frame: (1320 | 1200 − 2 × 24) / 3
 const VELIS_SIZES_HERO_B = '(min-width: 1600px) 1320px, (min-width: 1248px) 1200px, (min-width: 768px) calc(100vw - 48px), calc(100vw - 32px)'; // = .wrap (NT-17)
 const VELIS_CEO = array( 'name' => 'Vũ Xuân', 'role' => 'CEO Velis Realty', 'img' => 'assets/brand/ceo-vu-xuan-160.webp' );
@@ -201,7 +201,7 @@ function velis_card_post( $p, bool $filter_data = false, string $mode = '' ): st
  * label → title (H3 size) → 2-line summary → author · date · minutes → "Đọc bài →"; the whole row is the link (the title's
  * link is stretched over the row). Post CARDS stay for grids (project pages, home).
  */
-function velis_post_row( $p, bool $filter_data = false ): string {
+function velis_post_row( $p, bool $filter_data = false, string $tag = 'h3' ): string { // $tag h2: the list is the page's only section under the H1 (blog, cluster)
 	$p     = get_post( $p );
 	$label = velis_post_label( $p );
 	$thumb = (int) get_post_thumbnail_id( $p );
@@ -210,7 +210,7 @@ function velis_post_row( $p, bool $filter_data = false ): string {
 	return '<article class="postrow"' . $data . '>'
 		. ( $thumb ? velis_media( $thumb, get_the_title( $p ), 'postrow__media', $label ?: get_the_title( $p ), '(min-width: 768px) 280px, 112px' ) : velis_media_empty( $label ?: get_the_title( $p ) ) )
 		. '<div class="postrow__body">' . ( $label ? '<p class="eyebrow">' . esc_html( $label ) . '</p>' : '' )
-		. '<h3 class="postrow__title"><a href="' . esc_url( get_permalink( $p ) ) . '">' . esc_html( get_the_title( $p ) ) . '</a></h3>'
+		. "<$tag class=\"postrow__title\"><a href=\"" . esc_url( get_permalink( $p ) ) . '">' . esc_html( get_the_title( $p ) ) . "</a></$tag>"
 		. ( $text ? '<p class="postrow__text">' . esc_html( $text ) . '</p>' : '' )
 		. '<p class="card__meta"><span>' . implode( '</span> · <span>', array_map( 'esc_html', array( get_the_author_meta( 'display_name', $p->post_author ), get_the_date( 'd/m/Y', $p ), velis_reading_minutes( $p ) . ' phút đọc' ) ) ) . '</span></p>'
 		. velis_more( 'Đọc bài' ) . '</div></article>';
@@ -218,7 +218,7 @@ function velis_post_row( $p, bool $filter_data = false ): string {
 
 /** Post list in the 2-column frame: rows (+ optional filter above, pagination below) in the main 8/12, $side in the 4/12. */
 function velis_post_list( array $posts, string $filter, string $pagination, string $side, string $head = '' ): string {
-	$rows = implode( '', array_map( fn( $p ) => velis_post_row( $p, '' !== $filter ), $posts ) );
+	$rows = implode( '', array_map( fn( $p ) => velis_post_row( $p, '' !== $filter, $head ? 'h3' : 'h2' ), $posts ) ); // no section heading above the rows → rows are H2 (no H1 → H3 jump)
 	return '<div class="wrap page page--list"><div class="page__main">' . $head . ( $filter ? '<div data-chipgrid>' . $filter . '<div class="postlist" data-n="' . count( $posts ) . '">' . $rows . '</div></div>' : '<div class="postlist">' . $rows . '</div>' )
 		. $pagination . '</div><aside class="page__side" aria-label="Chọn cụm bài và nhận tư vấn">' . $side . '</aside></div>';
 }
@@ -855,7 +855,7 @@ function velis_map_html( $p, bool $with_image = true ): string { // false: the t
 	if ( ! $map || ! $with_image ) {
 		return $addr || ! $with_image ? ( $addr ? '<p>' . esc_html( $addr ) . '</p>' : '' ) . '<p>' . $link . '</p>' : '';
 	}
-	return '<figure class="map">' . velis_img( $map, $area ? 'Bản đồ khu vực ' . $area : 'Bản đồ vị trí ' . $p->post_title, 'large', array( 'zoom' => 1, 'ratio' => 16 / 9, 'sizes' => '(min-width: 768px) 720px, calc(100vw - 32px)' ) ) . $link . '</figure>'
+	return '<figure class="map">' . velis_img( $map, $area ? 'Bản đồ khu vực ' . $area : 'Bản đồ vị trí ' . $p->post_title, 'large', array( 'zoom' => 1, 'ratio' => 16 / 9, 'sizes' => VELIS_SIZES_MAIN ) ) . $link . '</figure>'
 		. '<p class="source">' . esc_html( ( $area ? 'Vị trí khu vực ' . $area . ' (chưa có tọa độ riêng của dự án). ' : '' ) . ( $addr ? 'Địa chỉ: ' . $addr . '. ' : '' ) . 'Bản đồ © OpenStreetMap contributors.' ) . '</p>';
 }
 

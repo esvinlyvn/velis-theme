@@ -33,9 +33,11 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 		if (!linkStatus.has(path)) { const r = await ctx.request.get(BASE + path, { maxRedirects: 0, failOnStatusCode: false }); linkStatus.set(path, r.status()); }
 		return linkStatus.get(path);
 	};
-	const p = await ctx.newPage();
-	while (queue.length) {
-		const path = queue.shift();
+	// K pages in parallel (env CRAWL_K, default 3): a single tab took > 50 min on staging with cache off
+	let busy = 0; // pages being read: their links may still refill the queue
+	const crawl = async (p) => { for (;;) {
+		if (!queue.length) { if (!busy) return; await new Promise((r) => setTimeout(r, 300)); continue; }
+		const path = queue.shift(); busy++;
 		const row = { path, width: {} };
 		for (const w of [1366, 390]) {
 			await p.setViewportSize({ width: w, height: w > 500 ? 900 : 844 });
@@ -60,7 +62,11 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 			const s = await status(lp2);
 			if (s === 200 && !seen.has(lp2) && !lp2.includes('?')) { seen.add(lp2); queue.push(lp2); }
 		}
-	}
+		busy--;
+	} };
+	const K = +(process.env.CRAWL_K || 3), runs = [];
+	for (let k = 0; k < K; k++) runs.push(crawl(await ctx.newPage())); // idle workers wait while another page may refill the queue
+	await Promise.all(runs);
 	const brokenLinks = [...linkStatus].filter(([, s]) => s >= 400);
 	const res = { pages: pages.length, links: linkStatus.size, brokenLinks, errors: pages.filter((r) => r.status !== 200 || Object.values(r.width).some((x) => x.h1 !== 1 || x.overflow > 0 || x.badImg.length)).map((r) => ({ path: r.path, status: r.status, width: r.width })), all: pages.map(({ path, status, title, desc }) => ({ path, status, title, desc })) };
 	writeFileSync(out, JSON.stringify(res, null, 1));
