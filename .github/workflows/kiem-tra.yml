@@ -34,6 +34,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: npm ci
+      - run: npx playwright install --with-deps chromium   # 4 test JS chạy trang mẫu trong Chromium
       - run: npm run test:unit
 
   nt:
