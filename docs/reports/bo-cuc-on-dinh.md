@@ -321,3 +321,7 @@ giá, hero A chữ trên ảnh, tìm kiếm chỉ phân trang nhóm bài, đổi
     Persa Place (M3). Hai yêu cầu của vòng này mâu thuẫn ở đây (19 px **và** ≤ 90 ký tự trên cột 8/12 = 848 px). Chưa đổi – chờ
     người dùng chọn: (a) chữ 20 px từ 1 600 (≈ 87 ký tự), (b) giữ 19 px và chấp nhận ≤ 95 ký tự, (c) khung tối đa 1 200 px ở mọi bề rộng
     (cột 768, 19 px ≈ 84 ký tự).
+- Quét toàn site (tràn ngang 390 px …): chạy lại với `tools/crawl_b5.mjs` nhưng bị ngắt ở giới hạn 50 phút trước khi ghi kết quả
+  (máy quét > 50 phút trên staging tắt cache) – **chưa có số**; phần kiểm chứng chạy lại với thời gian dài hơn sau khi tải lên 2 bản sửa
+  CSS còn chờ (ghi chú 14 px, viền lưới đối tác).
+- Test đơn vị: tất cả đạt; CSS 42,1 KB min / 8,9 KB gzip (≤ 45 / 12); mockup dựng lại từ CSS chung (43,2 KB).
