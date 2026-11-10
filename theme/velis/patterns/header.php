@@ -30,7 +30,7 @@ foreach ( $nav as $l => $u ) {
 }
 ?>
 <!-- wp:html -->
-<a class="sr-only" href="#noi-dung">Bỏ qua đến nội dung</a>
+<a class="skip" href="#noi-dung">Bỏ qua tới nội dung</a>
 <header class="header"><div class="wrap header__bar">
 	<a class="header__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo $logo; ?>" width="191" height="44" alt="Velis Realty – trang chủ"></a>
 	<nav class="header__nav" aria-label="Menu chính"><ul><?php echo $desk; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped above ?></ul></nav>

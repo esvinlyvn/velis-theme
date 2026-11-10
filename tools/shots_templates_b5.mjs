@@ -18,10 +18,11 @@ for (const s of scr.split(',')) {
 	const p = await ctx.newPage();
 	await p.goto(BASE + '/'); await p.fill('input[type=password]', readFileSync(process.env.VIEW_PASSWORD_FILE, 'utf8').trim());
 	await Promise.all([p.waitForNavigation(), p.locator('input[type=submit], button[type=submit]').first().click()]);
-	for (const [name, path] of pages) {
+	for (const [name, path] of pages) { // cuộn 250 ms / nửa màn hình: đủ chậm để ảnh lazy kịp tải (80 ms để lại ô trống trong ảnh chụp)
 		await p.goto(BASE + path, { waitUntil: 'load', timeout: 90000 });
-		await p.evaluate(async () => { for (let y = 0; y < document.documentElement.scrollHeight; y += innerHeight * 0.7) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 80)); } scrollTo(0, 0); });
-		await p.waitForFunction(() => [...document.images].every((i) => i.complete), null, { timeout: 15000 }).catch(() => {});
+		await p.evaluate(async () => { for (let y = 0; y < document.documentElement.scrollHeight; y += innerHeight * 0.5) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 250)); } scrollTo(0, 0); });
+		await p.waitForFunction(() => [...document.images].filter((i) => i.getBoundingClientRect().width).every((i) => i.complete), null, { timeout: 20000 }).catch(() => {});
+		await p.waitForTimeout(800);
 		await p.addStyleTag({ content: '.header, .tabs, .cta { position: static !important; }' }); // sticky bars once, at the top
 		await p.waitForTimeout(300);
 		await p.screenshot({ path: `${dir}/${name}-${s}.jpg`, type: 'jpeg', quality: 60, fullPage: true, scale: 'css' });

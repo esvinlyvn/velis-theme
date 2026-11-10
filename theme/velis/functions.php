@@ -162,3 +162,7 @@ add_filter( 'the_content', function ( $html ) {
 	$host = preg_quote( (string) wp_parse_url( home_url(), PHP_URL_HOST ), '#' );
 	return preg_replace( '#href="((?:https?://(?:www\.)?(?:' . $host . '|velisrealty\.vn))?)/du-an/(' . implode( '|', $slugs ) . ')/?(["\#?])#', 'href="$1/chu-dau-tu/$2/$3', $html );
 }, 20 );
+
+// One skip link only: the theme's "Bỏ qua tới nội dung" (patterns/header.php) replaces the one WordPress injects for block themes.
+remove_action( 'wp_enqueue_scripts', 'wp_enqueue_block_template_skip_link' );
+remove_action( 'wp_footer', 'the_block_template_skip_link' );
