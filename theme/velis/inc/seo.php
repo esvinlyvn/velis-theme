@@ -341,3 +341,19 @@ add_action( 'pre_get_posts', function ( WP_Query $q ) {
 		$q->set( 'posts_per_page', 12 );
 	}
 } );
+
+// Redirect matrix (data/url-map.csv): an attachment page with no parent post is gone → 410, not WordPress's 301 to the file
+// (attachment pages are off) nor Rank Math's orphan redirect (left empty). Runs before redirect_canonical.
+function velis_attachment_gone( bool $is_attachment, int $parent ): bool {
+	return $is_attachment && 0 === $parent;
+}
+add_action( 'template_redirect', function () {
+	if ( ! velis_attachment_gone( is_attachment(), (int) wp_get_post_parent_id( get_queried_object_id() ) ) ) {
+		return;
+	}
+	global $wp_query;
+	$wp_query->set_404();
+	remove_action( 'template_redirect', 'redirect_canonical' );
+	status_header( 410 );
+	nocache_headers();
+}, 0 );

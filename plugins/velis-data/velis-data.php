@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Velis Data
  * Description: Mô hình dữ liệu Velis: Chủ đầu tư, Dự án (đại đô thị → phân khu → dòng thấp tầng, dự án độc lập), dòng căn hộ, loại sản phẩm, khu vực 2 cấp, trạng thái. Form nhập liệu trong wp-admin.
- * Version: 0.3.0
+ * Version: 0.3.1
  * Author: Velis Realty
  * Requires PHP: 8.0
  *
@@ -107,7 +107,9 @@ function velis_is_noindex( $post ): bool {
 }
 add_filter( 'wp_robots', fn( $r ) => is_singular( VELIS_CPT_PROJECT ) && velis_is_noindex( get_queried_object() ) ? array_merge( $r, array( 'noindex' => true, 'follow' => true ) ) : $r );
 add_filter( 'rank_math/frontend/robots', fn( $r ) => is_singular( VELIS_CPT_PROJECT ) && velis_is_noindex( get_queried_object() ) ? array_merge( $r, array( 'index' => 'noindex', 'follow' => 'follow' ) ) : $r );
-add_filter( 'rank_math/sitemap/entry', fn( $url, $type, $object ) => ( 'post' === $type && velis_is_noindex( $object ) ) ? false : $url, 10, 3 );
+// Rank Math passes a raw DB row (stdClass), not a WP_Post, and its type is not always 'post' – load the post by ID first,
+// or noindex pages stay in the sitemap (found in giai đoạn 5).
+add_filter( 'rank_math/sitemap/entry', fn( $url, $type, $object ) => ( isset( $object->ID ) && velis_is_noindex( get_post( (int) $object->ID ) ) ) ? false : $url, 10, 3 );
 add_action( 'rest_api_init', fn() => register_rest_field( VELIS_CPT_PROJECT, 'velis_missing', array( 'get_callback' => fn( $p ) => velis_missing( $p['id'] ) ) ) );
 
 /**

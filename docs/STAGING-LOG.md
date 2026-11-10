@@ -179,3 +179,14 @@ Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng th
 | Mục | Thay đổi |
 |---|---|
 | Staging | chỉ đọc: bộ NT Chromium + WebKit, check_ui 7 khung, thang, 55 tương tác ×2 trình duyệt (yêu cầu form bị chặn trong trình duyệt, không gửi), on-page 173 trang, schema, Lighthouse CI – không tải lên, không ghi gì |
+
+## 2026-11-10 – Giai đoạn 5 (mục 2–3: redirect, kỹ thuật SEO)
+
+| Mục | Thay đổi |
+|---|---|
+| Rank Math → Chuyển hướng | Nhập ma trận `data/url-map.csv` (Import CSV, file từ `tools/build_rankmath_redirects.py`): 477 dòng (434 × 301, 43 × 410); Rank Math báo tạo 129, cập nhật 3 (3 redirect cũ, nay trỏ thẳng đích mới), gộp 345 (nhiều nguồn chung một đích). Diễn tập đúng bước 4 của kế hoạch ra mắt |
+| Rank Math → Liên kết | "Chuyển hướng tệp đính kèm mồ côi": `https://staging.velisrealty.vn` → **để trống** (ma trận: ảnh không gắn bài → 410, không về trang chủ) |
+| Rank Math → Sơ đồ trang web | Lưu lại cài đặt loại nội dung Dự án, Chủ đầu tư (trước đó chưa lưu → chưa có `du-an-sitemap.xml`, `chu-dau-tu-sitemap.xml`); "Loại trừ bài viết": 19537, 19593, 19625, 19633, 19637 (trang cũ trùng địa chỉ `/du-an/…`), 20679 (trang hướng dẫn giao diện) |
+| Theme velis 1.0.0 | Tải lên lại (cùng số): trang ảnh đính kèm không có bài cha trả **410** (`inc/seo.php`). Giao diện không đổi – so ảnh mốc 156/156 đạt, không cập nhật mốc |
+| Plugin velis-data | 0.3.0 → **0.3.1** (Plugin → Tải lên → thay bản đang dùng): trang dự án/phân khu/dòng đang noindex vì thiếu dữ liệu bị loại khỏi sitemap (bộ lọc cũ không chạy vì Rank Math truyền dòng DB thô) |
+| Không đụng | nội dung bài / trang, form (không gửi), `.htaccess`, robots.txt staging, cài đặt "Ngăn công cụ tìm kiếm" |

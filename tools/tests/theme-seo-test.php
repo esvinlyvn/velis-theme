@@ -40,3 +40,5 @@ $other = str_replace( 'the-prive-1024', 'khac-1024', $html );
 $check( $other === velis_strip_dup_image( $other, 7 ), 'different file kept' );
 $check( 'can ho palm river' === velis_fold( 'Căn hộ  Palm River!' ), 'fold' );
 echo "theme seo: all checks passed\n";
+$check( velis_attachment_gone( true, 0 ) && ! velis_attachment_gone( true, 12 ) && ! velis_attachment_gone( false, 0 ), 'orphan attachment → 410 only' );
+echo "attachment 410: ok\n";
