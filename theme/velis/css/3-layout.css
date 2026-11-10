@@ -1,0 +1,55 @@
+/* 3. Layout – 12-column frame (1.1), sections on the alternating ground (1.5), 2-column page, card grids.
+   Grids never leave an empty cell (X-06): the column count follows the number of items (data-n set in the markup). */
+.wrap { width: min(100% - 2 * var(--gutter), var(--wrap)); margin-inline: auto; }
+.wrap--read { width: min(100% - 2 * var(--gutter), var(--read)); margin-inline: auto; }
+.section { padding-block: var(--section); }
+.section--tint { background: var(--surface); --fade: #FFFFFF; --fade-0: rgb(255 255 255 / 0); }      /* trắng – xen kẽ với nền ngà mặc định */
+.section--soft { background: var(--champagne-soft); --fade: #F3ECDF; --fade-0: rgb(243 236 223 / 0); }
+.section--dark { background: var(--dark); color: var(--on-dark); --fade: #111111; --fade-0: rgb(17 17 17 / 0); }
+.section--tight { padding-block: var(--s12); }
+.section--flush { padding-top: 0; }
+
+/* page with a sticky side column (≥ 1024 px) */
+.page { padding-block: var(--s4) 0; } /* 2.2: the last block's 48 px is the whole gap to what follows; ≤ 96 px under the facts bar */
+.page__side { display: none; }
+/* main column (2.1): everything in it shares one left and one right edge; ≤ 68 characters a line come from the column
+   width (--read) and the 19 px text size, not from narrower paragraphs; the side column takes the rest, 48 px away */
+.page__main :is(p, li, dd), .page__main .prose, .wrap--read :is(p, li, dd), .wrap--read .prose { max-width: none; }
+@media (min-width: 768px) {
+	.page__main { max-width: var(--read); }
+	.page__main .prose, .wrap--read .prose { font-size: var(--fs-lead); line-height: 1.6; }
+	.page__main .prose table, .wrap--read .prose table { font-size: var(--fs-body); }
+	/* 14 px notes keep the column edges; the text is held to ≤ 68 characters by inner padding, not by a narrower box */
+	.page__main :is(.source, .disclosure), .wrap--read :is(.source, .disclosure) { padding-inline: var(--s16); }
+}
+@media (min-width: 1024px) {
+	.page { display: grid; grid-template-columns: minmax(0, var(--read)) minmax(var(--side), 1fr); gap: var(--s12); align-items: start; }
+	.page__main .grid--three[data-n="6"], .page__main .grid--three[data-n="12"] { grid-template-columns: repeat(2, 1fr); }
+	.page__side { display: block; position: sticky; top: calc(var(--header-h) + 56px + var(--s6)); }
+}
+.block { padding-block: var(--s12); }
+.block > :last-child, .block > .prose > :last-child, .block.prose > :last-child { margin-bottom: 0; } /* 2.2: no trailing margin on top of the block padding */
+.section > .wrap > .block:last-child { padding-bottom: 0; } /* a block closing a section: the section padding is the gap */
+.block:first-child, .pic + .block { padding-top: var(--s6); } /* article: text right under its photo */
+/* 2.2: two neighbours on the same ground do not stack their padding (one 48 px gap, never more than 96 px) */
+.block:not(.block--dark) + .block:not(.block--dark) { padding-top: 0; }
+.section:not([class*="section--"]) + .section:not([class*="section--"]), .section--tint + .section--tint, .section--soft + .section--soft { padding-top: 0; }
+.block--dark { background: var(--dark); color: var(--on-dark); --fade: #111111; --fade-0: rgb(17 17 17 / 0); padding-inline: var(--s6); margin-inline: calc(-1 * var(--gutter)); }
+@media (min-width: 768px) { .block--dark { padding-inline: var(--s8); margin-inline: 0; } }
+
+/* card grids: 1 column on phones, then by count; 24 px between cards (1.2) */
+.grid { display: grid; gap: var(--s6); }
+@media (min-width: 768px) {
+	.grid[data-n="2"], .grid[data-n="4"], .grid[data-n="6"], .grid[data-n="8"], .grid[data-n="7"], .grid[data-n="10"], .grid[data-n="11"], .grid[data-n="12"] { grid-template-columns: repeat(2, 1fr); }
+	.grid[data-n="7"] > :first-child, .grid[data-n="11"] > :first-child { grid-column: span 2; } /* 7 → 1 + 6, 11 → 1 + 10 (listing pages) */
+	.grid[data-n="3"], .grid[data-n="5"], .grid[data-n="9"] { grid-template-columns: repeat(3, 1fr); }
+	.grid[data-n="5"] > :first-child { grid-column: span 2; } /* 5 → 2 + 3 */
+	.grid[data-n="1"] > .card { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--s6); align-items: center; } /* NT-06: one card = wide card */
+	.grid[data-n="1"] > .card .card__media { margin: 0; }
+}
+@media (min-width: 1024px) { .grid--three[data-n="6"], .grid--three[data-n="12"] { grid-template-columns: repeat(3, 1fr); } }
+/* construction photos (NT-29): 2 columns on phones too, the first photo full width when the count is odd */
+@media (max-width: 767px) {
+	.grid:has(> figure > [data-zoom]) { grid-template-columns: repeat(2, 1fr); }
+	.grid:has(> figure > [data-zoom]) > :first-child:nth-last-child(odd) { grid-column: span 2; }
+}

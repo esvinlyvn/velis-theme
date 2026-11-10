@@ -1,0 +1,99 @@
+# Bộ đo ảnh & bố cục – giai đoạn 4, sửa tổng lần cuối
+
+Ngày 2026-11-05 · `node tools/check_ui.mjs --suite` · Playwright, deviceScaleFactor **1 / 1,25 / 2** × viewport **390 / 1066 / 1366 / 1920** · cuộn thật hết trang, chờ mọi ảnh tải xong rồi mới đo. Mỗi ô = số lỗi cộng qua 4 viewport. Ảnh mờ: khung × DPR > cỡ thật của file đang hiển thị × 1,15 (ảnh > 40px). Khoảng trống: chỉ đo ≥ 1024px.
+
+| Trang | DPR | Ảnh hỏng | Ảnh mờ | Nhóm thẻ trộn thiếu khung | Khối trống | Bảng < 2 hàng | Tràn ngang | H1 ≠ 1 | Heading HOA | Khoảng trống > 30% |
+|---|---|---|---|---|---|---|---|---|---|---|
+| trang-chu | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| trang-chu | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| trang-chu | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| du-an | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| du-an | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| du-an | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| the-prive | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| the-prive | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| the-prive | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| the-global-city | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| the-global-city | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| the-global-city | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| vinhomes-saigon-park | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| vinhomes-saigon-park | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| vinhomes-saigon-park | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| palm-city | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| palm-city | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| palm-city | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| spring-ville | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| spring-ville | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| spring-ville | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| ansana | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| ansana | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| ansana | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| masteri-grand-view | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| masteri-grand-view | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| masteri-grand-view | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| persa-place | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| persa-place | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| persa-place | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| palm-river | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| palm-river | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| palm-river | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| ivy-park | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| ivy-park | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| ivy-park | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| nha-pho-ivy-park | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| nha-pho-ivy-park | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| nha-pho-ivy-park | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| nha-pho-spring-ville | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| nha-pho-spring-ville | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| nha-pho-spring-ville | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-prive | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-prive | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-prive | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-vinhomes | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-vinhomes | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-vinhomes | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-tgc | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-tgc | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-tgc | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-persa | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-persa | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-persa | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-ansana | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-ansana | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-ansana | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| blog | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| blog | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| blog | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| cum-blog | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| cum-blog | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| cum-blog | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| tac-gia | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| tac-gia | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| tac-gia | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| chu-dau-tu | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| chu-dau-tu | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| chu-dau-tu | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| masterise-homes | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| masterise-homes | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| masterise-homes | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| gioi-thieu | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| gioi-thieu | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| gioi-thieu | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| tuyen-dung | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| tuyen-dung | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| tuyen-dung | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| lien-he | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| lien-he | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| lien-he | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| chinh-sach | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| chinh-sach | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| chinh-sach | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| tim-kiem | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| tim-kiem | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| tim-kiem | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 404 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 404 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 404 | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| **Tổng (30 trang × 3 DPR × 4 viewport)** | | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+
+Trước khi sửa (cùng bộ đo, chỉ 1366px, DPR 1,25 + 2): ảnh mờ 122, nhóm thẻ trộn thiếu khung 4 – `screenshots/phase4-r7/do-truoc/`. Lần đo đầy đủ đầu tiên sau khi sửa còn 2 lỗi (bản đồ Liên hệ ở DPR 1: `sizes` khai báo 1024px) → sửa, đo lại trang đó = 0.

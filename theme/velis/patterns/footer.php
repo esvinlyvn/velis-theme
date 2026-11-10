@@ -3,48 +3,36 @@
  * Title: Footer
  * Slug: velis/footer
  * Inserter: no
+ *
+ * Mockup footer: own ground #1A1A1A + champagne line (1.5), 4 columns, social links as outline pills; then the mobile
+ * bottom CTA bar (shown once the hero buttons scroll away, velis.js).
  */
 $social = array(
-	'facebook'  => array( 'Facebook', 'https://www.facebook.com/velisrealty' ),
-	'youtube'   => array( 'YouTube', 'https://www.youtube.com/@velisrealty' ),
-	'tiktok'    => array( 'TikTok', 'https://www.tiktok.com/@velisrealty' ),
-	'instagram' => array( 'Instagram', 'https://www.instagram.com/velisrealty/' ),
-	'linkedin'  => array( 'LinkedIn', 'https://www.linkedin.com/in/velisrealty' ),
-	'x'         => array( 'X (Twitter)', 'https://x.com/velisrealty' ),
-	'pinterest' => array( 'Pinterest', 'https://www.pinterest.com/velisrealty' ),
+	'Facebook'  => 'https://www.facebook.com/velisrealty',
+	'YouTube'   => 'https://www.youtube.com/@velisrealty',
+	'TikTok'    => 'https://www.tiktok.com/@velisrealty',
+	'Instagram' => 'https://www.instagram.com/velisrealty/',
+	'LinkedIn'  => 'https://www.linkedin.com/in/velisrealty',
+	'X'         => 'https://x.com/velisrealty',
+	'Pinterest' => 'https://www.pinterest.com/velisrealty',
 );
-$icon = function ( $name ) {
-	return file_get_contents( get_theme_file_path( "assets/icons/$name.svg" ) ); // theme-owned static SVG
-};
+$li = fn( array $l ) => implode( '', array_map( fn( $t, $u ) => '<li><a href="' . esc_url( $u ) . '">' . esc_html( $t ) . '</a></li>', array_keys( $l ), $l ) );
 ?>
-<!-- wp:group {"tagName":"footer","className":"v-footer","backgroundColor":"surface-dark","textColor":"on-dark","layout":{"type":"constrained","contentSize":"1200px"}} -->
-<footer class="wp-block-group v-footer has-on-dark-color has-surface-dark-background-color has-text-color has-background">
 <!-- wp:html -->
-<div class="v-footer__inner">
-<div class="v-footer__grid">
-	<div class="v-footer__brand">
-		<img src="<?php echo esc_url( get_theme_file_uri( 'assets/brand/velis-logo-horizontal-white.svg' ) ); ?>" width="174" height="40" alt="Velis Realty" loading="lazy">
-		<p>Tư vấn bất động sản cao cấp, phân tích theo dòng tiền và giá vốn thực.</p>
-		<p><a href="tel:0911237979">0911 237 979</a><br><a href="mailto:lienhe@velisrealty.vn">lienhe@velisrealty.vn</a><br>34 Lương Định Của, phường Bình Trưng, TP.HCM<br>Thứ 2 – Chủ nhật, 08:00–21:00</p>
+<footer class="footer"><div class="wrap">
+	<div class="footer__grid">
+		<div><img src="<?php echo esc_url( get_theme_file_uri( 'assets/brand/velis-logo-horizontal-white.svg' ) ); ?>" width="174" height="40" alt="Velis Realty">
+			<p>Tư vấn bất động sản cao cấp, phân tích theo dòng tiền và giá vốn thực.</p>
+			<p class="footer__contact"><a href="tel:<?php echo esc_attr( VELIS_PHONE_TEL ); ?>"><?php echo esc_html( VELIS_PHONE ); ?></a><a href="mailto:<?php echo esc_attr( VELIS_EMAIL ); ?>"><?php echo esc_html( VELIS_EMAIL ); ?></a><?php echo esc_html( VELIS_ADDRESS ); ?><br><?php echo esc_html( VELIS_HOURS ); ?></p></div>
+		<nav aria-label="Khám phá"><p class="eyebrow">Khám phá</p><ul><?php echo $li( array( 'Dự án' => '/du-an/', 'Chủ đầu tư' => '/chu-dau-tu/', 'Blog' => '/blog/', 'Giới thiệu' => '/gioi-thieu/', 'Tuyển dụng' => '/tuyen-dung/', 'Liên hệ' => '/lien-he/' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?></ul></nav>
+		<nav aria-label="Ứng dụng"><p class="eyebrow">Ứng dụng</p><ul><?php echo $li( array( 'Thi thử chứng chỉ môi giới' => '/thi/' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?></ul></nav>
+		<div><p class="eyebrow">Theo dõi Velis</p><ul class="footer__social">
+		<?php foreach ( $social as $label => $url ) : ?>
+			<li><a href="<?php echo esc_url( $url ); ?>" aria-label="<?php echo esc_attr( "Velis Realty trên $label" ); ?>" rel="me noopener" target="_blank"><?php echo esc_html( $label ); ?></a></li>
+		<?php endforeach; ?>
+		</ul></div>
 	</div>
-	<nav aria-label="Liên kết chính"><p class="v-eyebrow">Khám phá</p><ul><li><a href="/du-an/">Dự án</a></li><li><a href="/chu-dau-tu/">Chủ đầu tư</a></li><li><a href="/blog/">Blog</a></li><li><a href="/gioi-thieu/">Giới thiệu</a></li><li><a href="/tuyen-dung/">Tuyển dụng</a></li><li><a href="/lien-he/">Liên hệ</a></li></ul></nav>
-	<nav aria-label="Ứng dụng"><p class="v-eyebrow">Ứng dụng</p><ul><li><a href="/thi/">Thi thử chứng chỉ môi giới</a></li></ul></nav>
-	<div><p class="v-eyebrow">Theo dõi Velis</p>
-	<ul class="v-social">
-	<?php foreach ( $social as $key => list( $label, $url ) ) : ?>
-		<li><a href="<?php echo esc_url( $url ); ?>" aria-label="<?php echo esc_attr( "Velis Realty trên $label" ); ?>" rel="me noopener" target="_blank"><?php echo $icon( $key ); // phpcs:ignore WordPress.Security.EscapeOutput -- static theme SVG ?></a></li>
-	<?php endforeach; ?>
-	</ul></div>
-</div>
-<div class="v-footer__legal"><p>© <?php echo esc_html( gmdate( 'Y' ) ); ?> Velis Realty. Thông tin dự án chỉ để tham khảo; vui lòng kiểm tra văn bản chính thức của chủ đầu tư.</p><a href="/chinh-sach-bao-mat/">Chính sách bảo mật</a></div>
-</div>
-<!-- /wp:html -->
-</footer>
-<!-- /wp:group -->
-<!-- wp:html -->
-<nav class="v-sticky-cta" aria-label="Liên hệ nhanh">
-	<a href="tel:0911237979"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Gọi</a>
-	<a href="https://zalo.me/0911237979" rel="noopener"><?php echo $icon( 'zalo' ); // phpcs:ignore ?>Zalo</a>
-	<a class="is-primary" href="#tu-van">Nhận tư vấn</a>
-</nav>
+	<div class="footer__bottom"><p class="mb-0">© <?php echo esc_html( gmdate( 'Y' ) ); ?> Velis Realty. Thông tin dự án chỉ để tham khảo; vui lòng kiểm tra văn bản chính thức của chủ đầu tư.</p><a href="/chinh-sach-bao-mat/">Chính sách bảo mật</a></div>
+</div></footer>
+<nav class="cta" aria-label="Liên hệ nhanh"><a href="tel:<?php echo esc_attr( VELIS_PHONE_TEL ); ?>">Gọi</a><a href="<?php echo esc_url( VELIS_ZALO ); ?>" rel="noopener">Zalo</a><a href="#tu-van">Nhận tư vấn</a></nav>
 <!-- /wp:html -->

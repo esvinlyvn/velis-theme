@@ -99,3 +99,102 @@ Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng th
 | Tiêu đề trang | Trang chủ, Blog, Liên hệ, Giới thiệu, Dự án: chữ HOA → chữ thường |
 | Media mới | 5 bản đồ tĩnh OpenStreetMap (ID 20817–20821): 4 khu vực + văn phòng |
 | Theme cũ tạm thời | cài lại bản PR cũ vài phút để chụp ảnh TRƯỚC cho 3 mục, rồi cài lại 0.7.0 |
+
+## 2026-11-04 – Giai đoạn 4, chuyển nội dung
+
+| Mục | Thay đổi |
+|---|---|
+| Theme velis | 0.8.0 → 0.9.0 (nội dung bài trụ cột theo ô, YouTube bấm mới tải, FAQ chuyển đổi có kiểu, GA4 chỉ site thật) |
+| Nội dung | 133 bài/trang chuyển WPBakery → khối (`tools/run_convert.py --write`): 102 bài đăng + 12 bài nháp + 7 bài trụ cột, 5 trang chính, 7 trang cũ không hiển thị (trang chủ cũ, blog, du-an, 4 trang chủ đầu tư cũ). Bản gốc: revision WordPress + JSON ngoài repo |
+| Trang dự án | Nội dung đã chuyển của 7 bài trụ cột chép vào nội dung 7 bản ghi dự án (The Privé, VSP, TGC, Palm River, Spring Ville, Persa Place, Ansana) |
+| Ảnh phân khu | 8 phân khu (VSP ×5, TGC ×3) nhận ảnh đại diện = ảnh nằm dưới mục của phân khu trong bài trụ cột |
+| Title/meta | 33 title + 69 meta viết tay rút gọn qua Rank Math (`tools/shorten_meta.py --write`) |
+| Plugin tắt | Ultimate Addons for WPBakery, WPBakery Page Builder, Easy Table of Contents, Header and Footer Scripts (Buttonizer ×2 đã tắt từ trước). Không xóa plugin nào |
+| Bài trụ cột cũ | 7 bài chuyển sang **nháp** sau khi chữ đã vào trang dự án (không còn hiện trong blog/thẻ bài; URL cũ 301 về trang dự án khi ra mắt) |
+| Không đụng | Trang tài liệu riêng tư 20538–20544 (20543 còn shortcode, vẫn private + noindex) |
+
+## 2026-11-04 – Giai đoạn 4, vòng "ấn tượng đầu tiên"
+
+| Mục | Thay đổi |
+|---|---|
+| Theme velis | 0.9.x (chưa đổi số phiên bản): hero mới, bố cục 2 cột, thanh mục ≤ 8, nhịp nền, sửa ảnh lazy bị gỡ nhầm |
+| Plugin velis-data | 0.2.6 → 0.2.7: ô "Ảnh đại diện là" (`velis_image_kind`) cho bài viết; "Loại bài" để trống = không hiện nhãn |
+| Phân loại ảnh đại diện | 102 bài (`tools/post_image_kinds.py --write`): 35 ảnh dự án, 24 khu vực, 34 minh họa, 9 nước ngoài |
+| Heading viết HOA | 198 heading ở 19 bài/trang/dự án → chữ thường kiểu câu (`tools/heading_case.py --write`, chỉ đổi hoa/thường) |
+
+## 2026-11-04 – Giai đoạn 4, vòng sửa tổng
+
+| Mục | Thay đổi |
+|---|---|
+| Ảnh dự án | Vinhomes Saigon Park: ảnh đại diện 20366 (có chữ đè) → 20364 (cùng thư viện, không chữ); 5 phân khu VSP bỏ ảnh poster có chữ (20373, 20375–20378) |
+| Giới thiệu | ảnh đại diện 19587 (logo nền đỏ) → 20120 (`vp-velis-realty.webp`, văn phòng) |
+| Contact Form 7 (ID 20800) | còn Họ tên, Số điện thoại, đồng ý; trường ẩn `interest`, `page-url`, `utm`; email gồm đủ các trường (bản cũ: `scratchpad/cf7-before-r6.json`) |
+| Gửi thử | 1 lần (Kiểm thử hệ thống, 0900000000) từ thẻ "Nhận bảng giá" The Privé với `?utm_source=kiemthu` |
+| Nhật ký email (chỉ staging) | theme lưu email CF7 cuối cùng vào option `velis_cf7_last_mail`, đọc ở `/wp-json/velis/v1/last-lead` (admin) – vì staging tắt email |
+
+## 2026-11-05 – Giai đoạn 4, sửa tổng lần cuối
+
+| Mục | Thay đổi |
+|---|---|
+| Cỡ ảnh | Theme đăng ký thêm cỡ `velis-600/900/1600/2000/2560`; tạo lại cỡ cho 239 ảnh qua REST `media/<id>/post-process` (create-image-subsizes) – chỉ thêm file cỡ mới, không xóa/sửa ảnh gốc |
+| Theme | ảnh không phóng, khung ≤ cỡ file/DPR, khung dự phòng có tên, lưới ảnh tiến độ, khối "Về Velis", mũi tên dải dự án |
+
+## 2026-11-05 – Giai đoạn 4, vòng r8
+
+| Mục | Thay đổi |
+|---|---|
+| Theme | velis 0.9.0 → **0.9.8** (tải zip qua wp-admin → Giao diện → Tải lên → thay bản đang dùng; 7 lần trong vòng, lần cuối = commit cuối của vòng r8): khung ảnh không phụ thuộc DPR, phóng cắt ẩn huy hiệu, `sizes` tính hệ số phóng, các mục 7–16 |
+| Gửi thử form | 1 lần (Kiểm thử hệ thống, 0900000000, `?utm_source=kiemthu`) từ thẻ cột phải The Global City – `tools/interactions.mjs` |
+| Media / nội dung | không đổi (không có bản gốc lớn hơn để tải lên – `docs/ANH-CAN-THAY.md`) |
+
+## 2026-11-06 – Bước 3 (viết lại giao diện theo mockup)
+
+| Mục | Thay đổi |
+|---|---|
+| Plugin velis-data | 0.2.7 → **0.3.0** (wp-admin → Plugin → Tải lên → thay bản đang dùng): meta ảnh `velis_mark` (sạch / cắt / không che được) + `velis_focus` (9 vị trí, ô chọn trong màn sửa Media) |
+| Cờ ảnh | `tools/import_image_flags.py --write`: 178 ảnh nhận `velis_mark` qua REST `media/<id>` (134 cắt, 44 không che được; 6 dòng CSV chưa đánh giá – không ghi); chỉ ghi meta, không đổi file ảnh |
+| Theme velis | 0.9.8 → **1.0.0** (Giao diện → Tải lên → thay bản đang dùng), 2 lần trong ngày: bản đầu (commit 7606c06) + bản sửa sau soát trên staging (logo đối tác đóng gói trong theme, link trong khối tối, tràn ngang bảng so sánh mobile, khoảng ảnh đầu bài, breadcrumb, thẻ chủ đầu tư chưa có logo, nút "Phát video") |
+| Theme velis 1.0.0 – kiểm chứng (B3-5) | thêm các lần tải lên cùng số phiên bản (Giao diện → Tải lên → thay bản đang dùng), mỗi lần sau một lô sửa: thẻ dự án theo mockup (bỏ "N phân khu"), thanh thông tin (bàn giao ngắn, pháp lý bỏ nhãn lặp), phân khu thấp tầng có khung tên, hỏi đáp mở câu đầu, form không dòng trạng thái rỗng; trang văn bản thẳng mép khung; hàng lọc /du-an/ thẳng trái; breadcrumb mobile 1 dòng; `aria-current` chỉ ở mục đang xem; `sizes` thẻ (1600 px: 424 px) và hero B mobile (tỉ lệ cắt 4:3); bảng / đường kẻ / chú thích ảnh trong bài theo thang 1.2. thêm vùng bấm 44 px cho hotline / Zalo / email trong khối form, nút phân trang "Trang sau"; ảnh trong bài giữ tỉ lệ khung theo thuộc tính (không lệch theo DPR); trang chính sách không mục lục có thẻ liên hệ cột phải; link trong thẻ cột phải / danh sách 44 px; "Dự án đang tư vấn" thành hàng chip. Gửi thử form: **không gửi** (staging đã có 1 lần gửi trong ngày, không phải của bộ đo). **8 lần tải lên** trong B3-5 (cùng số 1.0.0), lần cuối = commit cuối của bước 3 |
+| Không đụng | nội dung bài / trang, `.htaccess`, 7 ứng dụng, plugin khác |
+
+## 2026-11-06 – Bước 3, vòng sửa
+
+| Mục | Thay đổi |
+|---|---|
+| Theme velis 1.0.0 | **5 lần tải lên** (Giao diện → Tải lên → thay bản đang dùng, cùng số phiên bản), mỗi lần sau một lô sửa của vòng: (1) mục 2.1–2.16 + menu thả xuống "Dự án" / "Về Velis"; (2) menu con hiện nhầm khi chưa mở, cột so sánh toàn "Chưa công bố", khung tên chủ đầu tư chưa có logo, tab khu vực mobile 1 hàng, breadcrumb Tuyển dụng; (3) khoảng dọc giữa khối ≤ 96 px (đệm trang, lề cuối khối), cả thẻ là vùng bấm; (4) khối cuối của section; (5) bấm "Về Velis" ngay sau khi rê chuột không đóng menu |
+| Theme velis 1.0.0 – kiểm chứng vòng sửa | **6 lần tải lên** (cùng số phiên bản), lần cuối = commit cuối của vòng: (1) logo trong thẻ /chu-dau-tu/ căn giữa khung, bỏ quy tắc CSS trùng; (2) cột đọc 640 → 576 px (đoạn văn còn 69–74 ký tự/dòng), ghi chú 14 px có đệm trong cột, nút trong nội dung xuống dòng trên điện thoại (Spring Ville tràn ngang 360/390), `sizes` theo 576 px; (3) giá trị nhiều dòng trong thẻ cột phải chia đều dòng (trang tác giả 1920 px 74 ký tự); (4) ảnh mặt bằng không dùng file gốc hỏng ở DPR 2 (The Privé 1PN/2PN/3PN), bảng so sánh không lặp cột "trang này" (Masteri Park Place), ô bảng đệm ngang 8 px; (5) cột "Tiêu chí" của bảng so sánh co theo nhãn để tên phân khu ≤ 2 dòng; (6) file gốc không giải mã được của 3 mặt bằng The Privé (19976–19978) không còn vào srcset ở mọi nơi (thư viện, nội dung, tab) |
+| Ảnh đầu trang | trang chủ: The Privé (19968, có huy hiệu – cắt che); /du-an/: The Global City (20092, có huy hiệu – cắt che); Giới thiệu: văn phòng Velis (20120, sạch) – không trùng nhau |
+| Gửi form | **không gửi** (lượt gửi 06/11 trên staging là của người dùng); trường ẩn kiểm bằng chặn yêu cầu trong trình duyệt |
+| Không đụng | nội dung bài / trang, media, plugin, `.htaccess`, 7 ứng dụng |
+
+## 2026-11-09 – Bước 4, sửa lỗi Safari
+
+| Mục | Thay đổi |
+|---|---|
+| Theme velis 1.0.0 | 4 lần tải lên (Giao diện → Tải lên → thay bản đang dùng), cùng số phiên bản: (1) bỏ `mask-image` ở dải "Dự án nổi bật" (điện thoại), tab khu vực trang chủ, thanh tab mục, lớp mờ "Đọc tiếp" → lớp phủ vẽ bằng phần tử, gradient từ chính màu nền alpha 0; chế độ in (bỏ lớp mờ, mở phần thu gọn, hàng cuộn xuống dòng); `beforeprint` nạp mọi ảnh lazy; logo footer / logo đối tác / ảnh CEO tải ngay; bảng 2 cột trong nội dung < 768 px: cột nhãn 35 %; (2) bảng 2 cột < 480 px xếp chồng nhãn trên – giá trị dưới; (3) sửa độ rộng ô khi xếp chồng; (4) chế độ in: header không dính (`position: static`) – WebKit lặp header giữa các trang PDF |
+| Không đụng | nội dung bài / trang, plugin, `.htaccess`, 7 ứng dụng; không gửi form |
+
+## 2026-11-09 – Bước 4, kiểm tra cuối
+
+| Mục | Thay đổi |
+|---|---|
+| Staging | chỉ đọc: bộ NT Chromium + WebKit, check_ui 7 khung, thang, 55 tương tác ×2 trình duyệt (yêu cầu form bị chặn trong trình duyệt, không gửi), on-page 173 trang, schema, Lighthouse CI – không tải lên, không ghi gì |
+
+## 2026-11-10 – Giai đoạn 5 (mục 2–3: redirect, kỹ thuật SEO)
+
+| Mục | Thay đổi |
+|---|---|
+| Rank Math → Chuyển hướng | Nhập ma trận `data/url-map.csv` (Import CSV, file từ `tools/build_rankmath_redirects.py`): 477 dòng (434 × 301, 43 × 410); Rank Math báo tạo 129, cập nhật 3 (3 redirect cũ, nay trỏ thẳng đích mới), gộp 345 (nhiều nguồn chung một đích). Diễn tập đúng bước 4 của kế hoạch ra mắt |
+| Rank Math → Liên kết | "Chuyển hướng tệp đính kèm mồ côi": `https://staging.velisrealty.vn` → **để trống** (ma trận: ảnh không gắn bài → 410, không về trang chủ) |
+| Rank Math → Sơ đồ trang web | Lưu lại cài đặt loại nội dung Dự án, Chủ đầu tư (trước đó chưa lưu → chưa có `du-an-sitemap.xml`, `chu-dau-tu-sitemap.xml`); "Loại trừ bài viết": 19537, 19593, 19625, 19633, 19637 (trang cũ trùng địa chỉ `/du-an/…`), 20679 (trang hướng dẫn giao diện) |
+| Theme velis 1.0.0 | Tải lên lại (cùng số): trang ảnh đính kèm không có bài cha trả **410** (`inc/seo.php`). Giao diện không đổi – so ảnh mốc 156/156 đạt, không cập nhật mốc |
+| Plugin velis-data | 0.3.0 → **0.3.1** (Plugin → Tải lên → thay bản đang dùng): trang dự án/phân khu/dòng đang noindex vì thiếu dữ liệu bị loại khỏi sitemap (bộ lọc cũ không chạy vì Rank Math truyền dòng DB thô) |
+| Không đụng | nội dung bài / trang, form (không gửi), `.htaccess`, robots.txt staging, cài đặt "Ngăn công cụ tìm kiếm" |
+
+## 2026-11-10 – Giai đoạn 5 (mục 4: gửi thử form thật)
+
+| Mục | Thay đổi |
+|---|---|
+| WP Mail SMTP → Linh tinh | "Không gửi" **tắt lúc 09:56:51**, **bật lại lúc 09:57:09** (giờ Việt Nam) – cửa sổ gửi thật 18 giây. Mailer SMTP (Gmail) có sẵn thông tin đăng nhập từ bản sao site thật; không nhập / đổi thông tin nào |
+| Gửi thử form | **Đúng 1 lần, 09:57:06**: khối "Nhận tư vấn" trang The Global City, `?utm_source=kiemthu&utm_medium=giai-doan-5`, dữ liệu thử "Kiểm thử hệ thống" / 0900000000. CF7 trả `mail_sent`; `/wp-json/velis/v1/last-lead` có dự án, URL trang, utm_source, utm_medium. **Chờ người dùng xác nhận** hộp thư sale đã nhận |
+| Chỉ đọc | cài đặt WP Mail SMTP, cập nhật chờ (update-core), người dùng quản trị, Lighthouse 4 trang, 6 trang × 5 thiết bị, so ảnh mốc 12 ca |
