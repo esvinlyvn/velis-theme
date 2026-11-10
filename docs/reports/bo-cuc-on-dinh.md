@@ -312,7 +312,8 @@ giá, hero A chữ trên ảnh, tìm kiếm chỉ phân trang nhóm bài, đổi
 ### 8.9 Đo máy sau sửa (phần sửa)
 - Khung 2 cột, link gạch chân: xem 8.2, 8.3 – 0 lỗi.
 - Thang chữ / khoảng cách / độ dài dòng (`tools/mockup_scale.mjs --staging`, 29 trang template × M1 / M5 / 768 / 1024 / M3, giới hạn mới
-  ≤ 90 ký tự): cỡ chữ và khoảng cách 0 ngoại lệ. Độ dài dòng còn 2 nhóm:
+  ≤ 90 ký tự; bảng: `screenshots/on-dinh/kiem-tra/thang-trang-chu.md`): cỡ chữ 0 ngoại lệ. Khoảng cách: 1 ngoại lệ – lưới đối tác
+  dùng khe 1 px làm đường chia → đã đổi sang viền ô (khe 0), **commit, chưa tải lên staging**. Độ dài dòng còn 2 nhóm:
   - **ghi chú 14 px** (`.source`, `.disclosure`) 93–119 ký tự vì quy tắc "không giới hạn trong cột chính" chạm cả ghi chú → đã sửa trong
     CSS (ghi chú giữ 40ch; hộp `.disclosure` rộng hết cột, chữ trong ≤ 600 px). **Bản sửa này đã commit nhưng chưa tải lên staging**
     (đã dùng hết 5 lần tải của phần này) – phần kiểm chứng tải lên rồi đo lại.

@@ -1,0 +1,151 @@
+# Thang chữ / khoảng cách / độ dài dòng (≤ 90 ký tự) – 29 trang template trên staging, 2026-11-11 (trước bản sửa ghi chú 14 px)
+
+- / M1: 2 ngoại lệ – ul.partners row-gap 1px ×1; ul.partners column-gap 1px ×1
+- / M5: 2 ngoại lệ – ul.partners row-gap 1px ×1; ul.partners column-gap 1px ×1
+- / 768: 2 ngoại lệ – ul.partners row-gap 1px ×1; ul.partners column-gap 1px ×1
+- / 1024: 2 ngoại lệ – ul.partners row-gap 1px ×1; ul.partners column-gap 1px ×1
+- / M3: 2 ngoại lệ – ul.partners row-gap 1px ×1; ul.partners column-gap 1px ×1
+- /du-an/ M1: 0 ngoại lệ
+- /du-an/ M5: 0 ngoại lệ
+- /du-an/ 768: 0 ngoại lệ
+- /du-an/ 1024: 0 ngoại lệ
+- /du-an/ M3: 1 ngoại lệ – dòng p.wp-block-paragraph 92 ký tự ×1
+- /du-an/?khu=khu-dong M1: 0 ngoại lệ
+- /du-an/?khu=khu-dong M5: 0 ngoại lệ
+- /du-an/?khu=khu-dong 768: 0 ngoại lệ
+- /du-an/?khu=khu-dong 1024: 0 ngoại lệ
+- /du-an/?khu=khu-dong M3: 1 ngoại lệ – dòng p.wp-block-paragraph 92 ký tự ×1
+- /du-an/the-global-city/ M1: 1 ngoại lệ – dòng p.disclosure 93 ký tự ×1
+- /du-an/the-global-city/ M5: 0 ngoại lệ
+- /du-an/the-global-city/ 768: 0 ngoại lệ
+- /du-an/the-global-city/ 1024: 0 ngoại lệ
+- /du-an/the-global-city/ M3: 4 ngoại lệ – dòng p.wp-block-paragraph 93 ký tự ×3; dòng p.wp-block-paragraph 92 ký tự ×1; dòng p.wp-block-paragraph 91 ký tự ×1; dòng p.disclosure 106 ký tự ×1
+- /du-an/vinhomes-saigon-park/ M1: 2 ngoại lệ – dòng p.source 100 ký tự ×1; dòng p.disclosure 93 ký tự ×1
+- /du-an/vinhomes-saigon-park/ M5: 0 ngoại lệ
+- /du-an/vinhomes-saigon-park/ 768: 1 ngoại lệ – dòng p.source 100 ký tự ×1
+- /du-an/vinhomes-saigon-park/ 1024: 0 ngoại lệ
+- /du-an/vinhomes-saigon-park/ M3: 7 ngoại lệ – dòng p.wp-block-paragraph 91 ký tự ×1; dòng p.wp-block-paragraph 93 ký tự ×3; dòng p.source 114 ký tự ×1; dòng p.wp-block-paragraph 92 ký tự ×2; dòng p.wp-block-paragraph 95 ký tự ×1; dòng p.wp-block-paragraph 94 ký tự ×1; dòng p.disclosure 106 ký tự ×1
+- /du-an/the-prive/ M1: 1 ngoại lệ – dòng p.disclosure 93 ký tự ×1
+- /du-an/the-prive/ M5: 0 ngoại lệ
+- /du-an/the-prive/ 768: 0 ngoại lệ
+- /du-an/the-prive/ 1024: 0 ngoại lệ
+- /du-an/the-prive/ M3: 5 ngoại lệ – dòng p.wp-block-paragraph 93 ký tự ×1; dòng p.wp-block-paragraph 91 ký tự ×3; dòng p.wp-block-paragraph 92 ký tự ×1; dòng li 91 ký tự ×1; dòng p.disclosure 106 ký tự ×1
+- /du-an/the-global-city/masteri-park-place/ M1: 2 ngoại lệ – dòng p.source 106 ký tự ×1; dòng p.disclosure 93 ký tự ×1
+- /du-an/the-global-city/masteri-park-place/ M5: 0 ngoại lệ
+- /du-an/the-global-city/masteri-park-place/ 768: 1 ngoại lệ – dòng p.source 101 ký tự ×1
+- /du-an/the-global-city/masteri-park-place/ 1024: 0 ngoại lệ
+- /du-an/the-global-city/masteri-park-place/ M3: 2 ngoại lệ – dòng p.source 118 ký tự ×1; dòng p.disclosure 106 ký tự ×1
+- /du-an/palm-city/palm-river/ M1: 2 ngoại lệ – dòng p.wp-block-paragraph 91 ký tự ×1; dòng p.disclosure 93 ký tự ×1
+- /du-an/palm-city/palm-river/ M5: 0 ngoại lệ
+- /du-an/palm-city/palm-river/ 768: 0 ngoại lệ
+- /du-an/palm-city/palm-river/ 1024: 0 ngoại lệ
+- /du-an/palm-city/palm-river/ M3: 5 ngoại lệ – dòng p.wp-block-paragraph 94 ký tự ×2; dòng p.wp-block-paragraph 92 ký tự ×3; dòng p.wp-block-paragraph 91 ký tự ×3; dòng p.wp-block-paragraph 93 ký tự ×1; dòng p.disclosure 106 ký tự ×1
+- /du-an/the-global-city/masteri-grand-view/ M1: 2 ngoại lệ – dòng p.source 106 ký tự ×1; dòng p.disclosure 93 ký tự ×1
+- /du-an/the-global-city/masteri-grand-view/ M5: 0 ngoại lệ
+- /du-an/the-global-city/masteri-grand-view/ 768: 1 ngoại lệ – dòng p.source 101 ký tự ×1
+- /du-an/the-global-city/masteri-grand-view/ 1024: 0 ngoại lệ
+- /du-an/the-global-city/masteri-grand-view/ M3: 2 ngoại lệ – dòng p.source 118 ký tự ×1; dòng p.disclosure 106 ký tự ×1
+**Tổng ngoại lệ: 50**
+- /du-an/spring-ville/persa-place/ M1: 1 ngoại lệ – dòng p.disclosure 93 ký tự ×1
+- /du-an/spring-ville/persa-place/ M5: 0 ngoại lệ
+- /du-an/spring-ville/persa-place/ 768: 0 ngoại lệ
+- /du-an/spring-ville/persa-place/ 1024: 0 ngoại lệ
+- /du-an/spring-ville/persa-place/ M3: 4 ngoại lệ – dòng p.wp-block-paragraph 92 ký tự ×3; dòng p.wp-block-paragraph 91 ký tự ×3; dòng p.wp-block-paragraph 93 ký tự ×1; dòng p.disclosure 106 ký tự ×1
+- /du-an/spring-ville/nha-pho/ M1: 2 ngoại lệ – dòng p.source 107 ký tự ×1; dòng p.disclosure 93 ký tự ×1
+- /du-an/spring-ville/nha-pho/ M5: 0 ngoại lệ
+- /du-an/spring-ville/nha-pho/ 768: 1 ngoại lệ – dòng p.source 102 ký tự ×1
+- /du-an/spring-ville/nha-pho/ 1024: 0 ngoại lệ
+- /du-an/spring-ville/nha-pho/ M3: 2 ngoại lệ – dòng p.source 119 ký tự ×1; dòng p.disclosure 106 ký tự ×1
+- /du-an/vinhomes-saigon-park/ivy-park/nha-pho/ M1: 2 ngoại lệ – dòng p.source 100 ký tự ×1; dòng p.disclosure 93 ký tự ×1
+- /du-an/vinhomes-saigon-park/ivy-park/nha-pho/ M5: 0 ngoại lệ
+- /du-an/vinhomes-saigon-park/ivy-park/nha-pho/ 768: 1 ngoại lệ – dòng p.source 100 ký tự ×1
+- /du-an/vinhomes-saigon-park/ivy-park/nha-pho/ 1024: 0 ngoại lệ
+- /du-an/vinhomes-saigon-park/ivy-park/nha-pho/ M3: 2 ngoại lệ – dòng p.source 114 ký tự ×1; dòng p.disclosure 106 ký tự ×1
+- /chu-dau-tu/ M1: 0 ngoại lệ
+- /chu-dau-tu/ M5: 0 ngoại lệ
+- /chu-dau-tu/ 768: 0 ngoại lệ
+- /chu-dau-tu/ 1024: 0 ngoại lệ
+- /chu-dau-tu/ M3: 0 ngoại lệ
+- /chu-dau-tu/masterise-homes/ M1: 0 ngoại lệ
+- /chu-dau-tu/masterise-homes/ M5: 0 ngoại lệ
+- /chu-dau-tu/masterise-homes/ 768: 0 ngoại lệ
+- /chu-dau-tu/masterise-homes/ 1024: 0 ngoại lệ
+- /chu-dau-tu/masterise-homes/ M3: 0 ngoại lệ
+**Tổng ngoại lệ: 15**
+- /chu-dau-tu/sun-group/ M1: 0 ngoại lệ
+- /chu-dau-tu/sun-group/ M5: 0 ngoại lệ
+- /chu-dau-tu/sun-group/ 768: 0 ngoại lệ
+- /chu-dau-tu/sun-group/ 1024: 0 ngoại lệ
+- /chu-dau-tu/sun-group/ M3: 2 ngoại lệ – dòng p.wp-block-paragraph 91 ký tự ×1; dòng p.wp-block-paragraph 92 ký tự ×1
+- /blog/ M1: 0 ngoại lệ
+- /blog/ M5: 0 ngoại lệ
+- /blog/ 768: 0 ngoại lệ
+- /blog/ 1024: 0 ngoại lệ
+- /blog/ M3: 0 ngoại lệ
+- /blog/page/2/ M1: 0 ngoại lệ
+- /blog/page/2/ M5: 0 ngoại lệ
+- /blog/page/2/ 768: 0 ngoại lệ
+- /blog/page/2/ 1024: 0 ngoại lệ
+- /blog/page/2/ M3: 0 ngoại lệ
+- /blog/the-global-city/ M1: 0 ngoại lệ
+- /blog/the-global-city/ M5: 0 ngoại lệ
+- /blog/the-global-city/ 768: 0 ngoại lệ
+- /blog/the-global-city/ 1024: 0 ngoại lệ
+- /blog/the-global-city/ M3: 0 ngoại lệ
+- /blog/palm-city/ M1: 0 ngoại lệ
+- /blog/palm-city/ M5: 0 ngoại lệ
+- /blog/palm-city/ 768: 0 ngoại lệ
+- /blog/palm-city/ 1024: 0 ngoại lệ
+- /blog/palm-city/ M3: 0 ngoại lệ
+- /blog/the-prive/loi-suat-cho-thue-the-prive/ M1: 0 ngoại lệ
+- /blog/the-prive/loi-suat-cho-thue-the-prive/ M5: 0 ngoại lệ
+- /blog/the-prive/loi-suat-cho-thue-the-prive/ 768: 0 ngoại lệ
+- /blog/the-prive/loi-suat-cho-thue-the-prive/ 1024: 0 ngoại lệ
+- /blog/the-prive/loi-suat-cho-thue-the-prive/ M3: 4 ngoại lệ – dòng p.wp-block-paragraph 93 ký tự ×5; dòng p.wp-block-paragraph 92 ký tự ×1; dòng p.wp-block-paragraph 94 ký tự ×1; dòng p.wp-block-paragraph 91 ký tự ×4
+- /blog/vinhomes-saigon-park/thiet-ke-cong-nang-nha-pho-lien-ke-vinhomes-saigon-park/ M1: 0 ngoại lệ
+- /blog/vinhomes-saigon-park/thiet-ke-cong-nang-nha-pho-lien-ke-vinhomes-saigon-park/ M5: 0 ngoại lệ
+- /blog/vinhomes-saigon-park/thiet-ke-cong-nang-nha-pho-lien-ke-vinhomes-saigon-park/ 768: 0 ngoại lệ
+- /blog/vinhomes-saigon-park/thiet-ke-cong-nang-nha-pho-lien-ke-vinhomes-saigon-park/ 1024: 0 ngoại lệ
+- /blog/vinhomes-saigon-park/thiet-ke-cong-nang-nha-pho-lien-ke-vinhomes-saigon-park/ M3: 4 ngoại lệ – dòng p.wp-block-paragraph 93 ký tự ×2; dòng p.wp-block-paragraph 91 ký tự ×1; dòng p.wp-block-paragraph 92 ký tự ×2; dòng p.wp-block-paragraph 95 ký tự ×1
+**Tổng ngoại lệ: 10**
+- /chuyen-gia/vu-xuan/ M1: 0 ngoại lệ
+- /chuyen-gia/vu-xuan/ M5: 0 ngoại lệ
+- /chuyen-gia/vu-xuan/ 768: 0 ngoại lệ
+- /chuyen-gia/vu-xuan/ 1024: 0 ngoại lệ
+- /chuyen-gia/vu-xuan/ M3: 0 ngoại lệ
+- /gioi-thieu/ M1: 0 ngoại lệ
+- /gioi-thieu/ M5: 0 ngoại lệ
+- /gioi-thieu/ 768: 0 ngoại lệ
+- /gioi-thieu/ 1024: 0 ngoại lệ
+- /gioi-thieu/ M3: 2 ngoại lệ – dòng p.wp-block-paragraph 92 ký tự ×1; dòng p.wp-block-paragraph 93 ký tự ×1
+- /tuyen-dung/ M1: 0 ngoại lệ
+- /tuyen-dung/ M5: 0 ngoại lệ
+- /tuyen-dung/ 768: 0 ngoại lệ
+- /tuyen-dung/ 1024: 0 ngoại lệ
+- /tuyen-dung/ M3: 0 ngoại lệ
+- /lien-he/ M1: 0 ngoại lệ
+- /lien-he/ M5: 0 ngoại lệ
+- /lien-he/ 768: 0 ngoại lệ
+- /lien-he/ 1024: 0 ngoại lệ
+- /lien-he/ M3: 0 ngoại lệ
+- /chinh-sach-bao-mat/ M1: 0 ngoại lệ
+- /chinh-sach-bao-mat/ M5: 0 ngoại lệ
+- /chinh-sach-bao-mat/ 768: 0 ngoại lệ
+- /chinh-sach-bao-mat/ 1024: 0 ngoại lệ
+- /chinh-sach-bao-mat/ M3: 0 ngoại lệ
+- /?s=prive M1: 0 ngoại lệ
+- /?s=prive M5: 0 ngoại lệ
+- /?s=prive 768: 0 ngoại lệ
+- /?s=prive 1024: 0 ngoại lệ
+- /?s=prive M3: 0 ngoại lệ
+- /?s=khongcoketqua M1: 0 ngoại lệ
+- /?s=khongcoketqua M5: 0 ngoại lệ
+- /?s=khongcoketqua 768: 0 ngoại lệ
+- /?s=khongcoketqua 1024: 0 ngoại lệ
+- /?s=khongcoketqua M3: 0 ngoại lệ
+- /khong-ton-tai-xyz/ M1: 0 ngoại lệ
+- /khong-ton-tai-xyz/ M5: 0 ngoại lệ
+- /khong-ton-tai-xyz/ 768: 0 ngoại lệ
+- /khong-ton-tai-xyz/ 1024: 0 ngoại lệ
+- /khong-ton-tai-xyz/ M3: 0 ngoại lệ
+**Tổng ngoại lệ: 2**

@@ -439,12 +439,19 @@ img.is-marked { transform: scale(var(--zoom, 1.15)); transform-origin: 100% 0; }
 .partners a { display: flex; align-items: center; min-height: 48px; }
 .partners img { width: var(--w); height: var(--h); filter: grayscale(1) brightness(.45); transition: filter .2s var(--ease); }
 .partners a:hover img, .partners a:focus-visible img { filter: none; }
-/* home partner row (3.1): one equal cell per logo across the whole frame, 1 px rules between cells (the grid gap shows the
-   line colour), logo centred; phones 2 columns (an odd last cell spans both) */
-.partners--row { display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 1px; background: var(--line); }
-.partners--row li { display: flex; align-items: center; justify-content: center; min-height: 112px; padding: var(--s6); background: var(--surface); }
+/* home partner row (3.1): one equal cell per logo across the whole frame, 1 px rules between cells, logo centred; phones
+   2 columns (an odd last cell spans both) */
+.partners--row { display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 0; }
+.partners--row li { display: flex; align-items: center; justify-content: center; min-height: 112px; padding: var(--s6); }
+.partners--row li + li { border-left: 1px solid var(--line); }
 .partners--row a { justify-content: center; }
-@media (max-width: 767px) { .partners--row { grid-template-columns: repeat(2, 1fr); } .partners--row li:last-child:nth-child(odd) { grid-column: span 2; } }
+@media (max-width: 767px) {
+	.partners--row { grid-template-columns: repeat(2, 1fr); }
+	.partners--row li + li { border-left: 0; }
+	.partners--row li:nth-child(even) { border-left: 1px solid var(--line); }
+	.partners--row li:nth-child(n+3) { border-top: 1px solid var(--line); }
+	.partners--row li:last-child:nth-child(odd) { grid-column: span 2; }
+}
 
 /* home "Công ty TNHH Velis Realty" (2026-11-11, 3.2): intro 6/12 beside the 4 values as a numbered list, thin rules, no cards */
 .about { display: grid; gap: var(--s12); }
