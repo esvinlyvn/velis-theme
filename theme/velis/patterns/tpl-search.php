@@ -25,7 +25,11 @@ $out  = velis_breadcrumb_html( velis_trail() ) . velis_hero_b( array(
 ) );
 $band = array( 'section--tint', '' );
 $i    = 0;
-foreach ( array( array( 'Dự án', $projs ), array( 'Phân khu và dòng sản phẩm', $parts ) ) as list( $head, $list ) ) { // 2.3: grouped by type
+$groups = array( array( 'Dự án', $projs ), array( 'Phân khu và dòng sản phẩm', $parts ) );
+if ( $parts && $found && $found[0] === $parts[0] ) { // the best match (record named in the query) is a phân khu / dòng: its group first
+	$groups = array_reverse( $groups );
+}
+foreach ( $groups as list( $head, $list ) ) { // 2.3: grouped by type
 	if ( $list ) {
 		$out .= velis_section( velis_sechead( $head, count( $list ) . ' kết quả' ) . velis_grid( array_map( 'velis_card_project', $list ), 'three', ' data-live' ), '', $band[ $i++ % 2 ] );
 	}

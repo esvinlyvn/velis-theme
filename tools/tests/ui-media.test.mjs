@@ -118,3 +118,9 @@ test('NT-66/67 facts bar: rows by count, no empty cell, no cut value', async () 
 	const narrow = await inPage(factsAudit, facts(4, 900)); // 4 per row below 1200 px
 	assert.ok(narrow.rows.some((x) => /tối đa/.test(x)) || narrow.rows.some((x) => /< 240/.test(x)), JSON.stringify(narrow));
 });
+
+test('a centred short last row of a post grid is the approved layout (rule 2.1 / 5.2, 2026-11-10)', async () => {
+	const post = (t) => `<article class="v-card" style="width:100px"><a href="/blog/x/${t}/">${t}</a></article>`;
+	const r = await audit(`<h1>Một</h1><div class="v-grid" style="display:flex;flex-wrap:wrap;justify-content:center;width:300px">${post('a')}${post('b')}${post('c')}${post('d')}</div>`);
+	assert.equal(r.postgrid.length, 0);
+});

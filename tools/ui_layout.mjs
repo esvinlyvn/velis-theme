@@ -19,7 +19,9 @@ export function layoutAudit() {
 		const gw = g.getBoundingClientRect().width;
 		const rows = {};
 		items.forEach((c) => { const t = Math.round(c.getBoundingClientRect().top); (rows[t] ||= []).push(c); });
-		for (const row of Object.values(rows)) if (row.length === 1 && row[0].getBoundingClientRect().width <= gw * 0.5 + 1) out.grid.push(label(g));
+		const gr = g.getBoundingClientRect(), mid = (r) => r.left + r.width / 2;
+		// a lone card centred in its row keeps the card width on purpose (rule 2.1 / 5.6, duyệt 2026-11-10): not a left-stranded cell
+		for (const row of Object.values(rows)) if (row.length === 1 && row[0].getBoundingClientRect().width <= gw * 0.5 + 1 && Math.abs(mid(row[0].getBoundingClientRect()) - mid(gr)) > 2) out.grid.push(label(g));
 	}
 
 	const content = (el) => (el.innerText || '').trim() || [...el.querySelectorAll('img, iframe, video, svg, canvas, input, select, textarea, button')].some((m) => shown(m) && (m.tagName !== 'IMG' || loaded(m)));

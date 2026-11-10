@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Width of the main column of a 2-column page (content wrap − 340 px side column − 48 px gap); phones: wrap − gutters.
-const VELIS_SIZES_MAIN = '(min-width: 768px) 576px, calc(100vw - 32px)'; // main column = --read (vòng sửa 2.1)
+const VELIS_SIZES_MAIN = '(min-width: 768px) 664px, calc(100vw - 32px)'; // text measure = --read 664 px (vòng bố cục 2026-11-10)
 const VELIS_SIZES_CARD = '(min-width: 1600px) 424px, (min-width: 1024px) 384px, (min-width: 768px) calc(50vw - 36px), calc(100vw - 32px)'; // 3 cards in the frame: (1320 | 1200 − 2 × 24) / 3
 const VELIS_SIZES_HERO_B = '(min-width: 1600px) 1320px, (min-width: 1248px) 1200px, (min-width: 768px) calc(100vw - 48px), calc(100vw - 32px)'; // = .wrap (NT-17)
 const VELIS_CEO = array( 'name' => 'Vũ Xuân', 'role' => 'CEO Velis Realty', 'img' => 'assets/brand/ceo-vu-xuan-160.webp' );
@@ -580,7 +580,7 @@ function velis_gallery_html( array $ids, string $name, string $label = 'Thư vi�
 		$alt  = trim( (string) get_post_meta( $id, '_wp_attachment_image_alt', true ) ) ?: $name;
 		$cap  = wp_get_attachment_caption( $id );
 		$plan = 1 === $late( $id );
-		$img  = velis_img( $id, $alt, 'large', array( 'sizes' => '(min-width: 768px) 576px, calc(100vw - 80px)', 'ratio' => 16 / 9 ) + ( $plan ? array( 'zoom' => 1, 'class' => 'is-plan' ) : array() ) );
+		$img  = velis_img( $id, $alt, 'large', array( 'sizes' => '(min-width: 1600px) 784px, (min-width: 1024px) 704px, (min-width: 768px) calc(100vw - 112px), calc(100vw - 80px)', 'ratio' => 16 / 9 ) + ( $plan ? array( 'zoom' => 1, 'class' => 'is-plan' ) : array() ) );
 		$li  .= '<li><figure><button type="button" data-zoom="' . esc_url( wp_get_attachment_image_url( $id, 'large' ) ) . '" aria-label="' . esc_attr( 'Phóng to: ' . $alt ) . '">' . $img . '</button>'
 			. ( $cap && ! velis_auto_caption( (string) $cap ) ? '<figcaption class="sr-only">' . esc_html( $cap ) . '</figcaption>' : '' ) . '</figure></li>';
 	}

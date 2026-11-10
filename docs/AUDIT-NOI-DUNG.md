@@ -205,3 +205,13 @@ Nguồn: trang chủ cũ trên site thật (GET công khai, chỉ đọc, `tools
 Nội dung tương ứng nay ở `/chu-dau-tu/{slug}/`. Theme không phát link nội bộ nào tới 4 URL này (logo đối tác trang chủ dẫn tới
 `/chu-dau-tu/{slug}/`); quét toàn site ở bước kiểm chứng. 301 về `/chu-dau-tu/{slug}/` đã có trong bảng redirect ngày ra mắt
 (`data/url-map.csv`, dòng vinhomes / masterise-homes …) – không sửa nội dung trang ở vòng này.
+
+## 13. Vòng bố cục + ổn định (2026-11-10) – chỉ ghi, không sửa nội dung
+
+Nguồn: máy quét toàn site staging (`tools/crawl_b5.mjs`, 181 trang, `screenshots/on-dinh/kiem-tra/crawl.json`) + REST đọc chuyên mục.
+
+| Loại | Chỗ | Ghi chú / đề xuất |
+|---|---|---|
+| Cụm trùng ý | Cụm "Vinhomes" (`/blog/vinhomes/`, 10 bài về thương hiệu, hệ sinh thái Vingroup, đầu tư Vinhomes nói chung) và "Vinhomes Saigon Park" (`/blog/vinhomes-saigon-park/`, 5 bài về dự án) | Tên gần trùng, người đọc khó phân biệt. Đề xuất: đổi tên cụm thứ nhất thành "Vinhomes – thị trường & thương hiệu" (hoặc gộp bài về dự án cụ thể vào cụm dự án) – người dùng chọn. Ngoài ra còn 18 chuyên mục cũ 0 bài (`blog-*`, `du-an-*`, `uncategorized`) – không hiện trên site, có thể dọn sau ra mắt |
+| Mô tả SEO < 50 ký tự | `/chinh-sach-bao-mat/` (41) · `/blog/the-global-city/lan-song-fb-do-bo-soho-the-global-city/` (44) · `/blog/the-global-city/bi-quyet-chia-nho-mat-bang-shophouse-soho/` (47) · `/blog/the-prive/gia-ban-the-prive-quan-2-2026/` (44) | Viết lại 120–155 ký tự trong Rank Math |
+| Tiêu đề viết hoa từng chữ | Bài `/blog/the-prive/velis-realty-phan-phoi-doc-quyen-thap-9-the-prive/` ("Velis Realty Phân Phối Độc Quyền Tháp 9 The Privé"); 4 mục "Giá trị khác biệt" trên trang chủ ("Thông Tin Có Nguồn", "Hỗ Trợ Sau Bán", "Tư Duy Chiến Lược", "Cập Nhật Quỹ Căn Và Chính Sách" – chép nguyên văn trang cũ, nằm trong `patterns/tpl-front.php`) | Chữ thường kiểu câu ("Velis Realty phân phối độc quyền tháp 9 The Privé", "Thông tin có nguồn"…) – cần người dùng duyệt câu vì là nội dung |

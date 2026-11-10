@@ -17,6 +17,11 @@ async function run(html) {
 	return r;
 }
 
+test('accepts a lone card centred in its row (rule 2.1 / 5.6 of 2026-11-10)', async () => {
+	const r = await run(`<div class="v-grid" style="grid-template-columns:repeat(3,200px);justify-content:center;width:600px"><article class="v-card" style="grid-column:2">Một</article></div>`);
+	assert.equal(r.grid.length, 0);
+});
+
 test('flags a lone card in a 3-column grid, an empty wrapper, a frame without picture, a broken image, a nameless fallback, a repeated contact block', async () => {
 	const r = await run(`<div class="v-grid"><article class="v-card">Một</article></div>
 		<section style="height:120px"></section>

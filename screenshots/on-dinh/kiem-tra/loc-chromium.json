@@ -1,0 +1,873 @@
+[
+ {
+  "name": "trang chủ 1536px tab \"Tất cả\": thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 6,
+   "dem": "Hiển thị 6/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "trang chủ 1536px tab \"Khu Đông\": thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 3,
+   "dem": "Hiển thị 3/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "trang chủ 1536px tab \"Khu Tây\": thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "trang chủ 1536px tab \"Vùng vệ tinh\": thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "trang chủ 1536px tab \"Tây Bắc\": thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 1536px chip khu=khu-tay: thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 1536px chip khu=khu-dong: thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 3,
+   "dem": "Hiển thị 3/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 1536px chip khu=ve-tinh: thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 1536px chip khu=tay-bac: thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 1536px chip cdt=kita-group: thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 1536px chip cdt=huong-viet-holdings: thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 1536px chip cdt=gamuda-land: thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 1536px chip cdt=masterise-homes: thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 1536px chip cdt=dat-xanh: thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 1536px chip cdt=vinhomes: thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 1536px chip cdt=berjaya-viet-nam: thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 1536px chip loai=can-ho: thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 6,
+   "dem": "Hiển thị 6/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 1536px chip loai=shophouse: thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 5,
+   "dem": "Hiển thị 5/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 1536px chip loai=nha-pho: thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 3,
+   "dem": "Hiển thị 3/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 1536px chip loai=biet-thu: thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 2,
+   "dem": "Hiển thị 2/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 1536px chip loai=dinh-thu: thẻ hiện = số đếm, 3 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 384,
+   "wmin": 384,
+   "frame": 1200,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 1536px 0 kết quả: thông báo + \"Xem tất cả dự án\"",
+  "pass": true,
+  "info": {
+   "vis": 0,
+   "dem": "Hiển thị 0/6 dự án",
+   "w": 0,
+   "wmin": null,
+   "frame": 1200,
+   "empty": true
+  }
+ },
+ {
+  "name": "trang chủ 900px tab \"Tất cả\": thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 6,
+   "dem": "Hiển thị 6/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "trang chủ 900px tab \"Khu Đông\": thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 3,
+   "dem": "Hiển thị 3/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "trang chủ 900px tab \"Khu Tây\": thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "trang chủ 900px tab \"Vùng vệ tinh\": thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "trang chủ 900px tab \"Tây Bắc\": thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 900px chip khu=khu-tay: thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 900px chip khu=khu-dong: thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 3,
+   "dem": "Hiển thị 3/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 900px chip khu=ve-tinh: thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 900px chip khu=tay-bac: thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 900px chip cdt=kita-group: thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 900px chip cdt=huong-viet-holdings: thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 900px chip cdt=gamuda-land: thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 900px chip cdt=masterise-homes: thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 900px chip cdt=dat-xanh: thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 900px chip cdt=vinhomes: thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 900px chip cdt=berjaya-viet-nam: thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 900px chip loai=can-ho: thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 6,
+   "dem": "Hiển thị 6/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 900px chip loai=shophouse: thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 5,
+   "dem": "Hiển thị 5/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 900px chip loai=nha-pho: thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 3,
+   "dem": "Hiển thị 3/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 900px chip loai=biet-thu: thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 2,
+   "dem": "Hiển thị 2/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 900px chip loai=dinh-thu: thẻ hiện = số đếm, 2 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 414,
+   "wmin": 414,
+   "frame": 852,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 900px 0 kết quả: thông báo + \"Xem tất cả dự án\"",
+  "pass": true,
+  "info": {
+   "vis": 0,
+   "dem": "Hiển thị 0/6 dự án",
+   "w": 0,
+   "wmin": null,
+   "frame": 852,
+   "empty": true
+  }
+ },
+ {
+  "name": "trang chủ 390px tab \"Tất cả\": thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 6,
+   "dem": "Hiển thị 6/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "trang chủ 390px tab \"Khu Đông\": thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 3,
+   "dem": "Hiển thị 3/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "trang chủ 390px tab \"Khu Tây\": thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "trang chủ 390px tab \"Vùng vệ tinh\": thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "trang chủ 390px tab \"Tây Bắc\": thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 390px ô chọn khu=khu-tay: thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 390px ô chọn khu=khu-dong: thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 3,
+   "dem": "Hiển thị 3/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 390px ô chọn khu=ve-tinh: thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 390px ô chọn khu=tay-bac: thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 390px ô chọn cdt=kita-group: thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 390px ô chọn cdt=huong-viet-holdings: thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 390px ô chọn cdt=gamuda-land: thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 390px ô chọn cdt=masterise-homes: thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 390px ô chọn cdt=dat-xanh: thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 390px ô chọn cdt=vinhomes: thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 390px ô chọn cdt=berjaya-viet-nam: thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 390px ô chọn loai=can-ho: thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 6,
+   "dem": "Hiển thị 6/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 390px ô chọn loai=shophouse: thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 5,
+   "dem": "Hiển thị 5/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 390px ô chọn loai=nha-pho: thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 3,
+   "dem": "Hiển thị 3/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 390px ô chọn loai=biet-thu: thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 2,
+   "dem": "Hiển thị 2/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "/du-an/ 390px ô chọn loai=dinh-thu: thẻ hiện = số đếm, 1 cột",
+  "pass": true,
+  "info": {
+   "vis": 1,
+   "dem": "Hiển thị 1/6 dự án",
+   "w": 358,
+   "wmin": 358,
+   "frame": 358,
+   "empty": false
+  }
+ },
+ {
+  "name": "/chuyen-gia/claude-bot/ → 404",
+  "pass": true,
+  "info": ""
+ },
+ {
+  "name": "/chuyen-gia/vu-xuan/ → 200 (có bài)",
+  "pass": true,
+  "info": ""
+ },
+ {
+  "name": "/?author=1 → 404",
+  "pass": true,
+  "info": ""
+ },
+ {
+  "name": "/?author=2 → 404",
+  "pass": true,
+  "info": ""
+ },
+ {
+  "name": "/?author=3 → 404",
+  "pass": true,
+  "info": ""
+ },
+ {
+  "name": "/wp-json/wp/v2/users → 401",
+  "pass": true,
+  "info": ""
+ },
+ {
+  "name": "/wp-json/wp/v2/users/1 → 401",
+  "pass": true,
+  "info": ""
+ },
+ {
+  "name": "/velis-style-guide/ → 404",
+  "pass": true,
+  "info": ""
+ },
+ {
+  "name": "/blog/page/2/ → 200",
+  "pass": true,
+  "info": ""
+ },
+ {
+  "name": "/blog/page/9/ → 200 (102 bài / 12)",
+  "pass": true,
+  "info": ""
+ },
+ {
+  "name": "/blog/page/2/: 12 thẻ bài, có phân trang, hàng cụm dưới phần đầu",
+  "pass": true,
+  "info": ""
+ },
+ {
+  "name": "tìm \"prive\": trang The Privé + bài The Privé, nhóm theo loại, có phân trang",
+  "pass": true,
+  "info": [
+   "Dự án",
+   "Bài viết"
+  ]
+ },
+ {
+  "name": "tìm \"masteri\": có nhóm phân khu",
+  "pass": true,
+  "info": ""
+ },
+ {
+  "name": "breadcrumb cụm: mục cuối là tên cụm, không \"›\" thừa",
+  "pass": true,
+  "info": ""
+ },
+ {
+  "name": "footer: chỉ mạng có URL trong cài đặt Rank Math",
+  "pass": true,
+  "info": [
+   "Facebook https://www.facebook.com/velisrealty",
+   "YouTube https://www.youtube.com/@velisrealty",
+   "TikTok https://www.tiktok.com/@velisrealty",
+   "Instagram https://www.instagram.com/velisrealty/",
+   "LinkedIn https://www.linkedin.com/in/velisrealty",
+   "X https://x.com/velisrealty",
+   "Pinterest https://www.pinterest.com/velisrealty"
+  ]
+ },
+ {
+  "name": "sitemap (khách bị chặn trên staging; xem bản đăng nhập ở báo cáo) không chứa claude-bot / style guide",
+  "pass": true,
+  "info": ""
+ }
+]

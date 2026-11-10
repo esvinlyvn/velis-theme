@@ -51,13 +51,18 @@ export async function mediaAudit(dpr) {
 		const lefts = [...new Set(cards.map((c) => Math.round(c.getBoundingClientRect().left)))];
 		const tops = [...new Set(cards.map((c) => Math.round(c.getBoundingClientRect().top)))];
 		if (tops.length < 2 && lefts.length === cards.length && g.scrollWidth > g.clientWidth + 2) continue; // one-row horizontal rail
-		const cols = lefts.length;
+		// columns = most cards on one row (a centred short last row adds extra x positions, so distinct lefts over-count)
+		const byRow = {}; cards.forEach((c) => { const t = Math.round(c.getBoundingClientRect().top); (byRow[t] ||= []).push(c.getBoundingClientRect()); });
+		const rowsArr = Object.keys(byRow).sort((x, y) => x - y).map((k) => byRow[k]);
+		const cols = tops.length > 1 ? Math.max(...rowsArr.map((r) => r.length)) : lefts.length;
+		const last = rowsArr[rowsArr.length - 1], gr = g.getBoundingClientRect();
+		const centred = rowsArr.length > 1 && last.length < cols && Math.abs((Math.min(...last.map((r) => r.left)) + Math.max(...last.map((r) => r.right))) / 2 - (gr.left + gr.width / 2)) <= 2; // rule 2.1 / 5.2 (duyệt 2026-11-10): short last row keeps card width, centred
 		// cells actually used: a card spanning 2 columns (grid-column: span 2 – first card of 5 / 7 / 11) fills 2 (step 3)
 		const cells = cards.reduce((n, c) => n + (+((getComputedStyle(c).gridColumnStart + ' ' + getComputedStyle(c).gridColumnEnd).match(/span (\d+)/) || [])[1] || 1), 0);
 		const gap = cols && cells % cols ? cols - (cells % cols) : 0;
 		if (!gap) continue;
 		const posts = cards.length && cards.every((c) => c.matches('.v-card--all, .card--all, .card--post') || (c.matches('article.v-card') && c.querySelector('a[href*="/blog/"]')));
-		(posts && cols >= 3 ? out.postgrid : out.gridinfo).push(`${label(g)}: ${cards.length} thẻ, ${cols} cột, ${gap} ô trống`);
+		(posts && cols >= 3 && !centred ? out.postgrid : out.gridinfo).push(`${label(g)}: ${cards.length} thẻ, ${cols} cột, ${gap} ô trống`);
 	}
 	for (const f of document.querySelectorAll('.v-media--empty, .card__media--empty')) if (shown(f) && !(f.innerText || '').trim()) out.noname.push(label(f.closest('.v-card, .card') || f));
 	if (innerWidth >= 768) {

@@ -127,8 +127,102 @@ Mục tiêu ≤ 12.000 px (M2) và ≤ 16.000 px (iPhone 14): **đạt** cả 5.
 
 ## 6. Kiểm chứng
 
-{{KIEM_CHUNG}}
+Tất cả trên staging, theme 1.0.0 bản cuối (sau 6 lần tải lên của mục 6 – STAGING-LOG). Số đo thô: `screenshots/on-dinh/kiem-tra/`.
+
+### 6.1 Tờ ảnh theo template (soát mắt)
+
+29 trang của bảng TEMPLATE × M2 1536 @1,25 · 1027 px · 1920 px · iPhone 14 (WebKit), cả trang: 13 tờ ghép, mỗi template một tờ –
+`screenshots/on-dinh/to-mau/tpl-*.jpg` (8,9 MB). Soát theo "Quy tắc bố cục" 1.1–1.8 + mục 2–5.
+
+| Chỗ lạ | Template / trang | Xử lý |
+|---|---|---|
+| Nút "Nhận bảng giá biệt thự & dinh thự ven sông the global city" không xuống dòng → trang rộng hơn màn 33 px ở 390 px; tên dự án bị hạ chữ thường | dòng sản phẩm (`/du-an/the-global-city/thap-tang/biet-thu-dinh-thu-ven-song/`) | **Sửa** (mọi nút): nhãn dài hơn màn hình được xuống dòng; nhãn chỉ hạ chữ đầu ("nhà phố", "The Global City" giữ hoa). Đo lại: rộng 390 = màn |
+| Tìm "căn hộ palm river": nhóm Dự án (The Privé) đứng trước nhóm có Palm River | tìm kiếm | **Sửa**: nhóm chứa kết quả khớp tên đứng trước (tương tác NT-78 đạt) |
+| Ảnh trong cột chữ / mặt bằng / thư viện tải file nhỏ hơn khung (`sizes` còn theo cột 576 px cũ) | dự án, phân khu, dòng, bài | **Sửa**: `sizes` theo khung mới 664 / 704 / 784 px (NT-21 = 0) |
+| Hai link "bỏ qua" (theme ẩn + WordPress tự chèn), không link nào là "Bỏ qua tới nội dung" | mọi trang | **Sửa**: một link "Bỏ qua tới nội dung", hiện khi Tab, Enter → focus vào `#noi-dung` (Chromium + WebKit) |
+| 1 dự án của Masterise Homes: thẻ chuẩn căn giữa, hai bên trống | chủ đầu tư | Giữ – đúng 5.6 ("1 dự án vẫn là thẻ chuẩn, căn giữa") |
+| Sun Group (0 dự án): chỉ phần đầu (logo) + form | chủ đầu tư 0 dự án | Giữ – đúng 5.6 (không khối trống); trang ngắn vì thiếu dữ liệu |
+| Liên hệ ngắn (thẻ liên hệ + bản đồ + form) | trang thường | Giữ – nội dung trang ít |
+| Ảnh chụp cả trang để trống thư viện / ảnh tiến độ | – | Do công cụ chụp cuộn 80 ms (ảnh lazy chưa kịp tải); đã sửa công cụ (250 ms) và chụp lại; trình duyệt thật cuộn bình thường: 0 ảnh chưa tải (máy quét 6.5) |
+
+### 6.2 Bộ lọc, khung phóng to
+
+| Kiểm | Chromium | WebKit | Nguồn |
+|---|---|---|---|
+| Bộ lọc trang chủ + `/du-an/` (bấm thật từng tab / chip / ô chọn; số thẻ hiện = số đếm; 3 / 2 / 1 cột), blog / tìm kiếm phân trang, mã URL 2.6–2.7, footer | 81/81 | 81/81 | `loc-chromium.json`, `loc-webkit.json` (`tools/check_on_dinh_2.mjs`) |
+| Khung phóng to: ảnh ngang / dọc / mặt bằng × M2 + iPhone 14 (trọn màn, nền ≥ 90 % đen, cắt W-A ảnh có dấu, nút đóng 48 px, Esc / bấm nền / vuốt, mũi tên, focus trả về) | 3/3 | 3/3 | `screenshots/on-dinh/lightbox/` – **0 lỗi** |
+
+### 6.3 Lỗi PHP (thay cho WP_DEBUG_LOG)
+
+Không sửa được `wp-config.php` (không có quyền file), nên **không bật được WP_DEBUG_LOG**. Cách tương đương (không trùng hẳn): plugin
+`velis-staging-guard` 1.0.1-capture (tạm) đặt `set_error_handler` (notice, warning, deprecated – kể cả loại host đang tắt trong
+`error_reporting`, trừ lỗi bị `@` chặn) + `register_shutdown_function` (fatal) → option `velis_php_capture`, đọc qua REST (quản trị).
+Tự kiểm: `trigger_error` qua route kiểm → ghi được 1 dòng. Giới hạn: lỗi phát sinh khi nạp các plugin đứng trước guard trong thứ tự
+nạp, hoặc khi một plugin khác thay error handler, không bắt được.
+
+Đi 30 URL bảng TEMPLATE × khách + quản trị, 14 màn wp-admin (Bảng tin; sửa bài, trang, dự án, chủ đầu tư; Media + sửa 1 tệp;
+Rank Math bảng tin + Tiêu đề & Meta; sửa form CF7 20800; 4 danh sách) – chỉ mở, không lưu: **0 notice / warning / deprecated / fatal**
+(theme, velis-data và plugin khác) – `capture.json`, `php-capture-trang.txt`. Xong: gỡ về guard 1.0.0, xóa option, route trả 404.
+
+### 6.4 Tương tác (Chromium + WebKit, chạy 3 lần)
+
+| Bộ | Lần 1 | Lần 2 | Lần 3 |
+|---|---|---|---|
+| `tools/interactions.mjs` (31: menu thả xuống "Dự án" / "Về Velis" hover-click-bàn phím-mobile, lọc, phân trang, "Xem thêm", tab mục, thư viện, form chặn yêu cầu – không gửi…) | 30/31 cả hai (NT-78 tìm kiếm) | **31/31** cả hai | **31/31** cả hai |
+| `tools/interactions_b3.mjs` (24 của mockup) | 24/24 cả hai | **24/24** | **24/24** |
+
+Lần 1 chạy trước khi sửa tìm kiếm; lần 2 và 3 sau bản cuối đều đạt hết (55/55 × 2 trình duyệt × 2 lần). Bàn phím: Tab đầu tiên là
+"Bỏ qua tới nội dung" (hiện ở góc trái trên), Enter → Tab kế tiếp nằm trong `<main>` – đạt trên trang chủ, The Global City, blog
+(Chromium + WebKit); menu thả xuống mở / đóng bằng bàn phím (Enter, mũi tên, Esc) trong bộ 31.
+
+### 6.5 Máy quét toàn site (không chụp ảnh)
+
+`tools/crawl_b5.mjs`: trang chủ + sitemap (đọc bằng phiên quản trị), lan theo link nội bộ, loại 7 ứng dụng + `/meta-check.zip`.
+**181 trang × 390 + 1366 px; 181 link nội bộ, 0 link hỏng; 0 ảnh hỏng; đúng 1 H1 mọi trang; tràn ngang: 1 trang** (nút dài ở trang
+dòng biệt thự TGC, 33 px ở 390) → đã sửa, đo lại 0. Mã URL 2.6–2.7 với khách: claude-bot 404, `?author=N` 404, `/wp-json/wp/v2/users`
+401, style guide 404 (bộ 6.2). `/thi/` không quét (ứng dụng).
+
+### 6.6 Bộ đo máy
+
+| Bộ đo | Kết quả | Nguồn |
+|---|---|---|
+| Bộ NT Chromium (30 trang × DPR 1 / 1,25 / 2 × 390 / 1066 / 1366 / 1536 / 1920) | **0 lỗi** (sau sửa `sizes` NT-21 và chỉnh NT-07 theo quy tắc 2.1; chạy 3 phần song song rồi gộp) | `suite-chromium/bang.md` |
+| Bộ NT WebKit iPhone 14 (30 trang) | **0 lỗi** | `suite-webkit-iphone14/` |
+| check_ui 7 khung (30 trang × 360 … 1920) | **0 lỗi / 210 dòng** (sau chỉnh NT-06 theo quy tắc 2.1 / 5.6) | `check-ui.md` |
+| Thang chữ / khoảng cách / độ dài dòng (30 trang × M1–M5, chữ nội dung 18 px, ≤ 80 ký tự) | **0 ngoại lệ** | `thang-staging.md` |
+| On-page | **181 trang, 0 lỗi template, 0 lỗi nội dung, 0 link hỏng, 0 link tới URL cũ đã chuyển** | `onpage/` |
+| Schema (30 trang) | **0 lỗi, 0 cảnh báo** | `schema.md` |
+| Lighthouse mobile (trang chủ, TGC, bài, `/du-an/`) | Performance **99 · 99 · 99 · 99**; Accessibility 100; SEO 100 (không tính `is-crawlable` – staging chặn quét); CLS **0**; LCP 2,0 · 1,9 · 2,1 · 2,0 s | `test-results/lhci/` |
+| CSS | 39,4 KB min / 8,4 KB gzip (≤ 45 / 12) | `tools/build_css.py` |
+| Ảnh mốc (`npm run test:visual`) | Cập nhật 2 lần (sau mục 3–5 và sau 3 sửa cuối của mục 6), 156 ca (Chromium 30 trang × M1–M5 + WebKit iPhone 14 × 6); bản cuối chạy lại **2 lần: 156/156 khớp** cả hai. Mẫu trước | sau: `screenshots/on-dinh/moc-truoc-sau-the-global-city-M2.jpg` (26.496 → 11.609 px) | `tests/visual/moc/` (Git LFS) |
+
+Hai bộ đo được chỉnh theo quy tắc đã duyệt hôm nay (không nới ngưỡng): NT-06 (`tools/ui_layout.mjs`) và NT-07 (`tools/ui_media.mjs`) coi
+hàng cuối thiếu thẻ **căn giữa, giữ bề rộng thẻ** là đúng (quy tắc 2.1 / 5.2 / 5.6), chỉ bắt hàng lệch trái; NT-07 đếm số cột theo số
+thẻ nhiều nhất một hàng (hàng căn giữa làm phép đếm vị trí cũ ra "5 cột"). Có test cho cả hai.
+
 
 ## 7. Tóm tắt và việc chờ người dùng
 
-{{TOM_TAT}}
+**Kết quả**: mục 1–5 xong và chạy trên staging; mục 6: mọi bộ đo bắt buộc 0 (bảng 6.6), tương tác 55/55 × Chromium + WebKit × 2 lần,
+máy quét 181 trang 0 lỗi sau sửa, 0 lỗi PHP, ảnh mốc cập nhật và chạy lại khớp.
+
+**Chờ người dùng**
+1. **7 URL mạng xã hội** (bảng mục 2.5) – nhất là LinkedIn đang là dạng trang cá nhân `/in/velisrealty`.
+2. **Chênh với lệnh, cần duyệt:**
+   - Cột chữ 664 px trong cột chính 768 px: chữ 18 px trên cả 768 px ra 88 ký tự/dòng (> 80) – đoạn văn, tiêu đề, ảnh, bảng, bản đồ dùng
+     chung mép 664; lưới thẻ, thanh thông tin, thư viện dùng đủ 768 (mục 3.3).
+   - Khối "Bài viết" trang dự án còn 3 thẻ + nút "Tất cả bài" (trước 6) – để trang ≤ 12.000 px (mục 4).
+   - Thẻ dự án bỏ dòng giá và trạng thái (theo thứ tự trường của 5.1); thẻ phân khu / dòng vẫn có giá.
+   - Hero A (ảnh ≥ 1920 px) giữ khối chữ trên ảnh (NT-43), không chia 7/12 + 5/12 như 3.4.
+   - Tìm kiếm chỉ phân trang nhóm Bài viết; nhóm Dự án / Phân khu luôn hiện đủ ở trang 1.
+   - Số lần tải theme lên staging vượt dự tính: mục 3–5 5 lần, mục 6 6 lần (mỗi lần ghi STAGING-LOG).
+3. **Nội dung** (AUDIT-NOI-DUNG §13): cụm "Vinhomes" / "Vinhomes Saigon Park" trùng ý; 4 mô tả SEO < 50 ký tự; 1 tiêu đề bài + 4 tiêu đề
+   mục trang chủ viết hoa từng chữ – cần người dùng duyệt câu.
+4. Ngày ra mắt: người nhận form velisrealtyvn@gmail.com, chặn tài khoản, không đưa style guide (KE-HOACH-RA-MAT bước 8b).
+
+---
+Đã bỏ qua / chưa kiểm tra: WP_DEBUG_LOG thật (dùng bộ bắt lỗi tạm trong plugin guard, tương đương nhưng không trùng hẳn); máy quét không
+quét `/thi/` và trang có tham số `?`; chưa thử trên iPhone / Android thật vòng này.
+Rủi ro: mỗi thay đổi giao diện sau mốc này phải chạy lại `npm run test:visual:update` + được duyệt; nội dung thật dài hơn (FAQ, mô tả)
+có thể làm trang dự án vượt 12.000 px khi thêm dữ liệu.
+

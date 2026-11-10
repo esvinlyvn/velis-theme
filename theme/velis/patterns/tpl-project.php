@@ -34,7 +34,7 @@ for ( $up = $parent; 'thap-tang' === $level && $up && ! ( $hid && velis_usable( 
 $hero  = velis_hero_a( array(
 	'img' => $hid, 'title' => $name, 'h1' => true, 'eyebrow' => $eyebrow, 'alt' => 'Phối cảnh ' . $name,
 	'chips' => array( velis_status( $p ), implode( ', ', velis_type_names( $p ) ), $hand ? velis_label_value( 'Bàn giao', velis_short( $hand, 28 ) ) : '', '' !== $price ? 'Giá từ ' . $price : '' ),
-	'buttons' => velis_btn( 'thap-tang' === $level ? 'Nhận bảng giá ' . mb_strtolower( velis_short_name( $p ) ) : 'Nhận bảng giá', '#tu-van', '', ' data-interest="' . esc_attr( $name ) . '"' ) . velis_call_btn(),
+	'buttons' => velis_btn( 'thap-tang' === $level ? 'Nhận bảng giá ' . mb_strtolower( mb_substr( velis_short_name( $p ), 0, 1 ) ) . mb_substr( velis_short_name( $p ), 1 ) : 'Nhận bảng giá', '#tu-van', '', ' data-interest="' . esc_attr( $name ) . '"' ) . velis_call_btn(),
 ) );
 
 $facts    = velis_facts( $p );
