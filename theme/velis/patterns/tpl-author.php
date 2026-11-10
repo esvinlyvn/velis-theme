@@ -46,7 +46,7 @@ if ( $stats ) {
 	$out .= velis_section( '<dl class="numbers" aria-label="' . esc_attr( $u->display_name ) . ' bằng con số">' . implode( '', array_map( fn( $k, $v ) => '<div><dt>' . esc_html( $k ) . '</dt><dd>' . esc_html( (string) $v ) . '</dd></div>', array_keys( $stats ), $stats ) ) . '</dl>', '', 'section--tight section--tint' );
 }
 $side = $dl ? '<aside class="page__side" aria-label="Thông tin tác giả"><div class="advisor"><p class="eyebrow">Hồ sơ</p>' . ( $photo ? '<div class="advisor__who"><span class="advisor__img">' . velis_img( $photo, $u->display_name, 'thumbnail', array( 'zoom' => 1, 'sizes' => '80px' ) ) . '</span><p><b>' . esc_html( $u->display_name ) . '</b><span>' . esc_html( $role ) . '</span></p></div>' : '<p class="pricecard__title">' . esc_html( $u->display_name ) . '</p>' ) . '<dl>' . $dl . '</dl></div></aside>' : '';
-$grid = velis_sechead( 'Bài viết của ' . $u->display_name, $q->found_posts . ' bài' ) . velis_grid( array_map( 'velis_card_post', $q->posts ), $side ? '' : 'three' ) . velis_pagination( $q );
+$grid = velis_sechead( 'Bài viết của ' . $u->display_name, $q->found_posts . ' bài' ) . '<div class="postlist">' . implode( '', array_map( 'velis_post_row', $q->posts ) ) . '</div>' . velis_pagination( $q ); // item 4: one post per row
 $out .= $side ? '<div class="wrap page"><div class="page__main"><div class="block">' . $grid . '</div><div class="block advisor-inline">' . str_replace( array( '<aside class="page__side" aria-label="Thông tin tác giả">', '</aside>' ), '', $side ) . '</div></div>' . $side . '</div>' : velis_section( $grid );
 $out .= velis_form_html();
 ?>

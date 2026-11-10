@@ -16,9 +16,9 @@ add_action( 'after_setup_theme', function () {
 } );
 
 add_action( 'wp_enqueue_scripts', function () {
-	$ver = wp_get_theme()->get( 'Version' );
-	wp_enqueue_style( 'velis', get_theme_file_uri( 'assets/velis.min.css' ), array(), $ver ); // css/1-tokens … 5-utilities, built by tools/build_css.py
-	wp_enqueue_script( 'velis', get_theme_file_uri( 'assets/js/velis.js' ), array(), $ver, array( 'strategy' => 'defer', 'in_footer' => true ) );
+	$ver = fn( $f ) => (string) filemtime( get_theme_file_path( $f ) ); // file time, not 1.0.0: a re-upload of the same version is never served from a stale 7-day cache
+	wp_enqueue_style( 'velis', get_theme_file_uri( 'assets/velis.min.css' ), array(), $ver( 'assets/velis.min.css' ) ); // css/1-tokens … 5-utilities, built by tools/build_css.py
+	wp_enqueue_script( 'velis', get_theme_file_uri( 'assets/js/velis.js' ), array(), $ver( 'assets/js/velis.js' ), array( 'strategy' => 'defer', 'in_footer' => true ) );
 } );
 
 // Preload the two above-the-fold fonts (DESIGN.md: preload 2 of 3 files).
@@ -107,7 +107,7 @@ add_filter( 'wp_content_img_tag', function ( $tag, $context, $id ) {
 	$ratio  = preg_match( '/\sheight="(\d+)"/', $tag, $h ) && ! empty( $w[1] ) ? 'aspect-ratio: ' . (int) $w[1] . ' / ' . (int) $h[1] . '; ' : '';
 	$style  = $ratio . ( $marked ? '--zoom: 1.12; ' : '' );
 	$tag    = preg_match( '/\sstyle="/', $tag ) ? preg_replace( '/\sstyle="/', ' style="' . $style, $tag, 1 ) : preg_replace( '/^<img/', '<img style="' . trim( $style ) . '"', $tag ); // keep a style the editor set
-	$tag    = preg_replace( '/^<img/', '<img sizes="' . esc_attr( velis_sizes( '(min-width: 768px) min(664px, ' . $max . 'px), min(100vw - 32px, ' . $max . 'px)', $marked ? 1.12 : 1 ) ) . '"', $tag );
+	$tag    = preg_replace( '/^<img/', '<img sizes="' . esc_attr( velis_sizes( '(min-width: 1600px) min(816px, ' . $max . 'px), (min-width: 1024px) min(768px, ' . $max . 'px), min(100vw - 32px, ' . $max . 'px)', $marked ? 1.12 : 1 ) ) . '"', $tag );
 	$tag    = $marked ? preg_replace( '/^<img([^>]*?)\sclass="/', '<img$1 class="is-marked ', $tag, 1, $n ) : $tag;
 	$tag    = $marked && empty( $n ) ? preg_replace( '/^<img/', '<img class="is-marked"', $tag ) : $tag;
 	return $marked ? '<span class="pic" style="max-width: ' . $max . 'px">' . $tag . '</span>' : $tag;

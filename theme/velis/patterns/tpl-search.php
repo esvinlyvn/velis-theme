@@ -35,7 +35,7 @@ foreach ( $groups as list( $head, $list ) ) { // 2.3: grouped by type
 	}
 }
 if ( $posts ) {
-	$out .= velis_section( velis_sechead( 'Bài viết', ( $q->found_posts ?: count( $posts ) ) . ' kết quả' . ( $paged > 1 ? " · trang $paged" : '' ) ) . velis_grid( array_map( 'velis_card_post', $posts ), 'three', ' data-live' ) . velis_pagination( $q ), '', $band[ $i++ % 2 ] );
+	$out .= velis_section( velis_sechead( 'Bài viết', ( $q->found_posts ?: count( $posts ) ) . ' kết quả' . ( $paged > 1 ? " · trang $paged" : '' ) ) . '<div class="postlist">' . implode( '', array_map( 'velis_post_row', $posts ) ) . '</div>' . velis_pagination( $q ), '', $band[ $i++ % 2 ] );
 }
 if ( ! $found && ! $posts ) {
 	$out .= velis_section( velis_sechead( 'Dự án Velis đang tư vấn', 'Chưa tìm thấy nội dung phù hợp', 'Anh chị thử tên dự án hoặc xem các dự án dưới đây.' ) . velis_grid( array_map( 'velis_card_project', array_slice( velis_top_projects(), 0, 3 ) ), 'three', ' data-live' ), '', 'section--tint' );

@@ -3,13 +3,15 @@
 // the frame, left vs right empty space of the page header and of the main column, widest empty area beside content.
 // Staging guest view (view password). Usage:
 //   VIEW_PASSWORD_FILE=… node tools/check_layout_b5.mjs <out.json> [templates file = tools/templates-b5.txt] [screens = M1,M2,M3]
-//   screens: M1 1366×768@1 · M2 1536×864@1.25 · M3 1920×1080@1 · I14 iPhone 14 (WebKit)
+//   screens: M1 1366×768@1 · M2 1536×864@1.25 · M3 1920×1080@1 · X 2560×1440@1 · I14 iPhone 14 (WebKit)
+// 2026-11-11 (item 2 / 1b): mainOff = elements of the main column whose left/right edge is off the column by > 1 px;
+// sideTop = side column top − main column content top (≤ 8); underline = links underlined in their normal state (must be 0).
 import { createRequire } from 'node:module';
 import { readFileSync, writeFileSync } from 'node:fs';
 const require = createRequire(import.meta.url);
 const pw = require('playwright');
 const BASE = process.env.STAGING || 'https://staging.velisrealty.vn';
-const SCREENS = { M1: [1366, 768, 1], M2: [1536, 864, 1.25], M3: [1920, 1080, 1], I14: 'iPhone 14' };
+const SCREENS = { M1: [1366, 768, 1], M2: [1536, 864, 1.25], M3: [1920, 1080, 1], X: [2560, 1440, 1], I14: 'iPhone 14' };
 const [out = 'layout.json', list = 'tools/templates-b5.txt', scr = 'M1,M2,M3'] = process.argv.slice(2);
 const pages = readFileSync(list, 'utf8').split('\n').filter((l) => l.trim() && !l.startsWith('#')).map((l) => l.trim().split(/\s+/).slice(0, 2));
 
@@ -41,6 +43,22 @@ export function probe() {
 	let empty = 0;
 	for (let y = 120; y < innerHeight * 6 && y < document.documentElement.scrollHeight; y += 200) empty = Math.max(empty, Math.min(band(y - 32), band(y), band(y + 32)));
 	r.emptyPct = +empty.toFixed(1);
+	const mainEl = document.querySelector('.page__main');
+	if (main && side && side.width) {
+		const off = [];
+		for (const e of mainEl.querySelectorAll(':scope > .block:not(.block--dark) > *, :scope > .block.prose > *, .block:not(.block--dark) > .prose > *, :scope > header')) { // the dark gallery box spans the column, its content is inset
+			const st = getComputedStyle(e), b = R(e);
+			if (!b.width || st.display.startsWith('inline') || st.position === 'absolute' || e.matches('.btn, .clamp__fade, script, style, .sr-only, .eyebrow, .clamp__more, .card__more')) continue;
+			if (e.matches('figure, .crop') && e.querySelector('img') && e.querySelector('img').naturalWidth && b.width < main.width - 2) continue; // a small picture shows at its own size (round 8)
+			const d = Math.max(Math.abs(b.left - main.left), Math.abs(main.right - b.right));
+			if (d > 1) off.push(`${e.tagName.toLowerCase()}.${(e.className || '').toString().split(' ')[0]} ${Math.round(d)}`);
+		}
+		r.mainOff = off.length; r.mainOffList = off.slice(0, 5);
+		const first = [...mainEl.querySelectorAll('.block, header')].find((x) => R(x).height > 0);
+		const firstContent = first ? [...first.children].find((x) => R(x).height > 0) : null;
+		r.sideTop = firstContent ? Math.round(side.top - R(firstContent).top) : null;
+	}
+	r.underline = [...document.querySelectorAll('a')].filter((a) => { const b = R(a); return b.width && getComputedStyle(a).textDecorationLine.includes('underline'); }).length;
 	return r;
 }
 
@@ -65,5 +83,5 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 		await br.close();
 	}
 	writeFileSync(out, JSON.stringify(res, null, 1));
-	for (const [n, v] of Object.entries(res)) console.log(n.padEnd(20), Object.entries(v).map(([s, r]) => `${s} h${r.h} m${r.main}|s${r.side} ${r.sidePct ?? '-'}% gap${r.gap ?? '-'} edge${r.sideEdge ?? '-'} head ${r.headL}/${r.headR} empty${r.emptyPct}%`).join(' · '));
+	for (const [n, v] of Object.entries(res)) console.log(n.padEnd(20), Object.entries(v).map(([s, r]) => `${s} h${r.h} m${r.main}|s${r.side} ${r.sidePct ?? '-'}% gap${r.gap ?? '-'} edge${r.sideEdge ?? '-'} head ${r.headL}/${r.headR} empty${r.emptyPct}% off${r.mainOff ?? '-'} top${r.sideTop ?? '-'} u${r.underline}`).join(' · '));
 }

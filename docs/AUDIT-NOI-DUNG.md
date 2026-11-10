@@ -206,6 +206,10 @@ Nội dung tương ứng nay ở `/chu-dau-tu/{slug}/`. Theme không phát link 
 `/chu-dau-tu/{slug}/`); quét toàn site ở bước kiểm chứng. 301 về `/chu-dau-tu/{slug}/` đã có trong bảng redirect ngày ra mắt
 (`data/url-map.csv`, dòng vinhomes / masterise-homes …) – không sửa nội dung trang ở vòng này.
 
+Cập nhật 2026-11-11: chữ của 4 trang này (giới thiệu chủ đầu tư, đã chuyển từ site cũ) chưa từng hiện vì địa chỉ 404. Theme nay hiện chữ
+đó trên `/chu-dau-tu/{slug}/` (khối "Về {chủ đầu tư}") khi bản ghi chủ đầu tư chưa có nội dung; nên chép chữ sang bản ghi khi ra mắt
+(`docs/SAU-RA-MAT.md` mục 13). Kiểm mất chữ: `screenshots/on-dinh/kiem-tra/mat-chu.md`.
+
 ## 13. Vòng bố cục + ổn định (2026-11-10) – chỉ ghi, không sửa nội dung
 
 Nguồn: máy quét toàn site staging (`tools/crawl_b5.mjs`, 181 trang, `screenshots/on-dinh/kiem-tra/crawl.json`) + REST đọc chuyên mục.

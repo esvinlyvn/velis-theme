@@ -51,7 +51,7 @@ if ( 'so-sanh' === $kind && count( $projs ) >= 2 ) {
 if ( $projs ) {
 	$mid     = '<div class="advisor-inline">' . velis_card_project( $projs[0], 'Dự án trong bài', 'embed' ) . '</div>';
 	// the card spans the text column (≤ 720 px), not a third of the frame: its photo sizes follow (NT-21)
-	$mid     = preg_replace_callback( '#(<img\b[^>]*?\s)sizes="([^"]*)"#', fn( $m ) => $m[1] . 'sizes="' . esc_attr( velis_sizes( '(min-width: 768px) 664px, calc(100vw - 32px)', preg_match( '/calc\(([\d.]+) \* \(/', $m[2], $z ) ? (float) $z[1] : 1 ) ) . '"', $mid, 1 );
+	$mid     = preg_replace_callback( '#(<img\b[^>]*?\s)sizes="([^"]*)"#', fn( $m ) => $m[1] . 'sizes="' . esc_attr( velis_sizes( VELIS_SIZES_MAIN, preg_match( '/calc\(([\d.]+) \* \(/', $m[2], $z ) ? (float) $z[1] : 1 ) ) . '"', $mid, 1 );
 	$parts   = preg_split( '#(</p>)#', $content, 4, PREG_SPLIT_DELIM_CAPTURE );
 	$content = count( $parts ) > 6 ? implode( '', array_slice( $parts, 0, 6 ) ) . $mid . implode( '', array_slice( $parts, 6 ) ) : $content . $mid;
 }

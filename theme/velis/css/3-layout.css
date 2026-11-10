@@ -1,7 +1,7 @@
 /* 3. Layout – 12-column frame (1.1), sections on the alternating ground (1.5), 2-column page, card grids.
    Grids never leave an empty cell (X-06): the column count follows the number of items (data-n set in the markup). */
 .wrap { width: min(100% - 2 * var(--gutter), var(--wrap)); margin-inline: auto; }
-.wrap--read { width: min(100% - 2 * var(--gutter), var(--read)); margin-inline: auto; }
+.wrap--read { width: min(100% - 2 * var(--gutter), var(--read-col)); margin-inline: auto; }
 .section { padding-block: var(--section); }
 .section--tint { background: var(--surface); --fade: #FFFFFF; --fade-0: rgb(255 255 255 / 0); }      /* trắng – xen kẽ với nền ngà mặc định */
 .section--soft { background: var(--champagne-soft); --fade: #F3ECDF; --fade-0: rgb(243 236 223 / 0); }
@@ -13,19 +13,18 @@
    column's right edge is the frame edge; < 1024 one column (project pages: the side block comes after the facts bar) */
 .page { padding-block: var(--s4) 0; } /* 2.2: the last block's 48 px is the whole gap to what follows; ≤ 96 px under the facts bar */
 .page__side { display: none; }
-.page__main .prose :is(p, li, dd), .page__main .prose, .wrap--read :is(p, li, dd), .wrap--read .prose, .onecol .prose :is(p, li, dd) { max-width: none; } /* other text keeps the 46ch cap (≤ 68 characters) */
-/* 3.3: content text 18 / 1.7; text, headings, pictures, tables and maps of the main column share ONE edge, --read wide
-   (≤ 80 characters a line counted for real); card grids, facts and the gallery use the whole main column */
+.page__main :is(p, li, dd), .wrap--read :is(p, li, dd), .onecol :is(p, li, dd) { max-width: none; } /* item 2: as wide as the column; elsewhere text keeps the 46ch cap */
+/* 2026-11-11 item 2: everything in the main column is as wide as the column (no narrower text measure); line length is held
+   by the font size: 18 px, 19 px from 1600 px (≤ 90 characters a line, counted for real) */
 .page__main .prose, .wrap--read .prose, .onecol .prose { font-size: var(--fs-text); line-height: 1.7; }
 .page__main .prose table, .wrap--read .prose table, .onecol .prose table { font-size: var(--fs-body); }
-.page__main > .block > :is(.prose, .sechead, .map, .disclosure, .within, .table-wrap, .clamp__more, [data-tabs]), .page__main > .block.prose, .page__main > header, .onecol .prose { max-width: var(--read); }
 @media (min-width: 768px) {
-	/* 14 px notes keep the column edges; the text is held to ≤ 80 characters by inner padding, not by a narrower box */
-	.page__main .disclosure, .wrap--read .disclosure { padding-inline: var(--s24); } /* 14 px in the 664 px box: ≤ 80 characters; a plain .source note keeps the 46ch cap */
+	/* 14 px notes keep the column edges; the text is held to ≤ 90 characters by inner padding, not by a narrower box */
+	.page__main .disclosure, .wrap--read .disclosure { padding-inline: var(--s16); }
 }
 @media (min-width: 1024px) {
 	.page { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: var(--s12); align-items: start; }
-	.page__side { display: block; position: sticky; top: calc(var(--header-h) + 56px + var(--s6)); }
+	.page__side { display: block; position: sticky; top: calc(var(--header-h) + 56px + var(--s6)); margin-top: var(--s6); } /* item 2: level with the first content of the main column (its block starts with 24 px) */
 }
 /* 1-column templates (3.2: policy, search, 404): one reading frame ≤ 760 px, centred; breadcrumb, title and content share its edge */
 .onecol .wrap, .onecol .wrap--read { width: min(100% - 2 * var(--gutter), var(--read-col)); }

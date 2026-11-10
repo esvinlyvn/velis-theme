@@ -38,7 +38,7 @@ await p.mouse.move(5, 500); await p.waitForTimeout(400);
 check('NT-70 menu thả xuống đóng sau ~200 ms khi rời chuột', !(await sub('Dự án')).open);
 await p.click('.header__toggle >> text=Về Velis'); await p.waitForTimeout(150);
 const vv = await sub('Về Velis');
-check('NT-70 menu "Về Velis" mở khi bấm: Giới thiệu, Tuyển dụng, Liên hệ', vv.open && vv.links.join() === 'Giới thiệu,Tuyển dụng,Liên hệ', vv);
+check('NT-70 menu "Về Velis" mở khi bấm: Giới thiệu, Tuyển dụng (Liên hệ là mục riêng – 2026-11-11)', vv.open && vv.links.join() === 'Giới thiệu,Tuyển dụng', vv);
 await p.mouse.click(5, 500); await p.waitForTimeout(150);
 await p.focus('.header__toggle >> text=Dự án'); await p.keyboard.press('Enter'); await p.keyboard.press('ArrowDown'); await p.waitForTimeout(100);
 const k1 = await p.evaluate(() => document.activeElement.closest('.header__sub') ? document.activeElement.textContent.trim() : '');
@@ -48,7 +48,7 @@ check('NT-70 menu thả xuống bằng bàn phím: Enter mở, ↓ vào mục đ
 const mm = await open(mob, '/');
 await mm.click('[data-menu-open]'); await mm.waitForTimeout(200);
 const ms = await mm.evaluate(() => [...document.querySelectorAll('#menu .menu__sub')].map((u) => u.querySelectorAll('a').length));
-check('NT-70 menu thả xuống trên mobile: "Dự án" (7) và "Về Velis" (3) là mục con trong menu', ms.join() === '7,3', ms);
+check('NT-70 menu thả xuống trên mobile: "Dự án" (7) và "Về Velis" (2) là mục con trong menu', ms.join() === '7,2', ms);
 await mm.close();
 
 // 6–9 product tabs + price button

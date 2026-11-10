@@ -32,8 +32,7 @@ foreach ( $q->posts as $p ) {
 		}
 	}
 }
-$out .= velis_section( velis_sechead( 'Bài viết ' . $cat->name, $paged > 1 ? "Trang $paged" : 'Mới nhất' ) . '<div data-chipgrid>' . velis_chipbars( array( 'kind' => array( 'Lọc theo loại bài', $kinds ), 'pk' => array( 'Lọc theo phân khu', $pks ) ) )
-	. velis_grid( array_map( fn( $p ) => velis_card_post( $p, true ), $q->posts ), 'three', ' data-live' ) . '</div>' . velis_pagination( $q ), '', 'section--tint' );
+$out .= '<section class="section section--tint">' . velis_post_list( $q->posts, velis_chipbars( array( 'kind' => array( 'Lọc theo loại bài', $kinds ), 'pk' => array( 'Lọc theo phân khu', $pks ) ) ), velis_pagination( $q ), velis_list_side( (int) $cat->term_id ) ) . '</section>'; // item 4: one post per row
 $out .= velis_form_html( $pill ? $pill->post_title : '' );
 ?>
 <!-- wp:html -->

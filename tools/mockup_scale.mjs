@@ -12,13 +12,13 @@ const [base = 'http://127.0.0.1:8765', out] = STAGING ? ['https://staging.velisr
 // staging: paths from a file (one per line, # comments) or a comma list; mockup: the 3 built pages
 const list = STAGING ? (existsSync(process.argv[3]) ? readFileSync(process.argv[3], 'utf8').split('\n') : process.argv[3].split(',')).map((x) => x.trim()).filter((x) => x && !x.startsWith('#')) : null;
 export const FONT = [56, 48, 40, 36, 28, 22, 19, 18, 17, 16, 14, 13]; // H1 56/36 · số liệu 48 · H2 40/28 · H3 22 · dẫn 19 · chữ nội dung 18 (vòng bố cục 3.3) · thân 17 · thẻ 16 · phụ 14 · nhãn 13
-export const MAX_CHARS = 80; // 1.6 sửa ngày 2026-11-10 (vòng bố cục 3.3): ≤ 80 ký tự / dòng (trước: 68)
+export const MAX_CHARS = 90; // 1.6 sửa ngày 2026-11-11 (vòng sửa trang chủ mục 2): ≤ 90 ký tự / dòng, cột chính rộng hết 8/12 (trước: 80, 68)
 export const SPACE = [0, 8, 16, 24, 32, 40, 48, 64, 96]; // 40 = tiêu đề khối → nội dung (desktop)
 const PAGES = ['trang-chu', 'the-global-city', 'masteri-park-place'];
 const SCREENS = [['M1', 1366, 768], ['M5', 390, 844], ['768', 768, 1024], ['1024', 1024, 768], ['M3', 1920, 1080]];
 
 // Runs in the page.
-export function scaleAudit({ FONT, SPACE, MAX_CHARS = 80 }) {
+export function scaleAudit({ FONT, SPACE, MAX_CHARS = 90 }) {
 	const skip = '.mk, .mk-float, .tmp, .draft, .sr-only, .screen-reader-text, #wpadminbar, #wpadminbar *, script, style, svg, img, iframe, br, option, dialog:not([open]), dialog:not([open]) *';
 	const near = (v, set) => set.some((x) => Math.abs(v - x) < 0.5);
 	const name = (e) => e.tagName.toLowerCase() + (typeof e.className === 'string' && e.className.trim() ? '.' + e.className.trim().split(/\s+/)[0] : '');

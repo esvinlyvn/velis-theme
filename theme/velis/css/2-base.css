@@ -10,8 +10,10 @@ h3, h4 { font-family: var(--f-body); font-weight: 600; font-size: var(--fs-h3); 
 p, ul, ol, table, figure, details, dl { margin: 0 0 var(--s4); }
 ul, ol { padding-left: var(--s6); }
 p, li, dd { max-width: 46ch; } /* 1.6: ≤ 68 ký tự/dòng – chữ Việt hẹp hơn "0", 46ch ≈ 68 ký tự (đo bằng tools/mockup_scale.mjs) */
-a { color: var(--red); text-underline-offset: 3px; }
+a { color: var(--red); text-decoration: none; text-underline-offset: 3px; } /* 1b: no link is underlined in its normal state */
 a:hover { color: var(--red-hover); }
+:is(p, .prose :is(li, td, dd, blockquote)) a:not([class]) { color: var(--red-link); font-weight: 600; } /* link in running text: red + 600 */
+:is(p, .prose :is(li, td, dd, blockquote)) a:not([class]):hover { color: var(--red-hover); text-decoration: underline; text-decoration-thickness: 1px; }
 img { display: block; max-width: 100%; height: auto; }
 table { border-collapse: collapse; width: 100%; font-size: var(--fs-card); line-height: 1.55; }
 th, td { padding: var(--s2) var(--s4); border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }

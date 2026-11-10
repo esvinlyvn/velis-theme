@@ -66,7 +66,7 @@ $out  .= '<section class="section" id="du-an" aria-labelledby="du-an-h"><div cla
 // d. partners: developers with a logo, every logo the same visual area (±15 %), ≤ 48 px high, ≤ 160 px wide (duyệt 2026-11-06)
 $logos = '';
 foreach ( get_posts( array( 'post_type' => 'chu-dau-tu', 'numberposts' => 50, 'orderby' => 'title', 'order' => 'ASC' ) ) as $d ) {
-	if ( '' === ( $img = velis_dev_logo( $d ) ) ) {
+	if ( '' === ( $img = velis_dev_logo( $d, array( 6800, 64, 200 ) ) ) ) {
 		continue;
 	}
 	$logos .= '<li><a href="' . esc_url( get_permalink( $d ) ) . '" aria-label="' . esc_attr( $d->post_title ) . '">' . $img . '</a></li>';
@@ -74,7 +74,7 @@ foreach ( get_posts( array( 'post_type' => 'chu-dau-tu', 'numberposts' => 50, 'o
 if ( $logos ) {
 	$out .= '<section class="section section--tint" aria-labelledby="cdt-h"><div class="wrap"><header class="sechead"><h2 id="cdt-h">Đối tác của chúng tôi</h2>'
 		. '<p>Velis Realty là đơn vị chuyên tư vấn và phân phối bất động sản cao cấp, tập trung vào dự án của các chủ đầu tư có hồ sơ bàn giao và pháp lý công khai.</p></header>'
-		. '<ul class="partners">' . $logos . '</ul></div></section>';
+		. '<ul class="partners partners--row" style="--n: ' . substr_count( $logos, '<li>' ) . '">' . $logos . '</ul></div></section>'; // 3.1: equal cells across the frame
 }
 
 // e. "Công ty TNHH Velis Realty": the old home's 2 intro paragraphs, word for word, + Giá Trị Khác Biệt (Giới thiệu)
@@ -89,10 +89,12 @@ $values = array(
 	'Cập Nhật Quỹ Căn Và Chính Sách' => 'Cập nhật quỹ căn và chính sách bán hàng ngay khi chủ đầu tư công bố.',
 );
 $about = get_page_by_path( 'gioi-thieu' );
-$out  .= '<section class="section" id="ve-velis" aria-labelledby="ve-velis-h"><div class="wrap"><header class="sechead"><h2 id="ve-velis-h">Công ty TNHH Velis Realty</h2><div class="about__lead">'
-	. implode( '', array_map( fn( $t ) => '<p>' . esc_html( $t ) . '</p>', $intro ) ) . '</div></header><h2 class="values-head">Giá trị khác biệt tại Velis Realty</h2>' // 2.8: an H2, not a small label
-	. '<ul class="values">' . implode( '', array_map( fn( $t, $d ) => '<li><h3>' . esc_html( $t ) . '</h3><p>' . esc_html( $d ) . '</p></li>', array_keys( $values ), $values ) ) . '</ul>'
-	. ( $about ? '<p class="mb-0">' . velis_btn( 'Tìm hiểu Velis', (string) get_permalink( $about ), 'line' ) . '</p>' : '' ) . '</div></section>';
+// 3.2: one block, 6/12 + 6/12: the intro (eyebrow, H2, 2 paragraphs, button) beside the 4 values as a numbered list
+$out  .= '<section class="section" id="ve-velis" aria-labelledby="ve-velis-h"><div class="wrap about"><div class="about__text"><p class="eyebrow">Về Velis</p><h2 id="ve-velis-h">Công ty TNHH Velis Realty</h2>'
+	. implode( '', array_map( fn( $t ) => '<p>' . esc_html( $t ) . '</p>', $intro ) )
+	. ( $about ? '<p class="mb-0">' . velis_btn( 'Tìm hiểu Velis', (string) get_permalink( $about ), 'line' ) . '</p>' : '' ) . '</div>'
+	. '<div class="about__values"><h3 class="about__values-h">Giá trị khác biệt tại Velis Realty</h3><ol class="values">'
+	. implode( '', array_map( fn( $t, $d ) => '<li><h4>' . esc_html( $t ) . '</h4><p>' . esc_html( $d ) . '</p></li>', array_keys( $values ), $values ) ) . '</ol></div></div></section>';
 
 // f. analyses: newest posts whose featured image is a real project image (velis_image_kind), one per project cluster
 $posts = array();
@@ -109,7 +111,7 @@ if ( $posts ) {
 }
 
 // g. exam + careers: one champagne band, 2 boxes of the same height (sentence of the exam box: duyệt 2026-11-06)
-$out .= '<section class="section section--tight section--soft" aria-label="Thi thử chứng chỉ môi giới và cơ hội nghề nghiệp"><div class="wrap duo">'
+$out .= '<section class="section section--tight" aria-label="Thi thử chứng chỉ môi giới và cơ hội nghề nghiệp"><div class="wrap duo">'
 	. '<div class="duo__item"><h2 class="duo__title">Thi thử chứng chỉ môi giới</h2><p>Ôn luyện và thi thử chứng chỉ hành nghề môi giới bất động sản miễn phí.</p>' . velis_btn( 'Thi thử CCMG', '/thi/' ) . '</div>'
 	. '<div class="duo__item"><h2 class="duo__title">Cơ hội nghề nghiệp</h2><p>Velis Realty đang tuyển nhiều vị trí Chuyên viên Kinh doanh Bất động sản cao cấp, làm việc toàn thời gian tại văn phòng 34 Lương Định Của, Phường Bình Trưng, TP. Hồ Chí Minh.</p>' . velis_btn( 'Ứng tuyển ngay', '/tuyen-dung/' ) . '</div>'
 	. '</div></section>';

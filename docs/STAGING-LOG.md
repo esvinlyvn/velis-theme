@@ -210,3 +210,10 @@ Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng th
 
 | velis-staging-guard (mục 6, tạm) | 1.0.0 → **1.0.1-capture** (Plugin → Tải lên → thay bản đang dùng; 3 lần: bản ghi, thêm route tự kiểm, sửa lọc theo `error_reporting` của host) – ghi notice / warning / deprecated / fatal PHP vào option `velis_php_capture`, đọc qua REST (quản trị). Sau khi đi 30 URL × khách / quản trị + 14 màn wp-admin (chỉ mở, không lưu): **gỡ về 1.0.0** (cùng file `staging/velis-staging-guard`), xóa option; route trả 404 |
 | Theme velis 1.0.0 (mục 6) | **6 lần** tải lên cùng số phiên bản: link "Bỏ qua tới nội dung" hiện khi Tab (bỏ link cũ ẩn + link WordPress tự chèn → 1 link), nút dài được xuống dòng (trang dòng biệt thự TGC tràn ngang 33 px ở 390), nhãn "Nhận bảng giá …" chỉ hạ chữ đầu, tìm kiếm đưa nhóm chứa kết quả khớp tên lên trước ("căn hộ palm river"), `sizes` ảnh nội dung / mặt bằng / thư viện theo khung mới 664 / 704 / 784 px (NT-21) |
+
+## 2026-11-11 – Vòng sửa trang chủ
+
+| Mục | Thay đổi |
+|---|---|
+| Theme velis 1.0.0 | **5 lần tải lên** (Giao diện → Tải lên → thay bản đang dùng, cùng số 1.0.0): menu "Về Velis" 2 mục + "Liên hệ" riêng, số điện thoại header biểu tượng + số; link không gạch chân; khung 2 cột 8/12 + 4/12 không giới hạn riêng chữ (18 / 19 px); trang chủ: lưới đối tác hết khung, khối Velis 6/12 + 6/12, khối form nền sáng + thẻ trắng (chỉ footer tối); danh sách bài dạng dòng (blog, cụm, tác giả, tìm kiếm); trang chủ đầu tư hiện chữ của trang cũ cùng slug ("Về …"); /blog/ và /du-an/ hiện chữ trang của mình; CSS / JS gắn phiên bản theo thời điểm file |
+| Nội dung / Media / plugin | không đổi; không gửi form |

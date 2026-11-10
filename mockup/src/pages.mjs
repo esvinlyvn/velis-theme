@@ -26,14 +26,14 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 <header class="header"><div class="wrap header__bar">
 	<a class="header__logo" href="trang-chu.html"><img src="${logo}" width="191" height="44" alt="Velis Realty"></a>
 	<nav class="header__nav" aria-label="Menu chính"><ul>${home.header.nav.map(n => `<li><a href="#">${esc(n)}</a></li>`).join('')}</ul></nav>
-	<a class="header__phone" href="#">Gọi hotline ${PHONE}</a>
+	<a class="header__phone" href="#" aria-label="Gọi ${PHONE}"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>${PHONE}</span></a>
 	<a class="btn header__cta" href="#tu-van">${esc(home.header.cta)}</a>
 	<button class="header__menu" type="button" data-menu-open aria-haspopup="dialog" aria-controls="menu"><span></span><b class="sr-only">Mở menu</b></button>
 </div></header>
 <dialog class="menu" id="menu" aria-label="Menu">
 	<div class="menu__top"><img src="${logo}" width="156" height="36" alt="Velis Realty"><button class="menu__close" type="button" data-menu-close aria-label="Đóng menu">×</button></div>
 	<nav aria-label="Menu chính (di động)"><ul>${home.header.nav.map(n => `<li><a href="#">${esc(n)}</a></li>`).join('')}</ul></nav>
-	<div class="menu__actions"><a class="btn btn--line" href="#">Gọi hotline ${PHONE}</a><a class="btn" href="#tu-van">${esc(home.header.cta)}</a></div>
+	<div class="menu__actions"><a class="btn btn--line" href="#">Gọi ${PHONE}</a><a class="btn" href="#tu-van">${esc(home.header.cta)}</a></div>
 </dialog>`;
 
 	const footer = ({ heroSwitch = true } = {}) => {
@@ -77,7 +77,7 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 	const form = (title, lead, interest = '') => {
 		const f = home.form;
 		return `
-<section class="section section--dark" id="tu-van" aria-labelledby="tu-van-h"><div class="wrap contact">
+<section class="section section--soft section--form" id="tu-van" aria-labelledby="tu-van-h"><div class="wrap contact">
 	<div><p class="eyebrow">${esc(f.eyebrow)}</p><h2 id="tu-van-h">${esc(title)}</h2><p>${esc(lead ?? f.lead)}</p>
 		<dl>${f.contact.map(([k, v]) => { const href = /^0[\d ]+$/.test(v) ? 'tel:' + v.replace(/\s/g, '') : /^zalo\.me/.test(v) ? '#' : /@/.test(v) ? 'mailto:' + v : ''; return `<div><dt>${esc(k)}</dt><dd>${href ? `<a href="${href}">${esc(v)}</a>` : esc(v)}</dd></div>`; }).join('')}</dl></div>
 	<form class="form" novalidate>${fields('', { interest })}
@@ -159,7 +159,7 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 	const aboutLead = O.paras;
 	const LOGOS = { vinhomes: [712, 325], 'masterise-homes': [486, 330], 'sun-group': [712, 226], 'gamuda-land': [711, 144] }; // = build_mockup.mjs SUPPLIED
 	// partner logos: same visual area (±15 %), ≤ 48 px high, ≤ 160 px wide, from each logo's own ratio (duyệt 2026-11-06)
-	const logoBox = (w, h, area = 2304) => { const r = w / h; const lw = Math.min(160, Math.min(48, Math.sqrt(area / r)) * r); return [Math.round(lw), Math.round(lw / r)]; }; // = velis_logo_box() (theme)
+	const logoBox = (w, h, area = 2304, hmax = 48, wmax = 160) => { const r = w / h; const lw = Math.min(wmax, Math.min(hmax, Math.sqrt(area / r)) * r); return [Math.round(lw), Math.round(lw / r)]; }; // = velis_logo_box() (theme)
 	const withImg = broker.projects.filter(p => (H.projects.find(x => x.title === p.title) || {}).img), noImg = broker.projects.filter(p => !withImg.includes(p));
 	const projCard = p => {
 		const c = H.projects.find(x => x.title === p.title) || {}, hand = (c.lines || []).find(l => /^Bàn giao/.test(l));
@@ -195,19 +195,17 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 </div></section>
 <section class="section section--tint" aria-labelledby="cdt-h"><div class="wrap">
 	<header class="sechead"><h2 id="cdt-h">${sentence(O.partnersHead)}</h2><p>${esc(broker.who.text.slice(0, broker.who.text.indexOf('. ') + 1))}</p></header>
-	<ul class="partners">${O.partners.map(pt => { const dv = broker.devs.find(x => x.name === pt.name); const slug = dv?.slug || pt.oldLink.split('/').filter(Boolean).pop(); const [lw, lh] = logoBox(...LOGOS[slug]); return `<li><a href="#" data-href="/chu-dau-tu/${slug}/" aria-label="${esc(pt.name)}">${img(`img/doi-tac-${slug}.webp`, { alt: pt.name, sizes: [['', `${lw}px`]], tmp: '' }).replace('<img ', `<img style="--w: ${lw}px; --h: ${lh}px" `)}</a></li>`; }).join('')}</ul>
+	<ul class="partners partners--row" style="--n: ${O.partners.length}">${O.partners.map(pt => { const dv = broker.devs.find(x => x.name === pt.name); const slug = dv?.slug || pt.oldLink.split('/').filter(Boolean).pop(); const [lw, lh] = logoBox(...LOGOS[slug], 6800, 64, 200); return `<li><a href="#" data-href="/chu-dau-tu/${slug}/" aria-label="${esc(pt.name)}">${img(`img/doi-tac-${slug}.webp`, { alt: pt.name, sizes: [['', `${lw}px`]], tmp: '' }).replace('<img ', `<img style="--w: ${lw}px; --h: ${lh}px" `)}</a></li>`; }).join('')}</ul>
 </div></section>
-<section class="section" id="ve-velis" aria-labelledby="ve-velis-h"><div class="wrap">
-	<header class="sechead"><h2 id="ve-velis-h">Công ty TNHH Velis Realty</h2><div class="about__lead">${aboutLead.map(t => `<p>${t}</p>`).join('')}</div></header>
-	<h2 class="values-head">Giá trị khác biệt tại Velis Realty</h2>
-	<ul class="values">${broker.values.items.map(([t, d]) => `<li><h3>${esc(t)}</h3><p>${esc(d)}</p></li>`).join('')}</ul>
-	<p class="mb-0"><a class="btn btn--line" href="#">${esc(H.about.button)}</a></p>
+<section class="section" id="ve-velis" aria-labelledby="ve-velis-h"><div class="wrap about">
+	<div class="about__text"><p class="eyebrow">Về Velis</p><h2 id="ve-velis-h">Công ty TNHH Velis Realty</h2>${aboutLead.map(t => `<p>${t}</p>`).join('')}<p class="mb-0"><a class="btn btn--line" href="#">${esc(H.about.button)}</a></p></div>
+	<div class="about__values"><h3 class="about__values-h">Giá trị khác biệt tại Velis Realty</h3><ol class="values">${broker.values.items.map(([t, d]) => `<li><h4>${esc(t)}</h4><p>${esc(d)}</p></li>`).join('')}</ol></div>
 </div></section>
 <section class="section section--tint" aria-labelledby="bai-h"><div class="wrap">
 	${sechead({ title: sentence(O.postsHead) }, `<a class="btn btn--text" href="#">${esc(H.sections[2].more)} →</a>`).replace('<h2>', '<h2 id="bai-h">')}
 	${grid(H.posts.map(p => postCard(p, S.card3)))}
 </div></section>
-<section class="section section--tight section--soft" aria-label="Thi thử chứng chỉ môi giới và cơ hội nghề nghiệp"><div class="wrap duo">
+<section class="section section--tight" aria-label="Thi thử chứng chỉ môi giới và cơ hội nghề nghiệp"><div class="wrap duo">
 	<div class="duo__item"><h2 class="duo__title">${sentence(O.exam.button)}</h2><p>Ôn luyện và thi thử chứng chỉ hành nghề môi giới bất động sản miễn phí.</p><a class="btn" href="#" data-href="${O.exam.link}">Thi thử CCMG</a></div>
 	<div class="duo__item"><h2 class="duo__title">${sentence(O.career.head)}</h2><p>${esc(O.career.line)}</p><a class="btn" href="#" data-href="${O.career.link}">${sentence(O.career.button)}</a></div>
 </div></section>

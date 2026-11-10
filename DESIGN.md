@@ -69,7 +69,6 @@ layout:
   columns: 12
   content: 1200px
   content-1600: 1320px
-  reading: 664px   # mép chữ/ảnh/bảng/bản đồ trong cột chính (18 px ≤ 80 ký tự) – vòng bố cục 2026-11-10
   reading-column: 760px   # template 1 cột
   gutter-desktop: 24px
   gutter-mobile: 16px
@@ -168,7 +167,7 @@ bằng `prefers-reduced-motion`; WCAG 2.2 AA.
 Không có cỡ nào khác (đo bằng `tools/mockup_scale.mjs`). `h4` trong front-matter = 19 px chỉ để `theme.json` có đủ khóa.
 
 ### Principles
-- Chữ nội dung 18 px / 1,7, dòng ≤ 80 ký tự **đếm thật** (vòng bố cục 2026-11-10, thay 68 ký tự): mép chữ 664 px (đo: 680 px = 78–81 ký tự tùy đoạn, 720 px = 82); chữ phụ ngoài nội dung giữ `max-width: 46ch`.
+- Chữ nội dung 18 px / 1,7 (19 px từ 1600 px), dòng ≤ 90 ký tự **đếm thật** (2026-11-11, thay mép chữ 664 px): mọi thứ trong cột chính rộng bằng cột, độ dài dòng giữ bằng cỡ chữ; chữ phụ ngoài cột chính giữ `max-width: 46ch`.
 - Đúng một H1 mỗi trang; tiêu đề khối của theme ("Bài viết liên quan", tiêu đề footer) **không dùng thẻ heading**,
   dùng kiểu `eyebrow`.
 - Không viết hoa toàn bộ tiêu đề tiếng Việt (dấu chồng lên nhau khó đọc); chữ hoa chỉ cho `eyebrow` ngắn.
@@ -194,12 +193,12 @@ không tính đầu khối (nhãn + H1/H2 + đoạn dẫn – mẫu NT-11) và n
 
 **1.4 Một điểm nhìn.** Mỗi khối đúng một tiêu điểm thị giác; không đặt hai thứ nặng ngang nhau cạnh nhau.
 
-**1.5 Nhịp nền** (sửa 2026-11-06). Xen kẽ ngà #FAF7F2 và trắng; hai khối liền nhau không cùng nền trừ khi có tiêu đề ngăn. **Nền tối
-(#111111) chỉ dùng cho thư viện ảnh và khối form tư vấn** (ngay trước footer). Footer nền khác (#1A1A1A) + đường champagne 1 px ở
-mép trên. Dải "Thi thử + Tuyển dụng" nền champagne nhạt #F3ECDF để tách rõ khỏi khối tối. Hero trang chủ (ảnh + lớp phủ) không
+**1.5 Nhịp nền** (sửa 2026-11-11). Xen kẽ ngà #FAF7F2 và trắng; hai khối liền nhau phải phân biệt được bằng nền. **Nền tối chỉ dùng
+cho footer (#1A1A1A + đường champagne 1 px ở mép trên) và thư viện ảnh.** Khối form "Nhận tư vấn" nền champagne nhạt #F3ECDF, form
+nằm trên thẻ trắng viền mảnh; dải "Thi thử + Tuyển dụng" phía trên nền ngà (khác nền khối form). Hero trang chủ (ảnh + lớp phủ) không
 phải khối nền.
 
-**1.6 Chữ và đường kẻ.** Dòng ≤ 80 ký tự (chữ nội dung 18 px; sửa 2026-11-10, trước: 68) (đếm từng ký tự trên dòng hiển thị, bỏ dấu cách ở chỗ xuống dòng – `tools/mockup_scale.mjs`).
+**1.6 Chữ và đường kẻ.** Dòng ≤ 90 ký tự (chữ nội dung 18 px, 19 px từ 1600 px; sửa 2026-11-11, trước: 80, 68) (đếm từng ký tự trên dòng hiển thị, bỏ dấu cách ở chỗ xuống dòng – `tools/mockup_scale.mjs`).
 Dùng khoảng trắng thay đường kẻ; viền chỉ cho thẻ và ô nhập. Được giữ: gạch champagne 48 px dưới tiêu đề khối (dấu nhấn NT-11),
 vạch dọc mảnh giữa các cột số liệu (yêu cầu khối b), đường kẻ dòng của bảng dữ liệu và thanh thông tin dự án (1 đường dưới mỗi hàng).
 
@@ -262,12 +261,15 @@ Cao tối thiểu 48 px (vùng bấm ≥ 44 × 44). Đổi màu 150–200 ms.
 Thứ tự: con số → dự án (tab khu vực) → đối tác → giá trị khác biệt → bài phân tích → thi thử + tuyển dụng → form → footer.
 - **Con số** 10+ · 50+ · 999+ · 99+ (dấu + sau số), dải trắng 4 cột, Playfair 48 champagne đậm.
 - **Dự án**: 1 hàng tab khu vực (chọn một), lưới 3 × 2, thẻ thiếu ảnh sạch xếp cuối; "Xem tất cả dự án" giữa dưới lưới.
-- **Đối tác**: căn trái như mọi khối; logo **cân theo diện tích thị giác** – mọi logo chiếm diện tích bao gần bằng nhau (±15 %),
-  cao ≤ 48 px, rộng ≤ 160 px (tính từ tỉ lệ gốc của logo: rộng × cao = diện tích chung, rồi kẹp); xám đậm, hover màu gốc.
-- **Giá trị khác biệt**: H2 "Công ty TNHH Velis Realty" + 2 đoạn giới thiệu nguyên văn trang cũ (đoạn dẫn), rồi 4 mục 01–04
-  **2×2 dưới 1600 px, 4 cột từ 1600 px**, nút "Tìm hiểu Velis". Trang chỉ có 1 H1 (của hero).
+- **Đối tác** (2026-11-11): tiêu đề + 1 dòng mô tả ở trên; lưới logo trải hết bề ngang khung – số ô = số logo, ô bằng nhau, đường
+  chia 1 px giữa các ô, logo căn giữa ô, **cân theo diện tích thị giác** (6 800 px², cao ≤ 64, rộng ≤ 200 – khoảng 56 px với logo 2:1;
+  lệch ≤ 15 %); xám đậm, hover màu gốc; mobile 2 cột. Trang / danh sách chủ đầu tư giữ 2 304 px², ≤ 48 × 160.
+- **Khối "Công ty TNHH Velis Realty"** (2026-11-11, không ảnh): 2 cột 6/12 + 6/12 trải hết khung. Trái: nhãn "Về Velis", H2,
+  2 đoạn giới thiệu nguyên văn trang cũ, nút "Tìm hiểu Velis". Phải: tiêu đề nhỏ "Giá trị khác biệt tại Velis Realty" + 4 giá trị
+  dạng danh sách đánh số 01–04 (số Playfair champagne lớn, tiêu đề, đoạn ngắn), ngăn bằng đường kẻ mảnh, không thẻ; hai cột cao lệch
+  ≤ 15 %; mobile: chữ rồi danh sách. Trang chỉ có 1 H1 (của hero).
 - **Thẻ** (dự án, bài viết): link "Xem dự án" / "Đọc bài" ghim đáy thẻ – các link cùng hàng thẳng nhau ±1 px.
-- **Thi thử + Tuyển dụng**: 2 hộp cùng cao; câu hộp Thi thử: "Ôn luyện và thi thử chứng chỉ hành nghề môi giới bất động sản miễn phí."
+- **Thi thử + Tuyển dụng**: dải nền ngà, 2 hộp trắng cùng cao; câu hộp Thi thử: "Ôn luyện và thi thử chứng chỉ hành nghề môi giới bất động sản miễn phí."
 - Trang dự án: hero B ở M4 giãn ảnh 1,52 – chấp nhận (2026-11-06).
 
 ### Bố cục template (vòng bố cục + ổn định – Duyệt: người dùng, 2026-11-10; thay "cột đọc 576 px" và "tối đa 1 vùng Đọc tiếp")
@@ -275,8 +277,11 @@ Thứ tự: con số → dự án (tab khu vực) → đối tác → giá trị
   (khung 1200 → 768 | 384); mép phải cột phải trùng mép khung; cột phải ≤ 34 % khung; 768–1023 px một cột, khối cột phải
   xuống sau thanh thông tin.
 - **Template 1 cột** (chính sách, tìm kiếm, 404): khung đọc 760 px căn giữa; breadcrumb, tiêu đề, nội dung cùng mép.
-- **Chữ nội dung 18 / 1,7, ≤ 80 ký tự / dòng**: đoạn văn, tiêu đề, ảnh, bảng, bản đồ trong cột chính cùng một mép 664 px
-  (18 px ở 768 px ra 88 ký tự); lưới thẻ, thanh thông tin, thư viện dùng cả cột chính 768 px.
+- **Khung 2 cột ở mọi bề rộng** (2026-11-11): khung tối đa 1 320 px (1 200 dưới 1 600), căn giữa; cột chính đúng 8/12, cột phải đúng
+  4/12, rãnh 48 px (1 200 → 768 | 384; 1 320 → 848 | 424). **Không** đặt max-width riêng cho đoạn văn / tiêu đề / ảnh / bảng trong cột
+  chính – mọi thứ rộng bằng cột; độ dài dòng giữ bằng cỡ chữ: 18 px dưới 1 600, 19 px từ 1 600, ≤ 90 ký tự/dòng. Cột phải và mục lục
+  bắt đầu ngang mép trên nội dung cột chính (lệch ≤ 8 px), dính khi cuộn. Chữ dài trên trang rộng hết khung ("Về {chủ đầu tư}",
+  giới thiệu /du-an/) cũng vào khung này, cột phải là ô "Nhận tư vấn" ngắn. Đo: `tools/check_layout_b5.mjs` (1 366 / 1 536 / 1 920 / 2 560).
 - **Phần đầu trang** (mọi template trừ trang chủ, kiểu B): trái 7/12 (nhãn, H1, đoạn dẫn), phải 5/12 (nút căn đáy, căn phải);
   thanh thông tin rộng hết khung; mobile một cột. Hero A (ảnh ≥ 1920 px) giữ khối chữ trên ảnh (NT-43); hero trang chủ không đổi.
 - **Độ dài trang dự án / phân khu / dòng**: mọi khối chữ cao quá 520 px thu còn ~360 px + "Xem thêm" / "Thu gọn" mở tại chỗ;
@@ -285,6 +290,15 @@ Thứ tự: con số → dự án (tab khu vực) → đối tác → giá trị
 - **Mỗi loại một component**: thẻ dự án (ảnh 4:3; chủ đầu tư · khu vực → tên → loại sản phẩm → bàn giao, thiếu thì "Bàn giao:
   chưa công bố" → "Xem dự án →"), thẻ phân khu dọc, thẻ chủ đầu tư (khung 4:3 của thẻ dự án, logo cân diện tích hoặc khung tên),
   thẻ bài, danh sách cột phải (mỗi mục một dòng, cả dòng là link), nút biểu tượng trên nền tối (thư viện, khung phóng to).
+- **Danh sách bài viết** (2026-11-11; /blog/, cụm, tác giả, nhóm "Bài viết" của tìm kiếm): mỗi dòng một bài – ảnh 4:3 bên trái
+  (280 px desktop, 112 px mobile – danh sách 12 bài vẫn lướt nhanh; ảnh trên chữ sẽ thành thẻ), nhãn cụm → tiêu đề cỡ H3 → tóm tắt
+  2 dòng → tác giả · ngày · phút đọc → "Đọc bài →"; đường kẻ mảnh giữa các dòng; cả dòng bấm được; bài mới nhất cùng cấu trúc. Danh sách
+  ở cột chính 8/12; cột phải: chọn cụm + ô "Nhận tư vấn" ngắn (mobile: hàng chip cụm dưới phần đầu trang). 12 bài/trang, phân trang
+  cuối danh sách. Thẻ bài dạng ô (trang dự án, trang chủ) giữ nguyên.
+- **Link không gạch chân** (2026-11-11): mặc định mọi link không gạch chân ở trạng thái thường. Link điều hướng (breadcrumb, footer,
+  danh sách) màu chữ phụ, rê chuột đỏ (footer nền tối: đỏ nhạt #F2B8B5); link trong đoạn văn đỏ `--red-link` #C42F35, đậm 600, rê
+  chuột hiện gạch chân mảnh; focus bàn phím viền rõ. #C42F35 ≥ 4,7:1 trên ngà / trắng / champagne nhạt và ≥ 3:1 so với chữ thường.
+  Đo: 0 thẻ `a` gạch chân ở trạng thái thường trên mọi template (`tools/check_layout_b5.mjs`, cột `underline`).
 - **Khung phóng to ảnh**: ảnh trọn trong 90vw × 85vh, nền tối ≥ 90 %, ảnh có cờ dấu cắt W-A như ngoài trang, nút đóng 48 px,
   Esc / bấm nền / vuốt xuống đóng, ‹ › và phím mũi tên chuyển ảnh, đóng xong focus về ảnh đã bấm; mở được cả ảnh trong bài.
 
@@ -340,8 +354,9 @@ Mặt bằng và bản đồ dùng `contain`/không cắt nội dung. Chú thíc
 
 ### Header & menu
 Logo 44 px (40 px khi thu gọn) desktop, 36 px mobile; hotline bấm gọi được; nút "Nhận tư vấn". Một điểm chuyển 1024 px.
-Desktop (chốt 2026-11-06): "Dự án" mở menu thả xuống (6 dự án + "Tất cả dự án"), "Về Velis" mở menu con (Giới thiệu,
-Tuyển dụng, Liên hệ) – dựng bằng component header, mở bằng hover, click và bàn phím (Enter / Space / mũi tên, Esc đóng);
+Desktop (chốt 2026-11-06, sửa 2026-11-11): "Dự án" mở menu thả xuống (6 dự án + "Tất cả dự án"), "Về Velis" mở menu con
+(Giới thiệu, Tuyển dụng); "Liên hệ" là một mục riêng trên thanh menu. Số điện thoại ở header: biểu tượng điện thoại + "0911 237 979"
+(không chữ "Gọi hotline"), vẫn là link tel:, aria-label "Gọi 0911 237 979"; nút hành động giữ chữ "Gọi 0911 237 979" – dựng bằng component header, mở bằng hover, click và bàn phím (Enter / Space / mũi tên, Esc đóng);
 một menu mở một lúc, đóng khi bấm ra ngoài. Header không tự ẩn khi cuộn. Dưới 1024 px: menu toàn màn hình `<dialog>` –
 "Dự án" và "Về Velis" là mục có mục con; hotline + "Nhận tư vấn" ở cuối menu.
 

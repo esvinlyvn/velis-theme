@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Width of the main column of a 2-column page (content wrap − 340 px side column − 48 px gap); phones: wrap − gutters.
-const VELIS_SIZES_MAIN = '(min-width: 768px) 664px, calc(100vw - 32px)'; // text measure = --read 664 px (vòng bố cục 2026-11-10)
+const VELIS_SIZES_MAIN = '(min-width: 1600px) 816px, (min-width: 1280px) min(768px, (100vw - 112px) * 2 / 3), (min-width: 1024px) calc((100vw - 96px) * 2 / 3), (min-width: 768px) calc(100vw - 48px), calc(100vw - 32px)'; // main column = 8/12 of the frame (2026-11-11)
 const VELIS_SIZES_CARD = '(min-width: 1600px) 424px, (min-width: 1024px) 384px, (min-width: 768px) calc(50vw - 36px), calc(100vw - 32px)'; // 3 cards in the frame: (1320 | 1200 − 2 × 24) / 3
 const VELIS_SIZES_HERO_B = '(min-width: 1600px) 1320px, (min-width: 1248px) 1200px, (min-width: 768px) calc(100vw - 48px), calc(100vw - 32px)'; // = .wrap (NT-17)
 const VELIS_CEO = array( 'name' => 'Vũ Xuân', 'role' => 'CEO Velis Realty', 'img' => 'assets/brand/ceo-vu-xuan-160.webp' );
@@ -194,6 +194,54 @@ function velis_card_post( $p, bool $filter_data = false, string $mode = '' ): st
 		. '<p class="card__meta"><span>' . implode( '</span> · <span>', array_map( 'esc_html', array( get_the_author_meta( 'display_name', $p->post_author ), get_the_date( 'd/m/Y', $p ), velis_reading_minutes( $p ) . ' phút đọc' ) ) ) . '</span></p>'
 		. ( 'feature' === $mode && $p->post_excerpt ? '<p class="card__text">' . esc_html( velis_short( $p->post_excerpt, 220 ) ) . '</p>' : '' )
 		. velis_more( 'Đọc bài' ) . '</div></article>';
+}
+
+/**
+ * Post row (2026-11-11, item 4): one post per line in /blog/, clusters, author, search – 4:3 thumbnail left, then cluster
+ * label → title (H3 size) → 2-line summary → author · date · minutes → "Đọc bài →"; the whole row is the link (the title's
+ * link is stretched over the row). Post CARDS stay for grids (project pages, home).
+ */
+function velis_post_row( $p, bool $filter_data = false ): string {
+	$p     = get_post( $p );
+	$label = velis_post_label( $p );
+	$thumb = (int) get_post_thumbnail_id( $p );
+	$data  = $filter_data ? sprintf( ' data-card data-kind="%s" data-pk="%s"', esc_attr( velis_post_kind( $p ) ), esc_attr( implode( ' ', wp_list_pluck( velis_post_projects( $p ), 'post_name' ) ) ) ) : '';
+	$text  = $p->post_excerpt ?: wp_trim_words( wp_strip_all_tags( strip_shortcodes( $p->post_content ) ), 40, '…' );
+	return '<article class="postrow"' . $data . '>'
+		. ( $thumb ? velis_media( $thumb, get_the_title( $p ), 'postrow__media', $label ?: get_the_title( $p ), '(min-width: 768px) 280px, 112px' ) : velis_media_empty( $label ?: get_the_title( $p ) ) )
+		. '<div class="postrow__body">' . ( $label ? '<p class="eyebrow">' . esc_html( $label ) . '</p>' : '' )
+		. '<h3 class="postrow__title"><a href="' . esc_url( get_permalink( $p ) ) . '">' . esc_html( get_the_title( $p ) ) . '</a></h3>'
+		. ( $text ? '<p class="postrow__text">' . esc_html( $text ) . '</p>' : '' )
+		. '<p class="card__meta"><span>' . implode( '</span> · <span>', array_map( 'esc_html', array( get_the_author_meta( 'display_name', $p->post_author ), get_the_date( 'd/m/Y', $p ), velis_reading_minutes( $p ) . ' phút đọc' ) ) ) . '</span></p>'
+		. velis_more( 'Đọc bài' ) . '</div></article>';
+}
+
+/** Post list in the 2-column frame: rows (+ optional filter above, pagination below) in the main 8/12, $side in the 4/12. */
+function velis_post_list( array $posts, string $filter, string $pagination, string $side, string $head = '' ): string {
+	$rows = implode( '', array_map( fn( $p ) => velis_post_row( $p, '' !== $filter ), $posts ) );
+	return '<div class="wrap page page--list"><div class="page__main">' . $head . ( $filter ? '<div data-chipgrid>' . $filter . '<div class="postlist" data-n="' . count( $posts ) . '">' . $rows . '</div></div>' : '<div class="postlist">' . $rows . '</div>' )
+		. $pagination . '</div><aside class="page__side" aria-label="Chọn cụm bài và nhận tư vấn">' . $side . '</aside></div>';
+}
+
+/** Side column of post lists: cluster selector (one row per cluster) + a short "Nhận tư vấn" box. */
+function velis_list_side( int $current = 0 ): string {
+	$cats = array_filter( get_categories( array( 'hide_empty' => true, 'parent' => 0, 'orderby' => 'count', 'order' => 'DESC' ) ), 'velis_is_cluster' );
+	$list = velis_sidelist( array_map( fn( $c ) => array( get_category_link( $c ), $c->name, (int) $c->count . ' bài' ), $cats ) );
+	$list = $current ? str_replace( 'href="' . esc_url( get_category_link( $current ) ) . '"', 'href="' . esc_url( get_category_link( $current ) ) . '" aria-current="page"', $list ) : $list;
+	return '<div class="advisor"><p class="eyebrow">Cụm bài viết</p>' . $list . '</div>' . velis_consult_box();
+}
+
+/** Short "Nhận tư vấn" box of a side column (post lists, long text on full-width pages). */
+function velis_consult_box( string $interest = '' ): string {
+	return '<div class="advisor"><p class="pricecard__title">Nhận tư vấn</p><p>Để lại số điện thoại, Velis gọi lại trong giờ làm việc.</p>'
+		. velis_btn( 'Nhận tư vấn', '#tu-van', '', $interest ? ' data-interest="' . esc_attr( $interest ) . '"' : '' ) . velis_call_btn( 'line' ) . '</div>';
+}
+
+/** Long text on a full-width page (developer "Về …", /du-an/ intro): the 2-column frame – text in the main 8/12 (collapsed
+ * with "Xem thêm" when long), the short consult box in the 4/12 – so no half of the frame is left empty. */
+function velis_text_section( string $content, string $head = '', string $id = '', string $class = '', string $interest = '' ): string {
+	return '<section class="section ' . esc_attr( $class ) . '"' . ( $id ? ' id="' . esc_attr( $id ) . '"' : '' ) . '><div class="wrap page"><div class="page__main"><div class="block">' . $head
+		. '<div class="prose clamp">' . velis_content( $content ) . '</div></div></div><aside class="page__side" aria-label="Nhận tư vấn">' . velis_consult_box( $interest ) . '</aside></div></section>';
 }
 
 /** "Tất cả bài về {cụm}": a text link under a post grid (no extra card – a grid never has an empty cell, X-06). */
@@ -659,7 +707,7 @@ function velis_chipbars( array $rows, string $noun = 'bài' ): string {
 	foreach ( $rows as $key => list( $label, $items ) ) {
 		$html .= count( $items ) >= 2 ? '<div class="actions" role="group" aria-label="' . esc_attr( $label ) . '">' . implode( '', array_map( fn( $k, $v ) => '<button class="chip" type="button" data-key="' . esc_attr( $key ) . '" value="' . esc_attr( $k ) . '" aria-pressed="false">' . esc_html( $v ) . '</button>', array_keys( $items ), $items ) ) . '</div>' : '';
 	}
-	return $html ? '<div class="zfilter" data-filter="[data-chipgrid] .grid" data-noun="' . esc_attr( $noun ) . '"><p class="muted mb-0" data-count aria-live="polite"></p>' . $html . '<button class="btn btn--text" type="button" data-clear>Xóa lọc</button></div>' : '';
+	return $html ? '<div class="zfilter" data-filter="[data-chipgrid] .grid, [data-chipgrid] .postlist" data-noun="' . esc_attr( $noun ) . '"><p class="muted mb-0" data-count aria-live="polite"></p>' . $html . '<button class="btn btn--text" type="button" data-clear>Xóa lọc</button></div>' : '';
 }
 
 /* ---------- Trust & conversion ---------- */
@@ -684,7 +732,7 @@ function velis_form_html( string $interest = '', array $options = array(), strin
 	$rows = array( 'Hotline' => '<a href="tel:' . VELIS_PHONE_TEL . '">' . VELIS_PHONE . '</a>', 'Zalo' => '<a href="' . esc_url( VELIS_ZALO ) . '" rel="noopener" target="_blank">zalo.me/' . VELIS_PHONE_TEL . '</a>',
 		'Email' => '<a href="mailto:' . VELIS_EMAIL . '">' . VELIS_EMAIL . '</a>', 'Giờ làm việc' => VELIS_HOURS );
 	$dl   = $info ? '<dl>' . implode( '', array_map( fn( $k, $v ) => '<div><dt>' . $k . '</dt><dd>' . $v . '</dd></div>', array_keys( $rows ), $rows ) ) . '</dl>' : '';
-	return '<section class="section section--dark" id="tu-van" aria-labelledby="tu-van-h"><div class="wrap contact"><div><p class="eyebrow">Velis Realty</p><h2 id="tu-van-h">' . esc_html( $title ) . '</h2>'
+	return '<section class="section section--soft section--form" id="tu-van" aria-labelledby="tu-van-h"><div class="wrap contact"><div><p class="eyebrow">Velis Realty</p><h2 id="tu-van-h">' . esc_html( $title ) . '</h2>'
 		. '<p>Để lại họ tên và số điện thoại, Velis gọi lại trong giờ làm việc. Cần nhanh hơn, anh chị gọi hoặc nhắn Zalo.</p>' . $dl . '</div>' . velis_form_tag( $interest ) . '</div></section>';
 }
 
@@ -850,9 +898,9 @@ function velis_first_eager( string $html ): string {
 }
 
 /** Logo box of a given width/height ratio: every logo the same visual area (areas within ±15 %), ≤ 48 px high, ≤ 160 px wide (2.9). */
-function velis_logo_box( float $r ): array {
-	$h = min( 48, sqrt( 2304 / $r ) ); // 2 304 px² = a square logo at the 48 px cap, so every logo from square to 11:1 reaches it
-	$w = min( 160, $h * $r );
+function velis_logo_box( float $r, int $area = 2304, int $hmax = 48, int $wmax = 160 ): array { // home row: 6 800 px², ≤ 64 × 200 (≈ 56 px high for a 2:1 logo)
+	$h = min( $hmax, sqrt( $area / $r ) ); // equal area; a square logo stops at the height cap
+	$w = min( $wmax, $h * $r );
 	return array( (int) round( $w ), (int) round( $w / $r ) );
 }
 
@@ -860,24 +908,38 @@ function velis_logo_box( float $r ): array {
  * Developer logo <img> sized by velis_logo_box(): the developer's velis_logo, else the cleaned copy of the old home's partner
  * row bundled in the theme (assets/brand/doi-tac/{slug}.webp) – staging has no developer logo uploaded yet. '' when none.
  */
-function velis_dev_logo( $d ): string {
+function velis_dev_logo( $d, array $box = array() ): string { // $box: velis_logo_box() area / caps (home partner row)
 	$d    = get_post( $d );
 	$id   = (int) get_post_meta( $d->ID, 'velis_logo', true );
 	$file = get_theme_file_path( 'assets/brand/doi-tac/' . $d->post_name . '.webp' );
 	if ( $id && ( $m = wp_get_attachment_metadata( $id ) ) && ! empty( $m['height'] ) ) {
-		list( $w, $h ) = velis_logo_box( $m['width'] / $m['height'] );
+		list( $w, $h ) = velis_logo_box( $m['width'] / $m['height'], ...$box );
 		return wp_get_attachment_image( $id, 'medium', false, array( 'alt' => $d->post_title, 'loading' => 'eager', 'sizes' => $w . 'px', 'style' => "--w: {$w}px; --h: {$h}px" ) );
 	}
 	if ( is_readable( $file ) && ( $s = getimagesize( $file ) ) ) {
-		list( $w, $h ) = velis_logo_box( $s[0] / $s[1] );
+		list( $w, $h ) = velis_logo_box( $s[0] / $s[1], ...$box );
 		return '<img src="' . esc_url( get_theme_file_uri( 'assets/brand/doi-tac/' . $d->post_name . '.webp' ) ) . '" width="' . $s[0] . '" height="' . $s[1] . '" alt="' . esc_attr( $d->post_title ) . '" decoding="async" style="--w: ' . $w . 'px; --h: ' . $h . 'px">';
 	}
 	return '';
+}
+
+/**
+ * Text of a developer page (5.1, 2026-11-11): the record's own content, else the migrated text of the old page with the same
+ * slug under the old "Dự án" page (19593 / 19625 / 19633 / 19637 – /du-an/{slug}/ is taken by the project type, so those pages
+ * answer 404 and their text was never shown).
+ */
+function velis_dev_content( $d ): string {
+	$d = get_post( $d );
+	if ( '' !== trim( $d->post_content ) ) {
+		return $d->post_content;
+	}
+	$old = get_page_by_path( 'du-an/' . $d->post_name );
+	return $old && 'publish' === $old->post_status ? (string) $old->post_content : '';
 }
 
 /** Cluster links right under the page header of /blog/ and every cluster (2.2); the current cluster is marked, not linked away. */
 function velis_cluster_nav( int $current = 0 ): string {
 	$cats = array_filter( get_categories( array( 'hide_empty' => true, 'parent' => 0, 'orderby' => 'count', 'order' => 'DESC' ) ), 'velis_is_cluster' );
 	$a    = array_map( fn( $c ) => '<a class="chip" href="' . esc_url( get_category_link( $c ) ) . '"' . ( $current === (int) $c->term_id ? ' aria-current="page"' : '' ) . '>' . esc_html( $c->name . ' · ' . (int) $c->count . ' bài' ) . '</a>', $cats );
-	return $a ? '<nav class="wrap actions" aria-label="Cụm bài viết">' . implode( '', $a ) . '</nav>' : '';
+	return $a ? '<nav class="wrap actions only-narrow" aria-label="Cụm bài viết">' . implode( '', $a ) . '</nav>' : '';
 }

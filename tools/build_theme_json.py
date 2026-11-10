@@ -60,7 +60,7 @@ theme = {
         },
         'spacing': {'defaultSpacingSizes': False, 'blockGap': None, 'units': ['px', 'rem', '%', 'vw'],
                     'spacingSizes': [{'slug': k, 'name': k, 'size': v} for k, v in SP.items() if k.isdigit()]},
-        'layout': {'contentSize': L['reading'], 'wideSize': L['content']},
+        'layout': {'contentSize': L['reading-column'], 'wideSize': L['content']},  # 760 px reading column (the 664 px measure was dropped 2026-11-11)
         'custom': {'radius': T['rounded'], 'shadow': T['elevation'], 'motion': T['motion'],
                    'section': {'desktop': SP['section-desktop'], 'tablet': SP['section-tablet'], 'mobile': SP['section-mobile']},
                    'gutter': {'desktop': L['gutter-desktop'], 'mobile': L['gutter-mobile']}},

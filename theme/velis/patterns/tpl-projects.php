@@ -19,6 +19,10 @@ $out      = velis_breadcrumb_html( velis_trail() ) . velis_hero_b( array(
 	'alt'     => 'Phối cảnh đại đô thị The Global City',
 ) );
 $out     .= velis_section( velis_sechead( 'Danh sách dự án', 'Lọc dự án', '', 'danh-sach' ) . velis_project_listing( $projects ), 'du-an', 'section--tint' );
+$intro = get_page_by_path( 'du-an' ); // 5.2: the text of the old "Dự án" page (19537) is shown here, not lost under the archive
+if ( $intro && '' !== trim( $intro->post_content ) ) {
+	$out .= velis_text_section( $intro->post_content );
+}
 $out     .= velis_form_html();
 ?>
 <!-- wp:html -->

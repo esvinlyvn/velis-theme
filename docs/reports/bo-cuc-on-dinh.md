@@ -226,3 +226,85 @@ quét `/thi/` và trang có tham số `?`; chưa thử trên iPhone / Android th
 Rủi ro: mỗi thay đổi giao diện sau mốc này phải chạy lại `npm run test:visual:update` + được duyệt; nội dung thật dài hơn (FAQ, mô tả)
 có thể làm trang dự án vượt 12.000 px khi thêm dữ liệu.
 
+
+## 8. Vòng sửa trang chủ (2026-11-11)
+
+Người dùng soát trên web ngày 2026-11-11 và duyệt đổi giao diện các mục dưới. Quyết định ghi ở `docs/NGHIEM-THU.md` (7 dòng
+"Duyệt: người dùng, 2026-11-11") và `DESIGN.md`. Ảnh trước: `screenshots/on-dinh/trang-chu-truoc/` (60 ảnh, cùng danh sách với ảnh
+sau – `tools/shots_trang_chu.mjs`).
+
+### 8.1 Menu / header
+- "Về Velis" chỉ còn Giới thiệu, Tuyển dụng; "Liên hệ" là một mục riêng (desktop + menu mobile).
+- Số điện thoại header: biểu tượng + "0911 237 979" (bỏ "Gọi hotline"), vẫn `tel:`, `aria-label="Gọi 0911 237 979"`. Nút trong menu
+  mobile: "Gọi 0911 237 979" (bỏ chữ "hotline" thừa). Mockup cùng cấu trúc.
+- Vì sao giờ ổn: thanh menu không còn mục lặp (Liên hệ hai chỗ), số điện thoại đọc được ngay nhờ biểu tượng, không chữ thừa.
+
+### 8.2 Link không gạch chân
+- Mặc định mọi link không gạch chân; link điều hướng (breadcrumb, footer, danh sách) màu chữ phụ → đỏ khi rê chuột (footer nền tối:
+  đỏ nhạt #F2B8B5 vì đỏ thương hiệu < 3:1 trên #1A1A1A); link trong đoạn văn đỏ `--red-link` #C42F35, đậm 600, gạch chân mảnh khi rê
+  chuột. #C42F35: 5,16:1 trên ngà, 5,52:1 trên trắng, 4,70:1 trên champagne nhạt, 3,15:1 so với chữ thường #1A1A1A (đỏ cũ #B8282E chỉ
+  2,80:1 so với chữ thường nên đổi riêng cho link trong đoạn).
+- Đo: 0 link gạch chân ở trạng thái thường trên 29 trang template × 4 bề rộng (`screenshots/on-dinh/kiem-tra/khung-2-cot.json`, cột `underline`).
+- Vì sao giờ ổn: trang sạch, link vẫn nhận ra nhờ màu + độ đậm; link trong bài khác chữ thường ≥ 3:1.
+
+### 8.3 Khung 2 cột ở mọi bề rộng
+- Nguyên nhân khe trống (bài Persa Place 1920 px): cột chính 848 px nhưng chữ bị giới hạn 664 px. Đã bỏ mọi max-width riêng trong cột
+  chính; chữ 18 px (19 px từ 1 600 px), ≤ 90 ký tự / dòng. Cột phải dính, ngang mép trên nội dung.
+- Ảnh trong cột chính lấy cỡ file theo cột thật (816 / 768 / … px) thay vì 664 px.
+- Đo (`tools/check_layout_b5.mjs`, 29 trang × 1 366 / 1 536 / 1 920 / 2 560):
+
+| Chỉ số | Yêu cầu | Kết quả |
+|---|---|---|
+| Khe cột chính ↔ cột phải | 48 ± 2 px | 48 px ở mọi trang 2 cột, mọi bề rộng |
+| Mép phải cột phải ↔ khung | ± 1 px | 0 px |
+| Phần tử cột chính lệch mép cột | ± 1 px | 0 phần tử (khung thư viện tối được tính là một hộp) |
+| Cột phải lệch mép trên nội dung | ≤ 8 px | 0–4 px |
+| Cột chính \| cột phải | 8/12 \| 4/12 | 768 \| 384 (khung 1 200), 848 \| 424 (khung 1 320) |
+| Template 1 cột | 760 px căn giữa | chính sách, tìm kiếm, 404: lề hai bên bằng nhau |
+
+- Vì sao giờ ổn: không còn khe trống giữa chữ và cột phải ở 1 920 / 2 560; mọi thứ trong cột chính thẳng hai mép.
+
+### 8.4 Trang chủ
+- Đối tác: lưới 4 ô bằng nhau trải hết khung (ô đầu = mép trái khung, ô cuối = mép phải khung), đường chia 1 px, logo căn giữa,
+  cân diện tích 6 800 px² (cao 37–64 px, lệch diện tích ≤ 12 %), mobile 2 cột.
+- Khối "Công ty TNHH Velis Realty": 6/12 chữ (nhãn, H2, 2 đoạn nguyên văn, nút) + 6/12 danh sách 01–04 (số Playfair champagne,
+  đường kẻ mảnh, không thẻ, không ảnh); khối "Giá trị khác biệt" riêng đã gộp vào đây. Hai cột cao ~510 / ~570 px ở 1 536 (lệch ~11 %).
+- Khối form: nền champagne nhạt, form trên thẻ trắng viền mảnh, ô nhập viền #5C5C5C (6,7:1); chỉ footer còn nền tối (1.5 sửa). Dải
+  Thi thử / Tuyển dụng chuyển sang nền ngà – khác nền khối form; trên mọi template có khối form.
+- Vì sao giờ ổn: mỗi khối dùng hết bề ngang khung (không cụm logo lệch trái, không cột giá trị thưa); khối form không còn là một mảng
+  tối thứ hai trước footer tối.
+
+### 8.5 Danh sách bài viết
+- /blog/, cụm, tác giả, nhóm "Bài viết" của tìm kiếm: component "bài dạng dòng" (`velis_post_row`) – ảnh 4:3 trái (280 px desktop,
+  112 px mobile), nhãn cụm → tiêu đề cỡ H3 → tóm tắt 2 dòng → tác giả · ngày · phút đọc → "Đọc bài →", đường kẻ mảnh, cả dòng bấm
+  được; bỏ thẻ bài to đầu /blog/. Mobile chọn **ảnh nhỏ bên trái**: 12 bài vẫn lướt nhanh, ảnh trên chữ sẽ thành thẻ và dài gấp ba.
+- Khung 2 cột: danh sách 8/12; cột phải: chọn cụm (mỗi cụm một dòng + số bài, cụm đang xem tô đỏ) + ô "Nhận tư vấn" ngắn; dưới
+  1 024 px hàng chip cụm dưới phần đầu trang. 12 bài / trang, phân trang cuối. Thẻ bài dạng ô ở trang dự án / trang chủ giữ nguyên.
+- Vì sao giờ ổn: danh sách đọc theo một trục, không còn lưới 3 cột chiếm hết khung mà cột phải trống.
+
+### 8.6 Nội dung chủ đầu tư và kiểm mất chữ
+- **Nguyên nhân 5.1**: chữ đã chuyển của 4 chủ đầu tư (Vinhomes 19593, Masterise Homes 19633, Sun Group 19625, Gamuda Land 19637)
+  nằm ở **trang cũ** con của trang "Dự án" (19537), không ở bản ghi chủ đầu tư (nội dung rỗng). Địa chỉ `/du-an/{slug}/` của các trang
+  đó thuộc loại nội dung Dự án nên trả 404 → chữ chưa từng hiện. Sửa trong theme (`velis_dev_content()`): bản ghi chủ đầu tư rỗng thì
+  hiện chữ của trang cũ cùng slug, khối "Về {chủ đầu tư}", khung 2 cột (chữ 8/12 + ô Nhận tư vấn 4/12), dài thì "Xem thêm". Không sửa
+  nội dung trên staging. Nên chép chữ vào bản ghi chủ đầu tư khi ra mắt (ghi ở SAU-RA-MAT).
+- /blog/ hiện chữ của trang Blog (19539) làm đoạn dẫn; /du-an/ hiện chữ của trang "Dự án" (19537) dưới danh sách (khung 2 cột).
+- Kiểm mất chữ (`tools/check_mat_chu.mjs`, 126 trang có chữ: dự án, phân khu, dòng, chủ đầu tư, trang, bài): trước 13 trang < 98 %
+  → sau 3 trang < 98 %. Bảng đủ: `screenshots/on-dinh/kiem-tra/mat-chu.md`.
+
+| Trang | % hiện | Nguyên nhân | Xử lý |
+|---|---|---|---|
+| 4 chủ đầu tư + 4 trang cũ `/du-an/{slug}/` | 7–19 % → ≥ 98 % | chữ ở trang cũ 404 | sửa (theme) |
+| /blog/ | 46 % → ≥ 98 % | template không hiện chữ trang | sửa |
+| /du-an/ | 44 % → ≥ 98 % | như trên | sửa |
+| /lien-he/ | 49 % | danh sách địa chỉ / hotline / email trong chữ trang bị bỏ có chủ đích vì khối liên hệ ngay dưới đã hiện đủ (quy tắc "không chữ thừa") | giữ – chờ người dùng xác nhận |
+| /gioi-thieu/ | 97,9 % | câu "Liên hệ ngay … hành trình của riêng bạn:" + danh sách liên hệ, cùng lý do | giữ – chờ xác nhận |
+| /velis-style-guide/ | – | trang nội bộ, khách nhận 404 (vòng trước) | không áp dụng |
+
+### 8.7 Quyết định vòng trước
+Ghi ở NGHIEM-THU.md: đoạn văn không thu hẹp riêng (thay bằng 8.3); đồng ý 3 bài trên trang dự án + "Tất cả bài", thẻ dự án không
+giá, hero A chữ trên ảnh, tìm kiếm chỉ phân trang nhóm bài, đổi cách đo NT-06 / 07.
+
+### 8.8 Khác
+- CSS và JS gắn phiên bản theo thời điểm file (trước: số 1.0.0) – staging trả CSS với cache 7 ngày nên bản tải lại cùng số 1.0.0 có thể
+  hiện CSS cũ ở trình duyệt người soát.

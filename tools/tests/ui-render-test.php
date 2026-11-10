@@ -87,7 +87,7 @@ $check( str_contains( $facts, 'data-n="4"' ) && strpos( $facts, '>Giá<' ) < str
 $adv = velis_advisor( get_post( 3 ) );
 $check( str_contains( $adv, 'class="advisor"' ) && str_contains( $adv, 'data-open-form' ) && str_contains( $adv, 'data-mini-form hidden' ) && str_contains( $adv, 'name="interest" value="Dự án 3"' ), 'advisor + short form' );
 $form = velis_form_html( 'TGC' );
-$check( str_contains( $form, 'section section--dark' ) && str_contains( $form, 'name="page-url"' ) && str_contains( $form, 'name="utm"' ) && str_contains( $form, 'data-cf7="20800"' ), 'form keeps CF7 + hidden fields' );
+$check( str_contains( $form, 'section section--soft section--form' ) && str_contains( $form, 'name="page-url"' ) && str_contains( $form, 'name="utm"' ) && str_contains( $form, 'data-cf7="20800"' ), 'form keeps CF7 + hidden fields' );
 $check( '' === velis_compare_html( array( get_post( 1 ) ), array( 'A' => fn( $p ) => 'x' ), 'c' ), 'compare needs 2 records' );
 $gal = velis_gallery_html( array( 10, 11 ), 'TGC' );
 $check( str_contains( $gal, 'gallery__track' ) && str_contains( $gal, 'data-counter>1/2' ) && 1 === substr_count( $gal . velis_photo_grid( array( array( 11, '' ) ) ), '<dialog class="lightbox"' ), 'gallery + one lightbox per page' );
