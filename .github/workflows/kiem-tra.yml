@@ -5,6 +5,7 @@ name: kiem-tra
 on:
   pull_request:
   workflow_dispatch:
+# So ảnh mốc (test:visual) ở workflow riêng mot-giao-dien.yml, chỉ chạy tay.
 
 permissions:
   contents: read
@@ -19,6 +20,8 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
+        with:
+          lfs: false   # ảnh mốc (Git LFS) không cần cho các job này – 0 MB LFS mỗi lần chạy
       - uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
@@ -52,6 +55,8 @@ jobs:
       BROWSER: ${{ matrix.browser }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          lfs: false   # ảnh mốc (Git LFS) không cần cho các job này – 0 MB LFS mỗi lần chạy
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -79,6 +84,8 @@ jobs:
       STAGING_VIEW_PASSWORD: ${{ secrets.STAGING_VIEW_PASSWORD }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          lfs: false   # ảnh mốc (Git LFS) không cần cho các job này – 0 MB LFS mỗi lần chạy
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
