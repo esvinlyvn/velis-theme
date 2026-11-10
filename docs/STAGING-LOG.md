@@ -198,3 +198,12 @@ Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng th
 | WP Mail SMTP → Linh tinh | "Không gửi" **tắt lúc 09:56:51**, **bật lại lúc 09:57:09** (giờ Việt Nam) – cửa sổ gửi thật 18 giây. Mailer SMTP (Gmail) có sẵn thông tin đăng nhập từ bản sao site thật; không nhập / đổi thông tin nào |
 | Gửi thử form | **Đúng 1 lần, 09:57:06**: khối "Nhận tư vấn" trang The Global City, `?utm_source=kiemthu&utm_medium=giai-doan-5`, dữ liệu thử "Kiểm thử hệ thống" / 0900000000. CF7 trả `mail_sent`; `/wp-json/velis/v1/last-lead` có dự án, URL trang, utm_source, utm_medium. **Chờ người dùng xác nhận** hộp thư sale đã nhận |
 | Chỉ đọc | cài đặt WP Mail SMTP, cập nhật chờ (update-core), người dùng quản trị, Lighthouse 4 trang, 6 trang × 5 thiết bị, so ảnh mốc 12 ca |
+
+## 2026-11-10 – Vòng bố cục + ổn định
+
+| Mục | Thay đổi |
+|---|---|
+| Contact Form 7 | form 20800 "Velis – Nhận tư vấn": người nhận `lienhe@velisrealty.vn` → **velisrealtyvn@gmail.com** (REST CF7, chỉ đổi `mail.recipient`; người gửi, nội dung, trường ẩn, form, mail_2 giữ nguyên – đã so trước/sau). Form 19582 "Liên Hệ" đã nhận về velisrealtyvn@gmail.com từ trước, không đổi. Không gửi thử |
+| Theme velis 1.0.0 (mục 0–2) | tải lên thay bản đang dùng (Giao diện → Tải lên), cùng số phiên bản: bộ lọc dự án (thẻ ẩn thật, 3 / 2 / 1 cột, 0 kết quả), blog / cụm phân trang 12 bài + hàng cụm dưới phần đầu, tìm kiếm nhóm theo loại + phân trang, footer mạng xã hội theo cài đặt Rank Math, tác giả 0 bài / `?author=N` / REST users / style guide → 404 / 401 với khách, breadcrumb mục ngắn căn giữa vùng bấm |
+| Chỉ đọc | ảnh "trước" 19 ca (`screenshots/on-dinh/truoc/`), cài đặt Rank Math → Mạng xã hội (7 URL), danh sách form CF7 |
+

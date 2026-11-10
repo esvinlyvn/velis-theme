@@ -32,11 +32,11 @@ const st = await p.evaluate(async () => { const ul = document.querySelector('.fe
 check('Dải "Dự án nổi bật": mũi tên sau trượt dải, mũi tên trước tắt ở đầu rồi bật, không tự chạy', st.x0 === 0 && st.x1 > 0 && st.d0 && !st.d1, st);
 await p.evaluate(() => { document.querySelector('.feats ul').scrollLeft = 0; });
 const tabs = (v) => p.click(v ? `.ftabs [value="${v}"]` : '.ftabs [data-clear]');
-const fs = () => p.evaluate(() => ({ n: document.querySelector('#du-an .grid').dataset.n, shown: [...document.querySelectorAll('#du-an .card:not([hidden]) .card__title')].map((t) => t.textContent).sort().join(', '), pressed: [...document.querySelectorAll('.ftabs [aria-pressed="true"]')].map((x) => x.textContent.trim()), count: document.querySelector('#du-an [data-count]').textContent }));
+const fs = () => p.evaluate(() => ({ n: document.querySelector('#du-an .grid').dataset.n, vis: [...document.querySelectorAll('#du-an .grid > *')].filter((c) => c.getClientRects().length).length, w: Math.round(Math.max(0, ...[...document.querySelectorAll('#du-an .grid > *')].filter((c) => c.getClientRects().length).map((c) => c.getBoundingClientRect().width))), frame: Math.round(document.querySelector('#du-an .grid').getBoundingClientRect().width), shown: [...document.querySelectorAll('#du-an .grid > *')].filter((c) => c.getClientRects().length).map((c) => c.querySelector('.card__title')).map((t) => t.textContent).sort().join(', '), pressed: [...document.querySelectorAll('.ftabs [aria-pressed="true"]')].map((x) => x.textContent.trim()), count: document.querySelector('#du-an [data-count]').textContent }));
 await tabs('khu-dong'); const f1 = await fs();
-check('Tab khu vực: Khu Đông → 3 dự án (Palm City, The Global City, The Privé), chỉ 1 tab được chọn', f1.n === '3' && f1.shown === 'Palm City, The Global City, The Privé' && f1.pressed.join() === 'Khu Đông', f1);
+check('Tab khu vực: Khu Đông → 3 dự án (Palm City, The Global City, The Privé), chỉ 1 tab được chọn', f1.n === '3' && f1.vis === 3 && f1.shown === 'Palm City, The Global City, The Privé' && f1.pressed.join() === 'Khu Đông', f1);
 await tabs('khu-tay'); const f2 = await fs();
-check('Tab khu vực: Khu Tây → 1 dự án (Ansana by Kita) thành thẻ rộng, Khu Đông tự bỏ chọn', f2.n === '1' && f2.shown === 'Ansana by Kita' && f2.pressed.join() === 'Khu Tây', f2);
+check('Tab khu vực: Khu Tây → đúng 1 thẻ hiện (Ansana by Kita), thẻ dọc rộng 1/3 khung (không thẻ ngang), Khu Đông tự bỏ chọn', f2.n === '1' && f2.vis === 1 && f2.w < f2.frame / 2 && f2.shown === 'Ansana by Kita' && f2.pressed.join() === 'Khu Tây', f2);
 await tabs(); const f3 = await fs();
 check('Tab khu vực: Tất cả → 6 dự án, tab "Tất cả" được chọn', f3.n === '6' && f3.pressed.join() === 'Tất cả' && /6\/6/.test(f3.count), f3);
 const hid = await p.evaluate(() => [...document.querySelectorAll('#tu-van form [type=hidden]')].map((i) => i.name).sort().join(','));

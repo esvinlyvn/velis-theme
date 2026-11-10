@@ -215,7 +215,7 @@ function velis_grid( array $cards, string $mod = '', string $attrs = '' ): strin
 	$cls   = array( 'three' => ' grid--three', 'zones' => ' zones' )[ $mod ] ?? '';
 	$n     = count( $cards );
 	foreach ( $cards as $i => $c ) { // a card wider than a third of the frame needs a bigger file (NT-21): sizes from its real column span
-		$rules = velis_grid_sizes( $n, $i );
+		$rules = str_contains( $attrs, 'data-live' ) ? '' : velis_grid_sizes( $n, $i ); // filterable grid: every card is a third of the frame (2.1)
 		$cards[ $i ] = $rules ? preg_replace_callback( '#(<div class="card__media"[^>]*><img\b[^>]*?\s)sizes="([^"]*)"#', fn( $m ) => $m[1] . 'sizes="' . esc_attr( velis_sizes( $rules, preg_match( '/calc\(([\d.]+) \* \(/', $m[2], $z ) ? (float) $z[1] : 1 ) ) . '"', $c, 1 ) : $c;
 	}
 	return $cards ? '<div class="grid' . $cls . '" data-n="' . $n . '"' . $attrs . '>' . implode( '', $cards ) . '</div>' . $after : '';
@@ -612,7 +612,7 @@ function velis_project_listing( array $projects ): string {
 	$rows = $row( 'khu', 'Khu vực', $khu ) . $row( 'cdt', 'Chủ đầu tư', $devs ) . $row( 'loai', 'Loại sản phẩm', $types );
 	$n    = count( $projects );
 	return ( $rows ? '<div class="zfilter" data-filter="#du-an-luoi" data-noun="dự án" data-url><p class="muted mb-0" data-count aria-live="polite">Hiển thị ' . $n . '/' . $n . ' dự án</p>' . $rows . '<button class="btn btn--text" type="button" data-clear>Xóa lọc</button></div>' : '' )
-		. str_replace( '<div class="grid', '<div id="du-an-luoi" class="grid', velis_grid( array_map( fn( $p ) => velis_card_project( $p, '', true ), $projects ), 'three' ) );
+		. str_replace( '<div class="grid', '<div id="du-an-luoi" class="grid', velis_grid( array_map( fn( $p ) => velis_card_project( $p, '', true ), $projects ), 'three', ' data-live' ) );
 }
 
 /** Phân khu of a đại đô thị (mockup TGC): filter by product type, groups Cao tầng / Hỗn hợp / Thấp tầng (low-rise as wide cards). */
@@ -631,8 +631,7 @@ function velis_zone_listing( $root, array $zones ): string {
 	foreach ( array_filter( $groups ) as $g => $list ) {
 		$c      = array_map( fn( $z ) => velis_card_project( $z, '', 'zone' ), $list );
 		$c      = $any ? preg_replace_callback( '#<span hidden data-nomedia="([^"]*)"></span>#', fn( $m ) => velis_media_empty( html_entity_decode( $m[1], ENT_QUOTES ) ), $c ) : $c;
-		$c      = 'Thấp tầng' === $g ? array_map( fn( $x ) => preg_replace( '/^<article class="card"/', '<article class="card card--wide"', $x ), $c ) : $c;
-		$cards .= '<div data-group><h3>' . esc_html( $g ) . '</h3>' . velis_grid( $c, 'zones' ) . '</div>';
+		$cards .= '<div data-group><h3>' . esc_html( $g ) . '</h3>' . velis_grid( $c, 'zones', ' data-live' ) . '</div>';
 	}
 	$n    = count( $zones );
 	$chip = count( $types ) >= 2 ? '<div class="actions" role="group" aria-label="Lọc theo loại sản phẩm">' . implode( '', array_map( fn( $k, $v ) => '<button class="chip" type="button" value="' . esc_attr( $k ) . '" aria-pressed="false">' . esc_html( $v ) . '</button>', array_keys( $types ), $types ) ) . '<button class="btn btn--text" type="button" data-clear>Xóa lọc</button></div>' : '';
@@ -864,4 +863,11 @@ function velis_dev_logo( $d ): string {
 		return '<img src="' . esc_url( get_theme_file_uri( 'assets/brand/doi-tac/' . $d->post_name . '.webp' ) ) . '" width="' . $s[0] . '" height="' . $s[1] . '" alt="' . esc_attr( $d->post_title ) . '" decoding="async" style="--w: ' . $w . 'px; --h: ' . $h . 'px">';
 	}
 	return '';
+}
+
+/** Cluster links right under the page header of /blog/ and every cluster (2.2); the current cluster is marked, not linked away. */
+function velis_cluster_nav( int $current = 0 ): string {
+	$cats = array_filter( get_categories( array( 'hide_empty' => true, 'parent' => 0, 'orderby' => 'count', 'order' => 'DESC' ) ), 'velis_is_cluster' );
+	$a    = array_map( fn( $c ) => '<a class="chip" href="' . esc_url( get_category_link( $c ) ) . '"' . ( $current === (int) $c->term_id ? ' aria-current="page"' : '' ) . '>' . esc_html( $c->name . ' · ' . (int) $c->count . ' bài' ) . '</a>', $cats );
+	return $a ? '<nav class="wrap actions" aria-label="Cụm bài viết">' . implode( '', $a ) . '</nav>' : '';
 }

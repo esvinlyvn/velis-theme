@@ -1,0 +1,30 @@
+# Bảng TEMPLATE (vòng bố cục + ổn định, 2026-11-10): tên  đường-dẫn  (template / pattern – loại – vai trò)
+trang-chu              /                                              front-page.html / tpl-front – trang chủ – điển hình
+du-an                  /du-an/                                        archive-du-an.html / tpl-projects – danh sách dự án – điển hình
+du-an-loc              /du-an/?khu=khu-dong                           archive-du-an.html / tpl-projects – danh sách dự án – khó (lọc sẵn)
+dai-do-thi             /du-an/the-global-city/                        single-du-an.html / tpl-project – đại đô thị – điển hình (có video)
+dai-do-thi-dai         /du-an/vinhomes-saigon-park/                   single-du-an.html / tpl-project – đại đô thị – khó (dài nhất)
+doc-lap                /du-an/the-prive/                              single-du-an.html / tpl-project – dự án độc lập – điển hình
+phan-khu               /du-an/the-global-city/masteri-park-place/     single-du-an.html / tpl-project – phân khu – điển hình
+phan-khu-dai           /du-an/palm-city/palm-river/                   single-du-an.html / tpl-project – phân khu – khó (dài, thiếu vị trí)
+phan-khu-khong-anh     /du-an/the-global-city/masteri-grand-view/     single-du-an.html / tpl-project – phân khu – khó (ảnh không che được → khung tên)
+phan-khu-persa         /du-an/spring-ville/persa-place/               single-du-an.html / tpl-project – phân khu – khó (dài)
+dong                   /du-an/spring-ville/nha-pho/                   single-du-an.html / tpl-project – dòng thấp tầng – điển hình
+dong-thieu             /du-an/vinhomes-saigon-park/ivy-park/nha-pho/  single-du-an.html / tpl-project – dòng thấp tầng – khó (thiếu dữ liệu)
+chu-dau-tu             /chu-dau-tu/                                   archive-chu-dau-tu.html / tpl-developers – danh sách chủ đầu tư – điển hình
+cdt                    /chu-dau-tu/masterise-homes/                   single-chu-dau-tu.html / tpl-developer – chủ đầu tư – điển hình
+cdt-0                  /chu-dau-tu/sun-group/                         single-chu-dau-tu.html / tpl-developer – chủ đầu tư – khó (0 dự án)
+blog                   /blog/                                         page-blog.html / tpl-blog – blog – điển hình
+blog-trang-2           /blog/page/2/                                  page-blog.html / tpl-blog – blog – khó (trang 2)
+cum                    /blog/the-global-city/                         category.html / tpl-cluster – cụm blog – điển hình
+cum-it                 /blog/palm-city/                               category.html / tpl-cluster – cụm blog – khó (ít bài)
+bai                    /blog/the-prive/loi-suat-cho-thue-the-prive/   single.html / tpl-post – bài viết – điển hình (bảng)
+bai-bang               /blog/vinhomes-saigon-park/thiet-ke-cong-nang-nha-pho-lien-ke-vinhomes-saigon-park/ single.html / tpl-post – bài viết – khó (bảng rộng)
+tac-gia                /chuyen-gia/vu-xuan/                           author.html / tpl-author – tác giả – điển hình
+gioi-thieu             /gioi-thieu/                                   page-gioi-thieu.html / tpl-about – Giới thiệu – điển hình
+tuyen-dung             /tuyen-dung/                                   page.html / tpl-page – Tuyển dụng – điển hình
+lien-he                /lien-he/                                      page.html / tpl-page – Liên hệ – điển hình
+chinh-sach             /chinh-sach-bao-mat/                           page.html / tpl-page – chính sách – điển hình
+tim-kiem               /?s=prive                                      search.html / tpl-search – tìm kiếm – khó (không dấu)
+tim-kiem-0             /?s=khongcoketqua                              search.html / tpl-search – tìm kiếm – khó (0 kết quả)
+404                    /khong-ton-tai-xyz/                            404.html / tpl-404 – 404 – điển hình

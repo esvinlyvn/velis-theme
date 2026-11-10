@@ -87,6 +87,7 @@ $$('[data-filter]').forEach((f) => {
 	const link = f.closest('section, main')?.querySelector('[data-filter-link]');
 	grids.forEach((g) => [...g.children].forEach((c, i) => { c.dataset.i = i; }));
 	const key = (b) => b.dataset.key || 'loai';
+	let empty = null;
 	const apply = () => {
 		const on = {};
 		btns.filter((b) => b.getAttribute('aria-pressed') === 'true').forEach((b) => (on[key(b)] ??= []).push(b.value));
@@ -101,6 +102,19 @@ $$('[data-filter]').forEach((f) => {
 			all += n;
 		});
 		if (out) out.textContent = `Hiển thị ${all}/${total} ${noun}`;
+		// 0 results (2.1): a message + one button back to every card, under the last grid
+		if (!all && !empty && clear) {
+			empty = document.createElement('div');
+			empty.className = 'more-center';
+			empty.dataset.empty = '';
+			empty.setAttribute('role', 'status');
+			const p = document.createElement('p'); p.className = 'mb-0'; p.textContent = `Chưa có ${noun} phù hợp với bộ lọc.`;
+			const b = document.createElement('button'); b.type = 'button'; b.className = 'btn btn--line'; b.textContent = `Xem tất cả ${noun}`;
+			b.addEventListener('click', () => clear.click());
+			empty.append(p, b);
+			grids[grids.length - 1].after(empty);
+		}
+		if (empty) empty.hidden = all > 0;
 		if (single && clear) clear.setAttribute('aria-pressed', String(!Object.keys(on).length));
 		if (link) {
 			const u = new URL(link.href, location.href);

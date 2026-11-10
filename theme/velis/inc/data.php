@@ -213,6 +213,31 @@ function velis_image_id( $post ): int {
 }
 
 /** Lower case without Vietnamese diacritics: "Căn hộ Palm River" → "can ho palm river". */
+/**
+ * Footer social links (2.5): only networks that have a URL in Rank Math → Titles & Meta → Social Meta (Facebook page URL +
+ * "Additional profiles", one per line). Label from the host; order Facebook, YouTube, TikTok, Instagram, LinkedIn, X, Pinterest.
+ */
+function velis_social_links(): array {
+	$o = (array) get_option( 'rank-math-options-titles', array() );
+	return velis_social_from_urls( array_merge( array( (string) ( $o['social_url_facebook'] ?? '' ) ), preg_split( '/\s+/', (string) ( $o['social_additional_profiles'] ?? '' ) ) ) );
+}
+
+/** Pure part of velis_social_links(): URL list → label => URL, unknown hosts dropped, first URL per network kept. */
+function velis_social_from_urls( array $urls ): array {
+	$net = array( 'facebook.com' => 'Facebook', 'youtube.com' => 'YouTube', 'tiktok.com' => 'TikTok', 'instagram.com' => 'Instagram', 'linkedin.com' => 'LinkedIn', 'x.com' => 'X', 'twitter.com' => 'X', 'pinterest.com' => 'Pinterest' );
+	$out = array();
+	foreach ( array_filter( array_map( 'trim', $urls ) ) as $u ) {
+		$host  = preg_replace( '/^www\./', '', (string) wp_parse_url( $u, PHP_URL_HOST ) );
+		$label = $net[ $host ] ?? '';
+		if ( $label && ! isset( $out[ $label ] ) ) {
+			$out[ $label ] = $u;
+		}
+	}
+	$order = array_flip( array( 'Facebook', 'YouTube', 'TikTok', 'Instagram', 'LinkedIn', 'X', 'Pinterest' ) );
+	uksort( $out, fn( $a, $b ) => $order[ $a ] <=> $order[ $b ] );
+	return $out;
+}
+
 function velis_fold( string $s ): string {
 	$s = remove_accents( mb_strtolower( $s ) );
 	return trim( preg_replace( '/[^a-z0-9]+/', ' ', str_replace( 'đ', 'd', $s ) ) );
@@ -246,7 +271,7 @@ function velis_search_projects( string $s ): array {
 	}
 	arsort( $score );
 	$found = array_map( 'get_post', array_keys( $score ) );
-	foreach ( get_posts( array( 's' => $s, 'post_type' => VELIS_CPT_PROJECT, 'numberposts' => 12 ) ) as $p ) {
+	foreach ( get_posts( array( 's' => $s, 'post_type' => VELIS_CPT_PROJECT, 'numberposts' => 60 ) ) as $p ) { // projects, phân khu and dòng (grouped by the search page)
 		if ( ! isset( $score[ $p->ID ] ) ) {
 			$found[] = $p;
 		}

@@ -357,3 +357,39 @@ add_action( 'template_redirect', function () {
 	status_header( 410 );
 	nocache_headers();
 }, 0 );
+
+/**
+ * Accounts are not public (round "bố cục + ổn định" 2.6–2.7): an author page exists only for a user with published posts;
+ * ?author=N never resolves for guests (it would 301 to the slug); the users REST routes answer 401 to guests (the theme,
+ * velis-data, Rank Math and CF7 never call them as a guest; the block editor is logged in); the internal style guide page
+ * is for logged-in users only. Same rules on the live site (docs/KE-HOACH-RA-MAT.md).
+ */
+function velis_hidden_for_guest( bool $logged_in, bool $is_author, int $author_posts, bool $author_query, bool $style_guide ): bool {
+	return ( $is_author && 0 === $author_posts ) || ( ! $logged_in && ( $author_query || $style_guide ) );
+}
+add_action( 'template_redirect', function () {
+	$author = is_author() ? (int) get_queried_object_id() : 0;
+	if ( ! velis_hidden_for_guest( is_user_logged_in(), is_author(), $author ? (int) count_user_posts( $author, 'post', true ) : 0, isset( $_GET['author'] ), is_page( 'velis-style-guide' ) ) ) { // phpcs:ignore WordPress.Security.NonceVerification -- read-only check
+		return;
+	}
+	global $wp_query;
+	$wp_query->set_404();
+	remove_action( 'template_redirect', 'redirect_canonical' );
+	status_header( 404 );
+	nocache_headers();
+}, 1 );
+add_filter( 'rest_pre_dispatch', function ( $result, $server, WP_REST_Request $req ) {
+	return str_starts_with( $req->get_route(), '/wp/v2/users' ) && ! is_user_logged_in() ? new WP_Error( 'rest_forbidden', 'Không có quyền.', array( 'status' => 401 ) ) : $result;
+}, 10, 3 );
+
+/**
+ * /blog/page/N/ (2.2): the post permalink /blog/%category%/%postname%/ reads it as category "page", post "N" → 404. Map that
+ * exact path to the Blog page, page N – a request filter, so no rewrite rule and no permalink flush are needed.
+ */
+function velis_blog_page_request( string $path ): int {
+	return preg_match( '#^/blog/page/(\d+)/?$#', $path, $m ) && (int) $m[1] > 1 ? (int) $m[1] : 0;
+}
+add_filter( 'request', function ( array $qv ) {
+	$n = velis_blog_page_request( (string) wp_parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ) );
+	return $n ? array( 'pagename' => 'blog', 'paged' => $n ) : $qv;
+} );

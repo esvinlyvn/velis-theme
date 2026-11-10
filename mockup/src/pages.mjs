@@ -135,7 +135,7 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 		cells[1] = cells[1].replace(/^<(th|td)/, '<$1 class="is-current"').replace('Trang này', ' <small class="muted">(trang này)</small>');
 		return `<tr>${cells.join('')}</tr>`;
 	});
-	const grid = (items, cls = '') => `<div class="grid${cls}" data-n="${items.length}">${items.join('')}</div>`;
+	const grid = (items, cls = '', attrs = '') => `<div class="grid${cls}" data-n="${items.length}"${attrs}>${items.join('')}</div>`; // attrs ' data-live': filterable grid, 3 / 2 / 1 columns (ổn định 2.1)
 	const prose = (html, id) => `<div class="prose clamp" id="${id}-noi-dung">${html}</div>`;
 	// project / zone pages: the advisor card sits in the side column (≥ 1024) and right after the facts bar (phones)
 	const side = (name, dl) => `<aside class="page__side" aria-label="Velis tư vấn dự án này">${advisor(name, 'Masterise Homes', dl)}</aside>`;
@@ -190,7 +190,7 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 		<button type="button" data-clear aria-pressed="true">Tất cả</button>${broker.regions.slice().sort((x, y) => ['khu-dong', 'khu-tay', 've-tinh', 'tay-bac'].indexOf(x.slug) - ['khu-dong', 'khu-tay', 've-tinh', 'tay-bac'].indexOf(y.slug)).map(r => `<button type="button" data-key="khu" value="${r.slug}" aria-pressed="false">${esc(r.name)}</button>`).join('')}
 		<p class="sr-only" data-count aria-live="polite">Hiển thị ${broker.projects.length}/${broker.projects.length} dự án</p>
 	</div>
-	${grid([...withImg, ...noImg].map(projCard), ' grid--three')}
+	${grid([...withImg, ...noImg].map(projCard), ' grid--three', ' data-live')}
 	<p class="more-center"><a class="btn btn--line" href="#">Xem tất cả dự án</a></p>
 </div></section>
 <section class="section section--tint" aria-labelledby="cdt-h"><div class="wrap">
@@ -234,8 +234,8 @@ ${advisorInline(T.hero.title, T.side.dl.slice(0, 2))}
 	<section class="block" id="phan-khu">${sechead(T.heads['phan-khu'])}
 		<div class="zfilter" data-filter=".zones"><p class="muted mb-0" data-count aria-live="polite">Hiển thị ${T.zones.length}/${T.zones.length} phân khu</p>
 			<div class="actions" role="group" aria-label="Lọc theo loại sản phẩm">${[['can-ho', 'Căn hộ'], ['biet-thu', 'Biệt thự'], ['dinh-thu', 'Dinh thự'], ['shophouse', 'Shophouse']].map(([v, t]) => `<button class="chip" type="button" value="${v}" aria-pressed="false">${t}</button>`).join('')}<button class="btn btn--text" type="button" data-clear>Xóa lọc</button></div></div>
-		<div data-group><h3>Cao tầng</h3>${grid(high.map(zoneCard), ' zones')}</div>
-		<div data-group><h3>Thấp tầng</h3>${grid(low.map(z => zoneCard(z).replace('class="card"', 'class="card card--wide"')), ' zones')}</div>
+		<div data-group><h3>Cao tầng</h3>${grid(high.map(zoneCard), ' zones', ' data-live')}</div>
+		<div data-group><h3>Thấp tầng</h3>${grid(low.map(zoneCard), ' zones', ' data-live')}</div>
 		${prose(c('phan-khu'), 'phan-khu')}</section>
 	<section class="block" id="dong-san-pham">${sechead(T.heads['dong-san-pham'])}${prose(c('dong-san-pham'), 'dong-san-pham')}</section>
 	<section class="block" id="mat-bang">${sechead(T.heads['mat-bang'])}${prose(c('mat-bang'), 'mat-bang')}</section>

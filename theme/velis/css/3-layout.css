@@ -44,10 +44,17 @@
 	.grid[data-n="7"] > :first-child, .grid[data-n="11"] > :first-child { grid-column: span 2; } /* 7 → 1 + 6, 11 → 1 + 10 (listing pages) */
 	.grid[data-n="3"], .grid[data-n="5"], .grid[data-n="9"] { grid-template-columns: repeat(3, 1fr); }
 	.grid[data-n="5"] > :first-child { grid-column: span 2; } /* 5 → 2 + 3 */
-	.grid[data-n="1"] > .card { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--s6); align-items: center; } /* NT-06: one card = wide card */
-	.grid[data-n="1"] > .card .card__media { margin: 0; }
+	.grid[data-n="1"]:not([data-live]) > .card { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--s6); align-items: center; } /* NT-06: one card = wide card (static grids only) */
+	.grid[data-n="1"]:not([data-live]) > .card .card__media { margin: 0; }
 }
 @media (min-width: 1024px) { .grid--three[data-n="6"], .grid--three[data-n="12"] { grid-template-columns: repeat(3, 1fr); } }
+/* filterable grids (data-live, round "ổn định" 2.1): 3 / 2 / 1 columns whatever the number of results; a short row keeps the
+   card width and is centred; never the wide card. A hidden card is out of the layout ([hidden] alone loses to .card's display). */
+.grid[data-live] { display: flex; flex-wrap: wrap; justify-content: center; }
+.grid[data-live] > * { flex: 0 0 100%; }
+@media (min-width: 768px) { .grid[data-live] > * { flex-basis: calc((100% - var(--s6)) / 2); } }
+@media (min-width: 1024px) { .grid[data-live] > * { flex-basis: calc((100% - 2 * var(--s6)) / 3); } }
+.grid > [hidden] { display: none; }
 /* construction photos (NT-29): 2 columns on phones too, the first photo full width when the count is odd */
 @media (max-width: 767px) {
 	.grid:has(> figure > [data-zoom]) { grid-template-columns: repeat(2, 1fr); }

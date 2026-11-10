@@ -60,7 +60,7 @@ $out  .= '<section class="section" id="du-an" aria-labelledby="du-an-h"><div cla
 	. ( count( $tabs ) >= 2 ? '<div class="ftabs" role="group" aria-label="Lọc theo khu vực" data-filter="#du-an .grid" data-noun="dự án" data-single><button type="button" data-clear aria-pressed="true">Tất cả</button>'
 		. implode( '', array_map( fn( $s, $t ) => '<button type="button" data-key="khu" value="' . esc_attr( $s ) . '" aria-pressed="false">' . esc_html( $label( $t ) ) . '</button>', array_keys( $tabs ), $tabs ) )
 		. '<p class="sr-only" data-count aria-live="polite">Hiển thị ' . $n . '/' . $n . ' dự án</p></div>' : '' )
-	. velis_grid( $cards, 'three' )
+	. velis_grid( $cards, 'three', ' data-live' )
 	. '<p class="more-center"><a class="btn btn--line" href="' . esc_url( (string) get_post_type_archive_link( 'du-an' ) ) . '" data-filter-link="khu">Xem tất cả dự án</a></p></div></section>';
 
 // d. partners: developers with a logo, every logo the same visual area (±15 %), ≤ 48 px high, ≤ 160 px wide (duyệt 2026-11-06)

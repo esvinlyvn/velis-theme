@@ -15,7 +15,7 @@
 .chips li { padding: var(--s2) var(--s4); border: 1px solid var(--line-strong); border-radius: 999px; font-size: var(--fs-small); line-height: 1.5; background: transparent; }
 .chip { min-height: 44px; padding: 0 var(--s4); border: 1px solid var(--line-strong); border-radius: 999px; background: transparent; font-size: var(--fs-small); cursor: pointer; }
 a.chip { display: inline-flex; align-items: center; color: inherit; text-decoration: none; }
-.chip[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: #fff; }
+.chip[aria-pressed="true"], .chip[aria-current="page"] { border-color: var(--ink); background: var(--ink); color: #fff; }
 .muted { color: var(--muted); }
 
 /* header + mobile menu */
@@ -63,7 +63,7 @@ a.chip { display: inline-flex; align-items: center; color: inherit; text-decorat
 .crumbs { list-style: none; display: flex; flex-wrap: wrap; column-gap: var(--s2); margin: 0; padding: var(--s2) 0; font-size: var(--fs-small); line-height: 1.5; color: var(--muted); }
 .crumbs li { display: inline-flex; align-items: center; max-width: none; }
 .crumbs li + li::before { content: "›"; margin-right: var(--s2); }
-.crumbs a { color: inherit; display: inline-flex; align-items: center; min-width: 44px; min-height: 44px; }
+.crumbs a { color: inherit; display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; } /* short items ("Blog") centred in the 44 px target: no lopsided gap before the next "›" */
 @media (max-width: 767px) { .crumbs { flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; scrollbar-width: none; } } /* NT-80: one line on phones, the trail scrolls sideways */
 .tabs { position: sticky; top: var(--header-h); z-index: 40; background: var(--canvas); border-bottom: 1px solid var(--line); }
 .tabs ul { display: flex; list-style: none; margin: 0; padding: 0; overflow-x: auto; scrollbar-width: none; }
@@ -399,6 +399,7 @@ img.is-marked { transform: scale(var(--zoom, 1.15)); transform-origin: 100% 0; }
 	.ftabs button { flex: none; white-space: nowrap; }
 }
 .more-center { max-width: none; display: flex; justify-content: center; margin: var(--head-gap) 0 0; }
+.more-center[data-empty] { flex-wrap: wrap; align-items: center; gap: var(--s4); } /* 0 results of a filter (2.1) */
 
 /* home d – partner logos: one row, same 40 px height, dark grey until hover, no boxes, names in alt */
 .partners { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: var(--s8) var(--s16); } /* left like every block (1.1) */

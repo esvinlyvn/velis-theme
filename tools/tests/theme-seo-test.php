@@ -42,3 +42,14 @@ $check( 'can ho palm river' === velis_fold( 'Căn hộ  Palm River!' ), 'fold' )
 echo "theme seo: all checks passed\n";
 $check( velis_attachment_gone( true, 0 ) && ! velis_attachment_gone( true, 12 ) && ! velis_attachment_gone( false, 0 ), 'orphan attachment → 410 only' );
 echo "attachment 410: ok\n";
+// 2.6–2.7: author with 0 posts → 404 for everyone; ?author=N and the style guide → 404 for guests only
+$check( velis_hidden_for_guest( true, true, 0, false, false ) && ! velis_hidden_for_guest( false, true, 3, false, false ), 'author 0 posts hidden, author with posts shown' );
+$check( velis_hidden_for_guest( false, false, 0, true, false ) && ! velis_hidden_for_guest( true, false, 0, true, false ), '?author=N hidden for guests only' );
+$check( velis_hidden_for_guest( false, false, 0, false, true ) && ! velis_hidden_for_guest( true, false, 0, false, true ), 'style guide guests only' );
+// 2.5: footer social = URLs from settings only, labelled by host, fixed order, unknown hosts dropped
+$soc = velis_social_from_urls( array( '', 'https://x.com/velisrealty', 'https://www.facebook.com/velisrealty', 'https://example.com/a', 'https://www.linkedin.com/in/velisrealty' ) );
+$check( array( 'Facebook', 'LinkedIn', 'X' ) === array_keys( $soc ) && 'https://x.com/velisrealty' === $soc['X'], 'social links from settings' );
+echo "accounts + social: ok\n";
+// 2.2: /blog/page/N/ → Blog page N; page 1 and other paths untouched
+$check( 2 === velis_blog_page_request( '/blog/page/2/' ) && 9 === velis_blog_page_request( '/blog/page/9' ) && 0 === velis_blog_page_request( '/blog/page/1/' ) && 0 === velis_blog_page_request( '/blog/the-prive/page/2/' ) && 0 === velis_blog_page_request( '/blog/' ), 'blog pagination path' );
+echo "blog pages: ok\n";
