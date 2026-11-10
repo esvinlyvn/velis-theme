@@ -163,7 +163,7 @@ export function render({ home, homeCu, tgc, mpp, broker, content, img, usable, l
 	const withImg = broker.projects.filter(p => (H.projects.find(x => x.title === p.title) || {}).img), noImg = broker.projects.filter(p => !withImg.includes(p));
 	const projCard = p => {
 		const c = H.projects.find(x => x.title === p.title) || {}, hand = (c.lines || []).find(l => /^Bàn giao/.test(l));
-		return card({ title: p.title, img: c.noimg ? '' : c.img }, S.card3, { kicker: `${p.devs.map(d => d.name).join(', ')} · ${p.khu.join(', ')}`, lines: [p.types.join(', '), hand], more: 'Xem dự án →' })
+		return card({ title: p.title, img: c.noimg ? '' : c.img }, S.card3, { kicker: `${p.devs.map(d => d.name).join(', ')} · ${p.khu.join(', ')}`, lines: [p.types.join(', '), hand || 'Bàn giao: chưa công bố'], more: 'Xem dự án →' }) // vòng bố cục 5.1: handover always shown
 			.replace('<article class="card">', `<article class="card" data-khu="${p.regions.join(' ')}">`);
 	};
 	const homeBody = `${header()}

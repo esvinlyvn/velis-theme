@@ -69,7 +69,8 @@ layout:
   columns: 12
   content: 1200px
   content-1600: 1320px
-  reading: 576px
+  reading: 664px   # mép chữ/ảnh/bảng/bản đồ trong cột chính (18 px ≤ 80 ký tự) – vòng bố cục 2026-11-10
+  reading-column: 760px   # template 1 cột
   gutter-desktop: 24px
   gutter-mobile: 16px
   breakpoints: [375px, 768px, 1024px, 1440px]
@@ -167,7 +168,7 @@ bằng `prefers-reduced-motion`; WCAG 2.2 AA.
 Không có cỡ nào khác (đo bằng `tools/mockup_scale.mjs`). `h4` trong front-matter = 19 px chỉ để `theme.json` có đủ khóa.
 
 ### Principles
-- Dòng chữ tối đa 68 ký tự **đếm thật** (1.6): chữ Việt hẹp hơn ký tự "0" nên `max-width: 46ch` (≈ 66–68 ký tự); khung đọc bài 720 px.
+- Chữ nội dung 18 px / 1,7, dòng ≤ 80 ký tự **đếm thật** (vòng bố cục 2026-11-10, thay 68 ký tự): mép chữ 664 px (đo: 680 px = 78–81 ký tự tùy đoạn, 720 px = 82); chữ phụ ngoài nội dung giữ `max-width: 46ch`.
 - Đúng một H1 mỗi trang; tiêu đề khối của theme ("Bài viết liên quan", tiêu đề footer) **không dùng thẻ heading**,
   dùng kiểu `eyebrow`.
 - Không viết hoa toàn bộ tiêu đề tiếng Việt (dấu chồng lên nhau khó đọc); chữ hoa chỉ cho `eyebrow` ngắn.
@@ -198,7 +199,7 @@ không tính đầu khối (nhãn + H1/H2 + đoạn dẫn – mẫu NT-11) và n
 mép trên. Dải "Thi thử + Tuyển dụng" nền champagne nhạt #F3ECDF để tách rõ khỏi khối tối. Hero trang chủ (ảnh + lớp phủ) không
 phải khối nền.
 
-**1.6 Chữ và đường kẻ.** Dòng ≤ 68 ký tự (đếm từng ký tự trên dòng hiển thị, bỏ dấu cách ở chỗ xuống dòng – `tools/mockup_scale.mjs`).
+**1.6 Chữ và đường kẻ.** Dòng ≤ 80 ký tự (chữ nội dung 18 px; sửa 2026-11-10, trước: 68) (đếm từng ký tự trên dòng hiển thị, bỏ dấu cách ở chỗ xuống dòng – `tools/mockup_scale.mjs`).
 Dùng khoảng trắng thay đường kẻ; viền chỉ cho thẻ và ô nhập. Được giữ: gạch champagne 48 px dưới tiêu đề khối (dấu nhấn NT-11),
 vạch dọc mảnh giữa các cột số liệu (yêu cầu khối b), đường kẻ dòng của bảng dữ liệu và thanh thông tin dự án (1 đường dưới mỗi hàng).
 
@@ -269,15 +270,32 @@ Thứ tự: con số → dự án (tab khu vực) → đối tác → giá trị
 - **Thi thử + Tuyển dụng**: 2 hộp cùng cao; câu hộp Thi thử: "Ôn luyện và thi thử chứng chỉ hành nghề môi giới bất động sản miễn phí."
 - Trang dự án: hero B ở M4 giãn ảnh 1,52 – chấp nhận (2026-11-06).
 
-### Bố cục 2 cột & nhịp thị giác (vòng 5)
+### Bố cục template (vòng bố cục + ổn định – Duyệt: người dùng, 2026-11-10; thay "cột đọc 576 px" và "tối đa 1 vùng Đọc tiếp")
+- **Template 2 cột** (dự án, phân khu, dòng, bài, Giới thiệu, Tuyển dụng, tác giả): cột chính 8/12 + cột phải 4/12, rãnh 48 px
+  (khung 1200 → 768 | 384); mép phải cột phải trùng mép khung; cột phải ≤ 34 % khung; 768–1023 px một cột, khối cột phải
+  xuống sau thanh thông tin.
+- **Template 1 cột** (chính sách, tìm kiếm, 404): khung đọc 760 px căn giữa; breadcrumb, tiêu đề, nội dung cùng mép.
+- **Chữ nội dung 18 / 1,7, ≤ 80 ký tự / dòng**: đoạn văn, tiêu đề, ảnh, bảng, bản đồ trong cột chính cùng một mép 664 px
+  (18 px ở 768 px ra 88 ký tự); lưới thẻ, thanh thông tin, thư viện dùng cả cột chính 768 px.
+- **Phần đầu trang** (mọi template trừ trang chủ, kiểu B): trái 7/12 (nhãn, H1, đoạn dẫn), phải 5/12 (nút căn đáy, căn phải);
+  thanh thông tin rộng hết khung; mobile một cột. Hero A (ảnh ≥ 1920 px) giữ khối chữ trên ảnh (NT-43); hero trang chủ không đổi.
+- **Độ dài trang dự án / phân khu / dòng**: mọi khối chữ cao quá 520 px thu còn ~360 px + "Xem thêm" / "Thu gọn" mở tại chỗ;
+  không thu lưới thẻ, bảng thông tin, thư viện, FAQ, form; tiêu đề không mờ; lớp mờ cùng màu nền (an toàn Safari); in mở hết;
+  tab mục nhảy tới khối nào thì khối đó mở. Khối "Bài viết" 1 hàng 3 thẻ + "Tất cả bài". Mục tiêu ≤ 12.000 px (M2), ≤ 16.000 px (iPhone 14).
+- **Mỗi loại một component**: thẻ dự án (ảnh 4:3; chủ đầu tư · khu vực → tên → loại sản phẩm → bàn giao, thiếu thì "Bàn giao:
+  chưa công bố" → "Xem dự án →"), thẻ phân khu dọc, thẻ chủ đầu tư (khung 4:3 của thẻ dự án, logo cân diện tích hoặc khung tên),
+  thẻ bài, danh sách cột phải (mỗi mục một dòng, cả dòng là link), nút biểu tượng trên nền tối (thư viện, khung phóng to).
+- **Khung phóng to ảnh**: ảnh trọn trong 90vw × 85vh, nền tối ≥ 90 %, ảnh có cờ dấu cắt W-A như ngoài trang, nút đóng 48 px,
+  Esc / bấm nền / vuốt xuống đóng, ‹ › và phím mũi tên chuyển ảnh, đóng xong focus về ảnh đã bấm; mở được cả ảnh trong bài.
+
+### Bố cục 2 cột & nhịp thị giác (vòng 5 – phần cột rộng / Đọc tiếp đã thay bằng mục trên)
 - **Trang có văn bản dài** (dự án mọi cấp; Giới thiệu, Tuyển dụng): từ 1024 px là cột nội dung
   (phần còn lại) + **cột phải dính 340 px** – dự án: thẻ "Nhận bảng giá {tên}" (ảnh, trạng thái, giá nếu có, bàn giao,
   Nhận bảng giá → form điền sẵn, Gọi, Zalo); Giới thiệu: thẻ liên hệ; Tuyển dụng: thẻ "Gửi CV".
   **Trang chính sách và trang không có gì hữu ích cho cột phải → một cột đọc canh giữa** (chốt 2026-11-06).
-  Cột chính: tiêu đề, đoạn văn, ảnh, bảng, bản đồ, lưới thẻ cùng một mép trái và một mép phải (±1 px); đoạn ≤ 68 ký tự
-  nhờ cỡ chữ + khoảng đệm, không thu hẹp riêng đoạn văn; khe cột chính – cột phải ≤ 48 px. Khoảng dọc giữa 2 khối ≤ 96 px,
+  Cột chính / cột phải / độ dài chữ: xem "Bố cục template" ở trên (2026-11-10). Khoảng dọc giữa 2 khối ≤ 96 px,
   2 khối cùng nền không cộng dồn đệm. Thứ bậc nhìn thấy: tiêu đề khối > H2 nội dung > H3 (H2 nội dung đứng ngay sau tiêu đề
-  khối hiện cỡ H3). Mỗi trang dự án tối đa 1 vùng "Đọc tiếp" (khối dài nhất); tiêu đề trong vùng mờ không mờ.
+  khối hiện cỡ H3). Khối chữ dài: thu gọn từng khối (2026-11-10).
   Khối "Velis tư vấn dự án này" kết thúc bằng câu vai trò (chữ phụ 14 px): "Velis Realty là đơn vị tư vấn, phân phối; chủ
   đầu tư dự án là {chủ đầu tư}." – chủ đầu tư từ dữ liệu, nối bằng dấu phẩy; không có thì ẩn câu (duyệt 2026-11-06). < 1024 px: một cột + thanh CTA đáy (kể cả tablet).
 - Khối rộng (danh sách phân khu, so sánh, thư viện, bản đồ) **vừa cột nội dung**: phân khu 2 cột, bảng so sánh cuộn ngang

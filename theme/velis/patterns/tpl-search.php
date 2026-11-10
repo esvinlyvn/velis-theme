@@ -36,7 +36,7 @@ if ( $posts ) {
 if ( ! $found && ! $posts ) {
 	$out .= velis_section( velis_sechead( 'Dự án Velis đang tư vấn', 'Chưa tìm thấy nội dung phù hợp', 'Anh chị thử tên dự án hoặc xem các dự án dưới đây.' ) . velis_grid( array_map( 'velis_card_project', array_slice( velis_top_projects(), 0, 3 ) ), 'three', ' data-live' ), '', 'section--tint' );
 }
-$out = velis_first_eager( $out );
+$out = '<div class="onecol">' . velis_first_eager( $out ) . '</div>'; // 3.2: one 760 px frame
 ?>
 <!-- wp:html -->
 <?php echo $out; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped in helpers ?>

@@ -66,7 +66,7 @@ for (const n of readdirSync(join(SRC, 'content'))) {
 const cssSrc = [...readdirSync(join(ROOT, 'theme/velis/css')).sort().map(n => read(`theme/velis/css/${n}`)), read('mockup/src/css/mockup.css')].join('\n');
 const bare = cssSrc.replace(/\/\*[\s\S]*?\*\//g, "");
 assert(!/!important/.test(bare), "CSS không được dùng !important");
-const min = cssSrc.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ').replace(/\s*([{}:;,>])\s*/g, '$1').replace(/;}/g, '}').trim();
+const min = cssSrc.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ').replace(/\s*([{};,>])\s*/g, '$1').replace(/:\s+/g, ':') // keep the space BEFORE ':' – it is the descendant combinator in `.a :is(…)`.replace(/;}/g, '}').trim();
 const cssKB = { min: min.length / 1024, gzip: gzipSync(min).length / 1024 };
 const css = min.replace(/url\("\.\.\/assets\/fonts\/([^"]+)"\)/g, (m, f) => `url("${b64(`theme/velis/assets/fonts/${f}`, 'font/woff2')}")`);
 const js = read('mockup/src/js/mockup.js');

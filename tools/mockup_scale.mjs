@@ -11,13 +11,14 @@ const STAGING = process.argv[2] === '--staging';
 const [base = 'http://127.0.0.1:8765', out] = STAGING ? ['https://staging.velisrealty.vn', process.argv[4]] : process.argv.slice(2);
 // staging: paths from a file (one per line, # comments) or a comma list; mockup: the 3 built pages
 const list = STAGING ? (existsSync(process.argv[3]) ? readFileSync(process.argv[3], 'utf8').split('\n') : process.argv[3].split(',')).map((x) => x.trim()).filter((x) => x && !x.startsWith('#')) : null;
-export const FONT = [56, 48, 40, 36, 28, 22, 19, 17, 16, 14, 13]; // H1 56/36 · số liệu 48 · H2 40/28 · H3 22 · dẫn 19 · thân 17 · thẻ 16 · phụ 14 · nhãn 13
+export const FONT = [56, 48, 40, 36, 28, 22, 19, 18, 17, 16, 14, 13]; // H1 56/36 · số liệu 48 · H2 40/28 · H3 22 · dẫn 19 · chữ nội dung 18 (vòng bố cục 3.3) · thân 17 · thẻ 16 · phụ 14 · nhãn 13
+export const MAX_CHARS = 80; // 1.6 sửa ngày 2026-11-10 (vòng bố cục 3.3): ≤ 80 ký tự / dòng (trước: 68)
 export const SPACE = [0, 8, 16, 24, 32, 40, 48, 64, 96]; // 40 = tiêu đề khối → nội dung (desktop)
 const PAGES = ['trang-chu', 'the-global-city', 'masteri-park-place'];
 const SCREENS = [['M1', 1366, 768], ['M5', 390, 844], ['768', 768, 1024], ['1024', 1024, 768], ['M3', 1920, 1080]];
 
 // Runs in the page.
-export function scaleAudit({ FONT, SPACE }) {
+export function scaleAudit({ FONT, SPACE, MAX_CHARS = 80 }) {
 	const skip = '.mk, .mk-float, .tmp, .draft, .sr-only, .screen-reader-text, #wpadminbar, #wpadminbar *, script, style, svg, img, iframe, br, option, dialog:not([open]), dialog:not([open]) *';
 	const near = (v, set) => set.some((x) => Math.abs(v - x) < 0.5);
 	const name = (e) => e.tagName.toLowerCase() + (typeof e.className === 'string' && e.className.trim() ? '.' + e.className.trim().split(/\s+/)[0] : '');
@@ -41,7 +42,7 @@ export function scaleAudit({ FONT, SPACE }) {
 			if (!near(Math.abs(n), SPACE)) space.set(`${name(e)} ${k} ${n}px`, (space.get(`${name(e)} ${k} ${n}px`) || 0) + 1);
 		}
 	}
-	// 1.6: characters per rendered line of running text (p, li, dd), counted glyph by glyph; > 68 is an exception
+	// 1.6: characters per rendered line of running text (p, li, dd), counted glyph by glyph; > MAX_CHARS is an exception
 	const chars = new Map();
 	for (const e of document.querySelectorAll('main p, main li:not(.crumbs li), main dd, footer p')) { // a breadcrumb is navigation, not running text
 		if (e.matches(skip) || e.closest('.mk, .mk-float, [hidden], .hero--home') || !e.getClientRects().length) continue;
@@ -52,7 +53,7 @@ export function scaleAudit({ FONT, SPACE }) {
 			const k = Math.round(b.bottom); lines.set(k, (lines.get(k) || '') + t.data[i]);
 		}
 		const max = Math.max(0, ...[...lines.values()].map((l) => l.replace(/\s+/g, ' ').trim().length)); // a space at the wrap is not on the line
-		if (max > 68) chars.set(`${name(e)} ${max} ký tự`, (chars.get(`${name(e)} ${max} ký tự`) || 0) + 1);
+		if (max > MAX_CHARS) chars.set(`${name(e)} ${max} ký tự`, (chars.get(`${name(e)} ${max} ký tự`) || 0) + 1);
 	}
 	return { font: [...font], space: [...space], chars: [...chars] };
 }
@@ -74,13 +75,13 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 		for (let i = 0; STAGING && i < 3 && !(await p.evaluate(() => [...document.styleSheets].some((x) => /velis\.min\.css/.test(x.href || '') && x.cssRules.length))); i++) {
 			await p.waitForTimeout(5000); await p.reload({ waitUntil: 'load', timeout: 120000 });
 		}
-		const r = await p.evaluate(scaleAudit, { FONT, SPACE });
+		const r = await p.evaluate(scaleAudit, { FONT, SPACE, MAX_CHARS });
 		const n = r.font.length + r.space.length + r.chars.length; total += n;
 		lines.push(`- ${page} ${s}: ${n} ngoại lệ${n ? ' – ' + [...r.font.map(([k, c]) => `chữ ${k} ×${c}`), ...r.space.map(([k, c]) => `${k} ×${c}`), ...r.chars.map(([k, c]) => `dòng ${k} ×${c}`)].join('; ') : ''}`);
 		await p.context().close();
 	}
 	await b.close();
-	const md = `# Đo thang chữ (1.3) và thang khoảng cách (1.2) – ${new Date().toISOString().slice(0, 10)}\n\nCỡ chữ cho phép: ${FONT.join(' · ')} px. Khoảng cách (margin, padding, gap): ${SPACE.join(' · ')} px. Dòng chữ (p, li, dd) ≤ 68 ký tự (1.6), đếm từng ký tự trên dòng hiển thị. Bỏ qua hero trang chủ (giữ nguyên hero 0.9.8, duyệt 2026-11-06) và phần chỉ có ở mockup (công tắc, nhãn ảnh tạm, nhãn câu chờ duyệt).\n\n${lines.join('\n')}\n\n**Tổng ngoại lệ: ${total}**\n`;
+	const md = `# Đo thang chữ (1.3) và thang khoảng cách (1.2) – ${new Date().toISOString().slice(0, 10)}\n\nCỡ chữ cho phép: ${FONT.join(' · ')} px. Khoảng cách (margin, padding, gap): ${SPACE.join(' · ')} px. Dòng chữ (p, li, dd) ≤ ${MAX_CHARS} ký tự (1.6), đếm từng ký tự trên dòng hiển thị. Bỏ qua hero trang chủ (giữ nguyên hero 0.9.8, duyệt 2026-11-06) và phần chỉ có ở mockup (công tắc, nhãn ảnh tạm, nhãn câu chờ duyệt).\n\n${lines.join('\n')}\n\n**Tổng ngoại lệ: ${total}**\n`;
 	if (out) writeFileSync(out, md);
 	console.log(lines.join('\n').slice(0, 6000)); console.log('tổng ngoại lệ:', total);
 	process.exit(total ? 1 : 0);

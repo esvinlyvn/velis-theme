@@ -191,18 +191,59 @@ if ('IntersectionObserver' in window) {
 	$$('[data-gallery]').forEach((g) => near.observe(g));
 }
 
-// Lightbox: any [data-zoom] button opens the shared <dialog>.
-const lightbox = document.querySelector('.lightbox');
+// Lightbox (vòng bố cục 5.11): gallery / construction / plan buttons [data-zoom] and pictures in page text open the shared
+// <dialog>: whole picture inside the screen, flagged photos keep their W-A crop (no badge), ‹ › and arrow keys move inside
+// the same group, Esc / ground click / swipe down close, focus goes back to the picture that was opened.
+const lightbox = document.querySelector('.lightbox') || (() => {
+	if (!document.querySelector('.prose img')) return null;
+	document.body.insertAdjacentHTML('beforeend', '<dialog class="lightbox" aria-label="Xem ảnh"><button type="button" class="lightbox__close" data-close aria-label="Đóng">×</button><button type="button" class="lightbox__nav" data-step="-1" aria-label="Ảnh trước">‹</button><span class="lightbox__frame"><img alt="" width="1200" height="800"></span><button type="button" class="lightbox__nav" data-step="1" aria-label="Ảnh sau">›</button></dialog>');
+	return document.querySelector('.lightbox');
+})();
 if (lightbox) {
-	document.addEventListener('click', (e) => {
-		const b = e.target.closest('[data-zoom]');
-		if (!b) return;
-		const img = lightbox.querySelector('img');
-		img.src = b.dataset.zoom;
-		img.alt = b.querySelector('img')?.alt || '';
+	const big = (img) => { // largest file of a text picture
+		const c = (img.getAttribute('srcset') || '').split(',').map((s) => s.trim().split(/\s+/)).filter((s) => s[0]).sort((a, b) => parseInt(b[1], 10) - parseInt(a[1], 10));
+		return img.dataset.alt || (c[0] && c[0][0]) || img.currentSrc || img.src;
+	};
+	const item = (el) => el.matches('[data-zoom]')
+		? { el, src: el.dataset.zoom, img: el.querySelector('img') }
+		: { el, src: big(el), img: el };
+	let list = [], at = 0, opener = null;
+	const show = () => {
+		const it = list[at], pic = lightbox.querySelector('img');
+		pic.src = it.src;
+		pic.alt = it.img?.alt || '';
+		lightbox.classList.toggle('is-crop', !!it.img && it.img.classList.contains('is-marked') && !it.img.classList.contains('is-plan'));
+		$$('[data-step]', lightbox).forEach((b) => { b.hidden = list.length < 2; });
+	};
+	const open = (el) => {
+		const group = el.closest('[data-gallery], .grid, [data-tabs], .prose') || document;
+		list = $$(el.matches('[data-zoom]') ? '[data-zoom]' : 'img:not(a img, .card img)', group).map(item);
+		at = Math.max(0, list.findIndex((i) => i.el === el));
+		opener = el;
+		show();
 		lightbox.showModal();
+	};
+	const step = (d) => { if (list.length > 1) { at = (at + d + list.length) % list.length; show(); } };
+	$$('.prose img:not(a img, .card img)').forEach((img) => {
+		img.tabIndex = 0;
+		img.setAttribute('role', 'button');
+		img.setAttribute('aria-label', 'Phóng to: ' + (img.alt || 'ảnh'));
+		img.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(img); } });
 	});
-	lightbox.addEventListener('click', (e) => e.target === lightbox && lightbox.close());
+	document.addEventListener('click', (e) => {
+		const el = e.target.closest('[data-zoom], .prose img:not(a img, .card img)');
+		if (el && !lightbox.contains(el)) open(el);
+	});
+	lightbox.addEventListener('click', (e) => {
+		if (e.target === lightbox || e.target.closest('[data-close]')) lightbox.close();
+		const s = e.target.closest('[data-step]');
+		if (s) step(+s.dataset.step);
+	});
+	lightbox.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') step(-1); if (e.key === 'ArrowRight') step(1); });
+	let y0 = null;
+	lightbox.addEventListener('touchstart', (e) => { y0 = e.touches[0].clientY; }, { passive: true });
+	lightbox.addEventListener('touchend', (e) => { if (y0 !== null && e.changedTouches[0].clientY - y0 > 80) lightbox.close(); y0 = null; });
+	lightbox.addEventListener('close', () => opener?.focus());
 }
 
 // Home hero strip (NT-10): arrows only when more cards than fit, disabled at either end; fade while more are hidden.
@@ -224,34 +265,51 @@ $$('.feats').forEach((box) => {
 	sync();
 });
 
-// Long text (old pillar posts): ~420 px, then "Đọc tiếp" (all text stays in the page).
-// Only one region per page (the server marks the longest). The cut falls at a child boundary: children past ~420 px are
-// hidden, the paragraph crossing the line fades out; a heading is never faded – it is hidden with what follows it.
+// Long text blocks of project / phân khu / dòng pages (vòng bố cục 4): a block taller than 520 px shows ~360 px, then
+// "Xem thêm" / "Thu gọn" in place (all text stays in the page). The cut falls at a child boundary: children past ~360 px
+// are hidden, the paragraph crossing the line fades out (same-colour gradient, Safari-safe); a heading is never faded – it
+// is hidden with what follows it. A section-tab jump to a block opens it; print opens everything.
+const clamps = [];
 $$('.clamp').forEach((el) => {
 	if (el.scrollHeight <= 520) return;
 	const kids = [...el.children], top = el.getBoundingClientRect().top;
-	let i = kids.findIndex((k) => k.getBoundingClientRect().bottom - top > 420);
-	if (i < 1) return;
-	if (/^H\d$/.test(kids[i].tagName)) i--; // cut before the heading; the paragraph above it fades
-	while (i > 0 && /^H\d$/.test(kids[i].tagName)) i--;
+	let i = kids.findIndex((k) => k.getBoundingClientRect().bottom - top > 360);
+	if (i < 0) return;
+	while (i > 0 && /^H\d$/.test(kids[i].tagName)) i--; // cut before a heading; the paragraph above it fades
+	if (/^H\d$/.test(kids[i].tagName)) return; // phones: the first paragraph alone may pass 360 px – it is then the one that fades
 	const fade = kids[i], cut = kids.slice(i + 1);
-	cut.forEach((k) => { k.hidden = true; });
-	fade.classList.add('clamp__fade');
-	el.classList.add('is-clamped');
 	const b = document.createElement('button');
 	b.type = 'button';
 	b.className = 'btn btn--text clamp__more';
-	b.textContent = 'Đọc tiếp';
-	b.setAttribute('aria-expanded', 'false');
-	b.addEventListener('click', () => { cut.forEach((k) => { k.hidden = false; }); fade.classList.remove('clamp__fade'); el.classList.remove('is-clamped'); b.remove(); });
+	const set = (open) => {
+		cut.forEach((k) => { k.hidden = !open; });
+		fade.classList.toggle('clamp__fade', !open);
+		el.classList.toggle('is-clamped', !open);
+		b.textContent = open ? 'Thu gọn' : 'Xem thêm';
+		b.setAttribute('aria-expanded', String(open));
+	};
+	b.addEventListener('click', () => {
+		const open = b.getAttribute('aria-expanded') !== 'true';
+		set(open);
+		if (!open && el.getBoundingClientRect().top < 0) el.scrollIntoView({ block: 'start' }); // closing far below: back to the block
+	});
+	set(false);
 	el.after(b);
+	clamps.push({ el, open: () => set(true) });
 });
+const openAt = (hash) => {
+	const t = hash && document.getElementById(decodeURIComponent(hash.slice(1)));
+	if (t) clamps.forEach((c) => { if (t.contains(c.el)) c.open(); });
+};
+document.addEventListener('click', (e) => { const a = e.target.closest('a[href^="#"]'); if (a) openAt(a.hash); }, true);
+addEventListener('hashchange', () => openAt(location.hash));
+openAt(location.hash);
 
 // Print / "Lưu PDF" (Safari never scrolls, so native lazy images below the fold would print as empty boxes): load every
 // picture now and open the collapsed text. beforeprint where it fires, print media query where it does not.
 const forPrint = () => {
 	$$('img[loading="lazy"]').forEach((i) => { i.loading = 'eager'; });
-	$$('.clamp__more').forEach((b) => b.click());
+	clamps.forEach((c) => c.open());
 };
 addEventListener('beforeprint', forPrint);
 matchMedia('print').addEventListener?.('change', (e) => e.matches && forPrint());

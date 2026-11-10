@@ -82,15 +82,48 @@ Triển khai: theme 1.0.0 tải lên staging 2 lần (bản sửa mục 2; bản
 
 ## 3. Bố cục
 
-{{BO_CUC}}
+Ghi vào `DESIGN.md` (mục "Bố cục template") và nhật ký `docs/NGHIEM-THU.md` ("Duyệt: người dùng, 2026-11-10").
+
+| Mục | Đã làm |
+|---|---|
+| 3.1 Template 2 cột (dự án, phân khu, dòng, bài, Giới thiệu, Tuyển dụng, tác giả) | cột chính 8/12 + cột phải 4/12, rãnh 48 px: khung 1200 → **768 \| 384**; cột phải 32 % khung, mép phải trùng mép khung (lệch 0 px); 768–1023 px một cột (khối "Velis tư vấn" sau thanh thông tin) |
+| 3.2 Template 1 cột (chính sách, tìm kiếm, 404) | khung `.onecol` 760 px căn giữa: breadcrumb, tiêu đề, nội dung cùng mép trái |
+| 3.3 Chữ nội dung | 18 px / 1,7. **Mâu thuẫn trong yêu cầu, đã chọn:** 18 px ở cột 768 px ra 88 ký tự/dòng (đo trên nội dung thật: 640 px = 74, 680 = 78–81, 720 = 82, 768 = 88) nên đoạn văn, tiêu đề, ảnh, bảng, bản đồ cùng **một mép 664 px** (≤ 80 ký tự); lưới thẻ, thanh thông tin, thư viện dùng cả 768 px. Thang chữ thêm cỡ 18; giới hạn dòng 1.6: 80 ký tự (`tools/mockup_scale.mjs`) |
+| 3.4 Phần đầu trang | hero kiểu B: trái 7/12 (nhãn, H1, đoạn dẫn), phải 5/12 (nút căn đáy, căn phải); thanh thông tin rộng hết khung; mobile một cột. **Hero A** (ảnh ≥ 1920 px) giữ khối chữ + nút trên phần tối của ảnh (NT-43: nút bên phải sẽ nằm trên phần ảnh sáng); 1 cột (760 px) giữ nút dưới chữ |
+| 3.5 Đo M1–M3 (`tools/check_layout_b5.mjs`, 29 trang của bảng TEMPLATE) | cột phải ≤ 34 %: **đạt** (32 %); mép cột phải 0 px; lề trái/phải phần đầu lệch ≤ 24 px: **đạt** (0 px; 1 cột 220/220 – 280/280); vùng trống > 40 %: **đạt** trừ `/?s=prive` ở M3 = 41,2 % – hàng thẻ ngắn căn giữa trong khung 760 px (mục 2.1 "ít thẻ thì căn giữa"), xem là đúng thiết kế. Kết quả: `screenshots/on-dinh/kiem-tra/bo-cuc-sau.json` / `.txt` (trước: `bo-cuc-truoc.json`) |
+
 
 ## 4. Độ dài template dự án / phân khu / dòng
 
-{{DO_DAI}}
+Mọi khối chữ (`.prose`) của trang dự án / phân khu / dòng cao quá 520 px thu còn ~360 px + "Xem thêm" / "Thu gọn" mở tại chỗ (thay "tối đa 1 vùng Đọc tiếp"). Không thu: lưới thẻ, bảng thông tin, thư viện, FAQ, form. Cắt ở ranh giới phần tử: tiêu đề không bao giờ mờ (ẩn cùng phần sau nó), chỉ đoạn ở chỗ cắt mờ bằng gradient cùng màu nền (an toàn Safari). Tab mục / link `#khối` mở khối đó; khi in mở hết. Trên điện thoại đoạn đầu có thể đã > 360 px – khi đó đoạn đầu là đoạn mờ (lỗi bản đầu, đã sửa). Khối "Bài viết" trên trang dự án còn 1 hàng 3 thẻ + "Tất cả bài" (trước: 6).
+
+| Trang (dài nhất mỗi loại) | M2 trước → sau | iPhone 14 trước → sau |
+|---|---|---|
+| The Global City (đại đô thị) | 26.628 → **11.609** | 33.050 → **15.460** |
+| Vinhomes Saigon Park (đại đô thị dài nhất) | 27.300 → **10.681** | 34.185 → **12.660** |
+| Palm River (phân khu) | 27.938 → **11.000** | 32.757 → **12.879** |
+| Persa Place (phân khu) | 24.215 → **10.477** | 29.793 → **12.389** |
+| The Privé (độc lập) | 21.091 → **10.683** | 26.029 → **13.089** |
+
+Mục tiêu ≤ 12.000 px (M2) và ≤ 16.000 px (iPhone 14): **đạt** cả 5.
+
 
 ## 5. Thẻ và khối
 
-{{THE_KHOI}}
+| Mục | Đã làm |
+|---|---|
+| 5.1 Thẻ dự án | một hàm `velis_card_project` cho trang chủ, /du-an/, chủ đầu tư, Giới thiệu, liên quan, tìm kiếm: ảnh 4:3 → "chủ đầu tư · khu vực" → tên → loại sản phẩm → **bàn giao (thiếu: "Bàn giao: chưa công bố")** → "Xem dự án →" ghim đáy; bỏ dòng giá / trạng thái khỏi thẻ dự án (phân khu, dòng giữ giá). Khung dự phòng cùng tỉ lệ; dải nổi bật hero giữ dạng rút gọn. Mockup đồng bộ |
+| 5.2 Thẻ phân khu | dạng dọc, kể cả "Thấp tầng"; lưới 3 / 2 / 1 cột trong cột chính (lưới `data-live`) |
+| 5.3 Thẻ chủ đầu tư | cùng khung 4:3 với thẻ dự án: logo cân diện tích (luật 2.9) giữa khung trắng, chưa có logo → khung tên kiểu dự phòng; chữ và link trong thẻ |
+| 5.4 Thẻ bài | một component `velis_card_post` (đã dùng chung) |
+| 5.5 Danh sách cột phải | component mới dựng từ khối có sẵn `velis_sidelist` ("Đang tư vấn" ở Giới thiệu, "Lĩnh vực" ở tác giả): mỗi mục một dòng, tên không gạch chân, thông tin phụ dưới tên, cả dòng là link ≥ 44 px |
+| 5.6 Trang chủ đầu tư | "Thông tin nhanh" chỉ khi có dữ liệu (bảng thông tin); logo lên phần đầu trang; dự án là lưới thẻ 5.1 (1 dự án = thẻ chuẩn căn giữa); 0 dự án: không khối trống |
+| 5.7 Bảng trong nội dung | tên cột ≥ 8em (≤ 2 dòng); bảng rộng cuộn ngang trong khung riêng |
+| 5.8 Tab mục mobile | không cắt chữ giữa từ (1 hàng cuộn ngang, mờ mép phải – vòng trước) |
+| 5.9 Gộp biến thể | nút biểu tượng trên nền tối (thư viện ‹ ›, khung phóng to × ‹ ›) một mẫu; khối cột phải một mẫu `.advisor` + danh sách 5.5; thẻ chủ đầu tư bỏ khung logo riêng (`.card__logo`) dùng khung thẻ. Còn giữ có chủ đích: mũi tên tròn của dải nổi bật hero (khóa theo 0.9.8), tab khu vực trang chủ (`.ftabs`) và thanh tab mục (`.tabs`) khác vai trò. Tờ trước \| sau: `screenshots/on-dinh/bien-the-truoc-sau.jpg` |
+| 5.10 Tác giả | phần đầu theo 3.4: nhãn, tên (H1), chân dung 3:4 (ảnh của tác giả; Vũ Xuân dùng `vu-thanh-xuan-ceo-velis-720.webp` đóng gói trong theme) + nút "Liên hệ" ở cột phải căn đáy; danh sách bài thẻ 5.4, 12 bài/trang có phân trang; bố cục 2 cột 3.1 |
+| 5.11 Khung phóng to | mở được ảnh thư viện, ảnh tiến độ, mặt bằng và **ảnh trong bài**; ảnh trọn 90vw × 85vh; nền tối 96 %; ảnh có cờ dấu cắt W-A (không lộ huy hiệu); nút đóng 48 px; Esc / bấm nền / vuốt xuống đóng; ‹ › và phím mũi tên; đóng xong focus về ảnh đã bấm. `tools/check_lightbox_b5.mjs`: **6/6 đạt** (M2 + iPhone 14 × ảnh ngang / mặt bằng / ảnh dọc trong bài) – `screenshots/on-dinh/lightbox/` |
+
 
 ## 6. Kiểm chứng
 

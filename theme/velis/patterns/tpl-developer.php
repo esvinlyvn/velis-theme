@@ -22,6 +22,7 @@ $out  .= velis_hero_b( array(
 	'lead'    => $d->post_excerpt ?: ( $projs ? 'Dự án Velis đang tư vấn: ' . implode( ', ', wp_list_pluck( $projs, 'post_title' ) ) . '.' : '' ),
 	'img'     => $img, 'alt' => $projs ? 'Phối cảnh ' . $projs[0]->post_title : '',
 	'buttons' => velis_btn( 'Nhận tư vấn', '#tu-van', '', ' data-interest="' . esc_attr( $d->post_title ) . '"' ) . velis_call_btn( 'line' ),
+	'after'   => $logo ? '<ul class="partners">' . '<li>' . $logo . '</li></ul>' : '', // 5.6: the logo belongs to the page header
 ) );
 $facts = array(
 	'Tên viết tắt' => get_post_meta( $d->ID, 'velis_short_name', true ),
@@ -41,8 +42,8 @@ foreach ( $links as $k => $u ) {
 $band     = array( 'section--tint', '' );
 $i        = 0;
 $sections = '';
-if ( $dl || $logo ) {
-	$sections .= velis_section( velis_sechead( 'Thông tin nhanh về ' . $d->post_title, 'Dữ kiện công khai' ) . ( $logo ? '<ul class="partners"><li>' . $logo . '</li></ul>' : '' ) . ( $dl ? '<dl class="facts__list" data-n="' . substr_count( $dl, '<div>' ) . '">' . str_replace( '<div>', '<div class="facts__item">', $dl ) . '</dl>' : '' ), '', $band[ $i++ % 2 ] );
+if ( $dl ) { // 5.6: only when there is data, as a table (the facts list)
+	$sections .= velis_section( velis_sechead( 'Thông tin nhanh về ' . $d->post_title, 'Dữ kiện công khai' ) . '<dl class="facts__list" data-n="' . substr_count( $dl, '<div>' ) . '">' . str_replace( '<div>', '<div class="facts__item">', $dl ) . '</dl>', '', $band[ $i++ % 2 ] );
 }
 if ( $projs ) {
 	$st = array();

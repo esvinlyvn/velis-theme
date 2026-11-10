@@ -47,9 +47,7 @@ $cb     = function ( $slot, $html = null ) use ( $chunks ) { // $html: the slot'
 	if ( '' === $h || 'bai-viet' === $slot ) { // old "Bài viết liên quan" lists: the template has its own same-cluster block
 		return '';
 	}
-	$words = count( preg_split( '/\s+/u', trim( wp_strip_all_tags( $h ) ), -1, PREG_SPLIT_NO_EMPTY ) );
-	$cut   = 'tong-quan' === $slot ? 180 : 300;
-	return '<div class="prose"' . ( $words > $cut ? ' data-words="' . $words . '"' : '' ) . '>' . velis_content( $h ) . '</div>'; // longest one gets the clamp below (2.4)
+	return '<div class="prose clamp">' . velis_content( $h ) . '</div>'; // vòng bố cục 4: every text block > 520 px collapses to ~360 px (velis.js)
 };
 
 // Tổng quan: "Nằm trong" box, answer-first summary, every fact in full, editorial content (CEO view, FAQ – phase 4).
@@ -173,7 +171,7 @@ foreach ( array( 'dong-san-pham' => array( 'Dòng sản phẩm', 'Sản phẩm' 
 	}
 }
 
-$posts = velis_project_posts( $p, 'thap-tang' === $level ? 3 : 6 );
+$posts = velis_project_posts( $p, 3 ); // vòng bố cục 4: one row of 3 cards (page ≤ 12,000 px / 16,000 px); "Tất cả bài" links the cluster
 if ( $posts ) {
 	$cat = velis_cluster( $p );
 	$all = $cat ? '<a class="btn btn--text" href="' . esc_url( get_category_link( $cat ) ) . '">Tất cả bài ' . esc_html( $cat->name ) . ' →</a>' : '';
@@ -207,12 +205,6 @@ foreach ( $groups as $gid => list( $label, $ids ) ) {
 		$blocks .= '<section class="block' . $cls . '" id="' . esc_attr( $id ) . '">' . $html . '</section>';
 	}
 }
-// 2.4: at most one "Đọc tiếp" region per page – the longest text block over its threshold
-if ( preg_match_all( '/<div class="prose" data-words="(\d+)">/', $blocks, $m ) ) {
-	$max    = max( array_map( 'intval', $m[1] ) );
-	$blocks = preg_replace( '/<div class="prose" data-words="' . $max . '">/', '<div class="prose clamp">', $blocks, 1 );
-}
-$blocks = preg_replace( '/<div class="prose" data-words="\d+">/', '<div class="prose">', $blocks );
 $nav['tu-van'] = 'Tư vấn';
 $src  = (string) get_post_meta( $p->ID, 'velis_price_source', true );
 $keys = array( 'Chủ đầu tư', 'Quy mô', 'Số phân khu', 'Vị trí', 'Sản phẩm', 'Diện tích', 'Bàn giao', 'Pháp lý' ); // mockup order; Giá goes 4th

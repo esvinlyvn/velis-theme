@@ -108,6 +108,21 @@ a.chip { display: inline-flex; align-items: center; color: inherit; text-decorat
 	.hero--b .hero__media { aspect-ratio: auto; height: min(560px, max(180px, 100svh - var(--hero-rest, 556px)), min(100vw - 2 * var(--gutter), var(--wrap)) / 2.4); }
 	.hero--b .hero__media img.is-marked { transform: none; object-position: 50% 45%; }
 }
+/* page header (vòng bố cục 3.4, every template but home): text 7/12 left, buttons 5/12 right, at the bottom, right-aligned.
+   Hero A keeps its text block over the photo (NT-43: text ≤ 40 %, buttons stay on the dark side of the overlay). */
+@media (min-width: 1024px) {
+	.hero--b .hero__body:has(> .actions) { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: var(--s12); }
+	.hero--b .hero__body > * { grid-column: 1; }
+	.hero--b .hero__body > .actions { grid-column: 2; grid-row: 1 / span 8; align-self: end; justify-content: flex-end; }
+	.onecol .hero--b .hero__body { display: block; } /* 1-column templates: one 760 px frame, buttons under the text */
+}
+/* author header (5.10): portrait 3:4 with the contact button under it, in the buttons' column */
+.hero__portrait { display: block; width: 160px; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--radius); }
+.actions:has(> .hero__portrait) { flex-direction: column; align-items: flex-start; }
+@media (min-width: 1024px) {
+	.hero--b .actions:has(> .hero__portrait) { align-items: flex-end; }
+	.hero__portrait { width: 132px; } /* 3.5: no tall empty band beside a short title */
+}
 /* home – the staging 0.9.8 hero, kept as it was (duyệt 2026-11-06: X-02 exception – always full-bleed, even a 1200 px file;
    its fluid type sizes, 12 px gaps and 28 px button padding are kept too, so boxes stay within 2 px of 0.9.8). Two changes
    only: ONE left → right linear gradient over the whole frame (NT-47) instead of the blurred patch + eyebrow box, and the
@@ -224,6 +239,7 @@ a.chip { display: inline-flex; align-items: center; color: inherit; text-decorat
 .prose .wp-block-table :is(td, th) { padding: var(--s2) var(--s4); } /* core block CSS uses .5em: back on the 1.2 scale */
 .prose .wp-block-separator { margin-block: var(--s6); }
 .prose table { display: block; overflow-x: auto; font-size: inherit; } /* bảng trong bài theo cỡ thân: khối ≤ 3 cỡ (1.3) */
+.prose table :is(thead th, tr:first-child > th) { min-width: 8em; } /* 5.7: column names ≤ 2 lines – a wide table scrolls in its own box */
 @media (max-width: 767px) { /* 2-column content tables (label | value): full width, label column ≥ 35 % – no one-word lines, no word cut */
 	.prose table:not(:has(:is(td, th):nth-child(3))) { display: table; }
 	.prose table:not(:has(:is(td, th):nth-child(3))) tr > :first-child { width: 35%; }
@@ -262,7 +278,7 @@ a.chip { display: inline-flex; align-items: center; color: inherit; text-decorat
 .table-wrap th[scope="row"] { white-space: nowrap; }
 .table-wrap thead th { min-width: 9em; } /* 2.12: column names ≤ 2 lines */
 .table-wrap thead th:first-child { min-width: 0; } /* the "Tiêu chí" column holds short row labels; its width goes to the record names */
-.table-wrap :is(th, td) { padding-inline: var(--s2); } /* 4 columns fit the 576 px reading column without sideways scroll (NT-53) */
+.table-wrap :is(th, td) { padding-inline: var(--s2); } /* 4 columns fit the 680 px text measure without sideways scroll (NT-53) */
 .table-wrap .btn--text { white-space: nowrap; }
 .is-current { background: var(--sunken); }
 
@@ -274,14 +290,15 @@ a.chip { display: inline-flex; align-items: center; color: inherit; text-decorat
 .gallery__track img { width: 100%; height: 100%; object-fit: cover; }
 .gallery__track img.is-plan { object-fit: contain; }
 .gallery__nav { display: flex; align-items: center; justify-content: center; gap: var(--s4); margin-top: var(--s4); }
-.gallery__nav button { min-width: 48px; min-height: 48px; padding: 0; border: 1px solid rgb(255 255 255 / .6); background: none; color: #fff; font-size: var(--fs-h3); cursor: pointer; }
+/* 5.9: one icon button on dark ground – gallery ‹ ›, lightbox × ‹ › (the home hero strip keeps its 0.9.8 round arrows) */
+.gallery__nav button, .lightbox__close, .lightbox__nav { display: grid; place-items: center; width: 48px; height: 48px; padding: 0; border: 1px solid rgb(255 255 255 / .7); border-radius: var(--radius); background: rgb(0 0 0 / .5); color: #fff; font-size: var(--fs-h3); line-height: 1; cursor: pointer; }
 .gallery__count { min-width: 5ch; text-align: center; font-variant-numeric: tabular-nums; font-weight: 600; }
 
 /* map, "Nằm trong" box */
 .map { position: relative; margin: 0 0 var(--s4); max-width: var(--read); aspect-ratio: 16 / 9; overflow: hidden; background: var(--sunken); }
 .map img { width: 100%; height: 100%; object-fit: cover; }
 .map .btn { background: var(--surface); position: absolute; left: 50%; bottom: var(--s4); transform: translateX(-50%); }
-.source { font-size: var(--fs-small); line-height: 1.5; color: var(--muted); }
+.source { max-width: 40ch; font-size: var(--fs-small); line-height: 1.5; color: var(--muted); } /* 14 px note: ≤ 80 characters a line */
 .within { color: inherit; text-decoration: none; display: grid; grid-template-columns: 120px 1fr; gap: var(--s4); align-items: center; max-width: var(--read); padding: var(--s6); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); margin-bottom: var(--s6); }
 .within__img { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
 .within__img img { width: 100%; height: 100%; object-fit: cover; }
@@ -404,9 +421,14 @@ img.is-marked { transform: scale(var(--zoom, 1.15)); transform-origin: 100% 0; }
 /* home d – partner logos: one row, same 40 px height, dark grey until hover, no boxes, names in alt */
 .partners { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: var(--s8) var(--s16); } /* left like every block (1.1) */
 .partners li { max-width: none; }
-.card__logo { display: flex; align-items: center; justify-content: center; min-height: 96px; margin: 0; padding: var(--s6); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
-.card__logo img { width: var(--w); height: var(--h); }
-.card__logo--empty span { font: 600 var(--fs-h3)/1.3 var(--f-head); color: var(--muted); } /* developer without a logo: its name in the same frame (grid stays even) */
+.card__media--logo { display: grid; place-items: center; background: var(--surface); border: 1px solid var(--line); } /* 5.3: developer logo in the project card's 4:3 frame */
+/* side-column list (5.5): one item a line, whole row = link, name not underlined, info under it */
+.sidelist { list-style: none; margin: 0; padding: 0; }
+.sidelist a, .page__side .sidelist a:not(.btn), dd .sidelist a:not(.btn) { display: flex; flex-direction: column; justify-content: center; min-height: 44px; padding-block: var(--s2); border-bottom: 1px solid var(--line); color: var(--ink); text-decoration: none; }
+.sidelist a:hover b { color: var(--red); }
+.sidelist b { font-weight: 600; font-size: var(--fs-card); line-height: 1.4; }
+.sidelist span { font-size: var(--fs-small); line-height: 1.5; color: var(--muted); }
+.card__media--logo img { width: var(--w); height: var(--h); object-fit: contain; }
 @media (max-width: 767px) { .partners { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s6); } .partners a { justify-content: center; } } /* 2.9: 2 equal columns, logo centred in its cell */
 .partners a { display: flex; align-items: center; min-height: 48px; }
 .partners img { width: var(--w); height: var(--h); filter: grayscale(1) brightness(.45); transition: filter .2s var(--ease); }
@@ -435,8 +457,16 @@ img.is-marked { transform: scale(var(--zoom, 1.15)); transform-origin: 100% 0; }
 
 /* lightbox – theme only (photos, plans and construction photos with [data-zoom] open whole); new style, to approve */
 button[data-zoom] { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
-.lightbox { max-width: min(100vw - 2 * var(--gutter), 1200px); max-height: 100dvh; padding: 0; border: 0; background: none; }
-.lightbox::backdrop { background: rgb(17 17 17 / .9); }
-.lightbox form { display: flex; justify-content: flex-end; margin-bottom: var(--s2); }
-.lightbox .btn--line { color: #fff; border-color: #fff; }
-.lightbox img { display: block; max-width: 100%; max-height: calc(100dvh - 96px); width: auto; height: auto; margin-inline: auto; }
+.lightbox { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: rgb(8 8 8 / .96); color: #fff; overflow: hidden; } /* 5.11: the page behind is not readable */
+.lightbox[open] { display: grid; place-items: center; }
+.lightbox::backdrop { background: rgb(0 0 0 / .92); }
+.lightbox__frame { position: relative; overflow: hidden; line-height: 0; }
+.lightbox__frame img { display: block; max-width: 90vw; max-height: 85vh; width: auto; height: auto; } /* the whole picture, never cut at the bottom */
+.lightbox.is-crop .lightbox__frame img { transform: scale(1.12); transform-origin: 100% 0; } /* flagged photo: same W-A crop as on the page – no badge */
+.lightbox__close, .lightbox__nav { position: fixed; z-index: 2; }
+.lightbox__close { top: var(--s4); right: var(--s4); }
+.lightbox__nav { top: 50%; transform: translateY(-50%); }
+.lightbox__nav[data-step="-1"] { left: var(--s4); }
+.lightbox__nav[data-step="1"] { right: var(--s4); }
+.lightbox__nav[hidden] { display: none; }
+.prose img:not(a img, .card img) { cursor: zoom-in; }

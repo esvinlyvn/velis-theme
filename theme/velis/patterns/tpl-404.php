@@ -15,6 +15,7 @@ $out      = velis_hero_b( array(
 if ( $featured ) {
 	$out .= velis_section( velis_sechead( 'Dự án nổi bật', 'Có thể anh chị quan tâm' ) . velis_grid( array_map( 'velis_card_project', $featured ) ), '', 'section--tint' );
 }
+$out = '<div class="onecol">' . $out . '</div>'; // 3.2: one 760 px frame
 ?>
 <!-- wp:html -->
 <?php echo $out; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped in helpers ?>

@@ -22,22 +22,25 @@ $urls  = array_filter( array_merge( array( $m( 'facebook' ), $m( 'twitter' ) ? '
 $areas = array();
 foreach ( get_posts( array( 'author' => $u->ID, 'numberposts' => 200, 'fields' => 'ids' ) ) as $id ) {
 	if ( ( $c = velis_primary_category( $id ) ) && velis_is_cluster( $c ) ) {
-		$areas[ $c->term_id ] = '<a href="' . esc_url( get_category_link( $c ) ) . '">' . esc_html( $c->name ) . '</a>';
+		$areas[ $c->term_id ] = array( get_category_link( $c ), $c->name, '' );
 	}
 }
 $facts = array_filter( array(
 	'Kinh nghiệm' => $years ? esc_html( $years . ' năm' ) : '',
-	'Lĩnh vực' => implode( ', ', $areas ),
 	'Mạng xã hội' => implode( ' · ', array_map( fn( $l ) => '<a href="' . esc_url( $l ) . '" rel="me noopener" target="_blank">' . esc_html( wp_parse_url( $l, PHP_URL_HOST ) ) . '</a>', $urls ) ),
 ) );
 $dl  = implode( '', array_map( fn( $k, $v ) => '<div><dt>' . esc_html( $k ) . '</dt><dd>' . $v . '</dd></div>', array_keys( $facts ), $facts ) );
+$dl .= $areas ? '</dl><p class="muted mb-0">Lĩnh vực</p>' . velis_sidelist( array_values( $areas ) ) . '<dl>' : ''; // 5.5: one link a line under its label, outside the 2-column facts list
 $stats = array_filter( array( 'bài phân tích' => (int) count_user_posts( $u->ID, 'post', true ), 'cụm dự án theo dõi' => count( $areas ), 'năm kinh nghiệm' => (int) $years ) );
 // Profile = hero B (photo when there is one) + the numbers band (mockup) + the facts as the advisor card.
 $out = velis_breadcrumb_html( velis_trail() ) . velis_hero_b( array(
 	'eyebrow' => 'Chuyên gia · ' . $role,
 	'title'   => $u->display_name . ( $paged > 1 ? ' – trang ' . $paged : '' ),
 	'lead'    => $u->description,
-	'buttons' => velis_btn( 'Liên hệ ' . $u->display_name, '#tu-van' ),
+	// 5.10: portrait in the header (the author's photo; Vũ Xuân → the bundled CEO portrait), contact button under it
+	'buttons' => ( $photo ? velis_img( $photo, $u->display_name, 'medium_large', array( 'zoom' => 1, 'sizes' => '200px', 'class' => 'hero__portrait', 'lcp' => true ) )
+		: ( 'vu-xuan' === $u->user_nicename ? '<img class="hero__portrait" src="' . esc_url( get_theme_file_uri( 'assets/brand/vu-thanh-xuan-ceo-velis-720.webp' ) ) . '" width="720" height="960" alt="' . esc_attr( $u->display_name ) . '" fetchpriority="high">' : '' ) )
+		. velis_btn( 'Liên hệ ' . $u->display_name, '#tu-van' ),
 ) );
 if ( $stats ) {
 	$out .= velis_section( '<dl class="numbers" aria-label="' . esc_attr( $u->display_name ) . ' bằng con số">' . implode( '', array_map( fn( $k, $v ) => '<div><dt>' . esc_html( $k ) . '</dt><dd>' . esc_html( (string) $v ) . '</dd></div>', array_keys( $stats ), $stats ) ) . '</dl>', '', 'section--tight section--tint' );

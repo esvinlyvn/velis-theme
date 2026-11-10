@@ -145,8 +145,9 @@ function velis_card_project( $p, string $kicker = '', $mode = '' ): string {
 	} else {
 		$lines[] = implode( ', ', $types ); // as the mockup card: product types only (the phân khu count is on the project page)
 	}
-	$lines[] = '' !== $price ? 'Giá ' . $price : '';
-	$lines[] = implode( ' · ', array_filter( array( $status, $hand ? velis_label_value( 'Bàn giao', velis_short( $hand, 32 ) ) : '' ) ) );
+	// vòng bố cục 5.1: one project card everywhere – label → name → product types → handover (always shown) → link
+	$lines[] = 'zone' === $mode || 'thap-tang' === $level ? ( '' !== $price ? 'Giá ' . $price : '' ) : '';
+	$lines[] = $hand ? velis_label_value( 'Bàn giao', velis_short( $hand, 32 ) ) : 'Bàn giao: chưa công bố';
 	if ( ! $kicker && ! in_array( $mode, array( 'zone', 'embed' ), true ) && 'thap-tang' !== $level ) {
 		$kicker = implode( ' · ', array_filter( array( implode( ', ', wp_list_pluck( $devs, 'post_title' ) ), velis_region_label( $p ) ) ) );
 	}
@@ -173,8 +174,8 @@ function velis_card_developer( $d ): string {
 	$regions = array_unique( array_filter( array_map( 'velis_region_label', $projs ) ) );
 	$meta    = implode( ' · ', array_filter( array( $projs ? count( $projs ) . ' dự án đang tư vấn' : '', implode( ', ', $regions ) ) ) );
 	$logo    = velis_dev_logo( $d );
-	$any     = (bool) array_filter( velis_active_developers(), 'velis_dev_logo' ); // some have a logo: the others get their name in the same frame
-	return '<article class="card">' . ( $logo ? '<p class="card__logo">' . $logo . '</p>' : ( $any ? '<p class="card__logo card__logo--empty"><span>' . esc_html( $d->post_title ) . '</span></p>' : '' ) ) . '<div class="card__body"><h3 class="card__title"><a href="' . esc_url( get_permalink( $d ) ) . '">' . esc_html( $d->post_title ) . '</a></h3>'
+	// vòng bố cục 5.3: the project card's 4:3 frame – the logo centred in it (area rule 2.9), or the name as a fallback frame
+	return '<article class="card">' . ( $logo ? '<div class="card__media card__media--logo">' . $logo . '</div>' : velis_media_empty( $d->post_title ) ) . '<div class="card__body"><h3 class="card__title"><a href="' . esc_url( get_permalink( $d ) ) . '">' . esc_html( $d->post_title ) . '</a></h3>'
 		. ( $meta ? '<p class="card__text">' . esc_html( $meta ) . '</p>' : '' ) . velis_more( 'Xem chủ đầu tư' ) . '</div></article>';
 }
 
@@ -361,9 +362,15 @@ function velis_project_links(): string {
 function velis_highlight_card(): string {
 	$projs = velis_top_projects();
 	$devs  = velis_active_developers();
-	$dl    = implode( '', array_map( fn( $p ) => '<div><dt><a href="' . esc_url( get_permalink( $p ) ) . '">' . esc_html( $p->post_title ) . '</a></dt><dd>' . esc_html( velis_region_label( $p ) ) . '</dd></div>', $projs ) );
+	$list  = velis_sidelist( array_map( fn( $p ) => array( get_permalink( $p ), $p->post_title, velis_region_label( $p ) ), $projs ) );
 	return '<aside class="page__side" aria-label="Dự án Velis đang tư vấn"><div class="advisor"><p class="eyebrow">Đang tư vấn</p><p class="pricecard__title">' . count( $projs ) . ' dự án · ' . count( $devs ) . ' chủ đầu tư</p>'
-		. ( $dl ? '<dl>' . $dl . '</dl>' : '' ) . velis_btn( 'Xem tất cả dự án', (string) get_post_type_archive_link( 'du-an' ), 'line' ) . '</div></aside>';
+		. $list . velis_btn( 'Xem tất cả dự án', (string) get_post_type_archive_link( 'du-an' ), 'line' ) . '</div></aside>';
+}
+
+/** Side-column list (vòng bố cục 5.5): one item a line, the whole row is the link, name (not underlined) + info under it. $items: [url, name, info]. */
+function velis_sidelist( array $items ): string {
+	$li = array_map( fn( $i ) => '<li><a href="' . esc_url( $i[0] ) . '"><b>' . esc_html( $i[1] ) . '</b>' . ( empty( $i[2] ) ? '' : '<span>' . esc_html( $i[2] ) . '</span>' ) . '</a></li>', $items );
+	return $li ? '<ul class="sidelist">' . implode( '', $li ) . '</ul>' : '';
 }
 
 /**
@@ -549,7 +556,10 @@ function velis_lightbox(): string {
 		return '';
 	}
 	$done = true;
-	return '<dialog class="lightbox" aria-label="Xem ảnh"><form method="dialog"><button class="btn btn--line" aria-label="Đóng">×</button></form><img alt="" width="1200" height="800"></dialog>';
+	// 5.11: whole picture inside the screen, solid dark ground, close / previous / next buttons ≥ 44 px (velis.js)
+	return '<dialog class="lightbox" aria-label="Xem ảnh"><button type="button" class="lightbox__close" data-close aria-label="Đóng">×</button>'
+		. '<button type="button" class="lightbox__nav" data-step="-1" aria-label="Ảnh trước">‹</button><span class="lightbox__frame"><img alt="" width="1200" height="800"></span>'
+		. '<button type="button" class="lightbox__nav" data-step="1" aria-label="Ảnh sau">›</button></dialog>';
 }
 
 /** Gallery (mockup: dark block, manual prev / next, counter); each photo opens the lightbox. Plans / maps shown whole. */

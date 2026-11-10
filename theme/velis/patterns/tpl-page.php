@@ -51,6 +51,7 @@ if ( 'lien-he' === $slug ) {
 		$side    = '';
 	}
 	$out .= $content ? velis_text_page( $content, $side ) : '';
+	$out  = $cv ? $out : '<div class="onecol">' . $out . '</div>'; // 3.2: policy pages – one 760 px frame, crumbs / title / text on one edge
 	$out .= velis_form_html( '', array(), $cv ? 'Đăng ký ứng tuyển' : 'Nhận tư vấn' );
 }
 wp_reset_postdata();
