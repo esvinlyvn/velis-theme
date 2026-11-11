@@ -319,3 +319,17 @@ Không xóa bài/trang/media, không gửi form, site thật không bị ghi.
 Quay lui nội dung (Bản sửa đổi, đã đối chiếu trùng nội dung trước khi sửa): 20422→20667, 19962→20596, 20067→20609,
 19855→20712, 19934→20595, 20360→20660, 20330→20708, 20221→20639. Lỡ bấm "Thêm mới" ở thanh quản trị 1 lần → 1 bản nháp tự động
 (auto-draft, WordPress tự dọn sau 7 ngày, không lưu). Không xóa gì, không gửi form, site thật không bị ghi.
+
+## 2026-11-11 – The7 bước 4: tốc độ, phần không ghi `.htaccess` (theo `docs/reports/the7-buoc-4.md`)
+
+| Mục | Trước | Sau | Cách làm |
+|---|---|---|---|
+| Trang 19539 Blog: phần tử Blog list (`dt_blog_list`) | không phân trang, 102 bài | `loading_mode="standard" st_posts_per_page="12"`, 12 bài/trang | REST `wp/v2/pages/19539` (chỉ thêm 2 thuộc tính, chữ không đổi) |
+| The7 Theme Options | xuất bản hiện tại → `data/the7/options-buoc-3.json` | `general-images_lazy_loading` 1 → 0, `general-rel_posts_max` −1 → 6 (`data/the7/options-buoc-4.json`) | Export/Import Options (nhập 1 lần, cùng nội dung) |
+| Theme con | 1.1.2 | **1.1.3**: `functions.php` thêm `loading="lazy"` cho ảnh thu nhỏ The7 từ ảnh thứ 3 trở đi; `velis.css` hiện lưới masonry ngay trên điện thoại | Giao diện → Tải lên → "Thay thế cài đặt bằng tải lên" (2 lần) |
+| Fast Velocity Minify | Combine CSS tắt | thử bật rồi **trả về tắt**: cài đặt FVM cuối cùng giống hệt trước (đã so sánh từng trường) | trang cài đặt FVM, nút Save (FVM không ghi `.htaccess`, đã đọc mã 3.5.8) |
+| LiteSpeed Cache | — | **không lưu cài đặt nào**, chỉ đọc + xóa cache | thanh quản trị |
+| Cache | — | xóa FVM + LiteSpeed sau mỗi thay đổi | thanh quản trị |
+
+Quay lui: nhập `data/the7/options-buoc-3.json`; trang Blog → Bản sửa đổi **20021** (đã đối chiếu trùng nội dung trước khi sửa);
+tải lại theme con 1.1.2. Không xóa gì, không gửi form, site thật không bị ghi.

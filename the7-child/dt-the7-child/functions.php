@@ -15,3 +15,10 @@ add_action( 'wp_enqueue_scripts', function () {
 foreach ( array( 'day_link', 'month_link', 'year_link' ) as $velis_hook ) {
 	add_filter( $velis_hook, fn() => home_url( '/blog/' ) );
 }
+
+// The7's JS lazy load (Theme Options → Advanced) is off so the first image is in the HTML (LCP); give The7's other thumbnails
+// native lazy loading instead. shortcut: the first 2 thumbnails per page stay eager, enough for one screen of blog list/grid.
+add_filter( 'dt_get_thumb_img-output', function ( $html ) {
+	static $velis_n = 0;
+	return ++$velis_n > 2 && ! str_contains( $html, 'loading=' ) ? preg_replace( '/<img /', '<img loading="lazy" ', $html, 1 ) : $html;
+} );

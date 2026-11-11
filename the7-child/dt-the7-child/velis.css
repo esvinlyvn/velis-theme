@@ -28,3 +28,9 @@ a, a:hover { text-decoration: none; }
 .velis-cards .wpb_text_column h3 a { color: #1A1A1A; font-weight: inherit; }
 .velis-cards .wpb_text_column h3 a:hover { color: #B8282E; text-decoration: none; }
 .velis-hero .dt-btn, .velis-cta .dt-btn { margin-bottom: 16px; }
+
+/* Tốc độ (bước 4): lưới bài kiểu masonry (chuyên mục, lưu trữ) ẩn ô tới khi JS isotope chạy → ảnh đầu (LCP) hiện muộn.
+   Trên điện thoại lưới chỉ 1 cột nên hiện ngay, không chờ JS (không xê dịch vì vị trí không đổi). */
+@media (max-width: 767px) {
+	.iso-container > .wf-cell.iso-item { opacity: 1; }
+}
