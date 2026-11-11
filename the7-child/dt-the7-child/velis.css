@@ -69,13 +69,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .vc_toggle_title > h3, .vc_toggle_title > h4, .vc_toggle_title > h3.vc_custom_heading { font-size: 19px; line-height: 1.4; font-weight: 600; color: #1A1A1A; margin: 0; }
 .vc_toggle { border-bottom: 1px solid #E4DED5; padding: 16px 0; margin: 0; }
 .vc_toggle .vc_toggle_content { background: transparent; }
-.vc_toggle .vc_toggle_icon { background: transparent; border: 1px solid #C9C1B5; border-radius: 2px; }
-.vc_toggle .vc_toggle_icon::before, .vc_toggle .vc_toggle_icon::after { background: #1A1A1A; border-color: #1A1A1A; }
+.vc_toggle.vc_toggle .vc_toggle_icon { background: transparent; border: 1px solid #C9C1B5; border-radius: 2px; }
+.vc_toggle.vc_toggle .vc_toggle_icon::before, .vc_toggle.vc_toggle .vc_toggle_icon::after { background: #1A1A1A; border-color: #1A1A1A; }
 
 /* ── Mục lục Easy TOC: cùng chữ và nền với hệ thống ── */
 #ez-toc-container { background: #FAF7F2; border: 1px solid #E4DED5; border-radius: 2px; box-shadow: none; padding: 16px 24px; }
 #ez-toc-container .ez-toc-title { font-size: 16px; font-weight: 600; color: #1A1A1A; }
 #ez-toc-container nav a { font-size: 16px; font-weight: 400; color: #1A1A1A; }
+.ez-toc-btn, .ez-toc-pull-right.ez-toc-btn { background: #FFFFFF; background-image: none; border: 1px solid #C9C1B5; border-radius: 2px; box-shadow: none; }
+.ez-toc-js-icon-con { border-color: #C9C1B5 !important; } /* !important: Easy TOC đặt viền inline */
+.ez-toc-widget-container ul li.active { background-color: #F2EEE8 !important; } /* !important: Easy TOC tô mục đang đọc inline */
+.skip-link.screen-reader-text:focus { background: #FFFFFF; color: #1A1A1A; }
 
 /* ── Trang 404 (trang mẫu 20536, gán ở The7 → Archives and 404): ô tìm + link đi tiếp theo chuẩn nút/ô nhập ── */
 .error404 .velis-404-msg { max-width: 640px; margin: 0 0 24px; }

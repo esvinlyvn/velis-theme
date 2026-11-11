@@ -110,6 +110,13 @@ def normalize(raw, names, log):
     if s2 != s:
         log.append(('ultimate', 'font Roboto / màu riêng', 'theo theme'))
         s = s2
+    # nền hàng Ultimate (bg_color_value) ngoài bảng màu → bỏ, hàng theo nền hệ thống
+    def ubg(m):
+        if m.group(1).upper() in HEX_OK:
+            return m.group(0)
+        log.append(('nen-hang', 'Ultimate ' + m.group(1), 'bỏ'))
+        return ''
+    s = re.sub(r'\sbg_type="bg_color"\s+bg_color_value="(#[0-9a-fA-F]{6})"', ubg, s)
     # nút gõ hoa → chữ thường kiểu câu
     def btn(m):
         t = m.group(2)
