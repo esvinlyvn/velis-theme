@@ -2,24 +2,7 @@
  "pages": 181,
  "links": 181,
  "brokenLinks": [],
- "errors": [
-  {
-   "path": "/du-an/the-global-city/thap-tang/biet-thu-dinh-thu-ven-song/",
-   "status": 200,
-   "width": {
-    "390": {
-     "h1": 1,
-     "overflow": 33,
-     "badImg": []
-    },
-    "1366": {
-     "h1": 1,
-     "overflow": 0,
-     "badImg": []
-    }
-   }
-  }
- ],
+ "errors": [],
  "all": [
   {
    "path": "/",
@@ -28,16 +11,16 @@
    "desc": "Velis Realty – tư vấn, phân phối căn hộ và nhà phố cao cấp TP.HCM: Vinhomes, Masterise Homes, Sun Group, Gamuda Land. Phân tích giá, chính sách, dòng tiền."
   },
   {
-   "path": "/du-an/ansana-by-kita/",
-   "status": 200,
-   "title": "Ansana by Kita Khu Tây: giá, mặt bằng, pháp lý",
-   "desc": "Ansana by Kita của Kita Group: căn hộ, shophouse, bàn giao dự kiến quý 3/2028, giá tham khảo khi chủ đầu tư công bố."
-  },
-  {
    "path": "/du-an/palm-city/",
    "status": 200,
    "title": "Palm City: các phân khu, vị trí, giá tham khảo",
    "desc": "Palm City của Hướng Việt Holdings: căn hộ, shophouse, giá tham khảo khi chủ đầu tư công bố."
+  },
+  {
+   "path": "/du-an/ansana-by-kita/",
+   "status": 200,
+   "title": "Ansana by Kita Khu Tây: giá, mặt bằng, pháp lý",
+   "desc": "Ansana by Kita của Kita Group: căn hộ, shophouse, bàn giao dự kiến quý 3/2028, giá tham khảo khi chủ đầu tư công bố."
   },
   {
    "path": "/du-an/spring-ville/",
@@ -50,18 +33,6 @@
    "status": 200,
    "title": "The Global City: các phân khu, vị trí, giá tham khảo",
    "desc": "The Global City của Masterise Homes: biệt thự, căn hộ, nhà phố liền kề, shophouse, bàn giao từ tháng 11/2023 (đối với phân khu thấp tầng đã hoàn thiện)…"
-  },
-  {
-   "path": "/du-an/the-prive/",
-   "status": 200,
-   "title": "The Privé Nam Rạch Chiếc: giá, mặt bằng, pháp lý",
-   "desc": "The Privé của Tập đoàn Đất Xanh: căn hộ, bàn giao năm 2027 (hoàn thiện nội thất chuẩn châu âu), giá tham khảo khi chủ đầu tư công bố."
-  },
-  {
-   "path": "/du-an/vinhomes-saigon-park/",
-   "status": 200,
-   "title": "Vinhomes Saigon Park: các phân khu, vị trí, giá tham khảo",
-   "desc": "Vinhomes Saigon Park của Vinhomes, Berjaya Việt Nam: biệt thự, căn hộ, dinh thự, nhà phố liền kề, shophouse, giá tham khảo khi chủ đầu tư công bố."
   },
   {
    "path": "/du-an/",
@@ -106,10 +77,28 @@
    "desc": "Các dự án Gamuda Land Velis đang tư vấn tại Nhơn Trạch – Long Thành: Spring Ville. Góc nhìn của CEO Vũ Xuân."
   },
   {
+   "path": "/du-an/the-prive/",
+   "status": 200,
+   "title": "The Privé Nam Rạch Chiếc: giá, mặt bằng, pháp lý",
+   "desc": "The Privé của Tập đoàn Đất Xanh: căn hộ, bàn giao năm 2027 (hoàn thiện nội thất chuẩn châu âu), giá tham khảo khi chủ đầu tư công bố."
+  },
+  {
+   "path": "/chinh-sach-bao-mat/",
+   "status": 200,
+   "title": "Chính sách bảo mật - Velis Realty (STAGING)",
+   "desc": "Chào mừng quý khách đến với Velis Realty."
+  },
+  {
    "path": "/chu-dau-tu/masterise-homes/",
    "status": 200,
    "title": "Masterise Homes: dự án và đánh giá – Velis Realty",
    "desc": "Các dự án Masterise Homes Velis đang tư vấn tại Nam Rạch Chiếc: The Global City. Góc nhìn của CEO Vũ Xuân."
+  },
+  {
+   "path": "/du-an/vinhomes-saigon-park/",
+   "status": 200,
+   "title": "Vinhomes Saigon Park: các phân khu, vị trí, giá tham khảo",
+   "desc": "Vinhomes Saigon Park của Vinhomes, Berjaya Việt Nam: biệt thự, căn hộ, dinh thự, nhà phố liền kề, shophouse, giá tham khảo khi chủ đầu tư công bố."
   },
   {
    "path": "/chu-dau-tu/sun-group/",
@@ -124,28 +113,40 @@
    "desc": "Các dự án Vinhomes Velis đang tư vấn tại Tây Bắc: Vinhomes Saigon Park. Góc nhìn của CEO Vũ Xuân."
   },
   {
+   "path": "/blog/palm-city/",
+   "status": 200,
+   "title": "Palm City: phân tích và kinh nghiệm – Velis Realty",
+   "desc": "Phân tích Palm City của CEO Vũ Xuân: giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư."
+  },
+  {
+   "path": "/blog/palm-city/su-dich-chuyen-dong-von-dau-tu-tu-loi-trung-tam-ve-nam-rach-chiec/",
+   "status": 200,
+   "title": "Dịch chuyển dòng vốn đầu tư từ trung tâm về Nam Rạch Chiếc",
+   "desc": "CEO Vũ Xuân phân tích xu hướng dịch chuyển dòng vốn đầu tư từ trung tâm bão hòa về Nam Rạch Chiếc và giải pháp tích sản an toàn tại Palm River năm 2026."
+  },
+  {
+   "path": "/du-an/palm-city/palm-river/",
+   "status": 200,
+   "title": "Palm River – Palm City: giá, mặt bằng, pháp lý",
+   "desc": "Palm River của Hướng Việt Holdings: căn hộ, shophouse, bàn giao năm 2028, giá tham khảo khi chủ đầu tư công bố."
+  },
+  {
    "path": "/blog/vinhomes-saigon-park/tai-sao-dau-tu-thap-tang-vinhomes-saigon-park-dot-1/",
    "status": 200,
    "title": "Tại sao nên đầu tư thấp tầng Vinhomes Saigon Park đợt 1",
    "desc": "Phân tích lợi thế sở hữu nhà phố biệt thự Vinhomes Saigon Park giai đoạn F0."
   },
   {
+   "path": "/blog/palm-city/danh-gia-chu-ky-tang-gia-bat-dong-san-ven-song-giong-ong-to/",
+   "status": 200,
+   "title": "Đánh giá chu kỳ tăng giá bất động sản ven sông Giồng Ông Tố",
+   "desc": "CEO Vũ Xuân phân tích chu kỳ tăng giá tại dải sông Giồng Ông Tố. Đánh giá động lực hạ tầng, tính khan hiếm và chiến lược đầu tư tại Palm River."
+  },
+  {
    "path": "/blog/the-prive/cho-thue-the-prive/",
    "status": 200,
    "title": "Tiềm năng cho thuê The Prive",
    "desc": "Phân tích tiềm năng cho thuê The Prive từ tệp khách chuyên gia SHTP."
-  },
-  {
-   "path": "/blog/spring-ville/can-ho-mat-tien-ton-duc-thang-persa-place/",
-   "status": 200,
-   "title": "Giá trị của căn hộ mặt tiền Tôn Đức Thắng Persa Place",
-   "desc": "CEO Vũ Xuân phân tích giá trị thương mại dự án Persa Place mặt tiền đường Tôn Đức Thắng (25B). Đón sóng Hiệp Phước lên thị trấn và hạ tầng Nhơn Trạch 2026."
-  },
-  {
-   "path": "/chinh-sach-bao-mat/",
-   "status": 200,
-   "title": "Chính sách bảo mật - Velis Realty (STAGING)",
-   "desc": "Chào mừng quý khách đến với Velis Realty."
   },
   {
    "path": "/chu-dau-tu/kita-group/",
@@ -172,10 +173,16 @@
    "desc": "Phân tích Ansana by Kita của CEO Vũ Xuân: giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư."
   },
   {
-   "path": "/blog/ansana-by-kita/he-thong-tien-ich-ansana-by-kita-one-stop-living-hub/",
+   "path": "/blog/palm-city/loi-giai-bai-toan-bao-ve-tai-san-truoc-lam-phat-voi-palm-river/",
    "status": 200,
-   "title": "Tiện ích Ansana by Kita: Mô hình One Stop Living Hub",
-   "desc": "Review chi tiết hệ sinh thái tiện ích Ansana by Kita: Siêu thị GO!, hồ bơi vô cực, Puzzle Parking."
+   "title": "Bài toán bảo vệ tài sản trước lạm phát với Palm River",
+   "desc": "CEO Vũ Xuân phân tích chiến lược tích sản tại Palm River giai đoạn 2026. Bóc tách pháp lý, dòng tiền và cơ hội từ siêu hạ tầng khu Đông."
+  },
+  {
+   "path": "/blog/spring-ville/can-ho-mat-tien-ton-duc-thang-persa-place/",
+   "status": 200,
+   "title": "Giá trị của căn hộ mặt tiền Tôn Đức Thắng Persa Place",
+   "desc": "CEO Vũ Xuân phân tích giá trị thương mại dự án Persa Place mặt tiền đường Tôn Đức Thắng (25B). Đón sóng Hiệp Phước lên thị trấn và hạ tầng Nhơn Trạch 2026."
   },
   {
    "path": "/blog/ansana-by-kita/smart-living-4-0-ansana-by-kita-trai-nghiem-thuc-te/",
@@ -184,46 +191,10 @@
    "desc": "Khám phá trải nghiệm sống \"chạm\" công nghệ tại Ansana by Kita."
   },
   {
-   "path": "/blog/ansana-by-kita/can-ho-2pn-1-ansana-by-kita-102m2/",
+   "path": "/blog/ansana-by-kita/he-thong-tien-ich-ansana-by-kita-one-stop-living-hub/",
    "status": 200,
-   "title": "Đánh giá căn hộ 2PN+1 Ansana by Kita (102m2)",
-   "desc": "Phân tích chi tiết thiết kế 2PN+1 dự án Ansana by Kita."
-  },
-  {
-   "path": "/du-an/palm-city/palm-river/",
-   "status": 200,
-   "title": "Palm River – Palm City: giá, mặt bằng, pháp lý",
-   "desc": "Palm River của Hướng Việt Holdings: căn hộ, shophouse, bàn giao năm 2028, giá tham khảo khi chủ đầu tư công bố."
-  },
-  {
-   "path": "/blog/palm-city/",
-   "status": 200,
-   "title": "Palm City: phân tích và kinh nghiệm – Velis Realty",
-   "desc": "Phân tích Palm City của CEO Vũ Xuân: giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư."
-  },
-  {
-   "path": "/blog/palm-city/su-dich-chuyen-dong-von-dau-tu-tu-loi-trung-tam-ve-nam-rach-chiec/",
-   "status": 200,
-   "title": "Dịch chuyển dòng vốn đầu tư từ trung tâm về Nam Rạch Chiếc",
-   "desc": "CEO Vũ Xuân phân tích xu hướng dịch chuyển dòng vốn đầu tư từ trung tâm bão hòa về Nam Rạch Chiếc và giải pháp tích sản an toàn tại Palm River năm 2026."
-  },
-  {
-   "path": "/blog/palm-city/danh-gia-chu-ky-tang-gia-bat-dong-san-ven-song-giong-ong-to/",
-   "status": 200,
-   "title": "Đánh giá chu kỳ tăng giá bất động sản ven sông Giồng Ông Tố",
-   "desc": "CEO Vũ Xuân phân tích chu kỳ tăng giá tại dải sông Giồng Ông Tố. Đánh giá động lực hạ tầng, tính khan hiếm và chiến lược đầu tư tại Palm River."
-  },
-  {
-   "path": "/blog/palm-city/loi-giai-bai-toan-bao-ve-tai-san-truoc-lam-phat-voi-palm-river/",
-   "status": 200,
-   "title": "Bài toán bảo vệ tài sản trước lạm phát với Palm River",
-   "desc": "CEO Vũ Xuân phân tích chiến lược tích sản tại Palm River giai đoạn 2026. Bóc tách pháp lý, dòng tiền và cơ hội từ siêu hạ tầng khu Đông."
-  },
-  {
-   "path": "/du-an/spring-ville/persa-place/",
-   "status": 200,
-   "title": "Persa Place – Spring Ville: giá, mặt bằng, pháp lý",
-   "desc": "Persa Place của Gamuda Land: căn hộ, shophouse, bàn giao dự kiến quý 3/2028 (căn hộ hoàn thiện cơ bản; shophouse bàn giao thô), giá tham khảo khi chủ đầu…"
+   "title": "Tiện ích Ansana by Kita: Mô hình One Stop Living Hub",
+   "desc": "Review chi tiết hệ sinh thái tiện ích Ansana by Kita: Siêu thị GO!, hồ bơi vô cực, Puzzle Parking."
   },
   {
    "path": "/du-an/spring-ville/nha-pho/",
@@ -244,16 +215,16 @@
    "desc": "Phân tích Spring Ville của CEO Vũ Xuân: giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư."
   },
   {
-   "path": "/blog/spring-ville/thiet-ke-biophilic-persa-place-thu-hut-gioi-tri-thuc/",
+   "path": "/blog/ansana-by-kita/can-ho-2pn-1-ansana-by-kita-102m2/",
    "status": 200,
-   "title": "Thiết kế Biophilic tại Persa Place hút giới tri thức quốc tế",
-   "desc": "CEO Vũ Xuân phân tích giá trị thiết kế Biophilic tại Persa Place (Gamuda Land)."
+   "title": "Đánh giá căn hộ 2PN+1 Ansana by Kita (102m2)",
+   "desc": "Phân tích chi tiết thiết kế 2PN+1 dự án Ansana by Kita."
   },
   {
-   "path": "/blog/spring-ville/tieu-chuan-ban-giao-persa-place-gamuda-land/",
+   "path": "/du-an/spring-ville/persa-place/",
    "status": 200,
-   "title": "Tiêu chuẩn bàn giao Persa Place Gamuda Land cho căn hộ",
-   "desc": "CEO Vũ Xuân (Velis Realty) bóc tách tiêu chuẩn bàn giao Persa Place Nhơn Trạch."
+   "title": "Persa Place – Spring Ville: giá, mặt bằng, pháp lý",
+   "desc": "Persa Place của Gamuda Land: căn hộ, shophouse, bàn giao dự kiến quý 3/2028 (căn hộ hoàn thiện cơ bản; shophouse bàn giao thô), giá tham khảo khi chủ đầu…"
   },
   {
    "path": "/du-an/the-global-city/lumiere-midtown/",
@@ -292,6 +263,18 @@
    "desc": "Phân tích The Global City của CEO Vũ Xuân: giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư."
   },
   {
+   "path": "/blog/spring-ville/thiet-ke-biophilic-persa-place-thu-hut-gioi-tri-thuc/",
+   "status": 200,
+   "title": "Thiết kế Biophilic tại Persa Place hút giới tri thức quốc tế",
+   "desc": "CEO Vũ Xuân phân tích giá trị thiết kế Biophilic tại Persa Place (Gamuda Land)."
+  },
+  {
+   "path": "/blog/spring-ville/tieu-chuan-ban-giao-persa-place-gamuda-land/",
+   "status": 200,
+   "title": "Tiêu chuẩn bàn giao Persa Place Gamuda Land cho căn hộ",
+   "desc": "CEO Vũ Xuân (Velis Realty) bóc tách tiêu chuẩn bàn giao Persa Place Nhơn Trạch."
+  },
+  {
    "path": "/blog/the-global-city/lan-song-fb-do-bo-soho-the-global-city/",
    "status": 200,
    "title": "Làn sóng F&B đổ bộ SOHO đập tan hoàn toàn nỗi sợ đô thị ma",
@@ -304,10 +287,10 @@
    "desc": "Tại sao giới siêu giàu chọn The Global City làm tài sản truyền đời?"
   },
   {
-   "path": "/blog/the-global-city/bi-an-dong-von-trieu-do-the-global-city/",
+   "path": "/chu-dau-tu/berjaya-viet-nam/",
    "status": 200,
-   "title": "Bí ẩn dòng vốn triệu đô đang ồ ạt đổ dồn về The Global City",
-   "desc": "Tại sao các quỹ đầu tư và \"cá mập\" tài chính lại chọn The Global City?"
+   "title": "Berjaya Việt Nam: dự án và đánh giá – Velis Realty",
+   "desc": "Các dự án Berjaya Việt Nam Velis đang tư vấn tại Tây Bắc: Vinhomes Saigon Park. Góc nhìn của CEO Vũ Xuân."
   },
   {
    "path": "/chu-dau-tu/dat-xanh/",
@@ -322,10 +305,46 @@
    "desc": "Phân tích The Privé của CEO Vũ Xuân: giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư."
   },
   {
+   "path": "/blog/vinhomes/",
+   "status": 200,
+   "title": "Vinhomes: phân tích và kinh nghiệm – Velis Realty",
+   "desc": "Phân tích Vinhomes của CEO Vũ Xuân: giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư."
+  },
+  {
+   "path": "/blog/the-global-city/bi-an-dong-von-trieu-do-the-global-city/",
+   "status": 200,
+   "title": "Bí ẩn dòng vốn triệu đô đang ồ ạt đổ dồn về The Global City",
+   "desc": "Tại sao các quỹ đầu tư và \"cá mập\" tài chính lại chọn The Global City?"
+  },
+  {
+   "path": "/blog/vinhomes-saigon-park/",
+   "status": 200,
+   "title": "Vinhomes Saigon Park: phân tích và kinh nghiệm",
+   "desc": "Phân tích Vinhomes Saigon Park của CEO Vũ Xuân: giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư."
+  },
+  {
    "path": "/blog/the-prive/velis-realty-phan-phoi-doc-quyen-thap-9-the-prive/",
    "status": 200,
    "title": "Velis Realty Phân Phối Độc Quyền Tháp 9 The Privé",
    "desc": "Velis Realty chính thức phân phối độc quyền giỏ hàng Tháp 9 The Privé. Sở hữu căn hộ hạng sang 3 mặt hướng sông, liền kề Thủ Thiêm với chiết khấu >10%."
+  },
+  {
+   "path": "/blog/palm-city/tai-sao-gioi-tinh-hoa-chon-tich-san-tai-palm-river/",
+   "status": 200,
+   "title": "Tại sao giới tinh hoa chọn tích sản tại Palm River năm 2026?",
+   "desc": "Phân tích từ CEO Vũ Xuân (Velis Realty) về cơ hội tích sản an toàn tại Palm River. Bóc tách pháp lý, quy hoạch hạ tầng và chiến lược giữ tiền hiệu quả."
+  },
+  {
+   "path": "/blog/palm-city/huong-viet-holdings-la-ai/",
+   "status": 200,
+   "title": "CĐT Hướng Việt đứng sau thương vụ thâu tóm Palm City",
+   "desc": "Giải mã Chủ đầu tư Hướng Việt (HVH): Hé lộ \"sân sau\" tài chính khổng lồ từ ngân hàng OCB, mạng lưới đối tác chiến lược và hành trình thâu tóm Palm City."
+  },
+  {
+   "path": "/blog/vinhomes-saigon-park/gia-tri-doc-ban-biet-thu-ven-kenh-vinhomes-saigon-park/",
+   "status": 200,
+   "title": "Giá trị độc bản biệt thự ven kênh Vinhomes Saigon Park",
+   "desc": "Phân tích địa thế đảo sinh thái và tính khan hiếm của biệt thự ven kênh Vinhomes Saigon Park."
   },
   {
    "path": "/blog/the-prive/loi-suat-cho-thue-the-prive/",
@@ -334,10 +353,28 @@
    "desc": "Phân tích lợi suất cho thuê căn hộ The Prive năm 2026."
   },
   {
-   "path": "/chu-dau-tu/berjaya-viet-nam/",
+   "path": "/blog/vinhomes-saigon-park/thiet-ke-cong-nang-nha-pho-lien-ke-vinhomes-saigon-park/",
    "status": 200,
-   "title": "Berjaya Việt Nam: dự án và đánh giá – Velis Realty",
-   "desc": "Các dự án Berjaya Việt Nam Velis đang tư vấn tại Tây Bắc: Vinhomes Saigon Park. Góc nhìn của CEO Vũ Xuân."
+   "title": "Phân tích thiết kế công năng nhà phố Vinhomes Saigon Park",
+   "desc": "Phân tích thiết kế, công năng 5 tầng và môi trường sống sinh thái tại dòng nhà phố liền kề Vinhomes Saigon Park từ chuyên gia Vũ Xuân Velis Realty."
+  },
+  {
+   "path": "/blog/page/2/",
+   "status": 200,
+   "title": "Tin tức, Tiến độ & Phân tích Bất động sản | Velis Realty",
+   "desc": "Cập nhật nhanh nhất tiến độ thi công dự án, phân tích thị trường và cẩm nang đầu tư BĐS từ chuyên gia Velis Realty."
+  },
+  {
+   "path": "/blog/page/3/",
+   "status": 200,
+   "title": "Tin tức, Tiến độ & Phân tích Bất động sản | Velis Realty",
+   "desc": "Cập nhật nhanh nhất tiến độ thi công dự án, phân tích thị trường và cẩm nang đầu tư BĐS từ chuyên gia Velis Realty."
+  },
+  {
+   "path": "/blog/page/9/",
+   "status": 200,
+   "title": "Tin tức, Tiến độ & Phân tích Bất động sản | Velis Realty",
+   "desc": "Cập nhật nhanh nhất tiến độ thi công dự án, phân tích thị trường và cẩm nang đầu tư BĐS từ chuyên gia Velis Realty."
   },
   {
    "path": "/du-an/vinhomes-saigon-park/ivy-park/",
@@ -370,34 +407,10 @@
    "desc": "Khu 5 – Golf Park của Vinhomes, Berjaya Việt Nam: biệt thự, dinh thự, giá tham khảo khi chủ đầu tư công bố."
   },
   {
-   "path": "/blog/vinhomes-saigon-park/",
+   "path": "/chuyen-gia/vu-xuan/",
    "status": 200,
-   "title": "Vinhomes Saigon Park: phân tích và kinh nghiệm",
-   "desc": "Phân tích Vinhomes Saigon Park của CEO Vũ Xuân: giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư."
-  },
-  {
-   "path": "/blog/vinhomes-saigon-park/gia-tri-doc-ban-biet-thu-ven-kenh-vinhomes-saigon-park/",
-   "status": 200,
-   "title": "Giá trị độc bản biệt thự ven kênh Vinhomes Saigon Park",
-   "desc": "Phân tích địa thế đảo sinh thái và tính khan hiếm của biệt thự ven kênh Vinhomes Saigon Park."
-  },
-  {
-   "path": "/blog/vinhomes-saigon-park/thiet-ke-cong-nang-nha-pho-lien-ke-vinhomes-saigon-park/",
-   "status": 200,
-   "title": "Phân tích thiết kế công năng nhà phố Vinhomes Saigon Park",
-   "desc": "Phân tích thiết kế, công năng 5 tầng và môi trường sống sinh thái tại dòng nhà phố liền kề Vinhomes Saigon Park từ chuyên gia Vũ Xuân Velis Realty."
-  },
-  {
-   "path": "/blog/vinhomes/",
-   "status": 200,
-   "title": "Vinhomes: phân tích và kinh nghiệm – Velis Realty",
-   "desc": "Phân tích Vinhomes của CEO Vũ Xuân: giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư."
-  },
-  {
-   "path": "/blog/palm-city/huong-viet-holdings-la-ai/",
-   "status": 200,
-   "title": "CĐT Hướng Việt đứng sau thương vụ thâu tóm Palm City",
-   "desc": "Giải mã Chủ đầu tư Hướng Việt (HVH): Hé lộ \"sân sau\" tài chính khổng lồ từ ngân hàng OCB, mạng lưới đối tác chiến lược và hành trình thâu tóm Palm City."
+   "title": "Vũ Xuân – chuyên gia bất động sản Velis Realty",
+   "desc": "Vũ Xuân - CEO Velis Realty với hơn 10 năm kinh nghiệm tư vấn đầu tư bất động sản cao cấp Vinhomes, Sun Group."
   },
   {
    "path": "/blog/vinhomes-saigon-park/dac-quyen-dinh-thu-san-golf-vinhomes-saigon-park/",
@@ -412,34 +425,10 @@
    "desc": "Đánh giá tiềm năng kinh doanh tại 82 tuyến phố shophouse Vinhomes Saigon Park với tệp khách 60.000 sinh viên. Phân tích bài toán đầu tư dòng tiền dài hạn."
   },
   {
-   "path": "/blog/palm-city/tai-sao-gioi-tinh-hoa-chon-tich-san-tai-palm-river/",
+   "path": "/du-an/palm-city/palm-river/shophouse/",
    "status": 200,
-   "title": "Tại sao giới tinh hoa chọn tích sản tại Palm River năm 2026?",
-   "desc": "Phân tích từ CEO Vũ Xuân (Velis Realty) về cơ hội tích sản an toàn tại Palm River. Bóc tách pháp lý, quy hoạch hạ tầng và chiến lược giữ tiền hiệu quả."
-  },
-  {
-   "path": "/blog/page/2/",
-   "status": 200,
-   "title": "Tin tức, Tiến độ & Phân tích Bất động sản | Velis Realty",
-   "desc": "Cập nhật nhanh nhất tiến độ thi công dự án, phân tích thị trường và cẩm nang đầu tư BĐS từ chuyên gia Velis Realty."
-  },
-  {
-   "path": "/blog/page/3/",
-   "status": 200,
-   "title": "Tin tức, Tiến độ & Phân tích Bất động sản | Velis Realty",
-   "desc": "Cập nhật nhanh nhất tiến độ thi công dự án, phân tích thị trường và cẩm nang đầu tư BĐS từ chuyên gia Velis Realty."
-  },
-  {
-   "path": "/blog/page/9/",
-   "status": 200,
-   "title": "Tin tức, Tiến độ & Phân tích Bất động sản | Velis Realty",
-   "desc": "Cập nhật nhanh nhất tiến độ thi công dự án, phân tích thị trường và cẩm nang đầu tư BĐS từ chuyên gia Velis Realty."
-  },
-  {
-   "path": "/chuyen-gia/vu-xuan/",
-   "status": 200,
-   "title": "Vũ Xuân – chuyên gia bất động sản Velis Realty",
-   "desc": "Vũ Xuân - CEO Velis Realty với hơn 10 năm kinh nghiệm tư vấn đầu tư bất động sản cao cấp Vinhomes, Sun Group."
+   "title": "Shophouse Palm River: giá, mặt bằng, thông số",
+   "desc": "Shophouse Palm River của Hướng Việt Holdings: shophouse, giá tham khảo khi chủ đầu tư công bố."
   },
   {
    "path": "/blog/the-prive/khoang-cach-thuc-te-the-prive-quan-2-di-lam-bao-lau/",
@@ -472,36 +461,6 @@
    "desc": "So sánh tính thanh khoản căn hộ 1PN và 2PN tại The Prive Quận 2. Phân tích dữ liệu vốn, tỷ suất cho thuê và tốc độ bán lại từ CEO Vũ Xuân Velis Realty."
   },
   {
-   "path": "/blog/spring-ville/giai-ma-khoang-cach-persa-place-tphcm/",
-   "status": 200,
-   "title": "Giải mã khoảng cách thực tế từ Persa Place về TPHCM",
-   "desc": "Phân tích thực tế từ CEO Vũ Xuân về khoảng cách từ Persa Place (Gamuda Land) đến trung tâm TPHCM."
-  },
-  {
-   "path": "/blog/spring-ville/layout-can-ho-2pn-persa-place-chuyen-gia-san-bay/",
-   "status": 200,
-   "title": "Phân tích layout 2PN Persa Place cho chuyên gia sân bay",
-   "desc": "CEO Vũ Xuân (Velis Realty) bóc tách layout 2PN Persa Place thuộc Gamuda Land."
-  },
-  {
-   "path": "/blog/spring-ville/can-ho-1pn-cong-persa-place-dau-tu-cho-thue/",
-   "status": 200,
-   "title": "Căn hộ 1PN+ Persa Place đầu tư cho thuê",
-   "desc": "Phân tích dòng sản phẩm 1PN+ tại Persa Place (Gamuda Land). Giải pháp đầu tư vốn mỏng 10%, đón đầu nhu cầu thuê từ 14.000 nhân sự sân bay Long Thành 2026."
-  },
-  {
-   "path": "/blog/spring-ville/dac-quyen-booking-dot-1-persa-place-nhon-trach/",
-   "status": 200,
-   "title": "Đặc quyền booking đợt 1 Persa Place tối ưu lợi nhuận",
-   "desc": "CEO Vũ Xuân phân tích đặc quyền booking đợt 1 Persa Place (Gamuda Land)."
-  },
-  {
-   "path": "/blog/spring-ville/so-sanh-lai-suat-tiet-kiem-va-dau-tu-persa-place/",
-   "status": 200,
-   "title": "Gửi tiết kiệm hay đầu tư căn hộ Persa Place?",
-   "desc": "CEO Vũ Xuân (Velis Realty) phân tích bài toán chuyển dịch dòng vốn từ tiết kiệm sang căn hộ Persa Place Nhơn Trạch năm 2026."
-  },
-  {
    "path": "/blog/ansana-by-kita/review-can-ho-studio-ansana-by-kita-tich-san/",
    "status": 200,
    "title": "Review Studio Ansana by Kita: Có đáng mua để tích sản?",
@@ -532,28 +491,46 @@
    "desc": "Phân tích thực tế thời gian di chuyển từ dự án Ansana by Kita vào Quận 1, Quận 5."
   },
   {
-   "path": "/blog/ansana-by-kita/vi-tri-ansana-by-kita-vo-van-kiet-tiem-nang-rui-ro/",
-   "status": 200,
-   "title": "Vị trí Ansana By Kita: Tọa độ \"vàng\" đại lộ Võ Văn Kiệt",
-   "desc": "Đánh giá thực tế vị trí dự án Ansana by Kita từ chuyên gia Vũ Xuân. Bóc tách tiềm năng tăng giá từ hạ tầng 19.000 tỷ và rủi ro tiếng ồn mặt tiền cần lưu ý."
-  },
-  {
    "path": "/blog/ansana-by-kita/vo-van-kiet-noi-dai-don-bay-ansana-by-kita/",
    "status": 200,
    "title": "Võ Văn Kiệt nối dài 19.000 tỷ: \"Ngòi nổ\" cho Ansana by Kita",
    "desc": "Phân tích tác động của tuyến Võ Văn Kiệt nối dài 14,6km đến giá trị dự án Ansana by Kita."
   },
   {
-   "path": "/du-an/palm-city/palm-river/shophouse/",
+   "path": "/blog/ansana-by-kita/vi-tri-ansana-by-kita-vo-van-kiet-tiem-nang-rui-ro/",
    "status": 200,
-   "title": "Shophouse Palm River: giá, mặt bằng, thông số",
-   "desc": "Shophouse Palm River của Hướng Việt Holdings: shophouse, giá tham khảo khi chủ đầu tư công bố."
+   "title": "Vị trí Ansana By Kita: Tọa độ \"vàng\" đại lộ Võ Văn Kiệt",
+   "desc": "Đánh giá thực tế vị trí dự án Ansana by Kita từ chuyên gia Vũ Xuân. Bóc tách tiềm năng tăng giá từ hạ tầng 19.000 tỷ và rủi ro tiếng ồn mặt tiền cần lưu ý."
   },
   {
-   "path": "/du-an/spring-ville/persa-place/shophouse-khoi-de/",
+   "path": "/blog/spring-ville/giai-ma-khoang-cach-persa-place-tphcm/",
    "status": 200,
-   "title": "Shophouse khối đế Persa Place: giá, mặt bằng, thông số",
-   "desc": "Shophouse khối đế Persa Place của Gamuda Land: shophouse, giá tham khảo khi chủ đầu tư công bố."
+   "title": "Giải mã khoảng cách thực tế từ Persa Place về TPHCM",
+   "desc": "Phân tích thực tế từ CEO Vũ Xuân về khoảng cách từ Persa Place (Gamuda Land) đến trung tâm TPHCM."
+  },
+  {
+   "path": "/blog/spring-ville/layout-can-ho-2pn-persa-place-chuyen-gia-san-bay/",
+   "status": 200,
+   "title": "Phân tích layout 2PN Persa Place cho chuyên gia sân bay",
+   "desc": "CEO Vũ Xuân (Velis Realty) bóc tách layout 2PN Persa Place thuộc Gamuda Land."
+  },
+  {
+   "path": "/blog/spring-ville/can-ho-1pn-cong-persa-place-dau-tu-cho-thue/",
+   "status": 200,
+   "title": "Căn hộ 1PN+ Persa Place đầu tư cho thuê",
+   "desc": "Phân tích dòng sản phẩm 1PN+ tại Persa Place (Gamuda Land). Giải pháp đầu tư vốn mỏng 10%, đón đầu nhu cầu thuê từ 14.000 nhân sự sân bay Long Thành 2026."
+  },
+  {
+   "path": "/blog/spring-ville/so-sanh-lai-suat-tiet-kiem-va-dau-tu-persa-place/",
+   "status": 200,
+   "title": "Gửi tiết kiệm hay đầu tư căn hộ Persa Place?",
+   "desc": "CEO Vũ Xuân (Velis Realty) phân tích bài toán chuyển dịch dòng vốn từ tiết kiệm sang căn hộ Persa Place Nhơn Trạch năm 2026."
+  },
+  {
+   "path": "/blog/spring-ville/dac-quyen-booking-dot-1-persa-place-nhon-trach/",
+   "status": 200,
+   "title": "Đặc quyền booking đợt 1 Persa Place tối ưu lợi nhuận",
+   "desc": "CEO Vũ Xuân phân tích đặc quyền booking đợt 1 Persa Place (Gamuda Land)."
   },
   {
    "path": "/blog/spring-ville/don-bay-tai-chinh-thong-minh-dau-tu-persa-place/",
@@ -580,10 +557,10 @@
    "desc": "CEO Vũ Xuân phân tích lý do giới đầu tư chuyên nghiệp chuyển dịch dòng vốn từ đất nền sang căn hộ Persa Place (Gamuda Land) năm 2026."
   },
   {
-   "path": "/blog/spring-ville/persa-place-kenh-tru-an-an-toan-dong-tien-2026/",
+   "path": "/blog/spring-ville/page/3/",
    "status": 200,
-   "title": "Persa Place kênh trú ẩn an toàn cho dòng tiền nhàn rỗi",
-   "desc": "Phân tích từ CEO Vũ Xuân về Persa Place (Gamuda Land) – \"vịnh tránh bão\" an toàn cho dòng tiền nhàn rỗi tại Nhơn Trạch năm 2026."
+   "title": "Spring Ville: phân tích và kinh nghiệm – trang 3",
+   "desc": "Phân tích Spring Ville của CEO Vũ Xuân: giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư."
   },
   {
    "path": "/blog/spring-ville/page/2/",
@@ -592,22 +569,10 @@
    "desc": "Phân tích Spring Ville của CEO Vũ Xuân: giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư."
   },
   {
-   "path": "/blog/spring-ville/page/3/",
+   "path": "/du-an/spring-ville/persa-place/shophouse-khoi-de/",
    "status": 200,
-   "title": "Spring Ville: phân tích và kinh nghiệm – trang 3",
-   "desc": "Phân tích Spring Ville của CEO Vũ Xuân: giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư."
-  },
-  {
-   "path": "/blog/spring-ville/dau-tu-f0-persa-place-von-it-loi-nhuan-cao/",
-   "status": 200,
-   "title": "Cơ hội đầu tư F0 Persa Place Nhơn Trạch vốn ít lợi nhuận cao",
-   "desc": "Phân tích thực chiến từ CEO Vũ Xuân về suất đầu tư F0 tại Persa Place (Gamuda Land)."
-  },
-  {
-   "path": "/blog/spring-ville/kiem-chung-thuc-te-ban-giao-gamuda-land-persa-place/",
-   "status": 200,
-   "title": "Kiểm chứng bàn giao Gamuda Land trước khi mua Persa Place",
-   "desc": "CEO Vũ Xuân phân tích thực tế bàn giao tại Gamuda Gardens & Celadon City để đối chiếu chất lượng Persa Place (Springville)."
+   "title": "Shophouse khối đế Persa Place: giá, mặt bằng, thông số",
+   "desc": "Shophouse khối đế Persa Place của Gamuda Land: shophouse, giá tham khảo khi chủ đầu tư công bố."
   },
   {
    "path": "/du-an/the-global-city/thap-tang/biet-thu-dinh-thu-ven-song/",
@@ -620,6 +585,12 @@
    "status": 200,
    "title": "Shophouse SOHO The Global City: giá, mặt bằng, thông số",
    "desc": "Shophouse SOHO The Global City của Masterise Homes: shophouse, giá tham khảo khi chủ đầu tư công bố."
+  },
+  {
+   "path": "/blog/spring-ville/persa-place-kenh-tru-an-an-toan-dong-tien-2026/",
+   "status": 200,
+   "title": "Persa Place kênh trú ẩn an toàn cho dòng tiền nhàn rỗi",
+   "desc": "Phân tích từ CEO Vũ Xuân về Persa Place (Gamuda Land) – \"vịnh tránh bão\" an toàn cho dòng tiền nhàn rỗi tại Nhơn Trạch năm 2026."
   },
   {
    "path": "/blog/the-global-city/chon-can-goc-hay-mat-tien-the-global-city-thanh-khoan/",
@@ -670,16 +641,28 @@
    "desc": "3 rủi ro cần tính trước khi mua The Global City: dòng tiền khi hết hỗ trợ lãi suất, độ trễ hạ tầng khu vực và chọn sai loại sản phẩm so với mục tiêu."
   },
   {
+   "path": "/blog/the-global-city/page/2/",
+   "status": 200,
+   "title": "The Global City: phân tích và kinh nghiệm – trang 2",
+   "desc": "Phân tích The Global City của CEO Vũ Xuân: giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư."
+  },
+  {
    "path": "/blog/the-global-city/the-global-city-bat-day-hay-du-dinh/",
    "status": 200,
    "title": "Mua The Global City lúc này là bắt đáy hay đang đu đỉnh?",
    "desc": "Phân tích thực tế thị trường The Global City mới nhất."
   },
   {
-   "path": "/blog/the-global-city/page/2/",
+   "path": "/blog/spring-ville/dau-tu-f0-persa-place-von-it-loi-nhuan-cao/",
    "status": 200,
-   "title": "The Global City: phân tích và kinh nghiệm – trang 2",
-   "desc": "Phân tích The Global City của CEO Vũ Xuân: giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư."
+   "title": "Cơ hội đầu tư F0 Persa Place Nhơn Trạch vốn ít lợi nhuận cao",
+   "desc": "Phân tích thực chiến từ CEO Vũ Xuân về suất đầu tư F0 tại Persa Place (Gamuda Land)."
+  },
+  {
+   "path": "/blog/spring-ville/kiem-chung-thuc-te-ban-giao-gamuda-land-persa-place/",
+   "status": 200,
+   "title": "Kiểm chứng bàn giao Gamuda Land trước khi mua Persa Place",
+   "desc": "CEO Vũ Xuân phân tích thực tế bàn giao tại Gamuda Gardens & Celadon City để đối chiếu chất lượng Persa Place (Springville)."
   },
   {
    "path": "/blog/the-global-city/loi-nhuan-the-global-city-nut-giao-an-phu/",
@@ -706,10 +689,16 @@
    "desc": "Chính sách thanh toán đến năm 2029 của The Global City là cơ hội hay bẫy tài chính? CEO Vũ Xuân bóc tách chi tiết tỷ suất ROE và bài toán chiếm dụng vốn."
   },
   {
-   "path": "/blog/the-global-city/tac-dong-rach-chiec-sun-group-den-gia-the-global-city/",
+   "path": "/blog/the-prive/von-1-ty-nen-mua-the-prive-hay-dat-nen-vung-ven/",
    "status": 200,
-   "title": "Cú nổ Rạch Chiếc đẩy giá The Global City tăng đến mức nào?",
-   "desc": "Bóc tách bài toán tăng giá và chiến lược dòng tiền tại The Global City khi Sun Group vào Rạch Chiếc."
+   "title": "Vốn 1 tỷ nên đầu tư The Prive Quận 2 hay mua đất nền?",
+   "desc": "Phân tích chi phí cơ hội khi có 1 tỷ đồng năm 2026."
+  },
+  {
+   "path": "/blog/vinhomes/vinhomes-smart-city-hay-big-brother-quyen-rieng-tu-cua-cu-dan-o-dau/",
+   "status": 200,
+   "title": "Vinhomes Smart City: quyền riêng tư của cư dân ở đâu?",
+   "desc": "Phân tích Vinhomes Smart City dưới góc nhìn quyền riêng tư, camera AI, Face ID và dữ liệu cư dân trong kỷ nguyên AI."
   },
   {
    "path": "/blog/the-prive/the-prive-quan-2-tich-san-cho-gioi-sieu-giau/",
@@ -718,10 +707,22 @@
    "desc": "Phân tích lý do giới siêu giàu đầu tư The Prive để chống lạm phát."
   },
   {
+   "path": "/blog/vinhomes/vinfast-tram-sac-cu-hich-hay-ganh-nang-cho-bds-vinhomes-2026/",
+   "status": 200,
+   "title": "Trạm sạc VinFast: cú hích hay gánh nặng cho BĐS Vinhomes?",
+   "desc": "Phân tích hai chiều về VinFast và trạm sạc tại Vinhomes 2026: lợi thế giao thông xanh, tiết kiệm chi phí hay rủi ro bất công với cư dân dùng xe hãng khác."
+  },
+  {
    "path": "/blog/the-prive/kich-ban-luot-song-the-prive-loi-nhuan-15-20-phan-tram/",
    "status": 200,
    "title": "Lướt sóng The Prive lợi nhuận 15-20% trong 6 tháng",
    "desc": "Phân tích lộ trình đầu tư ngắn hạn The Prive Phase 2."
+  },
+  {
+   "path": "/blog/vinhomes/he-sinh-thai-vingroup-tien-loi-toi-da-hay-chiec-long-vang/",
+   "status": 200,
+   "title": "Hệ sinh thái Vingroup: tiện lợi hay “chiếc lồng vàng”?",
+   "desc": "Phân tích hệ sinh thái Vingroup từ Vinmec, Vinschool đến VinBus, VinFast: tiện lợi trọn gói hay mô hình sống khép kín khiến cư dân dần mất tự do lựa chọn?"
   },
   {
    "path": "/blog/the-prive/nha-dau-tu-ha-noi-mua-the-prive-tich-san/",
@@ -730,16 +731,10 @@
    "desc": "Giải mã làn sóng \"Nam tiến\" của nhà đầu tư phía Bắc vào The Prive."
   },
   {
-   "path": "/blog/the-prive/chinh-sach-mua-si-cloud-9-tower-the-prive/",
+   "path": "/blog/vinhomes/vi-sao-nguoi-ta-than-phien-ve-vinhomes-nhung-van-mua/",
    "status": 200,
-   "title": "Chính sách mua sỉ Cloud 9 Tower The Prive",
-   "desc": "Phân tích bài toán mua sỉ tháp Cloud 9 (The Prive). Đặc quyền chiết khấu 18-20%, ân hạn gốc 60 tháng và chiến thuật gom sàn cho nhà đầu tư lớn năm 2026."
-  },
-  {
-   "path": "/blog/the-prive/von-1-ty-nen-mua-the-prive-hay-dat-nen-vung-ven/",
-   "status": 200,
-   "title": "Vốn 1 tỷ nên đầu tư The Prive Quận 2 hay mua đất nền?",
-   "desc": "Phân tích chi phí cơ hội khi có 1 tỷ đồng năm 2026."
+   "title": "Vì sao than phiền về Vinhomes nhưng vẫn mua?",
+   "desc": "Phân tích nghịch lý tiêu dùng của Vinhomes: phí dịch vụ, mật độ, giá bán đối đầu với tiện ích, an ninh, vận hành và “sự an tâm” khiến người mua xuống tiền."
   },
   {
    "path": "/blog/the-prive/page/2/",
@@ -748,10 +743,64 @@
    "desc": "Phân tích The Privé của CEO Vũ Xuân: giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư."
   },
   {
+   "path": "/blog/the-prive/chinh-sach-mua-si-cloud-9-tower-the-prive/",
+   "status": 200,
+   "title": "Chính sách mua sỉ Cloud 9 Tower The Prive",
+   "desc": "Phân tích bài toán mua sỉ tháp Cloud 9 (The Prive). Đặc quyền chiết khấu 18-20%, ân hạn gốc 60 tháng và chiến thuật gom sàn cho nhà đầu tư lớn năm 2026."
+  },
+  {
    "path": "/blog/the-prive/page/3/",
    "status": 200,
    "title": "The Privé: phân tích và kinh nghiệm – trang 3",
    "desc": "Phân tích The Privé của CEO Vũ Xuân: giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư."
+  },
+  {
+   "path": "/blog/vinhomes/vinhomes-2026-va-su-troi-day-cua-do-thi-vi-nhan-sinh/",
+   "status": 200,
+   "title": "Vinhomes 2026 và sự trỗi dậy của đô thị vị nhân sinh",
+   "desc": "Phân tích Vinhomes 2026 dưới góc nhìn đô thị vị nhân sinh, ESG, Smart City, TOD và hạ tầng đồng bộ để lý giải vì sao đây là xu hướng đầu tư trong 5 năm."
+  },
+  {
+   "path": "/blog/vinhomes/bds-vinhomes-2026-kenh-tru-an-chong-lam-phat/",
+   "status": 200,
+   "title": "BĐS Vinhomes 2026: trú ẩn lạm phát hay thanh khoản ảo?",
+   "desc": "Phân tích BĐS Vinhomes 2026 dưới góc nhìn chống lạm phát, thanh khoản thực và giá trị sử dụng thực để trả lời câu hỏi nhà Vinhomes có giữ giá hay không."
+  },
+  {
+   "path": "/blog/vinhomes/roi-cho-thue-can-ho-vinhomes-2026-4-6-co-phai-con-so-vang/",
+   "status": 200,
+   "title": "ROI cho thuê căn hộ Vinhomes 2026: 4–6% có phải con số vàng?",
+   "desc": "Phân tích ROI cho thuê căn hộ Vinhomes 2026, rental yield 4–6%, Airbnb, căn hộ dịch vụ và capital gain để trả lời đầu tư cho thuê còn hiệu quả hay không."
+  },
+  {
+   "path": "/blog/vinhomes/tich-san-bang-bds-vinhomes-an-toan-phap-ly-la-uu-tien-so-1/",
+   "status": 200,
+   "title": "Tích sản BĐS Vinhomes: vì sao pháp lý cần ưu tiên?",
+   "desc": "Phân tích chiến lược tích sản cho thế hệ sau bằng BĐS Vinhomes dưới góc nhìn an toàn pháp lý, sổ hồng lâu dài, Luật Đất đai 2024 và khả năng thừa kế"
+  },
+  {
+   "path": "/blog/the-global-city/tac-dong-rach-chiec-sun-group-den-gia-the-global-city/",
+   "status": 200,
+   "title": "Cú nổ Rạch Chiếc đẩy giá The Global City tăng đến mức nào?",
+   "desc": "Bóc tách bài toán tăng giá và chiến lược dòng tiền tại The Global City khi Sun Group vào Rạch Chiếc."
+  },
+  {
+   "path": "/blog/vinhomes/cau-truc-danh-muc-dau-tu-2026-nen-phan-bo-bao-nhieu-cho-vinhomes/",
+   "status": 200,
+   "title": "Danh mục đầu tư 2026: phân bổ bao nhiêu cho Vinhomes?",
+   "desc": "Phân tích cấu trúc danh mục đầu tư 2026 và tỷ trọng cho Vinhomes theo hướng 20–30% tổng vốn, 60% căn hộ và 40% thấp tầng để cân bằng rủi ro và lợi nhuận."
+  },
+  {
+   "path": "/blog/vinhomes/vinhomes-2026-bds-xanh-hay-greenwashing/",
+   "status": 200,
+   "title": "Vinhomes 2026: Đế chế BĐS xanh hay Greenwashing quy mô lớn?",
+   "desc": "Phân tích hai chiều về Vinhomes 2026: cam kết ESG, Net Zero, năng lượng tái tạo và những nghi vấn greenwashing, premium pricing dưới danh nghĩa sống xanh."
+  },
+  {
+   "path": "/blog/page/4/",
+   "status": 200,
+   "title": "Tin tức, Tiến độ & Phân tích Bất động sản | Velis Realty",
+   "desc": "Cập nhật nhanh nhất tiến độ thi công dự án, phân tích thị trường và cẩm nang đầu tư BĐS từ chuyên gia Velis Realty."
   },
   {
    "path": "/blog/the-prive/vi-tri-the-prive-quan-2-3-mat-song/",
@@ -764,6 +813,36 @@
    "status": 200,
    "title": "Chính sách The Prive Phase 2: chiết khấu và ân hạn nợ gốc",
    "desc": "Bóc tách bài toán tài chính The Prive Phase 2 từ Đất Xanh."
+  },
+  {
+   "path": "/blog/spring-ville/xu-huong-ly-tam-nhon-trach-can-ho-cao-cap/",
+   "status": 200,
+   "title": "Xu hướng ly tâm Nhơn Trạch vì sao căn hộ cao cấp lên ngôi",
+   "desc": "CEO Vũ Xuân phân tích xu hướng ly tâm về Nhơn Trạch năm 2026."
+  },
+  {
+   "path": "/blog/spring-ville/gamuda-land-chien-luoc-kien-tao-do-thi-persa-place/",
+   "status": 200,
+   "title": "Gamuda Land và chiến lược kiến tạo đô thị Persa Place",
+   "desc": "Phân tích từ CEO Vũ Xuân về uy tín Gamuda Land và dự án Persa Place Nhơn Trạch."
+  },
+  {
+   "path": "/blog/page/5/",
+   "status": 200,
+   "title": "Tin tức, Tiến độ & Phân tích Bất động sản | Velis Realty",
+   "desc": "Cập nhật nhanh nhất tiến độ thi công dự án, phân tích thị trường và cẩm nang đầu tư BĐS từ chuyên gia Velis Realty."
+  },
+  {
+   "path": "/blog/page/8/",
+   "status": 200,
+   "title": "Tin tức, Tiến độ & Phân tích Bất động sản | Velis Realty",
+   "desc": "Cập nhật nhanh nhất tiến độ thi công dự án, phân tích thị trường và cẩm nang đầu tư BĐS từ chuyên gia Velis Realty."
+  },
+  {
+   "path": "/blog/page/7/",
+   "status": 200,
+   "title": "Tin tức, Tiến độ & Phân tích Bất động sản | Velis Realty",
+   "desc": "Cập nhật nhanh nhất tiến độ thi công dự án, phân tích thị trường và cẩm nang đầu tư BĐS từ chuyên gia Velis Realty."
   },
   {
    "path": "/du-an/vinhomes-saigon-park/ivy-park/nha-pho/",
@@ -782,6 +861,12 @@
    "status": 200,
    "title": "Biệt thự Laguna Park: giá, mặt bằng, thông số",
    "desc": "Biệt thự Laguna Park của Vinhomes, Berjaya Việt Nam: biệt thự, giá tham khảo khi chủ đầu tư công bố."
+  },
+  {
+   "path": "/blog/spring-ville/nhon-trach-2026-diem-roi-ha-tang-persa-place/",
+   "status": 200,
+   "title": "Nhơn Trạch điểm rơi hạ tầng lý tưởng đầu tư Persa Place",
+   "desc": "Phân tích từ CEO Vũ Xuân về cơ hội đầu tư Persa Place Nhơn Trạch 2026."
   },
   {
    "path": "/du-an/vinhomes-saigon-park/global-park/nha-pho/",
@@ -820,114 +905,6 @@
    "desc": "Dinh thự Golf Park của Vinhomes, Berjaya Việt Nam: dinh thự, giá tham khảo khi chủ đầu tư công bố."
   },
   {
-   "path": "/blog/vinhomes/vinhomes-smart-city-hay-big-brother-quyen-rieng-tu-cua-cu-dan-o-dau/",
-   "status": 200,
-   "title": "Vinhomes Smart City: quyền riêng tư của cư dân ở đâu?",
-   "desc": "Phân tích Vinhomes Smart City dưới góc nhìn quyền riêng tư, camera AI, Face ID và dữ liệu cư dân trong kỷ nguyên AI."
-  },
-  {
-   "path": "/blog/vinhomes/vinfast-tram-sac-cu-hich-hay-ganh-nang-cho-bds-vinhomes-2026/",
-   "status": 200,
-   "title": "Trạm sạc VinFast: cú hích hay gánh nặng cho BĐS Vinhomes?",
-   "desc": "Phân tích hai chiều về VinFast và trạm sạc tại Vinhomes 2026: lợi thế giao thông xanh, tiết kiệm chi phí hay rủi ro bất công với cư dân dùng xe hãng khác."
-  },
-  {
-   "path": "/blog/vinhomes/he-sinh-thai-vingroup-tien-loi-toi-da-hay-chiec-long-vang/",
-   "status": 200,
-   "title": "Hệ sinh thái Vingroup: tiện lợi hay “chiếc lồng vàng”?",
-   "desc": "Phân tích hệ sinh thái Vingroup từ Vinmec, Vinschool đến VinBus, VinFast: tiện lợi trọn gói hay mô hình sống khép kín khiến cư dân dần mất tự do lựa chọn?"
-  },
-  {
-   "path": "/blog/vinhomes/vi-sao-nguoi-ta-than-phien-ve-vinhomes-nhung-van-mua/",
-   "status": 200,
-   "title": "Vì sao than phiền về Vinhomes nhưng vẫn mua?",
-   "desc": "Phân tích nghịch lý tiêu dùng của Vinhomes: phí dịch vụ, mật độ, giá bán đối đầu với tiện ích, an ninh, vận hành và “sự an tâm” khiến người mua xuống tiền."
-  },
-  {
-   "path": "/blog/vinhomes/vinhomes-2026-va-su-troi-day-cua-do-thi-vi-nhan-sinh/",
-   "status": 200,
-   "title": "Vinhomes 2026 và sự trỗi dậy của đô thị vị nhân sinh",
-   "desc": "Phân tích Vinhomes 2026 dưới góc nhìn đô thị vị nhân sinh, ESG, Smart City, TOD và hạ tầng đồng bộ để lý giải vì sao đây là xu hướng đầu tư trong 5 năm."
-  },
-  {
-   "path": "/blog/vinhomes/bds-vinhomes-2026-kenh-tru-an-chong-lam-phat/",
-   "status": 200,
-   "title": "BĐS Vinhomes 2026: trú ẩn lạm phát hay thanh khoản ảo?",
-   "desc": "Phân tích BĐS Vinhomes 2026 dưới góc nhìn chống lạm phát, thanh khoản thực và giá trị sử dụng thực để trả lời câu hỏi nhà Vinhomes có giữ giá hay không."
-  },
-  {
-   "path": "/blog/vinhomes/roi-cho-thue-can-ho-vinhomes-2026-4-6-co-phai-con-so-vang/",
-   "status": 200,
-   "title": "ROI cho thuê căn hộ Vinhomes 2026: 4–6% có phải con số vàng?",
-   "desc": "Phân tích ROI cho thuê căn hộ Vinhomes 2026, rental yield 4–6%, Airbnb, căn hộ dịch vụ và capital gain để trả lời đầu tư cho thuê còn hiệu quả hay không."
-  },
-  {
-   "path": "/blog/vinhomes/tich-san-bang-bds-vinhomes-an-toan-phap-ly-la-uu-tien-so-1/",
-   "status": 200,
-   "title": "Tích sản BĐS Vinhomes: vì sao pháp lý cần ưu tiên?",
-   "desc": "Phân tích chiến lược tích sản cho thế hệ sau bằng BĐS Vinhomes dưới góc nhìn an toàn pháp lý, sổ hồng lâu dài, Luật Đất đai 2024 và khả năng thừa kế"
-  },
-  {
-   "path": "/blog/vinhomes/vinhomes-2026-bds-xanh-hay-greenwashing/",
-   "status": 200,
-   "title": "Vinhomes 2026: Đế chế BĐS xanh hay Greenwashing quy mô lớn?",
-   "desc": "Phân tích hai chiều về Vinhomes 2026: cam kết ESG, Net Zero, năng lượng tái tạo và những nghi vấn greenwashing, premium pricing dưới danh nghĩa sống xanh."
-  },
-  {
-   "path": "/blog/vinhomes/cau-truc-danh-muc-dau-tu-2026-nen-phan-bo-bao-nhieu-cho-vinhomes/",
-   "status": 200,
-   "title": "Danh mục đầu tư 2026: phân bổ bao nhiêu cho Vinhomes?",
-   "desc": "Phân tích cấu trúc danh mục đầu tư 2026 và tỷ trọng cho Vinhomes theo hướng 20–30% tổng vốn, 60% căn hộ và 40% thấp tầng để cân bằng rủi ro và lợi nhuận."
-  },
-  {
-   "path": "/blog/page/4/",
-   "status": 200,
-   "title": "Tin tức, Tiến độ & Phân tích Bất động sản | Velis Realty",
-   "desc": "Cập nhật nhanh nhất tiến độ thi công dự án, phân tích thị trường và cẩm nang đầu tư BĐS từ chuyên gia Velis Realty."
-  },
-  {
-   "path": "/blog/spring-ville/xu-huong-ly-tam-nhon-trach-can-ho-cao-cap/",
-   "status": 200,
-   "title": "Xu hướng ly tâm Nhơn Trạch vì sao căn hộ cao cấp lên ngôi",
-   "desc": "CEO Vũ Xuân phân tích xu hướng ly tâm về Nhơn Trạch năm 2026."
-  },
-  {
-   "path": "/blog/spring-ville/gamuda-land-chien-luoc-kien-tao-do-thi-persa-place/",
-   "status": 200,
-   "title": "Gamuda Land và chiến lược kiến tạo đô thị Persa Place",
-   "desc": "Phân tích từ CEO Vũ Xuân về uy tín Gamuda Land và dự án Persa Place Nhơn Trạch."
-  },
-  {
-   "path": "/blog/spring-ville/nhon-trach-2026-diem-roi-ha-tang-persa-place/",
-   "status": 200,
-   "title": "Nhơn Trạch điểm rơi hạ tầng lý tưởng đầu tư Persa Place",
-   "desc": "Phân tích từ CEO Vũ Xuân về cơ hội đầu tư Persa Place Nhơn Trạch 2026."
-  },
-  {
-   "path": "/blog/spring-ville/persa-place-tang-gia-khi-van-hanh-san-bay-long-thanh/",
-   "status": 200,
-   "title": "Persa Place khi sân bay Long Thành vận hành: giá sẽ ra sao?",
-   "desc": "CEO Vũ Xuân (Velis Realty) phân tích tiềm năng tăng giá căn hộ Persa Place khi sân bay Long Thành vận hành 2026."
-  },
-  {
-   "path": "/blog/page/5/",
-   "status": 200,
-   "title": "Tin tức, Tiến độ & Phân tích Bất động sản | Velis Realty",
-   "desc": "Cập nhật nhanh nhất tiến độ thi công dự án, phân tích thị trường và cẩm nang đầu tư BĐS từ chuyên gia Velis Realty."
-  },
-  {
-   "path": "/blog/page/8/",
-   "status": 200,
-   "title": "Tin tức, Tiến độ & Phân tích Bất động sản | Velis Realty",
-   "desc": "Cập nhật nhanh nhất tiến độ thi công dự án, phân tích thị trường và cẩm nang đầu tư BĐS từ chuyên gia Velis Realty."
-  },
-  {
-   "path": "/blog/page/7/",
-   "status": 200,
-   "title": "Tin tức, Tiến độ & Phân tích Bất động sản | Velis Realty",
-   "desc": "Cập nhật nhanh nhất tiến độ thi công dự án, phân tích thị trường và cẩm nang đầu tư BĐS từ chuyên gia Velis Realty."
-  },
-  {
    "path": "/chuyen-gia/vu-xuan/page/2/",
    "status": 200,
    "title": "Vũ Xuân – bài viết, trang 2",
@@ -944,6 +921,12 @@
    "status": 200,
    "title": "Vũ Xuân – bài viết, trang 9",
    "desc": "Vũ Xuân - CEO Velis Realty với hơn 10 năm kinh nghiệm tư vấn đầu tư bất động sản cao cấp Vinhomes, Sun Group."
+  },
+  {
+   "path": "/blog/spring-ville/persa-place-tang-gia-khi-van-hanh-san-bay-long-thanh/",
+   "status": 200,
+   "title": "Persa Place khi sân bay Long Thành vận hành: giá sẽ ra sao?",
+   "desc": "CEO Vũ Xuân (Velis Realty) phân tích tiềm năng tăng giá căn hộ Persa Place khi sân bay Long Thành vận hành 2026."
   },
   {
    "path": "/blog/the-prive/dau-tu-the-prive-don-bay-nut-giao-an-phu/",
@@ -970,6 +953,18 @@
    "desc": "Giải mã bài toán thanh toán 1%/tháng tại dự án The Prive Quận 2. Phân tích lợi ích giữ vốn kinh doanh, ân hạn gốc 5 năm và tỷ suất sinh lời cho nhà đầu tư."
   },
   {
+   "path": "/blog/spring-ville/he-tien-ich-can-ho-spring-ville-co-du-cho-nhu-cau-song-hang-ngay-khong/",
+   "status": 200,
+   "title": "Tiện ích Spring Ville có đủ cho sinh hoạt hằng ngày?",
+   "desc": "Hệ tiện ích căn hộ Spring Ville có đủ cho nhu cầu sống hàng ngày không?"
+  },
+  {
+   "path": "/blog/spring-ville/vi-tri-can-ho-spring-ville-co-thuan-tien-di-san-bay-long-thanh/",
+   "status": 200,
+   "title": "Spring Ville đi sân bay Long Thành, TP.HCM có thuận tiện?",
+   "desc": "Phân tích vị trí căn hộ Spring Ville Nhơn Trạch: khả năng đi sân bay Long Thành, kết nối TP.HCM, lợi thế hạ tầng và nhóm khách hàng phù hợp."
+  },
+  {
    "path": "/blog/spring-ville/spring-ville-co-hop-khai-thac-cho-thue-khong/",
    "status": 200,
    "title": "Cho thuê Spring Ville khi sân bay Long Thành vận hành",
@@ -980,6 +975,12 @@
    "status": 200,
    "title": "Spring Ville hưởng lợi gì từ hạ tầng Long Thành?",
    "desc": "CEO Vũ Xuân phân tích Spring Ville hưởng lợi gì từ hạ tầng Nhơn Trạch – Long Thành về kết nối, đô thị hóa và giá trị tài sản."
+  },
+  {
+   "path": "/blog/spring-ville/can-ho-spring-ville-co-gi-dang-chu-y-voi-nguoi-mua-o-thuc/",
+   "status": 200,
+   "title": "Căn hộ Spring Ville có gì đáng chú ý với người mua ở thực?",
+   "desc": "Phân tích căn hộ Spring Ville dưới góc nhìn người mua ở: vị trí, tiện ích, môi trường sống, pháp lý, tiến độ và những điểm cần hỏi kỹ trước khi xuống tiền."
   },
   {
    "path": "/blog/spring-ville/spring-ville-hop-o-thuc-hay-dau-tu-dai-han/",
@@ -1000,24 +1001,6 @@
    "desc": "Có nên mua căn hộ Spring Ville lúc này? CEO Vũ Xuân phân tích giá, chính sách, vị trí và tiến độ để giúp anh chị ra quyết định."
   },
   {
-   "path": "/blog/spring-ville/he-tien-ich-can-ho-spring-ville-co-du-cho-nhu-cau-song-hang-ngay-khong/",
-   "status": 200,
-   "title": "Tiện ích Spring Ville có đủ cho sinh hoạt hằng ngày?",
-   "desc": "Hệ tiện ích căn hộ Spring Ville có đủ cho nhu cầu sống hàng ngày không?"
-  },
-  {
-   "path": "/blog/spring-ville/can-ho-spring-ville-co-gi-dang-chu-y-voi-nguoi-mua-o-thuc/",
-   "status": 200,
-   "title": "Căn hộ Spring Ville có gì đáng chú ý với người mua ở thực?",
-   "desc": "Phân tích căn hộ Spring Ville dưới góc nhìn người mua ở: vị trí, tiện ích, môi trường sống, pháp lý, tiến độ và những điểm cần hỏi kỹ trước khi xuống tiền."
-  },
-  {
-   "path": "/blog/spring-ville/vi-tri-can-ho-spring-ville-co-thuan-tien-di-san-bay-long-thanh/",
-   "status": 200,
-   "title": "Spring Ville đi sân bay Long Thành, TP.HCM có thuận tiện?",
-   "desc": "Phân tích vị trí căn hộ Spring Ville Nhơn Trạch: khả năng đi sân bay Long Thành, kết nối TP.HCM, lợi thế hạ tầng và nhóm khách hàng phù hợp."
-  },
-  {
    "path": "/blog/the-global-city/dung-doi-thong-xe-lien-phuong-mua-the-global-city/",
    "status": 200,
    "title": "Đừng đợi thông xe Liên Phường mới lo mua The Global City",
@@ -1036,22 +1019,10 @@
    "desc": "So sánh thực tế giữa The Global City và trung tâm Quận 1 truyền thống."
   },
   {
-   "path": "/blog/the-prive/luc-keo-nam-rach-chiec-the-prive-quan-2/",
+   "path": "/blog/the-prive/mua-the-prive-quan-2-von-tu-co-10-phan-tram/",
    "status": 200,
-   "title": "Đánh giá Nam Rạch Chiếc: từ The Global City đến The Prive",
-   "desc": "Phân tích sự cộng hưởng giá trị tại Nam Rạch Chiếc từ các ông lớn Masterise, Keppel Land."
-  },
-  {
-   "path": "/blog/the-prive/bat-dong-san-ban-dao-quan-2-the-prive-khan-hiem/",
-   "status": 200,
-   "title": "BĐS bán đảo Quận 2: sự khan hiếm và giá trị tài sản",
-   "desc": "Bóc tách dữ liệu biên độ tăng giá của bất động sản 3 mặt sông. Vì sao dự án bán đảo The Prive (Nam Rạch Chiếc) luôn là mục tiêu săn đón của giới nhà giàu?"
-  },
-  {
-   "path": "/blog/the-prive/so-sanh-gia-the-prive-voi-thu-thiem/",
-   "status": 200,
-   "title": "So sánh giá The Prive với Thủ Thiêm năm 2026",
-   "desc": "Phân tích sự lệch pha định giá giữa Nam Rạch Chiếc và Thủ Thiêm. Vì sao giá The Prive chỉ bằng 1/3 Thủ Thiêm là dư địa tăng trưởng 50% cho nhà đầu tư?"
+   "title": "Mua The Prive Quận 2 chỉ với 10% vốn trong 2 năm",
+   "desc": "Giải mã chính sách sở hữu The Prive với 10% vốn tự có. Phân tích chi tiết giải ngân 60%, ân hạn gốc 5 năm và cách tối ưu ROE 200% từ Vũ Xuân Velis Realty."
   },
   {
    "path": "/blog/the-prive/metro-thu-thiem-long-thanh-khoi-cong-the-prive/",
@@ -1060,16 +1031,28 @@
    "desc": "Phân tích tác động của lệnh khởi công Metro Thủ Thiêm - Long Thành (tháng 6/2026) đến dự án The Prive."
   },
   {
-   "path": "/blog/the-prive/mua-the-prive-quan-2-von-tu-co-10-phan-tram/",
+   "path": "/blog/the-prive/bat-dong-san-ban-dao-quan-2-the-prive-khan-hiem/",
    "status": 200,
-   "title": "Mua The Prive Quận 2 chỉ với 10% vốn trong 2 năm",
-   "desc": "Giải mã chính sách sở hữu The Prive với 10% vốn tự có. Phân tích chi tiết giải ngân 60%, ân hạn gốc 5 năm và cách tối ưu ROE 200% từ Vũ Xuân Velis Realty."
+   "title": "BĐS bán đảo Quận 2: sự khan hiếm và giá trị tài sản",
+   "desc": "Bóc tách dữ liệu biên độ tăng giá của bất động sản 3 mặt sông. Vì sao dự án bán đảo The Prive (Nam Rạch Chiếc) luôn là mục tiêu săn đón của giới nhà giàu?"
   },
   {
    "path": "/blog/the-prive/gia-ban-the-prive-quan-2-2026/",
    "status": 200,
    "title": "Bảng giá The Prive 2026: Phân tích đơn giá 100-130 triệu/m2",
    "desc": "Cập nhật bảng giá The Prive Quận 2 năm 2026."
+  },
+  {
+   "path": "/blog/the-prive/so-sanh-gia-the-prive-voi-thu-thiem/",
+   "status": 200,
+   "title": "So sánh giá The Prive với Thủ Thiêm năm 2026",
+   "desc": "Phân tích sự lệch pha định giá giữa Nam Rạch Chiếc và Thủ Thiêm. Vì sao giá The Prive chỉ bằng 1/3 Thủ Thiêm là dư địa tăng trưởng 50% cho nhà đầu tư?"
+  },
+  {
+   "path": "/blog/the-prive/luc-keo-nam-rach-chiec-the-prive-quan-2/",
+   "status": 200,
+   "title": "Đánh giá Nam Rạch Chiếc: từ The Global City đến The Prive",
+   "desc": "Phân tích sự cộng hưởng giá trị tại Nam Rạch Chiếc từ các ông lớn Masterise, Keppel Land."
   },
   {
    "path": "/blog/page/6/",

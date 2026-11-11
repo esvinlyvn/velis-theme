@@ -325,3 +325,40 @@ giá, hero A chữ trên ảnh, tìm kiếm chỉ phân trang nhóm bài, đổi
   (máy quét > 50 phút trên staging tắt cache) – **chưa có số**; phần kiểm chứng chạy lại với thời gian dài hơn sau khi tải lên 2 bản sửa
   CSS còn chờ (ghi chú 14 px, viền lưới đối tác).
 - Test đơn vị: tất cả đạt; CSS 42,1 KB min / 8,9 KB gzip (≤ 45 / 12); mockup dựng lại từ CSS chung (43,2 KB).
+
+### 8.10 Kiểm chứng (mục 7) – theme cuối trên staging
+
+Ảnh sau: `screenshots/on-dinh/trang-chu-sau/` (60/60, cùng danh sách ảnh trước, kể cả menu "Về Velis" khi rê chuột); ảnh ghép
+trước | sau từng ca: `screenshots/on-dinh/trang-chu-truoc-sau/` (59 – ảnh "Về Velis" rê chuột không có bản trước). Phần kiểm chứng
+tải theme lên staging **5 lần** (mức tự đặt 3 – vượt vì 2 lỗi đo bắt buộc NT-21 / on-page và 1 lỗi NT-55 tìm ra khi chạy bộ đo; nhật
+ký STAGING-LOG). CSS gộp của Fast Velocity Minify trên staging đã kiểm chứa đủ bản sửa cuối.
+
+**Vì sao giờ đã ổn (mỗi mục một câu)**
+- Header / menu: "Về Velis" chỉ 2 mục, "Liên hệ" một chỗ, số điện thoại = biểu tượng + số – không còn chữ hay mục lặp.
+- Link: 0 link gạch chân ở trạng thái thường trên 29 trang × 4 bề rộng; link trong bài vẫn nhận ra nhờ đỏ đậm (≥ 3:1 so với chữ thường).
+- Khung 2 cột: khe 48 px, cột phải trùng mép khung ở 1 366 / 1 536 / 1 920 / 2 560 – không còn khe trống 280 px ở 1 920 (Persa Place).
+- Đối tác: 4 ô bằng nhau từ mép trái tới mép phải khung (0 px), logo lệch diện tích 12,8 % (iPhone 13,1 %) – không còn cụm logo lệch trái.
+- Khối Velis: chữ 6/12 + danh sách 01–04 6/12, nút "Tìm hiểu Velis" ngang đáy danh sách – hai cột kết thúc cùng một đường.
+- Form + footer: khối form nền champagne nhạt, thẻ form trắng; chỉ footer tối – hai khối cuối trang phân biệt rõ.
+- Danh sách bài: mỗi dòng một bài, ảnh trái, cả dòng bấm được, cột phải chọn cụm – đọc theo một trục, không còn lưới ô.
+- Chủ đầu tư: Gamuda Land / Masterise Homes hiện đủ chữ "Về …", dài thì "Xem thêm"; phần thu gọn ẩn thật (trước: nút trong nội dung lọt
+  ra ngoài vùng thu gọn).
+
+**Bảng đo**
+
+| Bộ đo | Kết quả | File |
+|---|---|---|
+| 1b link gạch chân ở trạng thái thường | **0** (29 trang × 1 366 / 1 536 / 1 920 / 2 560) | `kiem-tra/khung-2-cot.json` (`underline`) |
+| 2 khe cột chính ↔ cột phải | 48 px mọi trang 2 cột, mọi bề rộng | như trên (`gap`) |
+| 2 mép phải cột phải ↔ khung | 0 px | như trên (`sideEdge`) |
+| 2 phần tử cột chính lệch mép | 0, trừ ghi chú nguồn 14 px `p.source` (giữ 40ch – xem "chờ chọn") | như trên (`mainOffList`) |
+| 2 cột phải ↔ mép trên nội dung | 0–4 px | như trên (`sideTop`) |
+| 2 template 1 cột | 760 px căn giữa ở mọi bề rộng | như trên (`headL/headR`) |
+| 3.1 đối tác: ô đầu / ô cuối ↔ khung | 0 / 0 px (4 bề rộng + iPhone 14) | `kiem-tra/trang-chu-doi-tac-velis.json` |
+| 3.1 diện tích logo | lệch 12,8 % (desktop), 13,1 % (iPhone 14) | như trên |
+| 3.2 hai cột khối Velis | kết thúc ngang nhau (hộp 573 / 573, 548 / 548); phần chữ bên trái cao hơn/thấp hơn danh sách 10,5 % (< 1 600) / 17,5 % (≥ 1 600), khoảng chênh nằm trên nút | như trên |
+| 5.2 mất chữ (126 trang) | 123 ≥ 98 %; 3 dưới: /lien-he/ 49,1 %, /gioi-thieu/ 97,9 % (chờ xác nhận), style guide 404 (đúng thiết kế) | `kiem-tra/mat-chu.md` |
+| Bộ NT Chromium 30 trang × M1–M5 × DPR 1 / 1,25 / 2 | **0 lỗi** (lần đầu: 8 NT-21 bản đồ Liên hệ, 12 NT-21 bản đồ khu vực, 15 NT-55 tiêu đề viết hoa, 1 NT-01 – đã sửa, chạy lại 0) | `scratchpad` → tóm tắt ở đây |
+| Bộ NT WebKit iPhone 14, 30 trang | **0 lỗi** (lần đầu 1 NT-55 – đã sửa) | |
+| On-page 181 trang | **0 lỗi** (lần đầu 21 "nhảy cấp H1 → H3" ở /blog/ và cụm – đã sửa: tiêu đề bài dạng dòng là H2 khi không có tiêu đề khối) | `kiem-tra/onpage-tc/report.md` |
+| Schema 30 trang | **0 lỗi, 0 cảnh báo** | `kiem-tra/schema-tc.md` |

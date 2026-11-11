@@ -170,7 +170,7 @@ function velis_sizes( string $rules, float $z = 1, bool $lcp = false ): string {
 	return implode( ', ', array_map( function ( $r ) use ( $z ) {
 		$r = trim( $r );
 		return preg_match( '/^(\([^)]*\)\s+)?(.+)$/', $r, $m ) ? $m[1] . 'calc(' . $z . ' * (' . $m[2] . '))' : $r;
-	}, preg_split( '/,(?![^(]*\))/', $rules ) ) );
+	}, preg_split( '/,(?![^(]*\))(?!(?:[^(]*\([^()]*\))*[^(]*\))/', $rules ) ) ); // split on top-level commas only (nested min()/max() keep theirs)
 }
 
 /** Widest file of a picture: the largest "NNNw" of its srcset, else the given width. */

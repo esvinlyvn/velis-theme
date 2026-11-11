@@ -327,7 +327,7 @@ function velis_hero_a( array $a ): string {
 function velis_hero_home( array $a ): string {
 	$id  = (int) $a['img'];
 	$img = $id ? wp_get_attachment_image( $id, 'full', false, array( 'class' => 'hero__img', 'alt' => $a['alt'], 'fetchpriority' => 'high', 'loading' => 'eager',
-		'sizes' => velis_sizes( '(max-width: 767px) ' . velis_cover_k( $id, 4 / 3 ) . ' * 100vw, 100vw', 1.12, true ),
+		'sizes' => velis_sizes( '(max-width: 767px) ' . velis_cover_k( $id, 4 / 3 ) . ' * 100vw, (max-width: 1023px) max(100vw, ' . velis_cover_k( $id, 1 ) . ' * min(84vh, 680px)), 100vw', 1.12, true ), // 768–1023: the hero box is ~square (≤ 680 px high), the photo covers it by its height (as 0.9.8 did up to 1023)
 		'style' => '--focus: 85% 30%; --focus-m: 72% 0%; --zoom: 1.12', 'data-alt' => (string) wp_get_attachment_image_url( $id, 'large' ) ) ) : '';
 	return '<section class="hero hero--home" aria-label="' . esc_attr( $a['title'] ) . '">' . $img
 		. '<div class="hero__body"><p class="eyebrow">' . esc_html( $a['eyebrow'] ) . '</p><h1 id="h1">' . esc_html( $a['title'] ) . '</h1>'

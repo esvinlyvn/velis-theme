@@ -1,6 +1,6 @@
 # Kiểm tra schema
 
-Ngày 2026-11-10 · Schema Markup Validator + trường bắt buộc của Google
+Ngày 2026-11-11 · Schema Markup Validator + trường bắt buộc của Google
 
 | Trang | Kiểu | Lỗi | Cảnh báo | Chi tiết |
 |---|---|---|---|---|
