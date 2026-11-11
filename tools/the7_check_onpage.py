@@ -28,6 +28,7 @@ APPS = ('/check-can-the-prive/', '/check-sdt/', '/cmgd/', '/lucky-lead/', '/meta
 SKIP = re.compile(r'^/(wp-admin|wp-json|wp-login|wp-content|wp-includes|xmlrpc|feed)|/feed/?$|\.(xml|kml|jpe?g|png|webp|gif|svg|pdf|zip)$', re.I)
 DATE = re.compile(r'^/\d{4}/(\d{2}/)?(\d{2}/)?(page/\d+/)?$')
 PAGED = re.compile(r'/page/\d+/?$')
+OLD_BLOG = re.compile(r'^/blog-bds(/|$)')  # chuyên mục cũ, gộp vào /blog/ ở bước 5 (301 một bước, giữ số trang)
 JUNK_CAPTION = re.compile(r'(\.(jpe?g|png|webp|gif)\b|^(img|dsc|dcim|screenshot|z\d{6,}|ảnh chụp màn hình)[\s_-]*\d*|^[a-z0-9]+(?:[-_][a-z0-9]+){2,}$|^\d[\d_-]{5,}$)', re.I)
 
 
@@ -90,6 +91,14 @@ def rules(rec, link_status):
         if not (rec['status'] == 301 and (rec['location'] or '').rstrip('/').endswith('/blog')):
             out.append(('date', f"lưu trữ ngày trả {rec['status']} {rec['location'] or ''}, cần 301 → /blog/"))
         return out
+    if OLD_BLOG.match(path):
+        loc = urlsplit(rec['location'] or '').path
+        page = PAGED.search(path)
+        if rec['status'] != 301 or not loc.startswith('/blog/') or (page and not loc.endswith(page.group(0).rstrip('/') + '/')):
+            out.append(('blog-bds', f"{rec['status']} {rec['location'] or ''}, cần 301 một bước → /blog/…"))
+        return out
+    if path == '/blog/' and rec['status'] != 200:
+        out.append(('blog', f"/blog/ trả {rec['status']}"))
     if rec['status'] != 200:
         return out
     n = len(rec['title'])
@@ -105,6 +114,8 @@ def rules(rec, link_status):
     if rec['canonical'] and not PAGED.search(path) and rec['canonical'] != rec['url']:
         out.append(('canonical', f"canonical {rec['canonical']}"))
     for l in rec['links']:
+        if OLD_BLOG.match(urlsplit(l).path):
+            out.append(('link-blog-bds', l))
         st, loc = link_status.get(l, (None, None))
         if st and 400 <= st < 500:
             out.append(('link4xx', f'{l} → {st}'))
@@ -137,10 +148,18 @@ def self_test():
     assert rec['title'] == 'T & A' and rec['links'] == [BASE + '/b/'] and rec['img_no_alt'] == ['u.webp'] and rec['captions'] == ['IMG_0001.jpg']
     kinds = sorted(k for k, _ in rules(rec, {BASE + '/b/': (404, None)}))
     assert kinds == ['alt', 'alt-junk', 'caption', 'link4xx', 'meta'], kinds
-    paged = parse(BASE + '/blog-bds/page/2/', 200, None, page.replace('follow, index', 'follow, index'))
+    paged = parse(BASE + '/blog/page/2/', 200, None, page.replace('follow, index', 'follow, index'))
     assert ('robots', 'trang 2+ không noindex') in rules(paged, {})
     assert rules({'url': BASE + '/2026/04/', 'status': 301, 'location': BASE + '/blog/'}, {}) == []
     assert rules({'url': BASE + '/2026/04/', 'status': 200, 'location': None}, {})[0][0] == 'date'
+    ok301 = lambda src, loc: rules({'url': BASE + src, 'status': 301, 'location': BASE + loc}, {})
+    assert ok301('/blog-bds/', '/blog/') == [] and ok301('/blog-bds/blog-the-prive/page/3/', '/blog/the-prive/page/3/') == []
+    assert ok301('/blog-bds/page/3/', '/blog/')[0][0] == 'blog-bds'  # mất số trang
+    assert ok301('/blog-bds/blog-ansana/', '/blog-bds/ansana/')[0][0] == 'blog-bds'  # chuỗi qua /blog-bds/
+    assert rules({'url': BASE + '/blog-bds/', 'status': 200, 'location': None}, {})[0][0] == 'blog-bds'
+    assert rules({'url': BASE + '/blog/', 'status': 404, 'location': None}, {})[0][0] == 'blog'
+    rec2 = parse(BASE + '/a/', 200, None, page.replace('/b/', '/blog-bds/blog-ansana/'))
+    assert 'link-blog-bds' in [k for k, _ in rules(rec2, {})]
     print('self-test ok')
 
 

@@ -333,3 +333,23 @@ Quay lui nội dung (Bản sửa đổi, đã đối chiếu trùng nội dung t
 
 Quay lui: nhập `data/the7/options-buoc-3.json`; trang Blog → Bản sửa đổi **20021** (đã đối chiếu trùng nội dung trước khi sửa);
 tải lại theme con 1.1.2. Không xóa gì, không gửi form, site thật không bị ghi.
+
+## 2026-11-11 – The7 bước 5: nội dung rộng hết khung + gộp /blog-bds/ vào /blog/ (theo `docs/reports/the7-buoc-5-rong-va-blog.md`)
+
+| Mục | Trước | Sau | Cách làm |
+|---|---|---|---|
+| The7 Theme Options | xuất bản hiện tại → `data/the7/options-truoc-b5.json` | `general-custom_css`: bỏ đúng 1 quy tắc UX-18 (`.single-post #content .wpb_text_column { max-width: 740px … }`); `show_static_part_of_archive_title` 1 → 0 (H1 "Blog", không "Chuyên mục: Blog"); `template_page_id_blog_category` 0 → **20733** (`data/the7/options-buoc-5.json`, sinh bằng `tools/the7_options_buoc5.py`) | Export/Import Options (nhập 3 lần khi chỉnh; bản cuối khớp file, chỉ khác `contact_form_security_token` The7 tự tạo) |
+| Giao diện → Widget → Default Sidebar | trống | 3 widget: HTML "Nhận tư vấn dự án" (link /lien-he/ + số gọi), "Mục lục" (Easy TOC), "DT-Blog posts" 4 bài mới | màn hình Widget (cổ điển) |
+| 102 bài blog (không gồm 7 bài dự án): hộp **Sidebar Options** | `disabled` | `right`, vùng "Default Sidebar" | Sửa bài → Cập nhật, bật "Lock Modified Date" của Rank Math → ngày sửa bài và nội dung không đổi (đã so 109 bài trước/sau qua REST). Riêng bài 20468 bị 1 lần lưu thử không khóa ngày: ngày sửa 2026-11-04 → 2026-11-11, nội dung không đổi |
+| Trang 19539 "Blog" (/blog/) | xuất bản | slug `blog-cu`, **bản nháp** (không xóa); nội dung cũ: `data/the7/buoc-5/trang-19539-truoc.json` | REST `wp/v2/pages/19539` |
+| Trang 20733 (mới, bản nháp) "Mẫu trang chuyên mục blog (The7 → Archives)" | — | WPBakery: hàng "Đọc theo dự án" (link 7 cụm) + Blog list 12 bài/trang | REST `wp/v2/pages` |
+| Chuyên mục | `blog-bds` (Blog) cha của cụm lồng nhau `blog-*` | 40 `blog-bds` → **`blog`** + mô tả on-page; cụm đưa thẳng dưới Blog, bỏ tiền tố: 47 `ansana`, 44 `spring-ville` (tên "Spring Ville"), 50 `the-global-city`, 48 `the-prive`, 41 `vinhomes`, 51 `vinhomes-saigon-park`, 53 `palm-city`. Cũ: `data/the7/buoc-5/chuyen-muc-truoc.json`. Rank Math title chuyên mục 40: "Blog phân tích bất động sản TP.HCM %sep% %sitename%" | REST `wp/v2/categories`, `rankmath/v1/updateMeta` |
+| Cài đặt → Đọc: số bài mỗi trang | 10 | 12 | REST `wp/v2/settings` (không lưu trang Permalinks, không ghi `.htaccess`) |
+| Menu "Velis – Menu chính" (20692) và MAIN (19555, không gán vị trí) | mục "Blog" → trang 19539 | → chuyên mục Blog (40) | REST `wp/v2/menu-items` |
+| Rank Math → Chuyển hướng | 4 quy tắc | Rank Math tự tạo 7 quy tắc khi đổi slug (đích trung gian `/blog-bds/…`) và gộp nguồn `blog-bds/blog-palm-city/` vào quy tắc cũ #2 (thành vòng lặp) → **hủy kích hoạt** #2, #5–#11 và quy tắc thử #12 (không xóa). Thêm 8 regex #13–#20: `/blog-bds/…` → `/blog/{cụm}/` 301 một bước, giữ `/page/N/` (PHP, không `.htaccess`). Danh sách: `data/the7/buoc-5/rank-math-chuyen-huong-sau.json` | Chuyển hướng → Thêm mới / Hủy kích hoạt |
+| Theme con | 1.1.3 | **1.1.4**: `functions.php` bỏ tài nguyên Ultimate Addons (Google Maps API chặn hiển thị, CSS, jQuery UI slider) chỉ ở trang chuyên mục | Giao diện → Tải lên → "Thay thế cài đặt bằng tải lên" |
+| Cache | — | xóa FVM + LiteSpeed sau mỗi thay đổi (không lưu cài đặt LiteSpeed) | thanh quản trị |
+
+Quay lui: nhập `data/the7/options-truoc-b5.json`; trang 19539 → slug `blog`, Xuất bản; chuyên mục theo `chuyen-muc-truoc.json`;
+menu theo `menu-blog-truoc.json`; Đọc → 10 bài; hủy kích hoạt #13–#20, kích hoạt lại #2 (sau khi trả nguồn/đích cũ); sidebar bài:
+chọn lại "Disabled" (hoặc để nguyên, không ảnh hưởng khi bỏ widget); theme con 1.1.3. Không xóa gì, không gửi form, site thật không bị ghi.

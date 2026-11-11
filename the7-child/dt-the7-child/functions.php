@@ -22,3 +22,13 @@ add_filter( 'dt_get_thumb_img-output', function ( $html ) {
 	static $velis_n = 0;
 	return ++$velis_n > 2 && ! str_contains( $html, 'loading=' ) ? preg_replace( '/<img /', '<img loading="lazy" ', $html, 1 ) : $html;
 } );
+
+// Category archives (/blog/ and its clusters) render only The7 elements, but Ultimate Addons cannot see that outside a
+// single post and loads all its assets there, incl. a render-blocking Google Maps API (~1.8 s on mobile Lighthouse).
+add_action( 'wp_enqueue_scripts', function () {
+	if ( ! is_category() ) {
+		return;
+	}
+	array_map( 'wp_dequeue_script', array( 'ultimate-vc-addons-googleapis', 'jquery-ui-slider' ) );
+	array_map( 'wp_dequeue_style', array( 'ultimate-vc-addons-icons', 'ultimate-vc-addons-selected-google-fonts-style', 'ultimate-vc-addons-style-min', 'ultimate-vc-addons-vidcons' ) );
+}, 1000 );

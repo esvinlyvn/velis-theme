@@ -1,0 +1,327 @@
+[
+ {
+  "id": "20",
+  "sources": [
+   {
+    "ignore": "",
+    "pattern": "^blog-bds/(?:blog-)?palm-city(/page/[0-9]+)?/?$",
+    "comparison": "regex"
+   }
+  ],
+  "url_to": "https://staging.velisrealty.vn/blog/palm-city$1/",
+  "header_code": "301",
+  "status": "active",
+  "categories": [],
+  "start-date": "",
+  "end-date": ""
+ },
+ {
+  "id": "19",
+  "sources": [
+   {
+    "ignore": "",
+    "pattern": "^blog-bds/blog-vinhomes(/page/[0-9]+)?/?$",
+    "comparison": "regex"
+   }
+  ],
+  "url_to": "https://staging.velisrealty.vn/blog/vinhomes$1/",
+  "header_code": "301",
+  "status": "active",
+  "categories": [],
+  "start-date": "",
+  "end-date": ""
+ },
+ {
+  "id": "18",
+  "sources": [
+   {
+    "ignore": "",
+    "pattern": "^blog-bds/blog-vinhomes/blog-vinhomes-saigon-park(/page/[0-9]+)?/?$",
+    "comparison": "regex"
+   }
+  ],
+  "url_to": "https://staging.velisrealty.vn/blog/vinhomes-saigon-park$1/",
+  "header_code": "301",
+  "status": "active",
+  "categories": [],
+  "start-date": "",
+  "end-date": ""
+ },
+ {
+  "id": "17",
+  "sources": [
+   {
+    "ignore": "",
+    "pattern": "^blog-bds/blog-the-prive(/page/[0-9]+)?/?$",
+    "comparison": "regex"
+   }
+  ],
+  "url_to": "https://staging.velisrealty.vn/blog/the-prive$1/",
+  "header_code": "301",
+  "status": "active",
+  "categories": [],
+  "start-date": "",
+  "end-date": ""
+ },
+ {
+  "id": "16",
+  "sources": [
+   {
+    "ignore": "",
+    "pattern": "^blog-bds/blog-masterise-homes(?:/blog-the-global-city)?(/page/[0-9]+)?/?$",
+    "comparison": "regex"
+   }
+  ],
+  "url_to": "https://staging.velisrealty.vn/blog/the-global-city$1/",
+  "header_code": "301",
+  "status": "active",
+  "categories": [],
+  "start-date": "",
+  "end-date": ""
+ },
+ {
+  "id": "15",
+  "sources": [
+   {
+    "ignore": "",
+    "pattern": "^blog-bds/blog-gamuda-land(?:/blog-spring-ville(?:/blog-can-ho-spring-ville)?)?(/page/[0-9]+)?/?$",
+    "comparison": "regex"
+   }
+  ],
+  "url_to": "https://staging.velisrealty.vn/blog/spring-ville$1/",
+  "header_code": "301",
+  "status": "active",
+  "categories": [],
+  "start-date": "",
+  "end-date": ""
+ },
+ {
+  "id": "14",
+  "sources": [
+   {
+    "ignore": "",
+    "pattern": "^blog-bds/blog-ansana(/page/[0-9]+)?/?$",
+    "comparison": "regex"
+   }
+  ],
+  "url_to": "https://staging.velisrealty.vn/blog/ansana$1/",
+  "header_code": "301",
+  "status": "active",
+  "categories": [],
+  "start-date": "",
+  "end-date": ""
+ },
+ {
+  "id": "13",
+  "sources": [
+   {
+    "ignore": "",
+    "pattern": "^blog-bds(/page/[0-9]+)?/?$",
+    "comparison": "regex"
+   }
+  ],
+  "url_to": "https://staging.velisrealty.vn/blog$1/",
+  "header_code": "301",
+  "status": "active",
+  "categories": [],
+  "start-date": "",
+  "end-date": ""
+ },
+ {
+  "id": "12",
+  "sources": [
+   {
+    "ignore": "",
+    "pattern": "^blog-bds/blog-the-prive/?(page/[0-9]+/?)?$",
+    "comparison": "regex"
+   }
+  ],
+  "url_to": "https://staging.velisrealty.vn/blog/the-prive/$1",
+  "header_code": "301",
+  "status": "inactive",
+  "categories": [],
+  "start-date": "",
+  "end-date": ""
+ },
+ {
+  "id": "11",
+  "sources": [
+   {
+    "ignore": "",
+    "pattern": "blog-bds/",
+    "comparison": "exact"
+   }
+  ],
+  "url_to": "https://staging.velisrealty.vn/blog/",
+  "header_code": "301",
+  "status": "inactive",
+  "categories": [],
+  "start-date": "",
+  "end-date": ""
+ },
+ {
+  "id": "10",
+  "sources": [
+   {
+    "ignore": "",
+    "pattern": "blog-bds/vinhomes/blog-vinhomes-saigon-park/",
+    "comparison": "exact"
+   }
+  ],
+  "url_to": "https://staging.velisrealty.vn/blog-bds/vinhomes-saigon-park/",
+  "header_code": "301",
+  "status": "inactive",
+  "categories": [],
+  "start-date": "",
+  "end-date": ""
+ },
+ {
+  "id": "9",
+  "sources": [
+   {
+    "ignore": "",
+    "pattern": "blog-bds/blog-vinhomes/",
+    "comparison": "exact"
+   }
+  ],
+  "url_to": "https://staging.velisrealty.vn/blog-bds/vinhomes/",
+  "header_code": "301",
+  "status": "inactive",
+  "categories": [],
+  "start-date": "",
+  "end-date": ""
+ },
+ {
+  "id": "8",
+  "sources": [
+   {
+    "ignore": "",
+    "pattern": "blog-bds/blog-the-prive/",
+    "comparison": "exact"
+   }
+  ],
+  "url_to": "https://staging.velisrealty.vn/blog-bds/the-prive/",
+  "header_code": "301",
+  "status": "inactive",
+  "categories": [],
+  "start-date": "",
+  "end-date": ""
+ },
+ {
+  "id": "7",
+  "sources": [
+   {
+    "ignore": "",
+    "pattern": "blog-bds/blog-masterise-homes/blog-the-global-city/",
+    "comparison": "exact"
+   }
+  ],
+  "url_to": "https://staging.velisrealty.vn/blog-bds/the-global-city/",
+  "header_code": "301",
+  "status": "inactive",
+  "categories": [],
+  "start-date": "",
+  "end-date": ""
+ },
+ {
+  "id": "6",
+  "sources": [
+   {
+    "ignore": "",
+    "pattern": "blog-bds/blog-gamuda-land/blog-spring-ville/blog-can-ho-spring-ville/",
+    "comparison": "exact"
+   }
+  ],
+  "url_to": "https://staging.velisrealty.vn/blog-bds/spring-ville/",
+  "header_code": "301",
+  "status": "inactive",
+  "categories": [],
+  "start-date": "",
+  "end-date": ""
+ },
+ {
+  "id": "5",
+  "sources": [
+   {
+    "ignore": "",
+    "pattern": "blog-bds/blog-ansana/",
+    "comparison": "exact"
+   }
+  ],
+  "url_to": "https://staging.velisrealty.vn/blog-bds/ansana/",
+  "header_code": "301",
+  "status": "inactive",
+  "categories": [],
+  "start-date": "",
+  "end-date": ""
+ },
+ {
+  "id": "4",
+  "sources": [
+   {
+    "ignore": "",
+    "pattern": "^[0-9]{4}(/[0-9]{2})?(/[0-9]{2})?(/page/[0-9]+)?/?$",
+    "comparison": "regex"
+   }
+  ],
+  "url_to": "https://staging.velisrealty.vn/blog/",
+  "header_code": "301",
+  "status": "active",
+  "categories": [],
+  "start-date": "",
+  "end-date": ""
+ },
+ {
+  "id": "3",
+  "sources": [
+   {
+    "ignore": "",
+    "pattern": "chuyen-gia/admin",
+    "comparison": "exact"
+   }
+  ],
+  "url_to": "https://staging.velisrealty.vn/chuyen-gia/vu-xuan/",
+  "header_code": "301",
+  "status": "active",
+  "categories": [],
+  "start-date": "",
+  "end-date": ""
+ },
+ {
+  "id": "2",
+  "sources": [
+   {
+    "ignore": "",
+    "pattern": "blog-bds/palm-city/",
+    "comparison": "exact"
+   },
+   {
+    "ignore": "",
+    "pattern": "blog-bds/blog-palm-city/",
+    "comparison": "exact"
+   }
+  ],
+  "url_to": "https://staging.velisrealty.vn/blog-bds/palm-city/",
+  "header_code": "301",
+  "status": "inactive",
+  "categories": [],
+  "start-date": "",
+  "end-date": ""
+ },
+ {
+  "id": "1",
+  "sources": [
+   {
+    "ignore": "",
+    "pattern": "can-ho-spring-ville",
+    "comparison": "exact"
+   }
+  ],
+  "url_to": "https://staging.velisrealty.vn/spring-ville/",
+  "header_code": "301",
+  "status": "active",
+  "categories": [],
+  "start-date": "",
+  "end-date": ""
+ }
+]

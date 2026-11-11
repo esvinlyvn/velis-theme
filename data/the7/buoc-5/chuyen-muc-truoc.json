@@ -1,0 +1,162 @@
+[
+ {
+  "id": 47,
+  "name": "Ansana by Kita",
+  "slug": "blog-ansana",
+  "parent": 40,
+  "description": "",
+  "count": 10
+ },
+ {
+  "id": 40,
+  "name": "Blog",
+  "slug": "blog-bds",
+  "parent": 0,
+  "description": "",
+  "count": 0
+ },
+ {
+  "id": 44,
+  "name": "Căn hộ Spring Ville",
+  "slug": "blog-can-ho-spring-ville",
+  "parent": 43,
+  "description": "",
+  "count": 27
+ },
+ {
+  "id": 34,
+  "name": "Dự Án",
+  "slug": "du-an-bds",
+  "parent": 0,
+  "description": "",
+  "count": 6
+ },
+ {
+  "id": 39,
+  "name": "Ecopark",
+  "slug": "du-an-ecopark",
+  "parent": 34,
+  "description": "",
+  "count": 0
+ },
+ {
+  "id": 38,
+  "name": "Gamuda Land",
+  "slug": "du-an-gamuda-land",
+  "parent": 34,
+  "description": "",
+  "count": 1
+ },
+ {
+  "id": 42,
+  "name": "Gamuda Land",
+  "slug": "blog-gamuda-land",
+  "parent": 40,
+  "description": "",
+  "count": 0
+ },
+ {
+  "id": 49,
+  "name": "Masterise Homes",
+  "slug": "blog-masterise-homes",
+  "parent": 40,
+  "description": "",
+  "count": 0
+ },
+ {
+  "id": 36,
+  "name": "Masterise Homes",
+  "slug": "du-an-masterise-homes",
+  "parent": 34,
+  "description": "",
+  "count": 0
+ },
+ {
+  "id": 53,
+  "name": "Palm City",
+  "slug": "blog-palm-city",
+  "parent": 40,
+  "description": "",
+  "count": 5
+ },
+ {
+  "id": 45,
+  "name": "Spring Ville",
+  "slug": "du-an-spring-ville",
+  "parent": 38,
+  "description": "",
+  "count": 1
+ },
+ {
+  "id": 43,
+  "name": "Spring Ville",
+  "slug": "blog-spring-ville",
+  "parent": 42,
+  "description": "",
+  "count": 0
+ },
+ {
+  "id": 37,
+  "name": "Sun Group",
+  "slug": "du-an-sungroup",
+  "parent": 34,
+  "description": "",
+  "count": 0
+ },
+ {
+  "id": 50,
+  "name": "The Global City",
+  "slug": "blog-the-global-city",
+  "parent": 49,
+  "description": "",
+  "count": 20
+ },
+ {
+  "id": 48,
+  "name": "The Privé",
+  "slug": "blog-the-prive",
+  "parent": 40,
+  "description": "",
+  "count": 25
+ },
+ {
+  "id": 1,
+  "name": "Uncategorized",
+  "slug": "uncategorized",
+  "parent": 0,
+  "description": "",
+  "count": 0
+ },
+ {
+  "id": 41,
+  "name": "Vinhomes",
+  "slug": "blog-vinhomes",
+  "parent": 40,
+  "description": "",
+  "count": 10
+ },
+ {
+  "id": 35,
+  "name": "Vinhomes",
+  "slug": "du-an-vinhomes",
+  "parent": 34,
+  "description": "",
+  "count": 1
+ },
+ {
+  "id": 51,
+  "name": "Vinhomes Saigon Park",
+  "slug": "blog-vinhomes-saigon-park",
+  "parent": 41,
+  "description": "",
+  "count": 5
+ },
+ {
+  "id": 52,
+  "name": "Vinhomes Saigon Park",
+  "slug": "du-an-vinhomes-saigon-park",
+  "parent": 35,
+  "description": "",
+  "count": 0
+ }
+]
