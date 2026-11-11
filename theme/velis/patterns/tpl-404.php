@@ -4,7 +4,8 @@
  * Slug: velis/tpl-404
  * Inserter: no
  */
-$featured = array_slice( array_values( array_filter( velis_top_projects(), fn( $p ) => velis_image_id( $p ) ) ), 0, 3 );
+$photo    = fn( $list ) => array_values( array_filter( $list, fn( $p ) => velis_image_id( $p ) ) );
+$featured = array_slice( $photo( velis_featured_projects() ) ?: $photo( velis_top_projects() ), 0, 3 ); // "Dự án nổi bật" = the ticked projects (vòng hoàn thiện 2), with a photo
 $out      = velis_hero_b( array(
 	'eyebrow' => 'Lỗi 404',
 	'title'   => 'Trang này không còn ở đây',

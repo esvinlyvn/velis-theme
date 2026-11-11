@@ -1,7 +1,7 @@
 # Vòng hoàn thiện theme (2026-11-11)
 
-Theme velis 1.1.0 + plugin velis-data 0.4.0. Phần dưới do HT-1 ghi (mục 1–3); phần kiểm chứng tổng, hướng dẫn quản trị,
-thử vai Biên tập viên, đóng gói ghi tiếp ở các mục sau.
+Theme velis **1.1.1** + plugin velis-data **0.4.1** (đang chạy trên staging). Mục 1–3 làm ở bản 1.1.0 / 0.4.0; bản 1.1.1 / 0.4.1
+thêm các sửa sau tự soát (dòng tác giả, /simplify, khối Nhận tư vấn 2 × 2, 404) – xem "Tự soát và sửa thêm". Không ra mắt.
 
 ## Mục 1 – Không viết cứng nội dung
 
@@ -120,3 +120,56 @@ Cài thử trên staging (người dùng duyệt trong vòng này):
 4. **Sau**: vị trí menu (`chinh` 83, `kham-pha` 84), Nổi bật 4 dự án, ngày đăng, 4 logo, cờ Bản gốc hỏng: **giống hệt**; Cài đặt Velis
    76 ô: **giống hệt**. Ảnh 12 ca: 9 ca 0 px khác; 3 ca (bài TGC, The Global City, Persa Place – desktop) khác 0,26–0,93 % tại đúng
    1 ảnh lười tải chưa kịp hiện ở một trong hai lần chụp (ô trống ↔ ảnh, `screenshots/hoan-thien/cai-zip/`) – không phải do cài lại.
+
+## Tự soát và sửa thêm (HT-3, theme 1.1.1 / velis-data 0.4.1)
+
+| Phát hiện | Sửa | Kiểm |
+|---|---|---|
+| Bài của tác giả khác vẫn ghi "…, CEO Velis Realty" (dòng meta bài viết viết cứng; hộp Tác giả, trang tác giả, Giới thiệu lấy chức danh CEO khi hồ sơ trống) | hàm `velis_author_role()`: chức danh trong hồ sơ (`velis_role`); chức danh CEO của Cài đặt Velis **chỉ** cho người có tên = tên CEO; còn lại không ghi | 4 chỗ dùng chung một hàm; trang tác giả Vũ Xuân vẫn "Chuyên gia · CEO Velis Realty" |
+| `check_hardcode` không bắt chức danh người | thêm luật chức danh (CEO, Giám đốc, Nhà sáng lập…) trong chuỗi PHP/HTML + self-test bằng đúng dòng lỗi cũ; 3 mô tả SEO mặc định bỏ chữ "CEO" viết cứng (dùng tên / chức danh từ Cài đặt Velis); "Góc nhìn CEO" (tên mục cố định trang dự án) vào danh sách chữ giao diện | `Tổng: 0 chỗ viết cứng` |
+| /simplify | bỏ `velis_setting_tel()` trùng `velis_tel()`; bảng 76 ô cài đặt dựng 1 lần mỗi lượt tải (trước: mỗi lần đọc một ô); footer bỏ bước chép mảng thừa; nút "Gửi CV qua email" ẩn khi chưa có email (trước: `mailto:?subject…` rỗng) | `npm run test:unit` đạt |
+| Khối "Nhận tư vấn" ≥ 1280 px: cột thông tin cao ~560 px cạnh thẻ form 274 px (khe trống lớn bên phải) | 4 thông tin xếp 2 × 2 (cột 1 vừa nội dung, cột 2 phần còn lại), giờ làm việc xuống dòng ở dấu cách (`text-wrap: balance`) | cột thông tin 308–320 px ↔ thẻ 274 px ở 1280 / 1536 / 1920; 1024–1279 và mobile giữ 1 cột |
+| 404 "Dự án nổi bật" lấy 3 dự án mới nhất có ảnh, không theo ô tick | lấy dự án được tick có ảnh (không có thì dự án mới nhất có ảnh) | hiện The Privé, The Global City, Ansana by Kita |
+| Bộ đo vùng bấm (NT-86) đo riêng chữ tiêu đề của bài dạng dòng (22–28 px) dù cả dòng là link (`::after` phủ dòng) | `check_ui` tính vùng bấm = cả dòng `.postrow` (như thẻ `.card`) | cụm The Privé, tìm kiếm: 0 |
+| Bộ tương tác: dải nổi bật nay chỉ 4 dự án tick → vừa khung, không mũi tên | test chấp nhận "vừa khung thì không mũi tên, không trượt"; dài hơn thì kiểm như cũ | 24/24 |
+
+Không đổi (đã soát): header / menu desktop + mobile (Dự án tự liệt kê 6 dự án mới nhất + Tất cả dự án; Về Velis 2 mục; Liên hệ riêng),
+footer, breadcrumb, khối Velis 2 cột cân 0 %, đối tác 4 ô trùng mép khung, blog / cụm / tác giả / tìm kiếm dạng dòng, Gamuda Land,
+Masterise Homes.
+
+## Mục 11 – Ảnh trước | sau (`screenshots/hoan-thien/truoc/` | `screenshots/hoan-thien/sau/`, cùng tên tệp)
+
+Màn: `d` 1536×864 @1,25 · `f` 1920×1080 · `i` iPhone 14 · `w` 1366×768 · `x` 2560×1440. Công cụ `tools/shots_trang_chu.mjs` (69 ca).
+
+| Mục | Tệp | Vì sao giờ đã ổn |
+|---|---|---|
+| Dải nổi bật | `0-hero-noi-bat-{d,f,i}` | Chỉ dự án được tick, mới nhất trước; Palm City chưa có ảnh hiện dấu Velis thay ô trống. |
+| Dải nổi bật khi đổi tick | `0-noi-bat-truoc-tick-{d,i}` → `0-noi-bat-sau-tick-{d,i}` | Bỏ tick Palm City + tick Spring Ville → dải đổi ngay (The Privé, The Global City, Ansana, Spring Ville); đã trả lại như cũ. |
+| Lưới dự án trang chủ, /du-an/ | `0-luoi-du-an-*`, `0-du-an-*` | Tên "Dự án Velis đang tư vấn", mới nhất trước, không còn đẩy thẻ không ảnh xuống cuối. |
+| Header + menu | `1-header-*`, `1-menu-mobile-i`, `1-menu-ve-velis-d` | Biểu tượng + số (không "Gọi hotline"), menu mobile cùng cấu trúc desktop, dự án mới nhất trước. |
+| Breadcrumb, footer, link trong bài | `1b-*` | Không gạch chân; link điều hướng màu chữ phụ → đỏ khi rê; link trong bài đỏ đậm, gạch mảnh khi rê. |
+| Khung 2 cột × 4 bề rộng | `2-{persa,the-global-city,gioi-thieu,blog}-{w,d,f,x}`, `2-chinh-sach-x` | Cột chính 8/12 + cột phải 4/12, khe 48 px, cột phải chạm mép khung; trang chính sách 1 cột 760 px giữa. |
+| Đối tác, khối Velis | `3-doi-tac-*`, `3-khoi-velis-*` | Logo lấy từ ảnh đại diện chủ đầu tư, 4 ô trải hết khung; 2 cột Velis cao bằng nhau. |
+| Form + footer | `3-form-*` | Nền ngà, form trên thẻ trắng; từ 1280 px thông tin 2 × 2 nên hết khe trống cạnh thẻ; chỉ footer nền tối. |
+| Danh sách bài | `4-blog-*`, `4-blog-trang-2-*`, `4-cum-*`, `4-tac-gia-*`, `4-tim-kiem-*` | Mỗi dòng một bài (ảnh 4:3 trái), 12 bài / trang, cột phải chọn cụm + ô tư vấn. |
+| Chủ đầu tư | `5-gamuda-land-*`, `5-masterise-homes-*` | Khối "Về {chủ đầu tư}" hiện đủ chữ, dài thì "Xem thêm"; logo là ảnh đại diện. |
+
+## Mục 11 – Bảng đo
+
+| Đo | Kết quả | Tệp |
+|---|---|---|
+| 1.3 nội dung viết cứng (`check_hardcode.py`, có luật chức danh) | **0** | `npm run test:unit` |
+| 4 link gạch chân ở trạng thái thường | **0** (15 template × 1366 / 1536 / 1920 / 2560) | `screenshots/hoan-thien/kiem-tra/khung-2-cot.json` |
+| 5 khe cột chính ↔ cột phải | **48 px** mọi trang 2 cột × 4 bề rộng (768 \| 384 dưới 1600, 848 \| 424 từ 1600) | như trên |
+| 5 mép phải cột phải ↔ mép khung; phần tử cột chính lệch mép cột; cột phải ↔ mép trên nội dung | **0 / 0 / 0 px** | như trên |
+| 6.1 đối tác | 4 ô, ô đầu / cuối lệch khung 0 px, diện tích logo lệch 12,8 % (iPhone 13,1 %) | `trang-chu.json` |
+| 6.2 khối Velis | 2 cột 577 \| 577 (1366 / 1536), 552 \| 552 (1920 / 2560): lệch 0 %; iPhone 1 cột | `trang-chu.json` |
+| 8 mất chữ (126 trang: dự án, phân khu, dòng, chủ đầu tư, trang, bài) | 123 trang ≥ 98 %; 3 còn lại đã biết: style guide 404 (cố ý), /lien-he/ 49,1 %, /gioi-thieu/ 97,9 % (bỏ phần liên hệ trùng khối liên hệ) | `mat-chu.md` |
+| 2 ngày đăng 6 dự án | xem bảng mục 2 | – |
+| On-page 181 trang | **0** lỗi template, 0 lỗi nội dung, 0 link hỏng, 0 link tới URL cũ đã chuyển | `test-results/ht-onpage` (không commit) |
+| Schema 30 trang | **0 lỗi, 0 cảnh báo** | `schema.md` |
+| Quét toàn site (181 trang, trừ 7 ứng dụng) | **0** link hỏng, 0 trang lỗi (ảnh, tràn ngang 390, H1) | `crawl.json` |
+| check_ui 7 khung (360–1920) × 30 trang | **0** (sau khi bộ đo tính đúng vùng bấm của bài dạng dòng) | `ui-7-khung.txt` |
+| Tương tác | **55 / 55** Chromium, **55 / 55** WebKit; không gửi form (chặn ở trình duyệt) | `tuong-tac-*.txt` |
+| CSS | 42,5 KB min, 9,0 KB gzip (≤ 45 / ≤ 12) | `tools/build_css.py` |
+| Ảnh mốc | 103 / 156 ảnh cập nhật có chủ đích (thứ tự dự án, dải nổi bật, khối form 2 × 2 ở M1–M3, 404); soát ảnh khác biệt; **2 lần chạy liên tiếp 156 / 156** | `tests/visual/moc/` |

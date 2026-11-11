@@ -1,0 +1,282 @@
+== trang-chu /
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.0040611159139209325
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== du-an /du-an/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== the-prive /du-an/the-prive/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.0002603342817644033
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.00013830444019044392
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.00007000596788194444
+== the-global-city /du-an/the-global-city/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.00022208333333333336
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.00022375
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.00022561046511627907
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.00023177565586419752
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.0002925459543863932
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== vinhomes-saigon-park /du-an/vinhomes-saigon-park/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.008450398763020834
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.0002247345753205128
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.00022653978924418606
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.000292642249001397
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== palm-city /du-an/palm-city/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.000049130859375
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.00004245876736111111
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.00007935047149658203
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== spring-ville /du-an/spring-ville/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.007767812017746912
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.004781733353932699
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== ansana /du-an/ansana-by-kita/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.00012277047559296978
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== masteri-grand-view /du-an/the-global-city/masteri-grand-view/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== persa-place /du-an/spring-ville/persa-place/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.000007109375
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.007369902797965117
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.00785750988618827
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.0033316594817884237
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.001850413230613426
+== palm-river /du-an/palm-city/palm-river/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.000007109375
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.007604648437500001
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.00017315256880144034
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.00018864631652832031
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.00010601000237947732
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.000053659396701388884
+== ivy-park /du-an/vinhomes-saigon-park/ivy-park/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.008448977864583334
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.0002854586628729424
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.00025141570303175185
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.00015268089565527448
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.00007728294089988426
+== nha-pho-ivy-park /du-an/vinhomes-saigon-park/ivy-park/nha-pho/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.00028633777006172837
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== nha-pho-spring-ville /du-an/spring-ville/nha-pho/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.007304078851744187
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.007451589023919752
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== bai-prive /blog/the-prive/loi-suat-cho-thue-the-prive/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== bai-vinhomes /blog/vinhomes/he-sinh-thai-vingroup-tien-loi-toi-da-hay-chiec-long-vang/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.000037452316667702775
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== bai-tgc /blog/the-global-city/lan-song-fb-do-bo-soho-the-global-city/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== bai-persa /blog/spring-ville/thiet-ke-biophilic-persa-place-thu-hut-gioi-tri-thuc/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== bai-ansana /blog/ansana-by-kita/he-thong-tien-ich-ansana-by-kita-one-stop-living-hub/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== blog /blog/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== cum-blog /blog/the-prive/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:1 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:2 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:2 gap:0 layout:0 CLS:0
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:1 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:2 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:3 gap:0 layout:0 CLS:0
+== tac-gia /chuyen-gia/vu-xuan/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== chu-dau-tu /chu-dau-tu/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== masterise-homes /chu-dau-tu/masterise-homes/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== gioi-thieu /gioi-thieu/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== tuyen-dung /tuyen-dung/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.0014387369791666667
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.002005771734775641
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.00782610277334849
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== lien-he /lien-he/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+== chinh-sach /chinh-sach-bao-mat/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.15243386059670783
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.002095400889714559
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0.02682045939881125
+== tim-kiem /?s=the+prive
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:1 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:2 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:2 gap:0 layout:0 CLS:0
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:2 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:2 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:2 gap:0 layout:0 CLS:0
+== 404 /khong-ton-tai-xyz/
+360px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+390px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+430px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+768px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1024px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1366px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+1920px overflow:0 emptyImg:0 contrast:0 tap<44:0 gap:0 layout:0 CLS:0
+
+# Chạy lại sau khi check_ui tính vùng bấm = cả dòng .postrow, và sau khi đổi khối form (CSS 1.1.1):
+== cum-blog
+| 360 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 390 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 430 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 768 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 1024 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 1366 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 1920 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+== tim-kiem
+| 360 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 390 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 430 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 768 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 1024 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 1366 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 1920 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+== trang-chu
+| 360 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 390 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 430 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 768 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 1024 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 1366 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 1920 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+== the-prive
+| 360 | không | 0 | 0 | 0 | 0 | 0 | 0.00844771484375 |
+| 390 | không | 0 | 0 | 0 | 0 | 0 | 0.0001721709735576923 |
+| 430 | không | 0 | 0 | 0 | 0 | 0 | 0.00021128769985465117 |
+| 768 | không | 0 | 0 | 0 | 0 | 0 | 0.0002603342817644033 |
+| 1024 | không | 0 | 0 | 0 | 0 | 0 | 0.00024611473083496093 |
+| 1366 | không | 0 | 0 | 0 | 0 | 0 | 0.00013830444019044392 |
+| 1920 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+== 404
+| 360 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 390 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 430 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 768 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 1024 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 1366 | không | 0 | 0 | 0 | 0 | 0 | 0 |
+| 1920 | không | 0 | 0 | 0 | 0 | 0 | 0 |

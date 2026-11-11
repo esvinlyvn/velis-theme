@@ -86,7 +86,8 @@ function audit() {
 		const r = el.getBoundingClientRect();
 		// effective target: a checkbox's label row; a stretched card link covers its whole card
 		const box = el.matches('input[type=checkbox], input[type=radio]') ? (el.closest('label, .v-check, .check') || el).getBoundingClientRect()
-			: el.matches('.v-card__title a, .card__title a') ? el.closest('.v-card, .card').getBoundingClientRect() : r;
+			: el.matches('.v-card__title a, .card__title a') ? el.closest('.v-card, .card').getBoundingClientRect()
+			: el.matches('.postrow__title a') ? el.closest('.postrow').getBoundingClientRect() : r; // post row: the whole row is the link (::after inset 0)
 		if (box.width < 44 - 0.5 || box.height < 44 - 0.5) targets.push(`${name(el)} "${txt(el)}" ${Math.round(box.width)}×${Math.round(box.height)}`);
 	}
 	return { overflow, images, contrast: [...new Set(contrast)], targets: [...new Set(targets)], cls: +(window.__cls || 0).toFixed(4) };
