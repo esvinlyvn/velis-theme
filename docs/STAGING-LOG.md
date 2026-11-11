@@ -252,3 +252,26 @@ Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng th
 | Tải lên (wp-admin → Tải lên → thay bản đang dùng) | velis-data 0.4.1 (bỏ hàm `velis_setting_tel` trùng, bảng ô cài đặt đọc 1 lần), theme velis 1.1.1 (dòng tác giả chỉ ghi chức danh khi có, mô tả SEO mặc định bỏ chữ "CEO" viết cứng). 1 lần mỗi gói; theme thêm 4 lần (cùng số 1.1.1): khối Nhận tư vấn 2 × 2 (3 lần chỉnh cột / xuống dòng), 404 "Dự án nổi bật" theo ô tick |
 | Thử tick "Nổi bật" (REST) | bỏ tick Palm City (20716), tick Spring Ville (20717) → chụp dải → trả lại như cũ (20716 tick, 20717 bỏ). Kiểm lại: dải = Palm City, The Privé, The Global City, Ansana by Kita |
 | Không làm | không gửi form, không đổi user, không sửa `.htaccess`, không xóa gì |
+
+## 2026-11-11 – Làm lại từ đầu trên The7: staging chép mới từ site thật, khóa lại
+
+Người dùng chọn tùy biến trên The7 Classic 14.5.1 (bỏ theme velis), xóa staging cũ và tạo staging mới bằng
+Softaculous → Create Staging (nguồn velisrealty.vn, đích staging.velisrealty.vn, thư mục gốc, "Disable Search Engine
+Visibility" đã tick). Mọi thay đổi trên staging cũ (theme velis, velis-data, Cài đặt Velis, menu 83/84, media 21085–21090,
+user `bien-tap-thu`) mất theo, đúng ý người dùng. Kiểm trước khi khóa: siteurl/home = https://staging.velisrealty.vn,
+`claude-bot` (administrator) đăng nhập REST được.
+
+| Mục | Trước (bản chép) | Sau | Cách làm |
+|---|---|---|---|
+| WP Mail SMTP | gửi email bình thường | **Không gửi (Do Not Send)** – làm đầu tiên | wp-admin → WP Mail SMTP → Linh tinh |
+| Khóa trang | không có | **Password Protected 2.8.6** bật; cho administrator + user đã đăng nhập; feed chặn; REST không mở cho khách; nhớ 14 ngày; mật khẩu xem trang như cũ (không lưu trong repo) | cài qua REST, cấu hình wp-admin, bỏ qua opt-in Freemius |
+| LiteSpeed Cache | active, trang cũ còn trong cache (khách vẫn thấy 200) | **giữ active**, chỉ **Purge All** (2 lần) – không đổi cài đặt nên không ghi `.htaccess` | wp-admin → LiteSpeed → Toolbox |
+| Header and Footer Scripts | Merriweather + Pinterest + GA4 `G-QSJ8EH9CWB` + Facebook verification | còn Merriweather + Facebook verification (như ngày 1) | wp-admin → Cài đặt → Header and Footer Scripts |
+| Rank Math IndexNow | bật | **tắt module** | REST `rankmath/v1/saveModule` |
+| velis-staging-guard 1.0.0 | không có | cài + kích hoạt: robots.txt `Disallow: /`, sitemap/KML 403 với khách | tải zip qua wp-admin, kích hoạt qua REST |
+| Ngăn công cụ tìm kiếm | bật (Softaculous) | giữ | kiểm wp-admin → Cài đặt → Đọc |
+| UpdraftPlus lịch | Thủ công / Thủ công | giữ | kiểm wp-admin |
+
+Kiểm chứng (khách chưa đăng nhập): `/`, `/feed/`, `/gioi-thieu/` → 302 về form mật khẩu; `/wp-json/wp/v2/posts` → 401;
+robots.txt `Disallow: /`; `/sitemap_index.xml`, `/locations.kml` → 403; HTML trang chủ (sau mật khẩu) không còn
+gtag / GTM / Pinterest. Không gửi form, không xóa gì, site thật không bị ghi.
