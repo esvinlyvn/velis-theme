@@ -6,12 +6,40 @@
 
 defined( 'ABSPATH' ) || exit;
 
-const VELIS_PHONE      = '0911 237 979';
-const VELIS_PHONE_TEL  = '0911237979';
-const VELIS_ZALO       = 'https://zalo.me/0911237979';
-const VELIS_EMAIL      = 'lienhe@velisrealty.vn';
-const VELIS_ADDRESS    = '34 Lương Định Của, phường Bình Trưng, TP.HCM';
-const VELIS_HOURS      = 'Thứ 2 – Chủ nhật, 08:00–21:00';
+/**
+ * Site settings (phone, texts, pictures…) from the velis-data plugin's "Cài đặt Velis" page (vòng hoàn thiện 1.1): the theme
+ * holds no content of its own. Without the plugin a value is '' (0 for pictures) and the part that shows it is left out.
+ */
+function velis_s( string $key ) {
+	return function_exists( 'velis_setting' ) ? velis_setting( $key ) : '';
+}
+
+/**
+ * Items of the menu assigned to a location: [ [title, url, [ [title, url] … ] ] … ] (2 levels). [] when none is assigned,
+ * so the caller falls back to its built-in links.
+ */
+function velis_menu_tree( string $location ): array {
+	$id   = get_nav_menu_locations()[ $location ] ?? 0;
+	$all  = $id ? (array) wp_get_nav_menu_items( $id ) : array();
+	$tree = array();
+	foreach ( $all as $i ) {
+		if ( ! $i->menu_item_parent ) {
+			$tree[ $i->ID ] = array( $i->title, $i->url, array() );
+		}
+	}
+	foreach ( $all as $i ) {
+		if ( $i->menu_item_parent && isset( $tree[ $i->menu_item_parent ] ) ) {
+			$tree[ $i->menu_item_parent ][2][] = array( $i->title, $i->url );
+		}
+	}
+	return array_values( $tree );
+}
+
+/** Phone for a tel: link, digits only. */
+function velis_tel(): string {
+	return preg_replace( '/[^\d+]/', '', (string) velis_s( 'phone' ) );
+}
+
 // Phone icon (header hotline: icon + number only, 2026-11-11); stroke drawn in currentColor.
 const VELIS_ICON_PHONE = '<svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>';
 
@@ -126,7 +154,7 @@ function velis_status( $post ): string {
 	return $t ? $t[0]->name : '';
 }
 
-/** Short display name: "Khu 1 – Ivy Park" stays; dòng thấp tầng shows its line name ("Nhà phố"). */
+/** Short display name: a phân khu "Khu n – Tên" stays; dòng thấp tầng shows its line name ("Nhà phố"). */
 function velis_short_name( $post ): string {
 	$post = get_post( $post );
 	if ( 'thap-tang' === velis_level( $post ) ) {
@@ -192,10 +220,21 @@ function velis_post_projects( $post ): array {
 	return array_values( array_filter( array_map( 'get_post', (array) get_post_meta( get_post( $post )->ID, 'velis_projects', true ) ), fn( $p ) => $p && 'publish' === $p->post_status ) );
 }
 
-/** Top-level projects (dự án độc lập + đại đô thị) for listings. */
+/** Top-level projects (dự án độc lập + đại đô thị) for listings, newest first by publish date (vòng hoàn thiện 2). */
 function velis_top_projects(): array {
 	static $cache = null; // called by many cards and sorts in one request
-	return $cache ??= velis_has_data() ? get_posts( array( 'post_type' => VELIS_CPT_PROJECT, 'post_parent' => 0, 'numberposts' => 100, 'orderby' => 'title', 'order' => 'ASC' ) ) : array();
+	return $cache ??= velis_has_data() ? get_posts( array( 'post_type' => VELIS_CPT_PROJECT, 'post_parent' => 0, 'numberposts' => 100, 'orderby' => 'date', 'order' => 'DESC' ) ) : array();
+}
+
+/** "Dự án nổi bật" (vòng hoàn thiện 2): the ticked projects in the given order; none ticked → the first $n (= newest). */
+function velis_featured_pick( array $projects, array $ticked_ids, int $n = 4 ): array {
+	$f = array_values( array_filter( $projects, fn( $p ) => in_array( (int) $p->ID, $ticked_ids, true ) ) );
+	return $f ?: array_slice( $projects, 0, $n );
+}
+
+function velis_featured_projects(): array {
+	$p = velis_top_projects();
+	return velis_featured_pick( $p, array_map( 'intval', wp_list_pluck( array_filter( $p, fn( $x ) => get_post_meta( $x->ID, 'velis_featured', true ) ), 'ID' ) ) );
 }
 
 /** Projects of a developer (top level, published). */
@@ -214,14 +253,12 @@ function velis_image_id( $post ): int {
 	return $id;
 }
 
-/** Lower case without Vietnamese diacritics: "Căn hộ Palm River" → "can ho palm river". */
 /**
- * Footer social links (2.5): only networks that have a URL in Rank Math → Titles & Meta → Social Meta (Facebook page URL +
- * "Additional profiles", one per line). Label from the host; order Facebook, YouTube, TikTok, Instagram, LinkedIn, X, Pinterest.
+ * Footer social links: only networks with a URL in Cài đặt Velis → Mạng xã hội (empty = hidden). Label from the host;
+ * order Facebook, YouTube, TikTok, Instagram, LinkedIn, X, Pinterest.
  */
 function velis_social_links(): array {
-	$o = (array) get_option( 'rank-math-options-titles', array() );
-	return velis_social_from_urls( array_merge( array( (string) ( $o['social_url_facebook'] ?? '' ) ), preg_split( '/\s+/', (string) ( $o['social_additional_profiles'] ?? '' ) ) ) );
+	return velis_social_from_urls( array_map( fn( $k ) => (string) velis_s( "social_$k" ), array( 'facebook', 'youtube', 'tiktok', 'instagram', 'linkedin', 'x', 'pinterest' ) ) );
 }
 
 /** Pure part of velis_social_links(): URL list → label => URL, unknown hosts dropped, first URL per network kept. */
@@ -240,6 +277,7 @@ function velis_social_from_urls( array $urls ): array {
 	return $out;
 }
 
+/** Lower case without Vietnamese diacritics: "Căn hộ Tên" → "can ho ten". */
 function velis_fold( string $s ): string {
 	$s = remove_accents( mb_strtolower( $s ) );
 	return trim( preg_replace( '/[^a-z0-9]+/', ' ', str_replace( 'đ', 'd', $s ) ) );
@@ -273,7 +311,7 @@ function velis_search_projects( string $s ): array {
 	}
 	arsort( $score );
 	$found = array_map( 'get_post', array_keys( $score ) );
-	foreach ( get_posts( array( 's' => $s, 'post_type' => VELIS_CPT_PROJECT, 'numberposts' => 60 ) ) as $p ) { // projects, phân khu and dòng (grouped by the search page)
+	foreach ( get_posts( array( 's' => $s, 'post_type' => VELIS_CPT_PROJECT, 'numberposts' => 60, 'orderby' => 'date', 'order' => 'DESC' ) ) as $p ) { // projects, phân khu and dòng (grouped by the search page), newest first
 		if ( ! isset( $score[ $p->ID ] ) ) {
 			$found[] = $p;
 		}

@@ -4,7 +4,7 @@
  * Slug: velis/tpl-about
  * Inserter: no
  *
- * BRIEF.md "Giới thiệu": Câu chuyện Velis (page content) · CEO Vũ Xuân (author profile) · Cách Velis làm việc ·
+ * BRIEF.md "Giới thiệu": Câu chuyện Velis (page content) · CEO (author profile) · Cách Velis làm việc ·
  * Giá trị · Thông tin pháp nhân · CTA. Lists come from the page's custom fields, one item per line
  * (velis_steps, velis_values, velis_company); every block hides when empty.
  */
@@ -19,8 +19,8 @@ $ceo   = $ceo ? $ceo[0] : null;
 $out   = velis_breadcrumb_html( velis_trail() ) . velis_hero_b( array(
 	'eyebrow' => 'Velis Realty',
 	'title'   => wp_strip_all_tags( get_the_title( $pg ) ),
-	'lead'    => $pg->post_excerpt ?: 'Đơn vị chuyên tư vấn và phân phối bất động sản cao cấp, tập trung vào dự án của các chủ đầu tư có hồ sơ bàn giao và pháp lý công khai.', // sentence from the page itself
-	'img'     => (int) get_post_thumbnail_id( $pg ),
+	'lead'    => $pg->post_excerpt ?: velis_s( 'about_page_lead' ),
+	'img'     => (int) velis_s( 'about_img' ) ?: (int) get_post_thumbnail_id( $pg ),
 	'buttons' => velis_btn( 'Liên hệ Velis', '/lien-he/' ) . velis_call_btn( 'line' ),
 ) );
 // Rhythm (1.5): story (ivory, 2 columns with the "Đang tư vấn" card) → CEO (white) → steps / values / company alternating.
@@ -30,7 +30,7 @@ if ( trim( $pg->post_content ) ) {
 $band = array( 'section--tint', '' );
 $i    = 0;
 if ( $ceo && $ceo->description ) {
-	$out .= velis_section( velis_sechead( $ceo->display_name . ' – CEO Velis Realty', 'Người sáng lập' ) . '<p class="hero__lead">' . esc_html( $ceo->description ) . '</p>' . velis_btn( 'Bài viết của ' . $ceo->display_name, get_author_posts_url( $ceo->ID ), 'line' ), '', $band[ $i++ % 2 ] );
+	$out .= velis_section( velis_sechead( $ceo->display_name . ' – ' . ( trim( (string) get_user_meta( $ceo->ID, 'velis_role', true ) ) ?: velis_s( 'ceo_role' ) ), 'Người sáng lập' ) . '<p class="hero__lead">' . esc_html( $ceo->description ) . '</p>' . velis_btn( 'Bài viết của ' . $ceo->display_name, get_author_posts_url( $ceo->ID ), 'line' ), '', $band[ $i++ % 2 ] );
 }
 // Steps and values = the numbered values list of the home page (01–04 …); company facts = the facts list.
 foreach ( array( 'velis_steps' => array( 'Cách Velis làm việc', 'Quy trình' ), 'velis_values' => array( 'Giá trị Velis theo đuổi', 'Giá trị' ) ) as $key => list( $h, $eb ) ) {

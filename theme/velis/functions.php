@@ -82,15 +82,7 @@ add_action( 'after_setup_theme', function () {
 	}
 } );
 add_filter( 'max_srcset_image_width', fn() => 2560 );
-// Uploaded originals that do not decode (data/kiem-ke-anh-mat.csv "hong": The Privé 1PN / 2PN / 3PN plans): their own file
-// never enters a srcset, the 1024 px copy is the largest. shortcut: IDs listed here, drop the list once clean originals are uploaded.
-const VELIS_BROKEN_ORIGINALS = array( 19976, 19977, 19978 );
-add_filter( 'wp_calculate_image_srcset', function ( $sources, $size, $src, $meta, $id ) {
-	if ( ! in_array( (int) $id, VELIS_BROKEN_ORIGINALS, true ) || empty( $meta['file'] ) ) {
-		return $sources;
-	}
-	return array_filter( $sources, fn( $c ) => basename( $c['url'] ) !== basename( $meta['file'] ) );
-}, 10, 5 );
+// Uploaded originals that do not decode: the "Bản gốc hỏng" box in Media (velis-data plugin) keeps them out of the srcset.
 add_filter( 'wp_img_tag_add_auto_sizes', '__return_false' ); // "auto" = layout width, which leaves out the crop zoom
 // Images in post/page text: a flagged photo (velis_mark) gets the same crop as every photo (badge printed bottom-left),
 // inside a clipping box no wider than the widest file; a clean one is shown whole (X-03 = a). Sized to the reading column
@@ -112,6 +104,9 @@ add_filter( 'wp_content_img_tag', function ( $tag, $context, $id ) {
 	$tag    = $marked && empty( $n ) ? preg_replace( '/^<img/', '<img class="is-marked"', $tag ) : $tag;
 	return $marked ? '<span class="pic" style="max-width: ' . $max . 'px">' . $tag . '</span>' : $tag;
 }, 10, 3 );
+
+// Menus editable in Giao diện → Menu (vòng hoàn thiện 3); without an assigned menu the header / footer keep their built-in links.
+add_action( 'after_setup_theme', fn() => register_nav_menus( array( 'chinh' => 'Menu chính (đầu trang)', 'kham-pha' => 'Chân trang – Khám phá' ) ) );
 
 // Theme block styles: secondary (outline) and text buttons.
 add_action( 'init', function () {

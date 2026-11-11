@@ -5,7 +5,9 @@
  *    'khong-che' = developer logo / printed text the crop cannot hide (theme shows the named fallback frame in hero, card
  *    and side column). Imported from data/kiem-ke-anh-mat.csv by tools/import_image_flags.py.
  *  - velis_focus: focal point, one of 9 positions (F-B), used as object-position of a clean photo in a cover frame.
- * Both are editable in Media → Edit (two drop-downs) and over REST (attachment meta).
+ *  - velis_broken: the uploaded original does not decode (data/kiem-ke-anh-mat.csv "hong"); its own file never enters a
+ *    srcset, the largest generated copy is used. Clear the box once a clean original is uploaded.
+ * All are editable in Media → Edit and over REST (attachment meta).
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -36,7 +38,15 @@ add_action( 'init', function () {
 		'sanitize_callback' => fn( $v ) => isset( velis_marks()[ (string) $v ] ) ? (string) $v : '' ) );
 	register_post_meta( 'attachment', 'velis_focus', array( 'type' => 'string', 'single' => true, 'show_in_rest' => true, 'auth_callback' => $auth,
 		'sanitize_callback' => fn( $v ) => isset( velis_focus_points()[ (string) $v ] ) ? (string) $v : '' ) );
+	register_post_meta( 'attachment', 'velis_broken', array( 'type' => 'boolean', 'single' => true, 'show_in_rest' => true, 'auth_callback' => $auth ) );
 } );
+
+add_filter( 'wp_calculate_image_srcset', function ( $sources, $size, $src, $meta, $id ) {
+	if ( empty( $meta['file'] ) || ! get_post_meta( (int) $id, 'velis_broken', true ) ) {
+		return $sources;
+	}
+	return array_filter( $sources, fn( $c ) => basename( $c['url'] ) !== basename( $meta['file'] ) );
+}, 10, 5 );
 
 // Media → Edit / the media modal: two drop-downs (no JS).
 add_filter( 'attachment_fields_to_edit', function ( $fields, $post ) {
@@ -52,6 +62,7 @@ add_filter( 'attachment_fields_to_edit', function ( $fields, $post ) {
 		return $html . '</select>';
 	};
 	$fields['velis_mark']  = array( 'label' => 'Dấu trên ảnh', 'input' => 'html', 'html' => $select( 'velis_mark', velis_marks() ) );
+	$fields['velis_broken'] = array( 'label' => 'Bản gốc hỏng', 'input' => 'html', 'html' => '<label><input type="checkbox" name="attachments[' . $post->ID . '][velis_broken]" value="1"' . checked( (bool) get_post_meta( $post->ID, 'velis_broken', true ), true, false ) . '> không dùng tệp gốc</label>' );
 	$fields['velis_focus'] = array( 'label' => 'Tiêu điểm', 'input' => 'html', 'html' => $select( 'velis_focus', array( '' => 'Giữa (mặc định)' ) + array_map( fn( $p ) => $p[0], velis_focus_points() ) ), 'helps' => 'Phần ảnh giữ lại khi khung cắt (ảnh sạch).' );
 	return $fields;
 }, 10, 2 );
@@ -62,6 +73,9 @@ add_filter( 'attachment_fields_to_save', function ( $post, $data ) {
 			$v = sanitize_key( $data[ $key ] );
 			'' === $v || ! isset( $allowed[ $v ] ) ? delete_post_meta( $post['ID'], $key ) : update_post_meta( $post['ID'], $key, $v );
 		}
+	}
+	if ( isset( $data['velis_mark'] ) && current_user_can( 'edit_post', $post['ID'] ) ) { // the form was shown: an unticked box sends nothing
+		empty( $data['velis_broken'] ) ? delete_post_meta( $post['ID'], 'velis_broken' ) : update_post_meta( $post['ID'], 'velis_broken', true );
 	}
 	return $post;
 }, 10, 2 );

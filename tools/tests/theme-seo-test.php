@@ -53,3 +53,7 @@ echo "accounts + social: ok\n";
 // 2.2: /blog/page/N/ → Blog page N; page 1 and other paths untouched
 $check( 2 === velis_blog_page_request( '/blog/page/2/' ) && 9 === velis_blog_page_request( '/blog/page/9' ) && 0 === velis_blog_page_request( '/blog/page/1/' ) && 0 === velis_blog_page_request( '/blog/the-prive/page/2/' ) && 0 === velis_blog_page_request( '/blog/' ), 'blog pagination path' );
 echo "blog pages: ok\n";
+// Vòng hoàn thiện 2: "Dự án nổi bật" = ticked projects in list order (newest first), none ticked → the 4 newest.
+$pp = array_map( fn( $i ) => (object) array( 'ID' => $i ), array( 6, 5, 4, 3, 2, 1 ) );
+function wp_list_pluck( $l, $f ) { return array_map( fn( $x ) => $x->$f, $l ); }
+$check( array( 5, 2 ) === wp_list_pluck( velis_featured_pick( $pp, array( 2, 5 ) ), 'ID' ) && array( 6, 5, 4, 3 ) === wp_list_pluck( velis_featured_pick( $pp, array() ), 'ID' ) && array() === velis_featured_pick( array(), array() ), 'featured strip: ticked, else 4 newest' );

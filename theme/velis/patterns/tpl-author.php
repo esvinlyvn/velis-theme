@@ -16,7 +16,8 @@ $paged = max( 1, (int) get_query_var( 'paged' ) );
 $q     = new WP_Query( array( 'author' => $u->ID, 'paged' => $paged, 'posts_per_page' => 12 ) );
 $m     = fn( $k ) => trim( (string) get_user_meta( $u->ID, $k, true ) );
 $photo = (int) $m( 'velis_photo' );
-$role  = $m( 'velis_role' ) ?: 'CEO Velis Realty';
+$role  = $m( 'velis_role' ) ?: velis_s( 'ceo_role' );
+$hero  = $photo ?: ( $u->display_name === velis_s( 'ceo_name' ) ? (int) velis_s( 'ceo_portrait' ) : 0 ); // header only: the CEO's portrait from Cài đặt Velis
 $years = $m( 'velis_years' );
 $urls  = array_filter( array_merge( array( $m( 'facebook' ), $m( 'twitter' ) ? 'https://x.com/' . ltrim( $m( 'twitter' ), '@' ) : '' ), preg_split( '/\s+/', $m( 'additional_profile_urls' ) ) ) );
 $areas = array();
@@ -37,9 +38,8 @@ $out = velis_breadcrumb_html( velis_trail() ) . velis_hero_b( array(
 	'eyebrow' => 'Chuyên gia · ' . $role,
 	'title'   => $u->display_name . ( $paged > 1 ? ' – trang ' . $paged : '' ),
 	'lead'    => $u->description,
-	// 5.10: portrait in the header (the author's photo; Vũ Xuân → the bundled CEO portrait), contact button under it
-	'buttons' => ( $photo ? velis_img( $photo, $u->display_name, 'medium_large', array( 'zoom' => 1, 'sizes' => '200px', 'class' => 'hero__portrait', 'lcp' => true ) )
-		: ( 'vu-xuan' === $u->user_nicename ? '<img class="hero__portrait" src="' . esc_url( get_theme_file_uri( 'assets/brand/vu-thanh-xuan-ceo-velis-720.webp' ) ) . '" width="720" height="960" alt="' . esc_attr( $u->display_name ) . '" fetchpriority="high">' : '' ) )
+	// 5.10: portrait in the header (the author's photo, the CEO's from Cài đặt Velis), contact button under it
+	'buttons' => ( $hero ? velis_img( $hero, $u->display_name, 'medium_large', array( 'zoom' => 1, 'sizes' => '200px', 'class' => 'hero__portrait', 'lcp' => true ) ) : '' )
 		. velis_btn( 'Liên hệ ' . $u->display_name, '#tu-van' ),
 ) );
 if ( $stats ) {

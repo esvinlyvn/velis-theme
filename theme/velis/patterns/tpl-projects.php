@@ -8,18 +8,17 @@
  * runs on the page; the full list is in the HTML (no JS needed to read it).
  */
 $projects = velis_top_projects();
-$names    = wp_list_pluck( $projects, 'post_title' );
+$img      = (int) velis_s( 'projects_img' ); // Cài đặt Velis; 2.7: not the photo of the home hero nor of Giới thiệu
 $out      = velis_breadcrumb_html( velis_trail() ) . velis_hero_b( array(
-	'eyebrow' => 'Dự án Velis đang tư vấn',
-	'title'   => 'Dự án bất động sản cao cấp tại TP.HCM và vùng lân cận',
-	'lead'    => count( $projects ) . ' dự án và đại đô thị: ' . implode( ', ', $names ) . '. Lọc theo khu vực, chủ đầu tư và loại sản phẩm.',
+	'eyebrow' => velis_s( 'projects_eyebrow' ),
+	'title'   => velis_s( 'projects_title' ),
+	'lead'    => strtr( (string) velis_s( 'projects_lead' ), array( '{số}' => count( $projects ), '{tên}' => implode( ', ', wp_list_pluck( $projects, 'post_title' ) ) ) ),
 	'buttons' => velis_btn( 'Nhận tư vấn', '#tu-van' ) . velis_btn( 'Xem danh sách', '#danh-sach', 'line' ),
-	// 2.7: not the home hero's photo (The Privé) nor Giới thiệu's (office): The Global City
-	'img'     => velis_image_id( current( array_filter( $projects, fn( $p ) => 'the-global-city' === $p->post_name ) ) ?: ( $projects[0] ?? 0 ) ),
-	'alt'     => 'Phối cảnh đại đô thị The Global City',
+	'img'     => $img,
+	'alt'     => (string) get_post_meta( $img, '_wp_attachment_image_alt', true ),
 ) );
 $out     .= velis_section( velis_sechead( 'Danh sách dự án', 'Lọc dự án', '', 'danh-sach' ) . velis_project_listing( $projects ), 'du-an', 'section--tint' );
-$intro = get_page_by_path( 'du-an' ); // 5.2: the text of the old "Dự án" page (19537) is shown here, not lost under the archive
+$intro = get_page_by_path( 'du-an' ); // 5.2: the text of the old "Dự án" page is shown here, not lost under the archive
 if ( $intro && '' !== trim( $intro->post_content ) ) {
 	$out .= velis_text_section( $intro->post_content );
 }

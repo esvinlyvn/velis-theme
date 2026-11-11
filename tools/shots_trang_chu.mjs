@@ -11,6 +11,8 @@ const BASE = 'https://staging.velisrealty.vn';
 const PERSA = '/blog/spring-ville/thiet-ke-biophilic-persa-place-thu-hut-gioi-tri-thuc/';
 const W4 = ['w', 'd', 'f', 'x'];
 export const CASES = [
+	// vòng hoàn thiện (2026-11-11): dải nổi bật, lưới dự án, /du-an/ (thứ tự mới nhất trước)
+	...['d', 'f', 'i'].flatMap((s) => [['0-hero-noi-bat', '/', s, 'top'], ['0-luoi-du-an', '/', s, 'el:#du-an'], ['0-du-an', '/du-an/', s, 'el:#du-an']]),
 	// 1 header + menu
 	...['d', 'f', 'i'].map((s) => ['1-header', '/', s, 'el:header']),
 	['1-menu-mobile', '/', 'i', 'menu'],

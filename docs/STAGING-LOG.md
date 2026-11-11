@@ -218,3 +218,18 @@ Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng th
 | Theme velis 1.0.0 | **5 lần tải lên** (Giao diện → Tải lên → thay bản đang dùng, cùng số 1.0.0): menu "Về Velis" 2 mục + "Liên hệ" riêng, số điện thoại header biểu tượng + số; link không gạch chân; khung 2 cột 8/12 + 4/12 không giới hạn riêng chữ (18 / 19 px); trang chủ: lưới đối tác hết khung, khối Velis 6/12 + 6/12, khối form nền sáng + thẻ trắng (chỉ footer tối); danh sách bài dạng dòng (blog, cụm, tác giả, tìm kiếm); trang chủ đầu tư hiện chữ của trang cũ cùng slug ("Về …"); /blog/ và /du-an/ hiện chữ trang của mình; CSS / JS gắn phiên bản theo thời điểm file |
 | Nội dung / Media / plugin | không đổi; không gửi form |
 | Theme velis 1.0.0 – kiểm chứng (mục 7) | **7 lần tải lên** cùng số 1.0.0: (1) 2 bản sửa CSS chờ (viền lưới đối tác, giới hạn ghi chú 14 px); (2) `[hidden]` chung đủ mạnh để thắng `display` của component và khối lõi (nút trong phần "Xem thêm" của trang chủ đầu tư còn hiện) – bỏ 3 bản vá lẻ; (3) dải số liệu chia đều theo số mục (trang tác giả), logo đối tác trên điện thoại cùng hệ số ×0,78 (không bị ép méo), 2 cột khối Velis kết thúc ngang nhau; (4) tiêu đề bài dạng dòng là H2 khi danh sách không có tiêu đề khối (/blog/, cụm: hết nhảy cấp H1 → H3), `sizes` bản đồ khu vực + bản đồ Liên hệ + cột chính 848 px ở khung 1 320 (NT-21); (5) tiêu đề nhỏ "Giá trị khác biệt tại Velis Realty" viết thường (NT-55); (6) `sizes` ảnh hero trang chủ ở 768–1023 px theo chiều cao khung (bản 0.9.8 có, bản viết lại bỏ sót – NT-21), `velis_sizes()` không tách dấu phẩy trong `max(…, min(…))`; (7) nhãn nhỏ trên nền champagne nhạt (khối form) đậm hơn: 4,25:1 → 4,9:1 (Lighthouse color-contrast) |
+
+## 2026-11-11 – Vòng hoàn thiện theme (HT-1)
+
+| Mục | Thay đổi |
+|---|---|
+| Chỉ đọc | ảnh "trước" 69 ca (`screenshots/hoan-thien/truoc/`); site thật: ngày đăng 6 bài trụ cột dự án qua REST công khai (`wp/v2/posts?slug=…`, không đăng nhập) |
+| Media (thêm, không xóa) | 6 ảnh: 4 logo đối tác 21085 Vinhomes, 21086 Masterise Homes, 21087 Sun Group, 21088 Gamuda Land (tệp từ theme `assets/brand/doi-tac/`), CEO 21089 (ảnh nhỏ 160 px), 21090 (chân dung 1440 px); đặt tiêu đề + alt. Cờ mới `velis_broken` = true cho 19976, 19977, 19978 (mặt bằng The Privé, bản gốc không giải mã được – thay danh sách ID trong theme) |
+| Chủ đầu tư | ảnh đại diện: Vinhomes (20705) ← 21085, Masterise Homes (20707) ← 21086, Sun Group (20709) ← 21087, Gamuda Land (20708) ← 21088. Không đổi chữ |
+| Dự án – ngày đăng | 6 dự án gốc: 04/11/2026 (ngày nhập) → ngày đăng gốc trên site thật (bảng ở `docs/reports/hoan-thien-theme.md` mục 2). Không đổi chữ |
+| Dự án – Nổi bật | `velis_featured` = true: Palm City 20716, The Privé 20715, The Global City 20714, Ansana by Kita 20718 (4 mới nhất) |
+| Plugin velis-data 0.3.1 → **0.4.0** | Plugin → Tải lên → thay bản đang dùng: trang Cài đặt Velis, ô Nổi bật, cờ Bản gốc hỏng, menu dự án theo ngày. Kích hoạt lại không chạy (thay tệp), không flush rewrite, không ghi `.htaccess` |
+| Cài đặt Velis | lưu 1 lần qua chính trang Cài đặt Velis (quản trị): mọi ô = mặc định, thêm ảnh hero trang chủ 19968, ảnh /du-an/ 20092, CEO 21089 / 21090, 7 URL mạng xã hội (bản đang hiện ở footer) |
+| Menu | tạo + gán 2 menu mới: "Velis – Menu chính" (83) → vị trí `chinh`, "Velis – Chân trang Khám phá" (84) → `kham-pha`, mục là link tùy chỉnh. Menu cũ MAIN (33), FOOTER (54) giữ nguyên, không gán. Menu không ghi `.htaccess` |
+| Theme velis 1.0.0 → **1.1.0** | **2 lần tải lên** (Giao diện → Tải lên → thay bản đang dùng): đọc Cài đặt Velis, menu theo vị trí, thứ tự mới nhất trước, dải nổi bật, logo từ ảnh đại diện; lần 2 bỏ "thẻ có ảnh trước" ở lưới |
+| Không làm | không gửi form, không xóa gì, không đổi user |

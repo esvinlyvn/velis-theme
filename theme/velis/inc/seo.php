@@ -142,7 +142,7 @@ function velis_default_description(): string {
 	if ( is_singular( 'chu-dau-tu' ) ) {
 		$projs   = velis_developer_projects( $o );
 		$regions = implode( ', ', array_unique( array_filter( array_map( 'velis_region_label', $projs ) ) ) );
-		return velis_clip( 'Các dự án ' . $o->post_title . ' Velis đang tư vấn' . ( $regions ? " tại $regions" : '' ) . ( $projs ? ': ' . implode( ', ', wp_list_pluck( $projs, 'post_title' ) ) : '' ) . '. Góc nhìn của CEO Vũ Xuân.' );
+		return velis_clip( 'Các dự án ' . $o->post_title . ' Velis đang tư vấn' . ( $regions ? " tại $regions" : '' ) . ( $projs ? ': ' . implode( ', ', wp_list_pluck( $projs, 'post_title' ) ) : '' ) . '. Góc nhìn của CEO ' . velis_s( 'ceo_name' ) . '.' );
 	}
 	if ( is_post_type_archive( 'du-an' ) ) {
 		return velis_clip( 'Dự án Velis đang tư vấn: ' . implode( ', ', wp_list_pluck( velis_top_projects(), 'post_title' ) ) . '. Lọc theo khu vực, chủ đầu tư, loại sản phẩm.' );
@@ -151,10 +151,10 @@ function velis_default_description(): string {
 		return velis_clip( 'Chủ đầu tư có dự án Velis đang tư vấn: ' . implode( ', ', wp_list_pluck( get_posts( array( 'post_type' => 'chu-dau-tu', 'numberposts' => 20, 'orderby' => 'title', 'order' => 'ASC' ) ), 'post_title' ) ) . '.' );
 	}
 	if ( is_category() ) {
-		return velis_clip( $o->description ?: 'Phân tích ' . $o->name . ' của CEO Vũ Xuân: giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư.' );
+		return velis_clip( $o->description ?: 'Phân tích ' . $o->name . ' của CEO ' . velis_s( 'ceo_name' ) . ': giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư.' );
 	}
 	if ( is_page( 'blog' ) ) {
-		return 'Phân tích dự án, nhận định thị trường và hướng dẫn mua bất động sản cao cấp của CEO Vũ Xuân, Velis Realty.';
+		return 'Phân tích dự án, nhận định thị trường và hướng dẫn mua bất động sản cao cấp của CEO ' . velis_s( 'ceo_name' ) . ', Velis Realty.';
 	}
 	return '';
 }

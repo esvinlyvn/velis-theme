@@ -175,7 +175,7 @@ $posts = velis_project_posts( $p, 3 ); // vòng bố cục 4: one row of 3 cards
 if ( $posts ) {
 	$cat = velis_cluster( $p );
 	$all = $cat ? '<a class="btn btn--text" href="' . esc_url( get_category_link( $cat ) ) . '">Tất cả bài ' . esc_html( $cat->name ) . ' →</a>' : '';
-	$sections['bai-viet'] = array( 'Bài viết', velis_sechead( 'Phân tích ' . $root->post_title, 'Bài viết của Vũ Xuân', '', '', $all ) . velis_grid( array_map( 'velis_card_post', $posts ), 'three' ) );
+	$sections['bai-viet'] = array( 'Bài viết', velis_sechead( 'Phân tích ' . $root->post_title, 'Bài viết của ' . velis_s( 'ceo_name' ), '', '', $all ) . velis_grid( array_map( 'velis_card_post', $posts ), 'three' ) );
 }
 // Order (round 6): Tổng quan → [Phân khu] → Sản phẩm → So sánh (full width) → Vị trí & tiện ích → Thư viện → Tiến độ &
 // pháp lý → Góc nhìn CEO → Hỏi đáp → Bài viết → Tư vấn. Nav: at most 8 entries; a group keeps its parts' ids for deep links.

@@ -3,7 +3,11 @@
 // catches run-time fatals and checks the mockup markup (class names), the image rules (X-03 marks, F-B focus, NT-23 named
 // frame, X-02 hero A/B by file width) and X-01 sizes.
 define( 'ABSPATH', __DIR__ );
-const VELIS_PHONE = '0911 237 979'; const VELIS_PHONE_TEL = '0911237979'; const VELIS_ZALO = 'https://zalo.me/0911237979'; const VELIS_EMAIL = 'lienhe@velisrealty.vn'; const VELIS_ADDRESS = '34 Lương Định Của'; const VELIS_HOURS = 'Thứ 2 – Chủ nhật'; // = inc/data.php
+$GLOBALS['set'] = array( 'phone' => '0911 237 979', 'zalo' => 'https://zalo.me/0911237979', 'email' => 'lienhe@velisrealty.vn', 'address' => '34 Lương Định Của', 'hours' => 'Thứ 2 – Chủ nhật', 'role_sentence' => 'Velis Realty là đơn vị tư vấn, phân phối; chủ đầu tư dự án là {chủ đầu tư}.', 'ceo_name' => 'Vũ Xuân', 'ceo_role' => 'CEO Velis Realty', 'form_lead' => 'Để lại họ tên.', 'disclosure_project' => 'Tham khảo.' ); // Cài đặt Velis (inc/data.php velis_s)
+function velis_s( $k ) { return $GLOBALS['set'][ $k ] ?? ''; }
+function velis_tel() { return preg_replace( '/[^\d+]/', '', velis_s( 'phone' ) ); }
+function velis_top_projects() { return array( get_post( 7 ) ); }
+function get_user_meta( $id, $k, $s = true ) { return ''; }
 $GLOBALS['meta'] = array( 10 => array( 'velis_mark' => 'cat' ), 11 => array(), 12 => array( 'velis_mark' => 'khong-che' ), 13 => array( 'velis_focus' => 'phai-tren' ) );
 $GLOBALS['dims'] = array( 10 => array( 2400, 1350 ), 11 => array( 1200, 800 ), 12 => array( 1600, 900 ), 13 => array( 1000, 1000 ) );
 function esc_html( $s ) { return htmlspecialchars( (string) $s, ENT_QUOTES ); }
@@ -86,7 +90,12 @@ $facts = velis_facts_html( array( 'Chủ đầu tư' => 'Masterise Homes', 'Quy 
 $check( str_contains( $facts, 'data-n="4"' ) && strpos( $facts, '>Giá<' ) < strpos( $facts, '>Vị trí<' ) && str_contains( $facts, 'is-missing' ) && str_contains( $facts, 'facts__more' ), 'facts: Giá before Vị trí, missing price, empty dropped' );
 $adv = velis_advisor( get_post( 3 ) );
 $check( str_contains( $adv, 'class="advisor"' ) && str_contains( $adv, 'data-open-form' ) && str_contains( $adv, 'data-mini-form hidden' ) && str_contains( $adv, 'name="interest" value="Dự án 3"' ), 'advisor + short form' );
+$check( str_contains( $adv, 'chủ đầu tư dự án là Masterise Homes.' ) && str_contains( $adv, 'href="tel:0911237979"' ) && str_contains( $adv, 'href="https://zalo.me/0911237979"' ), 'advisor: role sentence + call + Zalo from settings' );
 $form = velis_form_html( 'TGC' );
+$check( str_contains( $form, '<p>Để lại họ tên.</p>' ) && str_contains( $form, 'mailto:lienhe@velisrealty.vn' ) && str_contains( velis_disclosure(), 'Tham khảo.' ) && '' === velis_disclosure( 'post' ), 'form block + notes from settings, empty note hidden' );
+$GLOBALS['set']['zalo'] = $GLOBALS['set']['role_sentence'] = '';
+$check( ! str_contains( velis_advisor( get_post( 3 ) ), 'zalo.me' ) && ! str_contains( velis_advisor( get_post( 3 ) ), 'advisor__role' ) && ! str_contains( velis_form_html(), '<dt>Zalo' ), 'empty setting → part hidden' );
+$GLOBALS['set']['zalo'] = 'https://zalo.me/0911237979';
 $check( str_contains( $form, 'section section--soft section--form' ) && str_contains( $form, 'name="page-url"' ) && str_contains( $form, 'name="utm"' ) && str_contains( $form, 'data-cf7="20800"' ), 'form keeps CF7 + hidden fields' );
 $check( '' === velis_compare_html( array( get_post( 1 ) ), array( 'A' => fn( $p ) => 'x' ), 'c' ), 'compare needs 2 records' );
 $gal = velis_gallery_html( array( 10, 11 ), 'TGC' );

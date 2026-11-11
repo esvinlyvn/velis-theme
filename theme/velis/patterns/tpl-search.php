@@ -5,7 +5,8 @@
  * Inserter: no
  *
  * Groups: Dự án · Phân khu và dòng sản phẩm · Bài viết (12 per page, paginated). Projects: a record whose name appears in the
- * query wins ("căn hộ palm river" → Palm River), then WordPress' own search (accent-insensitive collation: "prive" → The Privé).
+ * query wins ("căn hộ {tên}" → {tên}), then WordPress' own search (accent-insensitive collation: a query without accents finds
+ * the accented name).
  * noindex via inc/seo.php.
  */
 $s     = get_search_query();
@@ -15,7 +16,7 @@ $projs = array_values( array_filter( $found, fn( $p ) => ! in_array( velis_level
 $parts = array_values( array_filter( $found, fn( $p ) => in_array( velis_level( $p ), array( 'phan-khu', 'thap-tang' ), true ) ) );
 $q     = new WP_Query( array( 's' => $s, 'post_type' => 'post', 'paged' => $paged, 'posts_per_page' => 12 ) ); // 2.3: posts paginated
 $posts = $s ? $q->posts : array();
-if ( $s && ! $posts && $found && 1 === $paged ) { // "căn hộ palm river": no post has every word – show posts about the matched project
+if ( $s && ! $posts && $found && 1 === $paged ) { // "căn hộ {tên}": no post has every word – show posts about the matched project
 	$posts = velis_project_posts( $found[0], 6 );
 }
 $out  = velis_breadcrumb_html( velis_trail() ) . velis_hero_b( array(

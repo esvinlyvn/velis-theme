@@ -17,7 +17,7 @@ $pill  = velis_cluster_project( $cat );
 $out   = velis_breadcrumb_html( velis_trail() ) . velis_hero_b( array(
 	'eyebrow' => 'Blog · ' . $cat->count . ' bài',
 	'title'   => 'Blog ' . $cat->name . ( $paged > 1 ? " – trang $paged" : '' ),
-	'lead'    => $cat->description ? wp_strip_all_tags( $cat->description ) : 'Phân tích ' . $cat->name . ' của CEO Vũ Xuân: giá, pháp lý, tiến độ và kinh nghiệm mua.',
+	'lead'    => $cat->description ? wp_strip_all_tags( $cat->description ) : str_replace( '{tên}', $cat->name, (string) velis_s( 'cluster_lead' ) ),
 	'buttons' => $pill ? velis_btn( 'Thông tin dự án ' . $pill->post_title, get_permalink( $pill ), 'line' ) : '',
 ) ) . velis_cluster_nav( (int) $cat->term_id );
 $kinds = array();

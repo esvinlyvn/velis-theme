@@ -91,7 +91,6 @@ function velis_line_fields(): array {
 function velis_developer_fields(): array {
 	return array(
 		'velis_short_name' => array( 'Tên viết tắt', 'text', false, '' ),
-		'velis_logo'       => array( 'Logo (SVG/PNG)', 'id', false, '' ),
 		'velis_founded'    => array( 'Năm thành lập', 'number', false, '' ),
 		'velis_hq'         => array( 'Trụ sở', 'text', false, '' ),
 		'velis_website'    => array( 'Website chính thức', 'url', false, '' ),
@@ -235,6 +234,8 @@ function velis_register_meta() {
 	};
 	$reg( VELIS_CPT_PROJECT, array( 'velis_level' => array( 'Cấp', 'text' ) ) + velis_project_fields() + velis_lowrise_fields() );
 	$reg( VELIS_CPT_DEVELOPER, velis_developer_fields() );
+	// "Nổi bật" (vòng hoàn thiện 2): the home hero strip shows ticked projects, newest first.
+	register_post_meta( VELIS_CPT_PROJECT, 'velis_featured', array( 'type' => 'boolean', 'single' => true, 'show_in_rest' => true, 'auth_callback' => fn() => current_user_can( 'edit_posts' ) ) );
 	$line_props = array();
 	foreach ( velis_line_fields() as $k => $def ) {
 		$line_props[ $k ] = array( 'type' => 'string' );

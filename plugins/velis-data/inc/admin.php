@@ -109,6 +109,7 @@ function velis_box_level( $post ) {
 		printf( '<label class="velis-radio"><input type="radio" name="velis_status" value="%d"%s> %s</label>', $t->term_id, checked( in_array( $t->term_id, $current, true ), true, false ), esc_html( $t->name ) );
 	}
 	echo '</fieldset>';
+	printf( '<p><label><input type="checkbox" name="velis_featured" value="1"%s> <strong>Nổi bật</strong></label><br><span class="description">Hiện ở dải "Dự án nổi bật" trên trang chủ. Không dự án nào được tick thì dải lấy 4 dự án mới nhất.</span></p>', checked( (bool) get_post_meta( $post->ID, 'velis_featured', true ), true, false ) );
 	if ( $missing = velis_missing( $post ) ) {
 		echo '<p class="velis-noindex">Đang noindex tạm thời – thiếu: ' . esc_html( implode( ', ', $missing ) ) . '.</p>';
 	}
@@ -205,6 +206,7 @@ add_action( 'save_post', function ( $post_id, $post ) {
 	}
 	if ( VELIS_CPT_PROJECT === $post->post_type ) {
 		update_post_meta( $post_id, 'velis_level', isset( velis_levels()[ $level ] ) ? $level : 'du-an' );
+		empty( $_POST['velis_featured'] ) ? delete_post_meta( $post_id, 'velis_featured' ) : update_post_meta( $post_id, 'velis_featured', true );
 		if ( 'thap-tang' !== $level ) {
 			update_post_meta( $post_id, 'velis_lines', velis_clean_lines( wp_unslash( $_POST['velis_lines'] ?? array() ), $post->post_name ) ); // phpcs:ignore
 		} elseif ( ! wp_get_object_terms( $post_id, 'loai-san-pham', array( 'fields' => 'ids' ) ) && ( $type = velis_guess_type( $post->post_title ) ) ) {

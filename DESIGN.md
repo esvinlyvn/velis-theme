@@ -243,7 +243,9 @@ Cao tối thiểu 48 px (vùng bấm ≥ 44 × 44). Đổi màu 150–200 ms.
   tính trái → phải phủ toàn khung (cấm mảng phủ riêng, bo góc, blur, radial, hộp nền sau nhãn / chữ), chữ ≥ 4,5:1 tại 5 điểm /
   dòng; (b) thẻ trong dải cao bằng nhau ±1 px, tên dự án 1 dòng (không bẻ, không "…"), khu vực được xuống dòng, tối đa 4 thẻ trong
   khung, trượt bằng mũi tên / vuốt, không tự chạy. Ảnh hero khác ảnh thẻ đầu tiên của lưới dự án, không có chữ / biển in sẵn
-  (ảnh Ansana – tên đường trong cảnh – chỉ dùng ở thẻ / nội dung).
+  (ảnh Ansana – tên đường trong cảnh – chỉ dùng ở thẻ / nội dung). **Từ 2026-11-11:** chữ, 2 nút, ảnh nền lấy từ Cài đặt Velis
+  (plugin velis-data); dải "Dự án nổi bật" = dự án được tick "Nổi bật" theo thứ tự mới nhất trước, không tick dự án nào thì 4 dự án
+  mới nhất; dự án chưa có ảnh vẫn được hiện (khung có tên). Lưới dự án trang chủ tên "Dự án Velis đang tư vấn".
 - **A** – trang dự án, trang phân khu (vòng 6; mô tả dải dự án dưới đây là bản trang chủ cũ, đã thay; lớp phủ theo NT-47: một
   chuyển sắc trái → phải phủ toàn khung). Ảnh tràn rộng. **Desktop (≥ 1024 px): không phủ cả ảnh** – chỉ
   một lớp nền mờ cục bộ (#141414 82 %, blur 36 px) sau khối chữ ở góc trái dưới (khối chữ ≤ min(600 px, 46vw)), ≥ 60 % diện tích
@@ -259,6 +261,8 @@ Cao tối thiểu 48 px (vùng bấm ≥ 44 × 44). Đổi màu 150–200 ms.
 
 ### Trang chủ dưới hero (duyệt: người dùng, 2026-11-06)
 Thứ tự: con số → dự án (tab khu vực) → đối tác → giá trị khác biệt → bài phân tích → thi thử + tuyển dụng → form → footer.
+Mọi chữ, con số, nút của các khối này nằm ở **Cài đặt Velis** (2026-11-11; theme không giữ nội dung – `tools/check_hardcode.py`);
+logo đối tác = ảnh đại diện của từng bài Chủ đầu tư.
 - **Con số** 10+ · 50+ · 999+ · 99+ (dấu + sau số), dải trắng 4 cột, Playfair 48 champagne đậm.
 - **Dự án**: 1 hàng tab khu vực (chọn một), lưới 3 × 2, thẻ thiếu ảnh sạch xếp cuối; "Xem tất cả dự án" giữa dưới lưới.
 - **Đối tác** (2026-11-11): tiêu đề + 1 dòng mô tả ở trên; lưới logo trải hết bề ngang khung – số ô = số logo, ô bằng nhau, đường
@@ -354,9 +358,10 @@ Mặt bằng và bản đồ dùng `contain`/không cắt nội dung. Chú thíc
 
 ### Header & menu
 Logo 44 px (40 px khi thu gọn) desktop, 36 px mobile; hotline bấm gọi được; nút "Nhận tư vấn". Một điểm chuyển 1024 px.
-Desktop (chốt 2026-11-06, sửa 2026-11-11): "Dự án" mở menu thả xuống (6 dự án + "Tất cả dự án"), "Về Velis" mở menu con
-(Giới thiệu, Tuyển dụng); "Liên hệ" là một mục riêng trên thanh menu. Số điện thoại ở header: biểu tượng điện thoại + "0911 237 979"
-(không chữ "Gọi hotline"), vẫn là link tel:, aria-label "Gọi 0911 237 979"; nút hành động giữ chữ "Gọi 0911 237 979" – dựng bằng component header, mở bằng hover, click và bàn phím (Enter / Space / mũi tên, Esc đóng);
+Desktop (chốt 2026-11-06, sửa 2026-11-11): "Dự án" mở menu thả xuống (6 dự án mới nhất + "Tất cả dự án", tự lấy từ danh sách dự án),
+"Về Velis" mở menu con (Giới thiệu, Tuyển dụng); "Liên hệ" là một mục riêng trên thanh menu. Mục menu sửa trong Giao diện → Menu
+(vị trí "Menu chính (đầu trang)"; footer "Chân trang – Khám phá"), chưa gán menu thì dùng cấu trúc trên. Số điện thoại ở header:
+biểu tượng điện thoại + số (Cài đặt Velis, không chữ "Gọi hotline"), vẫn là link tel:, aria-label "Gọi {số}"; nút hành động giữ chữ "Gọi {số}" – dựng bằng component header, mở bằng hover, click và bàn phím (Enter / Space / mũi tên, Esc đóng);
 một menu mở một lúc, đóng khi bấm ra ngoài. Header không tự ẩn khi cuộn. Dưới 1024 px: menu toàn màn hình `<dialog>` –
 "Dự án" và "Về Velis" là mục có mục con; hotline + "Nhận tư vấn" ở cuối menu.
 
@@ -388,8 +393,8 @@ nhất. Thẻ chủ đầu tư: khung logo trung tính dùng chung (biểu tư�
   N cập nhật khi chọn). Nhóm theo loại sản phẩm: chỉ căn hộ → Cao tầng; có cả căn hộ và thấp tầng → Hỗn hợp; còn lại →
   Thấp tầng. Giá trị trống không khớp bộ lọc đang bật.
 - **Listing dự án** (chốt 2026-11-06): 3 nhóm có nhãn "Khu vực", "Chủ đầu tư", "Loại sản phẩm", mỗi nhóm một hàng chip;
-  mobile: 3 ô chọn thả xuống. Tên khu vực lấy từ dữ liệu khu vực, thống nhất toàn site. Lưới: thẻ có ảnh trước, khung
-  dự phòng sau. Trong nhóm: khớp bất kỳ; giữa các nhóm: khớp tất cả. Chọn Vùng là chọn mọi Tiểu khu;
+  mobile: 3 ô chọn thả xuống. Tên khu vực lấy từ dữ liệu khu vực, thống nhất toàn site. Lưới: mới nhất trước theo ngày đăng (2026-11-11,
+  không còn "thẻ có ảnh trước"); dự án chưa có ảnh dùng khung có tên. Trong nhóm: khớp bất kỳ; giữa các nhóm: khớp tất cả. Chọn Vùng là chọn mọi Tiểu khu;
   Tiểu khu chọn một phần thì Vùng ở trạng thái "một phần".
   Trạng thái lọc trong URL (`?loai=can-ho`), canonical về trang đại đô thị, noindex.
 - **Thư viện ảnh**: desktop có mũi tên + bộ đếm "1/12", mobile lộ một phần ảnh kế tiếp + bộ đếm.
