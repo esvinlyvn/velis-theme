@@ -1,0 +1,21 @@
+/* 5. Utilities – single-purpose helpers. */
+.skip { position: absolute; left: var(--s2); top: var(--s2); z-index: 100; transform: translateY(-200%); padding: var(--s2) var(--s4); background: var(--surface); color: var(--ink); font-weight: 600; } /* bàn phím: Tab đầu tiên hiện link, Enter nhảy tới <main id="noi-dung"> */
+.skip:focus { transform: none; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.center { text-align: center; }
+[hidden][hidden][hidden] { display: none; } /* 0,3,0 in the last layer: beats every component / core-block display rule (.card, .is-layout-flex…) without !important */
+[role="status"]:empty { display: none; } /* an empty live region takes no row (the form block keeps its mockup height) */
+
+/* Print / "Lưu PDF" (Safari): no edge fades, nothing collapsed, scroll rows wrap; the sticky bars are screen-only */
+@media print {
+	.tabs, .cta, .feats__nav, .clamp__more, .header__menu { display: none; }
+	.header { position: static; } /* a sticky header repeats on every printed / PDF page in WebKit */
+	.feats__row::after, .tabs ul::after, .ftabs::after, .clamp__fade::after { content: none; }
+	.feats ul.has-more { mask-image: none; }
+	.clamp__fade { max-height: none; overflow: visible; }
+	.feats ul { display: flex; flex-wrap: wrap; overflow: visible; }
+	.feats li { flex: 1 1 260px; }
+	.ftabs, .crumbs { flex-wrap: wrap; overflow: visible; }
+}

@@ -1,0 +1,31 @@
+PASS NT-70 menu thả xuống "Dự án" mở khi rê chuột: 6 dự án + "Tất cả dự án" – {"open":true,"expanded":"true","links":["Ansana by Kita","Palm City","Spring Ville","The Global City","The Privé","Vinhomes Saigon Park","Tất cả dự án"]}
+PASS NT-70 menu thả xuống đóng sau ~200 ms khi rời chuột
+PASS NT-70 menu "Về Velis" mở khi bấm: Giới thiệu, Tuyển dụng, Liên hệ – {"open":true,"expanded":"true","links":["Giới thiệu","Tuyển dụng","Liên hệ"]}
+PASS NT-70 menu thả xuống bằng bàn phím: Enter mở, ↓ vào mục đầu, Esc đóng và trả focus – {"k1":"Ansana by Kita","k2":{"cls":"header__toggle","open":false}}
+PASS NT-70 menu thả xuống trên mobile: "Dự án" (7) và "Về Velis" (3) là mục con trong menu – [7,3]
+PASS NT-73 tab có dữ liệu: bảng thông số + mặt bằng – Căn 1 PN / 1 PN+
+PASS NT-73 tab chưa có dữ liệu: câu hướng dẫn + nút – Penthouse
+PASS NT-74 "Nhận bảng giá" cuộn tới form – top=135
+PASS NT-74 "Nhận bảng giá" điền sẵn dòng sản phẩm – The Privé – Căn 1 PN / 1 PN+
+PASS NT-72 thanh điều hướng mục: bấm cuộn tới Vị trí – {"gap":3}
+PASS NT-72 thanh điều hướng mục: tô mục đang xem – Vị trí & tiện ích
+PASS NT-75 thư viện ảnh: nút "ảnh sau" – 1/13 → 2/13
+PASS NT-75 thư viện ảnh: phóng to (lightbox)
+PASS NT-20 không còn ảnh vỡ hiển thị (The Privé) – 0
+PASS NT-75 lăn chuột trên thư viện ảnh vẫn cuộn trang – 5445 → 5845
+PASS NT-76 form báo lỗi khi bỏ trống, không gửi đi – 3 ô lỗi, 0 lần gửi
+PASS NT-77 bộ lọc dự án: lọc Khu Đông (ghi ?khu= lên URL) – Hiển thị 3/6 dự án · ?khu=khu-dong
+PASS NT-20 không còn ảnh vỡ (/du-an/) – 0
+PASS NT-77 lọc phân khu theo loại (chip) – Hiển thị 1/5 phân khu
+FAIL NT-78 tìm "căn hộ palm river" ra Palm River đầu tiên – The Privé
+PASS NT-79 mobile: menu mở
+PASS NT-72 mobile: thanh điều hướng mục cuộn ngang – {"sw":771,"cw":358,"ox":"auto"}
+PASS NT-79 mobile: thanh CTA đáy ẩn ở đầu trang – {"on":false,"heroBtnBottom":727,"vh":844}
+PASS NT-79 mobile: thanh CTA đáy hiện sau khi cuộn qua nút hero
+PASS NT-79 mobile: về đầu trang thì thanh CTA ẩn lại
+PASS NT-80 mobile: breadcrumb tối đa 2 dòng – 2 dòng
+PASS NT-57 "Đọc tiếp" mở toàn bộ đoạn dài – 364px → mở
+PASS NT-74 thẻ cột phải: "Nhận bảng giá" mở form gọn tại chỗ
+PASS NT-76 form (chặn yêu cầu, không gửi): đủ trường ẩn dự án, URL trang, utm – {"interest":"The Global City","pageUrl":"https://staging.velisrealty.vn/du-an/the-global-city/?utm_source=kiemthu","utm":"utm_source=kiemthu"}
+PASS NT-53 bảng so sánh full-width, không cuộn ngang – {"sw":664,"cw":664}
+PASS NT-77 /du-an/?khu= mở sẵn bộ lọc (liên kết tab khu vực trang chủ) – {"pressed":"true","count":"Hiển thị 1/6 dự án"}

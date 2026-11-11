@@ -142,7 +142,7 @@ function velis_default_description(): string {
 	if ( is_singular( 'chu-dau-tu' ) ) {
 		$projs   = velis_developer_projects( $o );
 		$regions = implode( ', ', array_unique( array_filter( array_map( 'velis_region_label', $projs ) ) ) );
-		return velis_clip( 'Các dự án ' . $o->post_title . ' Velis đang tư vấn' . ( $regions ? " tại $regions" : '' ) . ( $projs ? ': ' . implode( ', ', wp_list_pluck( $projs, 'post_title' ) ) : '' ) . '. Góc nhìn của CEO Vũ Xuân.' );
+		return velis_clip( 'Các dự án ' . $o->post_title . ' Velis đang tư vấn' . ( $regions ? " tại $regions" : '' ) . ( $projs ? ': ' . implode( ', ', wp_list_pluck( $projs, 'post_title' ) ) : '' ) . '. Góc nhìn của ' . velis_s( 'ceo_name' ) . '.' );
 	}
 	if ( is_post_type_archive( 'du-an' ) ) {
 		return velis_clip( 'Dự án Velis đang tư vấn: ' . implode( ', ', wp_list_pluck( velis_top_projects(), 'post_title' ) ) . '. Lọc theo khu vực, chủ đầu tư, loại sản phẩm.' );
@@ -151,10 +151,10 @@ function velis_default_description(): string {
 		return velis_clip( 'Chủ đầu tư có dự án Velis đang tư vấn: ' . implode( ', ', wp_list_pluck( get_posts( array( 'post_type' => 'chu-dau-tu', 'numberposts' => 20, 'orderby' => 'title', 'order' => 'ASC' ) ), 'post_title' ) ) . '.' );
 	}
 	if ( is_category() ) {
-		return velis_clip( $o->description ?: 'Phân tích ' . $o->name . ' của CEO Vũ Xuân: giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư.' );
+		return velis_clip( $o->description ?: 'Phân tích ' . $o->name . ' của ' . velis_s( 'ceo_name' ) . ': giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư.' );
 	}
 	if ( is_page( 'blog' ) ) {
-		return 'Phân tích dự án, nhận định thị trường và hướng dẫn mua bất động sản cao cấp của CEO Vũ Xuân, Velis Realty.';
+		return 'Phân tích dự án, nhận định thị trường và hướng dẫn mua bất động sản cao cấp của ' . velis_s( 'ceo_name' ) . ', ' . velis_s( 'ceo_role' ) . '.';
 	}
 	return '';
 }
@@ -340,4 +340,56 @@ add_action( 'pre_get_posts', function ( WP_Query $q ) {
 	if ( ! is_admin() && $q->is_main_query() && ( $q->is_category() || $q->is_author() ) ) {
 		$q->set( 'posts_per_page', 12 );
 	}
+} );
+
+// Redirect matrix (data/url-map.csv): an attachment page with no parent post is gone → 410, not WordPress's 301 to the file
+// (attachment pages are off) nor Rank Math's orphan redirect (left empty). Runs before redirect_canonical.
+function velis_attachment_gone( bool $is_attachment, int $parent ): bool {
+	return $is_attachment && 0 === $parent;
+}
+add_action( 'template_redirect', function () {
+	if ( ! velis_attachment_gone( is_attachment(), (int) wp_get_post_parent_id( get_queried_object_id() ) ) ) {
+		return;
+	}
+	global $wp_query;
+	$wp_query->set_404();
+	remove_action( 'template_redirect', 'redirect_canonical' );
+	status_header( 410 );
+	nocache_headers();
+}, 0 );
+
+/**
+ * Accounts are not public (round "bố cục + ổn định" 2.6–2.7): an author page exists only for a user with published posts;
+ * ?author=N never resolves for guests (it would 301 to the slug); the users REST routes answer 401 to guests (the theme,
+ * velis-data, Rank Math and CF7 never call them as a guest; the block editor is logged in); the internal style guide page
+ * is for logged-in users only. Same rules on the live site (docs/KE-HOACH-RA-MAT.md).
+ */
+function velis_hidden_for_guest( bool $logged_in, bool $is_author, int $author_posts, bool $author_query, bool $style_guide ): bool {
+	return ( $is_author && 0 === $author_posts ) || ( ! $logged_in && ( $author_query || $style_guide ) );
+}
+add_action( 'template_redirect', function () {
+	$author = is_author() ? (int) get_queried_object_id() : 0;
+	if ( ! velis_hidden_for_guest( is_user_logged_in(), is_author(), $author ? (int) count_user_posts( $author, 'post', true ) : 0, isset( $_GET['author'] ), is_page( 'velis-style-guide' ) ) ) { // phpcs:ignore WordPress.Security.NonceVerification -- read-only check
+		return;
+	}
+	global $wp_query;
+	$wp_query->set_404();
+	remove_action( 'template_redirect', 'redirect_canonical' );
+	status_header( 404 );
+	nocache_headers();
+}, 1 );
+add_filter( 'rest_pre_dispatch', function ( $result, $server, WP_REST_Request $req ) {
+	return str_starts_with( $req->get_route(), '/wp/v2/users' ) && ! is_user_logged_in() ? new WP_Error( 'rest_forbidden', 'Không có quyền.', array( 'status' => 401 ) ) : $result;
+}, 10, 3 );
+
+/**
+ * /blog/page/N/ (2.2): the post permalink /blog/%category%/%postname%/ reads it as category "page", post "N" → 404. Map that
+ * exact path to the Blog page, page N – a request filter, so no rewrite rule and no permalink flush are needed.
+ */
+function velis_blog_page_request( string $path ): int {
+	return preg_match( '#^/blog/page/(\d+)/?$#', $path, $m ) && (int) $m[1] > 1 ? (int) $m[1] : 0;
+}
+add_filter( 'request', function ( array $qv ) {
+	$n = velis_blog_page_request( (string) wp_parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ) );
+	return $n ? array( 'pagename' => 'blog', 'paged' => $n ) : $qv;
 } );

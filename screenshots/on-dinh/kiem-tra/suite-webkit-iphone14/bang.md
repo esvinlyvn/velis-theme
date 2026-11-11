@@ -1,0 +1,194 @@
+# Bộ đo ảnh & bố cục – 30 trang × DPR 1 / 1,25 / 2 × viewport 390 / 1066 / 1366 / 1536 / 1920
+
+Mỗi ô = số mục cộng qua 5 viewport. Cột lỗi (in đậm ở dòng tổng) phải = 0; 3 cột cuối chỉ để thông tin.
+
+| Trang | DPR | NT-20 Ảnh hỏng | NT-21 Chọn sai file | NT-01 Lệch theo DPR > 1px | NT-24 Nhóm thẻ trộn thiếu khung | NT-24 Khung dự phòng không tên | NT-09 Dải nổi bật lệch cao | NT-29 Ảnh lẻ lưới tiến độ | NT-28 Bản đồ/lưới lệch cột chữ | NT-07 Ô trống lưới bài | NT-54 Meta ngắt "phút" | NT-04 Khối trống | NT-53 Bảng < 2 hàng | NT-02 Tràn ngang | NT-56 H1 ≠ 1 | NT-55 Heading HOA | NT-03 Khoảng trống > 30% | NT-22 Ảnh nguồn thiếu độ phân giải | NT-21 Ảnh mờ (cách đo cũ) | NT-08 Ô trống lưới khác |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| **Tổng** | | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | 172 | 12 | 0 |
+
+## Chi tiết
+
+- 404 · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: vi-tri-ansana-by-kita.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- 404 · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: phoi-canh-spring-ville.webp [thẻ]: cần 2036px, lớn nhất 1200px
+- 404 · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: the-global-city-3-1.webp [thẻ]: cần 1290px, lớn nhất 1200px
+- trang-chu · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: can-ho-the-prive.webp [hero]: cần 1747px, lớn nhất 1200px
+- trang-chu · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: vi-tri-ansana-by-kita.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- trang-chu · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: phoi-canh-spring-ville.webp [thẻ]: cần 2036px, lớn nhất 1200px
+- trang-chu · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: the-global-city-3-1.webp [thẻ]: cần 1290px, lớn nhất 1200px
+- trang-chu · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: can-ho-the-prive.webp [thẻ]: cần 1647px, lớn nhất 1200px
+- trang-chu · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: vinhomes-saigon-park-2.webp [thẻ]: cần 1389px, lớn nhất 1200px
+- trang-chu · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: thap-tang-vinhomes-saigon-park.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- trang-chu · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: tiem-nang-nam-rach-chiec-2028.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- trang-chu · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: can-ho-mat-tien-ton-duc-thang-nhon-trach.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- du-an · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: the-global-city-3-1.webp [hero]: cần 1290px, lớn nhất 1200px
+- du-an · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: vi-tri-ansana-by-kita.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- du-an · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: phoi-canh-spring-ville.webp [thẻ]: cần 2036px, lớn nhất 1200px
+- du-an · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: the-global-city-3-1.webp [thẻ]: cần 1290px, lớn nhất 1200px
+- du-an · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: can-ho-the-prive.webp [thẻ]: cần 1647px, lớn nhất 1200px
+- du-an · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: vinhomes-saigon-park-2.webp [thẻ]: cần 1389px, lớn nhất 1200px
+- the-prive · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: can-ho-the-prive.webp [hero]: cần 1604px, lớn nhất 1200px
+- the-prive · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: ceo-vu-xuan-160.webp [khác]: cần 240px, lớn nhất 160px
+- the-prive · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: can-ho-1pn-the-prive-1024x683.webp [khác]: cần 1074px, lớn nhất 1024px
+- the-prive · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: mat-bang-thap-9-the-prive.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px
+- the-prive · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: velis-realty-f1-the-prive.webp [thẻ]: cần 1389px, lớn nhất 1200px
+- the-prive · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: tiem-nang-nam-rach-chiec-2028.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- the-prive · DPR 3 · NT-21 Ảnh mờ (cách đo cũ): 390px: ceo-vu-xuan-160.webp khung 80px × 3 > file 160px × 1,15
+- the-global-city · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: the-global-city-3-1.webp [hero]: cần 1256px, lớn nhất 1200px
+- the-global-city · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: ceo-vu-xuan-160.webp [khác]: cần 240px, lớn nhất 160px
+- the-global-city · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: phoi-canh-lumiere-mid-town.webp [thẻ]: cần 1389px, lớn nhất 1200px
+- the-global-city · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: phoi-canh-masteri-park-place.webp [thẻ]: cần 1559px, lớn nhất 1200px
+- the-global-city · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: mat-bang-the-global-city.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px
+- the-global-city · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: vi-tri-the-global-city.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px
+- the-global-city · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: the-global-city-3.webp [ảnh nội dung]: cần 1204px, lớn nhất 1200px
+- the-global-city · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: khu-pho-thuong-mai-soho-fb.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- the-global-city · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: bat-dong-san-tich-san-truyen-doi.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- the-global-city · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: suc-hut-dau-tu-the-global-city-1.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- the-global-city · DPR 3 · NT-21 Ảnh mờ (cách đo cũ): 390px: ceo-vu-xuan-160.webp khung 80px × 3 > file 160px × 1,15
+- vinhomes-saigon-park · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: vinhomes-saigon-park-2.webp [hero]: cần 1353px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: ceo-vu-xuan-160.webp [khác]: cần 240px, lớn nhất 160px
+- vinhomes-saigon-park · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: tien-do-vinhomes-saigon-park.webp [thẻ]: cần 1391px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: thap-tang-vinhomes-saigon-park.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: biet-thu-ven-kenh-vinhomes.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: thiet-ke-nha-pho-vinhomes-1.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 3 · NT-21 Ảnh mờ (cách đo cũ): 390px: ceo-vu-xuan-160.webp khung 80px × 3 > file 160px × 1,15
+- palm-city · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: ceo-vu-xuan-160.webp [khác]: cần 240px, lớn nhất 160px
+- palm-city · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: palm-city.webp [thẻ]: cần 1388px, lớn nhất 1200px
+- palm-city · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: dong-von-dau-tu-nam-rach-chiec.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- palm-city · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: chu-ky-tang-gia-ven-song-giong-ong-to.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- palm-city · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: bao-ve-tai-san-lam-phat-palm-river.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- palm-city · DPR 3 · NT-21 Ảnh mờ (cách đo cũ): 390px: ceo-vu-xuan-160.webp khung 80px × 3 > file 160px × 1,15
+- spring-ville · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: phoi-canh-spring-ville.webp [hero]: cần 1983px, lớn nhất 1200px
+- spring-ville · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: ceo-vu-xuan-160.webp [khác]: cần 240px, lớn nhất 160px
+- spring-ville · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: phoi-canh-persa-place-3.webp [thẻ]: cần 1647px, lớn nhất 1200px
+- spring-ville · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: thiet-ke-biophilic-persa-place-nhon-trach.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- spring-ville · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: tieu-chuan-ban-giao-persa-place-gamuda-land.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- spring-ville · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: can-ho-mat-tien-ton-duc-thang-nhon-trach.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- spring-ville · DPR 3 · NT-21 Ảnh mờ (cách đo cũ): 390px: ceo-vu-xuan-160.webp khung 80px × 3 > file 160px × 1,15
+- ansana · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: vi-tri-ansana-by-kita.webp [hero]: cần 1208px, lớn nhất 1200px
+- ansana · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: ceo-vu-xuan-160.webp [khác]: cần 240px, lớn nhất 160px
+- ansana · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: nut-giao-ansana-kita.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px
+- ansana · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: tien-ich-ansana-kita.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- ansana · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: smart-living-ansana.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- ansana · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: can-ho-2pn-ansana.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- ansana · DPR 3 · NT-21 Ảnh mờ (cách đo cũ): 390px: ceo-vu-xuan-160.webp khung 80px × 3 > file 160px × 1,15
+- masteri-grand-view · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: ceo-vu-xuan-160.webp [khác]: cần 240px, lớn nhất 160px
+- masteri-grand-view · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: khu-pho-thuong-mai-soho-fb.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- masteri-grand-view · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: bat-dong-san-tich-san-truyen-doi.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- masteri-grand-view · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: suc-hut-dau-tu-the-global-city-1.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- masteri-grand-view · DPR 3 · NT-21 Ảnh mờ (cách đo cũ): 390px: ceo-vu-xuan-160.webp khung 80px × 3 > file 160px × 1,15
+- persa-place · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: phoi-canh-persa-place-3.webp [hero]: cần 1604px, lớn nhất 1200px
+- persa-place · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: ceo-vu-xuan-160.webp [khác]: cần 240px, lớn nhất 160px
+- persa-place · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: persa-place-27.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px
+- persa-place · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: thiet-ke-biophilic-persa-place-nhon-trach.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- persa-place · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: tieu-chuan-ban-giao-persa-place-gamuda-land.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- persa-place · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: can-ho-mat-tien-ton-duc-thang-nhon-trach.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- persa-place · DPR 3 · NT-21 Ảnh mờ (cách đo cũ): 390px: ceo-vu-xuan-160.webp khung 80px × 3 > file 160px × 1,15
+- palm-river · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: palm-city.webp [hero]: cần 1352px, lớn nhất 1200px
+- palm-river · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: ceo-vu-xuan-160.webp [khác]: cần 240px, lớn nhất 160px
+- palm-river · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: bao-ve-tai-san-lam-phat-palm-river.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- palm-river · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: dong-von-dau-tu-nam-rach-chiec.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- palm-river · DPR 3 · NT-21 Ảnh mờ (cách đo cũ): 390px: ceo-vu-xuan-160.webp khung 80px × 3 > file 160px × 1,15
+- ivy-park · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: ceo-vu-xuan-160.webp [khác]: cần 240px, lớn nhất 160px
+- ivy-park · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: thap-tang-vinhomes-saigon-park.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- ivy-park · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: biet-thu-ven-kenh-vinhomes.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- ivy-park · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: thiet-ke-nha-pho-vinhomes-1.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- ivy-park · DPR 3 · NT-21 Ảnh mờ (cách đo cũ): 390px: ceo-vu-xuan-160.webp khung 80px × 3 > file 160px × 1,15
+- nha-pho-ivy-park · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: vinhomes-saigon-park-2.webp [hero]: cần 1353px, lớn nhất 1200px
+- nha-pho-ivy-park · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: ceo-vu-xuan-160.webp [khác]: cần 240px, lớn nhất 160px
+- nha-pho-ivy-park · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: thap-tang-vinhomes-saigon-park.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- nha-pho-ivy-park · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: biet-thu-ven-kenh-vinhomes.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- nha-pho-ivy-park · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: thiet-ke-nha-pho-vinhomes-1.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- nha-pho-ivy-park · DPR 3 · NT-21 Ảnh mờ (cách đo cũ): 390px: ceo-vu-xuan-160.webp khung 80px × 3 > file 160px × 1,15
+- nha-pho-spring-ville · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: phoi-canh-spring-ville.webp [hero]: cần 1983px, lớn nhất 1200px
+- nha-pho-spring-ville · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: ceo-vu-xuan-160.webp [khác]: cần 240px, lớn nhất 160px
+- nha-pho-spring-ville · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: thiet-ke-biophilic-persa-place-nhon-trach.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- nha-pho-spring-ville · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: tieu-chuan-ban-giao-persa-place-gamuda-land.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- nha-pho-spring-ville · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: can-ho-mat-tien-ton-duc-thang-nhon-trach.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- nha-pho-spring-ville · DPR 3 · NT-21 Ảnh mờ (cách đo cũ): 390px: ceo-vu-xuan-160.webp khung 80px × 3 > file 160px × 1,15
+- bai-prive · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: ty-suat-loi-nhuan-the-prive.webp [khác]: cần 1235px, lớn nhất 1200px
+- bai-prive · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: can-ho-the-prive.webp [thẻ]: cần 1647px, lớn nhất 1200px
+- bai-prive · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: velis-realty-f1-the-prive.webp [thẻ]: cần 1389px, lớn nhất 1200px
+- bai-prive · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: tiem-nang-nam-rach-chiec-2028.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-prive · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: rui-ro-dau-tu-the-prive.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-prive · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: loi-nhuan-dau-tu-the-prive-1.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-prive · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: penthouse-duplex-the-prive.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-prive · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: vi-tri-du-an-the-prive-2.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-vinhomes · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: truong-quoc-te-vinschool.webp [khác]: cần 1235px, lớn nhất 1200px
+- bai-vinhomes · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: camera-ia-khu-do-thi.webp [thẻ]: cần 1389px, lớn nhất 1200px
+- bai-vinhomes · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: tram-sac-vinfast.webp [thẻ]: cần 1235px, lớn nhất 1200px
+- bai-vinhomes · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: vinhomes-ocean-park-2.webp [thẻ]: cần 1568px, lớn nhất 1200px
+- bai-vinhomes · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: vinhomes-grand-park-3.webp [thẻ]: cần 1389px, lớn nhất 1200px
+- bai-vinhomes · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: vinhomes-ba-son-hcm.webp [thẻ]: cần 1389px, lớn nhất 1200px
+- bai-vinhomes · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: sanh-lobby-can-ho-vinhomes.webp [thẻ]: cần 1235px, lớn nhất 1200px
+- bai-tgc · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: khu-pho-thuong-mai-soho-fb.webp [khác]: cần 1235px, lớn nhất 1200px
+- bai-tgc · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: the-global-city-3-1.webp [thẻ]: cần 1290px, lớn nhất 1200px
+- bai-tgc · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: shophouse-soho-tgc.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px
+- bai-tgc · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: bat-dong-san-tich-san-truyen-doi.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-tgc · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: suc-hut-dau-tu-the-global-city-1.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-tgc · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: thanh-khoan-vi-tri-can-goc.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-tgc · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: thiet-ke-shophouse-soho.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-tgc · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: lai-suat-vay-mua-nha-2026.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-tgc · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: so-sanh-phu-my-hung-the-global-city.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-persa · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: thiet-ke-biophilic-persa-place-nhon-trach.webp [khác]: cần 1235px, lớn nhất 1200px
+- bai-persa · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: phoi-canh-persa-place-3.webp [thẻ]: cần 1647px, lớn nhất 1200px
+- bai-persa · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: tieu-chuan-ban-giao-persa-place-gamuda-land.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-persa · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: can-ho-mat-tien-ton-duc-thang-nhon-trach.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-persa · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: layout-can-ho-2-phong-ngu-persa-place.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-persa · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: can-ho-1-phong-ngu-persa-place-cho-thue.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-persa · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: dac-quyen-booking-dot-1-persa-place.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-persa · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: bien-do-tang-gia-can-ho-persa-place.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-ansana · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: tien-ich-ansana-kita.webp [khác]: cần 1235px, lớn nhất 1200px
+- bai-ansana · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: vi-tri-ansana-by-kita.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-ansana · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: smart-living-ansana.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-ansana · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: can-ho-2pn-ansana.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-ansana · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: can-ho-studio-ansana.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-ansana · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: do-xe-thong-minh-ansana.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-ansana · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: tien-ich-y-te-ansana.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- bai-ansana · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: nut-giao-ansana-kita.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- blog · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: dong-von-dau-tu-nam-rach-chiec.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- blog · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: velis-realty-f1-the-prive.webp [thẻ]: cần 1389px, lớn nhất 1200px
+- blog · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: chu-ky-tang-gia-ven-song-giong-ong-to.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- blog · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: bao-ve-tai-san-lam-phat-palm-river.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- blog · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: hallmark-thu-thiem.webp [thẻ]: cần 1235px, lớn nhất 1200px
+- blog · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: thap-tang-vinhomes-saigon-park.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- blog · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: biet-thu-ven-kenh-vinhomes.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- blog · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: thiet-ke-nha-pho-vinhomes-1.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- blog · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: biet-thu-san-golf-vinhomes.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- blog · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: shophouse-vinhomes-saigon-park.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- cum-blog · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: velis-realty-f1-the-prive.webp [thẻ]: cần 1389px, lớn nhất 1200px
+- cum-blog · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: tiem-nang-nam-rach-chiec-2028.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- cum-blog · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: rui-ro-dau-tu-the-prive.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- cum-blog · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: loi-nhuan-dau-tu-the-prive-1.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- cum-blog · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: penthouse-duplex-the-prive.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- cum-blog · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: vi-tri-du-an-the-prive-2.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- cum-blog · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: dau-tu-luot-song-the-prive.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- cum-blog · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: dau-tu-luot-song-the-prive.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- cum-blog · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: nha-dau-tu-ha-noi-the-prive.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- cum-blog · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: toa-cloud-9-tower-the-prive.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- tac-gia · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: dong-von-dau-tu-nam-rach-chiec.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- tac-gia · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: velis-realty-f1-the-prive.webp [thẻ]: cần 1389px, lớn nhất 1200px
+- tac-gia · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: chu-ky-tang-gia-ven-song-giong-ong-to.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- tac-gia · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: bao-ve-tai-san-lam-phat-palm-river.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- tac-gia · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: hallmark-thu-thiem.webp [thẻ]: cần 1235px, lớn nhất 1200px
+- tac-gia · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: thap-tang-vinhomes-saigon-park.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- tac-gia · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: biet-thu-ven-kenh-vinhomes.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- tac-gia · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: thiet-ke-nha-pho-vinhomes-1.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- tac-gia · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: biet-thu-san-golf-vinhomes.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- tac-gia · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: shophouse-vinhomes-saigon-park.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- masterise-homes · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: the-global-city-3-1.webp [hero]: cần 1290px, lớn nhất 1200px
+- masterise-homes · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: the-global-city-3-1.webp [thẻ]: cần 1290px, lớn nhất 1200px
+- masterise-homes · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: khu-pho-thuong-mai-soho-fb.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- masterise-homes · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: bat-dong-san-tich-san-truyen-doi.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- masterise-homes · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: suc-hut-dau-tu-the-global-city-1.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- gioi-thieu · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: vp-velis-realty.webp [hero]: cần 1539px, lớn nhất 1200px
+- tim-kiem · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: can-ho-the-prive.webp [thẻ]: cần 1647px, lớn nhất 1200px
+- tim-kiem · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: velis-realty-f1-the-prive.webp [thẻ]: cần 1389px, lớn nhất 1200px
+- tim-kiem · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: tiem-nang-nam-rach-chiec-2028.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- tim-kiem · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: rui-ro-dau-tu-the-prive.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- tim-kiem · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: loi-nhuan-dau-tu-the-prive-1.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- tim-kiem · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: penthouse-duplex-the-prive.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- tim-kiem · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: vi-tri-du-an-the-prive-2.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- tim-kiem · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: dau-tu-luot-song-the-prive.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- tim-kiem · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: dau-tu-luot-song-the-prive.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- tim-kiem · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: nha-dau-tu-ha-noi-the-prive.webp [thẻ]: cần 1241px, lớn nhất 1200px
+- tim-kiem · DPR 3 · NT-22 Ảnh nguồn thiếu độ phân giải: 390px: can-ho-the-prive.webp [thẻ]: cần 1647px, lớn nhất 1200px

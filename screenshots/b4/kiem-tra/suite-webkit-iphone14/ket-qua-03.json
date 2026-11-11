@@ -1,0 +1,162 @@
+{
+ "bai-vinhomes": {
+  "3": {
+   "broken": [],
+   "wrong": [],
+   "dpr": [],
+   "mixed": [],
+   "noname": [],
+   "feats": [],
+   "photos": [],
+   "edge": [],
+   "postgrid": [],
+   "meta": [],
+   "empty": [],
+   "table": [],
+   "overflow": [],
+   "h1": [],
+   "caps": [],
+   "gaps": [],
+   "lowres": [
+    "390px: truong-quoc-te-vinschool.webp [khác]: cần 1235px, lớn nhất 1200px",
+    "390px: camera-ia-khu-do-thi.webp [thẻ]: cần 1389px, lớn nhất 1200px",
+    "390px: tram-sac-vinfast.webp [thẻ]: cần 1235px, lớn nhất 1200px",
+    "390px: vinhomes-ocean-park-2.webp [thẻ]: cần 1568px, lớn nhất 1200px",
+    "390px: vinhomes-grand-park-3.webp [thẻ]: cần 1389px, lớn nhất 1200px",
+    "390px: vinhomes-ba-son-hcm.webp [thẻ]: cần 1389px, lớn nhất 1200px",
+    "390px: sanh-lobby-can-ho-vinhomes.webp [thẻ]: cần 1235px, lớn nhất 1200px"
+   ],
+   "blurryOld": [],
+   "gridinfo": []
+  }
+ },
+ "bai-tgc": {
+  "3": {
+   "broken": [],
+   "wrong": [],
+   "dpr": [],
+   "mixed": [],
+   "noname": [],
+   "feats": [],
+   "photos": [],
+   "edge": [],
+   "postgrid": [],
+   "meta": [],
+   "empty": [],
+   "table": [],
+   "overflow": [],
+   "h1": [],
+   "caps": [],
+   "gaps": [],
+   "lowres": [
+    "390px: khu-pho-thuong-mai-soho-fb.webp [khác]: cần 1235px, lớn nhất 1200px",
+    "390px: the-global-city-3-1.webp [thẻ]: cần 1290px, lớn nhất 1200px",
+    "390px: shophouse-soho-tgc.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: bat-dong-san-tich-san-truyen-doi.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: suc-hut-dau-tu-the-global-city-1.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: thanh-khoan-vi-tri-can-goc.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: thiet-ke-shophouse-soho.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: lai-suat-vay-mua-nha-2026.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: so-sanh-phu-my-hung-the-global-city.webp [thẻ]: cần 1241px, lớn nhất 1200px"
+   ],
+   "blurryOld": [],
+   "gridinfo": []
+  }
+ },
+ "bai-persa": {
+  "3": {
+   "broken": [],
+   "wrong": [],
+   "dpr": [],
+   "mixed": [],
+   "noname": [],
+   "feats": [],
+   "photos": [],
+   "edge": [],
+   "postgrid": [],
+   "meta": [],
+   "empty": [],
+   "table": [],
+   "overflow": [],
+   "h1": [],
+   "caps": [],
+   "gaps": [],
+   "lowres": [
+    "390px: thiet-ke-biophilic-persa-place-nhon-trach.webp [khác]: cần 1235px, lớn nhất 1200px",
+    "390px: phoi-canh-persa-place-3.webp [thẻ]: cần 1647px, lớn nhất 1200px",
+    "390px: tieu-chuan-ban-giao-persa-place-gamuda-land.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: can-ho-mat-tien-ton-duc-thang-nhon-trach.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: layout-can-ho-2-phong-ngu-persa-place.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: can-ho-1-phong-ngu-persa-place-cho-thue.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: dac-quyen-booking-dot-1-persa-place.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: bien-do-tang-gia-can-ho-persa-place.webp [thẻ]: cần 1241px, lớn nhất 1200px"
+   ],
+   "blurryOld": [],
+   "gridinfo": []
+  }
+ },
+ "bai-ansana": {
+  "3": {
+   "broken": [],
+   "wrong": [],
+   "dpr": [],
+   "mixed": [],
+   "noname": [],
+   "feats": [],
+   "photos": [],
+   "edge": [],
+   "postgrid": [],
+   "meta": [],
+   "empty": [],
+   "table": [],
+   "overflow": [],
+   "h1": [],
+   "caps": [],
+   "gaps": [],
+   "lowres": [
+    "390px: tien-ich-ansana-kita.webp [khác]: cần 1235px, lớn nhất 1200px",
+    "390px: vi-tri-ansana-by-kita.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: smart-living-ansana.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: can-ho-2pn-ansana.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: can-ho-studio-ansana.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: do-xe-thong-minh-ansana.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: tien-ich-y-te-ansana.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: nut-giao-ansana-kita.webp [thẻ]: cần 1241px, lớn nhất 1200px"
+   ],
+   "blurryOld": [],
+   "gridinfo": []
+  }
+ },
+ "blog": {
+  "3": {
+   "broken": [],
+   "wrong": [],
+   "dpr": [],
+   "mixed": [],
+   "noname": [],
+   "feats": [],
+   "photos": [],
+   "edge": [],
+   "postgrid": [],
+   "meta": [],
+   "empty": [],
+   "table": [],
+   "overflow": [],
+   "h1": [],
+   "caps": [],
+   "gaps": [],
+   "lowres": [
+    "390px: dong-von-dau-tu-nam-rach-chiec.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: velis-realty-f1-the-prive.webp [thẻ]: cần 1389px, lớn nhất 1200px",
+    "390px: chu-ky-tang-gia-ven-song-giong-ong-to.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: bao-ve-tai-san-lam-phat-palm-river.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: hallmark-thu-thiem.webp [thẻ]: cần 1235px, lớn nhất 1200px",
+    "390px: thap-tang-vinhomes-saigon-park.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: biet-thu-ven-kenh-vinhomes.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: thiet-ke-nha-pho-vinhomes-1.webp [thẻ]: cần 1241px, lớn nhất 1200px"
+   ],
+   "blurryOld": [],
+   "gridinfo": []
+  }
+ }
+}

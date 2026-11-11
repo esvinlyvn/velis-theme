@@ -148,7 +148,10 @@ def build():
         elif re.match(r'^/\d{4}/', old):
             put(old, '/blog/', 'lưu trữ theo ngày', 'brief: tắt lưu trữ ngày, 301 về /blog/')
         elif old.startswith('/chuyen-gia/'):
-            put(old, old, 'tác giả')
+            # author archive: same pagination rule as categories (12 per page now, 10 before) – posts that stay posts
+            ma = re.match(r'^(/chuyen-gia/[^/]+/)page/(\d+)/$', old)
+            kept = sum(1 for p in inv('posts') if m.get(path(p['link']), '').startswith('/blog/'))
+            put(old, page_target(ma.group(1), int(ma.group(2)), kept) if ma else old, 'tác giả')
         else:
             put(old, old, 'khác', 'giữ nguyên')
     # attachments: Rank Math sends attachment pages to the parent; unattached ones have no parent to go to -> 410

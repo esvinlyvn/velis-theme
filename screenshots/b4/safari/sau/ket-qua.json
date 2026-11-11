@@ -1,0 +1,284 @@
+[
+ {
+  "name": "trang-chu",
+  "d": "iphone14",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  },
+  "pdfEmpty": []
+ },
+ {
+  "name": "the-global-city",
+  "d": "iphone14",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  },
+  "pdfEmpty": []
+ },
+ {
+  "name": "the-prive",
+  "d": "iphone14",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  },
+  "pdfEmpty": []
+ },
+ {
+  "name": "masteri-park-place",
+  "d": "iphone14",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  },
+  "pdfEmpty": []
+ },
+ {
+  "name": "nha-pho-spring-ville",
+  "d": "iphone14",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  },
+  "pdfEmpty": []
+ },
+ {
+  "name": "bai-tgc",
+  "d": "iphone14",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  },
+  "pdfEmpty": []
+ },
+ {
+  "name": "du-an",
+  "d": "iphone14",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  },
+  "pdfEmpty": []
+ },
+ {
+  "name": "trang-chu",
+  "d": "iphonese",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  }
+ },
+ {
+  "name": "the-global-city",
+  "d": "iphonese",
+  "scr": {
+   "notLoaded": [],
+   "tables": [
+    "dòng 1 từ: • Từ tháng 11/2023 (đối với phân khu thấ"
+   ],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  }
+ },
+ {
+  "name": "the-prive",
+  "d": "iphonese",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  }
+ },
+ {
+  "name": "masteri-park-place",
+  "d": "iphonese",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  }
+ },
+ {
+  "name": "nha-pho-spring-ville",
+  "d": "iphonese",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  }
+ },
+ {
+  "name": "bai-tgc",
+  "d": "iphonese",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  }
+ },
+ {
+  "name": "du-an",
+  "d": "iphonese",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  }
+ },
+ {
+  "name": "trang-chu",
+  "d": "desktop",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  }
+ },
+ {
+  "name": "the-global-city",
+  "d": "desktop",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  }
+ },
+ {
+  "name": "the-prive",
+  "d": "desktop",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  }
+ },
+ {
+  "name": "masteri-park-place",
+  "d": "desktop",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  }
+ },
+ {
+  "name": "nha-pho-spring-ville",
+  "d": "desktop",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  }
+ },
+ {
+  "name": "bai-tgc",
+  "d": "desktop",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  }
+ },
+ {
+  "name": "du-an",
+  "d": "desktop",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [],
+   "black": []
+  }
+ }
+]

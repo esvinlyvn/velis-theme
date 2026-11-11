@@ -75,7 +75,7 @@ async function main() {
 		done.add(finalUrl);
 		const data = await p.evaluate(() => {
 			const q = (s) => document.querySelector(s);
-			const inContent = (el) => !!el.closest('.v-prose');
+			const inContent = (el) => !!el.closest('.v-prose, .prose');
 			return {
 				title: document.title.trim(),
 				desc: q('meta[name=description]')?.content || '',

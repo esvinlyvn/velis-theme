@@ -4,13 +4,19 @@
  * Slug: velis/tpl-404
  * Inserter: no
  */
-$featured = array_slice( array_values( array_filter( velis_top_projects(), fn( $p ) => velis_image_id( $p ) ) ), 0, 3 );
-$out      = '<div class="v-wrap v-pagehead v-404"><p class="v-eyebrow">Lỗi 404</p><h1>Trang này không còn ở đây</h1><p>Đường dẫn có thể đã đổi khi Velis sắp xếp lại nội dung. Anh chị thử tìm kiếm hoặc đi tới một mục chính.</p>'
-	. '<form role="search" method="get" class="v-search" action="' . esc_url( home_url( '/' ) ) . '"><label for="nf-s" class="v-sr">Tìm dự án hoặc bài viết</label><input id="nf-s" type="search" name="s" placeholder="Ví dụ: The Global City"><button class="v-btn" type="submit">Tìm</button></form>'
-	. '<ul class="v-links"><li><a href="/du-an/">Dự án</a></li><li><a href="/chu-dau-tu/">Chủ đầu tư</a></li><li><a href="/blog/">Blog</a></li><li><a href="/lien-he/">Liên hệ</a></li></ul></div>';
+$photo    = fn( $list ) => array_values( array_filter( $list, fn( $p ) => velis_image_id( $p ) ) );
+$featured = array_slice( $photo( velis_featured_projects() ) ?: $photo( velis_top_projects() ), 0, 3 ); // "Dự án nổi bật" = the ticked projects (vòng hoàn thiện 2), with a photo
+$out      = velis_hero_b( array(
+	'eyebrow' => 'Lỗi 404',
+	'title'   => 'Trang này không còn ở đây',
+	'lead'    => 'Đường dẫn có thể đã đổi khi Velis sắp xếp lại nội dung. Anh chị thử tìm kiếm hoặc đi tới một mục chính.',
+	'buttons' => velis_btn( 'Dự án', '/du-an/', 'line' ) . velis_btn( 'Chủ đầu tư', '/chu-dau-tu/', 'line' ) . velis_btn( 'Blog', '/blog/', 'line' ) . velis_btn( 'Liên hệ', '/lien-he/', 'line' ),
+	'after'   => velis_search_form( 'nf-s' ),
+) );
 if ( $featured ) {
-	$out .= velis_section( velis_sechead( 'Dự án nổi bật', 'Có thể anh chị quan tâm' ) . velis_grid( array_map( 'velis_card_project', $featured ), 'zones' ) );
+	$out .= velis_section( velis_sechead( 'Dự án nổi bật', 'Có thể anh chị quan tâm' ) . velis_grid( array_map( 'velis_card_project', $featured ) ), '', 'section--tint' );
 }
+$out = '<div class="onecol">' . $out . '</div>'; // 3.2: one 760 px frame
 ?>
 <!-- wp:html -->
 <?php echo $out; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped in helpers ?>
