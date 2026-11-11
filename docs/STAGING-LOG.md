@@ -303,3 +303,19 @@ Không sửa nội dung trang/bài, không gửi form, site thật không bị g
 Quay lui nội dung: Sửa bài → Bản sửa đổi → khôi phục **20577** (Persa Place), **20563** (Gamuda Land), **20653** (Tiêu chuẩn
 bàn giao) – đã đối chiếu: 3 bản này trùng từng ký tự với nội dung trước khi sửa (chỉ khác xuống dòng `\r\n`).
 Không xóa bài/trang/media, không gửi form, site thật không bị ghi.
+
+## 2026-11-11 – The7 bước 3: SEO / nội dung (theo `docs/reports/the7-buoc-3.md`)
+
+| Mục | Trước | Sau | Cách làm |
+|---|---|---|---|
+| Rank Math SEO title / mô tả | 33 title > 60, 76 mô tả > 155, 3 chuyên mục thiếu mô tả | 88 bài/trang/chuyên mục viết lại (title ≤ 60, mô tả 123–151); không đổi slug, không đổi ngày sửa bài. Quay lui: cột `cu` của `data/seo/the7-buoc-3-title-meta.csv` | REST `rankmath/v1/updateMeta` |
+| Rank Math → Tiêu đề & mô tả → Các trang khác | trang con lưu trữ, trang đơn phân trang: index | **noindex** cả hai (`noindex_archive_subpages`, `noindex_paginated_pages`); "Disable Date Archives" giữ tắt (bật sẽ chuyển về trang chủ, không về /blog/) | giao diện cài đặt, nút Lưu |
+| Rank Math → Chuyển hướng | 3 quy tắc | thêm 1: regex `^[0-9]{4}(/[0-9]{2})?(/[0-9]{2})?(/page/[0-9]+)?/?$` → `/blog/` 301 (PHP, không ghi `.htaccess`) | Chuyển hướng → Thêm mới |
+| Theme con | 1.1.1 | **1.1.2**: `functions.php` lọc `day_link`/`month_link`/`year_link` → `/blog/` (ngày đăng của The7 không còn link tới lưu trữ ngày) | Giao diện → Tải lên → "Thay thế cài đặt bằng tải lên" |
+| Media alt | 49 ảnh ở 7 trang dự án + bài Tiêu chuẩn bàn giao không có alt (Rank Math tự điền tên file không dấu) | alt tiếng Việt mô tả ảnh (`data/seo/the7-buoc-3-alt.csv`) | REST `wp/v2/media` |
+| Nội dung 8 bài | — | 20422, 19962, 20067, 19855, 19934, 20360, 20330: alt trong nội dung + số thập phân "4.5%" → "4,5%" (53 chỗ); 20067 bỏ thẻ ảnh `phoi-canh-masteri-cosmo-1` (404 cả trên site thật, media không còn); 20221 link `/can-ho-spring-ville/` (301) → `/spring-ville/` | REST `wp/v2/posts` |
+| Cache | — | xóa FVM + LiteSpeed (không đổi cài đặt) | thanh quản trị |
+
+Quay lui nội dung (Bản sửa đổi, đã đối chiếu trùng nội dung trước khi sửa): 20422→20667, 19962→20596, 20067→20609,
+19855→20712, 19934→20595, 20360→20660, 20330→20708, 20221→20639. Lỡ bấm "Thêm mới" ở thanh quản trị 1 lần → 1 bản nháp tự động
+(auto-draft, WordPress tự dọn sau 7 ngày, không lưu). Không xóa gì, không gửi form, site thật không bị ghi.

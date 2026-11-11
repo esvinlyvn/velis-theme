@@ -10,3 +10,8 @@ add_action( 'wp_enqueue_scripts', function () {
 	$f = get_stylesheet_directory() . '/velis.css';
 	wp_enqueue_style( 'velis-child', get_stylesheet_directory_uri() . '/velis.css', array( 'dt-main' ), (string) filemtime( $f ) ); // file time: a re-upload is never served from a stale cache
 }, 20 );
+
+// Date archives are 301-redirected to /blog/ (Rank Math → Chuyển hướng); link The7's post dates straight there, not via the redirect.
+foreach ( array( 'day_link', 'month_link', 'year_link' ) as $velis_hook ) {
+	add_filter( $velis_hook, fn() => home_url( '/blog/' ) );
+}
