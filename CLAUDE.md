@@ -1,7 +1,11 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 # velis-theme — tái thiết kế velisrealty.vn
 
-Repo riêng tư chứa theme khối WordPress "velis" (Phương án 2A trong `BRIEF.md`), tài liệu thiết kế,
-dữ liệu mốc SEO và công cụ kiểm tra.
+Repo riêng tư: cấu hình + theme con **The7 Classic 14.5.1** cho velisrealty.vn (từ 2026-11-11), tài liệu thiết kế,
+dữ liệu mốc SEO và công cụ kiểm tra. Theme khối "velis" (Phương án 2A trong `BRIEF.md`) đã bỏ, chỉ giữ tham khảo.
 
 ## Quy tắc làm việc (người dùng chốt 2026-11-04)
 
@@ -16,7 +20,26 @@ dữ liệu mốc SEO và công cụ kiểm tra.
 Nguồn sự thật: `BRIEF.md` (brief đã chốt) → `DESIGN.md` (giao diện) → `docs/` (SCOPE, BRAND, VOICE, CONTENT-MAP,
 CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của site thật).
 
-## Giao diện đã khóa (2026-11-09, theme 1.0.0)
+## Cách làm trên The7 (người dùng chốt 2026-11-11)
+
+- Ưu tiên tuyệt đối: người dùng tự sửa được trong wp-admin (kéo thả WPBakery, The7 Theme Options, Widget, Menu).
+  Không đặt bố cục trong PHP. Tra `docs/THE7.md` (bản đồ nhu cầu DESIGN.md → tính năng/khóa The7) trước khi sửa.
+- Thang lựa chọn: Theme Options/meta box The7 → phần tử WPBakery/The7/Ultimate + "Mẫu của tôi" → trang mẫu archive
+  (`template_page_id_*`: danh mục, tìm kiếm, 404…) → Stripes 1–3 cho nền section → `velis.css` theme con (chỉ khi The7 không có).
+- **Làm một mạch, không vá:** gom thay đổi thành một đợt có kế hoạch (kiểm kê → sửa một lần → đo), không sửa đi sửa lại
+  từng chỗ. Custom CSS cũ "velis-ux" trong `general-custom_css` là nợ cần gộp/gỡ, không thêm vào.
+- Theme Options lưu riêng theo theme (theme con có bộ riêng). Không nhập lại cả file options cũ (ghi đè thay đổi sau);
+  xuất bộ hiện tại trước, chỉ đổi đúng khóa (`tools/the7_options_buoc*.py`), lưu bản trước/sau ở `data/the7/`.
+- Sau khi đổi CSS/options: xóa cache FVM (The7 tích hợp FVM, gộp CSS) + LiteSpeed purge. Không lưu trang cài đặt LiteSpeed
+  (có thể ghi `.htaccess`). FVM trì hoãn JS plugin tới khi chạm/cuộn và bỏ qua UA Headless/Lighthouse → điểm Lighthouse
+  đẹp hơn thực tế; đo console/tương tác bằng UA điện thoại thật.
+- Nội dung trang: sửa qua REST (`content.raw`) giữ shortcode WPBakery; ghi ID revision trước khi sửa vào `docs/STAGING-LOG.md`.
+  Mẫu WPBakery nguồn ở `data/the7/mau-wpbakery/`, áp bằng `tools/the7_ap_mau_buoc2.py`.
+- Kiểm tra: `python3 -I tools/the7_check_onpage.py` (on-page toàn sitemap staging, có self-check);
+  `node tools/the7_ui_audit.mjs` (computed style so với token DESIGN.md); Lighthouse `lighthouserc-the7.json`.
+  Báo cáo từng bước ở `docs/reports/the7-*.md`.
+
+## Giao diện đã khóa (2026-11-09, theme velis 1.0.0 — chỉ áp cho theme velis đã bỏ)
 
 - Mốc ảnh `tests/visual/moc/` (Git LFS; `npm run test:visual`, ngưỡng 0,1 %). Thay đổi giao diện sau mốc này phải cập nhật
   ảnh mốc có chủ đích (`npm run test:visual:update`, soát ảnh khác biệt) **và được người dùng duyệt** trước khi triển khai.
