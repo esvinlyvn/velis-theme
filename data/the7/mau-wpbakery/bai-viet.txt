@@ -5,7 +5,7 @@
 <p>[…]</p>
 <h2>[Ý chính 2]</h2>
 <p>[…]</p>
-[/vc_column_text][/vc_column][/vc_row][vc_row el_id="lien-he-tu-van" el_class="velis-cta" css=".vc_custom_1762850000301{margin-top: 32px !important;padding-top: 32px !important;padding-right: 32px !important;padding-bottom: 32px !important;padding-left: 32px !important;background-color: #FAF7F2 !important;}"][vc_column][vc_column_text css=""]
+[/vc_column_text][/vc_column][/vc_row][vc_row el_id="lien-he-tu-van" el_class="velis-cta" css=".vc_custom_1762900000005{background-color: #F3ECDF !important;}"][vc_column][vc_column_text css=""]
 <h2>Liên hệ tư vấn</h2>
 <p>[1–2 câu: anh chị cần gì thì liên hệ]</p>
 [/vc_column_text][dt_default_button link="url:%2Flien-he%2F|title:Nh%E1%BA%ADn%20t%C6%B0%20v%E1%BA%A5n" size="big"]Nhận tư vấn[/dt_default_button][vc_column_text css=""]

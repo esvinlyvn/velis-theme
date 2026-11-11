@@ -1,11 +1,11 @@
-[vc_row equal_height="yes" content_placement="middle" el_id="gioi-thieu" el_class="velis-hero" css=".vc_custom_1762850000101{padding-top: 48px !important;padding-bottom: 48px !important;padding-right: 32px !important;padding-left: 32px !important;background-color: #FAF7F2 !important;}"][vc_column width="1/2"][vc_column_text css=""]
+[vc_row equal_height="yes" content_placement="middle" el_id="gioi-thieu" el_class="velis-hero" css=".vc_custom_1762900000001{background-color: #FAF7F2 !important;}"][vc_column width="1/2"][vc_column_text css=""]
 <p class="velis-eyebrow">Dự án · [Tên chủ đầu tư – gắn link trang chủ đầu tư]</p>
 <h1>[Tên dự án]</h1>
 <p>[Vị trí: phường/xã mới, tỉnh/TP (trước đây Quận/Huyện …)] · [Bàn giao dự kiến …]</p>
 <p>[1–2 câu ưu đãi/điểm nổi bật đang áp dụng – xóa nếu không có]</p>
 [/vc_column_text][dt_default_button link="url:%2Flien-he%2F|title:Nh%E1%BA%ADn%20t%C6%B0%20v%E1%BA%A5n" size="big"]Nhận tư vấn[/dt_default_button][vc_column_text css=""]
 <p>Hoặc gọi <a href="tel:0911237979">0911 237 979</a></p>
-[/vc_column_text][/vc_column][vc_column width="1/2"][vc_single_image image="" img_size="large" alignment="center" css=""][/vc_column][/vc_row][vc_row el_id="thong-so" css=".vc_custom_1762850000102{padding-top: 48px !important;}"][vc_column][vc_column_text css=""]
+[/vc_column_text][/vc_column][vc_column width="1/2"][vc_single_image image="" img_size="large" alignment="center" css=""][/vc_column][/vc_row][vc_row el_id="thong-so" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
 <h2>Thông tin tổng quan [tên dự án]</h2>
 [/vc_column_text][vc_row_inner el_class="velis-specs"][vc_column_inner width="1/4" offset="vc_col-xs-6"][vc_column_text css=""]
 <p class="velis-spec-label">Quy mô</p>
@@ -27,29 +27,29 @@
 <tr><td><b>Pháp lý</b></td><td>[…]</td></tr>
 </tbody>
 </table>
-[/vc_column_text][/vc_column][/vc_row][vc_row el_id="tong-quan" css=".vc_custom_1762850000103{padding-top: 48px !important;}"][vc_column][vc_column_text css=""]
+[/vc_column_text][/vc_column][/vc_row][vc_row el_id="tong-quan" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
 <h2>Tổng quan [tên dự án]</h2>
 <p>[Đoạn mở đầu: dự án là gì, vì sao đáng quan tâm]</p>
-[/vc_column_text][/vc_column][/vc_row][vc_row el_id="vi-tri" css=".vc_custom_1762850000104{padding-top: 48px !important;}"][vc_column][vc_column_text css=""]
+[/vc_column_text][/vc_column][/vc_row][vc_row el_id="vi-tri" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
 <h2>Vị trí [tên dự án] ở đâu?</h2>
 <p>[…]</p>
-[/vc_column_text][vc_single_image image="" img_size="large" alignment="center" css=""][/vc_column][/vc_row][vc_row el_id="tien-ich" css=".vc_custom_1762850000105{padding-top: 48px !important;}"][vc_column][vc_column_text css=""]
+[/vc_column_text][vc_single_image image="" img_size="large" alignment="center" css=""][/vc_column][/vc_row][vc_row el_id="tien-ich" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
 <h2>Tiện ích [tên dự án] có gì?</h2>
 <p>[…]</p>
-[/vc_column_text][/vc_column][/vc_row][vc_row el_id="mat-bang" css=".vc_custom_1762850000106{padding-top: 48px !important;}"][vc_column][vc_column_text css=""]
+[/vc_column_text][/vc_column][/vc_row][vc_row el_id="mat-bang" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
 <h2>Mặt bằng [tên dự án]</h2>
 <p>[…]</p>
-[/vc_column_text][vc_row_inner][vc_column_inner width="1/3"][vc_single_image image="" img_size="large" alignment="center" onclick="img_link_large" css=""][/vc_column_inner][vc_column_inner width="1/3"][vc_single_image image="" img_size="large" alignment="center" onclick="img_link_large" css=""][/vc_column_inner][vc_column_inner width="1/3"][vc_single_image image="" img_size="large" alignment="center" onclick="img_link_large" css=""][/vc_column_inner][/vc_row_inner][/vc_column][/vc_row][vc_row el_id="gia-ban" css=".vc_custom_1762850000107{padding-top: 48px !important;}"][vc_column][vc_column_text css=""]
+[/vc_column_text][vc_row_inner][vc_column_inner width="1/3"][vc_single_image image="" img_size="large" alignment="center" onclick="img_link_large" css=""][/vc_column_inner][vc_column_inner width="1/3"][vc_single_image image="" img_size="large" alignment="center" onclick="img_link_large" css=""][/vc_column_inner][vc_column_inner width="1/3"][vc_single_image image="" img_size="large" alignment="center" onclick="img_link_large" css=""][/vc_column_inner][/vc_row_inner][/vc_column][/vc_row][vc_row el_id="gia-ban" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
 <h2>Giá bán [tên dự án] bao nhiêu?</h2>
 <p>[Chỉ ghi giá có nguồn, kèm thời điểm, ví dụ "tháng 4/2026"]</p>
-[/vc_column_text][/vc_column][/vc_row][vc_row el_id="cau-hoi" css=".vc_custom_1762850000108{padding-top: 48px !important;}"][vc_column][vc_column_text css=""]
+[/vc_column_text][/vc_column][/vc_row][vc_row el_id="cau-hoi" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
 <h2>Câu hỏi thường gặp</h2>
-[/vc_column_text][vc_toggle title="[Câu hỏi 1]" css=""]<p>[Trả lời]</p>[/vc_toggle][vc_toggle title="[Câu hỏi 2]" css=""]<p>[Trả lời]</p>[/vc_toggle][vc_toggle title="[Câu hỏi 3]" css=""]<p>[Trả lời]</p>[/vc_toggle][/vc_column][/vc_row][vc_row el_id="lien-he-tu-van" el_class="velis-cta" css=".vc_custom_1762850000109{margin-top: 48px !important;padding-top: 48px !important;padding-bottom: 48px !important;padding-right: 32px !important;padding-left: 32px !important;background-color: #FAF7F2 !important;}"][vc_column][vc_column_text css=""]
+[/vc_column_text][vc_toggle title="[Câu hỏi 1]" css=""]<p>[Trả lời]</p>[/vc_toggle][vc_toggle title="[Câu hỏi 2]" css=""]<p>[Trả lời]</p>[/vc_toggle][vc_toggle title="[Câu hỏi 3]" css=""]<p>[Trả lời]</p>[/vc_toggle][/vc_column][/vc_row][vc_row el_id="lien-he-tu-van" el_class="velis-cta" css=".vc_custom_1762900000002{background-color: #F3ECDF !important;}"][vc_column][vc_column_text css=""]
 <h2>Liên hệ tư vấn [tên dự án]</h2>
 <p>[1–2 câu: anh chị cần gì thì liên hệ]</p>
 [/vc_column_text][dt_default_button link="url:%2Flien-he%2F|title:Nh%E1%BA%ADn%20t%C6%B0%20v%E1%BA%A5n" size="big"]Nhận tư vấn[/dt_default_button][vc_column_text css=""]
 <p>Hoặc gọi <a href="tel:0911237979">0911 237 979</a></p>
-[/vc_column_text][/vc_column][/vc_row][vc_row el_id="bai-lien-quan" css=".vc_custom_1762850000110{padding-top: 48px !important;}"][vc_column][vc_column_text css=""]
+[/vc_column_text][/vc_column][/vc_row][vc_row el_id="bai-lien-quan" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
 <h2>Bài viết liên quan</h2>
 <ul>
 <li><a href="[link bài 1]">[Tên bài 1]</a></li>
