@@ -69,3 +69,54 @@ Palm City đứng đầu nhưng **chưa có ảnh đại diện** (dải nổi b
   Giới thiệu, Tuyển dụng; "Liên hệ" là mục riêng. Menu mobile dựng từ cùng dữ liệu.
 - Header: biểu tượng + số từ Cài đặt Velis, `tel:` + `aria-label="Gọi {số}"`; ô số điện thoại trống thì ẩn.
 - Sửa menu cần quyền Quản trị (WordPress không cho Biên tập viên vào Giao diện → Menu).
+
+## Mục 9 – Thử như người dùng (vai Biên tập viên) + hướng dẫn quản trị
+
+Tài khoản thử `bien-tap-thu` (vai **Biên tập viên**, tạo riêng trên staging, đăng nhập 1 lần). Mọi thao tác làm trong
+wp-admin, **không sửa mã**: tạo dự án có ảnh + tick "Nổi bật", 1 phân khu thuộc dự án đó, 1 cụm (chuyên mục cùng slug dự án),
+1 bài gắn cụm + "Bài viết nói về" dự án; trong **Cài đặt Velis** đổi số điện thoại `0911 237 979` → `0900 000 111` (+ Zalo)
+và con số "Năm kinh nghiệm" `10+` → `12+`. Kiểm tra bằng khách (máy, `screenshots/hoan-thien/bien-tap/`):
+
+| Điểm kiểm | Kết quả | Ảnh |
+|---|---|---|
+| Dự án mới ở dải "Dự án nổi bật" (đứng đầu – mới nhất) | ✓ | `01-dai-noi-bat.jpg` |
+| … ở lưới "Dự án Velis đang tư vấn" (ô đầu) | ✓ | `02-luoi-trang-chu.jpg` |
+| … ở /du-an/ | ✓ | `07-trang-du-an.jpg` |
+| … ở menu "Dự án" header (mục đầu) | ✓ | `04-menu-du-an.jpg` |
+| Trang dự án mới: có phân khu + bài thử | ✓ | `10-trang-du-an-moi.jpg` |
+| Bài ở /blog/, ở trang cụm `/blog/du-an-thu-velis/` | ✓ ✓ | `08-blog.jpg`, `09-cum.jpg` |
+| Số mới ở header (chữ + `tel:`), footer, khối form, khối "Velis tư vấn" cột phải bài, /lien-he/ | ✓ (5/5) | `05`, `06`, `11`, `14` |
+| Thanh gọi dưới màn hình iPhone 14: Gọi = `tel:` mới, Zalo mới | ✓ | `12-cta-iphone.jpg` |
+| Không còn số cũ ở trang chủ, bài, /lien-he/ | ✓ | – |
+| Con số trang chủ `12+` | ✓ | `03-con-so.jpg` |
+| Biên tập viên mở được Cài đặt Velis và lưu; **không** mở được Giao diện → Menu ("not allowed") | ✓ đúng thiết kế | – |
+
+Dọn dẹp (cùng ngày): xóa hẳn bài 21115, phân khu 21112, dự án 21110, chuyên mục 85 và 3 bản nháp tự động 21108, 21109,
+21114 (chỉ các mục do bài thử tạo, kiểm ID trước khi xóa; không tạo Media nào). Cài đặt Velis trả về đúng 76 ô như trước
+(so tệp trước / sau: giống hệt). 4 URL thử trả 404. Tài khoản `bien-tap-thu` (ID 4) **không xóa** (SCOPE: không xóa
+user): đã bỏ vai trò (không còn quyền gì) và đặt mật khẩu ngẫu nhiên không lưu – người dùng tự xóa trong Thành viên.
+
+**Phát hiện khi thử (chưa sửa – thuộc theme):** bài của tác giả không phải CEO vẫn ghi "…, CEO Velis Realty" ở dòng tác
+giả (`patterns/tpl-post.php` dòng 32, chữ viết cứng mà `check_hardcode` chưa bắt) và hộp Tác giả lấy chức danh CEO khi
+user chưa có `velis_role` (`inc/ui.php` `velis_author_box`) – ảnh `13-tac-gia-moi.jpg`.
+
+Hướng dẫn: `docs/HUONG-DAN-QUAN-TRI.md` (ảnh `screenshots/hoan-thien/huong-dan/`): bảng quyền Biên tập viên / Quản trị viên,
+thêm bài, dự án / phân khu / dòng, Nổi bật, thứ tự theo ngày đăng, Cài đặt Velis (ảnh hero, nội dung trang chủ, số điện
+thoại, con số), logo chủ đầu tư, tiêu điểm ảnh, sửa menu.
+
+## Đóng gói và cài thử từ zip
+
+| Tệp (`dist/`, không commit) | Kích thước | Nội dung |
+|---|---|---|
+| `velis-theme-1.1.0.zip` | 218 KB, 76 mục | thư mục `velis/` (slug giữ nguyên) – giống hệt bản đang chạy (so từng tệp với zip đã tải lên: 0 khác) |
+| `velis-data-0.4.0.zip` | 24 KB | thư mục `velis-data/`; không có `uninstall.php` (gỡ plugin không xóa dữ liệu) |
+
+Cài thử trên staging (người dùng duyệt trong vòng này):
+
+1. Ảnh khách 6 trang bộ CI × (1366 cả trang + iPhone 14) **trước**; ghi lại vị trí menu, Nổi bật, ngày đăng, logo, cờ ảnh, 76 ô Cài đặt Velis.
+2. Kích hoạt Twenty Twenty-Five → **xóa** theme velis (không còn trong danh sách) → tải `velis-theme-1.1.0.zip` (cài mới, không
+   có nút "ghi đè") → kích hoạt velis.
+3. Tắt + **xóa** plugin velis-data → tải `velis-data-0.4.0.zip` (cài mới) → kích hoạt (kích hoạt chỉ flush rewrite mềm, không ghi `.htaccess`).
+4. **Sau**: vị trí menu (`chinh` 83, `kham-pha` 84), Nổi bật 4 dự án, ngày đăng, 4 logo, cờ Bản gốc hỏng: **giống hệt**; Cài đặt Velis
+   76 ô: **giống hệt**. Ảnh 12 ca: 9 ca 0 px khác; 3 ca (bài TGC, The Global City, Persa Place – desktop) khác 0,26–0,93 % tại đúng
+   1 ảnh lười tải chưa kịp hiện ở một trong hai lần chụp (ô trống ↔ ảnh, `screenshots/hoan-thien/cai-zip/`) – không phải do cài lại.

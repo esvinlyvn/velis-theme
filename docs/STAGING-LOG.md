@@ -233,3 +233,14 @@ Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng th
 | Menu | tạo + gán 2 menu mới: "Velis – Menu chính" (83) → vị trí `chinh`, "Velis – Chân trang Khám phá" (84) → `kham-pha`, mục là link tùy chỉnh. Menu cũ MAIN (33), FOOTER (54) giữ nguyên, không gán. Menu không ghi `.htaccess` |
 | Theme velis 1.0.0 → **1.1.0** | **3 lần tải lên** (Giao diện → Tải lên → thay bản đang dùng): đọc Cài đặt Velis, menu theo vị trí, thứ tự mới nhất trước, dải nổi bật, logo từ ảnh đại diện; lần 2 bỏ "thẻ có ảnh trước" ở lưới; lần 3 dự án nổi bật chưa có ảnh hiện dấu Velis thay ô trống |
 | Không làm | không gửi form, không xóa gì, không đổi user |
+
+## 2026-11-11 – Vòng hoàn thiện theme (HT-2: thử vai Biên tập viên, cài thử từ zip)
+
+| Mục | Thay đổi |
+|---|---|
+| Thành viên | tạo `bien-tap-thu` (ID 4, vai Biên tập viên, email nội bộ staging; mật khẩu ngẫu nhiên chỉ ở scratchpad); đăng nhập 1 lần thành công. Sau thử: **bỏ vai trò** (không quyền) + đặt mật khẩu ngẫu nhiên mới không lưu. Không xóa user (để người dùng xóa) |
+| Nội dung thử (bằng Biên tập viên, qua wp-admin) | tạo dự án 21110 "Dự án thử Velis" (ảnh đại diện 20092 có sẵn, Nổi bật), phân khu 21112, chuyên mục 85 `du-an-thu-velis`, bài 21115; bản nháp tự động 21108, 21109, 21114. Đổi Cài đặt Velis: số điện thoại, Zalo, con số 1 |
+| Dọn | **xóa hẳn** 21115, 21114, 21108, 21112, 21110, 21109, chuyên mục 85 (chỉ dữ liệu thử vừa tạo, người dùng yêu cầu); Cài đặt Velis trả lại 76 ô như trước (lưu qua trang, so trước/sau giống hệt). Không tạo/xóa Media |
+| Theme | kích hoạt Twenty Twenty-Five → xóa velis → tải `velis-theme-1.1.0.zip` → kích hoạt velis (**2 lần**: lần 1 thiếu bằng chứng xóa, lần 2 ghi rõ: velis biến khỏi danh sách, cài mới không ghi đè). Site khách hiện Twenty Twenty-Five khoảng 1 phút mỗi lần |
+| Plugin velis-data | tắt → xóa (REST) → tải `velis-data-0.4.0.zip` → kích hoạt. ⚠ Tắt / kích hoạt plugin chạy `flush_rewrite_rules( false )` (mềm, **không ghi `.htaccess`**); kích hoạt chạy thêm `velis_seed_terms()` (chỉ thêm term thiếu – không thêm gì) |
+| Không làm | không gửi form, không đổi user khác, không sửa `.htaccess` |
