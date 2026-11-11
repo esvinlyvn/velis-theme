@@ -1,36 +1,108 @@
-/* Velis – chỉ những gì The7 Theme Options không chỉnh được. Màu, font, cỡ chữ, header, footer: The7 → Theme Options. */
+/* Velis – chỉ những gì The7 Theme Options / WPBakery không chỉnh được (docs/THE7.md "Việc The7 không có").
+   Màu, font, cỡ chữ, nút, ô nhập, thẻ, sidebar, footer, tiêu đề trang: The7 → Theme Options. Bố cục: WPBakery.
+   Đây là nơi CSS duy nhất của Velis (Custom CSS cũ "velis-ux" trong Theme Options đã gộp vào đây 2026-11-11). */
 
-/* Link (DESIGN.md "Link"): không gạch chân ở trạng thái thường. Link trong đoạn văn đỏ #C42F35 đậm 600, rê chuột hiện
-   gạch chân mảnh; link điều hướng (menu, breadcrumb, meta, footer) màu chữ phụ, rê chuột đỏ. */
+/* ── Chữ nội dung 19 px từ 1600 px (DESIGN 1.6); The7 chỉ có một cỡ "big" ── */
+@media (min-width: 1600px) { :root { --the7-text-big-font-size: 19px; --the7-text-big-line-height: 32px; } }
+
+/* ── Link (DESIGN "Link"): không gạch chân; trong đoạn văn đỏ #C42F35 đậm 600, rê chuột gạch mảnh;
+   link điều hướng (breadcrumb, meta, footer) màu chữ phụ, rê chuột đỏ ── */
 a, a:hover { text-decoration: none; }
 .entry-content p a:not(.dt-btn):not(.vc_btn3):not(.button),
 .entry-content li a:not(.dt-btn):not(.vc_btn3):not(.button),
 .wpb_text_column a:not(.dt-btn):not(.vc_btn3):not(.button),
-.entry-content td a { color: #C42F35; font-weight: 600; text-decoration: none; }
+.entry-content td a { color: #C42F35; font-weight: 600; }
 .entry-content p a:not(.dt-btn):not(.vc_btn3):not(.button):hover,
 .entry-content li a:not(.dt-btn):not(.vc_btn3):not(.button):hover,
 .wpb_text_column a:not(.dt-btn):not(.vc_btn3):not(.button):hover,
 .entry-content td a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
-.page-title .breadcrumbs a, .entry-meta a, #bottom-bar a, #footer a { text-decoration: none; }
-.page-title .breadcrumbs a:hover, .entry-meta a:hover { color: #B8282E !important; } /* !important: The7 custom CSS (UX-08) colours these with !important */
-#bottom-bar a:hover, #footer a:hover { color: #F2B8B5; }
+.page-title .breadcrumbs a:hover, .entry-meta a:hover { color: #B8282E; }
+#footer a:hover, #bottom-bar a:hover { color: #F2B8B5; }
 
-/* Số điện thoại ở header: chữ đậm, số không xuống dòng */
+/* ── Focus bàn phím (DESIGN Components: viền 2 px ink, lệch 2 px; nền tối: trắng) ── */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible,
+[tabindex]:focus-visible, [role="button"]:focus-visible { outline: 2px solid #1A1A1A; outline-offset: 2px; box-shadow: none; }
+#footer :focus-visible, #bottom-bar :focus-visible { outline-color: #FFFFFF; }
+
+/* ── Thẻ (The7 Content boxes = nền trắng, viền hairline): bóng chỉ khi rê chuột (DESIGN elevation card-hover) ── */
+.blog-shortcode article.post, .dt-css-grid article.post, .related-posts article, .velis-cards .vc_column-inner {
+	border-radius: 2px; transition: box-shadow 200ms cubic-bezier(0.2, 0.6, 0.2, 1); }
+.blog-shortcode article.post:hover, .dt-css-grid article.post:hover, .related-posts article:hover,
+.velis-cards .vc_column-inner:hover { box-shadow: 0 8px 24px rgba(20, 20, 20, 0.08); }
+
+/* ── Nhịp section 96 / 64 / 48 (WPBakery Design Options chỉ có một giá trị cho mọi khung): hàng có class velis-section ── */
+.velis-section { padding-top: 96px; padding-bottom: 0; }
+@media (max-width: 1023px) { .velis-section { padding-top: 64px; } }
+@media (max-width: 767px) { .velis-section { padding-top: 48px; } }
+.velis-hero, .velis-cta { padding: 64px 32px; }
+@media (max-width: 767px) { .velis-hero, .velis-cta { padding: 48px 16px; } }
+.velis-cta { margin-top: 96px; }
+@media (max-width: 767px) { .velis-cta { margin-top: 48px; } }
+
+/* ── Thành phần trong mẫu WPBakery (data/the7/mau-wpbakery) ── */
+.velis-eyebrow { margin: 0 0 8px; font-size: 13px; line-height: 1.4; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #5C5C5C; }
+.velis-hero h1 { margin-bottom: 16px; }
+.velis-hero .dt-btn, .velis-cta .dt-btn { margin-bottom: 16px; }
+.velis-specs .wpb_text_column { border-top: 2px solid #B08D57; padding-top: 12px; margin-bottom: 24px; }
+.velis-spec-label { margin: 0; font-size: 14px; line-height: 1.5; color: #5C5C5C; }
+.velis-spec-value { margin: 4px 0 0; font-weight: 600; color: #1A1A1A; font-variant-numeric: tabular-nums; }
+.velis-cards .wpb_text_column h3 { font-family: "Playfair Display", Georgia, serif; font-weight: 600; font-size: 22px; line-height: 1.3; }
+.velis-cards .wpb_text_column h3 a { color: #1A1A1A; font-weight: inherit; }
+.velis-cards .wpb_text_column h3 a:hover { color: #B8282E; }
+.velis-cards .vc_column-inner { border: 1px solid #E4DED5; background: #FFFFFF; padding-bottom: 8px; }
+.velis-cards .wpb_text_column { padding: 0 24px; }
+/* gạch champagne 48 px dưới tiêu đề khối (DESIGN 1.6 – dấu nhấn được giữ) */
+.velis-section h2::after { content: ""; display: block; width: 48px; height: 1px; margin-top: 24px; background: #B08D57; }
+.velis-section .vc_toggle h2::after, .velis-cta h2::after { display: none; }
+
+/* ── Bảng dữ liệu: dòng kẻ hairline, đầu bảng nền sunken; bảng thông số 2 cột xếp chồng trên mobile ── */
+.entry-content table { border-collapse: collapse; width: 100%; }
+.entry-content table td, .entry-content table th { border: 0; border-bottom: 1px solid #E4DED5; padding: 12px 16px; vertical-align: top; }
+.entry-content table th, .entry-content table thead td { background: #F2EEE8; font-weight: 600; }
+@media (max-width: 767px) {
+	#thong-so table tr { display: block; padding: 12px 0; border-bottom: 1px solid #E4DED5; }
+	#thong-so table td { display: block; border: 0; padding: 0; }
+	#thong-so table td:first-child { font-size: 14px; color: #5C5C5C; }
+}
+
+/* ── Hỏi đáp (vc_toggle kiểu "arrow"): câu hỏi đậm 600 màu ink, 19 px (H3 thay H4 cũ – UX-21) ── */
+.vc_toggle_title > h3, .vc_toggle_title > h4, .vc_toggle_title > h3.vc_custom_heading { font-size: 19px; line-height: 1.4; font-weight: 600; color: #1A1A1A; margin: 0; }
+.vc_toggle { border-bottom: 1px solid #E4DED5; padding: 16px 0; margin: 0; }
+.vc_toggle .vc_toggle_content { background: transparent; }
+.vc_toggle .vc_toggle_icon { background: transparent; border: 1px solid #C9C1B5; border-radius: 2px; }
+.vc_toggle .vc_toggle_icon::before, .vc_toggle .vc_toggle_icon::after { background: #1A1A1A; border-color: #1A1A1A; }
+
+/* ── Mục lục Easy TOC: cùng chữ và nền với hệ thống ── */
+#ez-toc-container { background: #FAF7F2; border: 1px solid #E4DED5; border-radius: 2px; box-shadow: none; padding: 16px 24px; }
+#ez-toc-container .ez-toc-title { font-size: 16px; font-weight: 600; color: #1A1A1A; }
+#ez-toc-container nav a { font-size: 16px; font-weight: 400; color: #1A1A1A; }
+
+/* ── Trang 404 (trang mẫu 20536, gán ở The7 → Archives and 404): ô tìm + link đi tiếp theo chuẩn nút/ô nhập ── */
+.error404 .velis-404-msg { max-width: 640px; margin: 0 0 24px; }
+.velis-404-search { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; max-width: 560px; }
+.velis-404-search label { grid-column: 1 / -1; font-weight: 600; line-height: 24px; }
+.velis-404-search input[type="search"] { width: 100%; min-width: 0; height: 48px; margin: 0; box-sizing: border-box; }
+.velis-404-search button { height: 48px; padding: 0 28px; white-space: nowrap; font: 600 16px/48px "Be Vietnam Pro", Arial, sans-serif; background: #B8282E; color: #FFFFFF; border: 0; border-radius: 2px; cursor: pointer; }
+.velis-404-search button:hover { background: #9E1F26; }
+.velis-404-links { display: flex; flex-wrap: wrap; gap: 16px; margin: 24px 0 0; }
+.velis-404-links a { display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border: 1px solid #1A1A1A; border-radius: 2px; color: #1A1A1A; font-weight: 600; }
+.velis-404-links a:hover { background: #1A1A1A; color: #FFFFFF; }
+
+/* ── Sửa lỗi The7 (gộp từ Custom CSS cũ) ── */
+/* UX-01: giữ khe 15 px cho cột WPBakery khi bật responsive */
+@media (min-width: 768px) { body .vc_row .vc_column_container[class*="vc_col-sm-"] { padding-left: 15px; padding-right: 15px; } }
+/* UX-16: giữ chỗ 70 px cho header thu gọn trước khi JS The7 dựng .mobile-header-bar (tránh xô nội dung) */
+@media (max-width: 1000px) { .masthead.inline-header:not(.masthead-mobile-header) { min-height: 70px; } }
+/* UX-15: vùng bấm ≥ 24 px cho link meta, breadcrumb (WCAG 2.5.8); nút nổi Buttonizer 48 px (giữ tới khi có thanh CTA) */
+.entry-meta a, .page-title .breadcrumbs a { display: inline-block; min-height: 24px; line-height: 24px; }
+.buttonizer-group .buttonizer-button { width: 48px !important; height: 48px !important; min-width: 48px !important; min-height: 48px !important; } /* !important: Buttonizer đặt cỡ inline */
+/* UX-04: menu mobile đang đóng không nhận Tab; select thu gọn của menu cuối trang ẩn hẳn */
+body:not(.show-overlay-mobile-header) .dt-mobile-header { visibility: hidden; transition: right .5s, visibility 0s linear .5s; }
+body.show-overlay-mobile-header .dt-mobile-header { visibility: visible; transition: right .5s, visibility 0s; }
+#bottom-bar .menu-select { display: none !important; } /* !important: The7 hiện select bằng JS */
 .masthead .mini-contacts.phone { white-space: nowrap; font-weight: 600; }
 
-/* Mẫu WPBakery (data/the7/mau-wpbakery): chỉ kiểu chữ của vài class gắn trong mẫu. Nền, khoảng cách hàng: Design Options
-   của từng hàng trong WPBakery (người dùng tự đổi được). */
-.velis-eyebrow { margin: 0 0 8px; font-size: 14px; line-height: 20px; font-weight: 600; color: #5C5C5C; }
-.velis-hero h1 { margin-bottom: 16px; }
-.velis-specs .wpb_text_column { border-top: 2px solid #B8282E; padding-top: 12px; margin-bottom: 24px; }
-.velis-spec-label { margin: 0; font-size: 14px; line-height: 20px; color: #5C5C5C; }
-.velis-spec-value { margin: 4px 0 0; font-weight: 600; color: #1A1A1A; }
-.velis-cards .wpb_text_column h3 a { color: #1A1A1A; font-weight: inherit; }
-.velis-cards .wpb_text_column h3 a:hover { color: #B8282E; text-decoration: none; }
-.velis-hero .dt-btn, .velis-cta .dt-btn { margin-bottom: 16px; }
+/* ── Tốc độ (bước 4): lưới masonry hiện ngay trên điện thoại, không chờ JS isotope (LCP) ── */
+@media (max-width: 767px) { .iso-container > .wf-cell.iso-item { opacity: 1; } }
 
-/* Tốc độ (bước 4): lưới bài kiểu masonry (chuyên mục, lưu trữ) ẩn ô tới khi JS isotope chạy → ảnh đầu (LCP) hiện muộn.
-   Trên điện thoại lưới chỉ 1 cột nên hiện ngay, không chờ JS (không xê dịch vì vị trí không đổi). */
-@media (max-width: 767px) {
-	.iso-container > .wf-cell.iso-item { opacity: 1; }
-}
+@media (prefers-reduced-motion: reduce) { .blog-shortcode article.post, .dt-css-grid article.post, .related-posts article, .velis-cards .vc_column-inner { transition: none; } }
