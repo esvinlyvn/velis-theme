@@ -1,0 +1,2259 @@
+{
+ "ngay": "2026-11-11",
+ "nguon": "staging.velisrealty.vn, khách xem (mật khẩu xem), Playwright Chromium, UA Chrome desktop 1366 / Android 390, cuộn hết trang",
+ "trang": [
+  [
+   "trang-chu",
+   "/"
+  ],
+  [
+   "blog",
+   "/blog/"
+  ],
+  [
+   "blog-bds",
+   "/blog-bds/"
+  ],
+  [
+   "danh-muc-palm-city",
+   "/blog-bds/blog-palm-city/"
+  ],
+  [
+   "bai-dong-von",
+   "/su-dich-chuyen-dong-von-dau-tu-tu-loi-trung-tam-ve-nam-rach-chiec/"
+  ],
+  [
+   "bai-huong-viet",
+   "/huong-viet-holdings-la-ai/"
+  ],
+  [
+   "bai-ban-giao",
+   "/tieu-chuan-ban-giao-persa-place-gamuda-land/"
+  ],
+  [
+   "da-persa",
+   "/can-ho-persa-place/"
+  ],
+  [
+   "da-global-city",
+   "/the-global-city/"
+  ],
+  [
+   "da-palm-river",
+   "/can-ho-palm-river/"
+  ],
+  [
+   "cdt-gamuda",
+   "/du-an/gamuda-land/"
+  ],
+  [
+   "cdt-vinhomes",
+   "/du-an/vinhomes/"
+  ],
+  [
+   "gioi-thieu",
+   "/gioi-thieu/"
+  ],
+  [
+   "tuyen-dung",
+   "/tuyen-dung/"
+  ],
+  [
+   "lien-he",
+   "/lien-he/"
+  ],
+  [
+   "404",
+   "/khong-ton-tai-kiem-ke-ui/"
+  ],
+  [
+   "tim-kiem",
+   "/?s=palm+river"
+  ]
+ ],
+ "mau": [
+  {
+   "prop": "text",
+   "color": "#6E6F75",
+   "tok": "body-muted",
+   "de": 8.6,
+   "n": 447,
+   "pages": 17,
+   "src": {
+    "wpbakery": 313,
+    "ultimate": 103,
+    "page-title": 31
+   },
+   "ex": [
+    "trang-chu: a@wpbakery",
+    "blog: span@page-title",
+    "blog-bds: span@page-title"
+   ]
+  },
+  {
+   "prop": "bg",
+   "color": "#AE0003",
+   "tok": "error",
+   "de": 10.8,
+   "n": 34,
+   "pages": 17,
+   "src": {
+    "buttonizer": 34
+   },
+   "ex": [
+    "trang-chu: a.buttonizer-closed-0-0-18.buttonizer-button@buttonizer",
+    "blog: a.buttonizer-closed-0-0-18.buttonizer-button@buttonizer",
+    "blog-bds: a.buttonizer-closed-0-0-18.buttonizer-button@buttonizer"
+   ]
+  },
+  {
+   "prop": "bg",
+   "color": "#6272FF",
+   "tok": "body-muted",
+   "de": 81.9,
+   "n": 34,
+   "pages": 17,
+   "src": {
+    "buttonizer": 34
+   },
+   "ex": [
+    "trang-chu: a.buttonizer-closed-0-0-25.buttonizer-button@buttonizer",
+    "blog: a.buttonizer-closed-0-0-25.buttonizer-button@buttonizer",
+    "blog-bds: a.buttonizer-closed-0-0-25.buttonizer-button@buttonizer"
+   ]
+  },
+  {
+   "prop": "border",
+   "color": "#333333@0.12",
+   "tok": "ink",
+   "de": 12.0,
+   "n": 232,
+   "pages": 14,
+   "src": {
+    "footer": 208,
+    "cf7": 16,
+    "wpbakery": 4,
+    "ultimate": 4
+   },
+   "ex": [
+    "trang-chu: input.wpcf7-form-control.wpcf7-text@footer",
+    "blog: input.wpcf7-form-control.wpcf7-text@footer",
+    "bai-dong-von: input.wpcf7-form-control.wpcf7-text@footer"
+   ]
+  },
+  {
+   "prop": "text",
+   "color": "#6D6D6D",
+   "tok": "body-muted",
+   "de": 7.0,
+   "n": 208,
+   "pages": 13,
+   "src": {
+    "footer": 208
+   },
+   "ex": [
+    "trang-chu: p@footer",
+    "blog: p@footer",
+    "bai-dong-von: p@footer"
+   ]
+  },
+  {
+   "prop": "border",
+   "color": "#ACACAC",
+   "tok": "on-dark-muted",
+   "de": 4.8,
+   "n": 160,
+   "pages": 5,
+   "src": {
+    "wpbakery": 120,
+    "ultimate": 40
+   },
+   "ex": [
+    "da-persa: i.vc_toggle_icon@wpbakery",
+    "da-global-city: i.vc_toggle_icon@wpbakery",
+    "da-palm-river: i.vc_toggle_icon@wpbakery"
+   ]
+  },
+  {
+   "prop": "border",
+   "color": "#F4524D",
+   "tok": "red-link",
+   "de": 14.7,
+   "n": 46,
+   "pages": 3,
+   "src": {
+    "inline": 46
+   },
+   "ex": [
+    "da-global-city: span.vc_sep_line@inline",
+    "da-palm-river: span.vc_sep_line@inline",
+    "cdt-vinhomes: span.vc_sep_line@inline"
+   ]
+  },
+  {
+   "prop": "text",
+   "color": "#444444",
+   "tok": "body-muted",
+   "de": 10.2,
+   "n": 32,
+   "pages": 3,
+   "src": {
+    "wpbakery": 32
+   },
+   "ex": [
+    "bai-dong-von: a.ez-toc-link.ez-toc-heading-1@wpbakery",
+    "bai-huong-viet: a.ez-toc-link.ez-toc-heading-1@wpbakery",
+    "bai-ban-giao: a.ez-toc-link.ez-toc-heading-1@wpbakery"
+   ]
+  },
+  {
+   "prop": "border",
+   "color": "#AAAAAA",
+   "tok": "on-dark-muted",
+   "de": 5.5,
+   "n": 24,
+   "pages": 3,
+   "src": {
+    "wpbakery": 24
+   },
+   "ex": [
+    "bai-dong-von: div#ez-toc-container.ez-toc-v2_0_89.counter-hierarchy@wpbakery",
+    "bai-huong-viet: div#ez-toc-container.ez-toc-v2_0_89.counter-hierarchy@wpbakery",
+    "bai-ban-giao: div#ez-toc-container.ez-toc-v2_0_89.counter-hierarchy@wpbakery"
+   ]
+  },
+  {
+   "prop": "border",
+   "color": "#999191",
+   "tok": "on-dark-muted",
+   "de": 14.6,
+   "n": 24,
+   "pages": 3,
+   "src": {
+    "wpbakery": 24
+   },
+   "ex": [
+    "bai-dong-von: span.ez-toc-js-icon-con@wpbakery",
+    "bai-huong-viet: span.ez-toc-js-icon-con@wpbakery",
+    "bai-ban-giao: span.ez-toc-js-icon-con@wpbakery"
+   ]
+  },
+  {
+   "prop": "text",
+   "color": "#DD3333",
+   "tok": "red-link",
+   "de": 11.5,
+   "n": 16,
+   "pages": 1,
+   "src": {
+    "inline": 16
+   },
+   "ex": [
+    "trang-chu: div#counter_29431281536af4622fbec21.stats-number.ult-responsive@inline",
+    "trang-chu: div#counter_527849466af462bc2114b.stats-number.ult-responsive@inline"
+   ]
+  },
+  {
+   "prop": "border",
+   "color": "#E0E0E0",
+   "tok": "hairline",
+   "de": 5.2,
+   "n": 8,
+   "pages": 1,
+   "src": {
+    "inline": 8
+   },
+   "ex": [
+    "lien-he: div@inline",
+    "lien-he: div@inline"
+   ]
+  },
+  {
+   "prop": "border",
+   "color": "#DDDDDD",
+   "tok": "hairline",
+   "de": 5.2,
+   "n": 8,
+   "pages": 1,
+   "src": {
+    "wpbakery": 8
+   },
+   "ex": [
+    "lien-he: hr@wpbakery",
+    "lien-he: hr@wpbakery"
+   ]
+  },
+  {
+   "prop": "bg",
+   "color": "#EDEDED",
+   "tok": "surface-sunken",
+   "de": 3.4,
+   "n": 4,
+   "pages": 1,
+   "src": {
+    "wpbakery": 4
+   },
+   "ex": [
+    "trang-chu: section.vc_section.vc_custom_1775963740230@wpbakery",
+    "trang-chu: section.vc_section.vc_custom_1775963740230@wpbakery"
+   ]
+  },
+  {
+   "prop": "text",
+   "color": "#2C3E50",
+   "tok": "body-muted",
+   "de": 19.0,
+   "n": 4,
+   "pages": 1,
+   "src": {
+    "inline": 4
+   },
+   "ex": [
+    "lien-he: h2@inline",
+    "lien-he: h2@inline"
+   ]
+  },
+  {
+   "prop": "bg",
+   "color": "#474545",
+   "tok": "body-muted",
+   "de": 9.6,
+   "n": 2,
+   "pages": 1,
+   "src": {
+    "wpbakery": 2
+   },
+   "ex": [
+    "trang-chu: section.vc_section.vc_custom_1775962875977@wpbakery",
+    "trang-chu: section.vc_section.vc_custom_1775962875977@wpbakery"
+   ]
+  },
+  {
+   "prop": "bg",
+   "color": "#E74C3C",
+   "tok": "red-link",
+   "de": 13.9,
+   "n": 2,
+   "pages": 1,
+   "src": {
+    "inline": 2
+   },
+   "ex": [
+    "da-palm-river: div#highlight-box-wrap-8970.ultimate-call-to-action.ult-adjust-bottom-margin@inline",
+    "da-palm-river: div#highlight-box-wrap-5724.ultimate-call-to-action.ult-adjust-bottom-margin@inline"
+   ]
+  },
+  {
+   "prop": "text",
+   "color": "#FFFF8D",
+   "tok": "champagne-light",
+   "de": 43.4,
+   "n": 2,
+   "pages": 1,
+   "src": {
+    "ultimate": 2
+   },
+   "ex": [
+    "da-palm-river: p@ultimate",
+    "da-palm-river: p@ultimate"
+   ]
+  },
+  {
+   "prop": "bg",
+   "color": "#EFEFEF",
+   "tok": "surface-sunken",
+   "de": 3.4,
+   "n": 2,
+   "pages": 1,
+   "src": {
+    "inline": 2
+   },
+   "ex": [
+    "cdt-vinhomes: div.upb_row_bg@inline",
+    "cdt-vinhomes: div.upb_row_bg@inline"
+   ]
+  },
+  {
+   "prop": "text",
+   "color": "#1A1A1A",
+   "tok": "ink",
+   "de": 0.0,
+   "n": 3016,
+   "pages": 17,
+   "src": {
+    "wpbakery": 2702,
+    "ultimate": 196,
+    "page-title": 50,
+    "header": 34
+   },
+   "ex": [
+    "trang-chu: a.mini-contacts.phone@header",
+    "blog: a.mini-contacts.phone@header",
+    "blog-bds: a.mini-contacts.phone@header"
+   ]
+  },
+  {
+   "prop": "text",
+   "color": "#B9B9B9",
+   "tok": "on-dark-muted",
+   "de": 0.0,
+   "n": 170,
+   "pages": 17,
+   "src": {
+    "footer": 170
+   },
+   "ex": [
+    "trang-chu: span.menu-text@footer",
+    "blog: span.menu-text@footer",
+    "blog-bds: span.menu-text@footer"
+   ]
+  },
+  {
+   "prop": "bg",
+   "color": "#FFFFFF",
+   "tok": "surface",
+   "de": 0.0,
+   "n": 133,
+   "pages": 17,
+   "src": {
+    "footer": 52,
+    "wpbakery": 36,
+    "header": 35,
+    "ultimate": 6
+   },
+   "ex": [
+    "trang-chu: div#page.closed-mobile-header@wpbakery",
+    "blog: div#page.closed-mobile-header@wpbakery",
+    "blog-bds: div#page.closed-mobile-header@wpbakery"
+   ]
+  },
+  {
+   "prop": "text",
+   "color": "#5C5C5C",
+   "tok": "body-muted",
+   "de": 0.0,
+   "n": 132,
+   "pages": 17,
+   "src": {
+    "header": 120,
+    "wpbakery": 12
+   },
+   "ex": [
+    "trang-chu: span.menu-text@header",
+    "blog: span.menu-text@header",
+    "blog-bds: span.menu-text@header"
+   ]
+  },
+  {
+   "prop": "text",
+   "color": "#FFFFFF",
+   "tok": "surface",
+   "de": 0.0,
+   "n": 50,
+   "pages": 17,
+   "src": {
+    "header": 26,
+    "ultimate": 21,
+    "inline": 2,
+    "wpbakery": 1
+   },
+   "ex": [
+    "trang-chu: span@header",
+    "blog: span@header",
+    "blog-bds: span@header"
+   ]
+  },
+  {
+   "prop": "bg",
+   "color": "#F4F4F4",
+   "tok": "canvas",
+   "de": 3.0,
+   "n": 34,
+   "pages": 17,
+   "src": {
+    "footer": 34
+   },
+   "ex": [
+    "trang-chu: footer#footer.footer.solid-bg@footer",
+    "blog: footer#footer.footer.solid-bg@footer",
+    "blog-bds: footer#footer.footer.solid-bg@footer"
+   ]
+  },
+  {
+   "prop": "bg",
+   "color": "#1A1A1A",
+   "tok": "ink",
+   "de": 0.0,
+   "n": 34,
+   "pages": 17,
+   "src": {
+    "footer": 34
+   },
+   "ex": [
+    "trang-chu: div#bottom-bar.solid-bg.logo-left@footer",
+    "blog: div#bottom-bar.solid-bg.logo-left@footer",
+    "blog-bds: div#bottom-bar.solid-bg.logo-left@footer"
+   ]
+  },
+  {
+   "prop": "bg",
+   "color": "#B8282E",
+   "tok": "velis-red",
+   "de": 0.0,
+   "n": 50,
+   "pages": 14,
+   "src": {
+    "footer": 26,
+    "ultimate": 21,
+    "cf7": 2,
+    "wpbakery": 1
+   },
+   "ex": [
+    "trang-chu: a#default-btn-7ed2edc712d0bf843af059529e268db9.default-btn-shortcode.dt-btn@ultimate",
+    "blog: input.wpcf7-form-control.wpcf7-submit@footer",
+    "bai-dong-von: input.wpcf7-form-control.wpcf7-submit@footer"
+   ]
+  },
+  {
+   "prop": "text",
+   "color": "#0A0A0A",
+   "tok": "surface-dark",
+   "de": 2.3,
+   "n": 52,
+   "pages": 13,
+   "src": {
+    "footer": 52
+   },
+   "ex": [
+    "trang-chu: div.widget-title@footer",
+    "blog: div.widget-title@footer",
+    "bai-dong-von: div.widget-title@footer"
+   ]
+  },
+  {
+   "prop": "bg",
+   "color": "#FAF7F2",
+   "tok": "canvas",
+   "de": 0.0,
+   "n": 32,
+   "pages": 13,
+   "src": {
+    "page-title": 22,
+    "wpbakery": 10
+   },
+   "ex": [
+    "blog: div.page-title.title-center@page-title",
+    "blog-bds: div.page-title.title-center@page-title",
+    "danh-muc-palm-city: div.page-title.title-center@page-title"
+   ]
+  },
+  {
+   "prop": "text",
+   "color": "#C42F35",
+   "tok": "red-link",
+   "de": 0.0,
+   "n": 114,
+   "pages": 10,
+   "src": {
+    "wpbakery": 111,
+    "inline": 2,
+    "ultimate": 1
+   },
+   "ex": [
+    "bai-dong-von: a@wpbakery",
+    "bai-huong-viet: strong@wpbakery",
+    "bai-ban-giao: a@wpbakery"
+   ]
+  },
+  {
+   "prop": "bg",
+   "color": "#F5F5F5",
+   "tok": "canvas",
+   "de": 2.9,
+   "n": 176,
+   "pages": 7,
+   "src": {
+    "wpbakery": 139,
+    "ultimate": 37
+   },
+   "ex": [
+    "trang-chu: article.post.project-odd@wpbakery",
+    "blog: article.post.project-odd@wpbakery",
+    "blog-bds: article.post.post-20468@wpbakery"
+   ]
+  },
+  {
+   "prop": "text",
+   "color": "#B8282E",
+   "tok": "velis-red",
+   "de": 0.0,
+   "n": 22,
+   "pages": 7,
+   "src": {
+    "header": 14,
+    "wpbakery": 4,
+    "ultimate": 4
+   },
+   "ex": [
+    "blog: span.menu-text@header",
+    "cdt-gamuda: span.menu-text@header",
+    "cdt-vinhomes: span.menu-text@header"
+   ]
+  },
+  {
+   "prop": "border",
+   "color": "#E4DED5",
+   "tok": "hairline",
+   "de": 0.0,
+   "n": 288,
+   "pages": 6,
+   "src": {
+    "wpbakery": 288
+   },
+   "ex": [
+    "bai-dong-von: div.single-related-posts@wpbakery",
+    "bai-huong-viet: div.single-related-posts@wpbakery",
+    "bai-ban-giao: table@wpbakery"
+   ]
+  },
+  {
+   "prop": "text",
+   "color": "#1A1A1A@0.50",
+   "tok": "ink",
+   "de": 0.0,
+   "n": 62,
+   "pages": 6,
+   "src": {
+    "wpbakery": 62
+   },
+   "ex": [
+    "bai-dong-von: time.text-secondary@wpbakery",
+    "bai-huong-viet: time.text-secondary@wpbakery",
+    "bai-ban-giao: time.text-secondary@wpbakery"
+   ]
+  },
+  {
+   "prop": "bg",
+   "color": "#BABABA",
+   "tok": "on-dark-muted",
+   "de": 0.4,
+   "n": 40,
+   "pages": 5,
+   "src": {
+    "wpbakery": 30,
+    "ultimate": 10
+   },
+   "ex": [
+    "da-persa: i.vc_toggle_icon@wpbakery",
+    "da-global-city: i.vc_toggle_icon@wpbakery",
+    "da-palm-river: i.vc_toggle_icon@wpbakery"
+   ]
+  },
+  {
+   "prop": "bg",
+   "color": "#F9F9F9",
+   "tok": "surface",
+   "de": 2.1,
+   "n": 8,
+   "pages": 4,
+   "src": {
+    "wpbakery": 6,
+    "inline": 2
+   },
+   "ex": [
+    "bai-dong-von: div#ez-toc-container.ez-toc-v2_0_89.counter-hierarchy@wpbakery",
+    "bai-huong-viet: div#ez-toc-container.ez-toc-v2_0_89.counter-hierarchy@wpbakery",
+    "bai-ban-giao: div#ez-toc-container.ez-toc-v2_0_89.counter-hierarchy@wpbakery"
+   ]
+  },
+  {
+   "prop": "border",
+   "color": "#B8282E",
+   "tok": "velis-red",
+   "de": 0.0,
+   "n": 40,
+   "pages": 2,
+   "src": {
+    "wpbakery": 24,
+    "ultimate": 16
+   },
+   "ex": [
+    "da-persa: div.wpb_text_column.wpb_content_element@wpbakery",
+    "404: a@wpbakery",
+    "da-persa: div.wpb_text_column.wpb_content_element@wpbakery"
+   ]
+  }
+ ],
+ "chu": {
+  "1366:h1": [
+   {
+    "style": "Playfair Display 600 44px/52px #1A1A1A",
+    "n": 11,
+    "pages": [
+     "404",
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet",
+     "blog",
+     "blog-bds",
+     "danh-muc-palm-city",
+     "gioi-thieu",
+     "lien-he",
+     "tim-kiem",
+     "tuyen-dung"
+    ]
+   },
+   {
+    "style": "Playfair Display 600 56px/62px #1A1A1A",
+    "n": 6,
+    "pages": [
+     "cdt-gamuda",
+     "cdt-vinhomes",
+     "da-global-city",
+     "da-palm-river",
+     "da-persa",
+     "trang-chu"
+    ]
+   }
+  ],
+  "1366:h2": [
+   {
+    "style": "Playfair Display 600 40px/48px #1A1A1A",
+    "n": 74,
+    "pages": [
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet",
+     "cdt-gamuda",
+     "cdt-vinhomes",
+     "da-global-city",
+     "da-palm-river",
+     "da-persa",
+     "gioi-thieu",
+     "lien-he",
+     "trang-chu",
+     "tuyen-dung"
+    ]
+   },
+   {
+    "style": "Playfair Display 600 40px/48px #2C3E50",
+    "n": 1,
+    "pages": [
+     "lien-he"
+    ]
+   }
+  ],
+  "1366:h3": [
+   {
+    "style": "Be Vietnam Pro 600 22px/29px #1A1A1A",
+    "n": 82,
+    "pages": [
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet",
+     "cdt-gamuda",
+     "cdt-vinhomes",
+     "da-global-city",
+     "da-palm-river",
+     "da-persa",
+     "gioi-thieu"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 700 22px/29px #1A1A1A",
+    "n": 54,
+    "pages": [
+     "blog",
+     "cdt-gamuda",
+     "cdt-vinhomes"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 600 19px/26px #1A1A1A",
+    "n": 22,
+    "pages": [
+     "blog-bds",
+     "danh-muc-palm-city",
+     "tim-kiem"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 700 19px/26px #1A1A1A",
+    "n": 15,
+    "pages": [
+     "trang-chu"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 600 20px/30px #1A1A1A",
+    "n": 5,
+    "pages": [
+     "cdt-vinhomes"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 600 22px/29px #2C3E50",
+    "n": 1,
+    "pages": [
+     "lien-he"
+    ]
+   }
+  ],
+  "1366:h4": [
+   {
+    "style": "Be Vietnam Pro 600 19px/26px #1A1A1A",
+    "n": 31,
+    "pages": [
+     "cdt-gamuda",
+     "da-global-city",
+     "da-palm-river",
+     "da-persa"
+    ]
+   }
+  ],
+  "1366:p": [
+   {
+    "style": "Be Vietnam Pro 400 19px/30px #1A1A1A",
+    "n": 108,
+    "pages": [
+     "404",
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet",
+     "blog",
+     "blog-bds",
+     "cdt-gamuda",
+     "cdt-vinhomes",
+     "da-global-city",
+     "da-palm-river",
+     "da-persa",
+     "danh-muc-palm-city",
+     "gioi-thieu",
+     "lien-he",
+     "tim-kiem",
+     "trang-chu",
+     "tuyen-dung"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 500 22.8px/33.06px #1A1A1A",
+    "n": 3,
+    "pages": [
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 600 14px/20px #5C5C5C",
+    "n": 2,
+    "pages": [
+     "cdt-gamuda",
+     "da-persa"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 400 14px/20px #5C5C5C",
+    "n": 2,
+    "pages": [
+     "da-persa"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 600 19px/30px #1A1A1A",
+    "n": 2,
+    "pages": [
+     "da-persa"
+    ]
+   },
+   {
+    "style": "Roboto 400 20px/28px #FFFF8D",
+    "n": 1,
+    "pages": [
+     "da-palm-river"
+    ]
+   }
+  ],
+  "1366:li": [
+   {
+    "style": "Be Vietnam Pro 400 19px/30px #1A1A1A",
+    "n": 41,
+    "pages": [
+     "bai-huong-viet",
+     "cdt-gamuda",
+     "cdt-vinhomes",
+     "da-global-city",
+     "da-palm-river",
+     "da-persa",
+     "gioi-thieu",
+     "lien-he",
+     "tuyen-dung"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 500 18.05px/28.88px #1A1A1A",
+    "n": 12,
+    "pages": [
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 500 16.245px/25.992px #1A1A1A",
+    "n": 2,
+    "pages": [
+     "bai-dong-von"
+    ]
+   }
+  ],
+  "1366:a": [
+   {
+    "style": "Be Vietnam Pro 600 19px/30px #C42F35",
+    "n": 28,
+    "pages": [
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet",
+     "cdt-gamuda",
+     "cdt-vinhomes",
+     "da-global-city",
+     "da-palm-river",
+     "da-persa",
+     "tuyen-dung"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 400 19px/0px #C42F35",
+    "n": 20,
+    "pages": [
+     "blog-bds",
+     "danh-muc-palm-city",
+     "tim-kiem"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 600 16px/18px #FFFFFF",
+    "n": 2,
+    "pages": [
+     "trang-chu"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 600 14px/20px #C42F35",
+    "n": 1,
+    "pages": [
+     "da-persa"
+    ]
+   },
+   {
+    "style": "Arial 600 19px/30px #C42F35",
+    "n": 1,
+    "pages": [
+     "lien-he"
+    ]
+   }
+  ],
+  "390:h1": [
+   {
+    "style": "Playfair Display 600 28px/34px #1A1A1A",
+    "n": 11,
+    "pages": [
+     "404",
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet",
+     "blog",
+     "blog-bds",
+     "danh-muc-palm-city",
+     "gioi-thieu",
+     "lien-he",
+     "tim-kiem",
+     "tuyen-dung"
+    ]
+   },
+   {
+    "style": "Playfair Display 600 36px/40px #1A1A1A",
+    "n": 6,
+    "pages": [
+     "cdt-gamuda",
+     "cdt-vinhomes",
+     "da-global-city",
+     "da-palm-river",
+     "da-persa",
+     "trang-chu"
+    ]
+   }
+  ],
+  "390:h2": [
+   {
+    "style": "Playfair Display 600 28px/34px #1A1A1A",
+    "n": 74,
+    "pages": [
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet",
+     "cdt-gamuda",
+     "cdt-vinhomes",
+     "da-global-city",
+     "da-palm-river",
+     "da-persa",
+     "gioi-thieu",
+     "lien-he",
+     "trang-chu",
+     "tuyen-dung"
+    ]
+   },
+   {
+    "style": "Playfair Display 600 28px/34px #2C3E50",
+    "n": 1,
+    "pages": [
+     "lien-he"
+    ]
+   }
+  ],
+  "390:h3": [
+   {
+    "style": "Be Vietnam Pro 600 20px/26px #1A1A1A",
+    "n": 82,
+    "pages": [
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet",
+     "cdt-gamuda",
+     "cdt-vinhomes",
+     "da-global-city",
+     "da-palm-river",
+     "da-persa",
+     "gioi-thieu"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 700 20px/26px #1A1A1A",
+    "n": 54,
+    "pages": [
+     "blog",
+     "cdt-gamuda",
+     "cdt-vinhomes"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 600 19px/26px #1A1A1A",
+    "n": 22,
+    "pages": [
+     "blog-bds",
+     "danh-muc-palm-city",
+     "tim-kiem"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 700 19px/26px #1A1A1A",
+    "n": 15,
+    "pages": [
+     "trang-chu"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 600 20px/30px #1A1A1A",
+    "n": 5,
+    "pages": [
+     "cdt-vinhomes"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 600 20px/26px #2C3E50",
+    "n": 1,
+    "pages": [
+     "lien-he"
+    ]
+   }
+  ],
+  "390:h4": [
+   {
+    "style": "Be Vietnam Pro 600 19px/26px #1A1A1A",
+    "n": 31,
+    "pages": [
+     "cdt-gamuda",
+     "da-global-city",
+     "da-palm-river",
+     "da-persa"
+    ]
+   }
+  ],
+  "390:p": [
+   {
+    "style": "Be Vietnam Pro 400 19px/30px #1A1A1A",
+    "n": 108,
+    "pages": [
+     "404",
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet",
+     "blog",
+     "blog-bds",
+     "cdt-gamuda",
+     "cdt-vinhomes",
+     "da-global-city",
+     "da-palm-river",
+     "da-persa",
+     "danh-muc-palm-city",
+     "gioi-thieu",
+     "lien-he",
+     "tim-kiem",
+     "trang-chu",
+     "tuyen-dung"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 500 22.8px/33.06px #1A1A1A",
+    "n": 3,
+    "pages": [
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 600 14px/20px #5C5C5C",
+    "n": 2,
+    "pages": [
+     "cdt-gamuda",
+     "da-persa"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 400 14px/20px #5C5C5C",
+    "n": 2,
+    "pages": [
+     "da-persa"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 600 19px/30px #1A1A1A",
+    "n": 2,
+    "pages": [
+     "da-persa"
+    ]
+   },
+   {
+    "style": "Roboto 400 20px/28px #FFFF8D",
+    "n": 1,
+    "pages": [
+     "da-palm-river"
+    ]
+   }
+  ],
+  "390:li": [
+   {
+    "style": "Be Vietnam Pro 400 19px/30px #1A1A1A",
+    "n": 41,
+    "pages": [
+     "bai-huong-viet",
+     "cdt-gamuda",
+     "cdt-vinhomes",
+     "da-global-city",
+     "da-palm-river",
+     "da-persa",
+     "gioi-thieu",
+     "lien-he",
+     "tuyen-dung"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 500 18.05px/28.88px #1A1A1A",
+    "n": 12,
+    "pages": [
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 500 16.245px/25.992px #1A1A1A",
+    "n": 2,
+    "pages": [
+     "bai-dong-von"
+    ]
+   }
+  ],
+  "390:a": [
+   {
+    "style": "Be Vietnam Pro 600 19px/30px #C42F35",
+    "n": 28,
+    "pages": [
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet",
+     "cdt-gamuda",
+     "cdt-vinhomes",
+     "da-global-city",
+     "da-palm-river",
+     "da-persa",
+     "tuyen-dung"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 400 19px/0px #C42F35",
+    "n": 20,
+    "pages": [
+     "blog-bds",
+     "danh-muc-palm-city",
+     "tim-kiem"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 600 16px/18px #FFFFFF",
+    "n": 2,
+    "pages": [
+     "trang-chu"
+    ]
+   },
+   {
+    "style": "Be Vietnam Pro 600 14px/20px #C42F35",
+    "n": 1,
+    "pages": [
+     "da-persa"
+    ]
+   },
+   {
+    "style": "Arial 600 19px/30px #C42F35",
+    "n": 1,
+    "pages": [
+     "lien-he"
+    ]
+   }
+  ]
+ },
+ "thanh_phan": {
+  "buttons": [
+   {
+    "src": "header",
+    "bg": null,
+    "color": "#C42F35",
+    "border": "0px #C42F35",
+    "radius": "2px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "15px",
+    "fw": "600",
+    "h": 43,
+    "n": 26,
+    "pages": [
+     "404",
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet",
+     "blog",
+     "blog-bds",
+     "cdt-gamuda",
+     "cdt-vinhomes",
+     "da-global-city",
+     "da-palm-river",
+     "da-persa",
+     "danh-muc-palm-city",
+     "gioi-thieu",
+     "lien-he",
+     "tim-kiem",
+     "trang-chu",
+     "tuyen-dung"
+    ]
+   },
+   {
+    "src": "buttonizer",
+    "bg": "#AE0003",
+    "color": "#FFFFFF",
+    "border": "0px #FFFFFF",
+    "radius": "30%",
+    "shadow": "rgba(100, 0, 0, 0.47) 0px 2px 6px 1px",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 48,
+    "n": 17,
+    "pages": [
+     "404",
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet",
+     "blog",
+     "blog-bds",
+     "cdt-gamuda",
+     "cdt-vinhomes",
+     "da-global-city",
+     "da-palm-river",
+     "da-persa",
+     "danh-muc-palm-city",
+     "gioi-thieu",
+     "lien-he",
+     "tim-kiem",
+     "trang-chu",
+     "tuyen-dung"
+    ]
+   },
+   {
+    "src": "buttonizer",
+    "bg": "#6272FF",
+    "color": "#FFFFFF",
+    "border": "0px #FFFFFF",
+    "radius": "30%",
+    "shadow": "rgba(100, 0, 0, 0.47) 0px 2px 6px 1px",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 48,
+    "n": 17,
+    "pages": [
+     "404",
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet",
+     "blog",
+     "blog-bds",
+     "cdt-gamuda",
+     "cdt-vinhomes",
+     "da-global-city",
+     "da-palm-river",
+     "da-persa",
+     "danh-muc-palm-city",
+     "gioi-thieu",
+     "lien-he",
+     "tim-kiem",
+     "trang-chu",
+     "tuyen-dung"
+    ]
+   },
+   {
+    "src": "footer",
+    "bg": "#B8282E",
+    "color": "#FFFFFF",
+    "border": "0px #B8282E",
+    "radius": "2px",
+    "shadow": "rgba(0, 0, 0, 0) 0px 0px 10px 0px",
+    "ff": "Be Vietnam Pro",
+    "fs": "15px",
+    "fw": "600",
+    "h": 44,
+    "n": 13,
+    "pages": [
+     "404",
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet",
+     "blog",
+     "cdt-gamuda",
+     "cdt-vinhomes",
+     "da-global-city",
+     "da-palm-river",
+     "da-persa",
+     "gioi-thieu",
+     "trang-chu",
+     "tuyen-dung"
+    ]
+   },
+   {
+    "src": "ultimate",
+    "bg": "#B8282E",
+    "color": "#FFFFFF",
+    "border": "0px #B8282E",
+    "radius": "2px",
+    "shadow": "rgba(0, 0, 0, 0) 0px 0px 10px 0px",
+    "ff": "Be Vietnam Pro",
+    "fs": "16px",
+    "fw": "600",
+    "h": 50,
+    "n": 10,
+    "pages": [
+     "bai-ban-giao",
+     "cdt-gamuda",
+     "da-persa",
+     "trang-chu"
+    ]
+   },
+   {
+    "src": "cf7",
+    "bg": "#B8282E",
+    "color": "#FFFFFF",
+    "border": "0px #B8282E",
+    "radius": "2px",
+    "shadow": "rgba(0, 0, 0, 0) 0px 0px 10px 0px",
+    "ff": "Be Vietnam Pro",
+    "fs": "15px",
+    "fw": "600",
+    "h": 44,
+    "n": 1,
+    "pages": [
+     "lien-he"
+    ]
+   },
+   {
+    "src": "wpbakery",
+    "bg": "#B8282E",
+    "color": "#FFFFFF",
+    "border": "0px #FFFFFF",
+    "radius": "4px",
+    "shadow": "",
+    "ff": "Arial",
+    "fs": "15px",
+    "fw": "600",
+    "h": 44,
+    "n": 1,
+    "pages": [
+     "404"
+    ]
+   }
+  ],
+  "inputs": [
+   {
+    "src": "footer",
+    "bg": "#FFFFFF",
+    "color": "#85868C",
+    "border": "1px #333333@0.12",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "17px",
+    "fw": "400",
+    "h": 40,
+    "n": 26,
+    "pages": [
+     "404",
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet",
+     "blog",
+     "cdt-gamuda",
+     "cdt-vinhomes",
+     "da-global-city",
+     "da-palm-river",
+     "da-persa",
+     "gioi-thieu",
+     "trang-chu",
+     "tuyen-dung"
+    ]
+   },
+   {
+    "src": "cf7",
+    "bg": "#FFFFFF",
+    "color": "#85868C",
+    "border": "1px #333333@0.12",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "17px",
+    "fw": "400",
+    "h": 40,
+    "n": 2,
+    "pages": [
+     "lien-he"
+    ]
+   },
+   {
+    "src": "wpbakery",
+    "bg": "#FFFFFF",
+    "color": "#85868C",
+    "border": "1px #333333@0.12",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "17px",
+    "fw": "400",
+    "h": 44,
+    "n": 1,
+    "pages": [
+     "404"
+    ]
+   }
+  ],
+  "toggles": [
+   {
+    "src": "wpbakery",
+    "bg": null,
+    "color": "#1A1A1A",
+    "border": "0px #1A1A1A",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 30,
+    "n": 15,
+    "pages": [
+     "cdt-gamuda",
+     "da-global-city",
+     "da-palm-river",
+     "da-persa"
+    ]
+   },
+   {
+    "src": "ultimate",
+    "bg": null,
+    "color": "#1A1A1A",
+    "border": "0px #1A1A1A",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 30,
+    "n": 5,
+    "pages": [
+     "cdt-vinhomes"
+    ]
+   }
+  ],
+  "cards": [
+   {
+    "src": "wpbakery",
+    "bg": "#F5F5F5",
+    "color": "#1A1A1A",
+    "border": "0px #1A1A1A",
+    "radius": "0px",
+    "shadow": "rgba(0, 0, 0, 0.1) 0px 6px 18px 0px",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 263,
+    "n": 29,
+    "pages": [
+     "blog",
+     "cdt-gamuda",
+     "cdt-vinhomes"
+    ]
+   },
+   {
+    "src": "wpbakery",
+    "bg": "#F5F5F5",
+    "color": "#1A1A1A",
+    "border": "0px #1A1A1A",
+    "radius": "0px",
+    "shadow": "rgba(0, 0, 0, 0.1) 0px 6px 18px 0px",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 292,
+    "n": 11,
+    "pages": [
+     "blog",
+     "cdt-gamuda",
+     "cdt-vinhomes"
+    ]
+   },
+   {
+    "src": "wpbakery",
+    "bg": "#F5F5F5",
+    "color": "#1A1A1A",
+    "border": "0px #1A1A1A",
+    "radius": "0px",
+    "shadow": "rgba(0, 0, 0, 0.1) 0px 6px 18px 0px",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 664,
+    "n": 9,
+    "pages": [
+     "blog-bds",
+     "danh-muc-palm-city",
+     "tim-kiem"
+    ]
+   },
+   {
+    "src": "wpbakery",
+    "bg": "#F5F5F5",
+    "color": "#1A1A1A",
+    "border": "0px #1A1A1A",
+    "radius": "0px",
+    "shadow": "rgba(0, 0, 0, 0.1) 0px 6px 18px 0px",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 234,
+    "n": 8,
+    "pages": [
+     "blog",
+     "cdt-gamuda"
+    ]
+   },
+   {
+    "src": "wpbakery",
+    "bg": null,
+    "color": "#1A1A1A",
+    "border": "0px #1A1A1A",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 424,
+    "n": 6,
+    "pages": [
+     "trang-chu"
+    ]
+   },
+   {
+    "src": "wpbakery",
+    "bg": "#F5F5F5",
+    "color": "#1A1A1A",
+    "border": "0px #1A1A1A",
+    "radius": "0px",
+    "shadow": "rgba(0, 0, 0, 0.1) 0px 6px 18px 0px",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 424,
+    "n": 6,
+    "pages": [
+     "trang-chu"
+    ]
+   },
+   {
+    "src": "wpbakery",
+    "bg": null,
+    "color": "#1A1A1A",
+    "border": "0px #1A1A1A",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 398,
+    "n": 6,
+    "pages": [
+     "trang-chu"
+    ]
+   },
+   {
+    "src": "wpbakery",
+    "bg": "#F5F5F5",
+    "color": "#1A1A1A",
+    "border": "0px #1A1A1A",
+    "radius": "0px",
+    "shadow": "rgba(0, 0, 0, 0.1) 0px 6px 18px 0px",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 398,
+    "n": 6,
+    "pages": [
+     "trang-chu"
+    ]
+   }
+  ],
+  "breadcrumbs": [
+   {
+    "src": "page-title",
+    "bg": null,
+    "color": "#6E6F75",
+    "border": "0px #6E6F75",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "14px",
+    "fw": "400",
+    "h": 24,
+    "n": 37,
+    "pages": [
+     "404",
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet",
+     "blog",
+     "blog-bds",
+     "danh-muc-palm-city",
+     "gioi-thieu",
+     "lien-he",
+     "tim-kiem",
+     "tuyen-dung"
+    ]
+   },
+   {
+    "src": "page-title",
+    "bg": null,
+    "color": "#6E6F75",
+    "border": "0px #6E6F75",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "14px",
+    "fw": "400",
+    "h": 21,
+    "n": 7,
+    "pages": [
+     "404",
+     "blog",
+     "blog-bds",
+     "gioi-thieu",
+     "lien-he",
+     "tim-kiem",
+     "tuyen-dung"
+    ]
+   }
+  ],
+  "pagination": [
+   {
+    "src": "wpbakery",
+    "bg": null,
+    "color": "#1A1A1A",
+    "border": "0px #1A1A1A",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 32,
+    "n": 10,
+    "pages": [
+     "blog",
+     "blog-bds"
+    ]
+   },
+   {
+    "src": "wpbakery",
+    "bg": null,
+    "color": "#1A1A1A",
+    "border": "0px #1A1A1A",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 34,
+    "n": 2,
+    "pages": [
+     "blog",
+     "blog-bds"
+    ]
+   }
+  ],
+  "pagetitle": [
+   {
+    "src": "page-title",
+    "bg": null,
+    "color": "#6E6F75",
+    "border": "0px #6E6F75",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "14px",
+    "fw": "400",
+    "h": 24,
+    "n": 11,
+    "pages": [
+     "404",
+     "bai-ban-giao",
+     "bai-dong-von",
+     "bai-huong-viet",
+     "blog",
+     "blog-bds",
+     "danh-muc-palm-city",
+     "gioi-thieu",
+     "lien-he",
+     "tim-kiem",
+     "tuyen-dung"
+    ]
+   },
+   {
+    "src": "page-title",
+    "bg": "#FAF7F2",
+    "color": "#1A1A1A",
+    "border": "0px #1A1A1A",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 125,
+    "n": 8,
+    "pages": [
+     "404",
+     "bai-huong-viet",
+     "blog",
+     "blog-bds",
+     "danh-muc-palm-city",
+     "gioi-thieu",
+     "lien-he",
+     "tim-kiem"
+    ]
+   },
+   {
+    "src": "page-title",
+    "bg": null,
+    "color": "#1A1A1A",
+    "border": "0px #1A1A1A",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Playfair Display",
+    "fs": "44px",
+    "fw": "600",
+    "h": 52,
+    "n": 8,
+    "pages": [
+     "404",
+     "bai-huong-viet",
+     "blog",
+     "blog-bds",
+     "danh-muc-palm-city",
+     "gioi-thieu",
+     "lien-he",
+     "tim-kiem"
+    ]
+   },
+   {
+    "src": "page-title",
+    "bg": "#FAF7F2",
+    "color": "#1A1A1A",
+    "border": "0px #1A1A1A",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 173,
+    "n": 3,
+    "pages": [
+     "bai-ban-giao",
+     "bai-dong-von",
+     "tuyen-dung"
+    ]
+   },
+   {
+    "src": "page-title",
+    "bg": null,
+    "color": "#1A1A1A",
+    "border": "0px #1A1A1A",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Playfair Display",
+    "fs": "44px",
+    "fw": "600",
+    "h": 104,
+    "n": 3,
+    "pages": [
+     "bai-ban-giao",
+     "bai-dong-von",
+     "tuyen-dung"
+    ]
+   }
+  ],
+  "hr": [
+   {
+    "src": "inline",
+    "bg": null,
+    "color": "#1A1A1A",
+    "border": "1px #F4524D",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 2,
+    "n": 22,
+    "pages": [
+     "cdt-vinhomes",
+     "da-global-city",
+     "da-palm-river"
+    ]
+   },
+   {
+    "src": "ultimate",
+    "bg": null,
+    "color": "#1A1A1A",
+    "border": "0px #1A1A1A",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 36,
+    "n": 4,
+    "pages": [
+     "trang-chu"
+    ]
+   },
+   {
+    "src": "ultimate",
+    "bg": null,
+    "color": "#1A1A1A",
+    "border": "0px #1A1A1A",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 30,
+    "n": 4,
+    "pages": [
+     "gioi-thieu"
+    ]
+   },
+   {
+    "src": "wpbakery",
+    "bg": null,
+    "color": "#808080",
+    "border": "1px #DDDDDD",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Arial",
+    "fs": "19px",
+    "fw": "400",
+    "h": 2,
+    "n": 1,
+    "pages": [
+     "lien-he"
+    ]
+   }
+  ],
+  "tables": [
+   {
+    "src": "wpbakery",
+    "bg": null,
+    "color": "#1A1A1A",
+    "border": "1px #E4DED5",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 71,
+    "n": 10,
+    "pages": [
+     "bai-ban-giao",
+     "da-global-city",
+     "da-persa"
+    ]
+   },
+   {
+    "src": "wpbakery",
+    "bg": null,
+    "color": "#1A1A1A",
+    "border": "1px #E4DED5",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 41,
+    "n": 10,
+    "pages": [
+     "da-global-city",
+     "da-palm-river",
+     "da-persa"
+    ]
+   },
+   {
+    "src": "wpbakery",
+    "bg": null,
+    "color": "#1A1A1A",
+    "border": "0px #E4DED5",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 326,
+    "n": 2,
+    "pages": [
+     "bai-ban-giao",
+     "da-persa"
+    ]
+   },
+   {
+    "src": "wpbakery",
+    "bg": null,
+    "color": "#1A1A1A",
+    "border": "0px #E4DED5",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 955,
+    "n": 1,
+    "pages": [
+     "da-global-city"
+    ]
+   },
+   {
+    "src": "wpbakery",
+    "bg": null,
+    "color": "#1A1A1A",
+    "border": "0px #E4DED5",
+    "radius": "0px",
+    "shadow": "",
+    "ff": "Be Vietnam Pro",
+    "fs": "19px",
+    "fw": "400",
+    "h": 471,
+    "n": 1,
+    "pages": [
+     "da-palm-river"
+    ]
+   }
+  ]
+ },
+ "hang_wpbakery": {
+  "trang-chu": {
+   "so_hang": 6,
+   "dem": [
+    [
+     "0px",
+     "0px"
+    ],
+    [
+     "0px",
+     "25px"
+    ],
+    [
+     "0px",
+     "45px"
+    ],
+    [
+     "45px",
+     "45px"
+    ]
+   ]
+  },
+  "blog": {
+   "so_hang": 1,
+   "dem": [
+    [
+     "0px",
+     "0px"
+    ]
+   ]
+  },
+  "blog-bds": {
+   "so_hang": 0,
+   "dem": []
+  },
+  "danh-muc-palm-city": {
+   "so_hang": 0,
+   "dem": []
+  },
+  "bai-dong-von": {
+   "so_hang": 1,
+   "dem": [
+    [
+     "0px",
+     "0px"
+    ]
+   ]
+  },
+  "bai-huong-viet": {
+   "so_hang": 1,
+   "dem": [
+    [
+     "0px",
+     "0px"
+    ]
+   ]
+  },
+  "bai-ban-giao": {
+   "so_hang": 2,
+   "dem": [
+    [
+     "0px",
+     "0px"
+    ],
+    [
+     "32px",
+     "32px"
+    ]
+   ]
+  },
+  "da-persa": {
+   "so_hang": 13,
+   "dem": [
+    [
+     "48px",
+     "0px"
+    ],
+    [
+     "48px",
+     "48px"
+    ]
+   ]
+  },
+  "da-global-city": {
+   "so_hang": 11,
+   "dem": [
+    [
+     "0px",
+     "0px"
+    ]
+   ]
+  },
+  "da-palm-river": {
+   "so_hang": 12,
+   "dem": [
+    [
+     "0px",
+     "0px"
+    ]
+   ]
+  },
+  "cdt-gamuda": {
+   "so_hang": 10,
+   "dem": [
+    [
+     "48px",
+     "0px"
+    ],
+    [
+     "48px",
+     "48px"
+    ]
+   ]
+  },
+  "cdt-vinhomes": {
+   "so_hang": 7,
+   "dem": [
+    [
+     "0px",
+     "0px"
+    ]
+   ]
+  },
+  "gioi-thieu": {
+   "so_hang": 3,
+   "dem": [
+    [
+     "0px",
+     "0px"
+    ]
+   ]
+  },
+  "tuyen-dung": {
+   "so_hang": 1,
+   "dem": [
+    [
+     "0px",
+     "0px"
+    ]
+   ]
+  },
+  "lien-he": {
+   "so_hang": 1,
+   "dem": [
+    [
+     "0px",
+     "0px"
+    ]
+   ]
+  },
+  "404": {
+   "so_hang": 0,
+   "dem": []
+  },
+  "tim-kiem": {
+   "so_hang": 0,
+   "dem": []
+  }
+ },
+ "inline_style": {
+  "trang-chu": {
+   "so": 17,
+   "mau": [
+    "color:#333333;font-size:32px;display:inline-block;",
+    "  font-family:'Roboto';font-weight:700;color:#DD3333;",
+    " font-family:'Roboto';color:#DD3333",
+    "font-size:18px;  font-family:'Roboto';",
+    "color:#333333;font-size:32px;display:inline-block;",
+    " font-family:'Roboto';color:#DD3333"
+   ]
+  },
+  "bai-dong-von": {
+   "so": 2,
+   "mau": [
+    "fill: #999;color:#999",
+    "fill: #999;color:#999"
+   ]
+  },
+  "bai-huong-viet": {
+   "so": 2,
+   "mau": [
+    "fill: #999;color:#999",
+    "fill: #999;color:#999"
+   ]
+  },
+  "bai-ban-giao": {
+   "so": 2,
+   "mau": [
+    "fill: #999;color:#999",
+    "fill: #999;color:#999"
+   ]
+  },
+  "da-global-city": {
+   "so": 20,
+   "mau": [
+    "border-top-color:#F4524D;",
+    "border-top-color:#F4524D;",
+    "border-top-color:#F4524D;",
+    "border-top-color:#F4524D;",
+    "border-top-color:#F4524D;",
+    "border-top-color:#F4524D;"
+   ]
+  },
+  "da-palm-river": {
+   "so": 23,
+   "mau": [
+    "border-top-color:#F4524D;",
+    "border-top-color:#F4524D;",
+    "font-family:Roboto;font-weight:normal;color:#FFFF8D;background:#e74c3c;padding-top:20px;padding-bottom:20px;",
+    "border-top-color:#F4524D;",
+    "border-top-color:#F4524D;",
+    "border-top-color:#F4524D;"
+   ]
+  },
+  "cdt-vinhomes": {
+   "so": 5,
+   "mau": [
+    "background: rgb(239, 239, 239); min-width: 1230px; left: 0px; width: 1230px;",
+    "border-top-color:#F4524D;",
+    "border-top-color:#F4524D;",
+    "border-top-color:#F4524D;",
+    "border-top-color:#F4524D;"
+   ]
+  },
+  "gioi-thieu": {
+   "so": 4,
+   "mau": [
+    "color:#333333;font-size:14px;display:inline-block;",
+    "color:#333333;font-size:14px;display:inline-block;",
+    "color:#333333;font-size:16px;display:inline-block;",
+    "color:#333333;font-size:16px;display:inline-block;"
+   ]
+  },
+  "lien-he": {
+   "so": 3,
+   "mau": [
+    "font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9; border-radius: 8px; border: 1px solid #e0e0e0;",
+    "color: #2c3e50;",
+    "color: #2c3e50;"
+   ]
+  }
+ },
+ "font": [
+  "Arial",
+  "Be Vietnam Pro",
+  "Font Awesome 5 Free",
+  "Font Awesome 7 Free",
+  "Playfair Display",
+  "Roboto",
+  "icomoon-the7-font"
+ ],
+ "branding": {
+  "icons_meta": [
+   "theme-color = #B8282E",
+   "og:site_name = Velis Realty",
+   "og:image = https://staging.velisrealty.vn/wp-content/uploads/2026/03/velis-realty.webp",
+   "twitter:image = https://staging.velisrealty.vn/wp-content/uploads/2026/03/velis-realty.webp",
+   "icon = https://staging.velisrealty.vn/wp-content/uploads/2026/03/Logo-Velis-Realty-28.png"
+  ],
+  "logos": [
+   "{\"src\": \"/wp-content/uploads/2026/11/velis-logo-36.png\", \"w\": 156, \"h\": 36, \"vis\": true, \"alt\": \"Velis Realty\", \"where\": \"header\"}",
+   "{\"src\": \"/wp-content/uploads/2026/11/velis-logo-44.png\", \"w\": 191, \"h\": 44, \"vis\": true, \"alt\": \"Velis Realty\", \"where\": \"header\"}",
+   "{\"src\": \"/wp-content/uploads/2026/11/velis-logo-trang-40.png\", \"w\": 174, \"h\": 40, \"vis\": true, \"alt\": \"Velis Realty\", \"where\": \"footer\"}"
+  ]
+ },
+ "tieu_de_chu_hoa": null
+}
