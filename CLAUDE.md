@@ -64,6 +64,7 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
 
 - `the7-child/dt-the7-child/` — **theme đang dùng từ 2026-11-11**: theme con của The7 Classic 14.5.1 (chỉ `velis.css`); màu, font,
   header trong The7 Theme Options (`data/the7/options-*.json`, sinh bằng `tools/the7_options_buoc1.py`); logo PNG `the7-child/logo/`.
+- `data/the7/mau-wpbakery/` — 3 mẫu WPBakery (Dự án, Chủ đầu tư, Bài viết) đã lưu vào "Mẫu của tôi" trên staging; bố cục trang nằm trong WPBakery, không trong PHP.
 - `theme/velis/` — theme khối velis, **đã bỏ 2026-11-11** (giữ để tham khảo); `dist/` (bỏ qua git) — file zip đóng gói.
 - `assets/brand/original/` — logo gốc tải từ Media site thật + PDF vector; `assets/brand/svg/` — SVG vẽ lại.
 - `data/gsc/` — export Search Console; `data/baseline/` — mốc crawl site thật (bản tóm tắt; dữ liệu thô bị ignore).

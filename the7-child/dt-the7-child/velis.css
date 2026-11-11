@@ -17,3 +17,14 @@ a, a:hover { text-decoration: none; }
 
 /* Số điện thoại ở header: chữ đậm, số không xuống dòng */
 .masthead .mini-contacts.phone { white-space: nowrap; font-weight: 600; }
+
+/* Mẫu WPBakery (data/the7/mau-wpbakery): chỉ kiểu chữ của vài class gắn trong mẫu. Nền, khoảng cách hàng: Design Options
+   của từng hàng trong WPBakery (người dùng tự đổi được). */
+.velis-eyebrow { margin: 0 0 8px; font-size: 14px; line-height: 20px; font-weight: 600; color: #5C5C5C; }
+.velis-hero h1 { margin-bottom: 16px; }
+.velis-specs .wpb_text_column { border-top: 2px solid #B8282E; padding-top: 12px; margin-bottom: 24px; }
+.velis-spec-label { margin: 0; font-size: 14px; line-height: 20px; color: #5C5C5C; }
+.velis-spec-value { margin: 4px 0 0; font-weight: 600; color: #1A1A1A; }
+.velis-cards .wpb_text_column h3 a { color: #1A1A1A; font-weight: inherit; }
+.velis-cards .wpb_text_column h3 a:hover { color: #B8282E; text-decoration: none; }
+.velis-hero .dt-btn, .velis-cta .dt-btn { margin-bottom: 16px; }

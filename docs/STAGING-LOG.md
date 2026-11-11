@@ -288,3 +288,18 @@ gtag / GTM / Pinterest. Không gửi form, không xóa gì, site thật không b
 | Cache | — | xóa FVM + LiteSpeed sau mỗi lần đổi (không đổi cài đặt LiteSpeed, không ghi `.htaccess`) | thanh quản trị |
 
 Không sửa nội dung trang/bài, không gửi form, site thật không bị ghi.
+
+## 2026-11-11 – The7 bước 2: mẫu WPBakery + áp thử 3 trang (theo `docs/reports/the7-buoc-2.md`)
+
+| Mục | Trước | Sau | Cách làm |
+|---|---|---|---|
+| Theme con | 1.0.0 | **1.1.1**: `velis.css` thêm 8 dòng kiểu chữ cho class trong mẫu (`velis-eyebrow`, `velis-specs`, `velis-spec-*`, `velis-cards`, khoảng cách nút) | Giao diện → Tải lên → "Thay thế cài đặt bằng tải lên" (2 lần) |
+| WPBakery → Mẫu của tôi | có 1 mẫu "du-an" của site thật | thêm **Velis – Dự án**, **Velis – Chủ đầu tư**, **Velis – Bài viết** (nội dung = `data/the7/mau-wpbakery/*.txt`); mẫu "du-an" cũ không đụng. Lần lưu đầu bị thay bằng bản sửa (xóa đúng 3 mẫu `velis-*` mình vừa tạo rồi lưu lại) | AJAX `vc_save_template` / `vc_delete_template` của chính trình sửa WPBakery |
+| Bài 19855 Căn hộ Persa Place | 11 hàng, 1 cột giữa | 13 hàng theo mẫu dự án | REST `wp/v2/posts/19855` rồi bấm **Cập nhật** trong trình sửa WPBakery (để WPBakery dựng CSS Design Options) |
+| Trang 19637 Gamuda Land | 7 hàng | 10 hàng theo mẫu chủ đầu tư (thêm lưới 2 dự án có trang: Spring Ville, Persa Place) | như trên |
+| Bài 20330 Tiêu chuẩn bàn giao Persa Place | 1 hàng | 2 hàng: thân bài + khối "Liên hệ tư vấn" (2 đoạn cuối bài) | như trên |
+| Cache | — | xóa FVM + LiteSpeed (không đổi cài đặt LiteSpeed, không ghi `.htaccess`) | thanh quản trị |
+
+Quay lui nội dung: Sửa bài → Bản sửa đổi → khôi phục **20577** (Persa Place), **20563** (Gamuda Land), **20653** (Tiêu chuẩn
+bàn giao) – đã đối chiếu: 3 bản này trùng từng ký tự với nội dung trước khi sửa (chỉ khác xuống dòng `\r\n`).
+Không xóa bài/trang/media, không gửi form, site thật không bị ghi.
