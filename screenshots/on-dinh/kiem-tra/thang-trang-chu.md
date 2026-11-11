@@ -1,4 +1,5 @@
-# Đo thang chữ (1.3) và thang khoảng cách (1.2) – 2026-11-11
+# Thang chữ / khoảng cách / độ dài dòng trên staging (2026-11-11, 3 phần, theme cuối)
+
 
 Cỡ chữ cho phép: 56 · 48 · 40 · 36 · 28 · 22 · 19 · 18 · 17 · 16 · 14 · 13 px. Khoảng cách (margin, padding, gap): 0 · 8 · 16 · 24 · 32 · 40 · 48 · 64 · 96 px. Dòng chữ (p, li, dd) ≤ 90 ký tự (1.6), đếm từng ký tự trên dòng hiển thị. Bỏ qua hero trang chủ (giữ nguyên hero 0.9.8, duyệt 2026-11-06) và phần chỉ có ở mockup (công tắc, nhãn ảnh tạm, nhãn câu chờ duyệt).
 
@@ -52,6 +53,12 @@ Cỡ chữ cho phép: 56 · 48 · 40 · 36 · 28 · 22 · 19 · 18 · 17 · 16 �
 - /du-an/spring-ville/persa-place/ 768: 2 ngoại lệ – p.disclosure padding-left 60px ×1; p.disclosure padding-right 60px ×1
 - /du-an/spring-ville/persa-place/ 1024: 0 ngoại lệ
 - /du-an/spring-ville/persa-place/ M3: 5 ngoại lệ – p.disclosure padding-left 124px ×1; p.disclosure padding-right 124px ×1; dòng p.wp-block-paragraph 92 ký tự ×3; dòng p.wp-block-paragraph 91 ký tự ×3; dòng p.wp-block-paragraph 93 ký tự ×1
+
+**Tổng ngoại lệ: 64**
+
+
+Cỡ chữ cho phép: 56 · 48 · 40 · 36 · 28 · 22 · 19 · 18 · 17 · 16 · 14 · 13 px. Khoảng cách (margin, padding, gap): 0 · 8 · 16 · 24 · 32 · 40 · 48 · 64 · 96 px. Dòng chữ (p, li, dd) ≤ 90 ký tự (1.6), đếm từng ký tự trên dòng hiển thị. Bỏ qua hero trang chủ (giữ nguyên hero 0.9.8, duyệt 2026-11-06) và phần chỉ có ở mockup (công tắc, nhãn ảnh tạm, nhãn câu chờ duyệt).
+
 - /du-an/spring-ville/nha-pho/ M1: 2 ngoại lệ – p.disclosure padding-left 84px ×1; p.disclosure padding-right 84px ×1
 - /du-an/spring-ville/nha-pho/ M5: 0 ngoại lệ
 - /du-an/spring-ville/nha-pho/ 768: 2 ngoại lệ – p.disclosure padding-left 60px ×1; p.disclosure padding-right 60px ×1
@@ -102,6 +109,12 @@ Cỡ chữ cho phép: 56 · 48 · 40 · 36 · 28 · 22 · 19 · 18 · 17 · 16 �
 - /blog/the-prive/loi-suat-cho-thue-the-prive/ 768: 0 ngoại lệ
 - /blog/the-prive/loi-suat-cho-thue-the-prive/ 1024: 0 ngoại lệ
 - /blog/the-prive/loi-suat-cho-thue-the-prive/ M3: 4 ngoại lệ – dòng p.wp-block-paragraph 93 ký tự ×5; dòng p.wp-block-paragraph 92 ký tự ×1; dòng p.wp-block-paragraph 94 ký tự ×1; dòng p.wp-block-paragraph 91 ký tự ×4
+
+**Tổng ngoại lệ: 18**
+
+
+Cỡ chữ cho phép: 56 · 48 · 40 · 36 · 28 · 22 · 19 · 18 · 17 · 16 · 14 · 13 px. Khoảng cách (margin, padding, gap): 0 · 8 · 16 · 24 · 32 · 40 · 48 · 64 · 96 px. Dòng chữ (p, li, dd) ≤ 90 ký tự (1.6), đếm từng ký tự trên dòng hiển thị. Bỏ qua hero trang chủ (giữ nguyên hero 0.9.8, duyệt 2026-11-06) và phần chỉ có ở mockup (công tắc, nhãn ảnh tạm, nhãn câu chờ duyệt).
+
 - /blog/vinhomes-saigon-park/thiet-ke-cong-nang-nha-pho-lien-ke-vinhomes-saigon-park/ M1: 0 ngoại lệ
 - /blog/vinhomes-saigon-park/thiet-ke-cong-nang-nha-pho-lien-ke-vinhomes-saigon-park/ M5: 0 ngoại lệ
 - /blog/vinhomes-saigon-park/thiet-ke-cong-nang-nha-pho-lien-ke-vinhomes-saigon-park/ 768: 0 ngoại lệ
@@ -148,4 +161,6 @@ Cỡ chữ cho phép: 56 · 48 · 40 · 36 · 28 · 22 · 19 · 18 · 17 · 16 �
 - /khong-ton-tai-xyz/ 1024: 0 ngoại lệ
 - /khong-ton-tai-xyz/ M3: 0 ngoại lệ
 
-**Tổng ngoại lệ: 88**
+**Tổng ngoại lệ: 6**
+
+**Tổng ngoại lệ: 88** (hộp .disclosure đệm tính toán; dòng 91–94 ký tự ở ≥ 1 600 px – chờ chọn; 1 dòng 91 ở M1)

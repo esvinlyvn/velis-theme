@@ -330,8 +330,8 @@ giá, hero A chữ trên ảnh, tìm kiếm chỉ phân trang nhóm bài, đổi
 
 Ảnh sau: `screenshots/on-dinh/trang-chu-sau/` (60/60, cùng danh sách ảnh trước, kể cả menu "Về Velis" khi rê chuột); ảnh ghép
 trước | sau từng ca: `screenshots/on-dinh/trang-chu-truoc-sau/` (59 – ảnh "Về Velis" rê chuột không có bản trước). Phần kiểm chứng
-tải theme lên staging **5 lần** (mức tự đặt 3 – vượt vì 2 lỗi đo bắt buộc NT-21 / on-page và 1 lỗi NT-55 tìm ra khi chạy bộ đo; nhật
-ký STAGING-LOG). CSS gộp của Fast Velocity Minify trên staging đã kiểm chứa đủ bản sửa cuối.
+tải theme lên staging **7 lần** (mức tự đặt 3 – vượt vì các lỗi tìm ra khi chạy bộ đo bắt buộc: NT-21 ×2, on-page, NT-55, tương phản
+Lighthouse; nhật ký STAGING-LOG). CSS gộp của Fast Velocity Minify trên staging đã kiểm chứa đủ bản sửa cuối.
 
 **Vì sao giờ đã ổn (mỗi mục một câu)**
 - Header / menu: "Về Velis" chỉ 2 mục, "Liên hệ" một chỗ, số điện thoại = biểu tượng + số – không còn chữ hay mục lặp.
@@ -362,3 +362,37 @@ ký STAGING-LOG). CSS gộp của Fast Velocity Minify trên staging đã kiểm
 | Bộ NT WebKit iPhone 14, 30 trang | **0 lỗi** (lần đầu 1 NT-55 – đã sửa) | |
 | On-page 181 trang | **0 lỗi** (lần đầu 21 "nhảy cấp H1 → H3" ở /blog/ và cụm – đã sửa: tiêu đề bài dạng dòng là H2 khi không có tiêu đề khối) | `kiem-tra/onpage-tc/report.md` |
 | Schema 30 trang | **0 lỗi, 0 cảnh báo** | `kiem-tra/schema-tc.md` |
+| check_ui 7 khung (360–1 920), 30 trang | **0 lỗi** (lần đầu 1 NT-21: ảnh hero trang chủ 768–1 023 px – `sizes` bản viết lại bỏ sót khoảng này so với 0.9.8; sửa + `velis_sizes()` tách sai dấu phẩy trong `max(min())`, có test) | |
+| Thang chữ / khoảng cách / độ dài dòng, 29 trang template × 5 màn | **còn ngoại lệ (chờ chọn)**: (1) hộp ghi chú `.disclosure` dùng đệm tính toán 60 / 84 / 124 px để chữ 14 px ≤ 90 ký tự – thử đệm trong thang (48 / 96 px, chữ 16 px) thì ở 768–1 023 px (cột tới 975 px) vượt 90 ký tự nên giữ cách cũ; (2) M3 (≥ 1 600, chữ 19 px): 91–94 ký tự ở bài / dự án / Giới thiệu – nằm trong mặc định tạm "≤ 95"; (3) M1: 1 dòng 91 ký tự (Palm River). Cỡ chữ: 0 ngoại lệ | `kiem-tra/thang-trang-chu.md` |
+| Quét toàn site (181 trang, 3 trang song song, trừ 7 ứng dụng) | **0 link hỏng, 0 ảnh hỏng, 0 tràn ngang (390 / 1 366), mỗi trang 1 H1** | `kiem-tra/crawl.json` |
+| Tương tác 31 + 24 = 55 | **55/55 Chromium, 55/55 WebKit** (menu thả xuống 2 mục, lọc, phân trang, "Xem thêm", khung phóng to); form chặn yêu cầu, không gửi | `kiem-tra/tuong-tac-*.txt` |
+| Lighthouse mobile 4 trang | Performance 98 · 98 · 99 · 98; Accessibility **100** (lần đầu 96–97: nhãn nhỏ #8A6A3A trên champagne nhạt 4,25:1 → 4,9:1); SEO 100 (bỏ is-crawlable vì staging chặn); CLS 0; LCP 2,06–2,37 s | `test-results/lhci/` |
+| CSS | 42,2 KB min / 8,9 KB gzip (≤ 45 / 12) | |
+| NT-01 trang chủ DPR 2 | 1 lần trong 3 lần chạy logo lệch 117–121 px khi trang cuộn mượt về đầu (không tái hiện được khi đo riêng) – coi là phép đo chập chờn, lần cuối 0 | |
+
+**Tự soát (giao diện, logic, trải nghiệm) – đã sửa**
+- Trang chủ đầu tư: nút trong nội dung (khối nút lõi WordPress) lọt ra ngoài vùng "Xem thêm" → `[hidden]` chung đủ mạnh, bỏ 3 bản vá lẻ.
+- Trang tác giả: dải số liệu 2 ô nằm lẻ 1/3 trái → chia đều theo số mục, trải hết khung.
+- Đối tác trên điện thoại: logo rộng bị ép méo (lệch diện tích 33 %) → mọi logo cùng hệ số ×0,78 (13,1 %).
+- Khối Velis ≥ 1 600: hai cột lệch 17,5 % → nút "Tìm hiểu Velis" ngang đáy danh sách, hai cột kết thúc cùng một đường.
+- /blog/, cụm: nhảy cấp H1 → H3; bản đồ Liên hệ / bản đồ khu vực / ảnh hero 768–1 023 chọn sai file; tiêu đề nhỏ viết HOA; nhãn nhỏ thiếu tương phản trên nền champagne.
+- Công cụ: ảnh chụp blog trống do cuộn quá nhanh (đo thật ảnh tải đủ) → chụp chờ ảnh tải; máy quét chạy song song 3 trang (trước bị ngắt ở 50 phút).
+
+**Tự soát – để người dùng chọn**
+- Độ dài dòng ≥ 1 600 px: 19 px cho 91–94 ký tự – chọn (a) 20 px, (b) chấp nhận ≤ 95 (đang tạm theo), (c) khung tối đa 1 200 px.
+- Ghi chú 14 px (`p.source`) giữ 40ch nên mép phải không trùng cột (lệch 389 / 469 px); bỏ giới hạn thì dòng ~130 ký tự. Hộp `.disclosure` dùng đệm tính toán (ngoài thang 1.2) để ≤ 90 ký tự.
+- /blog/, cụm: phần đầu trang không có nút nên nửa phải trống (quy tắc 7/12 + 5/12); trang chủ đầu tư và danh sách bài có ô "Nhận tư vấn" ngắn ở cột phải **và** khối form đầy đủ cuối trang – có thể coi là lặp.
+- Breadcrumb: khoảng hở sau mục ngắn ("Blog") do vùng bấm tối thiểu 44 px.
+- "Đối tác của chúng tôi": mô tả là một câu nhưng hiện 3 dòng (giới hạn độ dài dòng); trang chủ đầu tư 1 dự án: thẻ chuẩn căn giữa, hai bên trống (đúng quy tắc đã duyệt).
+- /lien-he/ 49 %, /gioi-thieu/ 97,9 % chữ hiện: danh sách liên hệ trong chữ trang bị bỏ vì khối liên hệ ngay dưới đã có – chờ xác nhận.
+- Trước ra mắt: chép chữ "Về …" từ 4 trang cũ vào bản ghi chủ đầu tư (SAU-RA-MAT mục 13).
+
+**Ảnh mốc**: cập nhật 156 ca (Chromium 30 trang × M1–M5 + WebKit iPhone 14 × 6 trang, Git LFS). Lần so đầu: 155/156 – ảnh mốc
+The Privé M3 lúc cập nhật cao 11 078 px trong khi trang thật 11 244 px (đo trực tiếp 3 lần + 2 lần so đều 11 244) → cập nhật lại riêng
+ảnh này; sau đó **2 lần chạy liên tiếp 156/156**.
+
+---
+Đã bỏ qua / chưa kiểm tra: không gửi form; iPhone / Android thật chưa thử; bảng khung 2 cột đo sau lần tải 2 (các lần tải 3–7 không đổi
+hình học 2 cột); /simplify chưa chạy trong phần này.
+Rủi ro: 3 lựa chọn chờ người dùng (19 px ≥ 1 600 · ghi chú 14 px · ô "Nhận tư vấn" ở cột phải lặp với khối form); Fast Velocity Minify trên
+staging gộp CSS – sau mỗi lần tải theme cần kiểm CSS gộp đã mới (lần này một lượt đo thang chữ đã đọc phải bản cũ và phải chạy lại).
