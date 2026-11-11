@@ -275,3 +275,16 @@ user `bien-tap-thu`) mất theo, đúng ý người dùng. Kiểm trước khi k
 Kiểm chứng (khách chưa đăng nhập): `/`, `/feed/`, `/gioi-thieu/` → 302 về form mật khẩu; `/wp-json/wp/v2/posts` → 401;
 robots.txt `Disallow: /`; `/sitemap_index.xml`, `/locations.kml` → 403; HTML trang chủ (sau mật khẩu) không còn
 gtag / GTM / Pinterest. Không gửi form, không xóa gì, site thật không bị ghi.
+
+## 2026-11-11 – The7 bước 0–1: theme con + nhận diện (theo `docs/reports/the7-buoc-1.md`)
+
+| Mục | Trước | Sau | Cách làm |
+|---|---|---|---|
+| Theme | The7 Classic 14.5.1 (`dt-the7`) active | **The7 Velis (child) 1.0.0** (`dt-the7-child`, mã trong `the7-child/`) active; The7 vẫn cài, kích hoạt lại được | Giao diện → Thêm mới → Tải lên (2 lần "Thay thế cài đặt bằng tải lên") |
+| The7 Theme Options | lưu theo theme (`the7`) | theme con có bộ riêng (`the7velischild`): đã **nhập nguyên bộ của site thật** (`data/the7/options-truoc.json`) → ảnh khách 8 trang khớp ảnh mốc (chỉ khác ảnh tải chậm); rồi nhập **bước 1** (`data/the7/options-buoc-1.json`, 100 khóa: màu, font, cỡ chữ, nút, header, logo, custom CSS đổi màu) | The7 → Theme Options → Export/Import Options |
+| Media | — | thêm 6 logo PNG vẽ từ `assets/brand/svg`: 20682 (44 px), 20683 (88), 20684 (trắng 40), 20685 (trắng 80), 20700 (36), 20701 (72) | REST `wp/v2/media` |
+| Menu | MAIN (33) gán vị trí primary | menu mới **Velis – Menu chính** (55): Dự án · Chủ đầu tư (Vinhomes, Masterise Homes, Sun Group, Gamuda Land) · Blog · Về Velis (Giới thiệu, Tuyển dụng) · Liên hệ – gán primary; MAIN giữ nguyên, bỏ gán (quay lui: gán lại MAIN) | REST `wp/v2/menus`, `wp/v2/menu-items` |
+| Header and Footer Scripts | Merriweather + Facebook verification | chỉ còn Facebook verification (Merriweather không còn dùng ở đâu) | wp-admin → Cài đặt → Header and Footer Scripts |
+| Cache | — | xóa FVM + LiteSpeed sau mỗi lần đổi (không đổi cài đặt LiteSpeed, không ghi `.htaccess`) | thanh quản trị |
+
+Không sửa nội dung trang/bài, không gửi form, site thật không bị ghi.

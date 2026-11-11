@@ -1,0 +1,47 @@
+{
+  "ci": {
+    "collect": {
+      "url": [
+        "https://staging.velisrealty.vn/",
+        "https://staging.velisrealty.vn/can-ho-persa-place/",
+        "https://staging.velisrealty.vn/the-global-city/",
+        "https://staging.velisrealty.vn/blog-bds/"
+      ],
+      "numberOfRuns": 1,
+      "puppeteerScript": "./tools/lhci-login.cjs",
+      "puppeteerLaunchOptions": {
+        "args": [
+          "--no-sandbox",
+          "--headless=new"
+        ]
+      },
+      "settings": {
+        "chromeFlags": "--no-sandbox --headless=new",
+        "formFactor": "mobile",
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "seo",
+          "best-practices"
+        ],
+        "skipAudits": [
+          "is-crawlable"
+        ]
+      }
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance": [
+          "warn",
+          {
+            "minScore": 0.9
+          }
+        ]
+      }
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": "./test-results/lhci-the7"
+    }
+  }
+}

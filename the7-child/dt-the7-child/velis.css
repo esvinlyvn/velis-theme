@@ -1,0 +1,19 @@
+/* Velis – chỉ những gì The7 Theme Options không chỉnh được. Màu, font, cỡ chữ, header, footer: The7 → Theme Options. */
+
+/* Link (DESIGN.md "Link"): không gạch chân ở trạng thái thường. Link trong đoạn văn đỏ #C42F35 đậm 600, rê chuột hiện
+   gạch chân mảnh; link điều hướng (menu, breadcrumb, meta, footer) màu chữ phụ, rê chuột đỏ. */
+a, a:hover { text-decoration: none; }
+.entry-content p a:not(.dt-btn):not(.vc_btn3):not(.button),
+.entry-content li a:not(.dt-btn):not(.vc_btn3):not(.button),
+.wpb_text_column a:not(.dt-btn):not(.vc_btn3):not(.button),
+.entry-content td a { color: #C42F35; font-weight: 600; text-decoration: none; }
+.entry-content p a:not(.dt-btn):not(.vc_btn3):not(.button):hover,
+.entry-content li a:not(.dt-btn):not(.vc_btn3):not(.button):hover,
+.wpb_text_column a:not(.dt-btn):not(.vc_btn3):not(.button):hover,
+.entry-content td a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.page-title .breadcrumbs a, .entry-meta a, #bottom-bar a, #footer a { text-decoration: none; }
+.page-title .breadcrumbs a:hover, .entry-meta a:hover { color: #B8282E !important; } /* !important: The7 custom CSS (UX-08) colours these with !important */
+#bottom-bar a:hover, #footer a:hover { color: #F2B8B5; }
+
+/* Số điện thoại ở header: chữ đậm, số không xuống dòng */
+.masthead .mini-contacts.phone { white-space: nowrap; font-weight: 600; }

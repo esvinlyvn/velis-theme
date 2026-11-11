@@ -62,7 +62,9 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
 
 ## Cấu trúc repo
 
-- `theme/velis/` — mã theme khối; `dist/` (bỏ qua git) — file zip đóng gói.
+- `the7-child/dt-the7-child/` — **theme đang dùng từ 2026-11-11**: theme con của The7 Classic 14.5.1 (chỉ `velis.css`); màu, font,
+  header trong The7 Theme Options (`data/the7/options-*.json`, sinh bằng `tools/the7_options_buoc1.py`); logo PNG `the7-child/logo/`.
+- `theme/velis/` — theme khối velis, **đã bỏ 2026-11-11** (giữ để tham khảo); `dist/` (bỏ qua git) — file zip đóng gói.
 - `assets/brand/original/` — logo gốc tải từ Media site thật + PDF vector; `assets/brand/svg/` — SVG vẽ lại.
 - `data/gsc/` — export Search Console; `data/baseline/` — mốc crawl site thật (bản tóm tắt; dữ liệu thô bị ignore).
 - `tools/` — script crawl/kiểm tra; `screenshots/` — ảnh chụp đã nén dùng trong báo cáo.
@@ -71,7 +73,8 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
 
 - Sinh `theme.json` từ DESIGN.md: `python3 -I tools/build_theme_json.py` (không sửa tay theme.json).
 - Sinh logo SVG: `python3 -I tools/build_logo.py`.
-- Đóng gói theme: `cd theme && zip -qr ../dist/velis.zip velis` → tải lên staging qua wp-admin.
+- Đóng gói theme con The7: `cd the7-child && zip -qr ../dist/dt-the7-child.zip dt-the7-child` → Giao diện → Tải lên → "Thay thế cài đặt bằng tải lên"; sau đó xóa cache FVM + LiteSpeed.
+- (Đã bỏ) Đóng gói theme velis: `cd theme && zip -qr ../dist/velis.zip velis`.
 - Crawl mốc (chỉ đọc, không đăng nhập): `REQUESTS_CA_BUNDLE=/root/.ccr/ca-bundle.crt python3 -I tools/crawl_baseline.py https://velisrealty.vn data/baseline`.
 
 ## Ponytail – AGENTS.md (nguyên văn)
