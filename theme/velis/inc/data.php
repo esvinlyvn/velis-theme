@@ -14,6 +14,12 @@ function velis_s( string $key ) {
 	return function_exists( 'velis_setting' ) ? velis_setting( $key ) : '';
 }
 
+/** Job title of an author: the profile's velis_role; the CEO title of Cài đặt Velis only for the CEO; else none. */
+function velis_author_role( int $user_id ): string {
+	$role = trim( (string) get_user_meta( $user_id, 'velis_role', true ) );
+	return $role ?: ( get_the_author_meta( 'display_name', $user_id ) === velis_s( 'ceo_name' ) ? (string) velis_s( 'ceo_role' ) : '' );
+}
+
 /**
  * Items of the menu assigned to a location: [ [title, url, [ [title, url] … ] ] … ] (2 levels). [] when none is assigned,
  * so the caller falls back to its built-in links.

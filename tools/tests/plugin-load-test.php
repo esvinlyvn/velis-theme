@@ -19,7 +19,7 @@ $GLOBALS['opt'] = array();
 function get_option( $k, $d = false ) { return $GLOBALS['opt'][ $k ] ?? $d; }
 $ok = '0911 237 979' === velis_setting( 'phone' ) && 0 === velis_setting( 'home_img' ) && '' === velis_setting( 'social_facebook' ) && str_contains( velis_setting( 'role_sentence' ), '{chủ đầu tư}' );
 $GLOBALS['opt']['velis_settings'] = array( 'phone' => '0909 000 111', 'social_facebook' => '' );
-$ok = $ok && '0909000111' === velis_setting_tel() && '' === velis_setting( 'social_facebook' ) && 'Vũ Xuân' === velis_setting( 'ceo_name' );
+$ok = $ok && '' === velis_setting( 'social_facebook' ) && 'Vũ Xuân' === velis_setting( 'ceo_name' );
 $clean = velis_settings_sanitize( array( 'home_img' => '12abc', 'home_btn1_url' => '#tu-van', 'zalo' => 'javascript:alert(1)', 'email' => 'x@', 'home_title' => '<b>Tiêu đề</b>', 'about_p1' => '<script>x</script><b>Đậm</b>' ) );
 $ok = $ok && 12 === $clean['home_img'] && '#tu-van' === $clean['home_btn1_url'] && '' === $clean['zalo'] && '' === $clean['email'] && 'Tiêu đề' === $clean['home_title'] && 'x<b>Đậm</b>' === $clean['about_p1'] && count( $clean ) === count( velis_settings_fields() );
 echo $ok ? "settings: ok\n" : "settings: FAIL\n";

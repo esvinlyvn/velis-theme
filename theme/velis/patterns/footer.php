@@ -8,7 +8,7 @@
  * bottom CTA bar (shown once the hero buttons scroll away, velis.js).
  */
 $social  = velis_social_links(); // only networks with a URL in Cài đặt Velis → Mạng xã hội
-$explore = array_map( fn( $x ) => array( $x[0], $x[1] ), velis_menu_tree( 'kham-pha' ) ) ?: array( array( 'Dự án', '/du-an/' ), array( 'Chủ đầu tư', '/chu-dau-tu/' ), array( 'Blog', '/blog/' ), array( 'Giới thiệu', '/gioi-thieu/' ), array( 'Tuyển dụng', '/tuyen-dung/' ), array( 'Liên hệ', '/lien-he/' ) ); // Giao diện → Menu → "Chân trang – Khám phá", else these
+$explore = velis_menu_tree( 'kham-pha' ) ?: array( array( 'Dự án', '/du-an/' ), array( 'Chủ đầu tư', '/chu-dau-tu/' ), array( 'Blog', '/blog/' ), array( 'Giới thiệu', '/gioi-thieu/' ), array( 'Tuyển dụng', '/tuyen-dung/' ), array( 'Liên hệ', '/lien-he/' ) ); // Giao diện → Menu → "Chân trang – Khám phá", else these
 $contact = array_filter( array( velis_phone_link(), velis_email_link(), esc_html( velis_s( 'address' ) ) . ( velis_s( 'hours' ) ? '<br>' . esc_html( velis_s( 'hours' ) ) : '' ) ) );
 $li = fn( array $l ) => implode( '', array_map( fn( $x ) => '<li><a href="' . esc_url( $x[1] ) . '">' . esc_html( $x[0] ) . '</a></li>', $l ) );
 ?>

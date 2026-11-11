@@ -395,7 +395,7 @@ function velis_contact_card( string $mode = 'contact', string $mail = '' ): stri
 	$dl   = implode( '', array_map( fn( $k, $v ) => '<div><dt>' . $k . '</dt><dd>' . $v . '</dd></div>', array_keys( $rows ), $rows ) );
 	return '<aside class="page__side" aria-label="' . ( $cv ? 'Ứng tuyển' : 'Liên hệ Velis' ) . '"><div class="advisor"><p class="eyebrow">' . ( $cv ? 'Ứng tuyển' : 'Liên hệ Velis' ) . '</p>'
 		. '<p class="pricecard__title">' . ( $cv ? 'Gửi CV cho Velis Realty' : 'Velis Realty' ) . '</p>' . ( $cv ? '<p>Gửi CV qua email hoặc để lại số điện thoại, Velis liên hệ hẹn phỏng vấn.</p>' : '<dl>' . $dl . '</dl>' )
-		. ( $cv ? velis_btn( 'Gửi CV qua email', $mail ) . velis_btn( 'Điền form ứng tuyển', '#tu-van', 'line' ) : velis_btn( 'Nhận tư vấn', '#tu-van' ) . velis_zalo_btn() )
+		. ( $cv ? ( $mail ? velis_btn( 'Gửi CV qua email', $mail ) : '' ) . velis_btn( 'Điền form ứng tuyển', '#tu-van', 'line' ) : velis_btn( 'Nhận tư vấn', '#tu-van' ) . velis_zalo_btn() )
 		. '</div></aside>';
 }
 
@@ -760,7 +760,7 @@ function velis_author_box( int $user_id ): string {
 	$name = get_the_author_meta( 'display_name', $user_id );
 	$bio  = get_the_author_meta( 'description', $user_id );
 	$url  = get_author_posts_url( $user_id );
-	return '<aside class="advisor" aria-label="Tác giả"><p class="eyebrow">Tác giả</p><p class="pricecard__title"><a href="' . esc_url( $url ) . '">' . esc_html( $name ) . '</a></p><p class="muted">' . esc_html( trim( (string) get_user_meta( $user_id, 'velis_role', true ) ) ?: velis_s( 'ceo_role' ) ) . '</p>'
+	return '<aside class="advisor" aria-label="Tác giả"><p class="eyebrow">Tác giả</p><p class="pricecard__title"><a href="' . esc_url( $url ) . '">' . esc_html( $name ) . '</a></p>' . ( velis_author_role( $user_id ) ? '<p class="muted">' . esc_html( velis_author_role( $user_id ) ) . '</p>' : '' )
 		. ( $bio ? '<p>' . esc_html( $bio ) . '</p>' : '' ) . velis_btn( 'Tất cả bài của ' . $name, $url, 'text' ) . '</aside>';
 }
 

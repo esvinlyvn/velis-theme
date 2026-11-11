@@ -16,7 +16,7 @@ $paged = max( 1, (int) get_query_var( 'paged' ) );
 $q     = new WP_Query( array( 'author' => $u->ID, 'paged' => $paged, 'posts_per_page' => 12 ) );
 $m     = fn( $k ) => trim( (string) get_user_meta( $u->ID, $k, true ) );
 $photo = (int) $m( 'velis_photo' );
-$role  = $m( 'velis_role' ) ?: velis_s( 'ceo_role' );
+$role  = velis_author_role( $u->ID );
 $hero  = $photo ?: ( $u->display_name === velis_s( 'ceo_name' ) ? (int) velis_s( 'ceo_portrait' ) : 0 ); // header only: the CEO's portrait from Cài đặt Velis
 $years = $m( 'velis_years' );
 $urls  = array_filter( array_merge( array( $m( 'facebook' ), $m( 'twitter' ) ? 'https://x.com/' . ltrim( $m( 'twitter' ), '@' ) : '' ), preg_split( '/\s+/', $m( 'additional_profile_urls' ) ) ) );
@@ -35,7 +35,7 @@ $dl .= $areas ? '</dl><p class="muted mb-0">Lĩnh vực</p>' . velis_sidelist( a
 $stats = array_filter( array( 'bài phân tích' => (int) count_user_posts( $u->ID, 'post', true ), 'cụm dự án theo dõi' => count( $areas ), 'năm kinh nghiệm' => (int) $years ) );
 // Profile = hero B (photo when there is one) + the numbers band (mockup) + the facts as the advisor card.
 $out = velis_breadcrumb_html( velis_trail() ) . velis_hero_b( array(
-	'eyebrow' => 'Chuyên gia · ' . $role,
+	'eyebrow' => implode( ' · ', array_filter( array( 'Chuyên gia', $role ) ) ),
 	'title'   => $u->display_name . ( $paged > 1 ? ' – trang ' . $paged : '' ),
 	'lead'    => $u->description,
 	// 5.10: portrait in the header (the author's photo, the CEO's from Cài đặt Velis), contact button under it

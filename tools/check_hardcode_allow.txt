@@ -13,7 +13,7 @@ giá tham khảo khi chủ đầu tư công bố
 Lọc theo khu vực, chủ đầu tư, loại sản phẩm.
 Chủ đầu tư có dự án Velis đang tư vấn:
 : giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư.
-Phân tích dự án, nhận định thị trường và hướng dẫn mua bất động sản cao cấp của CEO
+Phân tích dự án, nhận định thị trường và hướng dẫn mua bất động sản cao cấp của
 
 # Form: nhãn, lỗi, xác nhận, đồng ý xử lý dữ liệu (inc/ui.php)
 Vui lòng nhập số điện thoại 9–15 chữ số.
@@ -36,3 +36,7 @@ Anh chị thử tên dự án hoặc xem các dự án dưới đây.
 Mỗi phân khu mở bán riêng, có giá, mặt bằng và tiến độ riêng.
 So sánh với các phân khu khác của
 Vị trí và kết nối viết chung cho cả
+
+# Tên mục cố định của trang dự án (tab + tiêu đề khối, chọn khi thiết kế; chữ giao diện có chữ CEO).
+Góc nhìn CEO
+Góc nhìn của CEO

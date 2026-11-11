@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Velis Data
  * Description: Mô hình dữ liệu Velis: Chủ đầu tư, Dự án (đại đô thị → phân khu → dòng thấp tầng, dự án độc lập), dòng căn hộ, loại sản phẩm, khu vực 2 cấp, trạng thái. Form nhập liệu trong wp-admin.
- * Version: 0.4.0
+ * Version: 0.4.1
  * Author: Velis Realty
  * Requires PHP: 8.0
  *

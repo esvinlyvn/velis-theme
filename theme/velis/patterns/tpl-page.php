@@ -44,7 +44,7 @@ if ( 'lien-he' === $slug ) {
 		'buttons' => $cv ? ( velis_s( 'email' ) ? velis_btn( 'Gửi CV', 'mailto:' . velis_s( 'email' ) . '?subject=' . rawurlencode( 'Ứng tuyển – ' . $title ) ) : '' ) . velis_call_btn( 'line' ) : '',
 	) );
 	if ( $cv ) {
-		$side = velis_contact_card( 'cv', 'mailto:' . velis_s( 'email' ) . '?subject=' . rawurlencode( 'Ứng tuyển – ' . $title ) );
+		$side = velis_contact_card( 'cv', velis_s( 'email' ) ? 'mailto:' . velis_s( 'email' ) . '?subject=' . rawurlencode( 'Ứng tuyển – ' . $title ) : '' );
 	} else {
 		list( $toc, $content ) = velis_toc( $content, 1300 ); // policy pages: one centred reading column, the table of contents on top (2026-11-06)
 		$content = $toc . $content;

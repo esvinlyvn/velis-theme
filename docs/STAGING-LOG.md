@@ -244,3 +244,11 @@ Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng th
 | Theme | kích hoạt Twenty Twenty-Five → xóa velis → tải `velis-theme-1.1.0.zip` → kích hoạt velis (**2 lần**: lần 1 thiếu bằng chứng xóa, lần 2 ghi rõ: velis biến khỏi danh sách, cài mới không ghi đè). Site khách hiện Twenty Twenty-Five khoảng 1 phút mỗi lần |
 | Plugin velis-data | tắt → xóa (REST) → tải `velis-data-0.4.0.zip` → kích hoạt. ⚠ Tắt / kích hoạt plugin chạy `flush_rewrite_rules( false )` (mềm, **không ghi `.htaccess`**); kích hoạt chạy thêm `velis_seed_terms()` (chỉ thêm term thiếu – không thêm gì) |
 | Không làm | không gửi form, không đổi user khác, không sửa `.htaccess` |
+
+## 2026-11-11 – Vòng hoàn thiện, HT-3 (kiểm chứng cuối)
+
+| Việc | Chi tiết |
+|---|---|
+| Tải lên (wp-admin → Tải lên → thay bản đang dùng) | velis-data 0.4.1 (bỏ hàm `velis_setting_tel` trùng, bảng ô cài đặt đọc 1 lần), theme velis 1.1.1 (dòng tác giả chỉ ghi chức danh khi có, mô tả SEO mặc định bỏ chữ "CEO" viết cứng). 1 lần mỗi gói |
+| Thử tick "Nổi bật" (REST) | bỏ tick Palm City (20716), tick Spring Ville (20717) → chụp dải → trả lại như cũ (20716 tick, 20717 bỏ). Kiểm lại: dải = Palm City, The Privé, The Global City, Ansana by Kita |
+| Không làm | không gửi form, không đổi user, không sửa `.htaccess`, không xóa gì |

@@ -29,7 +29,7 @@ $meta    = array(
 	$updated ? 'Cập nhật <time datetime="' . esc_attr( $updated ) . '">' . esc_html( wp_date( 'd/m/Y', strtotime( $updated ) ) ) . '</time>' : '',
 	'nhan-dinh' === $kind ? 'Nhận định tại thời điểm ' . esc_html( get_the_date( 'm/Y', $p ) ) : '',
 	velis_reading_minutes( $p ) . ' phút đọc',
-	'<a href="' . esc_url( get_author_posts_url( $p->post_author ) ) . '">' . esc_html( get_the_author_meta( 'display_name', $p->post_author ) ) . '</a>, CEO Velis Realty',
+	'<a href="' . esc_url( get_author_posts_url( $p->post_author ) ) . '">' . esc_html( get_the_author_meta( 'display_name', $p->post_author ) ) . '</a>' . ( velis_author_role( (int) $p->post_author ) ? ', ' . esc_html( velis_author_role( (int) $p->post_author ) ) : '' ),
 );
 $out  = velis_breadcrumb_html( velis_trail() );
 $head = '<header class="block"><p class="eyebrow">' . implode( ' · ', array_filter( array( $kind ? esc_html( VELIS_KINDS[ $kind ] ) : '', $cat ? '<a href="' . esc_url( get_category_link( $cat ) ) . '">' . esc_html( $cat->name ) . '</a>' : '' ) ) ) . '</p>'

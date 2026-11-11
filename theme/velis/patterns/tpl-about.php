@@ -30,7 +30,7 @@ if ( trim( $pg->post_content ) ) {
 $band = array( 'section--tint', '' );
 $i    = 0;
 if ( $ceo && $ceo->description ) {
-	$out .= velis_section( velis_sechead( $ceo->display_name . ' – ' . ( trim( (string) get_user_meta( $ceo->ID, 'velis_role', true ) ) ?: velis_s( 'ceo_role' ) ), 'Người sáng lập' ) . '<p class="hero__lead">' . esc_html( $ceo->description ) . '</p>' . velis_btn( 'Bài viết của ' . $ceo->display_name, get_author_posts_url( $ceo->ID ), 'line' ), '', $band[ $i++ % 2 ] );
+	$out .= velis_section( velis_sechead( implode( ' – ', array_filter( array( $ceo->display_name, velis_author_role( $ceo->ID ) ) ) ), 'Người sáng lập' ) . '<p class="hero__lead">' . esc_html( $ceo->description ) . '</p>' . velis_btn( 'Bài viết của ' . $ceo->display_name, get_author_posts_url( $ceo->ID ), 'line' ), '', $band[ $i++ % 2 ] );
 }
 // Steps and values = the numbered values list of the home page (01–04 …); company facts = the facts list.
 foreach ( array( 'velis_steps' => array( 'Cách Velis làm việc', 'Quy trình' ), 'velis_values' => array( 'Giá trị Velis theo đuổi', 'Giá trị' ) ) as $key => list( $h, $eb ) ) {

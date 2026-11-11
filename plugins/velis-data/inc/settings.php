@@ -10,6 +10,10 @@ defined( 'ABSPATH' ) || exit;
 
 /** key => [label, type (text | textarea | url | email | id), default, section]. Order = order on the page. */
 function velis_settings_fields(): array {
+	static $f = null; // read once per velis_setting() call, many per page
+	if ( null !== $f ) {
+		return $f;
+	}
 	$f = array(
 		'home_eyebrow'      => array( 'Nhãn nhỏ', 'text', 'Velis Realty', 'home' ),
 		'home_title'        => array( 'Tiêu đề (H1)', 'text', 'Tư vấn bất động sản cao cấp tại TP.HCM và vùng lân cận', 'home' ),
@@ -99,11 +103,6 @@ function velis_setting( string $key ) {
 	return 'id' === $def[1] ? (int) $v : (string) $v;
 }
 
-/** Phone in a tel: link ("0911 237 979" → "0911237979"). */
-function velis_setting_tel(): string {
-	return preg_replace( '/[^\d+]/', '', velis_setting( 'phone' ) );
-}
-
 /** One field through its type's sanitizer (pure: also used by the unit test). */
 function velis_settings_clean( string $type, $v ) {
 	$v = is_scalar( $v ) ? (string) $v : '';
@@ -142,8 +141,8 @@ add_action( 'admin_enqueue_scripts', function ( $hook ) {
 	}
 	wp_enqueue_media();
 	$url = plugin_dir_url( __DIR__ );
-	wp_enqueue_script( 'velis-admin', $url . 'assets/admin.js', array(), '0.4.0', true );
-	wp_enqueue_style( 'velis-admin', $url . 'assets/admin.css', array(), '0.4.0' );
+	wp_enqueue_script( 'velis-admin', $url . 'assets/admin.js', array(), '0.4.1', true );
+	wp_enqueue_style( 'velis-admin', $url . 'assets/admin.css', array(), '0.4.1' );
 } );
 
 function velis_settings_page() {
