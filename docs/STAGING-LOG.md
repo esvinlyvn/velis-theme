@@ -249,6 +249,6 @@ Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng th
 
 | Việc | Chi tiết |
 |---|---|
-| Tải lên (wp-admin → Tải lên → thay bản đang dùng) | velis-data 0.4.1 (bỏ hàm `velis_setting_tel` trùng, bảng ô cài đặt đọc 1 lần), theme velis 1.1.1 (dòng tác giả chỉ ghi chức danh khi có, mô tả SEO mặc định bỏ chữ "CEO" viết cứng). 1 lần mỗi gói |
+| Tải lên (wp-admin → Tải lên → thay bản đang dùng) | velis-data 0.4.1 (bỏ hàm `velis_setting_tel` trùng, bảng ô cài đặt đọc 1 lần), theme velis 1.1.1 (dòng tác giả chỉ ghi chức danh khi có, mô tả SEO mặc định bỏ chữ "CEO" viết cứng). 1 lần mỗi gói; theme thêm 4 lần (cùng số 1.1.1): khối Nhận tư vấn 2 × 2 (3 lần chỉnh cột / xuống dòng), 404 "Dự án nổi bật" theo ô tick |
 | Thử tick "Nổi bật" (REST) | bỏ tick Palm City (20716), tick Spring Ville (20717) → chụp dải → trả lại như cũ (20716 tick, 20717 bỏ). Kiểm lại: dải = Palm City, The Privé, The Global City, Ansana by Kita |
 | Không làm | không gửi form, không đổi user, không sửa `.htaccess`, không xóa gì |
