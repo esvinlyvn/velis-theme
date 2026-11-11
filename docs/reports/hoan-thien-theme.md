@@ -110,6 +110,8 @@ thoại, con số), logo chủ đầu tư, tiêu điểm ảnh, sửa menu.
 |---|---|---|
 | `velis-theme-1.1.0.zip` | 218 KB, 76 mục | thư mục `velis/` (slug giữ nguyên) – giống hệt bản đang chạy (so từng tệp với zip đã tải lên: 0 khác) |
 | `velis-data-0.4.0.zip` | 24 KB | thư mục `velis-data/`; không có `uninstall.php` (gỡ plugin không xóa dữ liệu) |
+| `velis-theme-1.1.1.zip` | 222 KB | bản cuối (HT-3), đang chạy trên staging (tải lên thay bản 1.1.0) |
+| `velis-data-0.4.1.zip` | 25 KB | bản cuối (HT-3), đang chạy trên staging (tải lên thay bản 0.4.0) |
 
 Cài thử trên staging (người dùng duyệt trong vòng này):
 
@@ -172,4 +174,29 @@ Màn: `d` 1536×864 @1,25 · `f` 1920×1080 · `i` iPhone 14 · `w` 1366×768 ·
 | check_ui 7 khung (360–1920) × 30 trang | **0** (sau khi bộ đo tính đúng vùng bấm của bài dạng dòng) | `ui-7-khung.txt` |
 | Tương tác | **55 / 55** Chromium, **55 / 55** WebKit; không gửi form (chặn ở trình duyệt) | `tuong-tac-*.txt` |
 | CSS | 42,5 KB min, 9,0 KB gzip (≤ 45 / ≤ 12) | `tools/build_css.py` |
+| Bộ NT Chromium 30 trang × DPR 1 / 1,25 / 2 × 390–1920 | **0 lỗi** (10 trang đầu chạy lại sau lần tải CSS cuối: lần chạy chính đo 2 trang ở giữa lúc tải nên NT-01 lệch 3 mục – khối form đổi cao giữa 2 DPR; chạy lại 0) | `test-results/ht-nt`, `ht-nt10` (không commit) |
+| Bộ NT WebKit iPhone 14 (30 trang, DPR 3) | **0 lỗi** | `test-results/ht-nt-webkit` |
+| Lighthouse mobile 4 trang | Performance 96–99, Accessibility 100, Best practices 100, SEO 100; LCP 1,96–2,22 s; CLS 0 | `test-results/lhci` |
+| Thang chữ / khoảng cách (`mockup_scale --staging`, 30 trang × 5 khung) | **126 ngoại lệ, đều đã biết, chờ người dùng chọn**: 72 = khoảng đệm tính toán của hộp lưu ý `.disclosure` (hộp rộng hết cột, chữ 14 px giữ ≤ 90 ký tự); 54 = dòng 91–95 ký tự – phần lớn ở ≥ 1 600 px (chữ 19 px trong cột 848 px), 5 dòng 91–92 ký tự ở 1 366 px | `thang-staging.md` |
 | Ảnh mốc | 103 / 156 ảnh cập nhật có chủ đích (thứ tự dự án, dải nổi bật, khối form 2 × 2 ở M1–M3, 404); soát ảnh khác biệt; **2 lần chạy liên tiếp 156 / 156** | `tests/visual/moc/` |
+
+Cài thử gỡ-rồi-cài làm với 1.1.0 / 0.4.0; 1.1.1 / 0.4.1 chỉ khác vài dòng PHP / CSS (không đổi dữ liệu, ô cài đặt, meta) và được
+tải lên bằng "thay bản đang dùng".
+
+## Việc người dùng chọn / làm
+
+1. **19 px từ 1 600 px hay ≤ 90 ký tự / dòng**: hai yêu cầu không cùng đạt được trong cột 848 px (dòng 91–95 ký tự). Đang giữ 19 px.
+   Cách khác: 20 px từ 1 600 px (≈ 86 ký tự, ngoài thang chữ hiện có) hoặc khung 1 200 px ở mọi bề rộng.
+2. Hộp lưu ý `.disclosure`: giữ khoảng đệm tính toán (hộp rộng hết cột, chữ ≤ 90 ký tự) hay cho chữ rộng hết hộp (~105 ký tự / dòng).
+3. **Ngày đăng 6 dự án** (bảng mục 2) – xem có khớp thời điểm mở bán; ngày đăng quyết định thứ tự.
+4. **Palm City** đứng đầu dải nổi bật nhưng chưa có ảnh đại diện – thêm ảnh hoặc bỏ tick.
+5. Tài khoản thử `bien-tap-thu` trên staging (không vai trò) – người dùng xóa trong Thành viên.
+6. Ảnh đại diện mới của 4 chủ đầu tư là logo → cũng thành ảnh chia sẻ (og:image) của trang chủ đầu tư; nếu muốn ảnh chia sẻ khác, đặt
+   trong Rank Math của từng trang.
+7. Còn từ vòng trước: /lien-he/ (49 %) và /gioi-thieu/ (97,9 %) bỏ phần liên hệ trùng; chép chữ trang cũ vào 4 bản ghi chủ đầu tư;
+   7 link mạng xã hội cần xác nhận.
+
+Đã bỏ qua / chưa kiểm tra: không gửi form; chưa thử trên iPhone / Android thật; chưa thử Biên tập viên tạo dòng thấp tầng;
+cài thử gỡ-rồi-cài chỉ làm với 1.1.0 / 0.4.0.
+Rủi ro: tiêu điểm khung hero trang chủ chỉnh cho ảnh The Privé – đổi ảnh hero khác cần đặt "Tiêu điểm" trong Media; menu chỉ Quản trị
+viên sửa được. Không ra mắt – DỪNG chờ duyệt.
