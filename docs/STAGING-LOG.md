@@ -353,3 +353,30 @@ tải lại theme con 1.1.2. Không xóa gì, không gửi form, site thật kh�
 Quay lui: nhập `data/the7/options-truoc-b5.json`; trang 19539 → slug `blog`, Xuất bản; chuyên mục theo `chuyen-muc-truoc.json`;
 menu theo `menu-blog-truoc.json`; Đọc → 10 bài; hủy kích hoạt #13–#20, kích hoạt lại #2 (sau khi trả nguồn/đích cũ); sidebar bài:
 chọn lại "Disabled" (hoặc để nguyên, không ảnh hưởng khi bỏ widget); theme con 1.1.3. Không xóa gì, không gửi form, site thật không bị ghi.
+
+## 2026-11-11 – The7 bước 6: đồng bộ UI/UX + branding một mạch (theo `docs/reports/the7-buoc-6-dong-bo-ui.md`)
+
+| Mục | Trước | Sau | Cách làm |
+|---|---|---|---|
+| (bổ sung bước T7-INIT) | — | mở `post-new.php?post_type=page` để đọc danh sách phần tử WPBakery → 1 **bản nháp tự động** (WordPress tự dọn sau 7 ngày, không xóa tay) | chỉ đọc |
+| The7 Theme Options | xuất bản hiện tại → `data/the7/options-truoc-b6.json` | 164 khóa (`data/the7/options-buoc-6.json`, sinh bằng `tools/the7_options_buoc6.py`): chữ 18/16/14, H1–H4 có cỡ tablet/mobile, tiêu đề trang 56/36 căn trái, nền halftone bỏ, thẻ trắng viền #E4DED5 bo 2, nút đệm L 14/28 M cao 48, ô nhập 48 viền #C9C1B5 bo 2, thông báo form tiếng Việt, sidebar nền ngà chữ #5C5C5C dính, footer #1A1A1A kẻ champagne 1 px, mọi gradient/màu ẩn (xanh lá, tím, xanh dương, vàng chanh) về bảng màu, Stripes 1–3 theo token, favicon The7 + thẻ OG The7 tắt, **Custom CSS để trống** (gộp vào theme con) | Export/Import Options (1 lần) |
+| The7 → Settings | Portfolio, Testimonials, Team, Albums, Slideshow bật (không có loại nội dung) | tắt | trang The7 Settings |
+| Theme con | 1.1.4 | **1.2.0**: `velis.css` = nơi CSS duy nhất (gộp velis-ux UX-01/03/04/07/15/16/21, bỏ UX-08 vì Theme Options đã có màu), thêm bóng thẻ khi rê chuột, nhịp `velis-section` 96/64/48, eyebrow, bảng, Hỏi đáp, Easy TOC, 404 | Giao diện → Tải lên → Thay thế (2 lần: bản đầu + bản sau đo) |
+| WPBakery → Mẫu của tôi | 3 mẫu Velis đệm cố định 48 px | 3 mẫu dùng class `velis-section`, khối liên hệ nền #F3ECDF (xóa bản cũ cùng tên rồi lưu lại; mẫu "Du An" của chủ site không đụng) | AJAX `vc_delete_template` / `vc_save_template` của trình sửa |
+| WPBakery → Color Picker | 8 màu mặc định (#DD3333, #81D742, #8224E3…) | #1A1A1A #FFFFFF #FAF7F2 #F3ECDF #B8282E #9E1F26 #B08D57 #5C5C5C | trang Color Picker |
+| WPBakery → General → Default template (post) | không | "Velis – Bài viết" | trang General Settings |
+| Nội dung 23 trang/bài | xem `data/the7/buoc-6/ban-sua-doi-truoc.json` (ID bản sửa đổi trước khi sửa + ngày sửa) | 6 dự án + 3 chủ đầu tư dựng lại theo mẫu; Persa/Gamuda/bài 20330 lên class mới; trang chủ (bỏ ảnh logo đỏ 19587 khỏi nội dung, nút Thi thử xuống dải nghề nghiệp, nền xen kẽ), Liên hệ (khối HTML Arial theo theme), 4 bài blog + Giới thiệu/Dự án/Chính sách/Điều khoản/Tuyển dụng (tiêu đề chữ hoa); chi tiết từng thay đổi `data/the7/buoc-6/thay-doi-noi-dung.csv` | màn hình Sửa (gửi form gốc, WPBakery dựng lại CSS hàng), Rank Math **Lock Modified Date** bật → **ngày sửa của cả 23 trang/bài giữ nguyên** (đối chiếu REST) |
+| Nền hàng Ultimate #EFEFEF | Vinhomes, Masterise Homes (Hỏi đáp) | bỏ | như trên |
+| Tiêu đề trang/bài chữ hoa | 7 trang + 4 bài ("LIÊN HỆ", "THE GLOBAL CITY"…) | chữ thường kiểu câu; ngày sửa + nội dung giữ nguyên | màn hình Sửa, Lock Modified Date |
+| Menu | MAIN (không gán vị trí): "DỰ ÁN", "BLOG", "TUYỂN DỤNG"; FOOTER: "THI THỬ CCMG" | "Dự án", "Blog", "Tuyển dụng", "Thi thử CCMG" (mục trỏ trang tự theo tiêu đề trang mới) | REST `wp/v2/menu-items` |
+| Widget Default Footer (text-2) | "0911237979" | "0911 237 979" | REST `wp/v2/widgets` |
+| Media (mới) | — | 20772 `velis-site-icon-512.png`, 20773 `velis-og-mac-dinh-1200x630-1.png` (từ `assets/brand/png/`) | REST `wp/v2/media` |
+| Site Icon | 18678 | **20772** | REST `wp/v2/settings` |
+| Rank Math → Tiêu đề & mô tả → Hình thu nhỏ OpenGraph | `velis-realty.webp` (logo đỏ chuyển sắc) | 20773 | giao diện Rank Math (Lưu thay đổi) |
+| Ảnh đại diện trang 19526, 19544, 19537, 19551 | 19587 (logo đỏ, dùng làm ảnh chia sẻ) | 20773 | REST `wp/v2/pages` (ngày sửa 4 trang này đổi sang 2026-11-11) |
+| Cache | — | xóa FVM + LiteSpeed sau mỗi lớp (không lưu cài đặt LiteSpeed) | thanh quản trị |
+
+Quay lui: nhập `data/the7/options-truoc-b6.json`; bật lại 5 module ở The7 Settings; theme con 1.1.4 (commit 937c273);
+từng trang/bài → Bản sửa đổi theo `ban-sua-doi-truoc.json`; mẫu WPBakery: lưu lại bản ở commit 937c273; Color Picker/Default
+template theo bảng trên; Site Icon 18678; Rank Math OG `velis-realty.webp`; ảnh đại diện 4 trang → 19587. Không xóa bài/trang/media,
+không gửi form, không động Buttonizer, site thật không bị ghi.

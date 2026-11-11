@@ -120,7 +120,8 @@ def normalize(raw, names, log):
     # nút gõ hoa → chữ thường kiểu câu
     def btn(m):
         t = m.group(2)
-        nt = case_fix(t, names)
+        letters = [c for c in t if c.isalpha()]
+        nt = hc.sentence_case(t, names) if len(letters) >= 3 and all(c.isupper() for c in letters) else case_fix(t, names)  # nhãn nút ngắn ("GỌI …")
         if nt != t:
             log.append(('nut', t, nt))
         return m.group(1) + nt + m.group(3)
@@ -356,6 +357,7 @@ def _test():
     assert case_fix('Thông Tin Liên Hệ Trực Tiếp', n) == 'Thông tin liên hệ trực tiếp'
     assert case_fix('CĂN HỘ THE PRIVÉ QUẬN 2', n) == 'Căn hộ The Privé Quận 2'
     assert case_fix('Tiến độ thi công thần tốc và Sự minh bạch về Pháp lý', n) == 'Tiến độ thi công thần tốc và Sự minh bạch về Pháp lý'
+    assert normalize('[dt_default_button link="x"]GỌI 0911 237 979[/dt_default_button]', n, []) == '[dt_default_button link="x"]Gọi 0911 237 979[/dt_default_button]'
     assert case_fix('Nhịp 2: Chốt lời (Tháng 8 - Tháng 10/2026)', n) == 'Nhịp 2: Chốt lời (Tháng 8 - Tháng 10/2026)'  # chữ hoa rải rác: giữ
     assert case_fix('Thế Trận "Vùng Đệm" Thảo Điền Và Sức Bật Từ Dòng Khách Cao Cấp', n) == 'Thế trận "vùng đệm" Thảo Điền và sức bật từ dòng khách cao cấp'
     log = []
