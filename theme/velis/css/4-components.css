@@ -321,7 +321,8 @@ a.chip { display: inline-flex; align-items: center; color: inherit; text-decorat
 .contact { display: grid; gap: var(--s8); }
 @media (min-width: 1024px) { .contact { grid-template-columns: 5fr 7fr; gap: var(--s16); align-items: start; } }
 .contact dl { display: grid; gap: var(--s4); margin: 0; }
-.contact dd { font-weight: 600; }
+@media (min-width: 1280px) { .contact dl { grid-template-columns: max-content minmax(0, 1fr); column-gap: var(--s8); } } /* hoàn thiện 0: 2 × 2 so the details column is about as tall as the form card (no empty gap beside it) */
+.contact dd { font-weight: 600; text-wrap: balance; } /* hours break at the space, not after "08:00–" */
 .contact dd a, .page__side :is(dd, li) a:not(.btn), dl :is(dt, dd) > a:not(.btn) { display: inline-flex; align-items: center; min-height: 44px; } /* NT-86: hotline / Zalo / email and side-card links are tap targets */
 .form { display: grid; gap: var(--s4); }
 .section--form .form { padding: var(--s6); border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--surface); }
