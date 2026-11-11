@@ -337,7 +337,8 @@ function velis_hero_home( array $a ): string {
 function velis_feature_strip( array $projects ): string {
 	$li = array_map( function ( $p ) {
 		$meta = implode( ' · ', array_filter( array( velis_region_label( $p ), velis_status( $p ) ) ) );
-		return '<li><a class="feat" href="' . esc_url( get_permalink( $p ) ) . '"><span class="feat__img">' . velis_img( velis_image_id( $p ), 'Phối cảnh ' . $p->post_title, 'medium', array( 'lcp' => true, 'sizes' => '72px', 'ratio' => 13 / 9 ) ) . '</span>'
+		return '<li><a class="feat" href="' . esc_url( get_permalink( $p ) ) . '">' . ( velis_usable( velis_image_id( $p ) ) ? '<span class="feat__img">' . velis_img( velis_image_id( $p ), 'Phối cảnh ' . $p->post_title, 'medium', array( 'lcp' => true, 'sizes' => '72px', 'ratio' => 13 / 9 ) ) . '</span>'
+			: '<span class="feat__img feat__img--empty"><img src="' . esc_url( get_theme_file_uri( 'assets/brand/velis-mark.svg' ) ) . '" width="32" height="32" alt=""></span>' ) // a ticked project without a photo: the Velis mark, not an empty box
 			. '<span><b>' . esc_html( $p->post_title ) . '</b>' . ( $meta ? '<small>' . esc_html( $meta ) . '</small>' : '' ) . '</span></a></li>';
 	}, $projects );
 	$nav = '<span class="feats__nav" hidden><button type="button" data-feats="-1" aria-label="Dự án trước"><span aria-hidden="true">‹</span></button><button type="button" data-feats="1" aria-label="Dự án sau"><span aria-hidden="true">›</span></button></span>';

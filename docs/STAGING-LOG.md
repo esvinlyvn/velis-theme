@@ -231,5 +231,5 @@ Kiểm chứng: 35 URL dự án (6 cấp cao nhất + 13 phân khu + 16 dòng th
 | Plugin velis-data 0.3.1 → **0.4.0** | Plugin → Tải lên → thay bản đang dùng: trang Cài đặt Velis, ô Nổi bật, cờ Bản gốc hỏng, menu dự án theo ngày. Kích hoạt lại không chạy (thay tệp), không flush rewrite, không ghi `.htaccess` |
 | Cài đặt Velis | lưu 1 lần qua chính trang Cài đặt Velis (quản trị): mọi ô = mặc định, thêm ảnh hero trang chủ 19968, ảnh /du-an/ 20092, CEO 21089 / 21090, 7 URL mạng xã hội (bản đang hiện ở footer) |
 | Menu | tạo + gán 2 menu mới: "Velis – Menu chính" (83) → vị trí `chinh`, "Velis – Chân trang Khám phá" (84) → `kham-pha`, mục là link tùy chỉnh. Menu cũ MAIN (33), FOOTER (54) giữ nguyên, không gán. Menu không ghi `.htaccess` |
-| Theme velis 1.0.0 → **1.1.0** | **2 lần tải lên** (Giao diện → Tải lên → thay bản đang dùng): đọc Cài đặt Velis, menu theo vị trí, thứ tự mới nhất trước, dải nổi bật, logo từ ảnh đại diện; lần 2 bỏ "thẻ có ảnh trước" ở lưới |
+| Theme velis 1.0.0 → **1.1.0** | **3 lần tải lên** (Giao diện → Tải lên → thay bản đang dùng): đọc Cài đặt Velis, menu theo vị trí, thứ tự mới nhất trước, dải nổi bật, logo từ ảnh đại diện; lần 2 bỏ "thẻ có ảnh trước" ở lưới; lần 3 dự án nổi bật chưa có ảnh hiện dấu Velis thay ô trống |
 | Không làm | không gửi form, không xóa gì, không đổi user |
