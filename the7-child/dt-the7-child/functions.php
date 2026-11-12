@@ -34,7 +34,8 @@ add_action( 'wp_enqueue_scripts', function () {
 }, 1000 );
 
 // Mobile contact bar (DESIGN sticky-cta-mobile; replaces Buttonizer). Phone, Zalo and the consult link are edited in
-// Giao diện → Tùy biến → "Thanh liên hệ (điện thoại)"; layout in velis.css (.velis-cta-bar; .velis-cta is the WPBakery contact row), shown ≤ 767 px only.
+// Giao diện → Tùy biến → "Thanh liên hệ (điện thoại)"; layout in velis.css (.velis-cta-bar; .velis-cta is the WPBakery contact row), shown < 1024 px
+// and only after the first screen is scrolled past (DESIGN: never over the hero buttons) – velis_cta_script().
 function velis_cta_defaults() {
 	return array( 'velis_cta_phone' => '0911 237 979', 'velis_cta_zalo' => 'https://zalo.me/0911237979', 'velis_cta_url' => '/lien-he/' );
 }
@@ -75,6 +76,16 @@ function velis_cta_html() {
 		. '<a class="velis-cta-bar__main" href="' . esc_url( $url ) . '">Nhận tư vấn</a></nav>';
 }
 
+// Hidden state only when JS runs (class set in <head>, before paint); without JS the bar simply stays visible.
+function velis_cta_script() {
+	return '<script>(function(){var b=document.querySelector(".velis-cta-bar");if(!b)return;var f=function(){b.classList.toggle("is-on",scrollY>innerHeight*0.6)};'
+		. 'addEventListener("scroll",f,{passive:true});f();})();</script>';
+}
+
+add_action( 'wp_head', function () {
+	echo '<script>document.documentElement.classList.add("velis-cta-js")</script>';
+}, 1 );
+
 add_action( 'wp_footer', function () {
-	echo velis_cta_html(); // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts above
+	echo velis_cta_html() . velis_cta_script(); // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts above
 }, 5 );

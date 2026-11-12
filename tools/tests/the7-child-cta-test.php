@@ -24,4 +24,6 @@ $ok = $ok && 'velis-tu-van' === $form_id( '' ) && '' === $form_id( '' ) && str_c
 $GLOBALS['mods'] = array( 'velis_cta_phone' => '', 'velis_cta_zalo' => 'javascript:alert(1)' );
 $h   = velis_cta_html();
 $ok  = $ok && ! str_contains( $h, 'tel:' ) && ! str_contains( $h, 'javascript' ) && ! str_contains( $h, 'Zalo' );
+// The reveal script toggles .is-on on the bar; <head> marks JS so the hidden state never applies without JS.
+$ok  = $ok && str_contains( velis_cta_script(), 'classList.toggle("is-on"' ) && ! empty( $GLOBALS['hooks']['wp_head'] );
 echo $ok ? "the7-child cta: ok\n" : "the7-child cta: FAIL\n";
