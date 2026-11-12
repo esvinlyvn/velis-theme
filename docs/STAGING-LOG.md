@@ -421,3 +421,22 @@ Quay lui: nhập `data/the7/options-truoc-b8.json`; theme con 1.3.0 (commit 5274
 `ban-sua-doi-truoc.json` + Sidebar Options về "Disabled"; CF7 dán lại `cf7-19582-truoc.txt`; thêm lại widget Mục lục; title theo cột
 "truoc"; hủy kích hoạt chuyển hướng `the-prive`; tên chuyên mục "Dự Án". Không xóa bài/trang/media, không gửi form, không ghi
 `.htaccess`, site thật không bị ghi.
+
+## 2026-11-12 – The7 bước 9: vòng sửa theo soát trực tiếp (`docs/reports/the7-buoc-9.md`)
+
+| Mục | Trước | Sau | Cách làm |
+|---|---|---|---|
+| Easy TOC (Cài đặt → Mục lục) | đánh số Decimal; H2 + H3; tải bằng JS; mở sẵn | **Không đánh số**; chỉ **H2**; **CSS thuần**; **ẩn ban đầu** (velis.css mở sẵn từ 1 024 px) – 4 khóa, đã so mọi trường trước/sau (`scratchpad b9/eztoc-truoc.txt` / `-sau.txt`) | trang cài đặt Easy TOC (Lưu) |
+| LiteSpeed → QUIC.cloud | "Tích hợp QUIC.cloud bị tắt" | **không đổi**: bấm "Bật dịch vụ QUIC.cloud" 1 lần → lỗi "Quyền truy cập của QUIC.cloud vào WP REST API của bạn dường như đã bị chặn" (staging khóa mật khẩu xem) – không có tài khoản/email nào được tạo, không lưu cài đặt, không ghi `.htaccess`; dừng mục này | nút trên trang LiteSpeed → Cài đặt chung |
+| Media (thêm, không xóa) | logo đối tác 19641/19644/19648/19652 (ảnh 1 200 × 628 nền xám) | +4 logo nền trong suốt, cân diện tích: **20820** Vinhomes, **20821** Masterise Homes, **20822** Sun Group, **20823** Gamuda Land (tệp: `data/the7/buoc-9/logo/`); tiêu đề + alt "Logo …" | REST `wp/v2/media` |
+| Theme con | 1.4.1 | **1.5.0** (nhiều lần tải lên cùng số trong lúc soát ảnh chụp): thẻ dự án một mẫu `.velis-projects`, dải nổi bật `.velis-feats`, thanh thông tin lưới, nhịp khối, mục lục, đối tác, nút lên đầu trang, `.velis-badge`, ẩn meta trang dự án, phần đầu trang tràn mép trên điện thoại, nền hero cắt huy hiệu | Giao diện → Tải lên → thay bản đang dùng |
+| Nội dung 12 trang/bài (ID bản sửa đổi trước + ngày sửa: `data/the7/buoc-9/ban-sua-doi-truoc.json`) | — | trang chủ (dải nổi bật, lưới 5 dự án động, logo mới), /du-an/ (1 lưới động chuyên mục Dự án), 7 dự án (nhãn chủ đầu tư · khu vực, bỏ khối "Bài viết liên quan" WPBakery, ảnh `velis-badge`), Vinhomes / Masterise / Gamuda (lưới thẻ động) – dựng bằng `tools/the7_sua_buoc9.py`; Sun Group không đổi; ngày sửa không đổi (Lock Modified Date) | màn hình sửa (scratch `b9/apply.mjs`) |
+| Tiêu đề bài 4 dự án | Căn hộ The Privé / Căn hộ Persa Place / Căn hộ Palm River / Căn hộ Ansana by Kita | The Privé / Persa Place / Palm River / Ansana by Kita (H1 trong nội dung, slug, title Rank Math giữ nguyên) | cùng lần lưu |
+| Tóm tắt (excerpt) 7 dự án | trống | 4 dòng: chủ đầu tư / khu vực / loại / "Bàn giao: …" (dữ liệu thẻ) | cùng lần lưu |
+| Post Options → Related posts | The Global City: custom, chưa chọn chuyên mục; Spring Ville: same category | The Global City → chuyên mục blog 50; Spring Ville → 44 | cùng lần lưu |
+| Mẫu WPBakery "Mẫu của tôi" | Velis – Dự án / Chủ đầu tư bản bước 8 | bản mới (`data/the7/mau-wpbakery/`): Dự án không còn khối "Bài viết liên quan", nhãn "[Chủ đầu tư] · [Khu vực]"; Chủ đầu tư dùng lưới thẻ động; "Velis – Bài viết" lưu lại cùng nội dung | AJAX của trình sửa (scratch `b9/tpl.mjs`) |
+| Cache | — | xóa FVM + LiteSpeed sau mỗi lần tải theme / lưu nội dung | thanh quản trị |
+
+Quay lui: theme con 1.4.1 (commit 7b35746); Easy TOC 4 khóa về giá trị cột "Trước"; từng trang/bài → Bản sửa đổi theo
+`ban-sua-doi-truoc.json` (khôi phục cả tiêu đề + tóm tắt); Related posts 2 bài về như cũ; mẫu WPBakery: lưu lại bản ở commit 7b35746.
+Logo mới để lại trong Media (không xóa). Không xóa bài/trang/media, không gửi form, không ghi `.htaccess`, site thật không bị ghi.

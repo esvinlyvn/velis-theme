@@ -1,5 +1,5 @@
 [vc_row el_id="gioi-thieu" el_class="velis-hero" css=".vc_custom_1762900000001{background-color: #FAF7F2 !important;}"][vc_column][dt_breadcrumbs][vc_column_text css=""]
-<p class="velis-eyebrow">Dự án · [Khu vực thị trường]</p>
+<p class="velis-eyebrow">[Chủ đầu tư] · [Khu vực thị trường – docs/KHU-VUC.md]</p>
 <h1>[Tên dự án]</h1>
 [/vc_column_text][vc_single_image image="" img_size="full" alignment="center" el_class="velis-crop" css=""][vc_column_text css=""]
 <p>[1–2 câu mở: dự án là gì, ở đâu]</p>
@@ -55,10 +55,4 @@
 <p>[1–2 câu: anh chị cần gì thì để lại số điện thoại]</p>
 [/vc_column_text][vc_column_text css=""]
 <p class="velis-call">Hoặc gọi <a href="tel:0911237979">0911 237 979</a> · <a href="https://zalo.me/0911237979" target="_blank" rel="noopener">Zalo</a></p>
-[/vc_column_text][/vc_column][vc_column width="1/2"][contact-form-7 id="19582" title="Liên Hệ"][/vc_column][/vc_row][vc_row el_id="bai-lien-quan" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
-<h2>Bài viết liên quan</h2>
-<ul>
-<li><a href="[link bài 1]">[Tên bài 1]</a></li>
-<li><a href="[link bài 2]">[Tên bài 2]</a></li>
-</ul>
-[/vc_column_text][/vc_column][/vc_row]
+[/vc_column_text][/vc_column][vc_column width="1/2"][contact-form-7 id="19582" title="Liên Hệ"][/vc_column][/vc_row]
