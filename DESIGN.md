@@ -75,7 +75,8 @@ layout:
   breakpoints: [375px, 768px, 1024px, 1440px]
 
 elevation:
-  card-hover: "0 8px 24px rgba(20, 20, 20, 0.08)"
+  card: "0 1px 2px rgba(17, 17, 17, 0.06), 0 8px 24px rgba(17, 17, 17, 0.06)"          # thẻ ở trạng thái thường (2026-11-12)
+  card-hover: "0 2px 4px rgba(17, 17, 17, 0.08), 0 16px 32px rgba(17, 17, 17, 0.10)"     # + nhích lên 2 px
   sticky-cta: "0 -4px 16px rgba(20, 20, 20, 0.10)"
 
 motion:
@@ -87,11 +88,11 @@ motion:
   easing: "cubic-bezier(0.2, 0.6, 0.2, 1)"
 
 components:
-  button-primary: { backgroundColor: "{colors.velis-red}", textColor: "{colors.on-dark}", hover: "{colors.velis-red-hover}", typography: "{typography.button}", rounded: "{rounded.sm}", padding: 14px 28px, minHeight: 48px }
-  button-secondary: { backgroundColor: transparent, textColor: "{colors.ink}", border: "1px solid {colors.ink}", hoverBackground: "{colors.ink}", hoverText: "{colors.on-dark}", rounded: "{rounded.sm}", minHeight: 48px }
+  button-primary: { backgroundColor: "{colors.velis-red}", textColor: "{colors.on-dark}", hover: "{colors.velis-red-hover}", active: "#7F181E", disabled: "{colors.hairline} / {colors.body-muted}", typography: "{typography.button}", rounded: "{rounded.sm}", padding: 14px 28px, minHeight: 48px }
+  button-secondary: { backgroundColor: transparent, textColor: "{colors.ink}", border: "1px solid {colors.ink}", hoverBackground: "{colors.ink}", hoverText: "{colors.on-dark}", active: "#000000", disabled: "border {colors.hairline-strong} / {colors.body-muted}", rounded: "{rounded.sm}", minHeight: 48px }
   button-text: { textColor: "{colors.velis-red}", underline: on-hover, minHeight: 44px }
-  card-project: { backgroundColor: "{colors.surface}", border: "1px solid {colors.hairline}", rounded: "{rounded.sm}", imageRatio: "4/3", hover: "{elevation.card-hover} + image zoom" }
-  card-developer: { backgroundColor: "{colors.surface}", border: "1px solid {colors.hairline}", logoHeight: 48px }
+  card-project: { backgroundColor: "{colors.surface}", border: none, shadow: "{elevation.card}", rounded: 4px, imageRatio: "4/3", hover: "{elevation.card-hover} + translateY(-2px) + image zoom", link: whole-card }
+  card-developer: { backgroundColor: "{colors.surface}", border: none, shadow: "{elevation.card}", rounded: 4px, logoHeight: 48px }
   card-post: { imageRatio: "16/9", meta: "{typography.caption}" }
   fact-bar: { backgroundColor: "{colors.surface}", borderTop: "2px solid {colors.champagne}", items: 6 }
   spec-table: { header: "{colors.surface-sunken}", numbers: "{typography.price}", rowLine: "{colors.hairline}" }
@@ -202,7 +203,8 @@ phải khối nền.
 Dùng khoảng trắng thay đường kẻ; viền chỉ cho thẻ và ô nhập. Được giữ: gạch champagne 48 px dưới tiêu đề khối (dấu nhấn NT-11),
 vạch dọc mảnh giữa các cột số liệu (yêu cầu khối b), đường kẻ dòng của bảng dữ liệu và thanh thông tin dự án (1 đường dưới mỗi hàng).
 
-**1.7 Nút, thẻ, icon.** Nút chính đỏ đặc, nút phụ viền; mọi thẻ cùng bo góc 2 px và cùng padding; icon mảnh champagne hoặc không có.
+**1.7 Nút, thẻ, icon.** Nút chính đỏ đặc, nút phụ viền; mọi thẻ cùng bo góc 4 px (sửa 2026-11-12, trước 2 px), không viền, cùng padding;
+icon mảnh champagne hoặc không có.
 
 **1.8 Nhãn "ảnh tạm".** Mặc định **ẩn**; bật bằng công tắc mockup, trạng thái ghi `#tam-1` trên địa chỉ.
 
@@ -219,11 +221,11 @@ Lưới 12 cột; khung nội dung 1200 px (1320 px từ 1600 px), khung đọc 
 Khoảng trắng là chất liệu sang trọng chính. Mỗi phần chỉ có một ý; tách bằng khoảng trống trước khi nghĩ tới đường kẻ.
 
 ## Elevation & Depth
-Phẳng là mặc định. Chỉ hai bóng: `card-hover` (thẻ khi rê chuột) và `sticky-cta` (thanh CTA dính đáy). Không blur diện rộng,
+Phẳng là mặc định. Chỉ ba bóng: `card` (thẻ), `card-hover` (thẻ khi rê chuột) và `sticky-cta` (thanh CTA dính đáy). Không blur diện rộng,
 không kính mờ.
 
 ## Shapes
-- Bo góc 2 px cho nút, thẻ, ô nhập; **0 px cho ảnh lớn** (hero, thư viện) – góc vuông tạo cảm giác kiến trúc.
+- Bo góc 2 px cho nút, ô nhập; 4 px cho thẻ; **0 px cho ảnh lớn** (hero, thư viện) – góc vuông tạo cảm giác kiến trúc.
 - Pill (999 px) chỉ cho chip dòng sản phẩm và nhãn trạng thái.
 - Tỉ lệ ảnh cố định: 16:9 hero và ảnh bài viết, 4:3 thẻ, 1:1 ảnh đại diện; luôn khai báo `width`/`height`.
 
@@ -231,9 +233,32 @@ không kính mờ.
 Mỗi thành phần có trạng thái hover, focus (viền 2 px `ink`, lệch 2 px), disabled (nền `hairline`, chữ `body-muted`, ≥ 3:1)
 và bản mobile. Tất cả được trưng bày ở trang style guide trên staging, với dữ liệu thật của site (The Privé, Vinhomes Saigon Park).
 
+### Thẻ (chốt 2026-11-12 – mọi thẻ: dự án, phân khu, bài, chủ đầu tư, bài liên quan)
+- **Không viền.** Nền trắng, bo góc 4 px, bóng `card`; rê chuột: bóng `card-hover` + nhích lên 2 px (200 ms); tắt chuyển động khi người
+  dùng bật "giảm chuyển động". Trên ảnh hero (dải "Dự án nổi bật"): nền tối, không bóng, cùng bo góc và cùng nhích.
+- **Cả thẻ là một link**: chữ của link là tên thẻ (tên dự án / tiêu đề bài); "Xem dự án →" chỉ là chữ trang trí, không phải link riêng
+  (không có link chữ chung chung lặp lại). Link phụ trong thẻ bài (chuyên mục, ngày) vẫn bấm riêng. Focus bàn phím: viền 2 px quanh cả thẻ.
+- **Lưới**: khe 24 px; số cột theo phần tử (3 / 2 / 1); hàng cuối thiếu thẻ thì **căn giữa**, thẻ giữ bề rộng.
+- **Thẻ dự án**: nhãn "chủ đầu tư · khu vực" luôn 1 dòng (khu vực cắt "…", rê chuột thấy đủ) → tên cùng hàng thẳng nhau ±2 px.
+- Ảnh thẻ trong màn đầu tải ngay (không lười, không mờ dần); ảnh dưới `loading="lazy"`, khung giữ sẵn tỉ lệ.
+
 ### Buttons
 Chính (đỏ, chữ trắng) · Phụ (viền đen, hover nền đen) · Viền trắng (trên ảnh hero) · Dạng chữ (đỏ, gạch chân khi hover).
-Cao tối thiểu 48 px (vùng bấm ≥ 44 × 44). Đổi màu 150–200 ms.
+**Một hệ (chốt 2026-11-12):** chính và phụ cùng cao 48 px (desktop và mobile), cùng bo 2 px, cùng chữ 16 px / 600 (15 px chỉ cho cỡ S);
+đổi màu 150–200 ms. Đủ 5 trạng thái, chữ ≥ 4,5:1 ở mọi trạng thái:
+
+| Trạng thái | Chính | Phụ (viền) | Viền trắng (trên ảnh) |
+|---|---|---|---|
+| Thường | nền `#B8282E`, chữ trắng 6,21:1 | viền + chữ `#1A1A1A` | viền + chữ trắng |
+| Rê chuột | nền `#9E1F26` (7,84:1) | nền `#1A1A1A`, chữ trắng | nền trắng, chữ `#1A1A1A` |
+| Bấm | nền `#7F181E` (10,23:1) | nền `#000000`, chữ trắng | nền `#F3ECDF`, chữ `#1A1A1A` |
+| Focus bàn phím | viền 2 px `#1A1A1A` lệch 2 px | như chính | viền 2 px trắng |
+| Vô hiệu | nền `#E4DED5`, chữ `#5C5C5C` (5,0:1) | viền `#C9C1B5`, chữ `#5C5C5C` | – |
+
+Nơi đặt: phần tử Button của The7 (cỡ S/M/L chuẩn trong Theme Options → Buttons; nút phụ = Extra class `velis-btn-outline`, viền trắng
+= `velis-btn-ghost`), nút Gửi của form, nút "Nhận tư vấn" ở header và thanh liên hệ đáy, nút trang 404. Nút biểu tượng (mở mục lục,
+hỏi đáp, menu, lên đầu trang) vùng bấm ≥ 44 × 44. Mọi link / nút ngoài đoạn văn có vùng bấm ≥ 44 × 44 (breadcrumb, ngày / tác giả,
+footer, phân trang, số điện thoại header).
 
 ### Hero (đã chốt)
 - **Trang chủ (duyệt: người dùng, 2026-11-06): giữ hero staging 0.9.8** – ngoại lệ có chủ đích của X-02: trang chủ luôn hero tràn,

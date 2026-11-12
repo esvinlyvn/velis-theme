@@ -17,21 +17,44 @@ foreach ( array( 'day_link', 'month_link', 'year_link' ) as $velis_hook ) {
 }
 
 // The7's JS lazy load (Theme Options → Advanced) is off so the first image is in the HTML (LCP); give The7's other thumbnails
-// native lazy loading instead. shortcut: the first 2 thumbnails per page stay eager, enough for one screen of blog list/grid.
+// native lazy loading instead. shortcut: the first 4 thumbnails per page stay eager (the home hero strip has 4), enough for one screen.
 add_filter( 'dt_get_thumb_img-output', function ( $html ) {
 	static $velis_n = 0;
-	return ++$velis_n > 2 && ! str_contains( $html, 'loading=' ) ? preg_replace( '/<img /', '<img loading="lazy" ', $html, 1 ) : $html;
+	return ++$velis_n > 4 && ! str_contains( $html, 'loading=' ) ? preg_replace( '/<img /', '<img loading="lazy" ', $html, 1 ) : $html;
 } );
 
-// Category archives (/blog/ and its clusters) render only The7 elements, but Ultimate Addons cannot see that outside a
-// single post and loads all its assets there, incl. a render-blocking Google Maps API (~1.8 s on mobile Lighthouse).
-add_action( 'wp_enqueue_scripts', function () {
-	if ( ! is_category() ) {
-		return;
+// Files a page does not use (E2, bước 10). Category/search archives render only The7 elements, but Ultimate Addons cannot see
+// that outside a single post and loads all its assets there, incl. a render-blocking Google Maps API (~1.8 s on mobile Lighthouse).
+// Icon fonts load only where the page content uses them; child style.css holds only the theme header; Rank Math's front CSS
+// styles its own blocks/breadcrumbs, which the site does not use (breadcrumbs are The7's). jQuery Migrate stays: The7 main.js
+// reads jQuery.event.props, gone in jQuery 3.
+function velis_unused_assets( $content, $is_archive ) {
+	$css = array( 'style', 'rank-math', 'duplicate-post' );
+	$js  = array();
+	if ( ! preg_match( '/\bfa[srb]?\s+fa-|icon_fontawesome|fa-[a-z-]+"/', $content ) ) {
+		array_push( $css, 'the7-awesome-fonts', 'the7-awesome-fonts-back' );
 	}
-	array_map( 'wp_dequeue_script', array( 'ultimate-vc-addons-googleapis', 'jquery-ui-slider' ) );
-	array_map( 'wp_dequeue_style', array( 'ultimate-vc-addons-icons', 'ultimate-vc-addons-selected-google-fonts-style', 'ultimate-vc-addons-style-min', 'ultimate-vc-addons-vidcons' ) );
+	if ( ! str_contains( $content, 'icomoon-free-social-contact' ) ) {
+		$css[] = 'the7-icomoon-free-social-contact-16x16';
+	}
+	if ( $is_archive ) {
+		array_push( $js, 'ultimate-vc-addons-googleapis', 'jquery-ui-slider', 'jquery_ui', 'ultimate-vc-addons-modernizr', 'ultimate-vc-addons_range_tick', 'ultimate-vc-addons-script', 'ultimate-vc-addons-modal-all', 'ultimate-vc-addons-jquery.shake', 'ultimate-vc-addons-jquery.vhparallax', 'ultimate-vc-addons-row-bg', 'ultimate-vc-addons-jquery.ytplayer' );
+		array_push( $css, 'ultimate-vc-addons-icons', 'ultimate-vc-addons-selected-google-fonts-style', 'ultimate-vc-addons-style-min', 'ultimate-vc-addons-vidcons' );
+	}
+	return array( $css, $js );
+}
+
+add_action( 'wp_enqueue_scripts', function () {
+	if ( is_admin() || is_user_logged_in() ) {
+		return; // admin bar / front-end editor need their assets
+	}
+	$archive = is_category() || is_search() || is_tag() || is_author() || is_date();
+	$id      = $archive ? (int) of_get_option( 'template_page_id_' . ( is_search() ? 'search' : 'blog_category' ) ) : get_queried_object_id();
+	list( $css, $js ) = velis_unused_assets( (string) get_post_field( 'post_content', $id ), $archive );
+	array_map( 'wp_dequeue_style', $css );
+	array_map( 'wp_dequeue_script', $js );
 }, 1000 );
+
 
 // Mobile contact bar (DESIGN sticky-cta-mobile; replaces Buttonizer). Phone, Zalo and the consult link are edited in
 // Giao diện → Tùy biến → "Thanh liên hệ (điện thoại)"; layout in velis.css (.velis-cta-bar; .velis-cta is the WPBakery contact row), shown < 1024 px
@@ -90,15 +113,165 @@ add_action( 'wp_footer', function () {
 	echo velis_cta_html() . velis_cta_script(); // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts above
 }, 5 );
 
-// Front-page hero background (WPBakery Design Options → CSS only, found late) is the LCP image: preload whatever image the
-// editor set on the row whose classes include "velis-home-hero" – nothing hard-coded here.
-function velis_hero_preload( $content ) {
-	return preg_match( '/velis-home-hero[^"]*"[^\]]*?background-image:\s*url\(([^)\s]+)/', (string) $content, $m )
-		? '<link rel="preload" as="image" fetchpriority="high" href="' . esc_url( $m[1] ) . '">' : '';
+// Front-page hero image (E1): a WPBakery Single Image with Extra class "velis-hero-bg" – a real <img> with srcset, so the editor
+// changes it in WPBakery. It is the LCP image: preload it with its srcset and render it eager + fetchpriority=high, never lazy.
+function velis_hero_image_id( $content ) {
+	return preg_match( '/\[vc_single_image\b(?=[^\]]*\bvelis-hero-bg\b)[^\]]*\bimage="(\d+)"/', (string) $content, $m ) ? (int) $m[1] : 0;
+}
+
+function velis_front_hero_id() {
+	static $id = null;
+	return $id ??= is_front_page() ? velis_hero_image_id( get_post_field( 'post_content', get_queried_object_id() ) ) : 0;
 }
 
 add_action( 'wp_head', function () {
-	if ( is_front_page() ) {
-		echo velis_hero_preload( get_post_field( 'post_content', get_queried_object_id() ) ); // phpcs:ignore WordPress.Security.EscapeOutput -- esc_url above
+	$id = velis_front_hero_id();
+	if ( $id && ( $src = wp_get_attachment_image_url( $id, 'full' ) ) ) {
+		printf( '<link rel="preload" as="image" fetchpriority="high" href="%s" imagesrcset="%s" imagesizes="100vw">', esc_url( $src ), esc_attr( (string) wp_get_attachment_image_srcset( $id, 'full' ) ) );
 	}
 }, 2 );
+
+add_filter( 'wp_get_attachment_image_attributes', function ( $attr, $attachment ) {
+	if ( velis_front_hero_id() && velis_front_hero_id() === $attachment->ID ) {
+		$attr['loading']       = 'eager';
+		$attr['fetchpriority'] = 'high';
+		$attr['sizes']         = '100vw';
+	}
+	return $attr;
+}, 20, 2 );
+
+// Contact Form 7 – every form (B3): Vietnamese mobile number (10 digits starting with 0; spaces and dots allowed), the error text is
+// the form's own "invalid_tel" message (Liên hệ → Contact Form 7 → Thông báo); numeric phone keypad.
+function velis_vn_phone_ok( $value ) {
+	return (bool) preg_match( '/^0\d{9}$/', preg_replace( '/[\s.]/', '', (string) $value ) );
+}
+
+foreach ( array( 'wpcf7_validate_tel', 'wpcf7_validate_tel*' ) as $velis_hook ) {
+	add_filter( $velis_hook, function ( $result, $tag ) {
+		$value = isset( $_POST[ $tag->name ] ) ? sanitize_text_field( wp_unslash( $_POST[ $tag->name ] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification -- CF7 verifies the submission
+		if ( '' !== $value && ! velis_vn_phone_ok( $value ) ) {
+			$result->invalidate( $tag, wpcf7_get_message( 'invalid_tel' ) );
+		}
+		return $result;
+	}, 20, 2 );
+}
+
+add_filter( 'wpcf7_form_elements', function ( $html ) {
+	return preg_replace( '/<input(?![^>]*\binputmode=)([^>]*\btype="tel")/', '<input inputmode="tel"$1', $html );
+} );
+
+// Archive / search lists: The7 prints post titles as H3 right under the page H1 – a hidden H2 keeps the heading order (D2).
+add_action( 'presscore_before_loop', function () {
+	if ( is_archive() || is_search() ) {
+		echo '<h2 class="screen-reader-text">Danh sách bài viết</h2>';
+	}
+} );
+
+// Small page script (no library): CF7 submit button shows "Đang gửi…" and cannot be pressed twice until CF7 answers; the one-line
+// "chủ đầu tư · khu vực" label of a project card gets the full text as a tooltip when it is cut with "…".
+function velis_page_script() {
+	return '<script>(function(){document.addEventListener("submit",function(e){var f=e.target,b=f.querySelector&&f.querySelector(".wpcf7-submit");'
+		. 'if(!b||!f.closest(".wpcf7"))return;if(b.disabled){e.preventDefault();e.stopImmediatePropagation();return}b.dataset.v=b.value;b.value="Đang gửi…";'
+		. 'setTimeout(function(){b.disabled=true},0)},true);document.addEventListener("wpcf7submit",function(e){var b=e.target.querySelector(".wpcf7-submit");'
+		. 'if(b&&b.dataset.v){b.value=b.dataset.v;b.disabled=false}});'
+		. 'document.querySelectorAll(".velis-projects .entry-excerpt").forEach(function(x){var p=x.children;if(p.length>1)p[0].parentNode.title=p[0].textContent+" · "+p[1].textContent})})();</script>';
+}
+
+add_action( 'wp_footer', function () {
+	echo velis_page_script(); // phpcs:ignore WordPress.Security.EscapeOutput -- static markup
+}, 6 );
+
+// Schema (D1). Rank Math settings keep Organization/RealEstateAgent, WebSite, WebPage and custom schemas (Service, JobPosting, …);
+// this only adds what Rank Math cannot: pages are not articles (drop Article + its author node), list pages are CollectionPage +
+// ItemList of the cards they show, project posts get a Place (custom field "velis_dia_chi" = address shown on the page).
+// Visible breadcrumbs carry BreadcrumbList microdata (The7), so no JSON-LD copy is added.
+function velis_schema_graph( array $data, array $ctx ) {
+	$url  = $ctx['url'];
+	$drop = array();
+	if ( $ctx['is_page'] ) {
+		foreach ( $data as $k => $n ) {
+			$t = (array) ( $n['@type'] ?? array() );
+			if ( array_intersect( $t, array( 'Article', 'BlogPosting', 'NewsArticle' ) ) ) {
+				$drop[] = $n['author']['@id'] ?? '';
+				unset( $data[ $k ] );
+			}
+		}
+		foreach ( $data as $k => $n ) {
+			if ( 'Person' === ( $n['@type'] ?? '' ) && in_array( $n['@id'] ?? '', $drop, true ) ) {
+				unset( $data[ $k ] );
+			}
+		}
+	}
+	foreach ( $data as $k => $n ) {
+		if ( ! $ctx['items'] || ! in_array( $n['@type'] ?? '', array( 'WebPage', 'CollectionPage' ), true ) ) {
+			continue;
+		}
+		if ( ! $ctx['is_front'] ) {
+			$data[ $k ]['@type'] = 'CollectionPage';
+		}
+		$data[ $k ]['mainEntity'] = array( '@id' => $url . '#itemlist' );
+		$data['velisItemList']   = array(
+			'@type'           => 'ItemList',
+			'@id'             => $url . '#itemlist',
+			'itemListElement' => array_map( fn( $i, $it ) => array( '@type' => 'ListItem', 'position' => $i + 1, 'url' => $it[0], 'name' => $it[1] ), array_keys( $ctx['items'] ), $ctx['items'] ),
+		);
+	}
+	if ( $ctx['address'] ) {
+		$data['velisPlace'] = array(
+			'@type'   => 'Place',
+			'@id'     => $url . '#place',
+			'name'    => $ctx['name'],
+			'address' => array( '@type' => 'PostalAddress', 'streetAddress' => $ctx['address'], 'addressCountry' => 'VN' ),
+		);
+		foreach ( $data as $k => $n ) {
+			if ( array_intersect( (array) ( $n['@type'] ?? array() ), array( 'Article', 'BlogPosting' ) ) ) {
+				$data[ $k ]['about'] = array( '@id' => $url . '#place' );
+			}
+		}
+	}
+	return $data;
+}
+
+// Cards a list page shows: the archive's posts, or on a page the posts of the The7 "Blog Masonry & Grid" elements inside rows
+// with class "velis-projects" (Posts list or Category, newest first – same query as the element). Home is a WebPage, not a list.
+function velis_masonry_queries( $content ) {
+	$out = array();
+	preg_match_all( '/\[(vc_section|vc_row)\b[^\]]*\bvelis-projects\b[^\]]*\](.*?)\[\/\1\]/s', (string) $content, $rows );
+	foreach ( $rows[2] as $row ) {
+		preg_match_all( '/\[dt_blog_masonry ([^\]]*)\]/', $row, $m );
+		foreach ( $m[1] as $a ) {
+			$a = shortcode_parse_atts( $a );
+			if ( ! empty( $a['posts'] ) || ! empty( $a['category'] ) ) {
+				$out[] = ( ! empty( $a['posts'] ) ? array( 'post__in' => array_map( 'intval', explode( ',', $a['posts'] ) ) ) : array( 'cat' => $a['category'] ) )
+					+ array( 'numberposts' => (int) ( $a['dis_posts_total'] ?? 12 ), 'orderby' => 'date', 'order' => 'DESC' );
+			}
+		}
+	}
+	return $out;
+}
+
+function velis_listed_posts() {
+	if ( is_category() || is_search() || is_tag() ) {
+		return $GLOBALS['wp_query']->posts;
+	}
+	if ( ! is_page() || is_front_page() ) {
+		return array();
+	}
+	return array_merge( array(), ...array_map( 'get_posts', velis_masonry_queries( get_post_field( 'post_content', get_queried_object_id() ) ) ) );
+}
+
+add_filter( 'rank_math/json_ld', function ( $data ) {
+	$id    = get_queried_object_id();
+	$items = array();
+	foreach ( velis_listed_posts() as $p ) {
+		$items[ $p->ID ] = array( get_permalink( $p ), get_the_title( $p ) );
+	}
+	return velis_schema_graph( (array) $data, array(
+		'url'      => is_category() || is_search() || is_tag() ? (string) get_pagenum_link( 1, false ) : (string) get_permalink( $id ),
+		'is_page'  => is_page() || is_front_page(),
+		'is_front' => is_front_page(),
+		'items'    => array_values( $items ),
+		'address'  => is_single() ? trim( (string) get_post_meta( $id, 'velis_dia_chi', true ) ) : '',
+		'name'     => is_single() ? get_the_title( $id ) : '',
+	) );
+}, 99 );

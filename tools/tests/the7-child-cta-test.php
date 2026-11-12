@@ -1,5 +1,6 @@
 <?php
-// php tools/tests/the7-child-cta-test.php — the7-child functions.php: mobile contact bar renders from Customizer values with stubs.
+// php tools/tests/the7-child-cta-test.php — the7-child functions.php with stubs: mobile contact bar, hero image, CF7 phone rule,
+// unused assets, schema graph.
 define( 'ABSPATH', __DIR__ );
 $GLOBALS['hooks'] = array(); $GLOBALS['done'] = array(); $GLOBALS['mods'] = array(); $_SERVER['REQUEST_URI'] = '/can-ho-persa-place/';
 function add_action( $h, $cb ) { $GLOBALS['hooks'][ $h ][] = $cb; }
@@ -26,8 +27,35 @@ $h   = velis_cta_html();
 $ok  = $ok && ! str_contains( $h, 'tel:' ) && ! str_contains( $h, 'javascript' ) && ! str_contains( $h, 'Zalo' );
 // The reveal script toggles .is-on on the bar; <head> marks JS so the hidden state never applies without JS.
 $ok  = $ok && str_contains( velis_cta_script(), 'classList.toggle("is-on"' ) && ! empty( $GLOBALS['hooks']['wp_head'] );
-// Hero preload follows the image set in WPBakery, same URL incl. ?id= (else it downloads twice); no hero row → nothing.
-$ok  = $ok && velis_hero_preload( '[vc_section el_class="velis-home-hero" css=".vc_custom_1{background-image: url(/wp-content/uploads/a.webp?id=1) !important;}"]' )
-	=== '<link rel="preload" as="image" fetchpriority="high" href="/wp-content/uploads/a.webp?id=1">' && '' === velis_hero_preload( '[vc_row]' )
-	&& str_contains( velis_hero_preload( '[vc_section el_class="velis-home-hero velis-feats" css=".vc_custom_1{background-image: url(/b.webp) !important;}"]' ), 'href="/b.webp"' );
+// Hero image = WPBakery Single Image with class velis-hero-bg (attribute order free); none → 0.
+$ok  = $ok && 19968 === velis_hero_image_id( '[vc_section el_class="velis-home-hero"][vc_single_image image="19968" img_size="full" el_class="velis-hero-bg"]' )
+	&& 7 === velis_hero_image_id( '[vc_single_image el_class="x velis-hero-bg" image="7"][vc_single_image image="8"]' ) && 0 === velis_hero_image_id( '[vc_single_image image="8"]' );
+// Vietnamese mobile number: 10 digits from 0, spaces / dots allowed; +84, 9 or 11 digits, letters rejected.
+$ok  = $ok && velis_vn_phone_ok( '0911 237 979' ) && velis_vn_phone_ok( '0911.237.979' ) && velis_vn_phone_ok( '0911237979' )
+	&& ! velis_vn_phone_ok( '+84911237979' ) && ! velis_vn_phone_ok( '091123797' ) && ! velis_vn_phone_ok( '09112379790' ) && ! velis_vn_phone_ok( '0911a37979' ) && ! velis_vn_phone_ok( '' );
+$f   = $GLOBALS['hooks']['wpcf7_form_elements'][0];
+$ok  = $ok && '<input inputmode="tel" type="tel" name="sdt">' === $f( '<input type="tel" name="sdt">' ) && '<input type="text">' === $f( '<input type="text">' )
+	&& '<input inputmode="numeric" type="tel">' === $f( '<input inputmode="numeric" type="tel">' );
+$ok  = $ok && str_contains( velis_page_script(), 'Đang gửi…' ) && str_contains( velis_page_script(), 'wpcf7submit' );
+// Unused files: icon fonts only where content uses them; archive drops Ultimate Addons assets; page never drops them.
+list( $css, $js ) = velis_unused_assets( '[vc_column_text]x[/vc_column_text]', false );
+$ok  = $ok && in_array( 'the7-awesome-fonts', $css, true ) && in_array( 'style', $css, true ) && ! in_array( 'jquery_ui', $js, true );
+list( $css, $js ) = velis_unused_assets( '<i class="fas fa-brain"></i>', true );
+$ok  = $ok && ! in_array( 'the7-awesome-fonts', $css, true ) && in_array( 'ultimate-vc-addons-googleapis', $js, true );
+// Masonry queries only from rows with velis-projects (Posts list or Category), not other grids on the page.
+function shortcode_parse_atts( $s ) { preg_match_all( '/(\w+)="([^"]*)"/', $s, $m ); return array_combine( $m[1], $m[2] ); }
+$q   = velis_masonry_queries( '[vc_row el_class="velis-projects"][vc_column][dt_blog_masonry posts="3,1" dis_posts_total="6"][/vc_column][/vc_row][vc_row][vc_column][dt_blog_masonry category="40"][/vc_column][/vc_row]'
+	. '[vc_section el_class="velis-section velis-projects"][vc_row][vc_column][dt_blog_masonry post_type="category" category="34"][/vc_column][/vc_row][/vc_section]' );
+$ok  = $ok && 2 === count( $q ) && array( 3, 1 ) === $q[0]['post__in'] && 6 === $q[0]['numberposts'] && '34' === $q[1]['cat'] && 12 === $q[1]['numberposts'];
+// Schema graph: a page loses Article + its author Person (other Person kept); list page → CollectionPage + ItemList; post → Place.
+$g   = array( 'WebPage' => array( '@type' => 'WebPage', '@id' => 'u#webpage' ), 'richSnippet' => array( '@type' => 'Article', 'author' => array( '@id' => '/a/' ) ),
+	'ProfilePage' => array( '@type' => 'Person', '@id' => '/a/' ), 'ceo' => array( '@type' => 'Person', '@id' => '/b/' ), 'svc' => array( '@type' => 'Service' ) );
+$r   = velis_schema_graph( $g, array( 'url' => 'https://x/du-an/', 'is_page' => true, 'is_front' => false, 'items' => array( array( 'https://x/p/', 'P' ), array( 'https://x/q/', 'Q' ) ), 'address' => '', 'name' => '' ) );
+$t   = array_map( fn( $n ) => is_array( $n['@type'] ) ? implode( '+', $n['@type'] ) : $n['@type'], $r );
+$ok  = $ok && ! in_array( 'Article', $t, true ) && ! isset( $r['ProfilePage'] ) && isset( $r['ceo'], $r['svc'] ) && 'CollectionPage' === $r['WebPage']['@type']
+	&& 'https://x/du-an/#itemlist' === $r['WebPage']['mainEntity']['@id'] && 2 === $r['velisItemList']['itemListElement'][1]['position'] && 'Q' === $r['velisItemList']['itemListElement'][1]['name'];
+$r   = velis_schema_graph( $g, array( 'url' => 'https://x/', 'is_page' => true, 'is_front' => true, 'items' => array(), 'address' => '', 'name' => '' ) );
+$ok  = $ok && 'WebPage' === $r['WebPage']['@type'] && ! isset( $r['velisItemList'], $r['richSnippet'] );
+$r   = velis_schema_graph( array( 'a' => array( '@type' => 'BlogPosting' ) ), array( 'url' => 'https://x/p/', 'is_page' => false, 'is_front' => false, 'items' => array(), 'address' => '69 Võ Văn Kiệt, TP.HCM', 'name' => 'Ansana' ) );
+$ok  = $ok && 'BlogPosting' === $r['a']['@type'] && 'https://x/p/#place' === $r['a']['about']['@id'] && '69 Võ Văn Kiệt, TP.HCM' === $r['velisPlace']['address']['streetAddress'];
 echo $ok ? "the7-child cta: ok\n" : "the7-child cta: FAIL\n";
