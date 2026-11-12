@@ -399,3 +399,24 @@ Người dùng duyệt 2026-11-12: "1 b" (tắt Buttonizer, thanh trong theme co
 
 Quay lui: kích hoạt lại Buttonizer; theme con 1.2.0 (commit d2c0446); Add Missing Sizes → Tắt; tạo lại 3 chuyên mục theo
 `chuyen-muc-xoa-truoc.json` (cha 40/42) rồi hủy kích hoạt 2 chuyển hướng mới. Không xóa bài/trang/media, không gửi form, site thật không bị ghi.
+
+## 2026-11-12 – The7 bước 8: sửa một mạch theo đánh giá độc lập (`docs/reports/the7-danh-gia-doc-lap.md` → `docs/reports/the7-buoc-8.md`)
+
+| Mục | Trước | Sau | Cách làm |
+|---|---|---|---|
+| Theme Options (5 khóa) | `header-mobile-first_switch-after` 1000px; 2 vùng widget; `template_page_id_search/_author/_blog_tags` 0 | 1100px (1024 dùng header thu gọn); +vùng **Sidebar dự án** (`sidebar_3`); 3 trang mẫu = 20733 | nhập `data/the7/options-buoc-8.json` (sinh bằng `tools/the7_options_buoc8.py` từ `options-truoc-b8.json`) |
+| Theme con | 1.3.0 | **1.4.0** (3 lần tải lên cùng số: lớp CSS, sửa sau ảnh chụp 1, sửa màu link cột phải): thanh liên hệ < 1024 px, hiện sau màn đầu; ảnh cắt huy hiệu `.velis-crop`; "Xem thêm"; thẻ dự án; hero/con số/đối tác/giá trị trang chủ; ô đồng ý form | Giao diện → Tải lên → Thay thế |
+| Widget | Default Sidebar: Nhận tư vấn, **Mục lục (Easy TOC)**, Bài mới | Mục lục **đã gỡ** khỏi cột phải (bài đã có Easy TOC trong bài – V4); Sidebar dự án: HTML "Nhận bảng giá và tư vấn" (nút → `#lien-he-tu-van`, gọi, Zalo) | trang Widget |
+| CF7 19582 "Liên Hệ" | 2 ô + nút "GỬI" (bản cũ: `data/the7/buoc-8/cf7-19582-truoc.txt`) | + ô đồng ý bắt buộc `[acceptance dong-y]` (NĐ 13/2023, link /chinh-sach-bao-mat/), nhãn "Họ và tên", nút "Gửi"; mail giữ nguyên | trang CF7 (Lưu); không gửi thử |
+| Nội dung 16 trang/bài (ID bản sửa đổi trước: `data/the7/buoc-8/ban-sua-doi-truoc.json`) | — | trang chủ, /du-an/ (tiêu đề "Dự án"), 7 dự án, 4 chủ đầu tư, Liên hệ, Giới thiệu, bài 20468 (SĐT) – dựng bằng `tools/the7_sua_buoc8.py` | màn hình sửa, WPBakery backend, Rank Math "Lock Modified Date" (ngày sửa 16/16 không đổi) |
+| Meta The7 | Sidebar Options: tắt | 7 dự án + 4 chủ đầu tư: sidebar phải = Sidebar dự án, ẩn trên điện thoại; trang chủ: Page Paddings trên/dưới 0 | cùng lần lưu nội dung |
+| Mẫu WPBakery "Mẫu của tôi" | Velis – Dự án / Chủ đầu tư bản bước 6 | bản mới (`data/the7/mau-wpbakery/`), "Velis – Bài viết" lưu lại cùng nội dung; WPB → Default template bài viết gán lại "Velis – Bài viết" | AJAX của trình sửa (scratch tpl.mjs), trang WPB General |
+| Rank Math title 8 trang | xem `data/seo/the7-buoc-8-title.csv` (cột trước) | cột sau (kiểu câu, "Privé" có dấu, trang chủ có từ khóa) | REST `rankmath/v1/updateMeta` |
+| Rank Math → Chuyển hướng | — | +1 regex (PHP) `^(du-an/)?the-prive/?$` → `/can-ho-the-prive/` (đích tương đối) | trang Chuyển hướng |
+| Chuyên mục 34 | tên "Dự Án" | "Dự án" (slug giữ `du-an-bds`) | REST `wp/v2/categories` |
+| Cache | — | xóa FVM + LiteSpeed sau mỗi lớp | thanh quản trị |
+
+Quay lui: nhập `data/the7/options-truoc-b8.json`; theme con 1.3.0 (commit 5274a6c); từng trang/bài → Bản sửa đổi theo
+`ban-sua-doi-truoc.json` + Sidebar Options về "Disabled"; CF7 dán lại `cf7-19582-truoc.txt`; thêm lại widget Mục lục; title theo cột
+"truoc"; hủy kích hoạt chuyển hướng `the-prive`; tên chuyên mục "Dự Án". Không xóa bài/trang/media, không gửi form, không ghi
+`.htaccess`, site thật không bị ghi.

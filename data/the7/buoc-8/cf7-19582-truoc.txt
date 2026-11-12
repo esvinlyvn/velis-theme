@@ -1,0 +1,5 @@
+<label class="velis-cf7-label">Tên quý khách <span class="velis-req" aria-hidden="true">*</span>
+[text* ten autocomplete:name placeholder "Họ và tên"]</label>
+<label class="velis-cf7-label">Số điện thoại / Zalo <span class="velis-req" aria-hidden="true">*</span>
+[tel* sdt autocomplete:tel placeholder "Số di động của bạn"]</label>
+[submit "GỬI"]

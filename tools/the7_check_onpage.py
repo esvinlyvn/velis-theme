@@ -29,6 +29,27 @@ SKIP = re.compile(r'^/(wp-admin|wp-json|wp-login|wp-content|wp-includes|xmlrpc|f
 DATE = re.compile(r'^/\d{4}/(\d{2}/)?(\d{2}/)?(page/\d+/)?$')
 PAGED = re.compile(r'/page/\d+/?$')
 OLD_BLOG = re.compile(r'^/blog-bds(/|$)')  # chuyên mục cũ, gộp vào /blog/ ở bước 5 (301 một bước, giữ số trang)
+# C2 (đánh giá độc lập): link tới tên miền staging trong nội dung – dạng mã hóa URL (`url:https%3A%2F%2Fstaging…` của phần tử
+# WPBakery) không được search-replace thường thay khi ra mắt → phải là 0; dạng thường được thay khi chuyển dữ liệu, chỉ đếm.
+STAGING_ENC = re.compile(r'https?%3A%2F%2Fstaging\.velisrealty\.vn|%2F%2Fstaging\.velisrealty\.vn', re.I)
+STAGING_PLAIN = re.compile(r'https?://staging\.velisrealty\.vn', re.I)
+
+
+def staging_refs(raw):
+    """(số chỗ search-replace không thấy, số chỗ dạng thường) trỏ tới staging trong content.raw. "Không thấy" = dạng mã hóa URL
+    + mọi link staging nằm trong khối Raw HTML/JS (WPBakery lưu base64)."""
+    import base64
+    from urllib.parse import unquote
+    hidden = len(STAGING_ENC.findall(raw))
+    for b in re.findall(r'\[vc_raw_(?:html|js)[^\]]*\](.*?)\[/vc_raw_(?:html|js)\]', raw, re.S):
+        try:
+            t = unquote(base64.b64decode(b.strip()).decode('utf-8', 'replace'))
+        except ValueError:
+            continue
+        hidden += len(STAGING_ENC.findall(t)) + len(STAGING_PLAIN.findall(t))
+    return hidden, len(STAGING_PLAIN.findall(raw))
+
+
 JUNK_CAPTION = re.compile(r'(\.(jpe?g|png|webp|gif)\b|^(img|dsc|dcim|screenshot|z\d{6,}|ảnh chụp màn hình)[\s_-]*\d*|^[a-z0-9]+(?:[-_][a-z0-9]+){2,}$|^\d[\d_-]{5,}$)', re.I)
 
 
@@ -158,6 +179,12 @@ def self_test():
     assert ok301('/blog-bds/blog-ansana/', '/blog-bds/ansana/')[0][0] == 'blog-bds'  # chuỗi qua /blog-bds/
     assert rules({'url': BASE + '/blog-bds/', 'status': 200, 'location': None}, {})[0][0] == 'blog-bds'
     assert rules({'url': BASE + '/blog/', 'status': 404, 'location': None}, {})[0][0] == 'blog'
+    import base64
+    from urllib.parse import quote
+    raw_html = base64.b64encode(quote('<a href="https://staging.velisrealty.vn/x/">x</a>', safe='').encode()).decode()
+    assert staging_refs('[dt_default_button link="url:https%3A%2F%2Fstaging.velisrealty.vn%2Flien-he%2F|title:a"]') == (1, 0)
+    assert staging_refs('<a href="https://staging.velisrealty.vn/a/">a</a> [vc_raw_html]' + raw_html + '[/vc_raw_html]') == (1, 1)
+    assert staging_refs('<a href="/a/">a</a> url:%2Flien-he%2F') == (0, 0)
     rec2 = parse(BASE + '/a/', 200, None, page.replace('/b/', '/blog-bds/blog-ansana/'))
     assert 'link-blog-bds' in [k for k, _ in rules(rec2, {})]
     print('self-test ok')
@@ -180,7 +207,9 @@ def main(out):
                 return res
             page += 1
 
-    urls = {x['link'] for t in ('posts', 'pages') for x in getall(f'wp/v2/{t}', status='publish', _fields='link')}
+    items = [x for t in ('posts', 'pages') for x in getall(f'wp/v2/{t}', status='publish', context='edit', _fields='id,link,content')]
+    urls = {x['link'] for x in items}
+    refs = {x['link']: staging_refs(x['content']['raw']) for x in items}
     urls |= {x['link'] for x in getall('wp/v2/categories', _fields='link,count') if x['count']}
     base_csv = os.path.join(os.path.dirname(__file__), '..', 'data', 'baseline', 'baseline.csv')
     for row in csv.DictReader(open(base_csv, encoding='utf-8')):
@@ -222,10 +251,15 @@ def main(out):
     with cf.ThreadPoolExecutor(6) as ex:
         known.update(dict(ex.map(head, links)))
     issues = {r['url']: rules(r, known) for r in recs}
+    for u, (enc, plain) in refs.items():
+        if enc:
+            issues.setdefault(u, []).append(('staging-encoded', f'{enc} link staging mã hóa URL trong nội dung'))
+    plain_total = sum(p for _, p in refs.values())
     summary = {}
     for lst in issues.values():
         for k, _ in lst:
             summary[k] = summary.get(k, 0) + 1
+    summary['staging-plain(info)'] = plain_total
     json.dump({'urls': len(recs), 'summary': summary, 'pages': recs, 'issues': {u: i for u, i in issues.items() if i}},
               open(out, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print(len(recs), 'URL;', json.dumps(summary, ensure_ascii=False))
