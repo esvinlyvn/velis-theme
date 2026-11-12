@@ -220,7 +220,9 @@ def project(pid, raw):
             out.append(f'[vc_row el_id="gioi-thieu" el_class="velis-hero" css="{css(NGA)}"][vc_column][dt_breadcrumbs]'
                        f'[vc_column_text css=""]\n{eyebrow}\n{h1}\n[/vc_column_text]'
                        f'[vc_single_image image="{img}" img_size="full" alignment="center" el_class="velis-crop" css=""]'
-                       f'[vc_column_text css=""]\n{lead}\n[/vc_column_text]{facts_row(FACTS[pid])}{BTN_TU_VAN}{CALL}[/vc_column][/vc_row]')
+                       f'[vc_column_text css=""]\n{lead}\n[/vc_column_text]{facts_row(FACTS[pid])}{BTN_TU_VAN}{CALL}[/vc_column][/vc_row]'
+                       # mục lục (Easy TOC không tự chèn ở trang dự án): điều hướng tới các khối, tiêu đề khối luôn hiện
+                       '[vc_row el_id="muc-luc" el_class="velis-section velis-toc" css=""][vc_column][vc_column_text css=""]\n[ez-toc]\n[/vc_column_text][/vc_column][/vc_row]')
         elif eid == 'thong-so':  # 4 ô thông số cũ (2 ô trống) thay bằng thanh thông tin 6 ô ở phần đầu; giữ bảng
             out.append(re.sub(r'\[vc_row_inner el_class="velis-specs"\].*?\[/vc_row_inner\]', '', r, flags=re.S))
         elif eid == 'lien-he-tu-van':

@@ -47,7 +47,7 @@ trang/bài, WPBakery (phần tử, mẫu, Design Options), Widget, Menu. `velis.
 | Nhu cầu | Nơi sửa | Khóa / thao tác | Hiện tại | Nên | CSS? |
 |---|---|---|---|---|---|
 | Trang danh mục blog dựng bằng WPBakery | TO › **Archives and 404** (`of-archives-templates-menu`) | `template_page_id_blog_category` (+ `_full_content`) | 20733 "Mẫu trang chuyên mục blog" | giữ; sửa bố cục trong trang 20733 | không |
-| Trang thẻ, tác giả, ngày, tìm kiếm | cùng trang | `template_page_id_blog_tags`, `_author`, `_date`, `_search` | 0 (mặc định The7) | gán trang mẫu (có thể dùng lại 20733 cho thẻ/tìm kiếm) | không |
+| Trang thẻ, tác giả, ngày, tìm kiếm | cùng trang | `template_page_id_blog_tags`, `_author`, `_date`, `_search` | thẻ, tác giả, tìm kiếm = 20733 (bước 8); ngày = 0 (lưu trữ ngày 301 về /blog/) | giữ | không |
 | Trang 404 | cùng trang › 404 page | `template_page_id_404` | 20536 | giữ, sửa nội dung trang 20536 | không |
 | Tiêu đề lưu trữ "Danh mục: …" | Archives › Archive title | `show_static_part_of_archive_title` | 0 | giữ | không |
 | Lưới / danh sách bài | WPB **Blog Masonry and Grid** `dt_blog_masonry`, **Blog List** `dt_blog_list`, **Blog Carousel**, **Blog Mini** (by Dream-Theme) – mỗi phần tử có kiểu thẻ, số bài, phân trang, ảnh tỉ lệ | trong phần tử | – | dùng phần tử, **không** dùng "(old)" | không |
@@ -64,7 +64,7 @@ trang/bài, WPBakery (phần tử, mẫu, Design Options), Widget, Menu. `velis.
 | Điện thoại, nút "Nhận tư vấn" | Header › **Microwidgets** (kéo thả vị trí) | `header-inline-elements.near_menu_right`, `header-elements-contact-phone-*`, `header-elements-button-1-*` (caption, url, màu, cỡ) | phone + Button 1 /lien-he/ | giữ; 1 cách viết số "0911 237 979" | không |
 | Microwidget trên mobile | cùng mục, từng microwidget | `…-first-header-switch` / `…-second-header-switch` (near_logo / in_menu / hidden) | phone: near_logo (tablet), in_menu (phone) | phone near_logo cả 2 | không |
 | Header dính khi cuộn | Header › Floating header | `header-show_floating_navigation`, `header-floating_navigation-height`, `…-style`, `…-show_after` | bật, 72, fade, 150 | giữ | không |
-| Header mobile (breakpoint, cao, nền) | Header › Mobile header / Mobile menu | `header-mobile-{first,second}_switch-*`, `header-mobile-header-bg-color`, `header-mobile-decoration` | 1000/778, 70, shadow | giữ | không |
+| Header mobile (breakpoint, cao, nền) | Header › Mobile header / Mobile menu | `header-mobile-{first,second}_switch-*`, `header-mobile-header-bg-color`, `header-mobile-decoration` | **1100**/778 (bước 8: 1024 dùng header thu gọn – menu + số + nút không vừa 1 hàng), 70, shadow | giữ | không |
 | Menu (font, màu, gạch dưới active), submenu, mega menu | Header › Menu / Submenu; The7 › Settings › **Enable Mega Menu** (bật) + trường mega trong Giao diện › Menu | `menu-*`, `header-menu-*`, `submenu-*` | – | soát màu hover = đỏ | không |
 | Logo (header, mobile, dính, footer) | TO › **Branding** (`of-branding-menu`) | `header-logo_regular`, `header-style-mobile-logo_regular`, `header-style-floating-logo_regular`, `bottom_bar-logo_regular` | 20682 / 20700 / (main) / 20684 | giữ | không |
 | Favicon, icon thiết bị | Branding › Favicon / Icons for handheld devices – **hoặc** WordPress › Sửa giao diện › Site Icon (ưu tiên, sinh đủ cỡ) | `general-favicon`, `general-handheld_icon-*` | Site Icon 20772 (dấu V 512); `general-favicon` trống | giữ | không |
@@ -72,8 +72,8 @@ trang/bài, WPBakery (phần tử, mẫu, Design Options), Widget, Menu. `velis.
 | Ẩn/hiện dải tiêu đề theo trang | Meta box **Page Header Options** | `_dt_header_title` (enabled/disabled/fancy/slideshow) | bài 20330 enabled; trang dự án disabled (hero WPB) | 1 quy tắc: trang có hero WPB → disabled; còn lại enabled | không |
 | Breadcrumbs | Page Titles › Breadcrumbs; phần tử WPB **Breadcrumbs** `dt_breadcrumbs` để đặt trong hero | `general-show_breadcrumbs`, `breadcrumbs-typography`, `general-breadcrumbs_color`, `breadcrumbs_*` | bật, 14, #5C5C5C, nền/viền trong suốt | giữ | không |
 | Sidebar (cột phải bài viết) | TO › **Sidebar** (`of-sidebar-menu`) + meta **Sidebar Options** | `sidebar-width`, `sidebar-distance_to_content`, `sidebar-visual_style`, `sidebar-bg_color`, `sidebar-floating` (**dính**), `sidebar-headers_color`, `sidebar-primary_text_color`, `sidebar-responsiveness`; `_dt_sidebar_position`, `_dt_sidebar_widgetarea_id` | 360, nền #FAF7F2, dính, chữ #5C5C5C, tiêu đề #1A1A1A | giữ | không |
-| Nội dung sidebar | Giao diện › Widget › **Default Sidebar** | widget: HTML "Nhận tư vấn dự án", Mục lục (Easy TOC), DT-Blog posts | có | giữ, thêm/bớt bằng kéo thả | không |
-| Thêm vùng widget riêng (vd sidebar dự án) | TO › **Widget Areas** (`of-widgetareas-menu`) | `widgetareas` | Default Sidebar, Default Footer | thêm "Sidebar dự án" nếu cần | không |
+| Nội dung sidebar | Giao diện › Widget › **Default Sidebar** (bài viết) / **Sidebar dự án** (dự án, chủ đầu tư) | Default: HTML "Nhận tư vấn dự án", DT-Blog posts (Mục lục Easy TOC đã gỡ – bài có mục lục trong bài); Sidebar dự án: HTML "Nhận bảng giá và tư vấn" | có | giữ, thêm/bớt bằng kéo thả | không |
+| Thêm vùng widget riêng | TO › **Widget Areas** (`of-widgetareas-menu`) | `widgetareas` | Default Sidebar, Default Footer, **Sidebar dự án** (`sidebar_3`, bước 8) | gán ở meta Sidebar Options của từng trang (ẩn trên điện thoại) | không |
 | Footer (nền, chữ, kẻ trên, số cột) | TO › **Footer & Bottom Bar** (`of-footer-menu`) › Footer | `footer-style`, `footer-bg_color`, `footer-decoration` (none/outline), `footer-decoration_outline_color`, `footer-decoration-line_size`, `footer-headers_color`, `footer-primary_text_color`, `footer-accent_text_color`, `footer-layout`, `footer-padding` | #1A1A1A, outline 1px #B08D57, tiêu đề #FFFFFF, chữ #B9B9B9, accent #F2B8B5, 1/2+1/2 (2 widget) | giữ | không |
 | Nội dung footer | Widget › **Default Footer**; meta **Footer Options** (`_dt_footer_show`, `_dt_footer_widgetarea_id`) | Văn bản địa chỉ, HTML liên hệ | – | sửa bằng widget | không |
 | Bottom bar (logo trắng, bản quyền) | Footer & Bottom Bar › Bottom bar | `bottom_bar-enabled`, `bottom_bar-bg_color`, `bottom_bar-color`, `bottom_bar-layout`, `bottom_bar-text` (`[dt_year]`) | #1A1A1A, #B9B9B9, logo_left | giữ | không |
@@ -98,9 +98,11 @@ trang/bài, WPBakery (phần tử, mẫu, Design Options), Widget, Menu. `velis.
 
 | Nhu cầu | Lý do | Cách tối thiểu |
 |---|---|---|
-| Thanh CTA dính đáy mobile (Gọi · Zalo · Nhận tư vấn) | The7 Classic không có; Buttonizer đã tắt (2026-11-12) | **Đã làm (người dùng chọn b):** theme con 1.3.0 `functions.php` + `velis.css` (`.velis-cta-bar`); số gọi, link Zalo, link tư vấn sửa ở Giao diện → Tùy biến → "Thanh liên hệ (điện thoại)". Không dùng class `velis-cta` (đó là hàng liên hệ trong mẫu WPBakery) |
+| Thanh CTA dính đáy mobile (Gọi · Zalo · Nhận tư vấn) | The7 Classic không có; Buttonizer đã tắt (2026-11-12) | **Đã làm (người dùng chọn b):** theme con 1.3.0 → 1.4.0 (< 1024 px, hiện sau khi cuộn qua màn đầu) `functions.php` + `velis.css` (`.velis-cta-bar`); số gọi, link Zalo, link tư vấn sửa ở Giao diện → Tùy biến → "Thanh liên hệ (điện thoại)". Không dùng class `velis-cta` (đó là hàng liên hệ trong mẫu WPBakery) |
 | Bóng thẻ chỉ khi hover | Content boxes chỉ có none/shadow/outline cố định | 1 quy tắc `:hover` |
 | Padding section khác nhau theo thiết bị | Row Design Options chỉ 1 giá trị | lớp `.velis-section` |
+| Cắt huy hiệu VELIS in chìm trên ảnh (góc trái dưới) | WPBakery Single Image / The7 thumbnail không có tùy chọn cắt | lớp `velis-crop` (Single Image: Extra class) + thumbnail The7: phóng 1,12 neo góc phải trên (bước 8) |
+| "Xem thêm" cho khối chữ dài | WPBakery có Toggle nhưng không có kiểu nút chữ "Xem thêm/Thu gọn" | phần tử **Toggle** `vc_toggle` kiểu Text only + Extra class `velis-more` (bước 8) |
 | Ảnh OG mặc định | Không phải việc The7 – dùng **Rank Math** › Tiêu đề & mô tả › Ảnh OG mặc định; tắt `the7_opengraph_tags` (TO › Advanced) để không trùng thẻ OG | không code |
 
 ## 2. Không làm (The7 đã có)
