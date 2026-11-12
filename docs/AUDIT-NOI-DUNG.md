@@ -219,3 +219,122 @@ Nguồn: máy quét toàn site staging (`tools/crawl_b5.mjs`, 181 trang, `screen
 | Cụm trùng ý | Cụm "Vinhomes" (`/blog/vinhomes/`, 10 bài về thương hiệu, hệ sinh thái Vingroup, đầu tư Vinhomes nói chung) và "Vinhomes Saigon Park" (`/blog/vinhomes-saigon-park/`, 5 bài về dự án) | Tên gần trùng, người đọc khó phân biệt. Đề xuất: đổi tên cụm thứ nhất thành "Vinhomes – thị trường & thương hiệu" (hoặc gộp bài về dự án cụ thể vào cụm dự án) – người dùng chọn. Ngoài ra còn 18 chuyên mục cũ 0 bài (`blog-*`, `du-an-*`, `uncategorized`) – không hiện trên site, có thể dọn sau ra mắt |
 | Mô tả SEO < 50 ký tự | `/chinh-sach-bao-mat/` (41) · `/blog/the-global-city/lan-song-fb-do-bo-soho-the-global-city/` (44) · `/blog/the-global-city/bi-quyet-chia-nho-mat-bang-shophouse-soho/` (47) · `/blog/the-prive/gia-ban-the-prive-quan-2-2026/` (44) | Viết lại 120–155 ký tự trong Rank Math |
 | Tiêu đề viết hoa từng chữ | Bài `/blog/the-prive/velis-realty-phan-phoi-doc-quyen-thap-9-the-prive/` ("Velis Realty Phân Phối Độc Quyền Tháp 9 The Privé"); 4 mục "Giá trị khác biệt" trên trang chủ ("Thông Tin Có Nguồn", "Hỗ Trợ Sau Bán", "Tư Duy Chiến Lược", "Cập Nhật Quỹ Căn Và Chính Sách" – chép nguyên văn trang cũ, nằm trong `patterns/tpl-front.php`) | Chữ thường kiểu câu ("Velis Realty phân phối độc quyền tháp 9 The Privé", "Thông tin có nguồn"…) – cần người dùng duyệt câu vì là nội dung |
+
+
+## 14. Bước 10 – vòng hoàn thiện (2026-11-12) – chỉ ghi, không sửa nội dung
+
+**14.1 Thứ bậc tiêu đề do nội dung** (phần do mẫu / theme đã sửa: toggle "Xem thêm" → thẻ p, câu hỏi → H3, H2 ẩn trước danh sách lưu trữ):
+- `/can-ho-persa-place/`: 3 tiêu đề H4 ngay dưới H2 ("Vùng trũng" giá trị…, Đón trọn "Siêu sóng" hạ tầng…, Tâm điểm "Thủ phủ Logistics"…) → nên là H3.
+- `/vinfast-tram-sac-cu-hich-hay-ganh-nang-cho-bds-vinhomes-2026/`: H2→H4
+- `/vi-sao-nguoi-ta-than-phien-ve-vinhomes-nhung-van-mua/`: H2→H4
+- `/vinhomes-2026-bds-xanh-hay-greenwashing/`: H2→H4
+
+**14.2 Link nội bộ còn thiếu**:
+- Bài cụm Spring Ville chưa link về trang dự án `/spring-ville/`: `/mua-nha-bang-luong-persa-place-nhon-trach/`, `/nhon-trach-2026-diem-roi-ha-tang-persa-place/`, `/phap-ly-can-ho-spring-ville-co-gi/`.
+- Trang dự án chưa có link chủ đầu tư vì site chưa có trang chủ đầu tư: The Privé (Đất Xanh), Palm River (Hướng Việt), Ansana by Kita (Kita Group).
+- Phân khu ↔ dự án mẹ: Spring Ville ↔ Persa Place đã link hai chiều; Palm River chưa có trang Palm City để link.
+
+**14.3 Alt không dấu / tên tệp (128 lượt, 100 trang)** – không tự viết lại (cần người hiểu ảnh viết alt có dấu, mô tả đúng ảnh):
+
+| Trang | Alt hiện tại |
+|---|---|
+| `/an-han-no-goc-60-thang-the-prive-chien-luoc-dong-tien/` | an han no goc the prive; chinh sach vay the prive moi nhat |
+| `/bai-hoc-phu-my-hung-den-the-global-city/` | so sanh phu my hung the global city |
+| `/bat-dong-san-ban-dao-quan-2-the-prive-khan-hiem/` | bat dong san ven song the prive |
+| `/bds-vinhomes-2026-kenh-tru-an-chong-lam-phat/` | vinhomes ba son hcm |
+| `/bi-an-dong-von-trieu-do-the-global-city/` | phoi canh lumiere mid town; suc hut dau tu the global city 1; thanh khoan vi tri can goc |
+| `/bi-quyet-chia-nho-mat-bang-shophouse-soho/` | thiet ke shophouse soho |
+| `/cach-dung-don-bay-the-global-city-khong-lo-ngop/` | don bay tai chinh mua nha |
+| `/can-ho-1pn-cong-persa-place-dau-tu-cho-thue/` | can ho 1 phong ngu persa place cho thue |
+| `/can-ho-2pn-1-ansana-by-kita-102m2/` | can ho 2pn ansana |
+| `/can-ho-mat-tien-ton-duc-thang-persa-place/` | can ho mat tien ton duc thang nhon trach |
+| `/can-ho-spring-ville-co-gi-dang-chu-y-voi-nguoi-mua-o-thuc/` | nha mau spring ville |
+| `/cau-truc-danh-muc-dau-tu-2026-nen-phan-bo-bao-nhieu-cho-vinhomes/` | dai do thi vinhomes nhin tu tren cao |
+| `/chien-luoc-chon-thap-the-prive-theo-giai-doan/` | giai doan trien khai the prive; vi tri du an the prive 2 |
+| `/chinh-sach-ban-hang-the-prive-phase-2/` | chinh sach ban hang the prive moi nhat |
+| `/chinh-sach-mua-si-cloud-9-tower-the-prive/` | toa cloud 9 tower the prive |
+| `/cho-thue-the-prive/` | tiem nang nam rach chiec 2028 |
+| `/chon-can-goc-hay-mat-tien-the-global-city-thanh-khoan/` | thanh khoan vi tri can goc |
+| `/co-nen-mua-can-ho-spring-ville-o-thoi-diem-nay/` | vi tri spring ville dau tu |
+| `/cong-thuc-tich-san-persa-place-gamuda-land/` | chinh sach thanh toan persa place 5 phan tram |
+| `/dac-quyen-booking-dot-1-persa-place-nhon-trach/` | dac quyen booking dot 1 persa place |
+| `/dac-quyen-dinh-thu-san-golf-vinhomes-saigon-park/` | biet thu san golf vinhomes |
+| `/danh-gia-chu-ky-tang-gia-bat-dong-san-ven-song-giong-ong-to/` | chu ky tang gia ven song giong ong to |
+| `/dau-tu-f0-persa-place-von-it-loi-nhuan-cao/` | dau tu f0 persa place loi nhuan |
+| `/dau-tu-the-prive-don-bay-nut-giao-an-phu/` | nut giao an phu the prive |
+| `/dinh-thu-the-global-city-tam-the-dac-quyen/` | dinh thu hang sang the global city; phoi canh sola |
+| `/don-bay-tai-chinh-thong-minh-dau-tu-persa-place/` | don bay tai chinh thong minh persa place |
+| `/dong-tien-sieu-nhe-2029-the-global-city/` | dong tien thanh toan the global city |
+| `/dung-doi-thong-xe-lien-phuong-mua-the-global-city/` | thong xe lien phuong the global city; vi tri the global city |
+| `/gamuda-land-chien-luoc-kien-tao-do-thi-persa-place/` | chu dau tu gamuda land persa place |
+| `/gia-ban-the-prive-quan-2-2026/` | can ho the prive |
+| `/gia-tri-doc-ban-biet-thu-ven-kenh-vinhomes-saigon-park/` | biet thu ven kenh vinhomes |
+| `/giai-ma-khoang-cach-persa-place-tphcm/` | vi tri persa place cau cat lai vanh dai 3; vi tri spring ville dau tu |
+| `/gioi-giau-gam-hang-the-global-city-vi-can-kiet-dat-quan-2/` | ha tang rach chiec the global city; khan hiem dat vang quan 2 |
+| `/ha-tang-nut-giao-vo-van-kiet-ql1a-ansana-by-kita/` | nut giao ansana kita |
+| `/he-sinh-thai-vingroup-tien-loi-toi-da-hay-chiec-long-vang/` | truong quoc te vinschool |
+| `/he-thong-tien-ich-ansana-by-kita-one-stop-living-hub/` | tien ich ansana kita |
+| `/he-tien-ich-can-ho-spring-ville-co-du-cho-nhu-cau-song-hang-ngay-khong/` | tien ich cong vien spring ville |
+| `/huong-viet-holdings-la-ai/` | hallmark thu thiem; palm city |
+| `/kich-ban-luot-song-the-prive-loi-nhuan-15-20-phan-tram/` | dau tu luot song the prive |
+| `/kiem-chung-thuc-te-ban-giao-gamuda-land-persa-place/` | chu dau tu gamuda land persa place; do thi xanh gamuda land nhon trach |
+| `/lai-suat-2026-vay-bank-hay-tra-thang-the-global-city/` | lai suat vay mua nha 2026 |
+| `/lan-song-fb-do-bo-soho-the-global-city/` | khu pho thuong mai soho fb; shophouse soho tgc |
+| `/layout-can-ho-2pn-persa-place-chuyen-gia-san-bay/` | layout can ho 2 phong ngu persa place |
+| `/loi-giai-bai-toan-bao-ve-tai-san-truoc-lam-phat-voi-palm-river/` | bao ve tai san lam phat palm river |
+| `/loi-nhuan-kep-dau-tu-the-prive-quan-2/` | loi nhuan dau tu the prive 1 |
+| `/loi-nhuan-kep-tu-the-rui-ro-tai-chinh-the-prive-lai-suat-tha-noiprive/` | rui ro dau tu the prive |
+| `/loi-nhuan-the-global-city-nut-giao-an-phu/` | can ho masteri grand view; nut giao an phu the global city |
+| `/loi-suat-cho-thue-the-prive/` | ty suat loi nhuan the prive |
+| `/loi-the-y-te-ansana-by-kita-dau-tu-cho-thue/` | tien ich y te ansana |
+| `/luc-keo-nam-rach-chiec-the-prive-quan-2/` | the prive rach chiec |
+| `/metro-thu-thiem-long-thanh-khoi-cong-the-prive/` | loi nhuan dau tu the prive; tuyen metro the prive |
+| `/metro-vanh-dai-anh-huong-gia-the-global-city/` | metro vanh dai the global city |
+| `/mua-nha-bang-luong-persa-place-nhon-trach/` | mua nha tra gop persa place gia dinh tre |
+| `/mua-the-prive-quan-2-von-tu-co-10-phan-tram/` | khoang cach di chuyen the prive; so huu the prive von it |
+| `/nen-mua-shophouse-biet-thu-hay-can-ho-the-global-city/` | biet thu can ho the global city; the global city 3 1 |
+| `/nha-dau-tu-ha-noi-mua-the-prive-tich-san/` | nha dau tu ha noi the prive; nut giao an phu the prive |
+| `/nhon-trach-2026-diem-roi-ha-tang-persa-place/` | ha tang nhon trach persa place 2026 |
+| `/penthouse-garden-duplex-the-prive-quan-2/` | penthouse duplex the prive |
+| `/persa-place-kenh-tru-an-an-toan-dong-tien-2026/` | kenh tru an tai san persa place 2026 |
+| `/persa-place-tang-gia-khi-van-hanh-san-bay-long-thanh/` | tang gia persa place san bay long thanh; vi tri spring ville |
+| `/phap-ly-can-ho-spring-ville-co-gi/` | phap ly spring ville |
+| `/puzzle-parking-ansana-by-kita-giai-phap-thong-minh/` | do xe thong minh ansana |
+| `/review-can-ho-studio-ansana-by-kita-tich-san/` | can ho studio ansana |
+| `/roi-cho-thue-can-ho-vinhomes-2026-4-6-co-phai-con-so-vang/` | sanh lobby can ho vinhomes |
+| `/rui-ro-dau-tu-the-global-city/` | rui ro dau tu bat dong san; thong xe lien phuong the global city |
+| `/shophouse-soho-the-global-city-co-nen-dau-tu/` | shophouse soho tgc; ty suat loi nhuan shophouse soho |
+| `/smart-living-4-0-ansana-by-kita-trai-nghiem-thuc-te/` | smart living ansana |
+| `/so-sanh-gia-the-prive-voi-thu-thiem/` | tiem nang nam rach chiec 2028; vi tri chien luoc the prive |
+| `/so-sanh-lai-suat-tiet-kiem-va-dau-tu-persa-place/` | bien do tang gia can ho persa place |
+| `/spring-ville-co-hop-khai-thac-cho-thue-khong/` | san bay long thanh |
+| `/spring-ville-hop-o-thuc-hay-dau-tu-dai-han/` | mat bang spring ville |
+| `/spring-ville-huong-loi-gi-tu-ha-tang-nhon-trach-long-thanh/` | dau tu spring ville |
+| `/su-dich-chuyen-dong-von-dau-tu-tu-loi-trung-tam-ve-nam-rach-chiec/` | dong von dau tu nam rach chiec; nut giao an phu palm river |
+| `/tac-dong-rach-chiec-sun-group-den-gia-the-global-city/` | ha tang rach chiec the global city; shophouse soho tgc |
+| `/tai-sao-dau-tu-thap-tang-vinhomes-saigon-park-dot-1/` | thap tang vinhomes saigon park |
+| `/tai-sao-gioi-tinh-hoa-chon-tich-san-tai-palm-river/` | tich san palm river gioi tinh hoa |
+| `/thanh-khoan-1pn-vs-2pn-the-prive-quan-2/` | kinh doanh airbnb the prive |
+| `/thanh-toan-the-prive-1-phan-tram-dong-tien/` | chinh sach ban hang the prive moi nhat |
+| `/the-global-city-bat-day-hay-du-dinh/` | suc hut dau tu the global city; thoi diem dau tu the global city |
+| `/the-global-city-co-vuot-mat-quan-1-khong/` | downtown moi tp ho chi minh; shophouse soho tgc |
+| `/the-global-city-cua-de-danh-cho-the-he-f2/` | bat dong san tich san truyen doi |
+| `/the-prive-quan-2-tich-san-cho-gioi-sieu-giau/` | kenh tru an tai san the prive |
+| `/thiet-ke-biophilic-persa-place-thu-hut-gioi-tri-thuc/` | thiet ke biophilic persa place nhon trach |
+| `/thiet-ke-cong-nang-nha-pho-lien-ke-vinhomes-saigon-park/` | thiet ke nha pho vinhomes 1 |
+| `/thoi-gian-di-chuyen-tu-ansana-by-kita-vao-quan-1/` | di chuyen ansana quan 1 |
+| `/tich-san-bang-bds-vinhomes-an-toan-phap-ly-la-uu-tien-so-1/` | view bancony can ho ba son |
+| `/tiem-nang-kinh-doanh-shophouse-vinhomes-saigon-park/` | shophouse vinhomes saigon park |
+| `/velis-realty-phan-phoi-doc-quyen-thap-9-the-prive/` | thap 9 the prive; velis f1 the prive; velis realty f1 the prive |
+| `/vi-sao-chon-persa-place-thay-vi-dat-nen-nhon-trach/` | so sanh can ho va dat nen nhon trach |
+| `/vi-sao-nguoi-ta-than-phien-ve-vinhomes-nhung-van-mua/` | vinhomes ocean park 2 |
+| `/vi-tri-ansana-by-kita-vo-van-kiet-tiem-nang-rui-ro/` | vi tri ansana by kita |
+| `/vi-tri-can-ho-spring-ville-co-thuan-tien-di-san-bay-long-thanh/` | vi tri spring ville |
+| `/vi-tri-the-prive-quan-2-3-mat-song/` | map giao thong the prive; vi tri chien luoc the prive |
+| `/vinfast-tram-sac-cu-hich-hay-ganh-nang-cho-bds-vinhomes-2026/` | tram sac vinfast |
+| `/vinhomes-2026-bds-xanh-hay-greenwashing/` | cong vien vinhomes grand park; du an vinhomes green paradise can gio |
+| `/vinhomes-2026-va-su-troi-day-cua-do-thi-vi-nhan-sinh/` | vinhomes grand park 3 |
+| `/vinhomes-smart-city-hay-big-brother-quyen-rieng-tu-cua-cu-dan-o-dau/` | camera ia khu do thi |
+| `/vo-van-kiet-noi-dai-don-bay-ansana-by-kita/` | du an vo van kiet ansana |
+| `/von-1-ty-nen-mua-the-prive-hay-dat-nen-vung-ven/` | so sanh dau tu the prive |
+| `/xu-huong-ly-tam-nhon-trach-can-ho-cao-cap/` | can ho cao cap nhon trach persa place |

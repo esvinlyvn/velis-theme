@@ -440,3 +440,23 @@ Quay lui: nhập `data/the7/options-truoc-b8.json`; theme con 1.3.0 (commit 5274
 Quay lui: theme con 1.4.1 (commit 7b35746); Easy TOC 4 khóa về giá trị cột "Trước"; từng trang/bài → Bản sửa đổi theo
 `ban-sua-doi-truoc.json` (khôi phục cả tiêu đề + tóm tắt); Related posts 2 bài về như cũ; mẫu WPBakery: lưu lại bản ở commit 7b35746.
 Logo mới để lại trong Media (không xóa). Không xóa bài/trang/media, không gửi form, không ghi `.htaccess`, site thật không bị ghi.
+
+## 2026-11-12 – The7 bước 10: vòng hoàn thiện giao diện + UX/UI + onpage (`docs/reports/the7-buoc-10.md`)
+
+| Mục | Trước | Sau | Cách làm |
+|---|---|---|---|
+| Theme con | 1.5.0 | **1.6.0** (tải lên nhiều lần trong lúc đo; bản cuối = commit này) | Giao diện → Tải lên → thay bản đang dùng |
+| Theme Options (14 khóa, `data/the7/options-truoc-b10.json` → `options-buoc-10.json`) | Content boxes viền; nút M 15 px, S 14 px không cao tối thiểu; nút header 12/20 px 15 px; mục menu 8/12/7/12, menu con 10 px; header dính "fade"; header thu gọn 70 px; thông báo form popup | không viền; M = L 16 px; S 48 px / 15 px; header 14/24 px 16 px; 13/12/12/12, menu con 13/10/12/10; "sticky"; 60 px; thông báo tại chỗ | Export/Import (scratch `t7/import.mjs`), xuất lại so 14 khóa = khớp |
+| The7 → Settings | Mega menu: bật | **tắt** (menu không dùng mega menu) | trang Settings |
+| Chuyên mục | – | **tạo "Phân khu" (57, `phan-khu`)**; Palm River 20422: [34] → [57]; Persa Place 19855: [45] → [57] (chuyên mục 45 nay rỗng – tự noindex như 36/37/39) | REST `wp/v2/categories`; hộp Chuyên mục ở màn hình sửa (khóa ngày sửa) |
+| Nội dung 92 trang/bài (ID bản sửa đổi trước + ngày sửa: `data/the7/buoc-10/ban-sua-doi-truoc.json`) | – | trang chủ (ảnh hero = Single Image `velis-hero-bg`, H2 "Dự án nổi bật", lưới theo chuyên mục 34, bỏ link "Xem dự án →"), /du-an/ (chuyên mục 34,57), 7 dự án + 4 chủ đầu tư (Toggle p/h3, `velis-badge`), 78 bài blog (`velis-badge` 92 ảnh), trường tùy chỉnh `velis_dia_chi` 7 dự án – dựng bằng `tools/the7_sua_buoc10.py`; ngày sửa không đổi (Lock Modified Date) – riêng trang mẫu nháp 20733 lưu 2 lần (sửa rồi trả lại nguyên văn, ngày sửa của bản nháp đổi) | màn hình sửa (scratch `b10/apply.mjs`) |
+| Mẫu WPBakery | Velis – Dự án / Chủ đầu tư bản bước 9 | bản mới (`data/the7/mau-wpbakery/`); xóa bản trùng cũ "Velis – Dự án" (lần xóa đầu báo 502) | AJAX của trình sửa (scratch `b9/tpl.mjs`) |
+| CF7 form 19582 (bản trước: REST JSON scratch `b10/cf7-19582-truoc.json`) | link chính sách không `rel`; thông báo mặc định | `rel="noopener"`; cảm ơn + hotline, lỗi gửi + hotline, SĐT sai định dạng, ô bắt buộc, ô đồng ý | màn hình sửa CF7 |
+| Menu FOOTER mục 20358 "Thi thử CCMG" | XFN rỗng | `noopener` | REST `wp/v2/menu-items` |
+| Rank Math /du-an/ | mô tả 133 ký tự | 153 ký tự (ngày sửa trang không đổi) | REST `rankmath/v1/updateMeta` |
+| Chuyên mục 57 mô tả | – | câu mô tả công khai (Palm River – Palm City, Persa Place – Springville) | REST |
+| LiteSpeed / `.htaccess` | – | không đổi; chỉ purge | thanh quản trị |
+
+Quay lui: theme con 1.5.0 (commit c83970f); nhập `options-truoc-b10.json`; The7 → Settings bật lại Mega menu; từng trang/bài → Bản sửa đổi
+theo `ban-sua-doi-truoc.json` (+ chuyên mục Palm River [34], Persa Place [45]); CF7 dán lại bản trước; XFN mục 20358 rỗng; mô tả /du-an/ cũ
+(cột trước ở báo cáo). Không xóa bài/trang/media, không gửi form (thử bằng chặn yêu cầu), không ghi `.htaccess`, site thật không bị ghi.

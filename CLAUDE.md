@@ -92,7 +92,11 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
   nội dung ở Giao diện → Tùy biến → "Thanh liên hệ (điện thoại)". Class `velis-cta` là hàng liên hệ của mẫu WPBakery – không dùng lại.
 - Thẻ dự án (2026-11-12, một mẫu mọi nơi): phần tử The7 `dt_blog_masonry` lấy bài động trong hàng `velis-projects`; dữ liệu thẻ = ảnh đại diện +
   tiêu đề bài + ô Tóm tắt 4 dòng (chủ đầu tư / khu vực / loại / "Bàn giao: …"); dải nổi bật hero trang chủ = `velis-feats` (chọn ở ô Posts).
-  Bộ tên khu vực: `KHU_VUC` trong `tools/the7_sua_buoc9.py` (theo `docs/KHU-VUC.md`).
+  Bộ tên khu vực: `KHU_VUC` trong `tools/the7_sua_buoc9.py` (theo `docs/KHU-VUC.md`, người dùng duyệt 2026-11-12).
+- Bước 10 (2026-11-12): lưới trang chủ = chuyên mục Dự án (34); phân khu (Palm River, Persa Place) ở chuyên mục riêng "Phân khu" (57) nên tự bị loại,
+  /du-an/ lấy `34,57`. Ảnh hero trang chủ = Single Image Extra class `velis-hero-bg` (theme con preload + fetchpriority). Thẻ / nút / vùng bấm theo
+  DESIGN.md "Thẻ" + "Buttons". Trang chuyên mục / tìm kiếm: The7 chỉ lấy cài đặt của trang mẫu 20733, không lấy nội dung. Kiểm schema cục bộ:
+  `node tools/the7_check_schema.mjs <schemaorg.jsonld> <ldfull.json>` (validator.schema.org chặn truy cập tự động). Đưa lên site thật: `docs/the7/DUA-LEN-SITE-THAT.md`.
 - `data/the7/mau-wpbakery/` — 3 mẫu WPBakery (Dự án, Chủ đầu tư, Bài viết) đã lưu vào "Mẫu của tôi" trên staging; bố cục trang nằm trong WPBakery, không trong PHP.
 - `theme/velis/` — theme khối velis, **đã bỏ 2026-11-11** (giữ để tham khảo); `dist/` (bỏ qua git) — file zip đóng gói.
 - `assets/brand/original/` — logo gốc tải từ Media site thật + PDF vector; `assets/brand/svg/` — SVG vẽ lại.

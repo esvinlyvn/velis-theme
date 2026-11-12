@@ -20,7 +20,10 @@ foreach ( array( 'day_link', 'month_link', 'year_link' ) as $velis_hook ) {
 // native lazy loading instead. shortcut: the first 4 thumbnails per page stay eager (the home hero strip has 4), enough for one screen.
 add_filter( 'dt_get_thumb_img-output', function ( $html ) {
 	static $velis_n = 0;
-	return ++$velis_n > 4 && ! str_contains( $html, 'loading=' ) ? preg_replace( '/<img /', '<img loading="lazy" ', $html, 1 ) : $html;
+	if ( 1 === ++$velis_n && ( is_archive() || is_search() ) ) {
+		return preg_replace( '/<img /', '<img fetchpriority="high" ', $html, 1 ); // first post image of a list is its LCP
+	}
+	return $velis_n > 4 && ! str_contains( $html, 'loading=' ) ? preg_replace( '/<img /', '<img loading="lazy" ', $html, 1 ) : $html;
 } );
 
 // Files a page does not use (E2, bước 10). Category/search archives render only The7 elements, but Ultimate Addons cannot see
