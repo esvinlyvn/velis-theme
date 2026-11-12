@@ -86,7 +86,9 @@ trang/bài, WPBakery (phần tử, mẫu, Design Options), Widget, Menu. `velis.
 | Đường kẻ champagne 48 px | **Fancy Separators** `dt_fancy_separator` (màu, độ dày, rộng) | thay đường kẻ chấm hồng |
 | Nút trong nội dung | **Button** `dt_default_button` | ăn theo TO › Buttons; không dùng `ult_buttons`, `dt_button (old)` |
 | FAQ | **Toggle** `vc_toggle` (mẫu Bước 2 đang dùng) hoặc **Accordion** `vc_accordion` (by Dream-Theme) | |
-| Thẻ dự án / chủ đầu tư | **Fancy Media** `dt_fancy_image` + Text Block, hoặc **Multipurpose Carousel** `dt_carousel` | thẻ ăn theo Content boxes |
+| Thẻ dự án (một mẫu, mọi nơi – bước 9) | **Blog Masonry & Grid** `dt_blog_masonry` (lấy bài động: Posts / Category, sắp theo ngày, mới nhất trước) trong hàng có Extra class `velis-projects` | dữ liệu thẻ = ảnh đại diện + **tiêu đề bài** + ô **Tóm tắt** 4 dòng cách 1 dòng trống: chủ đầu tư / khu vực / loại / "Bàn giao: …"; trang chủ: ô Posts = 5 dự án (không phân khu); /du-an/: Category = Dự án; trang chủ đầu tư: Posts = dự án của CĐT, 2 cột |
+| Dải "Dự án nổi bật" (hero trang chủ – bước 9) | cùng phần tử, ảnh 13:9, trong hàng hero có Extra class `velis-feats` | chọn dự án ở ô **Posts** (≤ 4); thẻ hiện tên + dòng 2 của Tóm tắt (khu vực) |
+| Mục lục | **Easy TOC** (Cài đặt → Mục lục): không đánh số, chỉ H2, CSS thuần, ẩn ban đầu; trang dự án chèn `[ez-toc]` | velis.css: kiểu hộp, > 6 mục 2 cột, từ 1 024 px luôn mở |
 | Danh sách có biểu tượng, thông số | **Fancy List** `dt_vc_list`, **Icon with text** `dt_icon_text` | |
 | Bảng giá / thông số | bảng HTML trong Text Block (TinyMCE Advanced có công cụ bảng) | màu bảng: CSS 1 lớp nếu cần |
 | Slider ảnh | **Media Gallery Carousel** `dt_media_gallery_carousel` | không dùng Slideshow (CPT không có, xem §3) |
@@ -103,6 +105,10 @@ trang/bài, WPBakery (phần tử, mẫu, Design Options), Widget, Menu. `velis.
 | Padding section khác nhau theo thiết bị | Row Design Options chỉ 1 giá trị | lớp `.velis-section` |
 | Cắt huy hiệu VELIS in chìm trên ảnh (góc trái dưới) | WPBakery Single Image / The7 thumbnail không có tùy chọn cắt | lớp `velis-crop` (Single Image: Extra class) + thumbnail The7: phóng 1,12 neo góc phải trên (bước 8) |
 | "Xem thêm" cho khối chữ dài | WPBakery có Toggle nhưng không có kiểu nút chữ "Xem thêm/Thu gọn" | phần tử **Toggle** `vc_toggle` kiểu Text only + Extra class `velis-more` (bước 8) |
+| Thẻ dự án xếp chữ (nhãn trên tên, link ghim đáy, cao bằng nhau) | `dt_blog_masonry` có sẵn ảnh/tiêu đề/tóm tắt/nút nhưng không xếp nhãn lên trên tên, không ghim nút | `.velis-projects` (bước 9) – dữ liệu vẫn sửa trong bài |
+| Dải nổi bật trượt ngang | `dt_blog_carousel` cần JS (FVM hoãn tới khi chạm → dải trống lúc đầu) | `.velis-feats`: lưới CSS + scroll-snap, không JS (bước 9) |
+| Ảnh trong nội dung có huy hiệu | như `velis-crop` nhưng giữ tỉ lệ ảnh | Extra class `velis-badge` (bước 9) – chỉ ảnh có huy hiệu ở trái dưới, không chữ (`data/the7/buoc-9/anh-huy-hieu.csv`) |
+| Ẩn dòng "Chuyên mục · Bởi · ngày" chỉ ở trang dự án | `general-blog_meta_*` là chung cho mọi bài | `article:has(.velis-hero) > .post-meta` (bước 9) |
 | Ảnh OG mặc định | Không phải việc The7 – dùng **Rank Math** › Tiêu đề & mô tả › Ảnh OG mặc định; tắt `the7_opengraph_tags` (TO › Advanced) để không trùng thẻ OG | không code |
 
 ## 2. Không làm (The7 đã có)

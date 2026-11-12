@@ -90,6 +90,9 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
 - Blog (2026-11-11): chuyên mục `/blog/` + cụm `/blog/{cụm}/` (slug cũ `/blog-bds/…` 301 qua Rank Math); bố cục trang chuyên mục = trang mẫu WPBakery 20733 (The7 → Archives); bài blog có sidebar phải (Default Sidebar).
 - Thanh liên hệ dính đáy mobile (thay Buttonizer, đã tắt 2026-11-12): theme con `functions.php` + `.velis-cta-bar` trong `velis.css`;
   nội dung ở Giao diện → Tùy biến → "Thanh liên hệ (điện thoại)". Class `velis-cta` là hàng liên hệ của mẫu WPBakery – không dùng lại.
+- Thẻ dự án (2026-11-12, một mẫu mọi nơi): phần tử The7 `dt_blog_masonry` lấy bài động trong hàng `velis-projects`; dữ liệu thẻ = ảnh đại diện +
+  tiêu đề bài + ô Tóm tắt 4 dòng (chủ đầu tư / khu vực / loại / "Bàn giao: …"); dải nổi bật hero trang chủ = `velis-feats` (chọn ở ô Posts).
+  Bộ tên khu vực: `KHU_VUC` trong `tools/the7_sua_buoc9.py` (theo `docs/KHU-VUC.md`).
 - `data/the7/mau-wpbakery/` — 3 mẫu WPBakery (Dự án, Chủ đầu tư, Bài viết) đã lưu vào "Mẫu của tôi" trên staging; bố cục trang nằm trong WPBakery, không trong PHP.
 - `theme/velis/` — theme khối velis, **đã bỏ 2026-11-11** (giữ để tham khảo); `dist/` (bỏ qua git) — file zip đóng gói.
 - `assets/brand/original/` — logo gốc tải từ Media site thật + PDF vector; `assets/brand/svg/` — SVG vẽ lại.
