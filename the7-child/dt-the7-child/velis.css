@@ -146,6 +146,7 @@ body.show-overlay-mobile-header .dt-mobile-header { visibility: visible; transit
 /* Breadcrumb trong phần đầu (phần tử Breadcrumbs của The7 mặc định căn giữa) */
 .velis-hero .dt-breadcrumbs-shortcode, .velis-hero .dt-breadcrumbs-shortcode .breadcrumbs { text-align: left; justify-content: flex-start; margin-left: 0; }
 .velis-hero .dt-breadcrumbs-shortcode { margin-bottom: 16px; }
+.velis-hero .dt-breadcrumbs-shortcode .breadcrumbs, .velis-hero .dt-breadcrumbs-shortcode .breadcrumbs span { color: #5C5C5C; } /* The7 mặc định #A2A5A6 (2,6:1) */
 /* Ô đồng ý của form (NĐ 13/2023): ô vuông cạnh chữ, vùng bấm đủ lớn */
 .velis-cf7-consent { margin: 4px 0 16px; font-size: 14px; line-height: 1.5; }
 .velis-cf7-consent .wpcf7-list-item { margin: 0; }
@@ -193,8 +194,10 @@ body .vc_section.velis-home-hero::before { content: ""; display: block; position
 .velis-home-hero h1, .velis-home-hero p { color: #FFFFFF; }
 .velis-home-hero .velis-eyebrow { color: #F3ECDF; }
 .velis-home-hero .dt-btn { margin: 8px 16px 0 0; }
-.velis-home-hero .velis-btn-ghost, .velis-home-hero a.dt-btn[href="/du-an/"] { background: transparent; border: 1px solid #FFFFFF; color: #FFFFFF; }
-.velis-home-hero .velis-btn-ghost:hover, .velis-home-hero a.dt-btn[href="/du-an/"]:hover { background: #FFFFFF; color: #1A1A1A; }
+/* nút viền trắng: The7 tô nền nút bằng bộ chọn có #page – cần cùng độ ưu tiên (Extra class "velis-btn-ghost" trên phần tử Button) */
+#page .velis-home-hero a.dt-btn.velis-btn-ghost { background: transparent; background-image: none; border: 1px solid #FFFFFF; color: #FFFFFF; }
+#page .velis-home-hero a.dt-btn.velis-btn-ghost:hover, #page .velis-home-hero a.dt-btn.velis-btn-ghost:focus-visible { background: #FFFFFF; background-image: none; color: #1A1A1A; }
+#page .velis-home-hero a.dt-btn.velis-btn-ghost:hover span { color: #1A1A1A; }
 @media (max-width: 767px) {
 	.velis-home-hero { padding: 96px 0 48px; }
 	body .vc_section.velis-home-hero::before { background: linear-gradient(90deg, rgba(20, 20, 20, 0.86) 0%, rgba(20, 20, 20, 0.74) 100%); }

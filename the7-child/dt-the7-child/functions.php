@@ -89,3 +89,16 @@ add_action( 'wp_head', function () {
 add_action( 'wp_footer', function () {
 	echo velis_cta_html() . velis_cta_script(); // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts above
 }, 5 );
+
+// Front-page hero background (WPBakery Design Options → CSS only, found late) is the LCP image: preload whatever image the
+// editor set on the row with class "velis-home-hero" – nothing hard-coded here.
+function velis_hero_preload( $content ) {
+	return preg_match( '/velis-home-hero"[^\]]*?background-image:\s*url\(([^)\s]+)/', (string) $content, $m )
+		? '<link rel="preload" as="image" fetchpriority="high" href="' . esc_url( $m[1] ) . '">' : '';
+}
+
+add_action( 'wp_head', function () {
+	if ( is_front_page() ) {
+		echo velis_hero_preload( get_post_field( 'post_content', get_queried_object_id() ) ); // phpcs:ignore WordPress.Security.EscapeOutput -- esc_url above
+	}
+}, 2 );
