@@ -478,3 +478,11 @@ Kết quả: trang mới ID **20955** (`/chu-dau-tu/`, đăng); theme con 1.6.1 
 (`{"slug":true}`); mục menu 20687 → `post_type` / page 20955 (bản trước: scratch `b11/menu-20687-truoc.json`); xóa FVM + LiteSpeed.
 Quay lui: mục 20687 về link tùy chỉnh `#` (REST `type=custom, url=#`); trang 20955 chuyển Nháp (không xóa); theme con 1.6.0 (commit 72e4c71).
 Không xóa bài/trang/media, không gửi form, không ghi `.htaccess`, site thật không bị ghi.
+
+### Bước 11b – sửa tiêu đề Toggle hỏng trong 2 mẫu WPBakery (ghi trước khi sửa)
+
+Lỗi từ bước 10 (`toggles()` của `tools/the7_sua_buoc10.py` dừng ở dấu `]` trong chữ chờ `"[Câu hỏi N]"` → thuộc tính H3 bị chèn vào tiêu đề).
+Quét 7 bài dự án + 4 trang chủ đầu tư + /chu-dau-tu/ trên staging (REST `context=edit`): 0 Toggle hỏng (tiêu đề thật không có `]`) → không sửa trang nào.
+Chỉ sửa "Mẫu của tôi": "Velis – Dự án", "Velis – Chủ đầu tư" xóa bản cũ + lưu lại theo `data/the7/mau-wpbakery/{du-an,chu-dau-tu}.txt`
+(AJAX `vc_delete_template` / `vc_save_template` của trình sửa, như bước 9/10); "Velis – Bài viết" và mẫu riêng của người dùng không đụng.
+Quay lui: lưu lại 2 mẫu từ file ở commit 29b6367.

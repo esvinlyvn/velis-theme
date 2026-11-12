@@ -47,7 +47,7 @@ def toggles(raw):
         if 'use_custom_heading=' in tag:
             return tag
         return tag[:-1] + (MORE if 'velis-more' in tag else FAQ) + ']'
-    return re.sub(r'\[vc_toggle\b[^\]]*\]', one, raw)
+    return re.sub(r'\[vc_toggle\b(?:"[^"]*"|[^\]"])*\]', one, raw)  # giá trị trong "…" có thể chứa ] ("[Câu hỏi 1]")
 
 
 def no_read_more(raw):

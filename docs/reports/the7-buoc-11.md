@@ -42,5 +42,6 @@ Persa Place) – **Sun Group chưa có dự án trên site** nên thẻ ghi "Ph�
 
 Đã bỏ qua: breadcrumb của 4 trang chủ đầu tư vẫn là "Trang chủ / Dự án / …" (The7 lấy theo trang cha – đổi cha sẽ đổi URL, không làm);
 trang tổng chưa có ảnh đại diện riêng (og:image dùng ảnh mặc định). Chưa kiểm tra trên iPhone/Safari thật.
-Rủi ro: mẫu "Velis – Chủ đầu tư" (`data/the7/mau-wpbakery/chu-dau-tu.txt`) có chỗ chữ chờ "[Câu hỏi 1" bị dính thuộc tính vào tiêu đề Toggle
-(lỗi thay thế của bước 9/10) – chỉ ảnh hưởng trang mới dựng từ mẫu, chưa sửa ở bước này.
+Đã sửa thêm (11b): tiêu đề Toggle "[Câu hỏi N]" bị dính thuộc tính H3 trong 2 mẫu "Velis – Dự án" / "Velis – Chủ đầu tư" (lỗi regex
+`toggles()` bước 10 dừng ở dấu `]` trong ngoặc kép) – sửa regex + ca test (`tools/tests/test_the7_sua_buoc10.py`), sửa 2 file mẫu, lưu lại 2 mẫu
+trong "Mẫu của tôi" trên staging (đọc lại: 0 tiêu đề hỏng, 3 câu hỏi H3 mỗi mẫu). Quét 7 bài dự án + 4 trang chủ đầu tư + /chu-dau-tu/: 0 Toggle hỏng.
