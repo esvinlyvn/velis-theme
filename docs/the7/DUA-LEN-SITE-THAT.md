@@ -24,3 +24,16 @@ và để **làm lại từng mục** nếu chọn phương án B. Mọi mục �
 
 Thứ tự khi làm lại (phương án B): 1 → 2 → 3 → 4 → 8 → 5–7, 9–11 (dán `content.raw` từ staging, kiểm 0 link `staging.`) → 12–14 → xóa
 cache FVM + LiteSpeed. ID trên site thật có thể khác staging: chuyên mục Phân khu (57), ảnh hero (19968) – kiểm trước khi dán.
+
+## Bước 11 (2026-11-12): trang tổng "Chủ đầu tư" + mục menu
+
+Nhật ký: `docs/STAGING-LOG.md` mục bước 11; báo cáo: `docs/reports/the7-buoc-11.md`.
+
+| # | Loại | Thay đổi | Ở đâu (wp-admin) | Kiểm sau khi đưa lên |
+|---|---|---|---|---|
+| 16 | File theme con | **1.6.1**: `velis.css` thẻ chủ đầu tư (`.velis-devs`: cùng hệ thẻ – không viền, bóng, cả thẻ là link tên, khe 24 px); `functions.php` schema ItemList lấy thêm link tên thẻ của hàng `velis-devs` | Giao diện → Tải lên → thay bản đang dùng | `/chu-dau-tu/` có `CollectionPage` + `ItemList` 4 mục |
+| 17 | Trang mới | **"Chủ đầu tư"** – slug `chu-dau-tu`, cấp gốc (staging ID 20955). Nội dung = `data/the7/buoc-11/trang-chu-dau-tu.txt` (= `content.raw` trang staging) (đoạn dẫn + hàng `velis-devs velis-boxes` 4 cột: logo Media "Logo Vinhomes / Masterise Homes / Sun Group / Gamuda Land" – **ID 20820–20823 là của staging**, tên H2 có link, dòng dự án). The7: Page title **bật** (H1 + breadcrumb như /du-an/), Sidebar **không** | Trang → Thêm mới → WPBakery (dán) → The7 "Page title: Enabled", "Sidebar: Disabled" | 1 H1, breadcrumb "Trang chủ / Chủ đầu tư", 4 thẻ bấm được |
+| 18 | Rank Math | title "Chủ đầu tư bất động sản cao cấp \| Velis Realty" (46), mô tả 153 ký tự (`docs/reports/the7-buoc-11.md`) | sửa trang → Rank Math → Sửa đoạn trích | thẻ title / description |
+| 19 | Menu | menu chính, mục **"Chủ đầu tư"**: link tùy chỉnh `#` → trang "Chủ đầu tư" (giữ 4 menu con). Trên site thật menu chính mới được dựng ở bước trước – dựng mục này trỏ trang, không dùng `#` | Giao diện → Menu → thêm trang "Chủ đầu tư", kéo 4 mục con vào dưới, xóa mục `#` | bấm "Chủ đầu tư" (desktop + điện thoại) mở `/chu-dau-tu/` |
+
+Phương án B: 16 → 17 → 18 → 19 → xóa cache FVM + LiteSpeed. Khi thêm trang mới phải sửa ID logo trong 4 Single Image nếu ID Media khác.

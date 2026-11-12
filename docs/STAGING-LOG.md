@@ -460,3 +460,21 @@ Logo mới để lại trong Media (không xóa). Không xóa bài/trang/media, 
 Quay lui: theme con 1.5.0 (commit c83970f); nhập `options-truoc-b10.json`; The7 → Settings bật lại Mega menu; từng trang/bài → Bản sửa đổi
 theo `ban-sua-doi-truoc.json` (+ chuyên mục Palm River [34], Persa Place [45]); CF7 dán lại bản trước; XFN mục 20358 rỗng; mô tả /du-an/ cũ
 (cột trước ở báo cáo). Không xóa bài/trang/media, không gửi form (thử bằng chặn yêu cầu), không ghi `.htaccess`, site thật không bị ghi.
+
+## 2026-11-12 – The7 bước 11: trang tổng "Chủ đầu tư" + mục menu (`docs/reports/the7-buoc-11.md`)
+
+Ghi trước khi sửa. Trạng thái trước: mục menu 20687 "Chủ đầu tư" (menu 55) = link tùy chỉnh `#` (bấm không đi đâu); `/chu-dau-tu/` 404
+(site thật cũng 404); theme con 1.6.0. Không có bản sửa đổi trước (trang mới).
+
+| Mục | Trước | Sau | Cách làm |
+|---|---|---|---|
+| Theme con | 1.6.0 | **1.6.1**: CSS thẻ `velis-devs` + schema ItemList lấy cả link tên thẻ của hàng `velis-devs` | Giao diện → Tải lên → thay bản đang dùng |
+| Trang mới "Chủ đầu tư" (`/chu-dau-tu/`, cha: không) | – | WPBakery: đoạn dẫn + hàng `velis-devs velis-boxes` 4 cột (logo Media 20820–20823, tên H2 có link, dòng dự án); The7: tiêu đề trang bật (H1 + breadcrumb như /du-an/), không sidebar | màn hình sửa trang (Thêm trang mới) |
+| Rank Math trang mới | – | title 46 ký tự, mô tả 153 ký tự | REST `rankmath/v1/updateMeta` |
+| Mục menu 20687 | link tùy chỉnh `#` | trỏ trang "Chủ đầu tư" (giữ 4 menu con) | REST `wp/v2/menu-items` |
+| Cache | – | xóa FVM + LiteSpeed (chỉ purge) | thanh quản trị |
+
+Kết quả: trang mới ID **20955** (`/chu-dau-tu/`, đăng); theme con 1.6.1 tải lên 2 lần (lần 2: màu link tên thẻ, khe 24 px); Rank Math lưu
+(`{"slug":true}`); mục menu 20687 → `post_type` / page 20955 (bản trước: scratch `b11/menu-20687-truoc.json`); xóa FVM + LiteSpeed.
+Quay lui: mục 20687 về link tùy chỉnh `#` (REST `type=custom, url=#`); trang 20955 chuyển Nháp (không xóa); theme con 1.6.0 (commit 72e4c71).
+Không xóa bài/trang/media, không gửi form, không ghi `.htaccess`, site thật không bị ghi.

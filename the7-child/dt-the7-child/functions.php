@@ -253,6 +253,13 @@ function velis_masonry_queries( $content ) {
 	return $out;
 }
 
+// Card rows built from WPBakery columns (class "velis-devs", e.g. the developer hub): each card's name is a link (h2 a) → its page.
+function velis_card_links( $content ) {
+	preg_match_all( '/\[(vc_section|vc_row)\b[^\]]*\bvelis-devs\b[^\]]*\](.*?)\[\/\1\]/s', (string) $content, $rows );
+	preg_match_all( '/<h2[^>]*>\s*<a [^>]*href="([^"]+)"/', implode( '', $rows[2] ), $m );
+	return array_values( array_unique( $m[1] ) );
+}
+
 function velis_listed_posts() {
 	if ( is_category() || is_search() || is_tag() ) {
 		return $GLOBALS['wp_query']->posts;
@@ -260,7 +267,15 @@ function velis_listed_posts() {
 	if ( ! is_page() || is_front_page() ) {
 		return array();
 	}
-	return array_merge( array(), ...array_map( 'get_posts', velis_masonry_queries( get_post_field( 'post_content', get_queried_object_id() ) ) ) );
+	$content = get_post_field( 'post_content', get_queried_object_id() );
+	$cards   = array();
+	foreach ( velis_card_links( $content ) as $u ) {
+		$id = url_to_postid( '/' === $u[0] ? home_url( $u ) : $u );
+		if ( $id ) {
+			$cards[] = get_post( $id );
+		}
+	}
+	return array_merge( $cards, ...array_map( 'get_posts', velis_masonry_queries( $content ) ) );
 }
 
 add_filter( 'rank_math/json_ld', function ( $data ) {

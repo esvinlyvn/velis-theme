@@ -47,6 +47,11 @@ function shortcode_parse_atts( $s ) { preg_match_all( '/(\w+)="([^"]*)"/', $s, $
 $q   = velis_masonry_queries( '[vc_row el_class="velis-projects"][vc_column][dt_blog_masonry posts="3,1" dis_posts_total="6"][/vc_column][/vc_row][vc_row][vc_column][dt_blog_masonry category="40"][/vc_column][/vc_row]'
 	. '[vc_section el_class="velis-section velis-projects"][vc_row][vc_column][dt_blog_masonry post_type="category" category="34"][/vc_column][/vc_row][/vc_section]' );
 $ok  = $ok && 2 === count( $q ) && array( 3, 1 ) === $q[0]['post__in'] && 6 === $q[0]['numberposts'] && '34' === $q[1]['cat'] && 12 === $q[1]['numberposts'];
+// Developer hub cards: links of card names (h2 a) inside velis-devs rows only, de-duplicated, in page order.
+$l = velis_card_links( '[vc_row el_class="velis-devs velis-boxes"][vc_column][vc_column_text]<h2><a href="/du-an/vinhomes/">Vinhomes</a></h2>[/vc_column_text][/vc_column][vc_column][vc_column_text]<h2 class="x"><a class="y" href="/du-an/sun-group/">Sun Group</a></h2><p><a href="/z/">z</a></p>[/vc_column_text][/vc_column][/vc_row][vc_row][vc_column][vc_column_text]<h2><a href="/khac/">x</a></h2>[/vc_column_text][/vc_column][/vc_row]' );
+assert( $l === array( '/du-an/vinhomes/', '/du-an/sun-group/' ) );
+assert( velis_card_links( '[vc_row][vc_column][/vc_column][/vc_row]' ) === array() );
+
 // Schema graph: a page loses Article + its author Person (other Person kept); list page → CollectionPage + ItemList; post → Place.
 $g   = array( 'WebPage' => array( '@type' => 'WebPage', '@id' => 'u#webpage' ), 'richSnippet' => array( '@type' => 'Article', 'author' => array( '@id' => '/a/' ) ),
 	'ProfilePage' => array( '@type' => 'Person', '@id' => '/a/' ), 'ceo' => array( '@type' => 'Person', '@id' => '/b/' ), 'svc' => array( '@type' => 'Service' ) );
