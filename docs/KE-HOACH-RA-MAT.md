@@ -4,7 +4,7 @@ Cập nhật 2026-11-12 (bước 8, sau đánh giá độc lập). Thay bản c�
 Chỉ làm khi người dùng ra lệnh và chọn giờ. Mọi bước ghi lên site thật cần người dùng duyệt (CLAUDE.md); bước có thể ghi
 `.htaccess` (LiteSpeed, permalink, chuyển hướng chế độ .htaccess) duyệt riêng.
 
-Staging (chép từ site thật 2026-11-11 bằng Softaculous) đang chứa: theme con **The7 Velis (child) 1.4.0**, Theme Options của theme
+Staging (chép từ site thật 2026-11-11 bằng Softaculous) đang chứa: theme con **The7 Velis (child) 1.6.0** (bước 10), Theme Options của theme
 con, widget, menu "Velis – Menu chính", 3 mẫu WPBakery, trang mẫu archive 20733, nội dung đã sửa (bước 2–8), Rank Math title/mô tả,
 chuyển hướng, chuyên mục `/blog/…`, form CF7 có ô đồng ý, Tùy biến "Thanh liên hệ", site icon, ảnh OG. Nhật ký từng thao tác:
 `docs/STAGING-LOG.md`; báo cáo `docs/reports/the7-buoc-*.md`.
@@ -38,11 +38,13 @@ chuyển hướng, chuyên mục `/blog/…`, form CF7 có ô đồng ý, Tùy b
 | 10 | **Nhập lại nội dung mới** của bước 2 (nếu có) | Claude | – |
 | 11 | **Search Console**: gửi `sitemap_index.xml`; Kiểm tra URL trang chủ, `/blog/`, 1 dự án | người dùng | – |
 | 12 | **Theo dõi 404 trong 4 tuần** (Search Console + Rank Math 404 Monitor); thêm chuyển hướng cho URL lỗi có lượt truy cập | Claude + người dùng | – |
+| 13 | **Nén ảnh QUIC.cloud – sau ra mắt (người dùng chốt 2026-11-12)**: trên staging không làm được (staging khóa mật khẩu xem, QUIC.cloud không gọi được REST API). Sau khi site thật chạy ổn: LiteSpeed → Cài đặt chung → bật dịch vụ QUIC.cloud (đăng ký bằng email của chủ site) → Tối ưu hình ảnh: nén + WebP, **giữ ảnh gốc** (backup) → chạy theo lô; **ghi `.htaccess` – duyệt riêng trước khi bấm**. Kiểm: ảnh không vỡ (`tools/the7_ui_audit.mjs`, ảnh hỏng = 0), Lighthouse trang chủ, /blog/ | người dùng duyệt, Claude làm | LiteSpeed → Tối ưu hình ảnh → "Khôi phục bản gốc"; tắt dịch vụ |
 
 ## Phương án B – danh sách làm lại trên site thật (nếu không chuyển CSDL)
 
 Theo thứ tự, mỗi dòng có trong `docs/STAGING-LOG.md` kèm cách quay lui:
-1. Tải `dist/dt-the7-child.zip` (theme con 1.4.0) → kích hoạt; nhập Theme Options của theme con (`data/the7/options-buoc-8.json` –
+0. Bước 10 (vòng hoàn thiện): làm theo `docs/the7/DUA-LEN-SITE-THAT.md` (15 mục, có cột kiểm).
+1. Tải `dist/dt-the7-child.zip` (theme con 1.6.0) → kích hoạt; nhập Theme Options của theme con (`data/the7/options-buoc-10.json` –
    **sửa trước**: logo/ảnh trỏ ID Media của site thật; `template_page_id_*` trỏ ID trang mẫu tạo ở bước 4).
 2. Media: 6 logo PNG (`the7-child/logo/`), site icon chữ V, ảnh OG 1200×630 (`assets/brand/png/`).
 3. Menu "Velis – Menu chính" → vị trí primary; widget Default Sidebar (Nhận tư vấn, Bài mới), **Sidebar dự án** (Nhận bảng giá),

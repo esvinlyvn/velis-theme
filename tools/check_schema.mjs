@@ -28,7 +28,7 @@ export function googleIssues(nodes) {
 	return out;
 }
 
-if (process.argv[1]?.endsWith('check_schema.mjs')) {
+if (/(^|[\/])check_schema.mjs$/.test(process.argv[1] || '')) { // exact name: the7_check_schema.mjs imports this file
 	const [base, out, ...paths] = process.argv.slice(2);
 	const { chromium } = createRequire(import.meta.url)('playwright');
 	const b = await chromium.launch();
