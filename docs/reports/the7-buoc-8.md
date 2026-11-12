@@ -53,7 +53,7 @@ Nguồn lỗi: `docs/reports/the7-danh-gia-doc-lap.md` (3 Chặn · 7 Nặng · 
 | Ngày sửa của 16 trang/bài | – | không đổi (Lock Modified Date) |
 
 /blog/ 85 (trước 91): 3 lần đo 83/85/91, dao động lớn; trang /blog/ không bị sửa ở bước này. Trang chủ thấp hơn trước vì giờ có ảnh
-hero (yêu cầu C1); nén ảnh (QUIC.cloud, chờ duyệt) sẽ kéo LCP xuống.
+hero (yêu cầu C1); nén ảnh QUIC.cloud: chủ site quyết định không làm (2026-11-12).
 
 ## Lưu ý nội dung (cần chủ site)
 
@@ -77,3 +77,8 @@ hero (yêu cầu C1); nén ảnh (QUIC.cloud, chờ duyệt) sẽ kéo LCP xuố
 
 Xem cuối mục bước 8 trong `docs/STAGING-LOG.md` (options-truoc-b8, theme con 1.3.0, bản sửa đổi theo `data/the7/buoc-8/ban-sua-doi-truoc.json`,
 CF7 bản cũ, widget Mục lục, title cột "truoc", chuyển hướng the-prive, tên chuyên mục).
+
+## Quyết định của chủ site (2026-11-12)
+
+- Nén ảnh / QUIC.cloud: **không làm** (không đăng ký QUIC.cloud). Lighthouse trang chủ 89, /blog/ 85 được chấp nhận như hiện tại.
+- Mâu thuẫn bàn giao The Privé (2027 / Quý 1/2028) và nội dung trang chính sách bảo mật: **chưa sửa nội dung**, giữ nguyên.
