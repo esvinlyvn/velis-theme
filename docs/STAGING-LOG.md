@@ -380,3 +380,22 @@ Quay lui: nhập `data/the7/options-truoc-b6.json`; bật lại 5 module ở The
 từng trang/bài → Bản sửa đổi theo `ban-sua-doi-truoc.json`; mẫu WPBakery: lưu lại bản ở commit 937c273; Color Picker/Default
 template theo bảng trên; Site Icon 18678; Rank Math OG `velis-realty.webp`; ảnh đại diện 4 trang → 19587. Không xóa bài/trang/media,
 không gửi form, không động Buttonizer, site thật không bị ghi.
+
+## 2026-11-12 – The7 bước 7: thanh liên hệ thay Buttonizer, LiteSpeed "Add Missing Sizes", gỡ 3 danh mục rỗng (theo `docs/reports/the7-buoc-7.md`)
+
+Người dùng duyệt 2026-11-12: "1 b" (tắt Buttonizer, thanh trong theme con), "2 có" (LiteSpeed được ghi `.htaccess` trên staging),
+"3 có" (gỡ 3 danh mục rỗng).
+
+| Mục | Trước | Sau | Cách làm |
+|---|---|---|---|
+| Buttonizer 3.6.1 | active (nút gọi + Zalo `+84911237979`) | **inactive** (plugin giữ nguyên, không xóa) | REST `wp/v2/plugins` status |
+| Theme con | 1.2.0 | **1.3.0**: thanh `.velis-cta-bar` ≤ 767 px (Gọi · Zalo · Nhận tư vấn), 3 trường ở Giao diện → Tùy biến → "Thanh liên hệ (điện thoại)" (theme_mod, mặc định 0911 237 979 / https://zalo.me/0911237979 / /lien-he/), form CF7 đầu trang có id `velis-tu-van`; bỏ CSS cỡ nút Buttonizer | Giao diện → Tải lên → Thay thế (2 lần: lần 1 trùng class `velis-cta` của hàng liên hệ WPBakery → đổi tên, tải lại) |
+| Rank Math → Chuyển hướng | — | +2 regex (PHP): `^blog/blog-gamuda-land(?:/blog-spring-ville)?(/page/[0-9]+)?/?$` → `/blog/spring-ville$1/`; `^blog/blog-masterise-homes(/page/[0-9]+)?/?$` → `/blog/the-global-city$1/` | trang Chuyển hướng (Thêm mới) |
+| Chuyên mục 43 `blog-spring-ville`, 42 `blog-gamuda-land`, 49 `blog-masterise-homes` | 0 bài (mọi trạng thái) | **đã xóa** (bản sao tên/slug/cha/mô tả: `data/the7/buoc-7/chuyen-muc-xoa-truoc.json`) | REST `DELETE wp/v2/categories/{id}?force=true` |
+| `.htaccess` staging | chép nội dung (xem ở LiteSpeed → Toolbox → Xem .htaccess, chỉ đọc) vào scratchpad trước khi lưu | LiteSpeed ghi lại khi lưu; khác đúng 1 dòng: tên cookie `wp-postpass_…` trong khối LSCACHE | — |
+| LiteSpeed → Tối ưu trang → Media → Add Missing Sizes | Tắt | **Bật** (chỉ khóa này đổi, đã so mọi trường trước/sau) | trang cài đặt LiteSpeed (Lưu) |
+| LiteSpeed → Tối ưu hình ảnh | QUIC.cloud chưa tích hợp ("Tích hợp QUIC.cloud bị tắt") | **không làm**: cần đăng ký site mới với QUIC.cloud (dừng theo chỉ dẫn); staging còn khóa mật khẩu nên QUIC.cloud cũng không kéo được ảnh | — |
+| Cache | — | xóa FVM + LiteSpeed sau mỗi thay đổi | thanh quản trị |
+
+Quay lui: kích hoạt lại Buttonizer; theme con 1.2.0 (commit d2c0446); Add Missing Sizes → Tắt; tạo lại 3 chuyên mục theo
+`chuyen-muc-xoa-truoc.json` (cha 40/42) rồi hủy kích hoạt 2 chuyển hướng mới. Không xóa bài/trang/media, không gửi form, site thật không bị ghi.

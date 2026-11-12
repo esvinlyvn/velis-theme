@@ -98,7 +98,7 @@ trang/bài, WPBakery (phần tử, mẫu, Design Options), Widget, Menu. `velis.
 
 | Nhu cầu | Lý do | Cách tối thiểu |
 |---|---|---|
-| Thanh CTA dính đáy mobile (Gọi · Zalo · Nhận tư vấn) | The7 Classic không có; kế hoạch ra mắt tắt Buttonizer | HTML trong widget Default Footer hoặc Header and Footer Scripts + vài dòng `velis.css` – **cần người dùng chọn** (giữ Buttonizer đổi màu thương hiệu cũng là một cách) |
+| Thanh CTA dính đáy mobile (Gọi · Zalo · Nhận tư vấn) | The7 Classic không có; Buttonizer đã tắt (2026-11-12) | **Đã làm (người dùng chọn b):** theme con 1.3.0 `functions.php` + `velis.css` (`.velis-cta-bar`); số gọi, link Zalo, link tư vấn sửa ở Giao diện → Tùy biến → "Thanh liên hệ (điện thoại)". Không dùng class `velis-cta` (đó là hàng liên hệ trong mẫu WPBakery) |
 | Bóng thẻ chỉ khi hover | Content boxes chỉ có none/shadow/outline cố định | 1 quy tắc `:hover` |
 | Padding section khác nhau theo thiết bị | Row Design Options chỉ 1 giá trị | lớp `.velis-section` |
 | Ảnh OG mặc định | Không phải việc The7 – dùng **Rank Math** › Tiêu đề & mô tả › Ảnh OG mặc định; tắt `the7_opengraph_tags` (TO › Advanced) để không trùng thẻ OG | không code |

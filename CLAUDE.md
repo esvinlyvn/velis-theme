@@ -88,6 +88,8 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
 - `the7-child/dt-the7-child/` — **theme đang dùng từ 2026-11-11**: theme con của The7 Classic 14.5.1 (chỉ `velis.css`); màu, font,
   header trong The7 Theme Options (`data/the7/options-*.json`, sinh bằng `tools/the7_options_buoc1.py`); logo PNG `the7-child/logo/`.
 - Blog (2026-11-11): chuyên mục `/blog/` + cụm `/blog/{cụm}/` (slug cũ `/blog-bds/…` 301 qua Rank Math); bố cục trang chuyên mục = trang mẫu WPBakery 20733 (The7 → Archives); bài blog có sidebar phải (Default Sidebar).
+- Thanh liên hệ dính đáy mobile (thay Buttonizer, đã tắt 2026-11-12): theme con `functions.php` + `.velis-cta-bar` trong `velis.css`;
+  nội dung ở Giao diện → Tùy biến → "Thanh liên hệ (điện thoại)". Class `velis-cta` là hàng liên hệ của mẫu WPBakery – không dùng lại.
 - `data/the7/mau-wpbakery/` — 3 mẫu WPBakery (Dự án, Chủ đầu tư, Bài viết) đã lưu vào "Mẫu của tôi" trên staging; bố cục trang nằm trong WPBakery, không trong PHP.
 - `theme/velis/` — theme khối velis, **đã bỏ 2026-11-11** (giữ để tham khảo); `dist/` (bỏ qua git) — file zip đóng gói.
 - `assets/brand/original/` — logo gốc tải từ Media site thật + PDF vector; `assets/brand/svg/` — SVG vẽ lại.

@@ -102,9 +102,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @media (min-width: 768px) { body .vc_row .vc_column_container[class*="vc_col-sm-"] { padding-left: 15px; padding-right: 15px; } }
 /* UX-16: giữ chỗ 70 px cho header thu gọn trước khi JS The7 dựng .mobile-header-bar (tránh xô nội dung) */
 @media (max-width: 1000px) { .masthead.inline-header:not(.masthead-mobile-header) { min-height: 70px; } }
-/* UX-15: vùng bấm ≥ 24 px cho link meta, breadcrumb (WCAG 2.5.8); nút nổi Buttonizer 48 px (giữ tới khi có thanh CTA) */
+/* UX-15: vùng bấm ≥ 24 px cho link meta, breadcrumb (WCAG 2.5.8) */
 .entry-meta a, .page-title .breadcrumbs a { display: inline-block; min-height: 24px; line-height: 24px; }
-.buttonizer-group .buttonizer-button { width: 48px !important; height: 48px !important; min-width: 48px !important; min-height: 48px !important; } /* !important: Buttonizer đặt cỡ inline */
 /* UX-04: menu mobile đang đóng không nhận Tab; select thu gọn của menu cuối trang ẩn hẳn */
 body:not(.show-overlay-mobile-header) .dt-mobile-header { visibility: hidden; transition: right .5s, visibility 0s linear .5s; }
 body.show-overlay-mobile-header .dt-mobile-header { visibility: visible; transition: right .5s, visibility 0s; }
@@ -115,3 +114,20 @@ body.show-overlay-mobile-header .dt-mobile-header { visibility: visible; transit
 @media (max-width: 767px) { .iso-container > .wf-cell.iso-item { opacity: 1; } }
 
 @media (prefers-reduced-motion: reduce) { .blog-shortcode article.post, .dt-css-grid article.post, .related-posts article, .velis-cards .vc_column-inner { transition: none; } }
+
+/* ── Thanh liên hệ dính đáy (DESIGN sticky-cta-mobile, thay Buttonizer; nội dung sửa ở Tùy biến → Thanh liên hệ) ──
+   Chỉ ≤ 767 px; footer chừa đệm bằng chiều cao thanh; ẩn khi menu mobile mở hoặc đang gõ trong form (bàn phím ảo). */
+.velis-cta-bar { display: none; }
+@media (max-width: 767px) {
+	.velis-cta-bar { position: fixed; z-index: 9990; left: 0; right: 0; bottom: 0; display: flex; align-items: center; gap: 8px; height: 64px; box-sizing: content-box; padding: 0 16px env(safe-area-inset-bottom); background: #FFFFFF; box-shadow: 0 -4px 16px rgba(20, 20, 20, 0.10); }
+	.velis-cta-bar__item { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-width: 56px; min-height: 48px; color: #1A1A1A; font-size: 13px; font-weight: 600; line-height: 1; }
+	.velis-cta-bar__main { flex: 1; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 2px; background: #B8282E; color: #FFFFFF; font-weight: 600; }
+	.velis-cta-bar__item:hover, .velis-cta-bar__item:focus { color: #B8282E; }
+	.velis-cta-bar__main:hover, .velis-cta-bar__main:focus { background: #9E1F26; color: #FFFFFF; }
+	.velis-cta-bar a:focus-visible { outline: 2px solid #1A1A1A; outline-offset: 2px; }
+	body { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+	.scroll-top { bottom: calc(74px + env(safe-area-inset-bottom)) !important; } /* !important: The7 đặt bottom trong CSS động */
+	body.show-overlay-mobile-header .velis-cta-bar, body:has(.wpcf7 :is(input, textarea, select):focus) .velis-cta-bar { display: none; }
+	#velis-tu-van { scroll-margin-top: 96px; }
+}
+@media print { .velis-cta-bar { display: none !important; } }
