@@ -91,9 +91,9 @@ add_action( 'wp_footer', function () {
 }, 5 );
 
 // Front-page hero background (WPBakery Design Options → CSS only, found late) is the LCP image: preload whatever image the
-// editor set on the row with class "velis-home-hero" – nothing hard-coded here.
+// editor set on the row whose classes include "velis-home-hero" – nothing hard-coded here.
 function velis_hero_preload( $content ) {
-	return preg_match( '/velis-home-hero"[^\]]*?background-image:\s*url\(([^)\s]+)/', (string) $content, $m )
+	return preg_match( '/velis-home-hero[^"]*"[^\]]*?background-image:\s*url\(([^)\s]+)/', (string) $content, $m )
 		? '<link rel="preload" as="image" fetchpriority="high" href="' . esc_url( $m[1] ) . '">' : '';
 }
 

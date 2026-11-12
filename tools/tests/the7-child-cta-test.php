@@ -28,5 +28,6 @@ $ok  = $ok && ! str_contains( $h, 'tel:' ) && ! str_contains( $h, 'javascript' )
 $ok  = $ok && str_contains( velis_cta_script(), 'classList.toggle("is-on"' ) && ! empty( $GLOBALS['hooks']['wp_head'] );
 // Hero preload follows the image set in WPBakery, same URL incl. ?id= (else it downloads twice); no hero row → nothing.
 $ok  = $ok && velis_hero_preload( '[vc_section el_class="velis-home-hero" css=".vc_custom_1{background-image: url(/wp-content/uploads/a.webp?id=1) !important;}"]' )
-	=== '<link rel="preload" as="image" fetchpriority="high" href="/wp-content/uploads/a.webp?id=1">' && '' === velis_hero_preload( '[vc_row]' );
+	=== '<link rel="preload" as="image" fetchpriority="high" href="/wp-content/uploads/a.webp?id=1">' && '' === velis_hero_preload( '[vc_row]' )
+	&& str_contains( velis_hero_preload( '[vc_section el_class="velis-home-hero velis-feats" css=".vc_custom_1{background-image: url(/b.webp) !important;}"]' ), 'href="/b.webp"' );
 echo $ok ? "the7-child cta: ok\n" : "the7-child cta: FAIL\n";
