@@ -92,7 +92,7 @@ function velis_cta_html() {
 	$tel   = preg_replace( '/[^0-9+]/', '', $m['velis_cta_phone'] );
 	$here  = untrailingslashit( (string) wp_parse_url( $m['velis_cta_url'], PHP_URL_PATH ) ) === untrailingslashit( (string) wp_parse_url( add_query_arg( array() ), PHP_URL_PATH ) );
 	$zalo  = esc_url( $m['velis_cta_zalo'] );
-	$url   = $here && did_action( 'velis_form_seen' ) ? '#velis-tu-van' : $m['velis_cta_url'];
+	$url   = ( $here || did_action( 'velis_prefoot_shown' ) ) && did_action( 'velis_form_seen' ) ? '#velis-tu-van' : $m['velis_cta_url']; // trang có khối liên hệ cuối: nhảy tới form ngay trang đó
 	$icon  = fn( $d ) => '<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="' . $d . '"/></svg>';
 	$phone = 'M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z';
 	$chat  = 'M12 3C6.5 3 2 6.6 2 11c0 2.5 1.4 4.7 3.7 6.2L5 21l4.1-2.3c.9.2 1.9.3 2.9.3 5.5 0 10-3.6 10-8s-4.5-8-10-8z';
@@ -177,7 +177,16 @@ function velis_page_script() {
 		. 'if(!b||!f.closest(".wpcf7"))return;if(b.disabled){e.preventDefault();e.stopImmediatePropagation();return}b.dataset.v=b.value;b.value="Đang gửi…";'
 		. 'setTimeout(function(){b.disabled=true},0)},true);document.addEventListener("wpcf7submit",function(e){var b=e.target.querySelector(".wpcf7-submit");'
 		. 'if(b&&b.dataset.v){b.value=b.dataset.v;b.disabled=false}});'
-		. 'document.querySelectorAll(".velis-projects .entry-excerpt").forEach(function(x){var p=x.children;if(p.length>1)p[0].parentNode.title=p[0].textContent+" · "+p[1].textContent})})();</script>';
+		. 'document.querySelectorAll(".velis-projects .entry-excerpt").forEach(function(x){var p=x.children;if(p.length>1)p[0].parentNode.title=p[0].textContent+" · "+p[1].textContent});'
+		// Form chưa hợp lệ (vd. chưa tick đồng ý): đưa focus về ô lỗi đầu tiên – lời nhắc tiếng Việt nằm ngay dưới ô đó.
+		. 'document.addEventListener("wpcf7invalid",function(e){var x=e.target.querySelector(".wpcf7-not-valid");if(x)(x.matches("input,textarea,select")?x:x.querySelector("input")||x).focus()});'
+		// utm_* từ URL (LiteSpeed bỏ utm khỏi khóa cache nên CF7 default:get không thấy) – giữ trong phiên, điền trường ẩn của mọi form.
+		. 'var q=new URLSearchParams(location.search),u={};try{u=JSON.parse(sessionStorage.velisUtm||"{}")}catch(e){}["utm_source","utm_medium","utm_campaign"].forEach(function(k){if(q.get(k))u[k]=q.get(k)});'
+		. 'try{sessionStorage.velisUtm=JSON.stringify(u)}catch(e){}Object.keys(u).forEach(function(k){document.querySelectorAll(".wpcf7 input[name="+k+"]").forEach(function(i){i.value=u[k]})});'
+		// Footer điện thoại: cột link (tiêu đề + danh sách) gập / mở bằng tiêu đề. shortcut: chỉ xét cỡ màn hình lúc tải trang, đủ cho điện thoại.
+		. 'if(matchMedia("(max-width:767px)").matches)document.querySelectorAll("#footer .widget:has(.menu,.wp-block-latest-posts) > .widget-title").forEach(function(t){var w=t.parentNode;'
+		. 'w.classList.add("is-shut");t.setAttribute("role","button");t.tabIndex=0;t.setAttribute("aria-expanded","false");var f=function(){var o=w.classList.toggle("is-shut");t.setAttribute("aria-expanded",String(!o))};'
+		. 't.addEventListener("click",f);t.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();f()}})})})();</script>';
 }
 
 add_action( 'wp_footer', function () {
@@ -373,3 +382,32 @@ add_shortcode( 'velis_bai_viet', function ( $atts ) {
 	}
 	return $out;
 } );
+
+// Khối liên hệ cuối trang (pre-footer): nội dung = widget area "Khối liên hệ cuối trang" (Giao diện → Tiện ích), in trước footer The7.
+// Chỉ ở trang chưa có form riêng: bài viết (dự án: hàng CTA trong bài; blog: hộp CTA ở sidebar) và trang có [contact-form-7] thì không –
+// mỗi trang tối đa 1 form tư vấn.
+function velis_prefoot_on( $is_post, $content ) {
+	return ! $is_post && ! str_contains( (string) $content, '[contact-form-7' );
+}
+
+add_action( 'widgets_init', function () {
+	register_sidebar( array(
+		'id'            => 'velis-lien-he-cuoi',
+		'name'          => 'Khối liên hệ cuối trang',
+		'description'   => 'Hiện trên footer ở trang chưa có form (trang chủ, danh sách, chuyên mục, Giới thiệu, tìm kiếm, 404). Không hiện ở bài viết và trang đã có form.',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<p class="velis-eyebrow">',
+		'after_title'   => '</p>',
+	) );
+} );
+
+add_action( 'presscore_after_main_container', function () {
+	if ( ! is_active_sidebar( 'velis-lien-he-cuoi' ) || ! velis_prefoot_on( is_singular( 'post' ), is_singular() ? get_post_field( 'post_content', get_queried_object_id() ) : '' ) ) {
+		return;
+	}
+	echo '<section class="velis-prefoot-wrap" aria-label="Liên hệ tư vấn"><div class="wf-wrap">';
+	dynamic_sidebar( 'velis-lien-he-cuoi' );
+	echo '</div></section>';
+	do_action( 'velis_prefoot_shown' );
+}, 5 );

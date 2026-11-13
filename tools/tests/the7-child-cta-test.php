@@ -83,4 +83,11 @@ list( $sm, $rc ) = velis_post_list_ids( array( 5, 6, 7, 8 ), array( 9, 5, 10, 11
 $ok  = $ok && array( 6, 8 ) === $sm && array( 9, 10 ) === $rc;
 list( $sm, $rc ) = velis_post_list_ids( array(), array( 1, 2, 3 ), array( 2 ), 5 );
 $ok  = $ok && array() === $sm && array( 1, 3 ) === $rc;
+// Bước 13 – khối liên hệ cuối trang: không ở bài viết, không ở trang đã có form CF7; trang không form (trang chủ, 404 / chuyên mục: nội dung rỗng) thì có.
+$ok  = $ok && velis_prefoot_on( false, '[vc_row][vc_column_text]Giới thiệu[/vc_column_text][/vc_row]' ) && velis_prefoot_on( false, '' )
+	&& ! velis_prefoot_on( true, '' ) && ! velis_prefoot_on( false, '[vc_row el_class="velis-cta"][contact-form-7 id="20958"][/vc_row]' )
+	&& ! empty( $GLOBALS['hooks']['presscore_after_main_container'] ) && ! empty( $GLOBALS['hooks']['widgets_init'] );
+// Trang có khối liên hệ cuối (form đã nhận id velis-tu-van): nút "Nhận tư vấn" của thanh dính nhảy tới form ngay trang đó.
+$_SERVER['REQUEST_URI'] = '/blog/'; $GLOBALS['mods'] = array(); do_action( 'velis_prefoot_shown' );
+$ok  = $ok && str_contains( velis_cta_html(), 'href="#velis-tu-van"' );
 echo $ok ? "the7-child cta: ok\n" : "the7-child cta: FAIL\n"; exit( $ok ? 0 : 1 );
