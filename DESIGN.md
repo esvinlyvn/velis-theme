@@ -10,7 +10,7 @@ colors:
   surface: "#FFFFFF"
   surface-sunken: "#F2EEE8"
   surface-dark: "#111111"
-  footer: "#1A1A1A"
+  footer: "#141414"
   hairline: "#E4DED5"
   hairline-strong: "#C9C1B5"
   velis-red: "#B8282E"
@@ -100,7 +100,8 @@ components:
   product-tabs: { activeIndicator: "2px {colors.velis-red}", anchors: true }
   subzone-listing: { views: ["Theo phân khu", "Theo loại sản phẩm"], filterDrawerMobile: true }
   sticky-cta-mobile: { backgroundColor: "{colors.surface}", shadow: "{elevation.sticky-cta}", height: 64px, items: ["Gọi", "Zalo", "Nhận tư vấn"] }
-  footer: { backgroundColor: "{colors.footer}", borderTop: "1px solid {colors.champagne}", textColor: "{colors.on-dark}", muted: "{colors.on-dark-muted}" }
+  footer: { backgroundColor: "{colors.footer}", borderTop: "1px solid {colors.champagne}", columns: "4/12 3/12 2/12 3/12", heading: "13px uppercase champagne #D9BE8C", link: "15px #B9B9B9, hover #FFFFFF, no underline, tap ≥ 44" }
+  pre-footer: { backgroundColor: "{colors.champagne-soft}", columns: "5/12 7/12", padding: "64px / 48px mobile", onlyWhen: "trang chưa có form" }
 ---
 
 # DESIGN.md – Velis Realty
@@ -129,7 +130,7 @@ bằng `prefers-reduced-motion`; WCAG 2.2 AA.
 ### Surface
 - **canvas `#FAF7F2`** nền ngà · **surface `#FFFFFF`** dải trắng xen kẽ, thẻ, form · **surface-sunken `#F2EEE8`** đầu bảng ·
   **champagne-soft `#F3ECDF`** dải nhạt (Thi thử + Tuyển dụng) · **champagne-light `#EADBC0`** vạch dọc giữa cột số liệu ·
-  **surface-dark `#111111`** khối tối duy nhất (form tư vấn, chữ trắng ≈ 19:1) · **footer `#1A1A1A`** + đường champagne 1 px ·
+  **surface-dark `#111111`** khối tối duy nhất (form tư vấn, chữ trắng ≈ 19:1) · **footer `#141414`** + đường champagne 1 px (bước 13) ·
   **error-on-dark `#F2B8B5`** chữ lỗi trên nền tối.
 - **hairline `#E4DED5`** viền thẻ, dòng bảng · **hairline-strong `#C9C1B5`** viền ô nhập (đạt 3:1 cho thành phần UI khi
   kết hợp nhãn hiển thị).
@@ -325,7 +326,7 @@ logo đối tác = ảnh đại diện của từng bài Chủ đầu tư.
   ở cột chính 8/12; cột phải: chọn cụm + ô "Nhận tư vấn" ngắn (mobile: hàng chip cụm dưới phần đầu trang). 12 bài/trang, phân trang
   cuối danh sách. Thẻ bài dạng ô (trang dự án, trang chủ) giữ nguyên.
 - **Link không gạch chân** (2026-11-11): mặc định mọi link không gạch chân ở trạng thái thường. Link điều hướng (breadcrumb, footer,
-  danh sách) màu chữ phụ, rê chuột đỏ (footer nền tối: đỏ nhạt #F2B8B5); link trong đoạn văn đỏ `--red-link` #C42F35, đậm 600, rê
+  danh sách) màu chữ phụ, rê chuột đỏ (footer nền tối: xám sáng #B9B9B9, rê chuột trắng – bước 13); link trong đoạn văn đỏ `--red-link` #C42F35, đậm 600, rê
   chuột hiện gạch chân mảnh; focus bàn phím viền rõ. #C42F35 ≥ 4,7:1 trên ngà / trắng / champagne nhạt và ≥ 3:1 so với chữ thường.
   Đo: 0 thẻ `a` gạch chân ở trạng thái thường trên mọi template (`tools/check_layout_b5.mjs`, cột `underline`).
 - **Khung phóng to ảnh**: ảnh trọn trong 90vw × 85vh, nền tối ≥ 90 %, ảnh có cờ dấu cắt W-A như ngoài trang, nút đóng 48 px,
@@ -469,11 +470,28 @@ Trường: Họ tên · Số điện thoại (`inputmode="numeric"`) · Nhu cầ
 theo trang, sửa được) · Ghi chú (không bắt buộc) · ô đồng ý xử lý dữ liệu cá nhân (Nghị định 13/2023). Nhãn luôn hiển thị,
 lỗi ngay dưới ô. Desktop: form cạnh khối thông tin liên hệ (2 cột).
 
-### CTA dính đáy (mobile) & Footer
-Thanh 64 px: Gọi · Zalo (zalo.me) · Nhận tư vấn, có `env(safe-area-inset-bottom)`; ẩn khi menu hoặc bộ lọc đang mở;
-footer chừa khoảng đệm cuối bằng chiều cao thanh. Footer nền `surface-dark`, **không có khối pháp lý**:
-giới thiệu ngắn + liên hệ, Khám phá, Ứng dụng (chỉ ứng dụng), mạng xã hội dạng hàng icon SVG có `aria-label`; hàng cuối:
-bản quyền + "Chính sách bảo mật", thẳng lưới. Chữ trên nền tối ≥ 4,5:1.
+### CTA dính đáy (mobile) & phần cuối trang (chốt 2026-11-13, bước 13)
+Thanh 64 px: Gọi · Zalo (zalo.me) · Nhận tư vấn, có `env(safe-area-inset-bottom)`; ẩn khi menu hoặc bàn phím đang mở;
+footer chừa khoảng đệm cuối bằng chiều cao thanh. Trang có khối liên hệ cuối: "Nhận tư vấn" nhảy tới form ngay trang đó.
+
+Phần cuối trang, từ trên xuống (mọi trang):
+1. **Khối liên hệ cuối** (widget area "Khối liên hệ cuối trang") – **chỉ ở trang chưa có form** (trang chủ, /du-an/, chuyên mục,
+   tìm kiếm, Giới thiệu, Tuyển dụng, 404). Trang dự án / chủ đầu tư / /chu-dau-tu/ (hàng CTA "Nhận bảng giá"), bài blog (hộp CTA
+   ở cột phải), /lien-he/ (form trong trang): không hiện → **mỗi trang tối đa 1 form tư vấn**. Nền champagne nhạt #F3ECDF,
+   khung 1200, ≥ 1200 px: 5/12 chữ (nhãn, H2 "Nhận tư vấn từ Velis Realty", 1 câu, hotline 28 px, Zalo) + 7/12 form (≥ 900 px: Họ tên ·
+   SĐT/Zalo · nút 1 hàng, ô đồng ý dưới); < 1200 px chữ trên, form dưới; điện thoại form xếp dọc. Đệm 64 / 48; khoảng trống nội dung → phần cuối trang ≤ 96 px
+   (đệm cuối trang 64, đệm cuối section có nền không cộng dồn).
+2. **Footer** #141414, khung 1200, đệm 64 / 40: 4 cột 4/12 · 3/12 · 2/12 · 3/12 (≥ 1024), 2 cột (768–1023), 1 cột (< 768; cột link
+   gập mở bằng tiêu đề). Cột 1 Velis Realty (logo trắng, câu định vị, hotline 24 px, Zalo, email, địa chỉ + "Xem bản đồ", giờ làm việc)
+   · Dự án (6 bài mới nhất chuyên mục Dự án + "Tất cả dự án →") · Về Velis (menu) · Kết nối (biểu tượng MXH = sameAs schema).
+   Tiêu đề cột 13 px chữ hoa giãn champagne #D9BE8C; chữ / link 15 px #B9B9B9 (9,9:1), rê chuột trắng, không gạch chân, vùng bấm ≥ 44.
+3. **Dòng dưới cùng** (đường kẻ mảnh trong khung): trái "© năm Công ty TNHH Velis Realty" (+ dòng pháp lý MST / ĐKKD khi có) + lưu ý
+   13 px; phải Chính sách bảo mật · Điều khoản sử dụng ("·" xám, không "|"); điện thoại xếp dọc, căn giữa.
+4. **Nút lên đầu trang** 44 px: máy tính cách mép 24 px, không đè chữ dòng cuối; điện thoại trên thanh liên hệ 16 px.
+
+Form (mọi form): nhãn luôn hiện, placeholder chỉ là ví dụ ("Ví dụ: 0911 237 979"); nút gửi luôn đỏ – chưa tick đồng ý → lỗi
+tiếng Việt ngay dưới ô đồng ý, focus về ô đó; nút không nhảy khi lời nhắc lỗi hiện / mất. Trường ẩn: dự án (form "Nhận bảng giá"),
+URL trang (thư báo), utm_source / utm_medium / utm_campaign.
 
 ### Khu vực
 Hai cấp Vùng → Tiểu khu (danh sách ở `docs/KHU-VUC.md`). Thẻ hiện cấp cụ thể nhất; bộ lọc chọn được cả hai cấp.

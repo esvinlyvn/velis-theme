@@ -524,3 +524,17 @@ Không xóa bài/trang/media, không gửi form (thử bằng chặn yêu cầu)
 | Spring Ville (19773) | bản sửa đổi trước 20965 | 3 hàng loại sản phẩm 2 cột (chữ \| ảnh) → 1 cột (chữ, nút, ảnh dưới); ngày sửa giữ nguyên | trình sửa cổ điển (Lock Modified Date) |
 | Cache | – | xóa FVM + LiteSpeed (chỉ purge) sau mỗi lần tải theme | thanh quản trị |
 Bản sửa đổi + ngày sửa trước: `data/the7/buoc-12b/ban-sua-doi-truoc.json`. Không gửi form, không đổi Theme Options.
+
+## 2026-11-13 – The7 bước 13: phần cuối trang (`docs/reports/the7-buoc-13.md`)
+| Mục | Trước | Sau | Nơi đổi |
+|---|---|---|---|
+| Theme Options (21 khóa) | `data/the7/options-truoc-b13.json` | `data/the7/options-buoc-13.json` (footer #141414, 1/3+1/4+1/6+1/4, tiêu đề #D9BE8C, bottom bar split + kẻ, không logo, chữ ©; đệm cuối trang 96 → 64; widget area 3 → "Sidebar danh sách bài") | The7 → Export/Import (nhập; xuất lại so khớp: 0 khóa khác) |
+| Menu | vị trí Bottom = "FOOTER" (54: Thi thử CCMG) | tạo 58 "Velis – Về Velis (chân trang)" (6 mục), 59 "Velis – Pháp lý (dòng cuối)" (2 mục) → Bottom; menu 54 giữ, bỏ gán | REST menus / menu-items (`data/the7/buoc-13/menus-truoc.json`) |
+| Widget Default Footer | text-2 (địa chỉ), custom_html-2 (form Liên hệ) | → Tiện ích không sử dụng (không xóa); thêm custom_html-6, block-2, nav_menu-2, block-3 | REST widgets (`data/the7/buoc-13/widgets-truoc.json`) |
+| Widget area mới "Khối liên hệ cuối trang" | – | custom_html-7 (chữ + form 19582) | theme con 1.8.0 + REST widgets |
+| Widget custom_html-4 (widget area 3) | "Nhận bảng giá và tư vấn", nút → `#lien-he-tu-van` | "Tư vấn trực tiếp", nút → `#velis-tu-van` (`data/the7/buoc-13/widget-custom_html-4-truoc.json`) | REST widgets |
+| Trang mẫu 20733 (chuyên mục / tìm kiếm / tác giả) | bản sửa đổi trước 20946; sidebar widget area `sidebar_1` | `sidebar_3`; nội dung không đổi (md5 giống trước/sau) | trình sửa → Sidebar Options |
+| CF7 19582 "Liên Hệ", 20958 "Nhận bảng giá" | `data/the7/buoc-13/cf7-*-truoc.json` | `cf7-*-sau.json`: nhãn hiện, ví dụ SĐT, nút "Nhận tư vấn" (19582), utm ẩn, thư thêm Trang + UTM, `acceptance_as_validation: on` (19582); người nhận giữ velisrealtyvn@gmail.com | Liên hệ → sửa form |
+| Theme con | 1.7.2 | **1.8.0** (khối liên hệ cuối trang, footer, dòng cuối, form, nút lên đầu) – 9 lần tải lên trong vòng | Giao diện → Tải lên → thay bản đang dùng |
+| Cache | – | xóa FVM + LiteSpeed (chỉ purge) sau mỗi lần tải theme / lưu options | thanh quản trị |
+Không gửi form thật (3 trạng thái thử bằng chặn yêu cầu …/feedback). Không ghi `.htaccess`, không lưu trang cài đặt LiteSpeed.

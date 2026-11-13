@@ -55,3 +55,19 @@ Nhật ký: `docs/STAGING-LOG.md` mục bước 12; báo cáo: `docs/reports/the
 
 Dự án của cụm bài blog lấy từ "Bài viết liên quan → chuyên mục" (The7 Post Options) của bài dự án – trên site thật kiểm 7 bài dự án đã chọn
 đúng chuyên mục cụm (bước 9). Thứ tự: 20 → 21 → 22 → 23–26 → xóa cache FVM + LiteSpeed.
+
+## Bước 13 (2026-11-13): phần cuối trang – khối liên hệ cuối, footer 4 cột, dòng dưới cùng, form
+
+Nhật ký: `docs/STAGING-LOG.md` mục bước 13; báo cáo: `docs/reports/the7-buoc-13.md`; dữ liệu trước/sau: `data/the7/buoc-13/`.
+
+| # | Loại | Thay đổi | Ở đâu (wp-admin) | Kiểm sau khi đưa lên |
+|---|---|---|---|---|
+| 28 | File theme con | **1.8.0**: `functions.php` – widget area "Khối liên hệ cuối trang" (`velis-lien-he-cuoi`) in trước footer, chỉ ở trang chưa có form (`velis_prefoot_on`); thanh dính "Nhận tư vấn" nhảy tới form khi có khối này; script: focus ô lỗi, nút không khóa lại, giữ chiều cao ô khi sửa, utm_* vào trường ẩn, cột link footer gập mở < 768. `velis.css` – mục "Phần cuối trang (bước 13)" (khối liên hệ cuối + vùng lưới `prefoot`, footer 4/3/2/3 → 2 → 1 cột, dòng dưới cùng, nút lên đầu trang), nút form luôn đỏ, nhãn ô | Giao diện → Tải lên → "Thay thế cài đặt bằng tải lên" (`dist/dt-the7-child.zip`) | `php tools/tests/the7-child-cta-test.php`; `node tools/the7_check_footer.mjs out.json` (lỗi 0) |
+| 29 | Theme Options | 21 khóa (`tools/the7_options_buoc13.py` → `data/the7/options-buoc-13.json`; xuất bộ site thật trước, chạy script trên bộ đó): footer #141414, tiêu đề #D9BE8C, rê chuột #FFFFFF, `footer-layout` 1/3+1/4+1/6+1/4, đệm 64/40; bottom bar content_width_line (kẻ rgba(255,255,255,.12)), split, không logo, chữ bản quyền + lưu ý; `general-page_content_margin` đáy 96 → 64; widget area 3 → "Sidebar danh sách bài" | Theme Options → Footer & Bottom Bar; General; Widget Areas | khoảng trống cuối trang ≤ 96 |
+| 30 | Menu | Tạo "Velis – Về Velis (chân trang)" (Giới thiệu, Chủ đầu tư, Blog, Tuyển dụng, Liên hệ, Thi thử CCMG ↗) và "Velis – Pháp lý (dòng cuối)" (Chính sách bảo mật, Điều khoản sử dụng) → vị trí **Bottom** (thay "FOOTER"; menu cũ giữ, không gán) | Giao diện → Menu | dòng cuối: 2 link, không "Thi thử CCMG" |
+| 31 | Widget | **Default Footer**: "Văn bản – Địa chỉ trụ sở" + "HTML – Liên hệ (form)" → Tiện ích không sử dụng; thêm 4 widget theo `data/the7/buoc-13/widgets.py` (HTML Velis Realty · Khối Dự án: Bài viết mới nhất chuyên mục Dự án 6 bài · Menu "Về Velis" · Khối Kết nối: Biểu tượng MXH = sameAs Rank Math). **Khối liên hệ cuối trang**: 1 HTML tùy chỉnh (chữ + `[contact-form-7 id="19582"]` – đổi ID nếu khác). **Sidebar danh sách bài** (widget area 3): HTML "Tư vấn trực tiếp" (nút → `#velis-tu-van`, không form) | Giao diện → Tiện ích | trang chủ 1 form (cuối trang); /blog/ 1 form; bài viết 1 form (cột phải) |
+| 32 | Meta box The7 | Trang mẫu chuyên mục / tìm kiếm (site thật: trang gán ở The7 → Archives) → Sidebar widget area = "Sidebar danh sách bài" | sửa trang → hộp Sidebar Options | /blog/: cột phải không còn form |
+| 33 | Contact Form 7 | "Liên Hệ" (19582) và "Nhận bảng giá": Form / Thư / Cài đặt bổ sung theo `data/the7/buoc-13/cf7-19582-sau.json`, `cf7-20958-sau.json` (nhãn hiện + ví dụ SĐT, nút "Nhận tư vấn", utm ẩn, thư có Trang + UTM, `acceptance_as_validation: on`) | Liên hệ → sửa form | gửi thử 1 lần trên site thật; người nhận velisrealtyvn@gmail.com |
+
+Thứ tự: 28 → 29 → 30 → 31 → 32 → 33 → xóa cache FVM + LiteSpeed. Dòng pháp lý (MST / ĐKKD): khi có, thêm vào Theme Options →
+Bottom bar → Text: `<p class="velis-bb-legal">Mã số thuế: … · Giấy ĐKKD số … cấp ngày … tại …</p>` sau dòng ©.

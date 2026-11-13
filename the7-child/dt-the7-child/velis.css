@@ -514,7 +514,7 @@ body:has(.velis-prefoot-wrap) .velis-section:is(.vc_section-has-fill, .vc_row-ha
 .velis-prefoot-wrap { grid-area: prefoot; padding: 64px 0; background: #F3ECDF; color: #1A1A1A; }
 .velis-prefoot-wrap > .wf-wrap { box-sizing: border-box; max-width: 1300px; margin: 0 auto; padding: 0 50px; } /* = khung footer The7 (nội dung 1200) */
 .velis-prefoot { display: grid; gap: 32px; }
-@media (min-width: 1024px) { .velis-prefoot { grid-template-columns: 5fr 7fr; gap: 48px; align-items: center; } }
+@media (min-width: 1200px) { .velis-prefoot { grid-template-columns: 5fr 7fr; gap: 48px; align-items: center; } } /* < 1200: 1 cột – form đủ rộng để 1 hàng từ 900 */
 .velis-prefoot .velis-eyebrow { margin: 0 0 8px; }
 #page .velis-prefoot h2 { margin: 0 0 12px; font-size: clamp(30px, 2.8vw, 40px); line-height: 1.25; }
 .velis-prefoot__text p { margin: 0 0 8px; font-size: 16px; line-height: 1.6; color: #3D3D3D; }
