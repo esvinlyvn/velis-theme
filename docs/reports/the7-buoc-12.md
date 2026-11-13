@@ -48,7 +48,7 @@ theo đúng nhu cầu"; /lien-he/ "phù hợp với mục tiêu và số vốn",
 ## 3. Trang sản phẩm bỏ cột phải; bài blog tối ưu sidebar
 
 - 12 trang (7 dự án/phân khu, 4 chủ đầu tư, /chu-dau-tu/): **The7 Sidebar → Disabled** (meta box, không CSS ẩn); nội dung full khung.
-  Chữ đọc ở cột giữa 720 px ≈ 70–80 ký tự/dòng (đo 1366/1536/1920: 68–81); phần đầu, ảnh, lưới, thanh thông tin vẫn full.
+  ~~Chữ đọc ở cột giữa 720 px~~ – bỏ ở 1.7.1, thay bằng cột đọc 760 px căn giữa ở bước 12b (mục 5).
 - Mẫu "Velis – Dự án", "Velis – Chủ đầu tư" (Mẫu của tôi + `data/the7/mau-wpbakery/`) có hàng CTA mới. Trang mới dựng từ mẫu: chọn Sidebar: Disabled.
 - Bài blog giữ sidebar: hộp CTA theo dự án (dự án = bài dự án có "Bài viết liên quan → chuyên mục" = cụm của bài – đổi ở trang dự án, không cấu hình mới)
   + danh sách `[velis_bai_viet]` "Cùng dự án …" rồi "Bài mới" (ảnh nhỏ + tiêu đề tới 3 dòng + meta một hàng), **bỏ bài đã hiện ở "Bài viết nên xem" cuối bài**
@@ -77,3 +77,28 @@ Test: `php tools/tests/the7-child-cta-test.php` (dự án của cụm, chữ ch�
 
 Đã bỏ qua / chưa kiểm tra: chưa thử Safari/iPhone thật và chưa gửi form thật (thư có dòng "Dự án" chỉ kiểm qua cấu hình); bài 20330 (tiêu chuẩn bàn giao Persa Place) vẫn có khối "Liên hệ tư vấn" riêng trong nội dung cạnh hộp CTA sidebar.
 Rủi ro: ID form 20958 và ảnh / chuyên mục là của staging – trên site thật phải thay ID; cụm Vinhomes (41) chưa có bài dự án trỏ tới nên dùng CTA chung.
+
+## 5. Bước 12b – sửa 2 lỗi sau soát (Chrome 1536 + 390), theme con 1.7.2
+
+| Lỗi | Nguyên nhân | Sửa (ở đâu) |
+|---|---|---|
+| Header dính trên điện thoại hiện **2 logo** cạnh nhau (mọi trang, 360–1024 px) | Khi dính, The7 ẩn logo thường bằng `.sticky-mobile-on .mobile-branding * { display: none }` rồi hiện logo dính riêng; quy tắc vùng bấm 44 px của theme con (`.mobile-branding a.same-logo { display: inline-flex }`, bước 10) mạnh hơn nên logo thường không ẩn | `velis.css`: quy tắc đó chỉ áp khi header **chưa dính** (`.masthead:not(.sticky-mobile-on)`); không cần đổi Theme Options |
+| Trang sản phẩm: đoạn đầu trang nằm trái, bảng và phần dưới lại rộng hết khung – không thành một cột đọc | 1.7.1 bỏ cột 720 px; WPBakery không có "độ rộng tối đa" cho phần tử; 1 số bảng mang `width` % trực tiếp từ trình soạn thảo (98,8 % / 101 %); Spring Ville có 3 hàng 2 cột chữ \| ảnh | `velis.css`: **cột đọc 760 px căn giữa** cho mọi khối chữ trong hàng `velis-section` của trang có phần đầu `velis-hero` (mẫu "Velis – Dự án" / "Velis – Chủ đầu tư" đã có 2 class này → trang mới tạo từ mẫu tự đúng) + chữ phần đầu (trừ nhãn, H1) + nút / dòng gọi phần đầu; bảng 100 % cột; class mới `velis-read` cho hàng ở trang khác (/chu-dau-tu/). Nội dung: /chu-dau-tu/ hàng đầu thêm `velis-read`; Spring Ville 3 hàng → 1 cột (chữ, nút, ảnh dưới) |
+
+Rộng hết khung 1200 px (không vào cột): breadcrumb, nhãn, H1, ảnh phần đầu, lưới thông tin dự án, khối "Nhận bảng giá", ảnh / thư viện ảnh (Inner Row),
+video, lưới thẻ phân khu / bài, "Bài viết nên xem". Muốn một khối rộng hết khung: đặt trong Inner Row (WPBakery).
+
+Bộ đo mới `tools/the7_check_cot.mjs` (`--test` đạt): (a) số logo thấy được trong khung nhìn = 1 ở 360/390/768/1024 × đầu trang / đang dính / menu mở
+(4 trang); (b) 12 trang sản phẩm × 1366/1536/1920: mọi khối chữ cùng mép ±1 px, rộng ≤ 760 px, trống trái − phải ≤ 2 px.
+
+| Bộ đo | Trước (1.7.1) | Sau (1.7.2) |
+|---|---|---|
+| Logo ≠ 1 (16 trang×khung × 3 trạng thái) | 32 (dính 2, menu mở 2 – mọi khung) | **0** |
+| Cột đọc (36 trang×khung) | 279 lỗi (đoạn đầu 1106 px lệch trái, phần dưới 1170 px) | **0** – mép 388/1148 ở 1536 (303/1063 ở 1366, 580/1340 ở 1920), rộng 760, trống 220 = 220 |
+| Chữ cắt / meta lệch / tràn ngang / H1 ≠ 1 / ảnh hỏng / lỗi JS (17 trang × 8 khung) | 0 (bước 12) | **0** / 0 / 0 / 0 / 0 / 0 (chỉ còn "rút gọn" cố ý ở thẻ: line-clamp) |
+| On-page (236 URL) | 128 alt không dấu + H1 chuyên mục rỗng 45 | như cũ – không lỗi mới |
+
+Ảnh trước | sau: `screenshots/the7/buoc-12b/` – header dính 390 / 768; The Privé, The Global City, Spring Ville cả trang ở 1536.
+
+Đã bỏ qua / chưa kiểm tra: chưa thử Safari/iPhone thật (`:has()` cần Safari ≥ 15.4); dòng "Hoặc gọi … · Zalo" + nút phần đầu nay nằm trong cột đọc (dưới lưới thông tin) – nếu muốn thẳng mép lưới thì báo.
+Rủi ro: trang sản phẩm mới phải dùng hàng `velis-section` + phần đầu `velis-hero` (có sẵn trong mẫu) – thiếu class thì chữ sẽ rộng hết khung.

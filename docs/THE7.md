@@ -108,6 +108,7 @@ trang/bài, WPBakery (phần tử, mẫu, Design Options), Widget, Menu. `velis.
 | Thẻ dự án xếp chữ (nhãn trên tên, link ghim đáy, cao bằng nhau) | `dt_blog_masonry` có sẵn ảnh/tiêu đề/tóm tắt/nút nhưng không xếp nhãn lên trên tên, không ghim nút | `.velis-projects` (bước 9) – dữ liệu vẫn sửa trong bài |
 | Dải nổi bật trượt ngang | `dt_blog_carousel` cần JS (FVM hoãn tới khi chạm → dải trống lúc đầu) | `.velis-feats`: lưới CSS + scroll-snap, không JS (bước 9) |
 | Ảnh trong nội dung có huy hiệu | như `velis-crop` nhưng giữ tỉ lệ ảnh | Extra class `velis-badge` (bước 9) – chỉ ảnh có huy hiệu ở trái dưới, không chữ (`data/the7/buoc-9/anh-huy-hieu.csv`) |
+| Cột đọc 760 px căn giữa cho khối chữ, ảnh / lưới rộng hết khung (trang sản phẩm) | WPBakery không có "độ rộng tối đa" cho phần tử, chỉ chia cột 12 phần (lệch tâm hoặc mất mép) | quy tắc theo hàng: `velis-section` trên trang có `velis-hero`, hoặc Extra class `velis-read`; khối rộng hết khung = Inner Row (bước 12b) |
 | Ẩn dòng "Chuyên mục · Bởi · ngày" chỉ ở trang dự án | `general-blog_meta_*` là chung cho mọi bài | `article:has(.velis-hero) > .post-meta` (bước 9) |
 | Ảnh OG mặc định | Không phải việc The7 – dùng **Rank Math** › Tiêu đề & mô tả › Ảnh OG mặc định; tắt `the7_opengraph_tags` (TO › Advanced) để không trùng thẻ OG | không code |
 

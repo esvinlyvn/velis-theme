@@ -453,8 +453,15 @@ Chuyên mục · tác giả · ngày: một hàng chung đường chân chữ, 1
 xuống dòng gọn khi hẹp. Vùng bấm link meta nở bằng đệm trên/dưới (không đổi dòng chữ, không lề âm).
 
 ### Trang sản phẩm (chốt 2026-11-13)
-Trang dự án, phân khu, chủ đầu tư, trang tổng chủ đầu tư: **không cột phải** (The7 → Sidebar: Disabled), nội dung full khung
-(cả chữ, không thu cột đọc – người dùng chốt 2026-11-13); CTA là khối ngang trong nội dung.
+Trang dự án, phân khu, chủ đầu tư, trang tổng chủ đầu tư: **không cột phải** (The7 → Sidebar: Disabled), khung nội dung 1200 px;
+CTA là khối ngang trong nội dung.
+**Một cột đọc 760 px căn giữa khung** (bước 12b, người dùng chốt 2026-11-13) cho mọi khối chữ: đoạn văn, H2/H3, danh sách, bảng (rộng 100 % cột),
+mục lục, hỏi đáp / "Xem thêm", chữ phần đầu (trừ nhãn + H1), nút + dòng gọi phần đầu – cùng mép trái/phải ±1 px, trống trái = phải.
+Rộng hết khung 1200 px: phần đầu (breadcrumb, nhãn, H1, ảnh), lưới thông tin dự án, khối "Nhận bảng giá", ảnh (Single Image), thư viện ảnh /
+Inner Row, video, lưới thẻ (phân khu, bài). Không xếp chữ cạnh ảnh 2 cột trong trang sản phẩm: chữ trong cột đọc, ảnh xuống dưới.
+Cách áp: hàng `velis-section` của trang có phần đầu `velis-hero` (mẫu "Velis – Dự án" / "Velis – Chủ đầu tư" đã có); trang khác thêm
+Extra class `velis-read` cho hàng cần cột đọc (vd. /chu-dau-tu/). Muốn một khối rộng hết khung: đặt trong Inner Row.
+Đo: `node tools/the7_check_cot.mjs out.json cot` (12 trang × 1366/1536/1920).
 Bài blog giữ sidebar phải: CTA bản dọc theo dự án + danh sách "Cùng dự án …" rồi "Bài mới" (không trùng "Bài viết liên quan" cuối bài).
 
 ### Inputs & Forms

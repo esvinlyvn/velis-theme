@@ -103,6 +103,8 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
   "Nhận bảng giá" 20958 staging, `du-an="<tên>"`, sinh bằng `tools/the7_sua_buoc12.py`); bài blog: widget Default Sidebar hộp `velis-cta-box` với chữ chờ
   `{du_an}` (dự án = bài dự án có "Bài viết liên quan → chuyên mục" = cụm) + `[velis_bai_viet]`. Kiểm chữ cắt / meta lệch: `node tools/the7_check_clip.mjs`
   (cần `VIEW_PASSWORD_FILE`; `--test`). Link nội dòng: vùng bấm bằng đệm, **không** inline-flex + lề âm (cắt chữ trong khung overflow:hidden).
+  Bước 12b: trang sản phẩm một cột đọc 760 px căn giữa (hàng `velis-section` trên trang có `velis-hero`, hoặc Extra class `velis-read`; khối rộng hết khung = Inner Row);
+  đo `node tools/the7_check_cot.mjs out.json` (logo header = 1, mép cột ±1 px; `--test`).
 - `data/the7/mau-wpbakery/` — 3 mẫu WPBakery (Dự án, Chủ đầu tư, Bài viết) đã lưu vào "Mẫu của tôi" trên staging; bố cục trang nằm trong WPBakery, không trong PHP.
 - `theme/velis/` — theme khối velis, **đã bỏ 2026-11-11** (giữ để tham khảo); `dist/` (bỏ qua git) — file zip đóng gói.
 - `assets/brand/original/` — logo gốc tải từ Media site thật + PDF vector; `assets/brand/svg/` — SVG vẽ lại.

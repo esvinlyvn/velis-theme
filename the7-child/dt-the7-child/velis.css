@@ -380,7 +380,9 @@ div#ez-toc-container p.ez-toc-title { display: block; margin: 0; padding: 14px 6
 .page-title .breadcrumbs a, .dt-breadcrumbs-shortcode .breadcrumbs a { padding-inline: 6px; margin-inline: -6px; }
 .masthead .mini-contacts.phone { display: inline-flex; align-items: center; min-height: 44px; }
 .mini-contacts .fa-fw { display: inline-block; width: 1.25em; text-align: center; } /* Font Awesome chỉ tải ở trang dùng icon FA (functions.php) */
-.masthead .branding a, .mobile-branding a.same-logo, #branding-bottom a { display: inline-flex; align-items: center; min-height: 44px; }
+/* logo điện thoại: chỉ khi chưa dính – lúc dính The7 ẩn logo thường (.sticky-mobile-on .mobile-branding *) và hiện logo dính riêng;
+   không ép display lúc dính (trước 1.7.2 ép inline-flex → 2 logo cạnh nhau) */
+.masthead .branding a, .masthead:not(.sticky-mobile-on) .mobile-branding a.same-logo, #branding-bottom a { display: inline-flex; align-items: center; min-height: 44px; }
 .mobile-branding a[class*="sticky-mobile-logo"] { min-height: 44px; align-items: center; } /* The7 tự ẩn / hiện 2 logo khi dính – không đổi display */
 .velis-logos a.vc_single_image-wrapper { display: flex; align-items: center; min-height: 44px; }
 .blog-shortcode .entry-title a { padding-block: 10px; } /* tên bài (nội dòng): vùng bấm 44, dòng chữ không đổi, không bị khung cắt */
@@ -475,6 +477,14 @@ body .wpcf7 .wpcf7-form-control-wrap .wpcf7-not-valid-tip { display: block; posi
 #page .velis-cta-box .velis-cta-call a[href^="tel:"] { font-size: 19px; }
 .velis-cta-box .velis-cta-call { margin-top: 16px; font-size: 15px; }
 #page #sidebar .velis-cta-box a.velis-cta-project { color: #D9BE8C; font-weight: 600; }
+
+/* Cột đọc 760 px căn giữa (bước 12b): trang sản phẩm (có phần đầu velis-hero) – mọi khối chữ trong hàng velis-section, chữ phần đầu
+   (trừ nhãn + H1), nút + dòng gọi phần đầu; hàng có class velis-read (trang khác, vd. /chu-dau-tu/) cũng vậy.
+   Rộng hết khung (không vào cột): breadcrumb, nhãn, H1, Single Image, Inner Row (lưới thông tin, thư viện ảnh), video, lưới bài/thẻ, khối CTA. */
+:is(body:has(.velis-hero) .velis-section, .velis-read) > .wpb_column > .vc_column-inner > .wpb_wrapper > :is(.wpb_text_column, .vc_toggle),
+.velis-hero > .wpb_column > .vc_column-inner > .wpb_wrapper > .wpb_text_column > .wpb_wrapper > :not(.velis-eyebrow, h1, style, script) { max-width: 760px; margin-left: auto; margin-right: auto; }
+.velis-hero > .wpb_column > .vc_column-inner > .wpb_wrapper > .dt-btn { margin-left: max(0px, calc((100% - 760px) / 2)); }
+body:has(.velis-hero) .velis-section .wpb_text_column table { width: 100% !important; } /* trình soạn thảo ghi width % trực tiếp (98,8 % / 101 %) → bảng lệch mép cột */
 
 /* Danh sách bài dạng dòng gọn ([velis_bai_viet] – sidebar bài blog): ảnh nhỏ + tiêu đề tới 3 dòng không cắt + meta một hàng */
 .velis-post-list { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }

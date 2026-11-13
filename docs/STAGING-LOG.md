@@ -515,3 +515,12 @@ Không xóa bài/trang/media, không gửi form (thử bằng chặn yêu cầu)
 | Theme con | 1.7.0 | **1.7.1** (`velis.css` bỏ khối `body:has(.velis-hero) … max-width: 720px`) | Giao diện → Tải lên → thay bản đang dùng |
 | Cache | – | xóa FVM + LiteSpeed (chỉ purge) | thanh quản trị |
 Đo lại: đoạn văn The Privé / /chu-dau-tu/ rộng 1106–1170 px trong khung 1200 px (trước: 720 px); 390 px không đổi. Ảnh: `screenshots/the7/buoc-12/sau-full-khung-the-prive-{1920,390}.png`.
+
+### 2026-11-13 – bước 12b: logo điện thoại khi dính + cột đọc 760 px trang sản phẩm
+| Mục | Trước | Sau | Nơi đổi |
+|---|---|---|---|
+| Theme con | 1.7.1 | **1.7.2** (`velis.css`: `.mobile-branding a.same-logo` chỉ ép inline-flex khi header chưa dính; cột đọc 760 px căn giữa cho khối chữ trang sản phẩm + hàng `velis-read`; bảng 100 % cột) – tải 2 lần trong vòng | Giao diện → Tải lên → thay bản đang dùng |
+| /chu-dau-tu/ (20955) | bản sửa đổi trước 20971 | hàng `gioi-thieu` thêm `el_class="velis-read"` | REST `content.raw` |
+| Spring Ville (19773) | bản sửa đổi trước 20965 | 3 hàng loại sản phẩm 2 cột (chữ \| ảnh) → 1 cột (chữ, nút, ảnh dưới); ngày sửa giữ nguyên | trình sửa cổ điển (Lock Modified Date) |
+| Cache | – | xóa FVM + LiteSpeed (chỉ purge) sau mỗi lần tải theme | thanh quản trị |
+Bản sửa đổi + ngày sửa trước: `data/the7/buoc-12b/ban-sua-doi-truoc.json`. Không gửi form, không đổi Theme Options.
