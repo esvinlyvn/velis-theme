@@ -99,6 +99,10 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
   `node tools/the7_check_schema.mjs <schemaorg.jsonld> <ldfull.json>` (validator.schema.org chặn truy cập tự động). Đưa lên site thật: `docs/the7/DUA-LEN-SITE-THAT.md`.
 - Trang tổng `/chu-dau-tu/` (bước 11, staging ID 20955): thẻ chủ đầu tư = hàng WPBakery `velis-devs velis-boxes` (mỗi cột: logo + H2 có link + dòng dự án);
   mục menu "Chủ đầu tư" trỏ trang này (không dùng `#`).
+- Bước 12 (2026-11-13): trang sản phẩm (dự án/phân khu/chủ đầu tư, /chu-dau-tu/) **Sidebar Disabled**, CTA = hàng WPBakery `velis-cta` (form CF7
+  "Nhận bảng giá" 20958 staging, `du-an="<tên>"`, sinh bằng `tools/the7_sua_buoc12.py`); bài blog: widget Default Sidebar hộp `velis-cta-box` với chữ chờ
+  `{du_an}` (dự án = bài dự án có "Bài viết liên quan → chuyên mục" = cụm) + `[velis_bai_viet]`. Kiểm chữ cắt / meta lệch: `node tools/the7_check_clip.mjs`
+  (cần `VIEW_PASSWORD_FILE`; `--test`). Link nội dòng: vùng bấm bằng đệm, **không** inline-flex + lề âm (cắt chữ trong khung overflow:hidden).
 - `data/the7/mau-wpbakery/` — 3 mẫu WPBakery (Dự án, Chủ đầu tư, Bài viết) đã lưu vào "Mẫu của tôi" trên staging; bố cục trang nằm trong WPBakery, không trong PHP.
 - `theme/velis/` — theme khối velis, **đã bỏ 2026-11-11** (giữ để tham khảo); `dist/` (bỏ qua git) — file zip đóng gói.
 - `assets/brand/original/` — logo gốc tải từ Media site thật + PDF vector; `assets/brand/svg/` — SVG vẽ lại.

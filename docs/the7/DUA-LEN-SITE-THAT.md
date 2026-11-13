@@ -37,3 +37,20 @@ Nhật ký: `docs/STAGING-LOG.md` mục bước 11; báo cáo: `docs/reports/the
 | 19 | Menu | menu chính, mục **"Chủ đầu tư"**: link tùy chỉnh `#` → trang "Chủ đầu tư" (giữ 4 menu con). Trên site thật menu chính mới được dựng ở bước trước – dựng mục này trỏ trang, không dùng `#` | Giao diện → Menu → thêm trang "Chủ đầu tư", kéo 4 mục con vào dưới, xóa mục `#` | bấm "Chủ đầu tư" (desktop + điện thoại) mở `/chu-dau-tu/` |
 
 Phương án B: 16 → 17 → 18 → 19 → xóa cache FVM + LiteSpeed. Khi thêm trang mới phải sửa ID logo trong 4 Single Image nếu ID Media khác.
+
+## Bước 12 (2026-11-13): chữ bị cắt / meta lệch, CTA "Nhận bảng giá", trang sản phẩm không cột phải
+
+Nhật ký: `docs/STAGING-LOG.md` mục bước 12; báo cáo: `docs/reports/the7-buoc-12.md`.
+
+| # | Loại | Thay đổi | Ở đâu (wp-admin) | Kiểm sau khi đưa lên |
+|---|---|---|---|---|
+| 20 | File theme con | **1.7.0**: `velis.css` – vùng bấm link nội dòng bằng đệm (bỏ inline-flex + lề âm), khung tiêu đề trang không cắt, dòng meta một hàng + "·", thành phần CTA (`.velis-cta` ngang, `.velis-cta-box` dọc), cột chữ 720 px trang sản phẩm, danh sách `.velis-post-list`; `functions.php` – chữ chờ `{du_an}` / `{du_an_link}` / `velis-if-du-an` trong widget HTML tùy chỉnh, thuộc tính `du-an` cho `[contact-form-7]`, shortcode `[velis_bai_viet so="5"]` | Giao diện → Tải lên → "Thay thế cài đặt bằng tải lên" (`dist/dt-the7-child.zip`) | `node tools/the7_check_clip.mjs out.json` (cắt 0, lệch 0); `php tools/tests/the7-child-cta-test.php` |
+| 21 | Theme Options | 3 khóa: tiêu đề trang 56/**70**, tablet/mobile 36/**46**; H1 cao dòng 70/46/46 (`tools/the7_options_buoc12.py`) | Theme Options → Typography (H1) và Page Titles | "Blog", H1 bài không mất nét trên |
+| 22 | Contact Form 7 | **Form mới "Nhận bảng giá"**: Sao chép form "Liên Hệ" rồi dán Form / Thư / Cài đặt bổ sung theo `data/the7/buoc-12/cf7-nhan-bang-gia.json` (trường ẩn `[hidden du-an default:shortcode_attr]`, `acceptance_as_validation: on`, thư có "Dự án: [du-an]"). **ID trên site thật khác 20958** → thay ID trong 12 trang + widget + 2 mẫu | Liên hệ → Sao chép → sửa | gửi thử 1 lần trên site thật (thư có dòng Dự án) |
+| 23 | Nội dung WPBakery (khóa ngày sửa) | **12 trang sản phẩm** (7 dự án/phân khu, 4 chủ đầu tư, /chu-dau-tu/): hàng `lien-he-tu-van` mới (CTA), nút đầu trang "Nhận bảng giá" (`tools/the7_sua_buoc12.py`; dán `content.raw` từ staging, đổi ID form) | sửa trang/bài → WPBakery | form 1 hàng ở ≥ 900 px |
+| 24 | Meta box The7 | 12 trang sản phẩm: **Sidebar → Disabled** (trước: phải + "Sidebar dự án") | sửa trang/bài → hộp Sidebar Options | không còn cột phải |
+| 25 | Widget | Default Sidebar: "HTML tùy chỉnh" CTA = nội dung `velis-cta-box` (xem `docs/reports/the7-buoc-12.md`); thêm "HTML tùy chỉnh" `[velis_bai_viet so="5"]`; "DT-Blog posts – Bài mới" → Tiện ích không sử dụng | Giao diện → Tiện ích | bài cụm The Privé: "Nhận bảng giá The Privé", "Cùng dự án The Privé" |
+| 26 | Mẫu của tôi | "Velis – Dự án", "Velis – Chủ đầu tư" lưu lại (`data/the7/mau-wpbakery/`, đổi ID form) | WPBakery → Templates | – |
+
+Dự án của cụm bài blog lấy từ "Bài viết liên quan → chuyên mục" (The7 Post Options) của bài dự án – trên site thật kiểm 7 bài dự án đã chọn
+đúng chuyên mục cụm (bước 9). Thứ tự: 20 → 21 → 22 → 23–26 → xóa cache FVM + LiteSpeed.
