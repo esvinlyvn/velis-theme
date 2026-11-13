@@ -538,3 +538,17 @@ Bản sửa đổi + ngày sửa trước: `data/the7/buoc-12b/ban-sua-doi-truoc
 | Theme con | 1.7.2 | **1.8.0** (khối liên hệ cuối trang, footer, dòng cuối, form, nút lên đầu) – 9 lần tải lên trong vòng | Giao diện → Tải lên → thay bản đang dùng |
 | Cache | – | xóa FVM + LiteSpeed (chỉ purge) sau mỗi lần tải theme / lưu options | thanh quản trị |
 Không gửi form thật (3 trạng thái thử bằng chặn yêu cầu …/feedback). Không ghi `.htaccess`, không lưu trang cài đặt LiteSpeed.
+
+## 2026-11-13 – The7 bước 14: chốt footer (email, MST, schema), mã bảo mật form, bảng 760 px, tài liệu nội dung (`docs/reports/the7-buoc-14.md`)
+| Mục | Trước | Sau | Nơi đổi |
+|---|---|---|---|
+| Trang Tuyển dụng 19542 / Chính sách bảo mật 19662 / Liên hệ 19544 / Giới thiệu 19551 | bản sửa đổi trước 20738 / 20748 / 20797 / 20802 (`data/the7/buoc-14/page-*-truoc.json`) | lienhe@velisrealty.vn → info@velisrealty.vn (4 / 1 / 2 / 1 chỗ, gồm `mailto:`) | REST `content.raw` |
+| Widget custom_html-6 (cột 1 footer) | `data/the7/buoc-14/widget-custom_html-6-truoc.json` | email hiển thị + `mailto:` → info@ | REST widgets |
+| Rank Math → SEO Local | email lienhe@; Thông tin bổ sung: Tên pháp lý (trống) | email **info@velisrealty.vn**; Tên pháp lý "Công ty TNHH Velis Realty"; **Mã số thuế 0319425663** (`taxID`) | Rank Math → Tiêu đề & Meta → SEO Local (Lưu thay đổi) |
+| Rank Math mẫu schema 19620 (Person – trang Giới thiệu), 19622 (JobPosting – Tuyển dụng) | `data/the7/buoc-14/schema-mau-*-truoc.json` | email trong schema / mô tả tin tuyển dụng → info@ (chỉ đổi chuỗi email) | màn sửa mẫu schema (`rankmath/v1/updateSchemas`, cùng API trình sửa dùng) |
+| Theme Options (1 khóa + mã bảo mật) | `data/the7/options-truoc-b14.json` | `bottom_bar-text`: "© [dt_year] Công ty TNHH Velis Realty · MST: 0319425663" + lưu ý; `contact_form_security_token` = mã ngẫu nhiên mới (không lưu vào repo, file ghi "<đã xóa>") | The7 → Export/Import (xuất lại so khớp: 0 khóa khác; mã khác mã cũ) |
+| Theme con | 1.8.0 | **1.8.1** (`velis.css`: bảng trong "Xem thêm" / hỏi đáp rộng 100 % cột đọc) | Giao diện → Tải lên → thay bản đang dùng |
+| Bài nháp thử hướng dẫn **21008** "The Privé: 6 thông số cần biết trước khi xem nhà mẫu" | – | trạng thái **Nháp** (không xuất bản), chuyên mục Blog → The Privé, ảnh đại diện 19968 | Bài viết → Thêm mới; Rank Math qua `rankmath/v1/updateMeta`. **Chưa xóa** (quy tắc không xóa bài) – chủ site xóa sau khi soát |
+| Cache | – | xóa FVM + LiteSpeed (chỉ purge) sau mỗi lần sửa | thanh quản trị |
+CF7 19582 / 20958: không đổi; người nhận vẫn velisrealtyvn@gmail.com (đọc REST). Không gửi form, không ghi `.htaccess`, không lưu trang cài đặt LiteSpeed.
+Đăng nhập wp-admin 1 lần (phiên cũ hết hạn), thành công.

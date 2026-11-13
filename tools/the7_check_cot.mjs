@@ -1,7 +1,7 @@
 // Bước 12b (2026-11-13) – 2 phép đo bố cục trên staging (khách xem, mật khẩu xem ở VIEW_PASSWORD_FILE, Chrome UA thật):
 // (a) logo: số ảnh logo đang hiện trong vùng nhìn (không tính chân trang / nội dung) = 1 ở 360/390/768/1024,
 //     3 trạng thái: đầu trang, đang dính (đã cuộn), menu điện thoại mở;
-// (b) cột đọc: trên trang sản phẩm ở 1366/1536/1920, mọi khối chữ (đoạn, H2/H3, bảng, mục lục, hỏi đáp, chữ phần đầu
+// (b) cột đọc: trên trang sản phẩm ở 1366/1536/1920, mọi khối chữ (đoạn, H2/H3, bảng – kể cả bảng trong "Xem thêm" / hỏi đáp, mục lục, hỏi đáp, chữ phần đầu
 //     trừ nhãn + H1) cùng mép trái/phải ±1 px, rộng ≤ 760 px, trống trái/phải lệch ≤ 2 px so với khung nội dung.
 // Dùng: node tools/the7_check_cot.mjs out.json [logo|cot|all]      node tools/the7_check_cot.mjs --test
 import { createRequire } from 'node:module'; import { readFileSync, writeFileSync } from 'node:fs';
@@ -33,6 +33,9 @@ export function cot() {
     .filter(e => { const r = e.getBoundingClientRect(); return r.height > 0 && r.width > 0 && (e.innerText || '').trim(); })
     .map(e => { const r = e.getBoundingClientRect(); return { el: e.tagName.toLowerCase() + (e.className && typeof e.className === 'string' ? '.' + e.className.trim().split(/\s+/)[0] : ''),
       t: e.innerText.trim().slice(0, 30).replace(/\s+/g, ' '), list: /^(UL|OL)$/.test(e.tagName), btn: e.classList.contains('dt-btn'), l: r.left, r: r.right, w: r.width }; });
+  // bước 14: bảng trong khối "Xem thêm" / hỏi đáp (runner mở sẵn) cũng phải rộng đúng cột
+  for (const t of content.querySelectorAll('.vc_toggle_content table')) { if (t.closest(skip.replace('.vc_toggle_content, ', ''))) continue; const r = t.getBoundingClientRect();
+    if (r.width > 0) blocks.push({ el: 'table(toggle)', t: (t.innerText || '').trim().slice(0, 30).replace(/\s+/g, ' '), list: false, btn: false, l: r.left, r: r.right, w: r.width }); }
   return { frame: { l: c.left, r: c.right }, blocks };
 }
 
@@ -58,12 +61,13 @@ async function selfTest() {
       <img class="mobile-logo" style="display:none" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" width="100" height="30" alt="">
       <span style="opacity:0"><img class="logo" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" width="100" height="30" alt=""></span></header>
     <div id="content"><h1>Tiêu đề rộng hết khung</h1><p class="k">Đoạn trong cột</p><h2 class="k">H2 trong cột</h2><ul class="k"><li>mục</li></ul>
-      <div class="vc_inner"><p>Lưới thông tin rộng hết khung</p></div><p>Đoạn lệch trái rộng hết khung</p></div>`);
+      <div class="vc_inner"><p>Lưới thông tin rộng hết khung</p></div><p>Đoạn lệch trái rộng hết khung</p>
+      <div class="vc_toggle k"><p class="vc_toggle_title">Xem thêm</p><div class="vc_toggle_content"><table style="width:98.7%"><tr><td>Bảng hẹp hơn cột</td></tr></table></div></div></div>`);
   const lg = await p.evaluate(logos), r = judge(await p.evaluate(cot));
   await b.close();
-  const ok = lg.length === 1 && r.bad.length === 2 && r.bad.every(s => s.includes('Đoạn lệch')) && r.w === 760 && r.gl === r.gr;
+  const ok = lg.length === 1 && r.bad.length === 3 && r.bad.filter(s => s.includes('Đoạn lệch')).length === 2 && r.bad.some(s => s.startsWith('table(toggle)')) && r.w === 760 && r.gl === r.gr;
   console.assert(lg.length === 1, 'logo: chỉ đếm ảnh thấy được (bỏ display:none, opacity:0)', lg);
-  console.assert(ok, 'cột: chỉ bắt đoạn lệch (mép trái + mép phải), bỏ H1 và Inner Row', r);
+  console.assert(ok, 'cột: bắt đoạn lệch (mép trái + phải) + bảng trong toggle hẹp hơn cột, bỏ H1 và Inner Row', r);
   if (!ok) { console.log(JSON.stringify({ lg, r }, null, 1)); process.exit(1); }
   console.log('self-test ok');
 }
@@ -90,6 +94,7 @@ else if (process.argv[2]) {
   if (what !== 'logo') for (const u of SAN_PHAM) for (const w of [1366, 1536, 1920]) {
     const c = await b.newContext({ viewport: { width: w, height: 900 }, storageState: st, userAgent: UA.d }); const p = await c.newPage();
     await p.goto(B + u, { timeout: 180000, waitUntil: 'load' }); await p.waitForTimeout(800);
+    await p.$$eval('.vc_toggle_content', cs => cs.forEach(c => { c.style.display = 'block'; })); // mở "Xem thêm" / hỏi đáp để đo bảng bên trong
     const r = judge(await p.evaluate(cot)); res.cot[`${u} @${w}`] = r; nCot += r.bad.length;
     console.log('cột', u, w, 'mép', r.L, r.R, 'rộng', r.w, 'trống', r.gl, r.gr, 'lỗi', r.bad.length, r.bad.slice(0, 2).join(' | '));
     await c.close();

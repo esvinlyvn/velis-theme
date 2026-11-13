@@ -71,3 +71,18 @@ Nhật ký: `docs/STAGING-LOG.md` mục bước 13; báo cáo: `docs/reports/the
 
 Thứ tự: 28 → 29 → 30 → 31 → 32 → 33 → xóa cache FVM + LiteSpeed. Dòng pháp lý (MST / ĐKKD): khi có, thêm vào Theme Options →
 Bottom bar → Text: `<p class="velis-bb-legal">Mã số thuế: … · Giấy ĐKKD số … cấp ngày … tại …</p>` sau dòng ©.
+
+## Bước 14 (2026-11-13) – chốt footer, schema, bảng
+
+Nhật ký: `docs/STAGING-LOG.md` mục bước 14; báo cáo: `docs/reports/the7-buoc-14.md`; dữ liệu trước: `data/the7/buoc-14/`.
+
+| # | Loại | Thay đổi | Ở đâu (wp-admin) | Kiểm sau khi đưa lên |
+|---|---|---|---|---|
+| 34 | File theme con | **1.8.1**: `velis.css` – bảng trong khối chữ và trong "Xem thêm" / hỏi đáp của trang sản phẩm (hàng `velis-section` trên trang có `velis-hero`, hoặc `velis-read`) rộng 100 % cột đọc | Giao diện → Tải lên → "Thay thế cài đặt bằng tải lên" (`dist/dt-the7-child.zip`) | `node tools/the7_check_cot.mjs out.json cot` (cột lỗi 0, gồm bảng trong toggle) |
+| 35 | Theme Options | `bottom_bar-text` theo `data/the7/options-buoc-14.json` (dòng © kèm "· MST: 0319425663"). **Không nhập cả file** (mã bảo mật trong file là "<đã xóa>"): chép đúng ô Text | The7 → Theme Options → Bottom bar → Text | dòng cuối trang hiện MST |
+| 36 | Mã bảo mật form The7 | tạo mã mới cho site thật (khóa `contact_form_security_token`, 20 ký tự a-z0-9): chạy `python3 -I tools/the7_options_buoc14.py <bản-xuất-site-thật.json> <file-nhập.json>` rồi nhập `<file-nhập.json>`; **xóa file nhập sau khi dùng**, không commit | The7 → Export/Import | xuất lại: mã khác mã cũ |
+| 37 | Rank Math SEO Local | Email = info@velisrealty.vn; Thông tin bổ sung: Tên pháp lý "Công ty TNHH Velis Realty", Mã số thuế 0319425663 | Rank Math → Tiêu đề & Meta → SEO Local | JSON-LD Organization có `email`, `legalName`, `taxID`; `node tools/the7_check_schema.mjs` 0 lỗi |
+| 38 | Rank Math mẫu schema | "Person" (Giới thiệu) và "Job Posting" (Tuyển dụng): đổi email lienhe@ → info@ | Rank Math → Schema Templates → sửa | trang Giới thiệu / Tuyển dụng không còn lienhe@ |
+| 39 | Nội dung + widget | lienhe@ → info@ ở: Tuyển dụng (4), Chính sách bảo mật (1), Liên hệ (2), Giới thiệu (1), widget HTML cột 1 footer (2) – trên site thật quét lại bằng tìm kiếm "lienhe@" trong Bài viết / Trang / Tiện ích trước khi sửa | sửa trang (WPBakery) · Giao diện → Tiện ích | quét HTML toàn site: 0 "lienhe@" |
+
+Thứ tự: 34 → 35 → 36 → 37 → 38 → 39 → xóa cache FVM + LiteSpeed. Email nhận form (CF7) giữ velisrealtyvn@gmail.com.

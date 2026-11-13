@@ -482,7 +482,8 @@ body .wpcf7 .wpcf7-form-control-wrap .wpcf7-not-valid-tip { display: block; posi
 :is(body:has(.velis-hero) .velis-section, .velis-read) > .wpb_column > .vc_column-inner > .wpb_wrapper > :is(.wpb_text_column, .vc_toggle),
 .velis-hero > .wpb_column > .vc_column-inner > .wpb_wrapper > .wpb_text_column > .wpb_wrapper > :not(.velis-eyebrow, h1, style, script) { max-width: 760px; margin-left: auto; margin-right: auto; }
 .velis-hero > .wpb_column > .vc_column-inner > .wpb_wrapper > .dt-btn { margin-left: max(0px, calc((100% - 760px) / 2)); }
-body:has(.velis-hero) .velis-section .wpb_text_column table { width: 100% !important; } /* trình soạn thảo ghi width % trực tiếp (98,8 % / 101 %) → bảng lệch mép cột */
+/* bảng (kể cả trong "Xem thêm" / hỏi đáp): rộng đúng cột; !important vì trình soạn thảo ghi width % / px trực tiếp vào thẻ (98,7 % / 101 % / 643 px) */
+:is(body:has(.velis-hero) .velis-section, .velis-read) :is(.wpb_text_column, .vc_toggle_content) table { width: 100% !important; }
 
 /* Danh sách bài dạng dòng gọn ([velis_bai_viet] – sidebar bài blog): ảnh nhỏ + tiêu đề tới 3 dòng không cắt + meta một hàng */
 .velis-post-list { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }

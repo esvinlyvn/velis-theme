@@ -108,6 +108,8 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
 - Bước 13 (2026-11-13) phần cuối trang: widget area "Khối liên hệ cuối trang" (theme con, chỉ trang chưa có `[contact-form-7` và không phải bài viết → mỗi trang 1 form);
   footer = 4 widget ở Default Footer + Theme Options (#141414, 1/3+1/4+1/6+1/4); dòng cuối = Bottom bar text + menu vị trí Bottom; trang danh sách dùng widget area 3
   "Sidebar danh sách bài" (không form). Đo `node tools/the7_check_footer.mjs out.json` (trống ≤ 96, gạch chân, vùng bấm, tương phản, ≤ 1 form, nút lên đầu; `--test`).
+- Bước 14 (2026-11-13): email hiển thị **info@velisrealty.vn** (nhận form CF7 vẫn velisrealtyvn@gmail.com); MST 0319425663 ở Bottom bar + Rank Math SEO Local (`taxID`);
+  hướng dẫn cho người viết nội dung: `docs/HUONG-DAN-NOI-DUNG.md` (cập nhật khi đổi mẫu / ô soạn); `contact_form_security_token` không bao giờ lưu vào repo ("<đã xóa>").
 - `data/the7/mau-wpbakery/` — 3 mẫu WPBakery (Dự án, Chủ đầu tư, Bài viết) đã lưu vào "Mẫu của tôi" trên staging; bố cục trang nằm trong WPBakery, không trong PHP.
 - `theme/velis/` — theme khối velis, **đã bỏ 2026-11-11** (giữ để tham khảo); `dist/` (bỏ qua git) — file zip đóng gói.
 - `assets/brand/original/` — logo gốc tải từ Media site thật + PDF vector; `assets/brand/svg/` — SVG vẽ lại.

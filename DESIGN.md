@@ -456,7 +456,7 @@ xuống dòng gọn khi hẹp. Vùng bấm link meta nở bằng đệm trên/d�
 ### Trang sản phẩm (chốt 2026-11-13)
 Trang dự án, phân khu, chủ đầu tư, trang tổng chủ đầu tư: **không cột phải** (The7 → Sidebar: Disabled), khung nội dung 1200 px;
 CTA là khối ngang trong nội dung.
-**Một cột đọc 760 px căn giữa khung** (bước 12b, người dùng chốt 2026-11-13) cho mọi khối chữ: đoạn văn, H2/H3, danh sách, bảng (rộng 100 % cột),
+**Một cột đọc 760 px căn giữa khung** (bước 12b, người dùng chốt 2026-11-13) cho mọi khối chữ: đoạn văn, H2/H3, danh sách, bảng (rộng 100 % cột, kể cả bảng trong "Xem thêm" / hỏi đáp – bước 14),
 mục lục, hỏi đáp / "Xem thêm", chữ phần đầu (trừ nhãn + H1), nút + dòng gọi phần đầu – cùng mép trái/phải ±1 px, trống trái = phải.
 Rộng hết khung 1200 px: phần đầu (breadcrumb, nhãn, H1, ảnh), lưới thông tin dự án, khối "Nhận bảng giá", ảnh (Single Image), thư viện ảnh /
 Inner Row, video, lưới thẻ (phân khu, bài). Không xếp chữ cạnh ảnh 2 cột trong trang sản phẩm: chữ trong cột đọc, ảnh xuống dưới.

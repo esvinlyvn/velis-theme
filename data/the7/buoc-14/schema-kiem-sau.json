@@ -1,0 +1,50 @@
+{
+ "https://staging.velisrealty.vn/": {
+  "errors": [],
+  "warnings": [
+   "WebSite.potentialAction: query-input (thuộc tính riêng của Google)"
+  ],
+  "types": [
+   "Place",
+   "RealEstateAgent+Organization",
+   "WebSite",
+   "ImageObject",
+   "WebPage"
+  ]
+ },
+ "https://staging.velisrealty.vn/lien-he/": {
+  "errors": [],
+  "warnings": [],
+  "types": [
+   "Place",
+   "RealEstateAgent+Organization",
+   "WebSite",
+   "ImageObject",
+   "ContactPage"
+  ]
+ },
+ "https://staging.velisrealty.vn/gioi-thieu/": {
+  "errors": [],
+  "warnings": [],
+  "types": [
+   "Person",
+   "Place",
+   "RealEstateAgent+Organization",
+   "WebSite",
+   "ImageObject",
+   "AboutPage"
+  ]
+ },
+ "https://staging.velisrealty.vn/tuyen-dung/": {
+  "errors": [],
+  "warnings": [],
+  "types": [
+   "JobPosting",
+   "Place",
+   "RealEstateAgent+Organization",
+   "WebSite",
+   "ImageObject",
+   "WebPage"
+  ]
+ }
+}
