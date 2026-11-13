@@ -175,11 +175,13 @@ add_action( 'presscore_before_loop', function () {
 function velis_page_script() {
 	return '<script>(function(){document.addEventListener("submit",function(e){var f=e.target,b=f.querySelector&&f.querySelector(".wpcf7-submit");'
 		. 'if(!b||!f.closest(".wpcf7"))return;if(b.disabled){e.preventDefault();e.stopImmediatePropagation();return}b.dataset.v=b.value;b.value="Đang gửi…";'
-		. 'setTimeout(function(){b.disabled=true},0)},true);document.addEventListener("wpcf7submit",function(e){var b=e.target.querySelector(".wpcf7-submit");'
-		. 'if(b&&b.dataset.v){b.value=b.dataset.v;b.disabled=false}});'
+		. 'setTimeout(function(){if(b.value==="Đang gửi…")b.disabled=true},0)},true);document.addEventListener("wpcf7submit",function(e){var b=e.target.querySelector(".wpcf7-submit");'
+		. 'if(b&&b.dataset.v){b.value=b.dataset.v;b.disabled=false}e.target.querySelectorAll(".wpcf7-form-control-wrap").forEach(function(w){w.parentElement.style.minHeight=""})});'
+		// Sửa ô sau khi báo lỗi: CF7 gỡ lời nhắc lúc rời ô (change) – đúng lúc bấm nút – làm nút nhảy lên, cú bấm trượt. Giữ chiều cao khung ô (nhãn – ô bọc là span nội dòng) tới lần gửi sau.
+		. 'document.addEventListener("change",function(e){var f=e.target.form;if(f&&f.closest(".wpcf7")&&f.querySelector(".wpcf7-not-valid-tip"))f.querySelectorAll(".wpcf7-form-control-wrap").forEach(function(w){w=w.parentElement;w.style.minHeight=w.offsetHeight+"px"})},true);'
 		. 'document.querySelectorAll(".velis-projects .entry-excerpt").forEach(function(x){var p=x.children;if(p.length>1)p[0].parentNode.title=p[0].textContent+" · "+p[1].textContent});'
 		// Form chưa hợp lệ (vd. chưa tick đồng ý): đưa focus về ô lỗi đầu tiên – lời nhắc tiếng Việt nằm ngay dưới ô đó.
-		. 'document.addEventListener("wpcf7invalid",function(e){var x=e.target.querySelector(".wpcf7-not-valid");if(x)(x.matches("input,textarea,select")?x:x.querySelector("input")||x).focus()});'
+		. 'document.addEventListener("wpcf7invalid",function(e){var f=e.target;setTimeout(function(){var x=f.querySelector(".wpcf7-not-valid");if(x)(x.matches("input,textarea,select")?x:x.querySelector("input")||x).focus()},0)});'
 		// utm_* từ URL (LiteSpeed bỏ utm khỏi khóa cache nên CF7 default:get không thấy) – giữ trong phiên, điền trường ẩn của mọi form.
 		. 'var q=new URLSearchParams(location.search),u={};try{u=JSON.parse(sessionStorage.velisUtm||"{}")}catch(e){}["utm_source","utm_medium","utm_campaign"].forEach(function(k){if(q.get(k))u[k]=q.get(k)});'
 		. 'try{sessionStorage.velisUtm=JSON.stringify(u)}catch(e){}Object.keys(u).forEach(function(k){document.querySelectorAll(".wpcf7 input[name="+k+"]").forEach(function(i){i.value=u[k]})});'

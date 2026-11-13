@@ -451,7 +451,7 @@ body .wpcf7 .wpcf7-form-control-wrap .wpcf7-not-valid-tip { display: block; posi
 .velis-checks li::before { content: ""; position: absolute; left: 2px; top: 0.3em; width: 7px; height: 13px; border: solid #D9BE8C; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); }
 .velis-cta .wpcf7, .velis-cta-box .wpcf7 { margin: 0; text-align: left; }
 .velis-cta-form { display: grid; gap: 12px; }
-@media (min-width: 900px) { :is(.velis-cta, .velis-prefoot) .velis-cta-form { grid-template-columns: 1fr 1fr auto; align-items: end; } }
+@media (min-width: 900px) { :is(.velis-cta, .velis-prefoot) .velis-cta-form { grid-template-columns: 1fr 1fr auto; align-items: start; } :is(.velis-cta, .velis-prefoot) .velis-cta-form .wpcf7-submit { margin-top: calc(14px * 1.4 + 6px); } } /* nút thẳng hàng ô nhập (dưới nhãn), không nhảy khi lời nhắc lỗi hiện dưới ô */
 .velis-cf7-label__t { display: block; margin-bottom: 6px; font-size: 14px; font-weight: 600; line-height: 1.4; } /* nhãn ô luôn hiện; placeholder chỉ là ví dụ */
 :is(.velis-cta, .velis-cta-box) .velis-cf7-label__t { color: #FFFFFF; }
 .velis-cta-form label { margin: 0; }
