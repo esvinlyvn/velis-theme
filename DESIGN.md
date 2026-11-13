@@ -453,8 +453,8 @@ Chuyên mục · tác giả · ngày: một hàng chung đường chân chữ, 1
 xuống dòng gọn khi hẹp. Vùng bấm link meta nở bằng đệm trên/dưới (không đổi dòng chữ, không lề âm).
 
 ### Trang sản phẩm (chốt 2026-11-13)
-Trang dự án, phân khu, chủ đầu tư, trang tổng chủ đầu tư: **không cột phải** (The7 → Sidebar: Disabled), nội dung full khung;
-chữ đọc ở cột giữa ≤ 720 px (~75–80 ký tự / dòng), ảnh / lưới / bảng thông số vẫn full khung; CTA là khối ngang trong nội dung.
+Trang dự án, phân khu, chủ đầu tư, trang tổng chủ đầu tư: **không cột phải** (The7 → Sidebar: Disabled), nội dung full khung
+(cả chữ, không thu cột đọc – người dùng chốt 2026-11-13); CTA là khối ngang trong nội dung.
 Bài blog giữ sidebar phải: CTA bản dọc theo dự án + danh sách "Cùng dự án …" rồi "Bài mới" (không trùng "Bài viết liên quan" cuối bài).
 
 ### Inputs & Forms

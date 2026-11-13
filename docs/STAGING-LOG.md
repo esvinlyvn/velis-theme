@@ -508,3 +508,10 @@ Ghi chú: thử tạo form qua REST CF7 (`POST contact-forms`) trả 200 nhưng 
 Quay lui: nhập `options-truoc-b12.json`; theme con 1.6.1 (commit 0b4edd1); khôi phục 12 bản sửa đổi trên; widget theo `widgets-truoc.json`
 (đưa "Bài mới" về Default Sidebar, custom_html-5 → không sử dụng); Sidebar: phải + "Sidebar dự án"; form 20958 để Nháp không cần (không còn trang dùng).
 Không xóa bài/trang/media, không gửi form (thử bằng chặn yêu cầu), không ghi `.htaccess`, site thật không bị ghi.
+
+### 2026-11-13 – theme con 1.7.1: bỏ thu cột chữ 720 px trang sản phẩm (người dùng yêu cầu chữ full khung)
+| Mục | Trước | Sau | Nơi đổi |
+|---|---|---|---|
+| Theme con | 1.7.0 | **1.7.1** (`velis.css` bỏ khối `body:has(.velis-hero) … max-width: 720px`) | Giao diện → Tải lên → thay bản đang dùng |
+| Cache | – | xóa FVM + LiteSpeed (chỉ purge) | thanh quản trị |
+Đo lại: đoạn văn The Privé / /chu-dau-tu/ rộng 1106–1170 px trong khung 1200 px (trước: 720 px); 390 px không đổi. Ảnh: `screenshots/the7/buoc-12/sau-full-khung-the-prive-{1920,390}.png`.

@@ -476,12 +476,6 @@ body .wpcf7 .wpcf7-form-control-wrap .wpcf7-not-valid-tip { display: block; posi
 .velis-cta-box .velis-cta-call { margin-top: 16px; font-size: 15px; }
 #page #sidebar .velis-cta-box a.velis-cta-project { color: #D9BE8C; font-weight: 600; }
 
-/* Trang sản phẩm (dự án / phân khu / chủ đầu tư – có phần đầu velis-hero, không còn cột phải): chữ đọc ≤ ~80 ký tự (720 px) / dòng ở cột giữa,
-   ảnh, lưới, bảng thông số vẫn full khung. */
-body:has(.velis-hero) .velis-section .wpb_wrapper > :is(.wpb_text_column, .vc_toggle, [id^="ez-toc"]),
-body:has(.velis-hero) .velis-toc .wpb_wrapper > * { max-width: 720px; margin-left: auto; margin-right: auto; }
-body:has(.velis-hero) .velis-hero .wpb_text_column p:not(.velis-eyebrow) { max-width: 720px; }
-
 /* Danh sách bài dạng dòng gọn ([velis_bai_viet] – sidebar bài blog): ảnh nhỏ + tiêu đề tới 3 dòng không cắt + meta một hàng */
 .velis-post-list { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
 .velis-post-list li { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 12px; align-items: start; margin: 0; padding: 0; }
