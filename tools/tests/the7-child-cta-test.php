@@ -14,6 +14,8 @@ function untrailingslashit( $s ) { return rtrim( $s, '/' ); }
 function wp_parse_url( $u, $c ) { return parse_url( $u, $c ); }
 function add_query_arg( $a ) { return $_SERVER['REQUEST_URI']; }
 function home_url( $p = '' ) { return 'https://x' . $p; }
+function add_shortcode( $t, $cb ) { $GLOBALS['hooks'][ 'shortcode_' . $t ][] = $cb; }
+function sanitize_text_field( $s ) { return trim( strip_tags( $s ) ); }
 require __DIR__ . '/../../the7-child/dt-the7-child/functions.php';
 $h = velis_cta_html();
 $ok = str_contains( $h, 'href="tel:0911237979"' ) && str_contains( $h, 'href="https://zalo.me/0911237979"' ) && str_contains( $h, 'href="/lien-he/">Nhận tư vấn' ) && str_contains( $h, 'aria-label="Liên hệ nhanh"' );
@@ -63,4 +65,22 @@ $r   = velis_schema_graph( $g, array( 'url' => 'https://x/', 'is_page' => true, 
 $ok  = $ok && 'WebPage' === $r['WebPage']['@type'] && ! isset( $r['velisItemList'], $r['richSnippet'] );
 $r   = velis_schema_graph( array( 'a' => array( '@type' => 'BlogPosting' ) ), array( 'url' => 'https://x/p/', 'is_page' => false, 'is_front' => false, 'items' => array(), 'address' => '69 Võ Văn Kiệt, TP.HCM', 'name' => 'Ansana' ) );
 $ok  = $ok && 'BlogPosting' === $r['a']['@type'] && 'https://x/p/#place' === $r['a']['about']['@id'] && '69 Võ Văn Kiệt, TP.HCM' === $r['velisPlace']['address']['streetAddress'];
-echo $ok ? "the7-child cta: ok\n" : "the7-child cta: FAIL\n";
+
+// Bước 12 – dự án của bài blog: bài thuộc chuyên mục Dự án (34) thắng Phân khu (57) khi cùng trỏ một cụm; không có ứng viên → null.
+$pv  = velis_pick_project( array( array( 'title' => 'Persa Place', 'cats' => array( 57 ) ), array( 'title' => 'Spring Ville', 'cats' => array( 34 ) ) ) );
+$ok  = $ok && 'Spring Ville' === $pv['title'] && null === velis_pick_project( array() );
+// Chữ chờ trong widget: có dự án → tên + link; không → chữ mặc định, khối "velis-if-du-an" ẩn.
+$w   = '<h2>Nhận bảng giá {du_an|&amp; tư vấn dự án}</h2><p class="velis-cta-call velis-if-du-an"><a href="{du_an_link}">Xem dự án {du_an}</a></p>[contact-form-7 id="1" du-an="{du_an}"]';
+$a   = velis_fill_tokens( $w, array( 'title' => 'The Privé', 'link' => '/can-ho-the-prive/' ) );
+$b   = velis_fill_tokens( $w, null );
+$ok  = $ok && str_contains( $a, 'Nhận bảng giá The Privé' ) && str_contains( $a, 'href="/can-ho-the-prive/"' ) && str_contains( $a, 'du-an="The Privé"' ) && ! str_contains( $a, 'hidden' )
+	&& str_contains( $b, 'Nhận bảng giá &amp; tư vấn dự án' ) && str_contains( $b, 'velis-if-du-an" hidden' ) && str_contains( $b, 'du-an=""' ) && ! str_contains( $b, '{' );
+// CF7 nhận thuộc tính du-an từ shortcode (trường ẩn default:shortcode_attr).
+$sa  = $GLOBALS['hooks']['shortcode_atts_wpcf7'][0];
+$ok  = $ok && 'The Privé' === $sa( array( 'id' => 1 ), array(), array( 'du-an' => ' The Privé ' ) )['du-an'] && ! isset( $sa( array(), array(), array() )['du-an'] );
+// Danh sách sidebar: cùng dự án trước, bài mới bù cho đủ, bỏ bài đang đọc và bài đã hiện ở "liên quan" cuối bài, không trùng.
+list( $sm, $rc ) = velis_post_list_ids( array( 5, 6, 7, 8 ), array( 9, 5, 10, 11, 12 ), array( 5, 7 ), 4 );
+$ok  = $ok && array( 6, 8 ) === $sm && array( 9, 10 ) === $rc;
+list( $sm, $rc ) = velis_post_list_ids( array(), array( 1, 2, 3 ), array( 2 ), 5 );
+$ok  = $ok && array() === $sm && array( 1, 3 ) === $rc;
+echo $ok ? "the7-child cta: ok\n" : "the7-child cta: FAIL\n"; exit( $ok ? 0 : 1 );

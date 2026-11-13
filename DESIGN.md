@@ -31,7 +31,7 @@ colors:
 typography:
   font-heading: "Playfair Display, Playfair Fallback, Georgia, 'Times New Roman', serif"
   font-body: "Be Vietnam Pro, Be Vietnam Pro Fallback, Arial, sans-serif"
-  h1: { fontFamily: heading, fontWeight: 600, desktop: 56px, mobile: 36px, lineHeight: 1.1 }
+  h1: { fontFamily: heading, fontWeight: 600, desktop: 56px, mobile: 36px, lineHeight: 1.25 }
   h2: { fontFamily: heading, fontWeight: 600, desktop: 40px, mobile: 28px, lineHeight: 1.2 }
   h3: { fontFamily: body, fontWeight: 600, desktop: 22px, mobile: 22px, lineHeight: 1.3 }
   h4: { fontFamily: body, fontWeight: 600, desktop: 19px, mobile: 19px, lineHeight: 1.4 }
@@ -155,7 +155,7 @@ bằng `prefers-reduced-motion`; WCAG 2.2 AA.
 
 | Token | Font | Cỡ | Dòng |
 |---|---|---|---|
-| h1 | Playfair 600 | 56 / 36 px | 1,1 |
+| h1 | Playfair 600 | 56 / 36 px | 1,25 (bước 12: 1,1 làm khung tiêu đề trang cắt nét chữ / dấu chồng tiếng Việt) |
 | số liệu | Playfair 600 | 48 px | 1,1 |
 | h2 | Playfair 600 | 40 / 28 px | 1,2 |
 | h3 | Be Vietnam Pro 600 (tên thẻ dự án: Playfair 600) | 22 px | 1,3 |
@@ -435,6 +435,27 @@ Bố cục bài: cột đọc 720 px + cột phải dính (≥ 1280 px; top = he
 nằm trong cột đọc, 2 cột khi > 6 mục. FAQ (`<details>`) · Hộp tác giả (ảnh chân dung thật – chưa có thì ẩn khung ảnh;
 link mạng xã hội cá nhân; "Xem tất cả bài viết") · Hộp công bố
 (15 px, rộng bằng cột đọc, chữ `ink` trên `surface-sunken`) · Breadcrumb · Phân trang · Trang 404.
+
+### CTA "Nhận bảng giá" (chốt 2026-11-13 – một thành phần, mọi nơi cần lead)
+Học cấu trúc CTA bán hàng (khung nổi bật, lợi ích cụ thể, form ngay trong khối, nút động từ, hotline, dòng bảo mật) nhưng giữ nhận diện
+và giọng: không xanh/vàng, không "tốt nhất / duy nhất / độc quyền / suất VIP".
+- Khung: nền than `#1A1A1A`, gạch champagne 3 px trên, bo 4; chữ trắng, nhãn + dấu ✓ champagne sáng `#D9BE8C` (9,8:1).
+- Thứ tự: nhãn "Tư vấn trực tiếp từ Velis Realty" → H2 lợi ích cụ thể ("Nhận bảng giá & giỏ hàng <dự án>") → 3 dòng ✓ ngắn
+  (chỉ điều có thật trên site) → form CF7 "Nhận bảng giá": Họ và tên · Số điện thoại / Zalo · nút đỏ "Nhận bảng giá ngay" (cao 52)
+  → ô đồng ý NĐ 13 (bắt buộc, link Chính sách bảo mật) → "Hoặc gọi ngay 0911 237 979 · Zalo (08:00–21:00 hằng ngày)" (số 22 px).
+- Bản ngang (hàng WPBakery `velis-cta`, trang dự án / phân khu / chủ đầu tư / trang tổng chủ đầu tư): khối giữa ≤ 880 px, form 1 hàng
+  (2 ô + nút) từ 900 px, dưới đó xếp dọc. Bản dọc (widget sidebar bài blog, `.velis-cta-box`): cùng thứ tự, form xếp dọc,
+  tiêu đề và trường ẩn "du-an" theo dự án của cụm bài (không thuộc dự án → "Nhận bảng giá & tư vấn dự án"), thêm link "Xem dự án …".
+- Mỗi trang một CTA chính đầy đủ + thanh liên hệ đáy (mobile). Không đoạn giải thích dài trong khối.
+
+### Dòng meta bài
+Chuyên mục · tác giả · ngày: một hàng chung đường chân chữ, 14 px / 1,5, màu chữ phụ `#5C5C5C`, dấu "·" xám giữa các mục,
+xuống dòng gọn khi hẹp. Vùng bấm link meta nở bằng đệm trên/dưới (không đổi dòng chữ, không lề âm).
+
+### Trang sản phẩm (chốt 2026-11-13)
+Trang dự án, phân khu, chủ đầu tư, trang tổng chủ đầu tư: **không cột phải** (The7 → Sidebar: Disabled), nội dung full khung;
+chữ đọc ở cột giữa ≤ 720 px (~75–80 ký tự / dòng), ảnh / lưới / bảng thông số vẫn full khung; CTA là khối ngang trong nội dung.
+Bài blog giữ sidebar phải: CTA bản dọc theo dự án + danh sách "Cùng dự án …" rồi "Bài mới" (không trùng "Bài viết liên quan" cuối bài).
 
 ### Inputs & Forms
 Trường: Họ tên · Số điện thoại (`inputmode="numeric"`) · Nhu cầu (Mua ở / Đầu tư / Cho thuê, không chọn sẵn) · Dự án/phân khu (tự điền

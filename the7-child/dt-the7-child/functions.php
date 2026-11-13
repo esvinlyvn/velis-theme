@@ -293,3 +293,83 @@ add_filter( 'rank_math/json_ld', function ( $data ) {
 		'name'     => is_single() ? get_the_title( $id ) : '',
 	) );
 }, 99 );
+
+// ── Bước 12 (2026-11-13): CTA "Nhận bảng giá" đúng dự án ở sidebar bài blog + danh sách bài cùng dự án ─────────────────────────────
+// Dự án của một bài blog = bài dự án (chuyên mục Dự án 34, rồi Phân khu 57) có "Bài viết liên quan → chọn chuyên mục" (The7 Post
+// Options) trỏ đúng chuyên mục cụm của bài. Không cấu hình mới: đổi dự án của cụm = đổi chuyên mục liên quan ở trang dự án.
+// Widget HTML tùy chỉnh dùng chữ chờ: {du_an} / {du_an|chữ khi không có dự án}, {du_an_link}; phần tử class "velis-if-du-an" ẩn khi
+// bài không thuộc dự án nào. [contact-form-7 … du-an="{du_an}"] → trường ẩn du-an của form (lead ghi dự án).
+function velis_pick_project( array $cands ) {
+	usort( $cands, fn( $a, $b ) => (int) ! in_array( 34, $a['cats'], true ) <=> (int) ! in_array( 34, $b['cats'], true ) );
+	return $cands[0] ?? null;
+}
+
+function velis_fill_tokens( $html, $p ) {
+	$html = preg_replace_callback( '/\{du_an(?:\|([^}]*))?\}/u', fn( $m ) => $p ? $p['title'] : ( $m[1] ?? '' ), $html );
+	$html = str_replace( '{du_an_link}', $p ? $p['link'] : '', $html );
+	return $p ? $html : preg_replace( '/class="([^"]*\bvelis-if-du-an\b[^"]*)"/', 'class="$1" hidden', $html );
+}
+
+function velis_current_project() {
+	static $p = false;
+	if ( false !== $p ) {
+		return $p;
+	}
+	$p = null;
+	if ( ! is_singular( 'post' ) ) {
+		return $p;
+	}
+	foreach ( wp_get_post_categories( get_queried_object_id() ) as $cat ) {
+		$cands = array();
+		foreach ( get_posts( array( 'category__in' => array( 34, 57 ), 'numberposts' => 20, 'meta_key' => '_dt_post_options_related_categories', 'meta_value' => '"' . (int) $cat . '"', 'meta_compare' => 'LIKE' ) ) as $q ) {
+			$cands[] = array( 'title' => get_the_title( $q ), 'link' => get_permalink( $q ), 'cat' => $cat, 'cats' => array_map( 'intval', wp_get_post_categories( $q->ID ) ) );
+		}
+		$p = velis_pick_project( $cands );
+		if ( $p ) {
+			break;
+		}
+	}
+	return $p;
+}
+
+add_filter( 'widget_custom_html_content', fn( $html ) => str_contains( $html, '{du_an' ) ? velis_fill_tokens( $html, velis_current_project() ) : $html, 5 );
+add_filter( 'widget_custom_html_content', fn( $html ) => str_contains( $html, '[' ) ? do_shortcode( $html ) : $html, 20 );
+add_filter( 'shortcode_atts_wpcf7', function ( $out, $pairs, $atts ) {
+	if ( isset( $atts['du-an'] ) ) {
+		$out['du-an'] = sanitize_text_field( $atts['du-an'] );
+	}
+	return $out;
+}, 10, 3 );
+
+// Bài đã hiện trên trang (The7 "Bài viết liên quan" cuối bài chạy trước sidebar) – danh sách sidebar không lặp lại.
+add_action( 'the_post', function ( $post ) {
+	$GLOBALS['velis_seen'][ $post->ID ] = true;
+} );
+
+// Chia danh sách: bài cùng dự án trước (tối đa $n), rồi bài mới cho đủ $n; bỏ bài đang đọc / đã hiện; không trùng giữa hai nhóm.
+function velis_post_list_ids( array $same, array $recent, array $exclude, $n ) {
+	$same   = array_slice( array_values( array_diff( $same, $exclude ) ), 0, $n );
+	$recent = array_slice( array_values( array_diff( $recent, $exclude, $same ) ), 0, $n - count( $same ) );
+	return array( $same, $recent );
+}
+
+add_shortcode( 'velis_bai_viet', function ( $atts ) {
+	$n    = max( 1, (int) ( $atts['so'] ?? 5 ) );
+	$id   = get_queried_object_id();
+	$p    = velis_current_project();
+	$ids  = fn( $args ) => get_posts( $args + array( 'numberposts' => $n + 40, 'fields' => 'ids', 'category__not_in' => array( 34, 57 ) ) );
+	list( $same, $recent ) = velis_post_list_ids( $p ? $ids( array( 'cat' => $p['cat'] ) ) : array(), $ids( array() ), array_merge( array( $id ), array_keys( $GLOBALS['velis_seen'] ?? array() ) ), $n );
+	$li  = function ( $pid ) {
+		$cat = get_the_category( $pid );
+		return '<li><a href="' . esc_url( get_permalink( $pid ) ) . '" tabindex="-1" aria-hidden="true">' . get_the_post_thumbnail( $pid, 'thumbnail', array( 'alt' => '', 'loading' => 'lazy' ) ) . '</a><div>'
+			. '<a class="velis-post-title" href="' . esc_url( get_permalink( $pid ) ) . '">' . esc_html( get_the_title( $pid ) ) . '</a>'
+			. '<div class="entry-meta">' . ( $cat ? '<span>' . esc_html( $cat[0]->name ) . '</span>' : '' ) . '<time datetime="' . esc_attr( get_the_date( 'c', $pid ) ) . '">' . esc_html( get_the_date( 'd/m/Y', $pid ) ) . '</time></div></div></li>';
+	};
+	$out = '';
+	foreach ( array( array( $same, $p ? 'Cùng dự án ' . $p['title'] : '' ), array( $recent, 'Bài mới' ) ) as list( $list, $title ) ) {
+		if ( $list ) {
+			$out .= '<div class="widget-title">' . esc_html( $title ) . '</div><ul class="velis-post-list">' . implode( '', array_map( $li, $list ) ) . '</ul>';
+		}
+	}
+	return $out;
+} );
