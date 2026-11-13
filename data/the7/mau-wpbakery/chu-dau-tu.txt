@@ -2,7 +2,7 @@
 <p class="velis-eyebrow">Chủ đầu tư</p>
 <h1>[Tên chủ đầu tư]</h1>
 <p>[2–3 câu giới thiệu chủ đầu tư]</p>
-[/vc_column_text][dt_default_button link="url:%23lien-he-tu-van|title:Nh%E1%BA%ADn%20t%C6%B0%20v%E1%BA%A5n" size="big"]Nhận tư vấn[/dt_default_button][vc_column_text css=""]
+[/vc_column_text][dt_default_button link="url:%23lien-he-tu-van|title:Nh%E1%BA%ADn%20b%E1%BA%A3ng%20gi%C3%A1" size="big"]Nhận bảng giá[/dt_default_button][vc_column_text css=""]
 <p class="velis-call">Hoặc gọi <a href="tel:0911237979">0911 237 979</a> · <a href="https://zalo.me/0911237979" target="_blank" rel="noopener">Zalo</a></p>
 [/vc_column_text][/vc_column][/vc_row][vc_row el_id="du-an" el_class="velis-section velis-projects" css=""][vc_column][vc_column_text css=""]
 <h2>Dự án [tên chủ đầu tư] tại Velis Realty</h2>
@@ -12,12 +12,13 @@
 <p>[Đoạn mở ~60 chữ, luôn hiện]</p>
 [/vc_column_text][vc_toggle title="Xem thêm" style="text_only" el_class="velis-more" use_custom_heading="true" custom_font_container="tag:p|text_align:left" custom_use_theme_fonts="yes"]<p>[Phần chữ dài còn lại – thu gọn, bấm "Xem thêm" để mở]</p>[/vc_toggle][/vc_column][/vc_row][vc_row el_id="cau-hoi" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
 <h2>Câu hỏi thường gặp về [tên chủ đầu tư]</h2>
-[/vc_column_text][vc_toggle title="[Câu hỏi 1]" css="" use_custom_heading="true" custom_font_container="tag:h3|text_align:left" custom_use_theme_fonts="yes"]<p>[Trả lời]</p>[/vc_toggle][vc_toggle title="[Câu hỏi 2]" css="" use_custom_heading="true" custom_font_container="tag:h3|text_align:left" custom_use_theme_fonts="yes"]<p>[Trả lời]</p>[/vc_toggle][vc_toggle title="[Câu hỏi 3]" css="" use_custom_heading="true" custom_font_container="tag:h3|text_align:left" custom_use_theme_fonts="yes"]<p>[Trả lời]</p>[/vc_toggle][/vc_column][/vc_row][vc_row el_id="lien-he-tu-van" el_class="velis-cta" css=".vc_custom_1763000000002{background-color: #F3ECDF !important;}"][vc_column width="1/2"][vc_column_text css=""]
-<h2>Nhận tư vấn dự án [tên chủ đầu tư]</h2>
-<p>[1–2 câu]</p>
-[/vc_column_text][vc_column_text css=""]
-<p class="velis-call">Hoặc gọi <a href="tel:0911237979">0911 237 979</a> · <a href="https://zalo.me/0911237979" target="_blank" rel="noopener">Zalo</a></p>
-[/vc_column_text][/vc_column][vc_column width="1/2"][contact-form-7 id="19582" title="Liên Hệ"][/vc_column][/vc_row][vc_row el_id="bai-lien-quan" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
+[/vc_column_text][vc_toggle title="[Câu hỏi 1]" css="" use_custom_heading="true" custom_font_container="tag:h3|text_align:left" custom_use_theme_fonts="yes"]<p>[Trả lời]</p>[/vc_toggle][vc_toggle title="[Câu hỏi 2]" css="" use_custom_heading="true" custom_font_container="tag:h3|text_align:left" custom_use_theme_fonts="yes"]<p>[Trả lời]</p>[/vc_toggle][vc_toggle title="[Câu hỏi 3]" css="" use_custom_heading="true" custom_font_container="tag:h3|text_align:left" custom_use_theme_fonts="yes"]<p>[Trả lời]</p>[/vc_toggle][/vc_column][/vc_row][vc_row el_id="lien-he-tu-van" el_class="velis-cta"][vc_column][vc_column_text css=""]
+<p class="velis-eyebrow">Tư vấn trực tiếp từ Velis Realty</p>
+<h2>Nhận bảng giá các dự án [tên chủ đầu tư]</h2>
+<ul class="velis-checks"><li>Bảng giá chi tiết và chính sách bán hàng mới nhất</li><li>Giỏ hàng căn đang có, chọn theo nhu cầu và số vốn</li><li>Phân tích pháp lý và tiềm năng đầu tư của dự án</li></ul>
+[/vc_column_text][contact-form-7 id="20958" title="Nhận bảng giá" du-an="[Tên chủ đầu tư]"][vc_column_text css=""]
+<p class="velis-cta-call">Hoặc gọi ngay <a href="tel:0911237979">0911 237 979</a> · <a href="https://zalo.me/0911237979" target="_blank" rel="noopener">Zalo</a> (08:00–21:00 hằng ngày)</p>
+[/vc_column_text][/vc_column][/vc_row][vc_row el_id="bai-lien-quan" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
 <h2>Bài viết liên quan</h2>
 <ul>
 <li><a href="[link bài 1]">[Tên bài 1]</a></li>

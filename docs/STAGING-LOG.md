@@ -486,3 +486,25 @@ Quét 7 bài dự án + 4 trang chủ đầu tư + /chu-dau-tu/ trên staging (R
 Chỉ sửa "Mẫu của tôi": "Velis – Dự án", "Velis – Chủ đầu tư" xóa bản cũ + lưu lại theo `data/the7/mau-wpbakery/{du-an,chu-dau-tu}.txt`
 (AJAX `vc_delete_template` / `vc_save_template` của trình sửa, như bước 9/10); "Velis – Bài viết" và mẫu riêng của người dùng không đụng.
 Quay lui: lưu lại 2 mẫu từ file ở commit 29b6367.
+
+## 2026-11-13 – The7 bước 12: chữ bị cắt / meta lệch, CTA "Nhận bảng giá", trang sản phẩm bỏ cột phải (`docs/reports/the7-buoc-12.md`)
+
+Ghi trước khi sửa. Bản sửa đổi mới nhất trước khi sửa (`data/the7/buoc-12/ban-sua-doi-truoc.json`): 20422 → 20939, 19962 → 20876,
+20067 → 20884, 19855 → 20862, 19934 → 20852, 19773 → 20860, 20360 → 20932, 19593 → 20856, 19633 → 20858, 19637 → 20859,
+19625 → 20857, 20955 → 20956. Widget trước: `data/the7/buoc-12/widgets-truoc.json`. Theme Options trước: `data/the7/options-truoc-b12.json`.
+Font: không đổi gì (chẩn đoán "thiếu glyph" ban đầu sai – đo lỗi; không đụng FVM / cách nạp font).
+
+| Mục | Trước | Sau | Cách làm |
+|---|---|---|---|
+| Theme con | 1.6.1 | **1.7.0** (4 lần tải lên trong vòng: bản đầu, sửa ✓ / lưới form, cột chữ 720, khoảng trống form) | Giao diện → Tải lên → thay bản đang dùng |
+| Theme Options (3 khóa) | H1 / tiêu đề trang 56/62, 36/40 | 56/70, 36/46 (`data/the7/options-buoc-12.json`) | Export/Import (scratch `t7/import.mjs`) |
+| Contact Form 7 | 1 form (19582 "Liên Hệ") | thêm **20958 "Nhận bảng giá"** (Sao chép 19582 rồi sửa): Họ tên · SĐT/Zalo · nút "Nhận bảng giá ngay", trường ẩn `du-an`, ô đồng ý, `acceptance_as_validation: on`; thư: thêm "Dự án: [du-an]", "Trang: [_url]" (`data/the7/buoc-12/cf7-nhan-bang-gia.json`). Form 19582 không đổi | Liên hệ → Sao chép → sửa → Lưu |
+| 12 trang sản phẩm (7 dự án/phân khu, 4 chủ đầu tư, /chu-dau-tu/) | Sidebar phải "Sidebar dự án" (20955: đã tắt); hàng "lien-he-tu-van" nền ngà 2 cột (chữ dài + form 19582) | **Sidebar: Disabled**; hàng `velis-cta` mới (nhãn, H2 lợi ích, 3 ✓, form 20958 `du-an="<tên>"`, gọi / Zalo); nút đầu trang "Nhận tư vấn" → "Nhận bảng giá" (trừ Sun Group); /chu-dau-tu/ thêm hàng CTA cuối trang (`tools/the7_sua_buoc12.py`) | trình sửa cổ điển (scratch `b12/apply.mjs`, Rank Math khóa ngày sửa) |
+| Default Sidebar (bài blog) | HTML "Nhận tư vấn dự án" (link /lien-he/) + DT-Blog posts "Bài mới" | custom_html-3 = hộp CTA bản dọc theo dự án (`{du_an}`); thêm custom_html-5 `[velis_bai_viet so="5"]`; "Bài mới" → Tiện ích không sử dụng (không xóa) | REST `wp/v2/widgets` |
+| Mẫu của tôi | "Velis – Dự án", "Velis – Chủ đầu tư" (CTA cũ) | lưu lại theo `data/the7/mau-wpbakery/` (CTA mới) | AJAX `vc_save_template` (scratch `b11/tpl.mjs`) |
+| Cache | – | xóa FVM + LiteSpeed (chỉ purge) sau mỗi lần tải theme | thanh quản trị |
+
+Ghi chú: thử tạo form qua REST CF7 (`POST contact-forms`) trả 200 nhưng không lưu (id null) → không có form rác. "Sidebar dự án" (sidebar_3) giữ nguyên, không trang nào dùng.
+Quay lui: nhập `options-truoc-b12.json`; theme con 1.6.1 (commit 0b4edd1); khôi phục 12 bản sửa đổi trên; widget theo `widgets-truoc.json`
+(đưa "Bài mới" về Default Sidebar, custom_html-5 → không sử dụng); Sidebar: phải + "Sidebar dự án"; form 20958 để Nháp không cần (không còn trang dùng).
+Không xóa bài/trang/media, không gửi form (thử bằng chặn yêu cầu), không ghi `.htaccess`, site thật không bị ghi.

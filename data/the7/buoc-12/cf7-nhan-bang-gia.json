@@ -1,0 +1,8 @@
+{
+ "id": 20958,
+ "title": "Nhận bảng giá",
+ "form": "<div class=\"velis-cta-form\">\n<label class=\"velis-cf7-label\"><span class=\"screen-reader-text\">Họ và tên</span>[text* ten autocomplete:name placeholder \"Họ và tên\"]</label>\n<label class=\"velis-cf7-label\"><span class=\"screen-reader-text\">Số điện thoại / Zalo</span>[tel* sdt autocomplete:tel placeholder \"Số điện thoại / Zalo\"]</label>\n[submit \"Nhận bảng giá ngay\"]\n</div>\n[hidden du-an default:shortcode_attr]\n<div class=\"velis-cf7-consent\">[acceptance dong-y] Tôi đồng ý để Velis Realty dùng họ tên và số điện thoại này để liên hệ tư vấn, theo <a href=\"/chinh-sach-bao-mat/\" target=\"_blank\" rel=\"noopener\">Chính sách bảo mật</a>.[/acceptance]</div>",
+ "additional_settings": "acceptance_as_validation: on",
+ "mail_body": "Tên: [ten]\nSĐT: [sdt]\nDự án: [du-an]\nTrang: [_url]\n\n-- \n[_site_title] [_site_url]",
+ "mail_subject": "[_site_title] KH mới \"[ten]\" – [du-an]"
+}
