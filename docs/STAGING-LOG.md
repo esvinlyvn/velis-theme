@@ -552,3 +552,10 @@ Không gửi form thật (3 trạng thái thử bằng chặn yêu cầu …/fee
 | Cache | – | xóa FVM + LiteSpeed (chỉ purge) sau mỗi lần sửa | thanh quản trị |
 CF7 19582 / 20958: không đổi; người nhận vẫn velisrealtyvn@gmail.com (đọc REST). Không gửi form, không ghi `.htaccess`, không lưu trang cài đặt LiteSpeed.
 Đăng nhập wp-admin 1 lần (phiên cũ hết hạn), thành công.
+
+## 2026-11-14 – Kế hoạch ra mắt: diễn tập xuất CSDL (`docs/reports/the7-ke-hoach-ra-mat.md`)
+| Mục | Trước | Sau | Nơi đổi |
+|---|---|---|---|
+| UpdraftPlus (staging) | 2 bản sao lưu (2026-11-03) | + 1 bản **chỉ CSDL** 2026-11-14 10:38 (không tệp, không gửi lưu trữ từ xa); tải về máy làm việc để diễn tập bước 3–4, đã xóa bản tải về sau khi đo | Cài đặt → UpdraftPlus → Sao lưu ngay |
+Không đổi cài đặt / nội dung staging. Site thật: chỉ đọc (REST GET; wp-admin xem Site Health, Plugin, Header and Footer Scripts, Rank Math
+Chuyển hướng, Người dùng, UpdraftPlus – không bấm lưu, không chạy sao lưu). 7 ứng dụng: chỉ `curl -sI`.
