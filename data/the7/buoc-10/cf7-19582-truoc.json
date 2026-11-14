@@ -1,0 +1,121 @@
+{
+ "id": 19582,
+ "slug": "lien-he",
+ "title": "Liên Hệ",
+ "locale": "vi",
+ "properties": {
+  "form": {
+   "content": "<label class=\"velis-cf7-label\">Họ và tên <span class=\"velis-req\" aria-hidden=\"true\">*</span>\n[text* ten autocomplete:name placeholder \"Họ và tên\"]</label>\n<label class=\"velis-cf7-label\">Số điện thoại / Zalo <span class=\"velis-req\" aria-hidden=\"true\">*</span>\n[tel* sdt autocomplete:tel placeholder \"Số di động\"]</label>\n<div class=\"velis-cf7-consent\">[acceptance dong-y] Tôi đồng ý để Velis Realty dùng họ tên và số điện thoại này để liên hệ tư vấn, theo <a href=\"/chinh-sach-bao-mat/\" target=\"_blank\">Chính sách bảo mật</a>.[/acceptance]</div>\n[submit \"Gửi\"]",
+   "fields": [
+    {
+     "type": "text*",
+     "basetype": "text",
+     "name": "ten",
+     "options": [
+      "autocomplete:name",
+      "placeholder"
+     ],
+     "raw_values": [
+      "Họ và tên"
+     ],
+     "labels": [
+      "Họ và tên"
+     ],
+     "values": [
+      "Họ và tên"
+     ],
+     "pipes": [
+      [
+       "Họ và tên",
+       "Họ và tên"
+      ]
+     ],
+     "content": ""
+    },
+    {
+     "type": "tel*",
+     "basetype": "tel",
+     "name": "sdt",
+     "options": [
+      "autocomplete:tel",
+      "placeholder"
+     ],
+     "raw_values": [
+      "Số di động"
+     ],
+     "labels": [
+      "Số di động"
+     ],
+     "values": [
+      "Số di động"
+     ],
+     "pipes": [
+      [
+       "Số di động",
+       "Số di động"
+      ]
+     ],
+     "content": ""
+    },
+    {
+     "type": "acceptance",
+     "basetype": "acceptance",
+     "name": "dong-y",
+     "options": [],
+     "raw_values": [],
+     "labels": [],
+     "values": [],
+     "pipes": [],
+     "content": "Tôi đồng ý để Velis Realty dùng họ tên và số điện thoại này để liên hệ tư vấn, theo <a href=\"/chinh-sach-bao-mat/\" target=\"_blank\">Chính sách bảo mật</a>."
+    },
+    {
+     "type": "submit",
+     "basetype": "submit",
+     "name": "",
+     "options": [],
+     "raw_values": [
+      "Gửi"
+     ],
+     "labels": [
+      "Gửi"
+     ],
+     "values": [
+      "Gửi"
+     ],
+     "pipes": [
+      [
+       "Gửi",
+       "Gửi"
+      ]
+     ],
+     "content": ""
+    }
+   ]
+  },
+  "messages": {
+   "mail_sent_ok": "Xin cảm ơn, form đã được gửi thành công.",
+   "mail_sent_ng": "Có lỗi xảy ra trong quá trình gửi. Xin vui lòng thử lại hoặc liên hệ người quản trị website.",
+   "validation_error": "Có một hoặc nhiều mục nhập có lỗi. Vui lòng kiểm tra và thử lại.",
+   "spam": "Có lỗi xảy ra trong quá trình gửi. Xin vui lòng thử lại hoặc liên hệ người quản trị website.",
+   "accept_terms": "Bạn phải chấp nhận điều khoản trước khi gửi form.",
+   "invalid_required": "Vui lòng nhập dữ liệu cho trường này.",
+   "invalid_too_long": "Trường dữ liệu này có mục nhập quá dài.",
+   "invalid_too_short": "Trường dữ liệu có mục nhập quá ngắn.",
+   "upload_failed": "Tải file lên không thành công.",
+   "upload_file_type_invalid": "Bạn không được phép tải lên file theo định dạng này.",
+   "upload_file_too_large": "Dung lượng file được tải lên quá lớn.",
+   "upload_failed_php_error": "Tải file lên không thành công.",
+   "invalid_date": "Vui lòng nhập ngày tháng theo định dạng YYYY-MM-DD.",
+   "date_too_early": "Trường dữ liệu này có ngày sớm hơn ngày cho phép.",
+   "date_too_late": "Trường dữ liệu này có ngày trễ hơn ngày cho phép.",
+   "invalid_number": "Vui lòng nhập vào một con số.",
+   "number_too_small": "Trường dữ liệu này có một con số quá nhỏ.",
+   "number_too_large": "Trường dữ liệu này có một con số quá lớn.",
+   "quiz_answer_not_correct": "Câu trả lời chưa đúng.",
+   "invalid_email": "Vui lòng nhập địa chỉ email.",
+   "invalid_url": "Vui lòng nhập URL.",
+   "invalid_tel": "Vui lòng nhập số điện thoại.",
+   "captcha_not_match": "Bạn đã nhập sai mã CAPTCHA."
+  }
+ }
+}

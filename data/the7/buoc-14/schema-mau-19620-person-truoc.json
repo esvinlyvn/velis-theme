@@ -1,0 +1,35 @@
+{
+ "schema-1762": {
+  "metadata": {
+   "type": "template",
+   "shortcode": "s-f10dc36a-551c-4a18-a074-8aa8e491dd63",
+   "isPrimary": "1",
+   "title": "Person",
+   "displayConditions": [
+    {
+     "condition": "include",
+     "category": "singular",
+     "type": "page",
+     "value": "19551",
+     "id": "354d4c69-eb61-49b8-9216-71910341773d"
+    }
+   ],
+   "reviewLocationShortcode": "[rank_math_rich_snippet]"
+  },
+  "@type": "Person",
+  "name": "Vũ Xuân - CEO Velis Realty | Chuyên gia BĐS với 10 năm kinh nghiệm",
+  "description": "Vũ Xuân là CEO của Velis Realty, chuyên gia tư vấn chiến lược đầu tư bất động sản cao cấp tại các dự án Vinhomes, Sun Group và Masterise Homes với hơn 10 năm kinh nghiệm thực chiến.",
+  "email": "lienhe@velisrealty.vn",
+  "address": {
+   "@type": "PostalAddress",
+   "streetAddress": "34 Lương Định Của",
+   "addressLocality": "Phường Bình Trưng",
+   "addressRegion": "TP. Hồ Chí Minh",
+   "postalCode": "700000",
+   "addressCountry": "Việt Nam"
+  },
+  "gender": "Male",
+  "jobTitle": "CEO Velis Realty",
+  "sameAs": []
+ }
+}

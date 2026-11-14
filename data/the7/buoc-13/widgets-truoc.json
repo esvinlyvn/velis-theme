@@ -1,0 +1,166 @@
+{
+ "sidebar_2": [
+  {
+   "id": "text-2",
+   "id_base": "text",
+   "sidebar": "sidebar_2",
+   "rendered": "<section id=\"text-2\" class=\"widget widget_text\"><div class=\"widget-title\">Địa chỉ trụ sở:</div>\t\t\t<div class=\"textwidget\"><p>34 Lương Định Của, Phường Bình Trưng, TP. Hồ Chí Minh</p>\n<p><strong>Hotline:</strong> 0911 237 979 &#8211; <strong>Email:</strong> lienhe@velisrealty.vn</p>\n</div>\n\t\t</section>",
+   "rendered_form": "<input id=\"widget-text-2-title\" name=\"widget-text[2][title]\" class=\"title sync-input\" type=\"hidden\" value=\"Địa chỉ trụ sở:\">\n\t\t\t<textarea id=\"widget-text-2-text\" name=\"widget-text[2][text]\" class=\"text sync-input\" hidden>34 Lương Định Của, Phường Bình Trưng, TP. Hồ Chí Minh\r\n\r\n<strong>Hotline:</strong> 0911 237 979 - <strong>Email:</strong> lienhe@velisrealty.vn</textarea>\n\t\t\t<input id=\"widget-text-2-filter\" name=\"widget-text[2][filter]\" class=\"filter sync-input\" type=\"hidden\" value=\"on\">\n\t\t\t<input id=\"widget-text-2-visual\" name=\"widget-text[2][visual]\" class=\"visual sync-input\" type=\"hidden\" value=\"on\">",
+   "instance": {
+    "encoded": "YTo0OntzOjU6InRpdGxlIjtzOjI0OiLEkOG7i2EgY2jhu4kgdHLhu6Ugc+G7nzoiO3M6NDoidGV4dCI7czoxNTg6IjM0IEzGsMahbmcgxJDhu4tuaCBD4bunYSwgUGjGsOG7nW5nIELDrG5oIFRyxrBuZywgVFAuIEjhu5MgQ2jDrSBNaW5oDQoNCjxzdHJvbmc+SG90bGluZTo8L3N0cm9uZz4gMDkxMSAyMzcgOTc5IC0gPHN0cm9uZz5FbWFpbDo8L3N0cm9uZz4gbGllbmhlQHZlbGlzcmVhbHR5LnZuIjtzOjY6ImZpbHRlciI7YjoxO3M6NjoidmlzdWFsIjtiOjE7fQ==",
+    "hash": "71a4d69658d70fa21c758fc75e587ea0",
+    "raw": {
+     "title": "Địa chỉ trụ sở:",
+     "text": "34 Lương Định Của, Phường Bình Trưng, TP. Hồ Chí Minh\r\n\r\n<strong>Hotline:</strong> 0911 237 979 - <strong>Email:</strong> lienhe@velisrealty.vn",
+     "filter": true,
+     "visual": true
+    }
+   },
+   "_links": {
+    "self": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/widgets/text-2",
+      "targetHints": {
+       "allow": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+       ]
+      }
+     }
+    ],
+    "collection": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/widgets"
+     }
+    ],
+    "about": [
+     {
+      "embeddable": true,
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/widget-types/text"
+     }
+    ],
+    "wp:sidebar": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/sidebars/sidebar_2/"
+     }
+    ],
+    "curies": [
+     {
+      "name": "wp",
+      "href": "https://api.w.org/{rel}",
+      "templated": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "custom_html-2",
+   "id_base": "custom_html",
+   "sidebar": "sidebar_2",
+   "rendered": "<section id=\"custom_html-2\" class=\"widget_text widget widget_custom_html\"><div class=\"widget-title\">Liên hệ</div><div class=\"textwidget custom-html-widget\">\n<div class=\"wpcf7 no-js\" id=\"wpcf7-f19582-o1\" lang=\"vi\" dir=\"ltr\" data-wpcf7-id=\"19582\">\n<div class=\"screen-reader-response\"><p role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p> <ul></ul></div>\n<form action=\"/wp-json/wp/v2/widgets?sidebar=sidebar_2&#038;context=edit#wpcf7-f19582-o1\" method=\"post\" class=\"wpcf7-form init\" id=\"velis-tu-van\" aria-label=\"Form liên hệ\" novalidate=\"novalidate\" data-status=\"init\">\n<fieldset class=\"hidden-fields-container\"><input type=\"hidden\" name=\"_wpcf7\" value=\"19582\" /><input type=\"hidden\" name=\"_wpcf7_version\" value=\"6.1.6\" /><input type=\"hidden\" name=\"_wpcf7_locale\" value=\"vi\" /><input type=\"hidden\" name=\"_wpcf7_unit_tag\" value=\"wpcf7-f19582-o1\" /><input type=\"hidden\" name=\"_wpcf7_container_post\" value=\"0\" /><input type=\"hidden\" name=\"_wpcf7_posted_data_hash\" value=\"\" />\n</fieldset>\n<p><label class=\"velis-cf7-label\">Họ và tên <span class=\"velis-req\" aria-hidden=\"true\">*</span><br />\n<span class=\"wpcf7-form-control-wrap\" data-name=\"ten\"><input size=\"40\" maxlength=\"400\" class=\"wpcf7-form-control wpcf7-text wpcf7-validates-as-required\" autocomplete=\"name\" aria-required=\"true\" aria-invalid=\"false\" placeholder=\"Họ và tên\" value=\"\" type=\"text\" name=\"ten\" /></span></label><br />\n<label class=\"velis-cf7-label\">Số điện thoại / Zalo <span class=\"velis-req\" aria-hidden=\"true\">*</span><br />\n<span class=\"wpcf7-form-control-wrap\" data-name=\"sdt\"><input inputmode=\"tel\" size=\"40\" maxlength=\"400\" class=\"wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel\" autocomplete=\"tel\" aria-required=\"true\" aria-invalid=\"false\" placeholder=\"Số di động\" value=\"\" type=\"tel\" name=\"sdt\" /></span></label>\n</p>\n<div class=\"velis-cf7-consent\">\n\t<p><span class=\"wpcf7-form-control-wrap\" data-name=\"dong-y\"><span class=\"wpcf7-form-control wpcf7-acceptance\"><span class=\"wpcf7-list-item\"><label><input type=\"checkbox\" name=\"dong-y\" value=\"1\" aria-invalid=\"false\" /><span class=\"wpcf7-list-item-label\">Tôi đồng ý để Velis Realty dùng họ tên và số điện thoại này để liên hệ tư vấn, theo <a href=\"/chinh-sach-bao-mat/\" target=\"_blank\" rel=\"noopener\">Chính sách bảo mật</a>.</span></label></span></span></span>\n\t</p>\n</div>\n<p><input class=\"wpcf7-form-control wpcf7-submit has-spinner\" type=\"submit\" value=\"Gửi\" />\n</p><div class=\"wpcf7-response-output\" aria-hidden=\"true\"></div>\n</form>\n</div>\n</div></section>",
+   "rendered_form": "<input id=\"widget-custom_html-2-title\" name=\"widget-custom_html[2][title]\" class=\"title sync-input\" type=\"hidden\" value=\"Liên hệ\" />\n\t\t<textarea id=\"widget-custom_html-2-content\" name=\"widget-custom_html[2][content]\" class=\"content sync-input\" hidden>[contact-form-7 id=&quot;76ca02b&quot; title=&quot;Liên Hệ&quot;]</textarea>",
+   "instance": {
+    "encoded": "YToyOntzOjU6InRpdGxlIjtzOjEwOiJMacOqbiBo4buHIjtzOjc6ImNvbnRlbnQiO3M6NDg6Iltjb250YWN0LWZvcm0tNyBpZD0iNzZjYTAyYiIgdGl0bGU9Ikxpw6puIEjhu4ciXSI7fQ==",
+    "hash": "a4eb07f41b5cf2f4f12fc77805003aa8",
+    "raw": {
+     "title": "Liên hệ",
+     "content": "[contact-form-7 id=\"76ca02b\" title=\"Liên Hệ\"]"
+    }
+   },
+   "_links": {
+    "self": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/widgets/custom_html-2",
+      "targetHints": {
+       "allow": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+       ]
+      }
+     }
+    ],
+    "collection": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/widgets"
+     }
+    ],
+    "about": [
+     {
+      "embeddable": true,
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/widget-types/custom_html"
+     }
+    ],
+    "wp:sidebar": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/sidebars/sidebar_2/"
+     }
+    ],
+    "curies": [
+     {
+      "name": "wp",
+      "href": "https://api.w.org/{rel}",
+      "templated": true
+     }
+    ]
+   }
+  }
+ ],
+ "wp_inactive_widgets": [
+  {
+   "id": "presscore-blog-posts-2",
+   "id_base": "presscore-blog-posts",
+   "sidebar": "wp_inactive_widgets",
+   "rendered": "",
+   "rendered_form": "<p>\n\t\t\t<label for=\"widget-presscore-blog-posts-2-title\">Title:</label>\n\t\t\t<input type=\"text\" id=\"widget-presscore-blog-posts-2-title\" class=\"widefat\" name=\"widget-presscore-blog-posts[2][title]\" value=\"Bài mới\" />\n\t\t</p>\n\n\t\t<p>\n\t\t\t<strong>Category:</strong><br />\n\t\t\t\n\t\t\t\t<div class=\"dt-widget-switcher\">\n\n\t\t\t\t\t<label><input type=\"radio\" name=\"widget-presscore-blog-posts[2][select]\" value=\"all\"  checked='checked' />All</label>\n\t\t\t\t\t<label><input type=\"radio\" name=\"widget-presscore-blog-posts[2][select]\" value=\"only\"  />Only</label>\n\t\t\t\t\t<label><input type=\"radio\" name=\"widget-presscore-blog-posts[2][select]\" value=\"except\"  />Except</label>\n\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"hide-if-js\">\n\n\t\t\t\t\t\n\t\t\t\t\t<input id=\"widget-presscore-blog-posts-2-47\" type=\"checkbox\" name=\"widget-presscore-blog-posts[2][cats][]\" value=\"47\"  />\n\t\t\t\t\t<label for=\"widget-presscore-blog-posts-2-47\">Ansana by Kita</label><br />\n\n\t\t\t\t\t\n\t\t\t\t\t<input id=\"widget-presscore-blog-posts-2-34\" type=\"checkbox\" name=\"widget-presscore-blog-posts[2][cats][]\" value=\"34\"  />\n\t\t\t\t\t<label for=\"widget-presscore-blog-posts-2-34\">Dự án</label><br />\n\n\t\t\t\t\t\n\t\t\t\t\t<input id=\"widget-presscore-blog-posts-2-38\" type=\"checkbox\" name=\"widget-presscore-blog-posts[2][cats][]\" value=\"38\"  />\n\t\t\t\t\t<label for=\"widget-presscore-blog-posts-2-38\">Gamuda Land</label><br />\n\n\t\t\t\t\t\n\t\t\t\t\t<input id=\"widget-presscore-blog-posts-2-53\" type=\"checkbox\" name=\"widget-presscore-blog-posts[2][cats][]\" value=\"53\"  />\n\t\t\t\t\t<label for=\"widget-presscore-blog-posts-2-53\">Palm City</label><br />\n\n\t\t\t\t\t\n\t\t\t\t\t<input id=\"widget-presscore-blog-posts-2-57\" type=\"checkbox\" name=\"widget-presscore-blog-posts[2][cats][]\" value=\"57\"  />\n\t\t\t\t\t<label for=\"widget-presscore-blog-posts-2-57\">Phân khu</label><br />\n\n\t\t\t\t\t\n\t\t\t\t\t<input id=\"widget-presscore-blog-posts-2-44\" type=\"checkbox\" name=\"widget-presscore-blog-posts[2][cats][]\" value=\"44\"  />\n\t\t\t\t\t<label for=\"widget-presscore-blog-posts-2-44\">Spring Ville</label><br />\n\n\t\t\t\t\t\n\t\t\t\t\t<input id=\"widget-presscore-blog-posts-2-50\" type=\"checkbox\" name=\"widget-presscore-blog-posts[2][cats][]\" value=\"50\"  />\n\t\t\t\t\t<label for=\"widget-presscore-blog-posts-2-50\">The Global City</label><br />\n\n\t\t\t\t\t\n\t\t\t\t\t<input id=\"widget-presscore-blog-posts-2-48\" type=\"checkbox\" name=\"widget-presscore-blog-posts[2][cats][]\" value=\"48\"  />\n\t\t\t\t\t<label for=\"widget-presscore-blog-posts-2-48\">The Privé</label><br />\n\n\t\t\t\t\t\n\t\t\t\t\t<input id=\"widget-presscore-blog-posts-2-41\" type=\"checkbox\" name=\"widget-presscore-blog-posts[2][cats][]\" value=\"41\"  />\n\t\t\t\t\t<label for=\"widget-presscore-blog-posts-2-41\">Vinhomes</label><br />\n\n\t\t\t\t\t\n\t\t\t\t\t<input id=\"widget-presscore-blog-posts-2-35\" type=\"checkbox\" name=\"widget-presscore-blog-posts[2][cats][]\" value=\"35\"  />\n\t\t\t\t\t<label for=\"widget-presscore-blog-posts-2-35\">Vinhomes</label><br />\n\n\t\t\t\t\t\n\t\t\t\t\t<input id=\"widget-presscore-blog-posts-2-51\" type=\"checkbox\" name=\"widget-presscore-blog-posts[2][cats][]\" value=\"51\"  />\n\t\t\t\t\t<label for=\"widget-presscore-blog-posts-2-51\">Vinhomes Saigon Park</label><br />\n\n\t\t\t\t\t\n\t\t\t\t</div>\n\n\t\t\t\n\t\t</p>\n\n\t\t<p>\n\t\t\t<label for=\"widget-presscore-blog-posts-2-show\">Number of posts:</label>\n\t\t\t<input id=\"widget-presscore-blog-posts-2-show\" name=\"widget-presscore-blog-posts[2][show]\" value=\"4\" size=\"2\" maxlength=\"2\" />\n\t\t</p>\n\n\t\t<p>\n\t\t\t<label for=\"widget-presscore-blog-posts-2-orderby\">Sort by:</label>\n\t\t\t<select id=\"widget-presscore-blog-posts-2-orderby\" name=\"widget-presscore-blog-posts[2][orderby]\">\n\t\t\t\t\t\t\t\t<option value=\"ID\" >Order by ID</option>\n\t\t\t\t\t\t\t\t<option value=\"author\" >Order by author</option>\n\t\t\t\t\t\t\t\t<option value=\"title\" >Order by title</option>\n\t\t\t\t\t\t\t\t<option value=\"date\"  selected='selected'>Order by date</option>\n\t\t\t\t\t\t\t\t<option value=\"modified\" >Order by modified</option>\n\t\t\t\t\t\t\t\t<option value=\"rand\" >Order by rand</option>\n\t\t\t\t\t\t\t\t<option value=\"menu_order\" >Order by menu</option>\n\t\t\t\t\t\t\t</select>\n\t\t</p>\n\n\t\t</p>\n\t\t\t<label>\n\t\t\t<input name=\"widget-presscore-blog-posts[2][order]\" value=\"ASC\" type=\"radio\"  />Ascending\t\t\t</label>\n\t\t\t<label>\n\t\t\t<input name=\"widget-presscore-blog-posts[2][order]\" value=\"DESC\" type=\"radio\"  checked='checked' />Descending\t\t\t</label>\n\t\t</p>\n\n\t\t<p>\n\t\t\t<label for=\"widget-presscore-blog-posts-2-thumbnails\">Show featured images</label>\n\t\t\t<input type=\"checkbox\" id=\"widget-presscore-blog-posts-2-thumbnails\" name=\"widget-presscore-blog-posts[2][thumbnails]\" value=\"1\"  checked='checked' />\n\t\t</p>\n\n\t\t<p>\n\t\t\t<label for=\"widget-presscore-blog-posts-2-round_images\">Make images round</label>\n\t\t\t<input type=\"checkbox\" for=\"widget-presscore-blog-posts-2-round_images\" name=\"widget-presscore-blog-posts[2][round_images]\" value=\"1\"  checked='checked' />\n\t\t</p>\n\n\t\t<p>\n\t\t\t<label for=\"widget-presscore-blog-posts-2-show_excerpts\">Show excerpts</label>\n\t\t\t<input type=\"checkbox\" for=\"widget-presscore-blog-posts-2-show_excerpts\" name=\"widget-presscore-blog-posts[2][show_excerpts]\" value=\"1\"  />\n\t\t</p>\n\n\t\t<p>\n\t\t\t<label for=\"widget-presscore-blog-posts-2-images_dimensions\">Featured images proportions:\t\t\t<input type=\"text\" size=\"3\" name=\"widget-presscore-blog-posts[2][images_dimensions][w]\" value=\"40\" /><span>x</span>\n\t\t\t<input type=\"text\" size=\"3\" name=\"widget-presscore-blog-posts[2][images_dimensions][h]\" value=\"40\" /><span>in px</span>\n\t\t</p>\n\n\t\t<div style=\"clear: both;\"></div>",
+   "instance": {
+    "encoded": "YToxMDp7czo1OiJ0aXRsZSI7czoxMDoiQsOgaSBt4bubaSI7czo1OiJvcmRlciI7czo0OiJERVNDIjtzOjc6Im9yZGVyYnkiO3M6NDoiZGF0ZSI7czo0OiJzaG93IjtpOjQ7czo2OiJzZWxlY3QiO3M6MzoiYWxsIjtzOjQ6ImNhdHMiO2E6MDp7fXM6MTA6InRodW1ibmFpbHMiO2k6MTtzOjEyOiJyb3VuZF9pbWFnZXMiO2k6MTtzOjEzOiJzaG93X2V4Y2VycHRzIjtpOjA7czoxNzoiaW1hZ2VzX2RpbWVuc2lvbnMiO2E6Mjp7czoxOiJ3IjtpOjQwO3M6MToiaCI7aTo0MDt9fQ==",
+    "hash": "2dc060adf4c7efb27b25a6dd1286ecaa"
+   },
+   "_links": {
+    "self": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/widgets/presscore-blog-posts-2",
+      "targetHints": {
+       "allow": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+       ]
+      }
+     }
+    ],
+    "collection": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/widgets"
+     }
+    ],
+    "about": [
+     {
+      "embeddable": true,
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/widget-types/presscore-blog-posts"
+     }
+    ],
+    "wp:sidebar": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/sidebars/wp_inactive_widgets/"
+     }
+    ],
+    "curies": [
+     {
+      "name": "wp",
+      "href": "https://api.w.org/{rel}",
+      "templated": true
+     }
+    ]
+   }
+  }
+ ]
+}

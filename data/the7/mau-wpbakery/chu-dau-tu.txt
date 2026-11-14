@@ -1,0 +1,27 @@
+[vc_row el_id="gioi-thieu" el_class="velis-hero" css=".vc_custom_1762900000003{background-color: #FAF7F2 !important;}"][vc_column][dt_breadcrumbs][vc_column_text css=""]
+<p class="velis-eyebrow">Chủ đầu tư</p>
+<h1>[Tên chủ đầu tư]</h1>
+<p>[2–3 câu giới thiệu chủ đầu tư]</p>
+[/vc_column_text][dt_default_button link="url:%23lien-he-tu-van|title:Nh%E1%BA%ADn%20b%E1%BA%A3ng%20gi%C3%A1" size="big"]Nhận bảng giá[/dt_default_button][vc_column_text css=""]
+<p class="velis-call">Hoặc gọi <a href="tel:0911237979">0911 237 979</a> · <a href="https://zalo.me/0911237979" target="_blank" rel="noopener">Zalo</a></p>
+[/vc_column_text][/vc_column][/vc_row][vc_row el_id="du-an" el_class="velis-section velis-projects" css=""][vc_column][vc_column_text css=""]
+<h2>Dự án [tên chủ đầu tư] tại Velis Realty</h2>
+<p>[Chọn dự án của chủ đầu tư ở ô Posts của phần tử Blog Masonry &amp; Grid bên dưới]</p>
+[/vc_column_text][dt_blog_masonry post_type="posts" posts="" mode="grid" layout="classic" image_sizing="resize" resized_image_dimensions="4x3" image_scale_animation_on_hover="disabled" image_hover_bg_color="disabled" bwb_columns="desktop:2|h_tablet:2|v_tablet:2|phone:1" gap_between_posts="12px" all_posts_the_same_width="y" content_alignment="left" post_content_paddings="24px 24px 24px 24px" post_date="n" post_category="n" post_author="n" post_comments="n" post_content="show_excerpt" read_more_button="off" loading_mode="disabled" dis_posts_total="12" orderby="date" order="desc"][/vc_column][/vc_row][vc_row el_id="ve-chu-dau-tu" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
+<h2>Về [tên chủ đầu tư]</h2>
+<p>[Đoạn mở ~60 chữ, luôn hiện]</p>
+[/vc_column_text][vc_toggle title="Xem thêm" style="text_only" el_class="velis-more" use_custom_heading="true" custom_font_container="tag:p|text_align:left" custom_use_theme_fonts="yes"]<p>[Phần chữ dài còn lại – thu gọn, bấm "Xem thêm" để mở]</p>[/vc_toggle][/vc_column][/vc_row][vc_row el_id="cau-hoi" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
+<h2>Câu hỏi thường gặp về [tên chủ đầu tư]</h2>
+[/vc_column_text][vc_toggle title="[Câu hỏi 1]" css="" use_custom_heading="true" custom_font_container="tag:h3|text_align:left" custom_use_theme_fonts="yes"]<p>[Trả lời]</p>[/vc_toggle][vc_toggle title="[Câu hỏi 2]" css="" use_custom_heading="true" custom_font_container="tag:h3|text_align:left" custom_use_theme_fonts="yes"]<p>[Trả lời]</p>[/vc_toggle][vc_toggle title="[Câu hỏi 3]" css="" use_custom_heading="true" custom_font_container="tag:h3|text_align:left" custom_use_theme_fonts="yes"]<p>[Trả lời]</p>[/vc_toggle][/vc_column][/vc_row][vc_row el_id="lien-he-tu-van" el_class="velis-cta"][vc_column][vc_column_text css=""]
+<p class="velis-eyebrow">Tư vấn trực tiếp từ Velis Realty</p>
+<h2>Nhận bảng giá các dự án [tên chủ đầu tư]</h2>
+<ul class="velis-checks"><li>Bảng giá chi tiết và chính sách bán hàng mới nhất</li><li>Giỏ hàng căn đang có, chọn theo nhu cầu và số vốn</li><li>Phân tích pháp lý và tiềm năng đầu tư của dự án</li></ul>
+[/vc_column_text][contact-form-7 id="20958" title="Nhận bảng giá" du-an="[Tên chủ đầu tư]"][vc_column_text css=""]
+<p class="velis-cta-call">Hoặc gọi ngay <a href="tel:0911237979">0911 237 979</a> · <a href="https://zalo.me/0911237979" target="_blank" rel="noopener">Zalo</a> (08:00–21:00 hằng ngày)</p>
+[/vc_column_text][/vc_column][/vc_row][vc_row el_id="bai-lien-quan" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
+<h2>Bài viết liên quan</h2>
+<ul>
+<li><a href="[link bài 1]">[Tên bài 1]</a></li>
+<li><a href="[link bài 2]">[Tên bài 2]</a></li>
+</ul>
+[/vc_column_text][/vc_column][/vc_row]

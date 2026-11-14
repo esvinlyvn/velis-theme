@@ -91,7 +91,6 @@ function velis_line_fields(): array {
 function velis_developer_fields(): array {
 	return array(
 		'velis_short_name' => array( 'Tên viết tắt', 'text', false, '' ),
-		'velis_logo'       => array( 'Logo (SVG/PNG)', 'id', false, '' ),
 		'velis_founded'    => array( 'Năm thành lập', 'number', false, '' ),
 		'velis_hq'         => array( 'Trụ sở', 'text', false, '' ),
 		'velis_website'    => array( 'Website chính thức', 'url', false, '' ),
@@ -135,6 +134,11 @@ function velis_guess_type( string $name ): string {
 		}
 	}
 	return '';
+}
+
+/** Featured image kinds of a blog post (minh-hoa / nuoc-ngoai = to replace, docs/ANH-CAN-THAY.md). */
+function velis_image_kinds(): array {
+	return array( '' => '— Chưa phân loại —', 'du-an' => 'Ảnh dự án (phối cảnh / công trình)', 'khu-vuc' => 'Ảnh khu vực / Việt Nam', 'minh-hoa' => 'Minh họa chung – cần thay', 'nuoc-ngoai' => 'Người / cảnh nước ngoài – cần thay' );
 }
 
 /** Low-rise types get their own page; apartment types stay as tabs. */
@@ -230,6 +234,8 @@ function velis_register_meta() {
 	};
 	$reg( VELIS_CPT_PROJECT, array( 'velis_level' => array( 'Cấp', 'text' ) ) + velis_project_fields() + velis_lowrise_fields() );
 	$reg( VELIS_CPT_DEVELOPER, velis_developer_fields() );
+	// "Nổi bật" (vòng hoàn thiện 2): the home hero strip shows ticked projects, newest first.
+	register_post_meta( VELIS_CPT_PROJECT, 'velis_featured', array( 'type' => 'boolean', 'single' => true, 'show_in_rest' => true, 'auth_callback' => fn() => current_user_can( 'edit_posts' ) ) );
 	$line_props = array();
 	foreach ( velis_line_fields() as $k => $def ) {
 		$line_props[ $k ] = array( 'type' => 'string' );
@@ -245,6 +251,8 @@ function velis_register_meta() {
 	register_post_meta( 'post', 'velis_modified', array( 'type' => 'string', 'single' => true, 'show_in_rest' => true, 'sanitize_callback' => fn( $v ) => velis_clean( 'date', substr( (string) $v, 0, 10 ) ), 'auth_callback' => fn() => current_user_can( 'edit_posts' ) ) );
 	// Static map image of a region (used when a project has no coordinates of its own).
 	register_term_meta( 'khu-vuc', 'velis_map', array( 'type' => 'integer', 'single' => true, 'show_in_rest' => true, 'sanitize_callback' => 'absint', 'auth_callback' => fn() => current_user_can( 'edit_posts' ) ) );
+	// What the featured image shows; the home page only features posts whose image is a real project image.
+	register_post_meta( 'post', 'velis_image_kind', array( 'type' => 'string', 'single' => true, 'show_in_rest' => true, 'sanitize_callback' => fn( $v ) => isset( velis_image_kinds()[ $v ] ) ? $v : '', 'auth_callback' => fn() => current_user_can( 'edit_posts' ) ) );
 	register_post_meta( 'post', 'velis_post_kind', array( 'type' => 'string', 'single' => true, 'show_in_rest' => true, 'sanitize_callback' => 'sanitize_key', 'auth_callback' => fn() => current_user_can( 'edit_posts' ) ) );
 	// Blog post → the project / subzone it is about (brief: bài về phân khu link về đúng phân khu).
 	register_post_meta( 'post', 'velis_projects', array(

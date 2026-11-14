@@ -1,0 +1,1452 @@
+# Bộ đo ảnh & bố cục – 30 trang × DPR 1 / 1,25 / 2 × viewport 390 / 1066 / 1366 / 1536 / 1920
+
+Mỗi ô = số mục cộng qua 5 viewport. Cột lỗi (in đậm ở dòng tổng) phải = 0; 3 cột cuối chỉ để thông tin.
+
+| Trang | DPR | Ảnh hỏng | Chọn sai file | Lệch theo DPR > 1px | Nhóm thẻ trộn thiếu khung | Khung dự phòng không tên | Dải nổi bật lệch cao | Ảnh lẻ lưới tiến độ | Bản đồ/lưới lệch cột chữ | Ô trống lưới bài | Meta ngắt "phút" | Khối trống | Bảng < 2 hàng | Tràn ngang | H1 ≠ 1 | Heading HOA | Khoảng trống > 30% | Ảnh nguồn thiếu độ phân giải | Ảnh mờ (cách đo cũ) | Ô trống lưới khác |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 404 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 404 | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 404 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 0 | 0 |
+| trang-chu | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 3 | 0 |
+| trang-chu | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 5 | 4 | 0 |
+| trang-chu | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 8 | 5 | 0 |
+| du-an | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 |
+| du-an | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 3 |
+| du-an | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 5 | 3 | 3 |
+| the-prive | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 3 | 0 |
+| the-prive | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 19 | 7 | 0 |
+| the-prive | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 68 | 61 | 0 |
+| the-global-city | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 7 | 7 | 0 |
+| the-global-city | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 19 | 8 | 0 |
+| the-global-city | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 84 | 73 | 0 |
+| vinhomes-saigon-park | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 3 | 4 |
+| vinhomes-saigon-park | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 19 | 4 | 4 |
+| vinhomes-saigon-park | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 95 | 81 | 4 |
+| palm-city | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| palm-city | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| palm-city | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 5 | 3 | 0 |
+| spring-ville | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 3 | 0 |
+| spring-ville | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 4 | 0 |
+| spring-ville | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 36 | 30 | 0 |
+| ansana | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 3 | 0 |
+| ansana | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 9 | 4 | 0 |
+| ansana | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 40 | 34 | 0 |
+| masteri-grand-view | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 3 | 0 |
+| masteri-grand-view | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 4 | 0 |
+| masteri-grand-view | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 8 | 7 | 0 |
+| persa-place | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 3 | 0 |
+| persa-place | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 13 | 4 | 0 |
+| persa-place | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 56 | 47 | 0 |
+| palm-river | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 3 | 0 |
+| palm-river | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 23 | 4 | 0 |
+| palm-river | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 106 | 90 | 0 |
+| ivy-park | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| ivy-park | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| ivy-park | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 3 | 0 |
+| nha-pho-ivy-park | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| nha-pho-ivy-park | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| nha-pho-ivy-park | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 3 | 0 |
+| nha-pho-spring-ville | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| nha-pho-spring-ville | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| nha-pho-spring-ville | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 3 | 0 |
+| bai-prive | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-prive | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-prive | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 4 | 0 |
+| bai-vinhomes | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-vinhomes | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-vinhomes | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 5 | 4 | 0 |
+| bai-tgc | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-tgc | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-tgc | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 8 | 8 | 0 |
+| bai-persa | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-persa | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-persa | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 4 | 0 |
+| bai-ansana | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-ansana | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bai-ansana | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 4 | 0 |
+| blog | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| blog | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| blog | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 3 | 0 |
+| cum-blog | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| cum-blog | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| cum-blog | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| tac-gia | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| tac-gia | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| tac-gia | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| chu-dau-tu | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 |
+| chu-dau-tu | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 |
+| chu-dau-tu | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 |
+| masterise-homes | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| masterise-homes | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| masterise-homes | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 8 | 6 | 0 |
+| gioi-thieu | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| gioi-thieu | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 0 | 0 |
+| gioi-thieu | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 24 | 3 | 0 |
+| tuyen-dung | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| tuyen-dung | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| tuyen-dung | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| lien-he | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 |
+| lien-he | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 3 | 0 |
+| lien-he | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 4 | 0 |
+| chinh-sach | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| chinh-sach | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| chinh-sach | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| tim-kiem | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| tim-kiem | 1.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 0 | 0 |
+| tim-kiem | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 3 | 0 |
+| **Tổng** | | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | **0** | 756 | 563 | 33 |
+
+## Chi tiết
+
+- 404 · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-spring-ville.webp [thẻ]: cần 1218px, lớn nhất 1200px
+- 404 · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-spring-ville.webp [thẻ]: cần 1448px, lớn nhất 1200px
+- 404 · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-spring-ville.webp [thẻ]: cần 1448px, lớn nhất 1200px
+- 404 · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-spring-ville.webp [thẻ]: cần 1600px, lớn nhất 1200px
+- trang-chu · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1066px: can-ho-the-prive.webp [hero]: cần 1633px, lớn nhất 1200px
+- trang-chu · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-the-prive.webp [hero]: cần 1633px, lớn nhất 1200px
+- trang-chu · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-the-prive.webp [hero]: cần 1720px, lớn nhất 1200px
+- trang-chu · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-the-prive.webp [hero]: cần 2150px, lớn nhất 1200px
+- trang-chu · DPR 1 · Ảnh mờ (cách đo cũ): 1366px: can-ho-the-prive.webp khung 1530px × 1 > file 1200px × 1,15
+- trang-chu · DPR 1 · Ảnh mờ (cách đo cũ): 1536px: can-ho-the-prive.webp khung 1720px × 1 > file 1200px × 1,15
+- trang-chu · DPR 1 · Ảnh mờ (cách đo cũ): 1920px: can-ho-the-prive.webp khung 2150px × 1 > file 1200px × 1,15
+- trang-chu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: can-ho-the-prive.webp [hero]: cần 3265px, lớn nhất 1200px
+- trang-chu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: vp-velis-realty.webp [khác]: cần 1572px, lớn nhất 1200px
+- trang-chu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-the-prive.webp [hero]: cần 3265px, lớn nhất 1200px
+- trang-chu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vp-velis-realty.webp [khác]: cần 1872px, lớn nhất 1200px
+- trang-chu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-the-prive.webp [hero]: cần 3441px, lớn nhất 1200px
+- trang-chu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vp-velis-realty.webp [khác]: cần 1872px, lớn nhất 1200px
+- trang-chu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-the-prive.webp [hero]: cần 4301px, lớn nhất 1200px
+- trang-chu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vp-velis-realty.webp [khác]: cần 2070px, lớn nhất 1200px
+- trang-chu · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: can-ho-the-prive.webp khung 1194px × 2 > file 1200px × 1,15
+- trang-chu · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: can-ho-the-prive.webp khung 1530px × 2 > file 1200px × 1,15
+- trang-chu · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: can-ho-the-prive.webp khung 1720px × 2 > file 1200px × 1,15
+- trang-chu · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: can-ho-the-prive.webp khung 2150px × 2 > file 1200px × 1,15
+- trang-chu · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vp-velis-realty.webp khung 722px × 2 > file 1200px × 1,15
+- trang-chu · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1066px: can-ho-the-prive.webp [hero]: cần 2041px, lớn nhất 1200px
+- trang-chu · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-the-prive.webp [hero]: cần 2041px, lớn nhất 1200px
+- trang-chu · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-the-prive.webp [hero]: cần 2150px, lớn nhất 1200px
+- trang-chu · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-the-prive.webp [hero]: cần 2688px, lớn nhất 1200px
+- trang-chu · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: vp-velis-realty.webp [khác]: cần 1294px, lớn nhất 1200px
+- trang-chu · DPR 1.25 · Ảnh mờ (cách đo cũ): 1066px: can-ho-the-prive.webp khung 1194px × 1.25 > file 1200px × 1,15
+- trang-chu · DPR 1.25 · Ảnh mờ (cách đo cũ): 1366px: can-ho-the-prive.webp khung 1530px × 1.25 > file 1200px × 1,15
+- trang-chu · DPR 1.25 · Ảnh mờ (cách đo cũ): 1536px: can-ho-the-prive.webp khung 1720px × 1.25 > file 1200px × 1,15
+- trang-chu · DPR 1.25 · Ảnh mờ (cách đo cũ): 1920px: can-ho-the-prive.webp khung 2150px × 1.25 > file 1200px × 1,15
+- du-an · DPR 1 · Ô trống lưới khác: 1366px: div.v-grid.v-grid--4: 6 thẻ, 4 cột, 2 ô trống
+- du-an · DPR 1 · Ô trống lưới khác: 1536px: div.v-grid.v-grid--4: 6 thẻ, 4 cột, 2 ô trống
+- du-an · DPR 1 · Ô trống lưới khác: 1920px: div.v-grid.v-grid--4: 6 thẻ, 4 cột, 2 ô trống
+- du-an · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: can-ho-the-prive.webp [khác]: cần 1596px, lớn nhất 1200px
+- du-an · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-spring-ville.webp [thẻ]: cần 1218px, lớn nhất 1200px
+- du-an · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-the-prive.webp [khác]: cần 1900px, lớn nhất 1200px
+- du-an · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-the-prive.webp [khác]: cần 1900px, lớn nhất 1200px
+- du-an · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-the-prive.webp [khác]: cần 2101px, lớn nhất 1200px
+- du-an · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: can-ho-the-prive.webp khung 713px × 2 > file 1200px × 1,15
+- du-an · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: can-ho-the-prive.webp khung 713px × 2 > file 1200px × 1,15
+- du-an · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: can-ho-the-prive.webp khung 788px × 2 > file 1200px × 1,15
+- du-an · DPR 2 · Ô trống lưới khác: 1366px: div.v-grid.v-grid--4: 6 thẻ, 4 cột, 2 ô trống
+- du-an · DPR 2 · Ô trống lưới khác: 1536px: div.v-grid.v-grid--4: 6 thẻ, 4 cột, 2 ô trống
+- du-an · DPR 2 · Ô trống lưới khác: 1920px: div.v-grid.v-grid--4: 6 thẻ, 4 cột, 2 ô trống
+- du-an · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-the-prive.webp [khác]: cần 1313px, lớn nhất 1200px
+- du-an · DPR 1.25 · Ô trống lưới khác: 1366px: div.v-grid.v-grid--4: 6 thẻ, 4 cột, 2 ô trống
+- du-an · DPR 1.25 · Ô trống lưới khác: 1536px: div.v-grid.v-grid--4: 6 thẻ, 4 cột, 2 ô trống
+- du-an · DPR 1.25 · Ô trống lưới khác: 1920px: div.v-grid.v-grid--4: 6 thẻ, 4 cột, 2 ô trống
+- the-prive · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-the-prive.webp [hero]: cần 1530px, lớn nhất 1200px
+- the-prive · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-the-prive.webp [hero]: cần 1720px, lớn nhất 1200px
+- the-prive · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-the-prive.webp [hero]: cần 2150px, lớn nhất 1200px
+- the-prive · DPR 1 · Ảnh mờ (cách đo cũ): 1366px: can-ho-the-prive.webp khung 1530px × 1 > file 1200px × 1,15
+- the-prive · DPR 1 · Ảnh mờ (cách đo cũ): 1536px: can-ho-the-prive.webp khung 1720px × 1 > file 1200px × 1,15
+- the-prive · DPR 1 · Ảnh mờ (cách đo cũ): 1920px: can-ho-the-prive.webp khung 2150px × 1 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: can-ho-the-prive.webp [hero]: cần 2388px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: can-ho-the-prive.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: mat-bang-thap-9-the-prive.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: vi-tri-chien-luoc-the-prive.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: kinh-doanh-airbnb-the-prive.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: kinh-doanh-airbnb-the-prive.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: can-ho-1pn-the-prive-1024x683.webp [thư viện]: cần 1302px, lớn nhất 1024px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: can-ho-2pn-the-prive-1024x683.webp [thư viện]: cần 1302px, lớn nhất 1024px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: can-ho-3pn-the-prive.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: loi-nhuan-dau-tu-the-prive.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-do-the-prive-01.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-do-the-prive-02.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-do-the-prive-03.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-do-the-prive-04.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-the-prive.webp [hero]: cần 3060px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-the-prive.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: mat-bang-thap-9-the-prive.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vi-tri-chien-luoc-the-prive.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: kinh-doanh-airbnb-the-prive.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: kinh-doanh-airbnb-the-prive.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-1pn-the-prive-1024x683.webp [thư viện]: cần 1684px, lớn nhất 1024px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-2pn-the-prive-1024x683.webp [thư viện]: cần 1684px, lớn nhất 1024px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-3pn-the-prive-1024x683.webp [thư viện]: cần 1684px, lớn nhất 1024px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: loi-nhuan-dau-tu-the-prive.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vi-tri-chien-luoc-the-prive.webp [thư viện]: cần 1464px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: mat-bang-thap-9-the-prive.webp [thư viện]: cần 1464px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vi-tri-du-an-the-prive-2.webp [thư viện]: cần 1464px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: khoang-cach-di-chuyen-the-prive.webp [thư viện]: cần 1464px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-do-the-prive-01.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-do-the-prive-02.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-do-the-prive-03.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-do-the-prive-04.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-the-prive.webp [hero]: cần 3441px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-the-prive.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: mat-bang-thap-9-the-prive.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vi-tri-chien-luoc-the-prive.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: kinh-doanh-airbnb-the-prive.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: kinh-doanh-airbnb-the-prive.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-1pn-the-prive-1024x683.webp [thư viện]: cần 1684px, lớn nhất 1024px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-2pn-the-prive-1024x683.webp [thư viện]: cần 1684px, lớn nhất 1024px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-3pn-the-prive-1024x683.webp [thư viện]: cần 1684px, lớn nhất 1024px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: loi-nhuan-dau-tu-the-prive.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vi-tri-chien-luoc-the-prive.webp [thư viện]: cần 1464px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: mat-bang-thap-9-the-prive.webp [thư viện]: cần 1464px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vi-tri-du-an-the-prive-2.webp [thư viện]: cần 1464px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: khoang-cach-di-chuyen-the-prive.webp [thư viện]: cần 1464px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-do-the-prive-01.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-do-the-prive-02.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-do-the-prive-03.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-do-the-prive-04.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-the-prive.webp [hero]: cần 4301px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-the-prive.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: mat-bang-thap-9-the-prive.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vi-tri-chien-luoc-the-prive.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: kinh-doanh-airbnb-the-prive.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: kinh-doanh-airbnb-the-prive.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-1pn-the-prive-1024x683.webp [thư viện]: cần 1960px, lớn nhất 1024px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-2pn-the-prive-1024x683.webp [thư viện]: cần 1960px, lớn nhất 1024px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-3pn-the-prive-1024x683.webp [thư viện]: cần 1960px, lớn nhất 1024px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: loi-nhuan-dau-tu-the-prive.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vi-tri-chien-luoc-the-prive.webp [thư viện]: cần 1704px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: mat-bang-thap-9-the-prive.webp [thư viện]: cần 1704px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vi-tri-du-an-the-prive-2.webp [thư viện]: cần 1704px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: khoang-cach-di-chuyen-the-prive.webp [thư viện]: cần 1704px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-the-prive-01.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-the-prive-02.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-the-prive-03.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-the-prive-04.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: can-ho-the-prive.webp khung 1194px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: can-ho-the-prive.webp khung 706px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: mat-bang-thap-9-the-prive.webp khung 706px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: vi-tri-chien-luoc-the-prive.webp khung 706px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: kinh-doanh-airbnb-the-prive.webp khung 706px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: can-ho-1pn-the-prive-1024x683.webp khung 651px × 2 > file 1024px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: can-ho-2pn-the-prive-1024x683.webp khung 651px × 2 > file 1024px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: can-ho-the-prive.webp khung 1530px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: can-ho-the-prive.webp khung 806px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: mat-bang-thap-9-the-prive.webp khung 806px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: vi-tri-chien-luoc-the-prive.webp khung 806px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: kinh-doanh-airbnb-the-prive.webp khung 806px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: kinh-doanh-airbnb-the-prive.webp khung 842px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: can-ho-1pn-the-prive-1024x683.webp khung 842px × 2 > file 1024px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: can-ho-2pn-the-prive-1024x683.webp khung 842px × 2 > file 1024px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: can-ho-3pn-the-prive-1024x683.webp khung 842px × 2 > file 1024px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: loi-nhuan-dau-tu-the-prive.webp khung 842px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: vi-tri-chien-luoc-the-prive.webp khung 732px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: mat-bang-thap-9-the-prive.webp khung 732px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: vi-tri-du-an-the-prive-2.webp khung 732px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: khoang-cach-di-chuyen-the-prive.webp khung 732px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-do-the-prive-01.webp khung 842px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-do-the-prive-02.webp khung 842px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-do-the-prive-03.webp khung 842px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-do-the-prive-04.webp khung 842px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: can-ho-the-prive.webp khung 1720px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: can-ho-the-prive.webp khung 806px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: mat-bang-thap-9-the-prive.webp khung 806px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: vi-tri-chien-luoc-the-prive.webp khung 806px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: kinh-doanh-airbnb-the-prive.webp khung 806px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: kinh-doanh-airbnb-the-prive.webp khung 842px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: can-ho-1pn-the-prive-1024x683.webp khung 842px × 2 > file 1024px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: can-ho-2pn-the-prive-1024x683.webp khung 842px × 2 > file 1024px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: can-ho-3pn-the-prive-1024x683.webp khung 842px × 2 > file 1024px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: loi-nhuan-dau-tu-the-prive.webp khung 842px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: vi-tri-chien-luoc-the-prive.webp khung 732px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: mat-bang-thap-9-the-prive.webp khung 732px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: vi-tri-du-an-the-prive-2.webp khung 732px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: khoang-cach-di-chuyen-the-prive.webp khung 732px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-do-the-prive-01.webp khung 842px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-do-the-prive-02.webp khung 842px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-do-the-prive-03.webp khung 842px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-do-the-prive-04.webp khung 842px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: can-ho-the-prive.webp khung 2150px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: can-ho-the-prive.webp khung 806px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: mat-bang-thap-9-the-prive.webp khung 806px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vi-tri-chien-luoc-the-prive.webp khung 806px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: kinh-doanh-airbnb-the-prive.webp khung 806px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: kinh-doanh-airbnb-the-prive.webp khung 980px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: can-ho-1pn-the-prive-1024x683.webp khung 980px × 2 > file 1024px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: can-ho-2pn-the-prive-1024x683.webp khung 980px × 2 > file 1024px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: can-ho-3pn-the-prive-1024x683.webp khung 980px × 2 > file 1024px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: loi-nhuan-dau-tu-the-prive.webp khung 980px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vi-tri-chien-luoc-the-prive.webp khung 852px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: mat-bang-thap-9-the-prive.webp khung 852px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vi-tri-du-an-the-prive-2.webp khung 852px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: khoang-cach-di-chuyen-the-prive.webp khung 852px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-do-the-prive-01.webp khung 980px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-do-the-prive-02.webp khung 980px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-do-the-prive-03.webp khung 980px × 2 > file 1200px × 1,15
+- the-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-do-the-prive-04.webp khung 980px × 2 > file 1200px × 1,15
+- the-prive · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1066px: can-ho-the-prive.webp [hero]: cần 1492px, lớn nhất 1200px
+- the-prive · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-the-prive.webp [hero]: cần 1912px, lớn nhất 1200px
+- the-prive · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-1pn-the-prive-1024x683.webp [thư viện]: cần 1052px, lớn nhất 1024px
+- the-prive · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-2pn-the-prive-1024x683.webp [thư viện]: cần 1052px, lớn nhất 1024px
+- the-prive · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-3pn-the-prive-1024x683.webp [thư viện]: cần 1052px, lớn nhất 1024px
+- the-prive · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-the-prive.webp [hero]: cần 2150px, lớn nhất 1200px
+- the-prive · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-1pn-the-prive-1024x683.webp [thư viện]: cần 1052px, lớn nhất 1024px
+- the-prive · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-2pn-the-prive-1024x683.webp [thư viện]: cần 1052px, lớn nhất 1024px
+- the-prive · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-3pn-the-prive-1024x683.webp [thư viện]: cần 1052px, lớn nhất 1024px
+- the-prive · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-the-prive.webp [hero]: cần 2688px, lớn nhất 1200px
+- the-prive · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: kinh-doanh-airbnb-the-prive.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- the-prive · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-1pn-the-prive-1024x683.webp [thư viện]: cần 1225px, lớn nhất 1024px
+- the-prive · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-2pn-the-prive-1024x683.webp [thư viện]: cần 1225px, lớn nhất 1024px
+- the-prive · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-3pn-the-prive-1024x683.webp [thư viện]: cần 1225px, lớn nhất 1024px
+- the-prive · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: loi-nhuan-dau-tu-the-prive.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- the-prive · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-the-prive-01.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- the-prive · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-the-prive-02.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- the-prive · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-the-prive-03.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- the-prive · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-the-prive-04.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- the-prive · DPR 1.25 · Ảnh mờ (cách đo cũ): 1066px: can-ho-the-prive.webp khung 1194px × 1.25 > file 1200px × 1,15
+- the-prive · DPR 1.25 · Ảnh mờ (cách đo cũ): 1366px: can-ho-the-prive.webp khung 1530px × 1.25 > file 1200px × 1,15
+- the-prive · DPR 1.25 · Ảnh mờ (cách đo cũ): 1536px: can-ho-the-prive.webp khung 1720px × 1.25 > file 1200px × 1,15
+- the-prive · DPR 1.25 · Ảnh mờ (cách đo cũ): 1920px: can-ho-the-prive.webp khung 2150px × 1.25 > file 1200px × 1,15
+- the-prive · DPR 1.25 · Ảnh mờ (cách đo cũ): 1920px: can-ho-1pn-the-prive-1024x683.webp khung 980px × 1.25 > file 1024px × 1,15
+- the-prive · DPR 1.25 · Ảnh mờ (cách đo cũ): 1920px: can-ho-2pn-the-prive-1024x683.webp khung 980px × 1.25 > file 1024px × 1,15
+- the-prive · DPR 1.25 · Ảnh mờ (cách đo cũ): 1920px: can-ho-3pn-the-prive-1024x683.webp khung 980px × 1.25 > file 1024px × 1,15
+- the-global-city · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1066px: hqdefault.jpg [ảnh nội dung]: cần 630px, lớn nhất 480px
+- the-global-city · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1366px: the-global-city-3-1.webp [hero]: cần 1530px, lớn nhất 1200px
+- the-global-city · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1366px: hqdefault.jpg [ảnh nội dung]: cần 720px, lớn nhất 480px
+- the-global-city · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1536px: the-global-city-3-1.webp [hero]: cần 1720px, lớn nhất 1200px
+- the-global-city · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1536px: hqdefault.jpg [ảnh nội dung]: cần 720px, lớn nhất 480px
+- the-global-city · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1920px: the-global-city-3-1.webp [hero]: cần 2150px, lớn nhất 1200px
+- the-global-city · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1920px: hqdefault.jpg [ảnh nội dung]: cần 720px, lớn nhất 480px
+- the-global-city · DPR 1 · Ảnh mờ (cách đo cũ): 1066px: hqdefault.jpg khung 630px × 1 > file 480px × 1,15
+- the-global-city · DPR 1 · Ảnh mờ (cách đo cũ): 1366px: the-global-city-3-1.webp khung 1530px × 1 > file 1200px × 1,15
+- the-global-city · DPR 1 · Ảnh mờ (cách đo cũ): 1366px: hqdefault.jpg khung 720px × 1 > file 480px × 1,15
+- the-global-city · DPR 1 · Ảnh mờ (cách đo cũ): 1536px: the-global-city-3-1.webp khung 1720px × 1 > file 1200px × 1,15
+- the-global-city · DPR 1 · Ảnh mờ (cách đo cũ): 1536px: hqdefault.jpg khung 720px × 1 > file 480px × 1,15
+- the-global-city · DPR 1 · Ảnh mờ (cách đo cũ): 1920px: the-global-city-3-1.webp khung 2150px × 1 > file 1200px × 1,15
+- the-global-city · DPR 1 · Ảnh mờ (cách đo cũ): 1920px: hqdefault.jpg khung 720px × 1 > file 480px × 1,15
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 390px: hqdefault.jpg [ảnh nội dung]: cần 716px, lớn nhất 480px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: the-global-city-3-1.webp [hero]: cần 2388px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-the-global-city.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: can-ho-masteri-grand-view.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-lumiere-mid-town.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: shophouse-soho-tgc.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: mat-bang-the-global-city.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: vi-tri-the-global-city.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: the-global-city-3.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-the-global-city.webp [thư viện]: cần 1510px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: the-global-city-3.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: suc-hut-dau-tu-the-global-city.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: shophouse-soho-tgc.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-masteri-cosmo.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-sola.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: can-ho-masteri-grand-view.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-lumiere-mid-town.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-masteri-park-place.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: hqdefault.jpg [ảnh nội dung]: cần 1260px, lớn nhất 480px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: the-global-city-3-1.webp [ảnh nội dung]: cần 1345px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: the-global-city-3-1.webp [hero]: cần 3060px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-the-global-city.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-masteri-grand-view.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-lumiere-mid-town.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: shophouse-soho-tgc.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: mat-bang-the-global-city.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vi-tri-the-global-city.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: the-global-city-3.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-the-global-city.webp [thư viện]: cần 1953px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: the-global-city-3.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: suc-hut-dau-tu-the-global-city.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: shophouse-soho-tgc.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-masteri-cosmo.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-sola.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-masteri-grand-view.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-lumiere-mid-town.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-masteri-park-place.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vi-tri-the-global-city.webp [thư viện]: cần 1464px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: mat-bang-the-global-city.webp [thư viện]: cần 1464px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: hqdefault.jpg [ảnh nội dung]: cần 1440px, lớn nhất 480px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: the-global-city-3-1.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: the-global-city-3-1.webp [hero]: cần 3441px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-the-global-city.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-masteri-grand-view.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-lumiere-mid-town.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: shophouse-soho-tgc.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: mat-bang-the-global-city.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vi-tri-the-global-city.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: the-global-city-3.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-the-global-city.webp [thư viện]: cần 1953px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: the-global-city-3.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: suc-hut-dau-tu-the-global-city.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: shophouse-soho-tgc.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-masteri-cosmo.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-sola.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-masteri-grand-view.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-lumiere-mid-town.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-masteri-park-place.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vi-tri-the-global-city.webp [thư viện]: cần 1464px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: mat-bang-the-global-city.webp [thư viện]: cần 1464px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: hqdefault.jpg [ảnh nội dung]: cần 1440px, lớn nhất 480px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: the-global-city-3-1.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: the-global-city-3-1.webp [hero]: cần 4301px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-the-global-city.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-masteri-park-place.webp [thẻ]: cần 1312px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-masteri-grand-view.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-lumiere-mid-town.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: shophouse-soho-tgc.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: mat-bang-the-global-city.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vi-tri-the-global-city.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: the-global-city-3.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-the-global-city.webp [thư viện]: cần 2273px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: the-global-city-3.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: suc-hut-dau-tu-the-global-city.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: shophouse-soho-tgc.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-masteri-cosmo.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-sola.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-masteri-grand-view.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-lumiere-mid-town.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-masteri-park-place.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vi-tri-the-global-city.webp [thư viện]: cần 1704px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: mat-bang-the-global-city.webp [thư viện]: cần 1704px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: hqdefault.jpg [ảnh nội dung]: cần 1440px, lớn nhất 480px
+- the-global-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: the-global-city-3-1.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 390px: hqdefault.jpg khung 358px × 2 > file 480px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: the-global-city-3-1.webp khung 1194px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: phoi-canh-the-global-city.webp khung 706px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: can-ho-masteri-grand-view.webp khung 706px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: phoi-canh-lumiere-mid-town.webp khung 706px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: shophouse-soho-tgc.webp khung 706px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: mat-bang-the-global-city.webp khung 706px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: vi-tri-the-global-city.webp khung 706px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: the-global-city-3.webp khung 706px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: hqdefault.jpg khung 630px × 2 > file 480px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: the-global-city-3-1.webp khung 1530px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phoi-canh-the-global-city.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: can-ho-masteri-grand-view.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phoi-canh-lumiere-mid-town.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: shophouse-soho-tgc.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: mat-bang-the-global-city.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: vi-tri-the-global-city.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: the-global-city-3.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phoi-canh-the-global-city.webp khung 842px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: the-global-city-3.webp khung 842px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: suc-hut-dau-tu-the-global-city.webp khung 842px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: shophouse-soho-tgc.webp khung 842px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phoi-canh-masteri-cosmo.webp khung 842px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phoi-canh-sola.webp khung 842px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: can-ho-masteri-grand-view.webp khung 842px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phoi-canh-lumiere-mid-town.webp khung 842px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phoi-canh-masteri-park-place.webp khung 842px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: vi-tri-the-global-city.webp khung 732px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: mat-bang-the-global-city.webp khung 732px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: hqdefault.jpg khung 720px × 2 > file 480px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: the-global-city-3-1.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: the-global-city-3-1.webp khung 1720px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phoi-canh-the-global-city.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: can-ho-masteri-grand-view.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phoi-canh-lumiere-mid-town.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: shophouse-soho-tgc.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: mat-bang-the-global-city.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: vi-tri-the-global-city.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: the-global-city-3.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phoi-canh-the-global-city.webp khung 842px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: the-global-city-3.webp khung 842px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: suc-hut-dau-tu-the-global-city.webp khung 842px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: shophouse-soho-tgc.webp khung 842px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phoi-canh-masteri-cosmo.webp khung 842px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phoi-canh-sola.webp khung 842px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: can-ho-masteri-grand-view.webp khung 842px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phoi-canh-lumiere-mid-town.webp khung 842px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phoi-canh-masteri-park-place.webp khung 842px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: vi-tri-the-global-city.webp khung 732px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: mat-bang-the-global-city.webp khung 732px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: hqdefault.jpg khung 720px × 2 > file 480px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: the-global-city-3-1.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: the-global-city-3-1.webp khung 2150px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phoi-canh-the-global-city.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: can-ho-masteri-grand-view.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phoi-canh-lumiere-mid-town.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: shophouse-soho-tgc.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: mat-bang-the-global-city.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vi-tri-the-global-city.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: the-global-city-3.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phoi-canh-the-global-city.webp khung 980px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: the-global-city-3.webp khung 980px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: suc-hut-dau-tu-the-global-city.webp khung 980px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: shophouse-soho-tgc.webp khung 980px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phoi-canh-masteri-cosmo.webp khung 980px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phoi-canh-sola.webp khung 980px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: can-ho-masteri-grand-view.webp khung 980px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phoi-canh-lumiere-mid-town.webp khung 980px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phoi-canh-masteri-park-place.webp khung 980px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vi-tri-the-global-city.webp khung 852px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: mat-bang-the-global-city.webp khung 852px × 2 > file 1200px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: hqdefault.jpg khung 720px × 2 > file 480px × 1,15
+- the-global-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: the-global-city-3-1.webp khung 806px × 2 > file 1200px × 1,15
+- the-global-city · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1066px: the-global-city-3-1.webp [hero]: cần 1492px, lớn nhất 1200px
+- the-global-city · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1066px: hqdefault.jpg [ảnh nội dung]: cần 788px, lớn nhất 480px
+- the-global-city · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1366px: the-global-city-3-1.webp [hero]: cần 1912px, lớn nhất 1200px
+- the-global-city · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-the-global-city.webp [thư viện]: cần 1220px, lớn nhất 1200px
+- the-global-city · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1366px: hqdefault.jpg [ảnh nội dung]: cần 900px, lớn nhất 480px
+- the-global-city · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1536px: the-global-city-3-1.webp [hero]: cần 2150px, lớn nhất 1200px
+- the-global-city · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-the-global-city.webp [thư viện]: cần 1220px, lớn nhất 1200px
+- the-global-city · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1536px: hqdefault.jpg [ảnh nội dung]: cần 900px, lớn nhất 480px
+- the-global-city · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: the-global-city-3-1.webp [hero]: cần 2688px, lớn nhất 1200px
+- the-global-city · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-the-global-city.webp [thư viện]: cần 1420px, lớn nhất 1200px
+- the-global-city · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: the-global-city-3.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- the-global-city · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: suc-hut-dau-tu-the-global-city.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- the-global-city · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: shophouse-soho-tgc.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- the-global-city · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-masteri-cosmo.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- the-global-city · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-sola.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- the-global-city · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-masteri-grand-view.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- the-global-city · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-lumiere-mid-town.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- the-global-city · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-masteri-park-place.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- the-global-city · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: hqdefault.jpg [ảnh nội dung]: cần 900px, lớn nhất 480px
+- the-global-city · DPR 1.25 · Ảnh mờ (cách đo cũ): 1066px: the-global-city-3-1.webp khung 1194px × 1.25 > file 1200px × 1,15
+- the-global-city · DPR 1.25 · Ảnh mờ (cách đo cũ): 1066px: hqdefault.jpg khung 630px × 1.25 > file 480px × 1,15
+- the-global-city · DPR 1.25 · Ảnh mờ (cách đo cũ): 1366px: the-global-city-3-1.webp khung 1530px × 1.25 > file 1200px × 1,15
+- the-global-city · DPR 1.25 · Ảnh mờ (cách đo cũ): 1366px: hqdefault.jpg khung 720px × 1.25 > file 480px × 1,15
+- the-global-city · DPR 1.25 · Ảnh mờ (cách đo cũ): 1536px: the-global-city-3-1.webp khung 1720px × 1.25 > file 1200px × 1,15
+- the-global-city · DPR 1.25 · Ảnh mờ (cách đo cũ): 1536px: hqdefault.jpg khung 720px × 1.25 > file 480px × 1,15
+- the-global-city · DPR 1.25 · Ảnh mờ (cách đo cũ): 1920px: the-global-city-3-1.webp khung 2150px × 1.25 > file 1200px × 1,15
+- the-global-city · DPR 1.25 · Ảnh mờ (cách đo cũ): 1920px: hqdefault.jpg khung 720px × 1.25 > file 480px × 1,15
+- vinhomes-saigon-park · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1366px: vinhomes-saigon-park-2.webp [hero]: cần 1530px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1536px: vinhomes-saigon-park-2.webp [hero]: cần 1720px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1920px: vinhomes-saigon-park-2.webp [hero]: cần 2150px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1 · Ảnh mờ (cách đo cũ): 1366px: vinhomes-saigon-park-2.webp khung 1530px × 1 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 1 · Ảnh mờ (cách đo cũ): 1536px: vinhomes-saigon-park-2.webp khung 1720px × 1 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 1 · Ảnh mờ (cách đo cũ): 1920px: vinhomes-saigon-park-2.webp khung 2150px × 1 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 1 · Ô trống lưới khác: 1066px: div.v-grid.v-grid--zones: 3 thẻ, 2 cột, 1 ô trống
+- vinhomes-saigon-park · DPR 1 · Ô trống lưới khác: 1366px: div.v-grid.v-grid--zones: 3 thẻ, 2 cột, 1 ô trống
+- vinhomes-saigon-park · DPR 1 · Ô trống lưới khác: 1536px: div.v-grid.v-grid--zones: 3 thẻ, 2 cột, 1 ô trống
+- vinhomes-saigon-park · DPR 1 · Ô trống lưới khác: 1920px: div.v-grid.v-grid--zones: 3 thẻ, 2 cột, 1 ô trống
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: vinhomes-saigon-park-2.webp [hero]: cần 2388px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: vinhomes-saigon-park-2.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phan-khu-1-vinhomes-saigon-park.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phan-khu-2-vinhomes-saigon-park.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: thiet-ke-nha-pho-vinhomes.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: mat-bang-tong-vinhomes-saigon-park.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: ban-do-khu-vuc-tay-bac.webp [bản đồ]: cần 1364px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: vinhomes-saigon-park.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-ich-vinhomes-saigon-park.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: vinhomes-saigon-park-2.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-ich-vinhomes-saigon-park.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: vinhomes-saigon-park-1.webp [thư viện]: cần 1325px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: thiet-ke-nha-pho-vinhomes.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: biet-thu-san-golf-vinhomes.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: cho-thue-vinhomes-saigon-park.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phan-khu-1-vinhomes-saigon-park.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phan-khu-2-vinhomes-saigon-park.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phan-khu-3-vinhomes-saigon-park.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phan-khu-4-vinhomes-saigon-park.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phan-khu-5-vinhomes-saigon-park.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: vinhomes-saigon-park-3.webp [thư viện]: cần 1497px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-do-vinhomes-saigon-park.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-do-vinhomes-saigon-park.webp [ảnh tiến độ]: cần 1632px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vinhomes-saigon-park-2.webp [hero]: cần 3060px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vinhomes-saigon-park-2.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phan-khu-1-vinhomes-saigon-park.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phan-khu-2-vinhomes-saigon-park.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: thiet-ke-nha-pho-vinhomes.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: mat-bang-tong-vinhomes-saigon-park.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: ban-do-khu-vuc-tay-bac.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vinhomes-saigon-park.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-ich-vinhomes-saigon-park.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vinhomes-saigon-park-2.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-ich-vinhomes-saigon-park.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vinhomes-saigon-park-1.webp [thư viện]: cần 1714px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: thiet-ke-nha-pho-vinhomes.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: biet-thu-san-golf-vinhomes.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: cho-thue-vinhomes-saigon-park.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phan-khu-1-vinhomes-saigon-park.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phan-khu-2-vinhomes-saigon-park.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phan-khu-3-vinhomes-saigon-park.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phan-khu-4-vinhomes-saigon-park.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phan-khu-5-vinhomes-saigon-park.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vinhomes-saigon-park-3.webp [thư viện]: cần 1936px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: mat-bang-tong-vinhomes-saigon-park.webp [thư viện]: cần 1464px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-do-vinhomes-saigon-park.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-do-vinhomes-saigon-park.webp [ảnh tiến độ]: cần 1865px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vinhomes-saigon-park-2.webp [hero]: cần 3441px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vinhomes-saigon-park-2.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phan-khu-1-vinhomes-saigon-park.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phan-khu-2-vinhomes-saigon-park.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: thiet-ke-nha-pho-vinhomes.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: mat-bang-tong-vinhomes-saigon-park.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: ban-do-khu-vuc-tay-bac.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vinhomes-saigon-park.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-ich-vinhomes-saigon-park.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vinhomes-saigon-park-2.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-ich-vinhomes-saigon-park.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vinhomes-saigon-park-1.webp [thư viện]: cần 1714px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: thiet-ke-nha-pho-vinhomes.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: biet-thu-san-golf-vinhomes.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: cho-thue-vinhomes-saigon-park.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phan-khu-1-vinhomes-saigon-park.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phan-khu-2-vinhomes-saigon-park.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phan-khu-3-vinhomes-saigon-park.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phan-khu-4-vinhomes-saigon-park.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phan-khu-5-vinhomes-saigon-park.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vinhomes-saigon-park-3.webp [thư viện]: cần 1936px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: mat-bang-tong-vinhomes-saigon-park.webp [thư viện]: cần 1464px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-do-vinhomes-saigon-park.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-do-vinhomes-saigon-park.webp [ảnh tiến độ]: cần 1865px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vinhomes-saigon-park-2.webp [hero]: cần 4301px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vinhomes-saigon-park-2.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phan-khu-1-vinhomes-saigon-park.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phan-khu-2-vinhomes-saigon-park.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: thiet-ke-nha-pho-vinhomes.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: mat-bang-tong-vinhomes-saigon-park.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: ban-do-khu-vuc-tay-bac.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vinhomes-saigon-park.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-ich-vinhomes-saigon-park.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vinhomes-saigon-park-2.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-ich-vinhomes-saigon-park.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vinhomes-saigon-park-1.webp [thư viện]: cần 1995px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: thiet-ke-nha-pho-vinhomes.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: biet-thu-san-golf-vinhomes.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: cho-thue-vinhomes-saigon-park.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phan-khu-1-vinhomes-saigon-park.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phan-khu-2-vinhomes-saigon-park.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phan-khu-3-vinhomes-saigon-park.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phan-khu-4-vinhomes-saigon-park.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phan-khu-5-vinhomes-saigon-park.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vinhomes-saigon-park-3.webp [thư viện]: cần 2253px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: mat-bang-tong-vinhomes-saigon-park.webp [thư viện]: cần 1704px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-vinhomes-saigon-park.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-vinhomes-saigon-park.webp [ảnh tiến độ]: cần 1865px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: vinhomes-saigon-park-2.webp khung 1194px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: vinhomes-saigon-park-2.webp khung 706px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: phan-khu-1-vinhomes-saigon-park.webp khung 706px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: phan-khu-2-vinhomes-saigon-park.webp khung 706px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: thiet-ke-nha-pho-vinhomes.webp khung 706px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: mat-bang-tong-vinhomes-saigon-park.webp khung 706px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: vinhomes-saigon-park.webp khung 706px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: tien-ich-vinhomes-saigon-park.webp khung 706px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: tien-do-vinhomes-saigon-park.webp khung 725px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: vinhomes-saigon-park-2.webp khung 1530px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: vinhomes-saigon-park-2.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phan-khu-1-vinhomes-saigon-park.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phan-khu-2-vinhomes-saigon-park.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: thiet-ke-nha-pho-vinhomes.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: mat-bang-tong-vinhomes-saigon-park.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: ban-do-khu-vuc-tay-bac.webp khung 720px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: vinhomes-saigon-park.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-ich-vinhomes-saigon-park.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: vinhomes-saigon-park-2.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-ich-vinhomes-saigon-park.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: vinhomes-saigon-park-1.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: thiet-ke-nha-pho-vinhomes.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: biet-thu-san-golf-vinhomes.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: cho-thue-vinhomes-saigon-park.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phan-khu-1-vinhomes-saigon-park.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phan-khu-2-vinhomes-saigon-park.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phan-khu-3-vinhomes-saigon-park.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phan-khu-4-vinhomes-saigon-park.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phan-khu-5-vinhomes-saigon-park.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: vinhomes-saigon-park-3.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: mat-bang-tong-vinhomes-saigon-park.webp khung 732px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-do-vinhomes-saigon-park.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-do-vinhomes-saigon-park.webp khung 828px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: vinhomes-saigon-park-2.webp khung 1720px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: vinhomes-saigon-park-2.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phan-khu-1-vinhomes-saigon-park.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phan-khu-2-vinhomes-saigon-park.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: thiet-ke-nha-pho-vinhomes.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: mat-bang-tong-vinhomes-saigon-park.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: ban-do-khu-vuc-tay-bac.webp khung 720px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: vinhomes-saigon-park.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-ich-vinhomes-saigon-park.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: vinhomes-saigon-park-2.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-ich-vinhomes-saigon-park.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: vinhomes-saigon-park-1.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: thiet-ke-nha-pho-vinhomes.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: biet-thu-san-golf-vinhomes.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: cho-thue-vinhomes-saigon-park.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phan-khu-1-vinhomes-saigon-park.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phan-khu-2-vinhomes-saigon-park.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phan-khu-3-vinhomes-saigon-park.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phan-khu-4-vinhomes-saigon-park.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phan-khu-5-vinhomes-saigon-park.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: vinhomes-saigon-park-3.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: mat-bang-tong-vinhomes-saigon-park.webp khung 732px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-do-vinhomes-saigon-park.webp khung 842px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-do-vinhomes-saigon-park.webp khung 828px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vinhomes-saigon-park-2.webp khung 2150px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vinhomes-saigon-park-2.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phan-khu-1-vinhomes-saigon-park.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phan-khu-2-vinhomes-saigon-park.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: thiet-ke-nha-pho-vinhomes.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: mat-bang-tong-vinhomes-saigon-park.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: ban-do-khu-vuc-tay-bac.webp khung 720px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vinhomes-saigon-park.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-ich-vinhomes-saigon-park.webp khung 806px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vinhomes-saigon-park-2.webp khung 980px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-ich-vinhomes-saigon-park.webp khung 980px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vinhomes-saigon-park-1.webp khung 980px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: thiet-ke-nha-pho-vinhomes.webp khung 980px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: biet-thu-san-golf-vinhomes.webp khung 980px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: cho-thue-vinhomes-saigon-park.webp khung 980px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phan-khu-1-vinhomes-saigon-park.webp khung 980px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phan-khu-2-vinhomes-saigon-park.webp khung 980px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phan-khu-3-vinhomes-saigon-park.webp khung 980px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phan-khu-4-vinhomes-saigon-park.webp khung 980px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phan-khu-5-vinhomes-saigon-park.webp khung 980px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vinhomes-saigon-park-3.webp khung 980px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: mat-bang-tong-vinhomes-saigon-park.webp khung 852px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-do-vinhomes-saigon-park.webp khung 980px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-do-vinhomes-saigon-park.webp khung 828px × 2 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 2 · Ô trống lưới khác: 1066px: div.v-grid.v-grid--zones: 3 thẻ, 2 cột, 1 ô trống
+- vinhomes-saigon-park · DPR 2 · Ô trống lưới khác: 1366px: div.v-grid.v-grid--zones: 3 thẻ, 2 cột, 1 ô trống
+- vinhomes-saigon-park · DPR 2 · Ô trống lưới khác: 1536px: div.v-grid.v-grid--zones: 3 thẻ, 2 cột, 1 ô trống
+- vinhomes-saigon-park · DPR 2 · Ô trống lưới khác: 1920px: div.v-grid.v-grid--zones: 3 thẻ, 2 cột, 1 ô trống
+- vinhomes-saigon-park · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1066px: vinhomes-saigon-park-2.webp [hero]: cần 1492px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1366px: vinhomes-saigon-park-2.webp [hero]: cần 1912px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1366px: vinhomes-saigon-park-3.webp [thư viện]: cần 1210px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1536px: vinhomes-saigon-park-2.webp [hero]: cần 2150px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1536px: vinhomes-saigon-park-3.webp [thư viện]: cần 1210px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: vinhomes-saigon-park-2.webp [hero]: cần 2688px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: vinhomes-saigon-park-2.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-ich-vinhomes-saigon-park.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: vinhomes-saigon-park-1.webp [thư viện]: cần 1247px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: thiet-ke-nha-pho-vinhomes.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: biet-thu-san-golf-vinhomes.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: cho-thue-vinhomes-saigon-park.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: phan-khu-1-vinhomes-saigon-park.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: phan-khu-2-vinhomes-saigon-park.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: phan-khu-3-vinhomes-saigon-park.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: phan-khu-4-vinhomes-saigon-park.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: phan-khu-5-vinhomes-saigon-park.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: vinhomes-saigon-park-3.webp [thư viện]: cần 1408px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-vinhomes-saigon-park.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- vinhomes-saigon-park · DPR 1.25 · Ảnh mờ (cách đo cũ): 1066px: vinhomes-saigon-park-2.webp khung 1194px × 1.25 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 1.25 · Ảnh mờ (cách đo cũ): 1366px: vinhomes-saigon-park-2.webp khung 1530px × 1.25 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 1.25 · Ảnh mờ (cách đo cũ): 1536px: vinhomes-saigon-park-2.webp khung 1720px × 1.25 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 1.25 · Ảnh mờ (cách đo cũ): 1920px: vinhomes-saigon-park-2.webp khung 2150px × 1.25 > file 1200px × 1,15
+- vinhomes-saigon-park · DPR 1.25 · Ô trống lưới khác: 1066px: div.v-grid.v-grid--zones: 3 thẻ, 2 cột, 1 ô trống
+- vinhomes-saigon-park · DPR 1.25 · Ô trống lưới khác: 1366px: div.v-grid.v-grid--zones: 3 thẻ, 2 cột, 1 ô trống
+- vinhomes-saigon-park · DPR 1.25 · Ô trống lưới khác: 1536px: div.v-grid.v-grid--zones: 3 thẻ, 2 cột, 1 ô trống
+- vinhomes-saigon-park · DPR 1.25 · Ô trống lưới khác: 1920px: div.v-grid.v-grid--zones: 3 thẻ, 2 cột, 1 ô trống
+- palm-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: ban-do-khu-vuc-nam-rach-chiec.webp [bản đồ]: cần 1364px, lớn nhất 1200px
+- palm-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: ban-do-khu-vuc-nam-rach-chiec.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- palm-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: ban-do-khu-vuc-nam-rach-chiec.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- palm-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: palm-city.webp [thẻ]: cần 1335px, lớn nhất 1200px
+- palm-city · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: ban-do-khu-vuc-nam-rach-chiec.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- palm-city · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: ban-do-khu-vuc-nam-rach-chiec.webp khung 720px × 2 > file 1200px × 1,15
+- palm-city · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: ban-do-khu-vuc-nam-rach-chiec.webp khung 720px × 2 > file 1200px × 1,15
+- palm-city · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: ban-do-khu-vuc-nam-rach-chiec.webp khung 720px × 2 > file 1200px × 1,15
+- spring-ville · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-spring-ville.webp [hero]: cần 1329px, lớn nhất 1200px
+- spring-ville · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-spring-ville.webp [hero]: cần 1530px, lớn nhất 1200px
+- spring-ville · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-spring-ville.webp [hero]: cần 1720px, lớn nhất 1200px
+- spring-ville · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-spring-ville.webp [hero]: cần 2150px, lớn nhất 1200px
+- spring-ville · DPR 1 · Ảnh mờ (cách đo cũ): 1366px: phoi-canh-spring-ville.webp khung 1530px × 1 > file 1200px × 1,15
+- spring-ville · DPR 1 · Ảnh mờ (cách đo cũ): 1536px: phoi-canh-spring-ville.webp khung 1720px × 1 > file 1200px × 1,15
+- spring-ville · DPR 1 · Ảnh mờ (cách đo cũ): 1920px: phoi-canh-spring-ville.webp khung 2150px × 1 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 390px: phoi-canh-spring-ville.webp [hero]: cần 1440px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-spring-ville.webp [hero]: cần 2658px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-spring-ville.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-persa-place-3.webp [thẻ]: cần 1410px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: mat-bang-spring-ville.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: vi-tri-spring-ville.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: spring-house.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: nha-mau-spring-ville.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-ich-cong-vien-spring-ville.webp [ảnh nội dung]: cần 1345px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-spring-ville.webp [hero]: cần 3060px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-persa-place-3.webp [thẻ]: cần 1380px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: nha-pho-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: mat-bang-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vi-tri-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: spring-house.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: nha-mau-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-ich-cong-vien-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-spring-ville.webp [hero]: cần 3441px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-persa-place-3.webp [thẻ]: cần 1380px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: nha-pho-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: mat-bang-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vi-tri-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: spring-house.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: nha-mau-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-ich-cong-vien-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-spring-ville.webp [hero]: cần 4301px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-persa-place-3.webp [thẻ]: cần 1584px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: nha-pho-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: mat-bang-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vi-tri-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: spring-house.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: nha-mau-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-ich-cong-vien-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: phoi-canh-spring-ville.webp khung 1194px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: phoi-canh-spring-ville.webp khung 706px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: mat-bang-spring-ville.webp khung 706px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: vi-tri-spring-ville.webp khung 706px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: spring-house.webp khung 706px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: nha-mau-spring-ville.webp khung 706px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phoi-canh-spring-ville.webp khung 1530px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phoi-canh-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: nha-pho-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: mat-bang-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: vi-tri-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: spring-house.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: nha-mau-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-ich-cong-vien-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phoi-canh-spring-ville.webp khung 1720px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phoi-canh-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: nha-pho-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: mat-bang-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: vi-tri-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: spring-house.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: nha-mau-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-ich-cong-vien-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phoi-canh-spring-ville.webp khung 2150px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phoi-canh-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: nha-pho-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: mat-bang-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vi-tri-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: spring-house.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: nha-mau-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-ich-cong-vien-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- spring-ville · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-spring-ville.webp [hero]: cần 1662px, lớn nhất 1200px
+- spring-ville · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-spring-ville.webp [hero]: cần 1912px, lớn nhất 1200px
+- spring-ville · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-spring-ville.webp [hero]: cần 2150px, lớn nhất 1200px
+- spring-ville · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-spring-ville.webp [hero]: cần 2688px, lớn nhất 1200px
+- spring-ville · DPR 1.25 · Ảnh mờ (cách đo cũ): 1066px: phoi-canh-spring-ville.webp khung 1194px × 1.25 > file 1200px × 1,15
+- spring-ville · DPR 1.25 · Ảnh mờ (cách đo cũ): 1366px: phoi-canh-spring-ville.webp khung 1530px × 1.25 > file 1200px × 1,15
+- spring-ville · DPR 1.25 · Ảnh mờ (cách đo cũ): 1536px: phoi-canh-spring-ville.webp khung 1720px × 1.25 > file 1200px × 1,15
+- spring-ville · DPR 1.25 · Ảnh mờ (cách đo cũ): 1920px: phoi-canh-spring-ville.webp khung 2150px × 1.25 > file 1200px × 1,15
+- ansana · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1366px: vi-tri-ansana-by-kita.webp [hero]: cần 1530px, lớn nhất 1200px
+- ansana · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1536px: vi-tri-ansana-by-kita.webp [hero]: cần 1720px, lớn nhất 1200px
+- ansana · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1920px: vi-tri-ansana-by-kita.webp [hero]: cần 2150px, lớn nhất 1200px
+- ansana · DPR 1 · Ảnh mờ (cách đo cũ): 1366px: vi-tri-ansana-by-kita.webp khung 1530px × 1 > file 1200px × 1,15
+- ansana · DPR 1 · Ảnh mờ (cách đo cũ): 1536px: vi-tri-ansana-by-kita.webp khung 1720px × 1 > file 1200px × 1,15
+- ansana · DPR 1 · Ảnh mờ (cách đo cũ): 1920px: vi-tri-ansana-by-kita.webp khung 2150px × 1 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: vi-tri-ansana-by-kita.webp [hero]: cần 2388px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: vi-tri-ansana-by-kita.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: ban-do-khu-vuc-khu-tay.webp [bản đồ]: cần 1364px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: nut-giao-ansana-kita.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-ich-ansana-kita.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-can-ho-3-pn-ansana-by-kita.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-do-ansana-by-kita-02.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-do-ansana-by-kita-04.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-do-ansana-by-kita-06.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-do-ansana-by-kita-07.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vi-tri-ansana-by-kita.webp [hero]: cần 3060px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vi-tri-ansana-by-kita.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: ban-do-khu-vuc-khu-tay.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: nut-giao-ansana-kita.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-ich-ansana-kita.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-can-ho-3-pn-ansana-by-kita.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-do-ansana-by-kita-02.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-do-ansana-by-kita-04.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-do-ansana-by-kita-06.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-do-ansana-by-kita-07.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vi-tri-ansana-by-kita.webp [hero]: cần 3441px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vi-tri-ansana-by-kita.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: ban-do-khu-vuc-khu-tay.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: nut-giao-ansana-kita.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-ich-ansana-kita.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-can-ho-3-pn-ansana-by-kita.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-do-ansana-by-kita-02.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-do-ansana-by-kita-04.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-do-ansana-by-kita-06.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-do-ansana-by-kita-07.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vi-tri-ansana-by-kita.webp [hero]: cần 4301px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vi-tri-ansana-by-kita.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: ban-do-khu-vuc-khu-tay.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: nut-giao-ansana-kita.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-ich-ansana-kita.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-can-ho-3-pn-ansana-by-kita.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-ansana-by-kita-02.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-ansana-by-kita-04.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-ansana-by-kita-06.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-ansana-by-kita-07.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: vi-tri-ansana-by-kita.webp khung 1194px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: vi-tri-ansana-by-kita.webp khung 706px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: nut-giao-ansana-kita.webp khung 706px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: tien-ich-ansana-kita.webp khung 706px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: vi-tri-ansana-by-kita.webp khung 1530px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: vi-tri-ansana-by-kita.webp khung 806px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: ban-do-khu-vuc-khu-tay.webp khung 720px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: nut-giao-ansana-kita.webp khung 806px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-ich-ansana-kita.webp khung 806px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phoi-canh-can-ho-3-pn-ansana-by-kita.webp khung 842px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-do-ansana-by-kita-02.webp khung 842px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-do-ansana-by-kita-04.webp khung 842px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-do-ansana-by-kita-06.webp khung 842px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-do-ansana-by-kita-07.webp khung 842px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: vi-tri-ansana-by-kita.webp khung 1720px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: vi-tri-ansana-by-kita.webp khung 806px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: ban-do-khu-vuc-khu-tay.webp khung 720px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: nut-giao-ansana-kita.webp khung 806px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-ich-ansana-kita.webp khung 806px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phoi-canh-can-ho-3-pn-ansana-by-kita.webp khung 842px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-do-ansana-by-kita-02.webp khung 842px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-do-ansana-by-kita-04.webp khung 842px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-do-ansana-by-kita-06.webp khung 842px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-do-ansana-by-kita-07.webp khung 842px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vi-tri-ansana-by-kita.webp khung 2150px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vi-tri-ansana-by-kita.webp khung 806px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: ban-do-khu-vuc-khu-tay.webp khung 720px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: nut-giao-ansana-kita.webp khung 806px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-ich-ansana-kita.webp khung 806px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phoi-canh-can-ho-3-pn-ansana-by-kita.webp khung 980px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-do-ansana-by-kita-02.webp khung 980px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-do-ansana-by-kita-04.webp khung 980px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-do-ansana-by-kita-06.webp khung 980px × 2 > file 1200px × 1,15
+- ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-do-ansana-by-kita-07.webp khung 980px × 2 > file 1200px × 1,15
+- ansana · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1066px: vi-tri-ansana-by-kita.webp [hero]: cần 1492px, lớn nhất 1200px
+- ansana · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1366px: vi-tri-ansana-by-kita.webp [hero]: cần 1912px, lớn nhất 1200px
+- ansana · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1536px: vi-tri-ansana-by-kita.webp [hero]: cần 2150px, lớn nhất 1200px
+- ansana · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: vi-tri-ansana-by-kita.webp [hero]: cần 2688px, lớn nhất 1200px
+- ansana · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-can-ho-3-pn-ansana-by-kita.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- ansana · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-ansana-by-kita-02.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- ansana · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-ansana-by-kita-04.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- ansana · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-ansana-by-kita-06.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- ansana · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-ansana-by-kita-07.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- ansana · DPR 1.25 · Ảnh mờ (cách đo cũ): 1066px: vi-tri-ansana-by-kita.webp khung 1194px × 1.25 > file 1200px × 1,15
+- ansana · DPR 1.25 · Ảnh mờ (cách đo cũ): 1366px: vi-tri-ansana-by-kita.webp khung 1530px × 1.25 > file 1200px × 1,15
+- ansana · DPR 1.25 · Ảnh mờ (cách đo cũ): 1536px: vi-tri-ansana-by-kita.webp khung 1720px × 1.25 > file 1200px × 1,15
+- ansana · DPR 1.25 · Ảnh mờ (cách đo cũ): 1920px: vi-tri-ansana-by-kita.webp khung 2150px × 1.25 > file 1200px × 1,15
+- masteri-grand-view · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-masteri-grand-view.webp [hero]: cần 1530px, lớn nhất 1200px
+- masteri-grand-view · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-masteri-grand-view.webp [hero]: cần 1720px, lớn nhất 1200px
+- masteri-grand-view · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-masteri-grand-view.webp [hero]: cần 2150px, lớn nhất 1200px
+- masteri-grand-view · DPR 1 · Ảnh mờ (cách đo cũ): 1366px: can-ho-masteri-grand-view.webp khung 1530px × 1 > file 1200px × 1,15
+- masteri-grand-view · DPR 1 · Ảnh mờ (cách đo cũ): 1536px: can-ho-masteri-grand-view.webp khung 1720px × 1 > file 1200px × 1,15
+- masteri-grand-view · DPR 1 · Ảnh mờ (cách đo cũ): 1920px: can-ho-masteri-grand-view.webp khung 2150px × 1 > file 1200px × 1,15
+- masteri-grand-view · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: can-ho-masteri-grand-view.webp [hero]: cần 2388px, lớn nhất 1200px
+- masteri-grand-view · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: ban-do-khu-vuc-nam-rach-chiec.webp [bản đồ]: cần 1364px, lớn nhất 1200px
+- masteri-grand-view · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-masteri-grand-view.webp [hero]: cần 3060px, lớn nhất 1200px
+- masteri-grand-view · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: ban-do-khu-vuc-nam-rach-chiec.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- masteri-grand-view · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-masteri-grand-view.webp [hero]: cần 3441px, lớn nhất 1200px
+- masteri-grand-view · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: ban-do-khu-vuc-nam-rach-chiec.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- masteri-grand-view · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-masteri-grand-view.webp [hero]: cần 4301px, lớn nhất 1200px
+- masteri-grand-view · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: ban-do-khu-vuc-nam-rach-chiec.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- masteri-grand-view · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: can-ho-masteri-grand-view.webp khung 1194px × 2 > file 1200px × 1,15
+- masteri-grand-view · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: can-ho-masteri-grand-view.webp khung 1530px × 2 > file 1200px × 1,15
+- masteri-grand-view · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: ban-do-khu-vuc-nam-rach-chiec.webp khung 720px × 2 > file 1200px × 1,15
+- masteri-grand-view · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: can-ho-masteri-grand-view.webp khung 1720px × 2 > file 1200px × 1,15
+- masteri-grand-view · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: ban-do-khu-vuc-nam-rach-chiec.webp khung 720px × 2 > file 1200px × 1,15
+- masteri-grand-view · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: can-ho-masteri-grand-view.webp khung 2150px × 2 > file 1200px × 1,15
+- masteri-grand-view · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: ban-do-khu-vuc-nam-rach-chiec.webp khung 720px × 2 > file 1200px × 1,15
+- masteri-grand-view · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1066px: can-ho-masteri-grand-view.webp [hero]: cần 1492px, lớn nhất 1200px
+- masteri-grand-view · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-masteri-grand-view.webp [hero]: cần 1912px, lớn nhất 1200px
+- masteri-grand-view · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-masteri-grand-view.webp [hero]: cần 2150px, lớn nhất 1200px
+- masteri-grand-view · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-masteri-grand-view.webp [hero]: cần 2688px, lớn nhất 1200px
+- masteri-grand-view · DPR 1.25 · Ảnh mờ (cách đo cũ): 1066px: can-ho-masteri-grand-view.webp khung 1194px × 1.25 > file 1200px × 1,15
+- masteri-grand-view · DPR 1.25 · Ảnh mờ (cách đo cũ): 1366px: can-ho-masteri-grand-view.webp khung 1530px × 1.25 > file 1200px × 1,15
+- masteri-grand-view · DPR 1.25 · Ảnh mờ (cách đo cũ): 1536px: can-ho-masteri-grand-view.webp khung 1720px × 1.25 > file 1200px × 1,15
+- masteri-grand-view · DPR 1.25 · Ảnh mờ (cách đo cũ): 1920px: can-ho-masteri-grand-view.webp khung 2150px × 1.25 > file 1200px × 1,15
+- persa-place · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-persa-place-3.webp [hero]: cần 1530px, lớn nhất 1200px
+- persa-place · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-persa-place-3.webp [hero]: cần 1720px, lớn nhất 1200px
+- persa-place · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-persa-place-3.webp [hero]: cần 2150px, lớn nhất 1200px
+- persa-place · DPR 1 · Ảnh mờ (cách đo cũ): 1366px: phoi-canh-persa-place-3.webp khung 1530px × 1 > file 1200px × 1,15
+- persa-place · DPR 1 · Ảnh mờ (cách đo cũ): 1536px: phoi-canh-persa-place-3.webp khung 1720px × 1 > file 1200px × 1,15
+- persa-place · DPR 1 · Ảnh mờ (cách đo cũ): 1920px: phoi-canh-persa-place-3.webp khung 2150px × 1 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-persa-place-3.webp [hero]: cần 2388px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-persa-place-3.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: persa-place-27.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: vi-tri-spring-ville.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: vi-tri-spring-ville-dau-tu.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: persa-place-28.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: persa-place-27.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: persa-place-1pn-1.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: persa-place-2pn-1.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: persa-place-3pn.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-do-persa-place-1.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-do-persa-place-2.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-do-persa-place-3.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-do-persa-place-4.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-persa-place-3.webp [hero]: cần 3060px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-persa-place-3.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: persa-place-27.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vi-tri-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vi-tri-spring-ville-dau-tu.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: persa-place-28.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: persa-place-27.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: persa-place-1pn-1.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: persa-place-2pn-1.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: persa-place-3pn.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-do-persa-place-1.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-do-persa-place-2.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-do-persa-place-3.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-do-persa-place-4.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-persa-place-3.webp [hero]: cần 3441px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-persa-place-3.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: persa-place-27.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vi-tri-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vi-tri-spring-ville-dau-tu.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: persa-place-28.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: persa-place-27.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: persa-place-1pn-1.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: persa-place-2pn-1.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: persa-place-3pn.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-do-persa-place-1.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-do-persa-place-2.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-do-persa-place-3.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-do-persa-place-4.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-persa-place-3.webp [hero]: cần 4301px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-persa-place-3.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: persa-place-27.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vi-tri-spring-ville.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vi-tri-spring-ville-dau-tu.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: persa-place-28.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: persa-place-27.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: persa-place-1pn-1.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: persa-place-2pn-1.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: persa-place-3pn.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-persa-place-1.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-persa-place-2.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-persa-place-3.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-persa-place-4.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: phoi-canh-persa-place-3.webp khung 1194px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: phoi-canh-persa-place-3.webp khung 706px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: persa-place-27.webp khung 706px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: vi-tri-spring-ville.webp khung 706px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: vi-tri-spring-ville-dau-tu.webp khung 706px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phoi-canh-persa-place-3.webp khung 1530px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phoi-canh-persa-place-3.webp khung 806px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: persa-place-27.webp khung 806px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: vi-tri-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: vi-tri-spring-ville-dau-tu.webp khung 806px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: persa-place-28.webp khung 842px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: persa-place-27.webp khung 842px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: persa-place-1pn-1.webp khung 842px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: persa-place-2pn-1.webp khung 842px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: persa-place-3pn.webp khung 842px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-do-persa-place-1.webp khung 842px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-do-persa-place-2.webp khung 842px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-do-persa-place-3.webp khung 842px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-do-persa-place-4.webp khung 842px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phoi-canh-persa-place-3.webp khung 1720px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phoi-canh-persa-place-3.webp khung 806px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: persa-place-27.webp khung 806px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: vi-tri-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: vi-tri-spring-ville-dau-tu.webp khung 806px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: persa-place-28.webp khung 842px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: persa-place-27.webp khung 842px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: persa-place-1pn-1.webp khung 842px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: persa-place-2pn-1.webp khung 842px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: persa-place-3pn.webp khung 842px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-do-persa-place-1.webp khung 842px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-do-persa-place-2.webp khung 842px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-do-persa-place-3.webp khung 842px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-do-persa-place-4.webp khung 842px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phoi-canh-persa-place-3.webp khung 2150px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phoi-canh-persa-place-3.webp khung 806px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: persa-place-27.webp khung 806px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vi-tri-spring-ville.webp khung 806px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vi-tri-spring-ville-dau-tu.webp khung 806px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: persa-place-28.webp khung 980px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: persa-place-27.webp khung 980px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: persa-place-1pn-1.webp khung 980px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: persa-place-2pn-1.webp khung 980px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: persa-place-3pn.webp khung 980px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-do-persa-place-1.webp khung 980px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-do-persa-place-2.webp khung 980px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-do-persa-place-3.webp khung 980px × 2 > file 1200px × 1,15
+- persa-place · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-do-persa-place-4.webp khung 980px × 2 > file 1200px × 1,15
+- persa-place · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-persa-place-3.webp [hero]: cần 1492px, lớn nhất 1200px
+- persa-place · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-persa-place-3.webp [hero]: cần 1912px, lớn nhất 1200px
+- persa-place · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-persa-place-3.webp [hero]: cần 2150px, lớn nhất 1200px
+- persa-place · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-persa-place-3.webp [hero]: cần 2688px, lớn nhất 1200px
+- persa-place · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: persa-place-28.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- persa-place · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: persa-place-27.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- persa-place · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: persa-place-1pn-1.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- persa-place · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: persa-place-2pn-1.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- persa-place · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: persa-place-3pn.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- persa-place · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-persa-place-1.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- persa-place · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-persa-place-2.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- persa-place · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-persa-place-3.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- persa-place · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-persa-place-4.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- persa-place · DPR 1.25 · Ảnh mờ (cách đo cũ): 1066px: phoi-canh-persa-place-3.webp khung 1194px × 1.25 > file 1200px × 1,15
+- persa-place · DPR 1.25 · Ảnh mờ (cách đo cũ): 1366px: phoi-canh-persa-place-3.webp khung 1530px × 1.25 > file 1200px × 1,15
+- persa-place · DPR 1.25 · Ảnh mờ (cách đo cũ): 1536px: phoi-canh-persa-place-3.webp khung 1720px × 1.25 > file 1200px × 1,15
+- persa-place · DPR 1.25 · Ảnh mờ (cách đo cũ): 1920px: phoi-canh-persa-place-3.webp khung 2150px × 1.25 > file 1200px × 1,15
+- palm-river · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1366px: palm-city.webp [hero]: cần 1530px, lớn nhất 1200px
+- palm-river · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1536px: palm-city.webp [hero]: cần 1720px, lớn nhất 1200px
+- palm-river · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1920px: palm-city.webp [hero]: cần 2150px, lớn nhất 1200px
+- palm-river · DPR 1 · Ảnh mờ (cách đo cũ): 1366px: palm-city.webp khung 1530px × 1 > file 1200px × 1,15
+- palm-river · DPR 1 · Ảnh mờ (cách đo cũ): 1536px: palm-city.webp khung 1720px × 1 > file 1200px × 1,15
+- palm-river · DPR 1 · Ảnh mờ (cách đo cũ): 1920px: palm-city.webp khung 2150px × 1 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: palm-city.webp [hero]: cần 2388px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-palm-river-2.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-palm-river-1.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: vi-tri-palm-river.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: ha-tang-the-thao-rach-chiec.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-palm-river-2.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-palm-river-1.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: ha-tang-the-thao-rach-chiec.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: dac-quyen-river-resident-giong-ong-to.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: vi-khi-hau-ven-song-palm-river.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: can-ho-2-3-phong-ngu-cho-thue.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: can-ho-3-phong-ngu-palm-river.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: dong-tien-dau-tu-nam-rach-chiec.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: penthouse-palm-river-sieu-giau.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: chu-ky-tang-gia-ven-song-giong-ong-to.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: nut-giao-an-phu-palm-river.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: truong-quoc-te-tas-palm-river.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: layout-2pn-dac-biet-palm-river.webp [thư viện]: cần 1132px, lớn nhất 960px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: layout-2pn-palm-river.webp [thư viện]: cần 1132px, lớn nhất 960px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: layout-3pn-palm-river.webp [thư viện]: cần 1132px, lớn nhất 960px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-do-palm-city.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-do-palm-city-2.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-do-palm-city-3.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-do-palm-city-4.webp [thư viện]: cần 1302px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: hallmark-thu-thiem.webp [ảnh nội dung]: cần 1411px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: palm-city.webp [hero]: cần 3060px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-palm-river-2.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-palm-river-1.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vi-tri-palm-river.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: ha-tang-the-thao-rach-chiec.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-palm-river-2.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-palm-river-1.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: ha-tang-the-thao-rach-chiec.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: dac-quyen-river-resident-giong-ong-to.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vi-khi-hau-ven-song-palm-river.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-2-3-phong-ngu-cho-thue.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-3-phong-ngu-palm-river.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: dong-tien-dau-tu-nam-rach-chiec.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: penthouse-palm-river-sieu-giau.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: chu-ky-tang-gia-ven-song-giong-ong-to.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: nut-giao-an-phu-palm-river.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: truong-quoc-te-tas-palm-river.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vi-tri-palm-river.webp [thư viện]: cần 1464px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: layout-2pn-dac-biet-palm-river.webp [thư viện]: cần 1464px, lớn nhất 960px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: layout-2pn-palm-river.webp [thư viện]: cần 1464px, lớn nhất 960px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: layout-3pn-palm-river.webp [thư viện]: cần 1464px, lớn nhất 960px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-do-palm-city.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-do-palm-city-2.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-do-palm-city-3.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-do-palm-city-4.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: hallmark-thu-thiem.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: nut-giao-an-phu-palm-river.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: palm-city.webp [hero]: cần 3441px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-palm-river-2.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-palm-river-1.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vi-tri-palm-river.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: ha-tang-the-thao-rach-chiec.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-palm-river-2.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-palm-river-1.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: ha-tang-the-thao-rach-chiec.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: dac-quyen-river-resident-giong-ong-to.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vi-khi-hau-ven-song-palm-river.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-2-3-phong-ngu-cho-thue.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-3-phong-ngu-palm-river.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: dong-tien-dau-tu-nam-rach-chiec.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: penthouse-palm-river-sieu-giau.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: chu-ky-tang-gia-ven-song-giong-ong-to.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: nut-giao-an-phu-palm-river.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: truong-quoc-te-tas-palm-river.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vi-tri-palm-river.webp [thư viện]: cần 1464px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: layout-2pn-dac-biet-palm-river.webp [thư viện]: cần 1464px, lớn nhất 960px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: layout-2pn-palm-river.webp [thư viện]: cần 1464px, lớn nhất 960px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: layout-3pn-palm-river.webp [thư viện]: cần 1464px, lớn nhất 960px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-do-palm-city.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-do-palm-city-2.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-do-palm-city-3.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-do-palm-city-4.webp [thư viện]: cần 1684px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: hallmark-thu-thiem.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: nut-giao-an-phu-palm-river.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: palm-city.webp [hero]: cần 4301px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-palm-river-2.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-palm-river-1.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vi-tri-palm-river.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: ha-tang-the-thao-rach-chiec.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-palm-river-2.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-palm-river-1.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: ha-tang-the-thao-rach-chiec.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: dac-quyen-river-resident-giong-ong-to.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vi-khi-hau-ven-song-palm-river.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-2-3-phong-ngu-cho-thue.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-3-phong-ngu-palm-river.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: dong-tien-dau-tu-nam-rach-chiec.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: penthouse-palm-river-sieu-giau.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: chu-ky-tang-gia-ven-song-giong-ong-to.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: nut-giao-an-phu-palm-river.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: truong-quoc-te-tas-palm-river.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vi-tri-palm-river.webp [thư viện]: cần 1704px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: layout-2pn-dac-biet-palm-river.webp [thư viện]: cần 1704px, lớn nhất 960px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: layout-2pn-palm-river.webp [thư viện]: cần 1704px, lớn nhất 960px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: layout-3pn-palm-river.webp [thư viện]: cần 1704px, lớn nhất 960px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-palm-city.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-palm-city-2.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-palm-city-3.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-palm-city-4.webp [thư viện]: cần 1960px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: hallmark-thu-thiem.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: nut-giao-an-phu-palm-river.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: palm-city.webp khung 1194px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: phoi-canh-palm-river-2.webp khung 706px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: phoi-canh-palm-river-1.webp khung 706px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: vi-tri-palm-river.webp khung 706px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: ha-tang-the-thao-rach-chiec.webp khung 706px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: layout-2pn-dac-biet-palm-river.webp khung 566px × 2 > file 960px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: layout-2pn-palm-river.webp khung 566px × 2 > file 960px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: layout-3pn-palm-river.webp khung 566px × 2 > file 960px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: hallmark-thu-thiem.webp khung 706px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: palm-city.webp khung 1530px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phoi-canh-palm-river-2.webp khung 806px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phoi-canh-palm-river-1.webp khung 806px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: vi-tri-palm-river.webp khung 806px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: ha-tang-the-thao-rach-chiec.webp khung 806px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phoi-canh-palm-river-2.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: phoi-canh-palm-river-1.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: ha-tang-the-thao-rach-chiec.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: dac-quyen-river-resident-giong-ong-to.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: vi-khi-hau-ven-song-palm-river.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: can-ho-2-3-phong-ngu-cho-thue.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: can-ho-3-phong-ngu-palm-river.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: dong-tien-dau-tu-nam-rach-chiec.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: penthouse-palm-river-sieu-giau.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: chu-ky-tang-gia-ven-song-giong-ong-to.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: nut-giao-an-phu-palm-river.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: truong-quoc-te-tas-palm-river.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: vi-tri-palm-river.webp khung 732px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: layout-2pn-dac-biet-palm-river.webp khung 732px × 2 > file 960px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: layout-2pn-palm-river.webp khung 732px × 2 > file 960px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: layout-3pn-palm-river.webp khung 732px × 2 > file 960px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-do-palm-city.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-do-palm-city-2.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-do-palm-city-3.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-do-palm-city-4.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: hallmark-thu-thiem.webp khung 806px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: nut-giao-an-phu-palm-river.webp khung 806px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: palm-city.webp khung 1720px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phoi-canh-palm-river-2.webp khung 806px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phoi-canh-palm-river-1.webp khung 806px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: vi-tri-palm-river.webp khung 806px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: ha-tang-the-thao-rach-chiec.webp khung 806px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phoi-canh-palm-river-2.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: phoi-canh-palm-river-1.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: ha-tang-the-thao-rach-chiec.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: dac-quyen-river-resident-giong-ong-to.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: vi-khi-hau-ven-song-palm-river.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: can-ho-2-3-phong-ngu-cho-thue.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: can-ho-3-phong-ngu-palm-river.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: dong-tien-dau-tu-nam-rach-chiec.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: penthouse-palm-river-sieu-giau.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: chu-ky-tang-gia-ven-song-giong-ong-to.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: nut-giao-an-phu-palm-river.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: truong-quoc-te-tas-palm-river.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: vi-tri-palm-river.webp khung 732px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: layout-2pn-dac-biet-palm-river.webp khung 732px × 2 > file 960px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: layout-2pn-palm-river.webp khung 732px × 2 > file 960px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: layout-3pn-palm-river.webp khung 732px × 2 > file 960px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-do-palm-city.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-do-palm-city-2.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-do-palm-city-3.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-do-palm-city-4.webp khung 842px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: hallmark-thu-thiem.webp khung 806px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: nut-giao-an-phu-palm-river.webp khung 806px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: palm-city.webp khung 2150px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phoi-canh-palm-river-2.webp khung 806px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phoi-canh-palm-river-1.webp khung 806px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vi-tri-palm-river.webp khung 806px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: ha-tang-the-thao-rach-chiec.webp khung 806px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phoi-canh-palm-river-2.webp khung 980px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: phoi-canh-palm-river-1.webp khung 980px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: ha-tang-the-thao-rach-chiec.webp khung 980px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: dac-quyen-river-resident-giong-ong-to.webp khung 980px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vi-khi-hau-ven-song-palm-river.webp khung 980px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: can-ho-2-3-phong-ngu-cho-thue.webp khung 980px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: can-ho-3-phong-ngu-palm-river.webp khung 980px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: dong-tien-dau-tu-nam-rach-chiec.webp khung 980px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: penthouse-palm-river-sieu-giau.webp khung 980px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: chu-ky-tang-gia-ven-song-giong-ong-to.webp khung 980px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: nut-giao-an-phu-palm-river.webp khung 980px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: truong-quoc-te-tas-palm-river.webp khung 980px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vi-tri-palm-river.webp khung 852px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: layout-2pn-dac-biet-palm-river.webp khung 852px × 2 > file 960px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: layout-2pn-palm-river.webp khung 852px × 2 > file 960px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: layout-3pn-palm-river.webp khung 852px × 2 > file 960px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-do-palm-city.webp khung 980px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-do-palm-city-2.webp khung 980px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-do-palm-city-3.webp khung 980px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-do-palm-city-4.webp khung 980px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: hallmark-thu-thiem.webp khung 806px × 2 > file 1200px × 1,15
+- palm-river · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: nut-giao-an-phu-palm-river.webp khung 806px × 2 > file 1200px × 1,15
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1066px: palm-city.webp [hero]: cần 1492px, lớn nhất 1200px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1366px: palm-city.webp [hero]: cần 1912px, lớn nhất 1200px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1536px: palm-city.webp [hero]: cần 2150px, lớn nhất 1200px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: palm-city.webp [hero]: cần 2688px, lớn nhất 1200px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-palm-river-2.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-palm-river-1.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: ha-tang-the-thao-rach-chiec.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: dac-quyen-river-resident-giong-ong-to.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: vi-khi-hau-ven-song-palm-river.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-2-3-phong-ngu-cho-thue.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-3-phong-ngu-palm-river.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: dong-tien-dau-tu-nam-rach-chiec.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: penthouse-palm-river-sieu-giau.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: chu-ky-tang-gia-ven-song-giong-ong-to.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: nut-giao-an-phu-palm-river.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: truong-quoc-te-tas-palm-river.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: layout-2pn-dac-biet-palm-river.webp [thư viện]: cần 1065px, lớn nhất 960px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: layout-2pn-palm-river.webp [thư viện]: cần 1065px, lớn nhất 960px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: layout-3pn-palm-river.webp [thư viện]: cần 1065px, lớn nhất 960px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-palm-city.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-palm-city-2.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-palm-city-3.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- palm-river · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-do-palm-city-4.webp [thư viện]: cần 1225px, lớn nhất 1200px
+- palm-river · DPR 1.25 · Ảnh mờ (cách đo cũ): 1066px: palm-city.webp khung 1194px × 1.25 > file 1200px × 1,15
+- palm-river · DPR 1.25 · Ảnh mờ (cách đo cũ): 1366px: palm-city.webp khung 1530px × 1.25 > file 1200px × 1,15
+- palm-river · DPR 1.25 · Ảnh mờ (cách đo cũ): 1536px: palm-city.webp khung 1720px × 1.25 > file 1200px × 1,15
+- palm-river · DPR 1.25 · Ảnh mờ (cách đo cũ): 1920px: palm-city.webp khung 2150px × 1.25 > file 1200px × 1,15
+- ivy-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: ban-do-khu-vuc-tay-bac.webp [bản đồ]: cần 1364px, lớn nhất 1200px
+- ivy-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: ban-do-khu-vuc-tay-bac.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- ivy-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: ban-do-khu-vuc-tay-bac.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- ivy-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: ban-do-khu-vuc-tay-bac.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- ivy-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: ban-do-khu-vuc-tay-bac.webp khung 720px × 2 > file 1200px × 1,15
+- ivy-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: ban-do-khu-vuc-tay-bac.webp khung 720px × 2 > file 1200px × 1,15
+- ivy-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: ban-do-khu-vuc-tay-bac.webp khung 720px × 2 > file 1200px × 1,15
+- nha-pho-ivy-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: ban-do-khu-vuc-tay-bac.webp [bản đồ]: cần 1364px, lớn nhất 1200px
+- nha-pho-ivy-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: ban-do-khu-vuc-tay-bac.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- nha-pho-ivy-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: ban-do-khu-vuc-tay-bac.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- nha-pho-ivy-park · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: ban-do-khu-vuc-tay-bac.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- nha-pho-ivy-park · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: ban-do-khu-vuc-tay-bac.webp khung 720px × 2 > file 1200px × 1,15
+- nha-pho-ivy-park · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: ban-do-khu-vuc-tay-bac.webp khung 720px × 2 > file 1200px × 1,15
+- nha-pho-ivy-park · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: ban-do-khu-vuc-tay-bac.webp khung 720px × 2 > file 1200px × 1,15
+- nha-pho-spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: ban-do-khu-vuc-nhon-trach-long-thanh.webp [bản đồ]: cần 1364px, lớn nhất 1200px
+- nha-pho-spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: ban-do-khu-vuc-nhon-trach-long-thanh.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- nha-pho-spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: ban-do-khu-vuc-nhon-trach-long-thanh.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- nha-pho-spring-ville · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: ban-do-khu-vuc-nhon-trach-long-thanh.webp [bản đồ]: cần 1493px, lớn nhất 1200px
+- nha-pho-spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: ban-do-khu-vuc-nhon-trach-long-thanh.webp khung 720px × 2 > file 1200px × 1,15
+- nha-pho-spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: ban-do-khu-vuc-nhon-trach-long-thanh.webp khung 720px × 2 > file 1200px × 1,15
+- nha-pho-spring-ville · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: ban-do-khu-vuc-nhon-trach-long-thanh.webp khung 720px × 2 > file 1200px × 1,15
+- bai-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: ty-suat-loi-nhuan-the-prive.webp [ảnh đầu bài]: cần 1613px, lớn nhất 1200px
+- bai-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: ty-suat-loi-nhuan-the-prive.webp [ảnh đầu bài]: cần 1613px, lớn nhất 1200px
+- bai-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: ty-suat-loi-nhuan-the-prive.webp [ảnh đầu bài]: cần 1613px, lớn nhất 1200px
+- bai-prive · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: ty-suat-loi-nhuan-the-prive.webp [ảnh đầu bài]: cần 1613px, lớn nhất 1200px
+- bai-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: ty-suat-loi-nhuan-the-prive.webp khung 806px × 2 > file 1200px × 1,15
+- bai-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: ty-suat-loi-nhuan-the-prive.webp khung 806px × 2 > file 1200px × 1,15
+- bai-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: ty-suat-loi-nhuan-the-prive.webp khung 806px × 2 > file 1200px × 1,15
+- bai-prive · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: ty-suat-loi-nhuan-the-prive.webp khung 806px × 2 > file 1200px × 1,15
+- bai-vinhomes · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: truong-quoc-te-vinschool.webp [ảnh đầu bài]: cần 1613px, lớn nhất 1200px
+- bai-vinhomes · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: truong-quoc-te-vinschool.webp [ảnh đầu bài]: cần 1613px, lớn nhất 1200px
+- bai-vinhomes · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: truong-quoc-te-vinschool.webp [ảnh đầu bài]: cần 1613px, lớn nhất 1200px
+- bai-vinhomes · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: truong-quoc-te-vinschool.webp [ảnh đầu bài]: cần 1613px, lớn nhất 1200px
+- bai-vinhomes · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vinhomes-ocean-park-2.webp [thẻ]: cần 1232px, lớn nhất 1200px
+- bai-vinhomes · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: truong-quoc-te-vinschool.webp khung 806px × 2 > file 1200px × 1,15
+- bai-vinhomes · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: truong-quoc-te-vinschool.webp khung 806px × 2 > file 1200px × 1,15
+- bai-vinhomes · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: truong-quoc-te-vinschool.webp khung 806px × 2 > file 1200px × 1,15
+- bai-vinhomes · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: truong-quoc-te-vinschool.webp khung 806px × 2 > file 1200px × 1,15
+- bai-tgc · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: khu-pho-thuong-mai-soho-fb.webp [ảnh đầu bài]: cần 1613px, lớn nhất 1200px
+- bai-tgc · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: shophouse-soho-tgc.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- bai-tgc · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: khu-pho-thuong-mai-soho-fb.webp [ảnh đầu bài]: cần 1613px, lớn nhất 1200px
+- bai-tgc · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: shophouse-soho-tgc.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- bai-tgc · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: khu-pho-thuong-mai-soho-fb.webp [ảnh đầu bài]: cần 1613px, lớn nhất 1200px
+- bai-tgc · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: shophouse-soho-tgc.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- bai-tgc · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: khu-pho-thuong-mai-soho-fb.webp [ảnh đầu bài]: cần 1613px, lớn nhất 1200px
+- bai-tgc · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: shophouse-soho-tgc.webp [ảnh nội dung]: cần 1613px, lớn nhất 1200px
+- bai-tgc · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: khu-pho-thuong-mai-soho-fb.webp khung 806px × 2 > file 1200px × 1,15
+- bai-tgc · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: shophouse-soho-tgc.webp khung 806px × 2 > file 1200px × 1,15
+- bai-tgc · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: khu-pho-thuong-mai-soho-fb.webp khung 806px × 2 > file 1200px × 1,15
+- bai-tgc · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: shophouse-soho-tgc.webp khung 806px × 2 > file 1200px × 1,15
+- bai-tgc · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: khu-pho-thuong-mai-soho-fb.webp khung 806px × 2 > file 1200px × 1,15
+- bai-tgc · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: shophouse-soho-tgc.webp khung 806px × 2 > file 1200px × 1,15
+- bai-tgc · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: khu-pho-thuong-mai-soho-fb.webp khung 806px × 2 > file 1200px × 1,15
+- bai-tgc · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: shophouse-soho-tgc.webp khung 806px × 2 > file 1200px × 1,15
+- bai-persa · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: thiet-ke-biophilic-persa-place-nhon-trach.webp [ảnh đầu bài]: cần 1613px, lớn nhất 1200px
+- bai-persa · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: thiet-ke-biophilic-persa-place-nhon-trach.webp [ảnh đầu bài]: cần 1613px, lớn nhất 1200px
+- bai-persa · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: thiet-ke-biophilic-persa-place-nhon-trach.webp [ảnh đầu bài]: cần 1613px, lớn nhất 1200px
+- bai-persa · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: thiet-ke-biophilic-persa-place-nhon-trach.webp [ảnh đầu bài]: cần 1613px, lớn nhất 1200px
+- bai-persa · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: thiet-ke-biophilic-persa-place-nhon-trach.webp khung 806px × 2 > file 1200px × 1,15
+- bai-persa · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: thiet-ke-biophilic-persa-place-nhon-trach.webp khung 806px × 2 > file 1200px × 1,15
+- bai-persa · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: thiet-ke-biophilic-persa-place-nhon-trach.webp khung 806px × 2 > file 1200px × 1,15
+- bai-persa · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: thiet-ke-biophilic-persa-place-nhon-trach.webp khung 806px × 2 > file 1200px × 1,15
+- bai-ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: tien-ich-ansana-kita.webp [ảnh đầu bài]: cần 1613px, lớn nhất 1200px
+- bai-ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: tien-ich-ansana-kita.webp [ảnh đầu bài]: cần 1613px, lớn nhất 1200px
+- bai-ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: tien-ich-ansana-kita.webp [ảnh đầu bài]: cần 1613px, lớn nhất 1200px
+- bai-ansana · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: tien-ich-ansana-kita.webp [ảnh đầu bài]: cần 1613px, lớn nhất 1200px
+- bai-ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: tien-ich-ansana-kita.webp khung 806px × 2 > file 1200px × 1,15
+- bai-ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: tien-ich-ansana-kita.webp khung 806px × 2 > file 1200px × 1,15
+- bai-ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: tien-ich-ansana-kita.webp khung 806px × 2 > file 1200px × 1,15
+- bai-ansana · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: tien-ich-ansana-kita.webp khung 806px × 2 > file 1200px × 1,15
+- blog · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: dong-von-dau-tu-nam-rach-chiec.webp [thẻ]: cần 1327px, lớn nhất 1200px
+- blog · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: dong-von-dau-tu-nam-rach-chiec.webp [thẻ]: cần 1564px, lớn nhất 1200px
+- blog · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: dong-von-dau-tu-nam-rach-chiec.webp [thẻ]: cần 1564px, lớn nhất 1200px
+- blog · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: dong-von-dau-tu-nam-rach-chiec.webp [thẻ]: cần 1721px, lớn nhất 1200px
+- blog · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: dong-von-dau-tu-nam-rach-chiec.webp khung 779px × 2 > file 1200px × 1,15
+- blog · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: dong-von-dau-tu-nam-rach-chiec.webp khung 779px × 2 > file 1200px × 1,15
+- blog · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: dong-von-dau-tu-nam-rach-chiec.webp khung 857px × 2 > file 1200px × 1,15
+- chu-dau-tu · DPR 1 · Ô trống lưới khác: 1066px: div.v-grid.v-grid--4: 7 thẻ, 3 cột, 2 ô trống
+- chu-dau-tu · DPR 1 · Ô trống lưới khác: 1366px: div.v-grid.v-grid--4: 7 thẻ, 4 cột, 1 ô trống
+- chu-dau-tu · DPR 1 · Ô trống lưới khác: 1536px: div.v-grid.v-grid--4: 7 thẻ, 4 cột, 1 ô trống
+- chu-dau-tu · DPR 1 · Ô trống lưới khác: 1920px: div.v-grid.v-grid--4: 7 thẻ, 4 cột, 1 ô trống
+- chu-dau-tu · DPR 2 · Ô trống lưới khác: 1066px: div.v-grid.v-grid--4: 7 thẻ, 3 cột, 2 ô trống
+- chu-dau-tu · DPR 2 · Ô trống lưới khác: 1366px: div.v-grid.v-grid--4: 7 thẻ, 4 cột, 1 ô trống
+- chu-dau-tu · DPR 2 · Ô trống lưới khác: 1536px: div.v-grid.v-grid--4: 7 thẻ, 4 cột, 1 ô trống
+- chu-dau-tu · DPR 2 · Ô trống lưới khác: 1920px: div.v-grid.v-grid--4: 7 thẻ, 4 cột, 1 ô trống
+- chu-dau-tu · DPR 1.25 · Ô trống lưới khác: 1066px: div.v-grid.v-grid--4: 7 thẻ, 3 cột, 2 ô trống
+- chu-dau-tu · DPR 1.25 · Ô trống lưới khác: 1366px: div.v-grid.v-grid--4: 7 thẻ, 4 cột, 1 ô trống
+- chu-dau-tu · DPR 1.25 · Ô trống lưới khác: 1536px: div.v-grid.v-grid--4: 7 thẻ, 4 cột, 1 ô trống
+- chu-dau-tu · DPR 1.25 · Ô trống lưới khác: 1920px: div.v-grid.v-grid--4: 7 thẻ, 4 cột, 1 ô trống
+- masterise-homes · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: the-global-city-3-1.webp [khác]: cần 1250px, lớn nhất 1200px
+- masterise-homes · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: the-global-city-3-1.webp [thẻ]: cần 1355px, lớn nhất 1200px
+- masterise-homes · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: the-global-city-3-1.webp [khác]: cần 1488px, lớn nhất 1200px
+- masterise-homes · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: the-global-city-3-1.webp [thẻ]: cần 1598px, lớn nhất 1200px
+- masterise-homes · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: the-global-city-3-1.webp [khác]: cần 1488px, lớn nhất 1200px
+- masterise-homes · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: the-global-city-3-1.webp [thẻ]: cần 1598px, lớn nhất 1200px
+- masterise-homes · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: the-global-city-3-1.webp [khác]: cần 1645px, lớn nhất 1200px
+- masterise-homes · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: the-global-city-3-1.webp [thẻ]: cần 1758px, lớn nhất 1200px
+- masterise-homes · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: the-global-city-3-1.webp khung 713px × 2 > file 1200px × 1,15
+- masterise-homes · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: the-global-city-3-1.webp khung 765px × 2 > file 1200px × 1,15
+- masterise-homes · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: the-global-city-3-1.webp khung 713px × 2 > file 1200px × 1,15
+- masterise-homes · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: the-global-city-3-1.webp khung 765px × 2 > file 1200px × 1,15
+- masterise-homes · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: the-global-city-3-1.webp khung 788px × 2 > file 1200px × 1,15
+- masterise-homes · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: the-global-city-3-1.webp khung 842px × 2 > file 1200px × 1,15
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: vp-velis-realty.webp [khác]: cần 1715px, lớn nhất 1200px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: vi-tri-ansana-by-kita-150x150.webp [cột phải]: cần 166px, lớn nhất 150px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: phoi-canh-spring-ville-150x150.webp [cột phải]: cần 166px, lớn nhất 150px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: the-global-city-3-1-150x150.webp [cột phải]: cần 166px, lớn nhất 150px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: can-ho-the-prive-150x150.webp [cột phải]: cần 166px, lớn nhất 150px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: vinhomes-saigon-park-2-150x150.webp [cột phải]: cần 166px, lớn nhất 150px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vp-velis-realty.webp [khác]: cần 2042px, lớn nhất 1200px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vi-tri-ansana-by-kita-150x150.webp [cột phải]: cần 166px, lớn nhất 150px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: phoi-canh-spring-ville-150x150.webp [cột phải]: cần 166px, lớn nhất 150px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: the-global-city-3-1-150x150.webp [cột phải]: cần 166px, lớn nhất 150px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-the-prive-150x150.webp [cột phải]: cần 166px, lớn nhất 150px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: vinhomes-saigon-park-2-150x150.webp [cột phải]: cần 166px, lớn nhất 150px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vp-velis-realty.webp [khác]: cần 2042px, lớn nhất 1200px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vi-tri-ansana-by-kita-150x150.webp [cột phải]: cần 166px, lớn nhất 150px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: phoi-canh-spring-ville-150x150.webp [cột phải]: cần 166px, lớn nhất 150px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: the-global-city-3-1-150x150.webp [cột phải]: cần 166px, lớn nhất 150px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-the-prive-150x150.webp [cột phải]: cần 166px, lớn nhất 150px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: vinhomes-saigon-park-2-150x150.webp [cột phải]: cần 166px, lớn nhất 150px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vp-velis-realty.webp [khác]: cần 2258px, lớn nhất 1200px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vi-tri-ansana-by-kita-150x150.webp [cột phải]: cần 166px, lớn nhất 150px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: phoi-canh-spring-ville-150x150.webp [cột phải]: cần 166px, lớn nhất 150px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: the-global-city-3-1-150x150.webp [cột phải]: cần 166px, lớn nhất 150px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-the-prive-150x150.webp [cột phải]: cần 166px, lớn nhất 150px
+- gioi-thieu · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: vinhomes-saigon-park-2-150x150.webp [cột phải]: cần 166px, lớn nhất 150px
+- gioi-thieu · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: vp-velis-realty.webp khung 713px × 2 > file 1200px × 1,15
+- gioi-thieu · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: vp-velis-realty.webp khung 713px × 2 > file 1200px × 1,15
+- gioi-thieu · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: vp-velis-realty.webp khung 788px × 2 > file 1200px × 1,15
+- gioi-thieu · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1366px: vp-velis-realty.webp [khác]: cần 1276px, lớn nhất 1200px
+- gioi-thieu · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1536px: vp-velis-realty.webp [khác]: cần 1276px, lớn nhất 1200px
+- gioi-thieu · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: vp-velis-realty.webp [khác]: cần 1411px, lớn nhất 1200px
+- lien-he · DPR 1 · Ảnh nguồn thiếu độ phân giải: 1920px: ban-do-van-phong-velis.webp [bản đồ]: cần 1320px, lớn nhất 1200px
+- lien-he · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: ban-do-van-phong-velis.webp [bản đồ]: cần 2036px, lớn nhất 1200px
+- lien-he · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: ban-do-van-phong-velis.webp [bản đồ]: cần 2400px, lớn nhất 1200px
+- lien-he · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: ban-do-van-phong-velis.webp [bản đồ]: cần 2400px, lớn nhất 1200px
+- lien-he · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: ban-do-van-phong-velis.webp [bản đồ]: cần 2640px, lớn nhất 1200px
+- lien-he · DPR 2 · Ảnh mờ (cách đo cũ): 1066px: ban-do-van-phong-velis.webp khung 1018px × 2 > file 1200px × 1,15
+- lien-he · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: ban-do-van-phong-velis.webp khung 1200px × 2 > file 1200px × 1,15
+- lien-he · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: ban-do-van-phong-velis.webp khung 1200px × 2 > file 1200px × 1,15
+- lien-he · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: ban-do-van-phong-velis.webp khung 1320px × 2 > file 1200px × 1,15
+- lien-he · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1066px: ban-do-van-phong-velis.webp [bản đồ]: cần 1273px, lớn nhất 1200px
+- lien-he · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1366px: ban-do-van-phong-velis.webp [bản đồ]: cần 1500px, lớn nhất 1200px
+- lien-he · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1536px: ban-do-van-phong-velis.webp [bản đồ]: cần 1500px, lớn nhất 1200px
+- lien-he · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: ban-do-van-phong-velis.webp [bản đồ]: cần 1650px, lớn nhất 1200px
+- lien-he · DPR 1.25 · Ảnh mờ (cách đo cũ): 1366px: ban-do-van-phong-velis.webp khung 1200px × 1.25 > file 1200px × 1,15
+- lien-he · DPR 1.25 · Ảnh mờ (cách đo cũ): 1536px: ban-do-van-phong-velis.webp khung 1200px × 1.25 > file 1200px × 1,15
+- lien-he · DPR 1.25 · Ảnh mờ (cách đo cũ): 1920px: ban-do-van-phong-velis.webp khung 1320px × 1.25 > file 1200px × 1,15
+- tim-kiem · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1066px: can-ho-the-prive.webp [thẻ]: cần 1731px, lớn nhất 1200px
+- tim-kiem · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-the-prive.webp [thẻ]: cần 2041px, lớn nhất 1200px
+- tim-kiem · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-the-prive.webp [thẻ]: cần 2041px, lớn nhất 1200px
+- tim-kiem · DPR 2 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-the-prive.webp [thẻ]: cần 2245px, lớn nhất 1200px
+- tim-kiem · DPR 2 · Ảnh mờ (cách đo cũ): 1366px: can-ho-the-prive.webp khung 765px × 2 > file 1200px × 1,15
+- tim-kiem · DPR 2 · Ảnh mờ (cách đo cũ): 1536px: can-ho-the-prive.webp khung 765px × 2 > file 1200px × 1,15
+- tim-kiem · DPR 2 · Ảnh mờ (cách đo cũ): 1920px: can-ho-the-prive.webp khung 842px × 2 > file 1200px × 1,15
+- tim-kiem · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1366px: can-ho-the-prive.webp [thẻ]: cần 1276px, lớn nhất 1200px
+- tim-kiem · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1536px: can-ho-the-prive.webp [thẻ]: cần 1276px, lớn nhất 1200px
+- tim-kiem · DPR 1.25 · Ảnh nguồn thiếu độ phân giải: 1920px: can-ho-the-prive.webp [thẻ]: cần 1403px, lớn nhất 1200px

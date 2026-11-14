@@ -1,0 +1,16 @@
+{
+  "20067": {"mode": "project", "name": "The Global City", "eyebrow": "Dự án · <a href=\"https://staging.velisrealty.vn/du-an/masterise-homes/\">Masterise Homes</a>"},
+  "20422": {"mode": "project", "name": "Palm River", "eyebrow": "Dự án · Palm City"},
+  "19962": {"mode": "project", "name": "The Privé", "eyebrow": "Dự án · Nam Rạch Chiếc"},
+  "19934": {"mode": "project", "name": "Ansana by Kita", "eyebrow": "Dự án · Võ Văn Kiệt"},
+  "19773": {"mode": "project", "name": "Spring Ville", "eyebrow": "Dự án · <a href=\"https://staging.velisrealty.vn/du-an/gamuda-land/\">Gamuda Land</a>"},
+  "20360": {"mode": "project", "name": "Vinhomes Saigon Park", "eyebrow": "Dự án · <a href=\"https://staging.velisrealty.vn/du-an/vinhomes/\">Vinhomes</a>"},
+  "19593": {"mode": "project", "name": "Vinhomes", "eyebrow": "Chủ đầu tư", "projects": [[20366, "https://staging.velisrealty.vn/vinhomes-saigon-park/", "Vinhomes Saigon Park", "Hóc Môn – đại đô thị Tây Bắc TP.HCM"]]},
+  "19633": {"mode": "project", "name": "Masterise Homes", "eyebrow": "Chủ đầu tư", "projects": [[20092, "https://staging.velisrealty.vn/the-global-city/", "The Global City", "Khu Đông TP.HCM, trục Liên Phường"]]},
+  "19625": {"mode": "project", "name": "Sun Group", "eyebrow": "Chủ đầu tư"},
+  "19855": {"mode": "upgrade"},
+  "19637": {"mode": "upgrade"},
+  "20330": {"mode": "upgrade"},
+  "19526": {"mode": "home"},
+  "19544": {"mode": "contact"}
+}

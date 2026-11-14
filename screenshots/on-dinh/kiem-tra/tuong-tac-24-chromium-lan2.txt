@@ -1,0 +1,25 @@
+PASS Ép hero A bằng ?velis_hero=a (chỉ staging)
+PASS Ép hero B bằng ?velis_hero=b (chỉ staging)
+PASS Không có nhãn "ảnh tạm" / công tắc mockup trên trang thật (1.8)
+PASS Không tham số: kiểu hero theo cỡ file (X-02)
+PASS Trang chủ: hero tràn 0.9.8 (.hero--home), không công tắc A/B
+PASS Dải "Dự án nổi bật": mũi tên sau trượt dải, mũi tên trước tắt ở đầu rồi bật, không tự chạy – {"x0":0,"x1":303,"d0":true,"d1":false}
+PASS Tab khu vực: Khu Đông → 3 dự án (Palm City, The Global City, The Privé), chỉ 1 tab được chọn, "Xem tất cả" mở /du-an/?khu=khu-dong – {"n":"3","vis":3,"w":384,"frame":1200,"shown":"Palm City, The Global City, The Privé","pressed":["Khu Đông"],"count":"Hiển thị 3/6 dự án","all":"/du-an/?khu=khu-dong"}
+PASS Tab khu vực: Khu Tây → đúng 1 thẻ hiện (Ansana by Kita), thẻ dọc rộng 1/3 khung (không thẻ ngang), Khu Đông tự bỏ chọn – {"n":"1","vis":1,"w":384,"frame":1200,"shown":"Ansana by Kita","pressed":["Khu Tây"],"count":"Hiển thị 1/6 dự án","all":"/du-an/?khu=khu-tay"}
+PASS Tab khu vực: Tất cả → 6 dự án, tab "Tất cả" được chọn – {"n":"6","vis":6,"w":384,"frame":1200,"shown":"Ansana by Kita, Palm City, Spring Ville, The Global City, The Privé, Vinhomes Saigon Park","pressed":["Tất cả"],"count":"Hiển thị 6/6 dự án","all":"/du-an/"}
+PASS Form tư vấn: trường ẩn interest, page-url, utm như CF7 – "interest,page-url,utm"
+PASS Form tư vấn: yêu cầu CF7 có đủ trường ẩn (URL trang, utm) – chặn tại máy, không gửi thật – {"len":1044,"okShown":true}
+PASS NT-72 thanh mục: bấm cuộn tới Vị trí, tô mục đang xem – {"top":136,"cur":"Vị trí & tiện ích"}
+PASS NT-75 thư viện: nút "ảnh sau" đổi bộ đếm, không tự chạy – "1/11 → 2/11"
+PASS NT-57 "Đọc tiếp" mở toàn bộ đoạn dài – [364,1843]
+PASS NT-77 lọc phân khu theo loại (chip), lưới theo số thẻ còn lại – {"zc":"Hiển thị 1/5 phân khu","shownN":["0/0","1/1"]}
+PASS NT-76 form báo lỗi khi bỏ trống, không gửi, focus ô lỗi đầu – {"errs":3,"focused":"your-name"}
+PASS NT-87 viền focus khi dùng bàn phím – "solid 2px"
+PASS NT-79 mobile: menu mở
+PASS NT-79 mobile: menu đóng
+PASS NT-79 mobile: thanh CTA đáy ẩn ở đầu trang
+PASS NT-79 mobile: thanh CTA đáy hiện sau khi cuộn qua nút hero
+PASS NT-79 mobile: về đầu trang thì thanh CTA ẩn lại
+PASS NT-72 mobile: thanh mục cuộn ngang khi dài hơn khung – {"sw":425,"cw":358,"ox":"auto"}
+PASS NT-80 mobile: breadcrumb ≤ 2 dòng – "1 dòng"
+24/24 đạt

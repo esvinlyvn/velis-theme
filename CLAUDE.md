@@ -1,7 +1,11 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 # velis-theme — tái thiết kế velisrealty.vn
 
-Repo riêng tư chứa theme khối WordPress "velis" (Phương án 2A trong `BRIEF.md`), tài liệu thiết kế,
-dữ liệu mốc SEO và công cụ kiểm tra.
+Repo riêng tư: cấu hình + theme con **The7 Classic 14.5.1** cho velisrealty.vn (từ 2026-11-11), tài liệu thiết kế,
+dữ liệu mốc SEO và công cụ kiểm tra. Theme khối "velis" (Phương án 2A trong `BRIEF.md`) đã bỏ, chỉ giữ tham khảo.
 
 ## Quy tắc làm việc (người dùng chốt 2026-11-04)
 
@@ -15,6 +19,31 @@ dữ liệu mốc SEO và công cụ kiểm tra.
 - Kế hoạch ra mắt (đã chốt): tắt Buttonizer trên site thật.
 Nguồn sự thật: `BRIEF.md` (brief đã chốt) → `DESIGN.md` (giao diện) → `docs/` (SCOPE, BRAND, VOICE, CONTENT-MAP,
 CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của site thật).
+
+## Cách làm trên The7 (người dùng chốt 2026-11-11)
+
+- Ưu tiên tuyệt đối: người dùng tự sửa được trong wp-admin (kéo thả WPBakery, The7 Theme Options, Widget, Menu).
+  Không đặt bố cục trong PHP. Tra `docs/THE7.md` (bản đồ nhu cầu DESIGN.md → tính năng/khóa The7) trước khi sửa.
+- Thang lựa chọn: Theme Options/meta box The7 → phần tử WPBakery/The7/Ultimate + "Mẫu của tôi" → trang mẫu archive
+  (`template_page_id_*`: danh mục, tìm kiếm, 404…) → Stripes 1–3 cho nền section → `velis.css` theme con (chỉ khi The7 không có).
+- **Làm một mạch, không vá:** gom thay đổi thành một đợt có kế hoạch (kiểm kê → sửa một lần → đo), không sửa đi sửa lại
+  từng chỗ. Custom CSS cũ "velis-ux" trong `general-custom_css` là nợ cần gộp/gỡ, không thêm vào.
+- Theme Options lưu riêng theo theme (theme con có bộ riêng). Không nhập lại cả file options cũ (ghi đè thay đổi sau);
+  xuất bộ hiện tại trước, chỉ đổi đúng khóa (`tools/the7_options_buoc*.py`), lưu bản trước/sau ở `data/the7/`.
+- Sau khi đổi CSS/options: xóa cache FVM (The7 tích hợp FVM, gộp CSS) + LiteSpeed purge. Không lưu trang cài đặt LiteSpeed
+  (có thể ghi `.htaccess`). FVM trì hoãn JS plugin tới khi chạm/cuộn và bỏ qua UA Headless/Lighthouse → điểm Lighthouse
+  đẹp hơn thực tế; đo console/tương tác bằng UA điện thoại thật.
+- Nội dung trang: sửa qua REST (`content.raw`) giữ shortcode WPBakery; ghi ID revision trước khi sửa vào `docs/STAGING-LOG.md`.
+  Mẫu WPBakery nguồn ở `data/the7/mau-wpbakery/`, áp bằng `tools/the7_ap_mau_buoc2.py`.
+- Kiểm tra: `python3 -I tools/the7_check_onpage.py` (on-page toàn sitemap staging, có self-check);
+  `node tools/the7_ui_audit.mjs` (computed style so với token DESIGN.md); Lighthouse `lighthouserc-the7.json`.
+  Báo cáo từng bước ở `docs/reports/the7-*.md`.
+
+## Giao diện đã khóa (2026-11-09, theme velis 1.0.0 — chỉ áp cho theme velis đã bỏ)
+
+- Mốc ảnh `tests/visual/moc/` (Git LFS; `npm run test:visual`, ngưỡng 0,1 %). Thay đổi giao diện sau mốc này phải cập nhật
+  ảnh mốc có chủ đích (`npm run test:visual:update`, soát ảnh khác biệt) **và được người dùng duyệt** trước khi triển khai.
+- CSS một nguồn `theme/velis/css/1–5` (theme + mockup), build `python3 -I tools/build_css.py` (≤ 45 KB min, ≤ 12 KB gzip).
 
 ## Phạm vi & an toàn (ưu tiên cao nhất)
 
@@ -56,7 +85,35 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
 
 ## Cấu trúc repo
 
-- `theme/velis/` — mã theme khối; `dist/` (bỏ qua git) — file zip đóng gói.
+- `the7-child/dt-the7-child/` — **theme đang dùng từ 2026-11-11**: theme con của The7 Classic 14.5.1 (chỉ `velis.css`); màu, font,
+  header trong The7 Theme Options (`data/the7/options-*.json`, sinh bằng `tools/the7_options_buoc1.py`); logo PNG `the7-child/logo/`.
+- Blog (2026-11-11): chuyên mục `/blog/` + cụm `/blog/{cụm}/` (slug cũ `/blog-bds/…` 301 qua Rank Math); bố cục trang chuyên mục = trang mẫu WPBakery 20733 (The7 → Archives); bài blog có sidebar phải (Default Sidebar).
+- Thanh liên hệ dính đáy mobile (thay Buttonizer, đã tắt 2026-11-12): theme con `functions.php` + `.velis-cta-bar` trong `velis.css`;
+  nội dung ở Giao diện → Tùy biến → "Thanh liên hệ (điện thoại)". Class `velis-cta` là hàng liên hệ của mẫu WPBakery – không dùng lại.
+- Thẻ dự án (2026-11-12, một mẫu mọi nơi): phần tử The7 `dt_blog_masonry` lấy bài động trong hàng `velis-projects`; dữ liệu thẻ = ảnh đại diện +
+  tiêu đề bài + ô Tóm tắt 4 dòng (chủ đầu tư / khu vực / loại / "Bàn giao: …"); dải nổi bật hero trang chủ = `velis-feats` (chọn ở ô Posts).
+  Bộ tên khu vực: `KHU_VUC` trong `tools/the7_sua_buoc9.py` (theo `docs/KHU-VUC.md`, người dùng duyệt 2026-11-12).
+- Bước 10 (2026-11-12): lưới trang chủ = chuyên mục Dự án (34); phân khu (Palm River, Persa Place) ở chuyên mục riêng "Phân khu" (57) nên tự bị loại,
+  /du-an/ lấy `34,57`. Ảnh hero trang chủ = Single Image Extra class `velis-hero-bg` (theme con preload + fetchpriority). Thẻ / nút / vùng bấm theo
+  DESIGN.md "Thẻ" + "Buttons". Trang chuyên mục / tìm kiếm: The7 chỉ lấy cài đặt của trang mẫu 20733, không lấy nội dung. Kiểm schema cục bộ:
+  `node tools/the7_check_schema.mjs <schemaorg.jsonld> <ldfull.json>` (validator.schema.org chặn truy cập tự động). Đưa lên site thật: `docs/the7/DUA-LEN-SITE-THAT.md`.
+- Trang tổng `/chu-dau-tu/` (bước 11, staging ID 20955): thẻ chủ đầu tư = hàng WPBakery `velis-devs velis-boxes` (mỗi cột: logo + H2 có link + dòng dự án);
+  mục menu "Chủ đầu tư" trỏ trang này (không dùng `#`).
+- Bước 12 (2026-11-13): trang sản phẩm (dự án/phân khu/chủ đầu tư, /chu-dau-tu/) **Sidebar Disabled**, CTA = hàng WPBakery `velis-cta` (form CF7
+  "Nhận bảng giá" 20958 staging, `du-an="<tên>"`, sinh bằng `tools/the7_sua_buoc12.py`); bài blog: widget Default Sidebar hộp `velis-cta-box` với chữ chờ
+  `{du_an}` (dự án = bài dự án có "Bài viết liên quan → chuyên mục" = cụm) + `[velis_bai_viet]`. Kiểm chữ cắt / meta lệch: `node tools/the7_check_clip.mjs`
+  (cần `VIEW_PASSWORD_FILE`; `--test`). Link nội dòng: vùng bấm bằng đệm, **không** inline-flex + lề âm (cắt chữ trong khung overflow:hidden).
+  Bước 12b: trang sản phẩm một cột đọc 760 px căn giữa (hàng `velis-section` trên trang có `velis-hero`, hoặc Extra class `velis-read`; khối rộng hết khung = Inner Row);
+  đo `node tools/the7_check_cot.mjs out.json` (logo header = 1, mép cột ±1 px; `--test`).
+- Bước 13 (2026-11-13) phần cuối trang: widget area "Khối liên hệ cuối trang" (theme con, chỉ trang chưa có `[contact-form-7` và không phải bài viết → mỗi trang 1 form);
+  footer = 4 widget ở Default Footer + Theme Options (#141414, 1/3+1/4+1/6+1/4); dòng cuối = Bottom bar text + menu vị trí Bottom; trang danh sách dùng widget area 3
+  "Sidebar danh sách bài" (không form). Đo `node tools/the7_check_footer.mjs out.json` (trống ≤ 96, gạch chân, vùng bấm, tương phản, ≤ 1 form, nút lên đầu; `--test`).
+- Bước 14 (2026-11-13): email hiển thị **info@velisrealty.vn** (nhận form CF7 vẫn velisrealtyvn@gmail.com); MST 0319425663 ở Bottom bar + Rank Math SEO Local (`taxID`);
+  hướng dẫn cho người viết nội dung: `docs/HUONG-DAN-NOI-DUNG.md` (cập nhật khi đổi mẫu / ô soạn); `contact_form_security_token` không bao giờ lưu vào repo ("<đã xóa>").
+- Ra mắt (2026-11-14, chốt "dựng song song, bật công tắc"): `docs/KE-HOACH-RA-MAT.md`; site thật tiền tố **`velis_`**, bộ mới `vl2_`. Công cụ:
+  `tools/the7_noi_dung_moi.py` (nội dung mới, chỉ đọc), `tools/the7_doi_tien_to.py` (bản xuất staging → bộ `vl2_`, search-replace serialized), `tools/the7_kiem_ra_mat.py` (bước 6); đều có `--test`.
+- `data/the7/mau-wpbakery/` — 3 mẫu WPBakery (Dự án, Chủ đầu tư, Bài viết) đã lưu vào "Mẫu của tôi" trên staging; bố cục trang nằm trong WPBakery, không trong PHP.
+- `theme/velis/` — theme khối velis, **đã bỏ 2026-11-11** (giữ để tham khảo); `dist/` (bỏ qua git) — file zip đóng gói.
 - `assets/brand/original/` — logo gốc tải từ Media site thật + PDF vector; `assets/brand/svg/` — SVG vẽ lại.
 - `data/gsc/` — export Search Console; `data/baseline/` — mốc crawl site thật (bản tóm tắt; dữ liệu thô bị ignore).
 - `tools/` — script crawl/kiểm tra; `screenshots/` — ảnh chụp đã nén dùng trong báo cáo.
@@ -65,7 +122,8 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
 
 - Sinh `theme.json` từ DESIGN.md: `python3 -I tools/build_theme_json.py` (không sửa tay theme.json).
 - Sinh logo SVG: `python3 -I tools/build_logo.py`.
-- Đóng gói theme: `cd theme && zip -qr ../dist/velis.zip velis` → tải lên staging qua wp-admin.
+- Đóng gói theme con The7: `cd the7-child && zip -qr ../dist/dt-the7-child.zip dt-the7-child` → Giao diện → Tải lên → "Thay thế cài đặt bằng tải lên"; sau đó xóa cache FVM + LiteSpeed.
+- (Đã bỏ) Đóng gói theme velis: `cd theme && zip -qr ../dist/velis.zip velis`.
 - Crawl mốc (chỉ đọc, không đăng nhập): `REQUESTS_CA_BUNDLE=/root/.ccr/ca-bundle.crt python3 -I tools/crawl_baseline.py https://velisrealty.vn data/baseline`.
 
 ## Ponytail – AGENTS.md (nguyên văn)

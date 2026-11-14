@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Velis Data
  * Description: Mô hình dữ liệu Velis: Chủ đầu tư, Dự án (đại đô thị → phân khu → dòng thấp tầng, dự án độc lập), dòng căn hộ, loại sản phẩm, khu vực 2 cấp, trạng thái. Form nhập liệu trong wp-admin.
- * Version: 0.2.6
+ * Version: 0.4.1
  * Author: Velis Realty
  * Requires PHP: 8.0
  *
@@ -16,6 +16,8 @@ const VELIS_CPT_DEVELOPER = 'chu-dau-tu';
 
 require __DIR__ . '/inc/fields.php'; // after the constants: inc/admin.php uses them at load time
 require __DIR__ . '/inc/admin.php';
+require __DIR__ . '/inc/media.php'; // per-image flags: printed mark (X-03) + focal point (F-B) + broken original
+require __DIR__ . '/inc/settings.php'; // "Cài đặt Velis": texts, numbers, contacts, pictures the theme shows
 
 add_action( 'init', 'velis_register' );
 
@@ -106,17 +108,19 @@ function velis_is_noindex( $post ): bool {
 }
 add_filter( 'wp_robots', fn( $r ) => is_singular( VELIS_CPT_PROJECT ) && velis_is_noindex( get_queried_object() ) ? array_merge( $r, array( 'noindex' => true, 'follow' => true ) ) : $r );
 add_filter( 'rank_math/frontend/robots', fn( $r ) => is_singular( VELIS_CPT_PROJECT ) && velis_is_noindex( get_queried_object() ) ? array_merge( $r, array( 'index' => 'noindex', 'follow' => 'follow' ) ) : $r );
-add_filter( 'rank_math/sitemap/entry', fn( $url, $type, $object ) => ( 'post' === $type && velis_is_noindex( $object ) ) ? false : $url, 10, 3 );
+// Rank Math passes a raw DB row (stdClass), not a WP_Post, and its type is not always 'post' – load the post by ID first,
+// or noindex pages stay in the sitemap (found in giai đoạn 5).
+add_filter( 'rank_math/sitemap/entry', fn( $url, $type, $object ) => ( isset( $object->ID ) && velis_is_noindex( get_post( (int) $object->ID ) ) ) ? false : $url, 10, 3 );
 add_action( 'rest_api_init', fn() => register_rest_field( VELIS_CPT_PROJECT, 'velis_missing', array( 'get_callback' => fn( $p ) => velis_missing( $p['id'] ) ) ) );
 
 /**
  * Header menu data: Chủ đầu tư → dự án → up to 4 phân khu (published). Returns
- * [ developer title => [ project title => [ 'url' => …, 'zones' => [ title => url ], 'more' => bool ] ] ],
+ * [ developer title => [ project title (newest project first) => [ 'url' => …, 'zones' => [ title => url ], 'more' => bool ] ] ],
  * projects without a developer under "Dự án khác".
  */
 function velis_project_menu(): array {
 	$out = array();
-	$projects = get_posts( array( 'post_type' => VELIS_CPT_PROJECT, 'post_parent' => 0, 'numberposts' => 100, 'orderby' => 'title', 'order' => 'ASC' ) );
+	$projects = get_posts( array( 'post_type' => VELIS_CPT_PROJECT, 'post_parent' => 0, 'numberposts' => 100, 'orderby' => 'date', 'order' => 'DESC' ) ); // newest first (vòng hoàn thiện 2)
 	foreach ( $projects as $p ) {
 		$devs = array_filter( array_map( 'get_post', (array) get_post_meta( $p->ID, 'velis_developers', true ) ) );
 		$key  = $devs ? reset( $devs )->post_title : 'Dự án khác';
