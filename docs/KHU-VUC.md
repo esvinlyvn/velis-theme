@@ -37,3 +37,17 @@ Thẻ chỉ hiện cấp cụ thể nhất (có Tiểu khu thì hiện Tiểu kh
 | Vùng vệ tinh | Bình Dương · Nhơn Trạch – Long Thành |
 
 Gán Vùng/Tiểu khu cho từng dự án làm ở giai đoạn kiến trúc & dữ liệu.
+
+## Bộ tên đang dùng – người dùng duyệt 2026-11-12 (bước 10)
+
+Một bộ tên duy nhất cho nhãn thẻ dự án, dải "Dự án nổi bật" và nhãn đầu trang dự án (thẻ hiện cấp cụ thể nhất). Danh sách trong
+`KHU_VUC`, `tools/the7_sua_buoc9.py`; dữ liệu nằm ở dòng 2 ô **Tóm tắt** của từng bài dự án (sửa trong wp-admin).
+
+| Vùng | Tiểu khu | Dự án đang gán |
+|---|---|---|
+| Trung tâm | – | – |
+| Khu Đông | Thủ Thiêm · Thảo Điền – An Phú · Nam Rạch Chiếc | The Privé, The Global City, Palm River → Nam Rạch Chiếc |
+| Khu Nam | Nam Sài Gòn | – |
+| Khu Tây | – | Ansana by Kita |
+| Tây Bắc | – | Vinhomes Saigon Park |
+| Vùng vệ tinh | Bình Dương · Nhơn Trạch – Long Thành | Spring Ville, Persa Place → Nhơn Trạch – Long Thành |

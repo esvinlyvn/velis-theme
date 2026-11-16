@@ -1,0 +1,17 @@
+2026-11-04 22:45:38
+[Velis] Yêu cầu tư vấn: The Privé
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="vi">
+<head>
+<title>[Velis] Yêu cầu tư vấn: The Privé</title>
+</head>
+<body>
+<p>Họ tên: Kiểm thử hệ thống<br />
+Điện thoại: 0900000000<br />
+Dự án / phân khu / dòng sản phẩm: The Privé<br />
+Trang gửi: https://staging.velisrealty.vn/du-an/the-prive/?utm_source=kiemthu&amp;utm_medium=test<br />
+Nguồn (utm): utm_source=kiemthu&amp;utm_medium=test
+</p>
+<p>Gửi lúc: 04/11/2026 22:45
+</p></body>
+</html>

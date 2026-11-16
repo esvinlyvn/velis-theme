@@ -1,0 +1,432 @@
+{
+ "menus": [
+  {
+   "id": 54,
+   "description": "",
+   "name": "FOOTER",
+   "slug": "footer",
+   "meta": [],
+   "locations": [
+    "bottom"
+   ],
+   "auto_add": false,
+   "_links": {
+    "self": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menus/54",
+      "targetHints": {
+       "allow": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+       ]
+      }
+     }
+    ],
+    "collection": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menus"
+     }
+    ],
+    "about": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/taxonomies/nav_menu"
+     }
+    ],
+    "wp:post_type": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-items?menus=54"
+     }
+    ],
+    "wp:menu-location": [
+     {
+      "embeddable": true,
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-locations/bottom"
+     }
+    ],
+    "curies": [
+     {
+      "name": "wp",
+      "href": "https://api.w.org/{rel}",
+      "templated": true
+     }
+    ]
+   }
+  },
+  {
+   "id": 33,
+   "description": "",
+   "name": "MAIN",
+   "slug": "main",
+   "meta": [],
+   "locations": [],
+   "auto_add": false,
+   "_links": {
+    "self": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menus/33",
+      "targetHints": {
+       "allow": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+       ]
+      }
+     }
+    ],
+    "collection": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menus"
+     }
+    ],
+    "about": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/taxonomies/nav_menu"
+     }
+    ],
+    "wp:post_type": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-items?menus=33"
+     }
+    ],
+    "curies": [
+     {
+      "name": "wp",
+      "href": "https://api.w.org/{rel}",
+      "templated": true
+     }
+    ]
+   }
+  },
+  {
+   "id": 55,
+   "description": "",
+   "name": "Velis – Menu chính",
+   "slug": "velis-menu-chinh",
+   "meta": [],
+   "locations": [
+    "primary"
+   ],
+   "auto_add": false,
+   "_links": {
+    "self": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menus/55",
+      "targetHints": {
+       "allow": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+       ]
+      }
+     }
+    ],
+    "collection": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menus"
+     }
+    ],
+    "about": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/taxonomies/nav_menu"
+     }
+    ],
+    "wp:post_type": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-items?menus=55"
+     }
+    ],
+    "wp:menu-location": [
+     {
+      "embeddable": true,
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-locations/primary"
+     }
+    ],
+    "curies": [
+     {
+      "name": "wp",
+      "href": "https://api.w.org/{rel}",
+      "templated": true
+     }
+    ]
+   }
+  }
+ ],
+ "locations": {
+  "primary": {
+   "name": "primary",
+   "description": "Primary Menu",
+   "menu": 55,
+   "_links": {
+    "self": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-locations/primary",
+      "targetHints": {
+       "allow": [
+        "GET"
+       ]
+      }
+     }
+    ],
+    "collection": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-locations"
+     }
+    ],
+    "wp:menu": [
+     {
+      "embeddable": true,
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menus/55"
+     }
+    ],
+    "curies": [
+     {
+      "name": "wp",
+      "href": "https://api.w.org/{rel}",
+      "templated": true
+     }
+    ]
+   }
+  },
+  "split_left": {
+   "name": "split_left",
+   "description": "Split Menu Left",
+   "menu": 0,
+   "_links": {
+    "self": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-locations/split_left",
+      "targetHints": {
+       "allow": [
+        "GET"
+       ]
+      }
+     }
+    ],
+    "collection": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-locations"
+     }
+    ]
+   }
+  },
+  "split_right": {
+   "name": "split_right",
+   "description": "Split Menu Right",
+   "menu": 0,
+   "_links": {
+    "self": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-locations/split_right",
+      "targetHints": {
+       "allow": [
+        "GET"
+       ]
+      }
+     }
+    ],
+    "collection": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-locations"
+     }
+    ]
+   }
+  },
+  "mobile": {
+   "name": "mobile",
+   "description": "Mobile Menu",
+   "menu": 0,
+   "_links": {
+    "self": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-locations/mobile",
+      "targetHints": {
+       "allow": [
+        "GET"
+       ]
+      }
+     }
+    ],
+    "collection": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-locations"
+     }
+    ]
+   }
+  },
+  "top": {
+   "name": "top",
+   "description": "Header Microwidget 1",
+   "menu": 0,
+   "_links": {
+    "self": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-locations/top",
+      "targetHints": {
+       "allow": [
+        "GET"
+       ]
+      }
+     }
+    ],
+    "collection": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-locations"
+     }
+    ]
+   }
+  },
+  "header_microwidget2": {
+   "name": "header_microwidget2",
+   "description": "Header Microwidget 2",
+   "menu": 0,
+   "_links": {
+    "self": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-locations/header_microwidget2",
+      "targetHints": {
+       "allow": [
+        "GET"
+       ]
+      }
+     }
+    ],
+    "collection": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-locations"
+     }
+    ]
+   }
+  },
+  "bottom": {
+   "name": "bottom",
+   "description": "Bottom Menu",
+   "menu": 54,
+   "_links": {
+    "self": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-locations/bottom",
+      "targetHints": {
+       "allow": [
+        "GET"
+       ]
+      }
+     }
+    ],
+    "collection": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-locations"
+     }
+    ],
+    "wp:menu": [
+     {
+      "embeddable": true,
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menus/54"
+     }
+    ],
+    "curies": [
+     {
+      "name": "wp",
+      "href": "https://api.w.org/{rel}",
+      "templated": true
+     }
+    ]
+   }
+  }
+ },
+ "footer_items": [
+  {
+   "id": 20358,
+   "title": {
+    "raw": "Thi thử CCMG",
+    "rendered": "Thi thử CCMG"
+   },
+   "status": "publish",
+   "url": "https://staging.velisrealty.vn/thi/",
+   "attr_title": "",
+   "description": "",
+   "type": "custom",
+   "type_label": "Link tùy chọn",
+   "object": "custom",
+   "object_id": 20358,
+   "parent": 0,
+   "menu_order": 1,
+   "target": "_blank",
+   "classes": [
+    ""
+   ],
+   "xfn": [
+    "noopener"
+   ],
+   "invalid": false,
+   "meta": [],
+   "menus": 54,
+   "_links": {
+    "self": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-items/20358",
+      "targetHints": {
+       "allow": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+       ]
+      }
+     }
+    ],
+    "collection": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-items"
+     }
+    ],
+    "about": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/types/nav_menu_item"
+     }
+    ],
+    "wp:term": [
+     {
+      "taxonomy": "nav_menu",
+      "embeddable": true,
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menus?post=20358"
+     }
+    ],
+    "wp:action-publish": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-items/20358"
+     }
+    ],
+    "wp:action-unfiltered-html": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-items/20358"
+     }
+    ],
+    "wp:action-create-menus": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-items/20358"
+     }
+    ],
+    "wp:action-assign-menus": [
+     {
+      "href": "https://staging.velisrealty.vn/wp-json/wp/v2/menu-items/20358"
+     }
+    ],
+    "curies": [
+     {
+      "name": "wp",
+      "href": "https://api.w.org/{rel}",
+      "templated": true
+     }
+    ]
+   }
+  }
+ ]
+}

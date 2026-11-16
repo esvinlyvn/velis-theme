@@ -1,0 +1,7 @@
+{
+ "title": "Liên Hệ",
+ "form": "<div class=\"velis-cta-form\">\n<label class=\"velis-cf7-label\"><span class=\"velis-cf7-label__t\">Họ và tên</span>[text* ten autocomplete:name]</label>\n<label class=\"velis-cf7-label\"><span class=\"velis-cf7-label__t\">Số điện thoại / Zalo</span>[tel* sdt autocomplete:tel placeholder \"Ví dụ: 0911 237 979\"]</label>\n[submit \"Nhận tư vấn\"]\n</div>\n[hidden utm_source default:get][hidden utm_medium default:get][hidden utm_campaign default:get]\n<div class=\"velis-cf7-consent\">[acceptance dong-y] Tôi đồng ý để Velis Realty dùng họ tên và số điện thoại này để liên hệ tư vấn, theo <a href=\"/chinh-sach-bao-mat/\" target=\"_blank\" rel=\"noopener\">Chính sách bảo mật</a>.[/acceptance]</div>",
+ "mail_subject": "[_site_title] KH mới \"[ten]\"",
+ "mail_body": "Tên: [ten]\nSĐT: [sdt]\nTrang: [_url]\nUTM: [utm_source] / [utm_medium] / [utm_campaign]\n\n-- \n[_site_title] [_site_url]",
+ "additional_settings": "acceptance_as_validation: on"
+}

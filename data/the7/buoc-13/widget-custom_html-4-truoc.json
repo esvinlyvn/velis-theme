@@ -1,0 +1,54 @@
+{
+ "id": "custom_html-4",
+ "id_base": "custom_html",
+ "sidebar": "sidebar_3",
+ "rendered": "<section id=\"custom_html-4\" class=\"widget_text widget widget_custom_html\"><div class=\"widget-title\">Nhận bảng giá và tư vấn</div><div class=\"textwidget custom-html-widget\"><p>Bảng giá, chính sách bán hàng và pháp lý mới nhất của dự án: để lại họ tên và số điện thoại, chuyên viên Velis Realty gọi lại trong giờ làm việc.</p>\r\n<p><a class=\"dt-btn dt-btn-m\" href=\"#lien-he-tu-van\">Nhận bảng giá</a></p>\r\n<p>Hoặc gọi <a href=\"tel:0911237979\">0911 237 979</a> · <a href=\"https://zalo.me/0911237979\" target=\"_blank\" rel=\"noopener\">Zalo</a></p></div></section>",
+ "rendered_form": "<input id=\"widget-custom_html-4-title\" name=\"widget-custom_html[4][title]\" class=\"title sync-input\" type=\"hidden\" value=\"Nhận bảng giá và tư vấn\" />\n\t\t<textarea id=\"widget-custom_html-4-content\" name=\"widget-custom_html[4][content]\" class=\"content sync-input\" hidden>&lt;p&gt;Bảng giá, chính sách bán hàng và pháp lý mới nhất của dự án: để lại họ tên và số điện thoại, chuyên viên Velis Realty gọi lại trong giờ làm việc.&lt;/p&gt;\r\n&lt;p&gt;&lt;a class=&quot;dt-btn dt-btn-m&quot; href=&quot;#lien-he-tu-van&quot;&gt;Nhận bảng giá&lt;/a&gt;&lt;/p&gt;\r\n&lt;p&gt;Hoặc gọi &lt;a href=&quot;tel:0911237979&quot;&gt;0911 237 979&lt;/a&gt; · &lt;a href=&quot;https://zalo.me/0911237979&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Zalo&lt;/a&gt;&lt;/p&gt;</textarea>",
+ "instance": {
+  "encoded": "YToyOntzOjU6InRpdGxlIjtzOjMyOiJOaOG6rW4gYuG6o25nIGdpw6EgdsOgIHTGsCB24bqlbiI7czo3OiJjb250ZW50IjtzOjQyMjoiPHA+QuG6o25nIGdpw6EsIGNow61uaCBzw6FjaCBiw6FuIGjDoG5nIHbDoCBwaMOhcCBsw70gbeG7m2kgbmjhuqV0IGPhu6dhIGThu7Egw6FuOiDEkeG7gyBs4bqhaSBo4buNIHTDqm4gdsOgIHPhu5EgxJFp4buHbiB0aG/huqFpLCBjaHV5w6puIHZpw6puIFZlbGlzIFJlYWx0eSBn4buNaSBs4bqhaSB0cm9uZyBnaeG7nSBsw6BtIHZp4buHYy48L3A+DQo8cD48YSBjbGFzcz0iZHQtYnRuIGR0LWJ0bi1tIiBocmVmPSIjbGllbi1oZS10dS12YW4iPk5o4bqtbiBi4bqjbmcgZ2nDoTwvYT48L3A+DQo8cD5Ib+G6t2MgZ+G7jWkgPGEgaHJlZj0idGVsOjA5MTEyMzc5NzkiPjA5MTEgMjM3IDk3OTwvYT4gwrcgPGEgaHJlZj0iaHR0cHM6Ly96YWxvLm1lLzA5MTEyMzc5NzkiIHRhcmdldD0iX2JsYW5rIiByZWw9Im5vb3BlbmVyIj5aYWxvPC9hPjwvcD4iO30=",
+  "hash": "fd3e53e5e0292929761cb67ffc619a55",
+  "raw": {
+   "title": "Nhận bảng giá và tư vấn",
+   "content": "<p>Bảng giá, chính sách bán hàng và pháp lý mới nhất của dự án: để lại họ tên và số điện thoại, chuyên viên Velis Realty gọi lại trong giờ làm việc.</p>\r\n<p><a class=\"dt-btn dt-btn-m\" href=\"#lien-he-tu-van\">Nhận bảng giá</a></p>\r\n<p>Hoặc gọi <a href=\"tel:0911237979\">0911 237 979</a> · <a href=\"https://zalo.me/0911237979\" target=\"_blank\" rel=\"noopener\">Zalo</a></p>"
+  }
+ },
+ "_links": {
+  "self": [
+   {
+    "href": "https://staging.velisrealty.vn/wp-json/wp/v2/widgets/custom_html-4",
+    "targetHints": {
+     "allow": [
+      "GET",
+      "POST",
+      "PUT",
+      "PATCH",
+      "DELETE"
+     ]
+    }
+   }
+  ],
+  "collection": [
+   {
+    "href": "https://staging.velisrealty.vn/wp-json/wp/v2/widgets"
+   }
+  ],
+  "about": [
+   {
+    "embeddable": true,
+    "href": "https://staging.velisrealty.vn/wp-json/wp/v2/widget-types/custom_html"
+   }
+  ],
+  "wp:sidebar": [
+   {
+    "href": "https://staging.velisrealty.vn/wp-json/wp/v2/sidebars/sidebar_3/"
+   }
+  ],
+  "curies": [
+   {
+    "name": "wp",
+    "href": "https://api.w.org/{rel}",
+    "templated": true
+   }
+  ]
+ }
+}

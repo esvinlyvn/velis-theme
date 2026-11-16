@@ -1,0 +1,5 @@
+{
+ "ghi_chu": "Bước 12b (2026-11-13) – ID bản sửa đổi mới nhất TRƯỚC khi sửa + ngày sửa (modified) trước. Khôi phục: Bản sửa đổi → chọn ID.",
+ "20955": {"trang": "/chu-dau-tu/", "revision_truoc": 20971, "modified_truoc": "2026-11-13T11:17:17", "sua": "hàng gioi-thieu thêm el_class velis-read (REST content.raw; ngày sửa đổi thành 2026-11-13T12:16:38)"},
+ "19773": {"trang": "/spring-ville/", "revision_truoc": 20965, "modified_truoc": "2026-04-16T20:50:15", "sua": "3 hàng nha-pho / shophouse / can-ho-spring-ville: 2 cột 1/2 → 1 cột (trình sửa cổ điển, Lock Modified Date – ngày sửa giữ nguyên)"}
+}

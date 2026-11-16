@@ -1,0 +1,201 @@
+{
+ "trang-chu": {
+  "3": {
+   "broken": [],
+   "wrong": [],
+   "dpr": [],
+   "mixed": [],
+   "noname": [],
+   "feats": [],
+   "photos": [],
+   "edge": [],
+   "postgrid": [],
+   "meta": [],
+   "empty": [],
+   "table": [],
+   "overflow": [],
+   "h1": [],
+   "caps": [],
+   "gaps": [],
+   "lowres": [
+    "390px: can-ho-the-prive.webp [hero]: cần 1747px, lớn nhất 1200px",
+    "390px: vi-tri-ansana-by-kita.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: phoi-canh-spring-ville.webp [thẻ]: cần 2036px, lớn nhất 1200px",
+    "390px: the-global-city-3-1.webp [thẻ]: cần 1290px, lớn nhất 1200px",
+    "390px: can-ho-the-prive.webp [thẻ]: cần 1647px, lớn nhất 1200px",
+    "390px: vinhomes-saigon-park-2.webp [thẻ]: cần 1389px, lớn nhất 1200px",
+    "390px: thap-tang-vinhomes-saigon-park.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: tiem-nang-nam-rach-chiec-2028.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: can-ho-mat-tien-ton-duc-thang-nhon-trach.webp [thẻ]: cần 1241px, lớn nhất 1200px"
+   ],
+   "blurryOld": [],
+   "gridinfo": []
+  }
+ },
+ "du-an": {
+  "3": {
+   "broken": [],
+   "wrong": [],
+   "dpr": [],
+   "mixed": [],
+   "noname": [],
+   "feats": [],
+   "photos": [],
+   "edge": [],
+   "postgrid": [],
+   "meta": [],
+   "empty": [],
+   "table": [],
+   "overflow": [],
+   "h1": [],
+   "caps": [],
+   "gaps": [],
+   "lowres": [
+    "390px: the-global-city-3-1.webp [hero]: cần 1290px, lớn nhất 1200px",
+    "390px: vi-tri-ansana-by-kita.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: phoi-canh-spring-ville.webp [thẻ]: cần 2036px, lớn nhất 1200px",
+    "390px: the-global-city-3-1.webp [thẻ]: cần 1290px, lớn nhất 1200px",
+    "390px: can-ho-the-prive.webp [thẻ]: cần 1647px, lớn nhất 1200px",
+    "390px: vinhomes-saigon-park-2.webp [thẻ]: cần 1389px, lớn nhất 1200px"
+   ],
+   "blurryOld": [],
+   "gridinfo": []
+  }
+ },
+ "the-prive": {
+  "3": {
+   "broken": [],
+   "wrong": [],
+   "dpr": [],
+   "mixed": [],
+   "noname": [],
+   "feats": [],
+   "photos": [],
+   "edge": [],
+   "postgrid": [],
+   "meta": [],
+   "empty": [],
+   "table": [],
+   "overflow": [],
+   "h1": [],
+   "caps": [],
+   "gaps": [],
+   "lowres": [
+    "390px: can-ho-the-prive.webp [hero]: cần 1604px, lớn nhất 1200px",
+    "390px: ceo-vu-xuan-160.webp [khác]: cần 240px, lớn nhất 160px",
+    "390px: can-ho-the-prive.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: can-ho-1pn-the-prive-1024x683.webp [khác]: cần 1074px, lớn nhất 1024px",
+    "390px: loi-nhuan-dau-tu-the-prive.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: mat-bang-thap-9-the-prive.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: can-ho-1pn-the-prive-1024x683.webp [ảnh nội dung]: cần 1203px, lớn nhất 1024px",
+    "390px: can-ho-2pn-the-prive-1024x683.webp [ảnh nội dung]: cần 1203px, lớn nhất 1024px",
+    "390px: can-ho-3pn-the-prive-1024x683.webp [ảnh nội dung]: cần 1203px, lớn nhất 1024px",
+    "390px: vi-tri-chien-luoc-the-prive.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: kinh-doanh-airbnb-the-prive.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: velis-realty-f1-the-prive.webp [thẻ]: cần 1389px, lớn nhất 1200px",
+    "390px: tiem-nang-nam-rach-chiec-2028.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: rui-ro-dau-tu-the-prive.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: loi-nhuan-dau-tu-the-prive-1.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: penthouse-duplex-the-prive.webp [thẻ]: cần 1241px, lớn nhất 1200px"
+   ],
+   "blurryOld": [
+    "390px: ceo-vu-xuan-160.webp khung 80px × 3 > file 160px × 1,15",
+    "390px: can-ho-1pn-the-prive-1024x683.webp khung 401px × 3 > file 1024px × 1,15",
+    "390px: can-ho-2pn-the-prive-1024x683.webp khung 401px × 3 > file 1024px × 1,15",
+    "390px: can-ho-3pn-the-prive-1024x683.webp khung 401px × 3 > file 1024px × 1,15"
+   ],
+   "gridinfo": []
+  }
+ },
+ "the-global-city": {
+  "3": {
+   "broken": [],
+   "wrong": [],
+   "dpr": [],
+   "mixed": [],
+   "noname": [],
+   "feats": [],
+   "photos": [],
+   "edge": [],
+   "postgrid": [],
+   "meta": [],
+   "empty": [],
+   "table": [],
+   "overflow": [],
+   "h1": [],
+   "caps": [],
+   "gaps": [],
+   "lowres": [
+    "390px: the-global-city-3-1.webp [hero]: cần 1256px, lớn nhất 1200px",
+    "390px: ceo-vu-xuan-160.webp [khác]: cần 240px, lớn nhất 160px",
+    "390px: phoi-canh-the-global-city.webp [ảnh nội dung]: cần 1204px, lớn nhất 1200px",
+    "390px: phoi-canh-lumiere-mid-town.webp [thẻ]: cần 1389px, lớn nhất 1200px",
+    "390px: phoi-canh-masteri-park-place.webp [thẻ]: cần 1559px, lớn nhất 1200px",
+    "390px: can-ho-masteri-grand-view.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: phoi-canh-lumiere-mid-town.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: phoi-canh-masteri-park-place.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: shophouse-soho-tgc.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: phoi-canh-masteri-cosmo.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: phoi-canh-sola.webp [ảnh nội dung]: cần 1204px, lớn nhất 1200px",
+    "390px: mat-bang-the-global-city.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: vi-tri-the-global-city.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: the-global-city-3.webp [ảnh nội dung]: cần 1204px, lớn nhất 1200px",
+    "390px: suc-hut-dau-tu-the-global-city.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: hqdefault.jpg [ảnh nội dung]: cần 1074px, lớn nhất 480px",
+    "390px: khu-pho-thuong-mai-soho-fb.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: bat-dong-san-tich-san-truyen-doi.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: suc-hut-dau-tu-the-global-city-1.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: thanh-khoan-vi-tri-can-goc.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: thiet-ke-shophouse-soho.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: lai-suat-vay-mua-nha-2026.webp [thẻ]: cần 1241px, lớn nhất 1200px"
+   ],
+   "blurryOld": [
+    "390px: ceo-vu-xuan-160.webp khung 80px × 3 > file 160px × 1,15",
+    "390px: hqdefault.jpg khung 358px × 3 > file 480px × 1,15"
+   ],
+   "gridinfo": []
+  }
+ },
+ "vinhomes-saigon-park": {
+  "3": {
+   "broken": [],
+   "wrong": [],
+   "dpr": [],
+   "mixed": [],
+   "noname": [],
+   "feats": [],
+   "photos": [],
+   "edge": [],
+   "postgrid": [],
+   "meta": [],
+   "empty": [],
+   "table": [],
+   "overflow": [],
+   "h1": [],
+   "caps": [],
+   "gaps": [],
+   "lowres": [
+    "390px: vinhomes-saigon-park-2.webp [hero]: cần 1353px, lớn nhất 1200px",
+    "390px: ceo-vu-xuan-160.webp [khác]: cần 240px, lớn nhất 160px",
+    "390px: vinhomes-saigon-park-2.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: thiet-ke-nha-pho-vinhomes.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: biet-thu-san-golf-vinhomes.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: cho-thue-vinhomes-saigon-park.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: mat-bang-tong-vinhomes-saigon-park.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: vinhomes-saigon-park.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: tien-ich-vinhomes-saigon-park.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: vinhomes-saigon-park-1.webp [ảnh nội dung]: cần 1203px, lớn nhất 1200px",
+    "390px: tien-do-vinhomes-saigon-park.webp [thẻ]: cần 1391px, lớn nhất 1200px",
+    "390px: thap-tang-vinhomes-saigon-park.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: biet-thu-ven-kenh-vinhomes.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: thiet-ke-nha-pho-vinhomes-1.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: biet-thu-san-golf-vinhomes.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: shophouse-vinhomes-saigon-park.webp [thẻ]: cần 1241px, lớn nhất 1200px"
+   ],
+   "blurryOld": [
+    "390px: ceo-vu-xuan-160.webp khung 80px × 3 > file 160px × 1,15"
+   ],
+   "gridinfo": []
+  }
+ }
+}

@@ -1,0 +1,187 @@
+{
+ "M1": {
+  "h1": {
+   "x": 83,
+   "y": 251.5,
+   "w": 600,
+   "h": 112.5,
+   "text": "Tư vấn bất động sản cao cấp tại TP.HCM và vùng lân cận"
+  },
+  "lead": {
+   "x": 83,
+   "y": 380,
+   "w": 600,
+   "h": 135,
+   "text": "Căn hộ hạng sang, villa nghỉ dưỡng, shophouse của Vinhomes, "
+  },
+  "btn1": {
+   "x": 83,
+   "y": 539,
+   "w": 152.2,
+   "h": 48,
+   "text": "Nhận tư vấn"
+  },
+  "btn2": {
+   "x": 247.2,
+   "y": 539,
+   "w": 141,
+   "h": 48,
+   "text": "Xem dự án"
+  },
+  "dai": {
+   "x": 83,
+   "y": 611,
+   "w": 1200,
+   "h": 158,
+   "text": "DỰ ÁN NỔI BẬT ‹ › Ansana by Kita Khu Tây Spring Ville Nhơn T"
+  }
+ },
+ "M2": {
+  "h1": {
+   "x": 168,
+   "y": 286.2,
+   "w": 600,
+   "h": 172.8,
+   "text": "Tư vấn bất động sản cao cấp tại TP.HCM và vùng lân cận"
+  },
+  "lead": {
+   "x": 168,
+   "y": 475,
+   "w": 600,
+   "h": 136,
+   "text": "Căn hộ hạng sang, villa nghỉ dưỡng, shophouse của Vinhomes, "
+  },
+  "btn1": {
+   "x": 168,
+   "y": 635,
+   "w": 152.2,
+   "h": 48,
+   "text": "Nhận tư vấn"
+  },
+  "btn2": {
+   "x": 332.2,
+   "y": 635,
+   "w": 141,
+   "h": 48,
+   "text": "Xem dự án"
+  },
+  "dai": {
+   "x": 168,
+   "y": 707,
+   "w": 1200,
+   "h": 158,
+   "text": "DỰ ÁN NỔI BẬT ‹ › Ansana by Kita Khu Tây Spring Ville Nhơn T"
+  }
+ },
+ "M3": {
+  "h1": {
+   "x": 300,
+   "y": 402.2,
+   "w": 600,
+   "h": 172.8,
+   "text": "Tư vấn bất động sản cao cấp tại TP.HCM và vùng lân cận"
+  },
+  "lead": {
+   "x": 300,
+   "y": 591,
+   "w": 600,
+   "h": 136,
+   "text": "Căn hộ hạng sang, villa nghỉ dưỡng, shophouse của Vinhomes, "
+  },
+  "btn1": {
+   "x": 300,
+   "y": 751,
+   "w": 152.2,
+   "h": 48,
+   "text": "Nhận tư vấn"
+  },
+  "btn2": {
+   "x": 464.2,
+   "y": 751,
+   "w": 141,
+   "h": 48,
+   "text": "Xem dự án"
+  },
+  "dai": {
+   "x": 300,
+   "y": 823,
+   "w": 1320,
+   "h": 158,
+   "text": "DỰ ÁN NỔI BẬT ‹ › Ansana by Kita Khu Tây Spring Ville Nhơn T"
+  }
+ },
+ "M4": {
+  "h1": {
+   "x": 24,
+   "y": 134.1,
+   "w": 760,
+   "h": 97.9,
+   "text": "Tư vấn bất động sản cao cấp tại TP.HCM và vùng lân cận"
+  },
+  "lead": {
+   "x": 24,
+   "y": 248,
+   "w": 760,
+   "h": 97.4,
+   "text": "Căn hộ hạng sang, villa nghỉ dưỡng, shophouse của Vinhomes, "
+  },
+  "btn1": {
+   "x": 24,
+   "y": 369.3,
+   "w": 152.2,
+   "h": 48,
+   "text": "Nhận tư vấn"
+  },
+  "btn2": {
+   "x": 188.2,
+   "y": 369.3,
+   "w": 141,
+   "h": 48,
+   "text": "Xem dự án"
+  },
+  "dai": {
+   "x": 24,
+   "y": 441.3,
+   "w": 1200,
+   "h": 148.1,
+   "text": "DỰ ÁN NỔI BẬT Ansana by Kita Khu Tây Spring Ville Nhơn Trạch"
+  }
+ },
+ "M5": {
+  "h1": {
+   "x": 16,
+   "y": 417.6,
+   "w": 358,
+   "h": 116,
+   "text": "Tư vấn bất động sản cao cấp tại TP.HCM và vùng lân cận"
+  },
+  "lead": {
+   "x": 16,
+   "y": 549.6,
+   "w": 358,
+   "h": 183.8,
+   "text": "Căn hộ hạng sang, villa nghỉ dưỡng, shophouse của Vinhomes, "
+  },
+  "btn1": {
+   "x": 16,
+   "y": 757.4,
+   "w": 152.2,
+   "h": 48,
+   "text": "Nhận tư vấn"
+  },
+  "btn2": {
+   "x": 180.2,
+   "y": 757.4,
+   "w": 141,
+   "h": 48,
+   "text": "Xem dự án"
+  },
+  "dai": {
+   "x": 16,
+   "y": 837.4,
+   "w": 358,
+   "h": 148.1,
+   "text": "DỰ ÁN NỔI BẬT Ansana by Kita Khu Tây Spring Ville Nhơn Trạch"
+  }
+ }
+}

@@ -1,0 +1,13 @@
+[vc_row][vc_column][vc_column_text css=""]
+<p>[Mở bài 2–3 đoạn: vấn đề người đọc gặp, bài này trả lời gì]</p>
+[/vc_column_text][vc_single_image image="" img_size="large" alignment="center" css=""][vc_column_text css=""]
+<h2>[Ý chính 1]</h2>
+<p>[…]</p>
+<h2>[Ý chính 2]</h2>
+<p>[…]</p>
+[/vc_column_text][/vc_column][/vc_row][vc_row el_id="lien-he-tu-van" el_class="velis-cta" css=".vc_custom_1762900000005{background-color: #F3ECDF !important;}"][vc_column][vc_column_text css=""]
+<h2>Liên hệ tư vấn</h2>
+<p>[1–2 câu: anh chị cần gì thì liên hệ]</p>
+[/vc_column_text][dt_default_button link="url:%2Flien-he%2F|title:Nh%E1%BA%ADn%20t%C6%B0%20v%E1%BA%A5n" size="big"]Nhận tư vấn[/dt_default_button][vc_column_text css=""]
+<p>Hoặc gọi <a href="tel:0911237979">0911 237 979</a></p>
+[/vc_column_text][/vc_column][/vc_row]

@@ -4,24 +4,28 @@
  * Slug: velis/tpl-blog
  * Inserter: no
  *
- * /blog/: the newest post first and large, then the next posts (filter by post kind), clusters, search box.
+ * /blog/: cluster links under the header, the newest post first and large, then the next posts (filter by post kind),
+ * 12 per page with pagination (/blog/page/N/, noindex from page 2 – inc/seo.php), search box.
  */
-$latest   = get_posts( array( 'numberposts' => 10 ) );
-$first    = array_shift( $latest );
-$clusters = array_filter( get_categories( array( 'hide_empty' => true, 'parent' => 0, 'orderby' => 'count', 'order' => 'DESC' ) ), 'velis_is_cluster' );
-$out      = velis_breadcrumb_html( velis_trail() ) . '<div class="v-wrap v-pagehead"><p class="v-eyebrow">Blog Velis</p><h1>Blog bất động sản: phân tích dự án và thị trường</h1></div>';
-if ( $first ) {
-	$out .= '<div class="v-wrap">' . velis_card_post( $first, false, 'feature' ) . '</div>';
-}
+$paged = max( 1, (int) get_query_var( 'paged' ) );
+$q     = new WP_Query( array( 'post_type' => 'post', 'paged' => $paged, 'posts_per_page' => 12, 'ignore_sticky_posts' => true ) ); // 2.2: 12 per page, every post reachable
+$posts = $q->posts; // item 4 (2026-11-11): every post one row, the newest too (no large card)
+$out   = velis_breadcrumb_html( velis_trail() ) . velis_hero_b( array(
+	'eyebrow' => 'Blog Velis',
+	'title'   => velis_s( 'blog_title' ) . ( $paged > 1 ? " – trang $paged" : '' ),
+	'lead'    => trim( wp_strip_all_tags( (string) get_post_field( 'post_content', get_page_by_path( 'blog' ) ) ) ) ?: velis_s( 'blog_lead' ), // 5.2: the Blog page's own text
+	'img'     => (int) velis_s( 'blog_img' ),
+	'alt'     => (string) get_post_meta( (int) velis_s( 'blog_img' ), '_wp_attachment_image_alt', true ),
+) ) . velis_cluster_nav();
 $kinds = array();
-foreach ( $latest as $p ) {
-	$kinds[ velis_post_kind( $p ) ] = VELIS_KINDS[ velis_post_kind( $p ) ];
+foreach ( $posts as $p ) {
+	if ( $k = velis_post_kind( $p ) ) {
+		$kinds[ $k ] = VELIS_KINDS[ $k ]; // only kinds set by hand
+	}
 }
-$out   .= velis_section( velis_sechead( 'Bài mới', 'Mới đăng' ) . '<div data-chipbox>' . velis_chipbar( 'kind', $kinds, 'Lọc theo loại bài' ) . velis_grid( array_map( fn( $p ) => velis_card_post( $p, true ), $latest ), '3' ) . '<div class="v-empty" hidden data-chip-empty><p><b>Chưa có bài phù hợp.</b></p></div></div>' );
-$search = '<form role="search" method="get" class="v-search" action="' . esc_url( home_url( '/' ) ) . '"><label for="blog-s" class="v-sr">Tìm bài viết</label><input id="blog-s" type="search" name="s" placeholder="Ví dụ: pháp lý The Privé"><button class="v-btn" type="submit">Tìm</button></form>';
-$links  = '<ul class="v-clusters">' . implode( '', array_map( fn( $c ) => '<li><a href="' . esc_url( get_category_link( $c ) ) . '">' . esc_html( $c->name ) . '</a> <span>' . (int) $c->count . ' bài</span></li>', $clusters ) ) . '</ul>';
-$out   .= velis_section( velis_sechead( 'Theo dự án và chủ đề', 'Cụm bài viết' ) . $links . $search );
-$out   .= velis_form_html();
+$out .= '<section class="section section--tint">' . velis_post_list( $posts, velis_chipbar( 'kind', $kinds, 'Lọc theo loại bài' ), velis_pagination( $q ), velis_list_side() ) . '</section>';
+$out .= velis_section( velis_sechead( 'Tìm bài viết', 'Tìm kiếm' ) . '<div class="block prose">' . velis_search_form( 'blog-s', '', 'Tìm bài viết' ) . '</div>' );
+$out .= velis_form_html();
 ?>
 <!-- wp:html -->
 <?php echo $out; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped in helpers ?>

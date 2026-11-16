@@ -28,7 +28,7 @@ export function googleIssues(nodes) {
 	return out;
 }
 
-if (process.argv[1]?.endsWith('check_schema.mjs')) {
+if (/(^|[\/])check_schema.mjs$/.test(process.argv[1] || '')) { // exact name: the7_check_schema.mjs imports this file
 	const [base, out, ...paths] = process.argv.slice(2);
 	const { chromium } = createRequire(import.meta.url)('playwright');
 	const b = await chromium.launch();
@@ -45,8 +45,13 @@ if (process.argv[1]?.endsWith('check_schema.mjs')) {
 		const html = await (await ctx.request.get(base + path)).text();
 		const blocks = [...html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((m) => m[1]);
 		const nodes = blocks.flatMap((j) => { const d = JSON.parse(j); return d['@graph'] || [d]; });
-		const res = await fetch('https://validator.schema.org/validate', { method: 'POST', body: new URLSearchParams({ html: blocks.map((j) => `<script type="application/ld+json">${j}</script>`).join('') }) });
-		const v = JSON.parse((await res.text()).replace(/^\)\]\}'\n/, ''));
+		let body = '';
+		for (let i = 0; i < 7 && !body.startsWith(")]}'"); i++) { // the public validator sometimes answers with an HTML error page
+			if (i) await new Promise((r) => setTimeout(r, 10000 * i));
+			const res = await fetch('https://validator.schema.org/validate', { method: 'POST', body: new URLSearchParams({ html: blocks.map((j) => `<script type="application/ld+json">${j}</script>`).join('') }) });
+			body = await res.text();
+		}
+		const v = JSON.parse(body.replace(/^\)\]\}'\n/, ''));
 		const errs = (v.errors || []).map((e) => `${e.errorType} ${e.args?.join(' ')}`);
 		const g = googleIssues(nodes);
 		bad += errs.length + g.length;

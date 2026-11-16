@@ -1,5 +1,24 @@
 # Ghi chú chuyển tiếp giữa các giai đoạn
 
+## Đổi cách làm (2026-11-05)
+
+Giai đoạn 4 đóng ở vòng r8 (PR #5, theme 0.9.8). Từ đây chuyển sang Đổi cách làm bước 1–4; lộ trình:
+- Bước 1: danh sách nghiệm thu (`docs/NGHIEM-THU.md`) + chuẩn ảnh đầu vào (`docs/CHUAN-ANH.md`) + kiểm kê ảnh
+  (`docs/KIEM-KE-ANH.md`) + đề xuất site tham chiếu (`docs/THAM-CHIEU.md`).
+- Bước 2: mockup HTML tĩnh 2 trang (trang chủ, The Global City) theo 2–3 site tham chiếu người dùng chọn.
+- Bước 3: viết lại CSS/component theo mockup đã duyệt, tổ chức theo kiểu Twenty Twenty-Five.
+- Bước 4: nghiệm thu bằng Playwright toHaveScreenshot làm mốc, Lighthouse CI có ngân sách, soát mắt trên Chrome thật.
+
+Mỗi bước xong thì dừng chờ duyệt. Giai đoạn 5 (kiểm thử tổng) và 6 (ra mắt) làm sau bước 4.
+Lý do (đã chốt): sửa giao diện 8 vòng vẫn còn lỗi vì không có hình mẫu duyệt trước, tự chấm bằng bộ đo tự viết, phát hiện
+giới hạn ảnh muộn, CSS vá chồng.
+
+## Giai đoạn 4 – chờ duyệt (Cổng 4)
+
+Chuyển nội dung trên staging xong ngày 2026-11-04, nhánh `claude/upbeat-fermat-04eevu`: 133 bài/trang sang khối (0 lệch số từ
+> 1%, 0 shortcode), chữ 7 bài trụ cột vào ô trang dự án, 33 title + 69 meta rút gọn bằng cắt bớt, tắt 4 plugin. Báo cáo:
+`docs/reports/chuyen-noi-dung-giai-doan-4.md`. Chưa làm trên site thật (chờ duyệt kế hoạch ra mắt, `docs/KE-HOACH-RA-MAT.md`).
+
 ## Giai đoạn 3 hoàn tất – đã merge vào main
 
 Đã merge vào `main` (merge thường `--no-ff`, commit 23f12bb) ngày 2026-11-04 sau 3 vòng duyệt (PR esvinlyvn/velis-theme#3).
@@ -51,3 +70,11 @@ bộ logo SVG, `tools/check_ui.mjs` (kiểm tra tự động 9 khung: 0 lỗi). 
 
 - Tắt Buttonizer trên site thật (thay bằng thanh CTA của theme).
 - Gỡ plugin `velis-staging-guard` không cần trên site thật (plugin tự không chạy ngoài staging, nhưng không cài lên site thật).
+
+## Giao diện khóa ngày 2026-11-09, theme 1.0.0
+
+- Mốc giao diện: `tests/visual/moc/` (Git LFS) – 30 trang chuẩn × M1–M5 (Chromium) + 6 trang × iPhone 14 (WebKit),
+  ngưỡng lệch 0,1 % điểm ảnh; chạy `npm run test:visual` (xem `docs/NGHIEM-THU.md` mục "Mốc giao diện (bước 4)").
+- Quy tắc: mọi thay đổi giao diện sau mốc này phải cập nhật ảnh mốc có chủ đích (`npm run test:visual:update`, soát ảnh khác
+  biệt, commit kèm lần duyệt) và **được người dùng duyệt** trước khi triển khai.
+- Việc còn lại sau ra mắt: `docs/SAU-RA-MAT.md`.

@@ -1,0 +1,16 @@
+{
+  "name": "velis-theme-checks",
+  "private": true,
+  "type": "module",
+  "description": "Kiểm tra giao diện Velis: mốc ảnh (Playwright), Lighthouse CI, test đơn vị PHP/JS/Python.",
+  "scripts": {
+    "test:visual": "playwright test -c tests/visual/playwright.config.mjs",
+    "test:visual:update": "playwright test -c tests/visual/playwright.config.mjs --update-snapshots",
+    "test:lhci": "lhci autorun --config=lighthouserc.json",
+    "test:unit": "bash tools/run_unit_tests.sh"
+  },
+  "devDependencies": {
+    "@lhci/cli": "0.16.0",
+    "@playwright/test": "1.63.0"
+  }
+}

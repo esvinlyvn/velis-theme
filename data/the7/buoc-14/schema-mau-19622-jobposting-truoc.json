@@ -1,0 +1,49 @@
+{
+ "schema-1769": {
+  "metadata": {
+   "type": "template",
+   "shortcode": "s-676c86a7-304b-461b-b4e2-21dacff03c56",
+   "isPrimary": "1",
+   "title": "Job Posting",
+   "displayConditions": [
+    {
+     "condition": "include",
+     "category": "singular",
+     "type": "page",
+     "value": "19542",
+     "id": "6195e119-fb64-43e7-b284-e227f9d7c481"
+    }
+   ],
+   "reviewLocationShortcode": "[rank_math_rich_snippet]",
+   "unpublish": "off"
+  },
+  "@type": "JobPosting",
+  "title": "Chuyên viên Kinh doanh Bất động sản cao cấp",
+  "description": "<p>Velis Realty tuyển nhiều vị trí Chuyên viên Kinh doanh Bất động sản cao cấp, làm việc toàn thời gian tại TP. Hồ Chí Minh.</p><p>Mô tả công việc: tìm kiếm, tư vấn và chăm sóc khách hàng quan tâm đến dự án bất động sản hạng sang; phân tích thị trường, lập kế hoạch kinh doanh cá nhân; hỗ trợ thủ tục giao dịch, ký kết hợp đồng và chăm sóc sau bán hàng.</p><p>Yêu cầu: chính trực, năng động; giao tiếp, đàm phán và thuyết phục tốt; tác phong chuyên nghiệp, lịch sự. Ứng viên chưa có kinh nghiệm được đào tạo bài bản.</p><p>Quyền lợi: lương cơ bản + hoa hồng + thưởng, thỏa thuận theo năng lực; đào tạo chuyên sâu; lộ trình lên Trưởng nhóm, Giám đốc sàn sau 6–12 tháng dựa trên năng lực thực tế.</p><p>Ứng tuyển: gửi CV đến lienhe@velisrealty.vn hoặc gọi 0911237979. Tuyển liên tục.</p>",
+  "datePosted": "%date(Y-m-d)%",
+  "employmentType": [
+   "FULL_TIME"
+  ],
+  "hiringOrganization": {
+   "@type": "Organization",
+   "name": "Velis Realty",
+   "sameAs": "https://staging.velisrealty.vn/",
+   "logo": "https://staging.velisrealty.vn/wp-content/uploads/2026/03/Logo-Velis-Realty-512.png"
+  },
+  "jobLocation": {
+   "@type": "Place",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "34 Lương Định Của",
+    "addressLocality": "Phường Bình Trưng",
+    "addressRegion": "TP. Hồ Chí Minh",
+    "postalCode": "700000",
+    "addressCountry": "VN"
+   }
+  },
+  "image": {
+   "@type": "ImageObject",
+   "url": "%post_thumbnail%"
+  }
+ }
+}

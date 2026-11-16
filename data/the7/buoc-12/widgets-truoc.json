@@ -1,0 +1,27 @@
+{
+ "sidebar_1": [
+  {
+   "id": "custom_html-3",
+   "id_base": "custom_html",
+   "raw": {
+    "title": "Nhận tư vấn dự án",
+    "content": "<p>Anh chị cần thông tin dự án, giá bán hay pháp lý, chuyên viên Velis Realty sẽ gọi lại.</p>\r\n<p><a href=\"/lien-he/\">Nhận tư vấn →</a></p>\r\n<p>Hoặc gọi <a href=\"tel:0911237979\">0911 237 979</a></p>"
+   }
+  },
+  {
+   "id": "presscore-blog-posts-2",
+   "id_base": "presscore-blog-posts",
+   "raw": null
+  }
+ ],
+ "sidebar_3": [
+  {
+   "id": "custom_html-4",
+   "id_base": "custom_html",
+   "raw": {
+    "title": "Nhận bảng giá và tư vấn",
+    "content": "<p>Bảng giá, chính sách bán hàng và pháp lý mới nhất của dự án: để lại họ tên và số điện thoại, chuyên viên Velis Realty gọi lại trong giờ làm việc.</p>\r\n<p><a class=\"dt-btn dt-btn-m\" href=\"#lien-he-tu-van\">Nhận bảng giá</a></p>\r\n<p>Hoặc gọi <a href=\"tel:0911237979\">0911 237 979</a> · <a href=\"https://zalo.me/0911237979\" target=\"_blank\" rel=\"noopener\">Zalo</a></p>"
+   }
+  }
+ ]
+}

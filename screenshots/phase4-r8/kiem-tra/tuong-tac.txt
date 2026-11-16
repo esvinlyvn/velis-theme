@@ -1,0 +1,34 @@
+PASS mega menu mở khi rê chuột
+PASS mega menu đóng sau ~200 ms khi rời chuột – sau 80 ms vẫn mở: true
+PASS mega menu mở khi bấm
+PASS mega menu có phân khu – 13 link phân khu
+PASS mega menu mở bằng bàn phím (Enter)
+PASS tab có dữ liệu: bảng thông số + mặt bằng – Căn 1 PN / 1 PN+
+PASS tab chưa có dữ liệu: câu hướng dẫn + nút – Penthouse
+PASS "Nhận bảng giá" cuộn tới form – top=282
+PASS "Nhận bảng giá" điền sẵn dòng sản phẩm – The Privé – Căn 1 PN / 1 PN+
+PASS thanh điều hướng mục: bấm cuộn tới Vị trí – {"gap":103}
+PASS thanh điều hướng mục: tô mục đang xem – Vị trí & tiện ích
+PASS thư viện ảnh: nút "ảnh sau" – 1/13 → 2/13
+PASS thư viện ảnh: phóng to (lightbox)
+PASS không còn ảnh vỡ hiển thị (The Privé) – 0
+PASS lăn chuột trên thư viện ảnh vẫn cuộn trang – 5587 → 5987
+PASS cuộn xuống: header ẩn, thanh điều hướng ở top 0 – {"headerBottom":0,"navTop":0}
+PASS cuộn lên: header hiện, thanh điều hướng sát dưới header – {"headerBottom":81,"navTop":81}
+PASS form báo lỗi khi bỏ trống, không gửi đi – 3 ô lỗi, 0 lần gửi
+PASS bộ lọc dự án: lọc Khu Đông – Hiển thị 3/6 dự án
+PASS không còn ảnh vỡ (/du-an/) – 0
+PASS lọc phân khu theo loại (chip) – Hiển thị 1/5 phân khu
+PASS chuyển chế độ "Theo loại sản phẩm"
+PASS tìm "căn hộ palm river" ra Palm River đầu tiên – Palm River
+PASS mobile: menu mở
+PASS mobile: thanh điều hướng mục cuộn ngang – {"sw":752,"cw":358,"ox":"auto"}
+PASS mobile: thanh CTA đáy ẩn ở đầu trang – {"on":false,"heroBtnBottom":722,"vh":844}
+PASS mobile: thanh CTA đáy hiện sau khi cuộn qua nút hero
+PASS mobile: về đầu trang thì thanh CTA ẩn lại
+PASS mobile: breadcrumb tối đa 2 dòng – 2 dòng
+PASS "Đọc tiếp" mở toàn bộ đoạn dài – 420px → mở
+PASS thẻ cột phải: "Nhận bảng giá" mở form gọn tại chỗ
+PASS gửi thử: đủ trường ẩn (dự án, URL trang, utm) – 677 byte
+PASS bảng so sánh full-width, không cuộn ngang – {"sw":1198,"cw":1198}
+PASS /du-an/: chế độ "Theo phân khu & sản phẩm" – Hiển thị 1/1 phân khu và dòng sản phẩm

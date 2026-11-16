@@ -1,0 +1,383 @@
+{
+"ngay": "2026-11-11",
+"nguon": "tools/the7_ui_audit.mjs, 17 trang × 1366/390, sau bước 6",
+"mau": [
+{
+"prop": "text",
+"color": "#21759B",
+"tok": "body-muted",
+"de": 30.5,
+"n": 34,
+"pages": 17,
+"src": {
+"wpbakery": 29,
+"ultimate": 5
+},
+"ex": [
+"trang-chu: a.skip-link.screen-reader-text@wpbakery",
+"blog: a.skip-link.screen-reader-text@wpbakery",
+"blog-bds: a.skip-link.screen-reader-text@wpbakery"
+]
+},
+{
+"prop": "bg",
+"color": "#F1F1F1",
+"tok": "surface-sunken",
+"de": 3.5,
+"n": 34,
+"pages": 17,
+"src": {
+"wpbakery": 29,
+"ultimate": 5
+},
+"ex": [
+"trang-chu: a.skip-link.screen-reader-text@wpbakery",
+"blog: a.skip-link.screen-reader-text@wpbakery",
+"blog-bds: a.skip-link.screen-reader-text@wpbakery"
+]
+},
+{
+"prop": "bg",
+"color": "#AE0003",
+"tok": "error",
+"de": 10.8,
+"n": 34,
+"pages": 17,
+"src": {
+"buttonizer": 34
+},
+"ex": [
+"trang-chu: a.buttonizer-closed-0-0-18.buttonizer-button@buttonizer",
+"blog: a.buttonizer-closed-0-0-18.buttonizer-button@buttonizer",
+"blog-bds: a.buttonizer-closed-0-0-18.buttonizer-button@buttonizer"
+]
+},
+{
+"prop": "bg",
+"color": "#6272FF",
+"tok": "body-muted",
+"de": 81.9,
+"n": 34,
+"pages": 17,
+"src": {
+"buttonizer": 34
+},
+"ex": [
+"trang-chu: a.buttonizer-closed-0-0-25.buttonizer-button@buttonizer",
+"blog: a.buttonizer-closed-0-0-25.buttonizer-button@buttonizer",
+"blog-bds: a.buttonizer-closed-0-0-25.buttonizer-button@buttonizer"
+]
+},
+{
+"prop": "text",
+"color": "#1A1A1A",
+"tok": "ink",
+"de": 0.0,
+"n": 3000,
+"pages": 17,
+"src": {
+"wpbakery": 2734,
+"ultimate": 123,
+"page-title": 46,
+"header": 37
+},
+"ex": [
+"trang-chu: a.mini-contacts.phone@header",
+"blog: a.mini-contacts.phone@header",
+"blog-bds: a.mini-contacts.phone@header"
+]
+},
+{
+"prop": "text",
+"color": "#5C5C5C",
+"tok": "body-muted",
+"de": 0.0,
+"n": 535,
+"pages": 17,
+"src": {
+"wpbakery": 239,
+"header": 133,
+"ultimate": 86,
+"sidebar": 48
+},
+"ex": [
+"trang-chu: span.menu-text@header",
+"blog: span.menu-text@header",
+"blog-bds: span.menu-text@header"
+]
+},
+{
+"prop": "text",
+"color": "#B9B9B9",
+"tok": "on-dark-muted",
+"de": 0.0,
+"n": 410,
+"pages": 17,
+"src": {
+"footer": 410
+},
+"ex": [
+"trang-chu: p@footer",
+"blog: p@footer",
+"blog-bds: p@footer"
+]
+},
+{
+"prop": "bg",
+"color": "#FFFFFF",
+"tok": "surface",
+"de": 0.0,
+"n": 270,
+"pages": 17,
+"src": {
+"wpbakery": 122,
+"footer": 60,
+"ultimate": 42,
+"header": 36
+},
+"ex": [
+"trang-chu: div#page.closed-mobile-header@wpbakery",
+"blog: div#page.closed-mobile-header@wpbakery",
+"blog-bds: div#page.closed-mobile-header@wpbakery"
+]
+},
+{
+"prop": "text",
+"color": "#FFFFFF",
+"tok": "surface",
+"de": 0.0,
+"n": 123,
+"pages": 17,
+"src": {
+"footer": 60,
+"ultimate": 33,
+"header": 29,
+"wpbakery": 1
+},
+"ex": [
+"trang-chu: span@header",
+"blog: span@header",
+"blog-bds: span@header"
+]
+},
+{
+"prop": "bg",
+"color": "#1A1A1A",
+"tok": "ink",
+"de": 0.0,
+"n": 68,
+"pages": 17,
+"src": {
+"footer": 68
+},
+"ex": [
+"trang-chu: footer#footer.footer.solid-bg@footer",
+"blog: footer#footer.footer.solid-bg@footer",
+"blog-bds: footer#footer.footer.solid-bg@footer"
+]
+},
+{
+"prop": "bg",
+"color": "#FAF7F2",
+"tok": "canvas",
+"de": 0.0,
+"n": 60,
+"pages": 17,
+"src": {
+"page-title": 22,
+"wpbakery": 20,
+"sidebar": 18
+},
+"ex": [
+"trang-chu: section.vc_section.velis-section@wpbakery",
+"blog: div.page-title.title-left@page-title",
+"blog-bds: div.page-title.title-left@page-title"
+]
+},
+{
+"prop": "border",
+"color": "#B08D57",
+"tok": "champagne",
+"de": 0.0,
+"n": 42,
+"pages": 17,
+"src": {
+"footer": 34,
+"wpbakery": 8
+},
+"ex": [
+"trang-chu: footer#footer.footer.solid-bg@footer",
+"blog: footer#footer.footer.solid-bg@footer",
+"blog-bds: footer#footer.footer.solid-bg@footer"
+]
+},
+{
+"prop": "border",
+"color": "#C9C1B5",
+"tok": "hairline-strong",
+"de": 0.0,
+"n": 472,
+"pages": 16,
+"src": {
+"footer": 240,
+"wpbakery": 188,
+"sidebar": 24,
+"cf7": 16
+},
+"ex": [
+"trang-chu: input.wpcf7-form-control.wpcf7-text@footer",
+"blog: input.wpcf7-form-control.wpcf7-text@footer",
+"blog-bds: input.wpcf7-form-control.wpcf7-text@footer"
+]
+},
+{
+"prop": "bg",
+"color": "#B8282E",
+"tok": "velis-red",
+"de": 0.0,
+"n": 66,
+"pages": 16,
+"src": {
+"ultimate": 33,
+"footer": 30,
+"cf7": 2,
+"wpbakery": 1
+},
+"ex": [
+"trang-chu: a#default-btn-7ed2edc712d0bf843af059529e268db9.default-btn-shortcode.dt-btn@ultimate",
+"blog: input.wpcf7-form-control.wpcf7-submit@footer",
+"blog-bds: input.wpcf7-form-control.wpcf7-submit@footer"
+]
+},
+{
+"prop": "text",
+"color": "#C42F35",
+"tok": "red-link",
+"de": 0.0,
+"n": 154,
+"pages": 12,
+"src": {
+"wpbakery": 142,
+"ultimate": 12
+},
+"ex": [
+"blog: a@wpbakery",
+"blog-bds: a@wpbakery",
+"bai-dong-von: a@wpbakery"
+]
+},
+{
+"prop": "border",
+"color": "#E4DED5",
+"tok": "hairline",
+"de": 0.0,
+"n": 369,
+"pages": 8,
+"src": {
+"wpbakery": 369
+},
+"ex": [
+"bai-dong-von: div#ez-toc-container.ez-toc-v2_0_89.counter-hierarchy@wpbakery",
+"bai-huong-viet: div#ez-toc-container.ez-toc-v2_0_89.counter-hierarchy@wpbakery",
+"bai-ban-giao: div#ez-toc-container.ez-toc-v2_0_89.counter-hierarchy@wpbakery"
+]
+},
+{
+"prop": "text",
+"color": "#B8282E",
+"tok": "velis-red",
+"de": 0.0,
+"n": 16,
+"pages": 7,
+"src": {
+"header": 16
+},
+"ex": [
+"blog: span.menu-text@header",
+"blog-bds: span.menu-text@header",
+"cdt-gamuda: span.menu-text@header"
+]
+},
+{
+"prop": "bg",
+"color": "#F3ECDF",
+"tok": "champagne-soft",
+"de": 0.0,
+"n": 14,
+"pages": 7,
+"src": {
+"wpbakery": 14
+},
+"ex": [
+"trang-chu: section.vc_section.velis-section@wpbakery",
+"bai-ban-giao: div#lien-he-tu-van.vc_row.wpb_row@wpbakery",
+"da-persa: div#lien-he-tu-van.vc_row.wpb_row@wpbakery"
+]
+},
+{
+"prop": "bg",
+"color": "#F2EEE8",
+"tok": "surface-sunken",
+"de": 0.0,
+"n": 30,
+"pages": 6,
+"src": {
+"wpbakery": 24,
+"sidebar": 6
+},
+"ex": [
+"bai-dong-von: li.ez-toc-page-1.ez-toc-heading-level-2@sidebar",
+"bai-huong-viet: li.ez-toc-page-1.ez-toc-heading-level-2@sidebar",
+"bai-ban-giao: li.ez-toc-page-1.ez-toc-heading-level-2@sidebar"
+]
+},
+{
+"prop": "text",
+"color": "#1A1A1A@0.50",
+"tok": "ink",
+"de": 0.0,
+"n": 50,
+"pages": 5,
+"src": {
+"wpbakery": 50
+},
+"ex": [
+"bai-dong-von: time.text-secondary@wpbakery",
+"bai-huong-viet: time.text-secondary@wpbakery",
+"bai-ban-giao: time.text-secondary@wpbakery"
+]
+},
+{
+"prop": "text",
+"color": "#000000",
+"tok": "black",
+"de": 0.0,
+"n": 38,
+"pages": 3,
+"src": {
+"sidebar": 38
+},
+"ex": [
+"bai-dong-von: span.ez-toc-title@sidebar",
+"bai-huong-viet: span.ez-toc-title@sidebar",
+"bai-ban-giao: span.ez-toc-title@sidebar"
+]
+},
+{
+"prop": "border",
+"color": "#1A1A1A",
+"tok": "ink",
+"de": 0.0,
+"n": 32,
+"pages": 1,
+"src": {
+"wpbakery": 16,
+"ultimate": 16
+},
+"ex": [
+"404: a@wpbakery",
+"404: a@ultimate"
+]
+}
+]
+}

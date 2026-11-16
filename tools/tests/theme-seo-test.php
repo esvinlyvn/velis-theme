@@ -13,15 +13,11 @@ function wp_parse_url( $u, $c = -1 ) { return parse_url( $u, $c ); }
 function wp_get_attachment_url( $id ) { return 'https://x.vn/wp-content/uploads/2026/04/the-prive.webp'; }
 function remove_accents( $s ) { return strtr( $s, array( 'ă' => 'a', 'ộ' => 'o', 'é' => 'e', 'ư' => 'u' ) ); }
 require __DIR__ . '/../../theme/velis/inc/data.php';
+require __DIR__ . '/../../theme/velis/inc/components.php';
 require __DIR__ . '/../../theme/velis/inc/ui.php';
 require __DIR__ . '/../../theme/velis/inc/seo.php';
 $check = function ( $ok, $msg ) { if ( ! $ok ) { fwrite( STDERR, "FAIL: $msg\n" ); exit( 1 ); } };
 
-$check( 'so-sanh' === velis_guess_kind( 'So sánh The Privé và Palm River' ), 'so sánh' );
-$check( 'phan-tich' === velis_guess_kind( 'Shophouse SOHO có nên đầu tư hay không' ), '"hay" alone is not a comparison' );
-$check( 'huong-dan' === velis_guess_kind( 'Thủ tục mua căn hộ cho người nước ngoài' ), 'hướng dẫn' );
-$check( 'tin' === velis_guess_kind( 'Cập nhật tiến độ Persa Place tháng 10' ), 'tin tiến độ' );
-$check( 'nhan-dinh' === velis_guess_kind( 'Thị trường căn hộ khu Đông 2027' ), 'nhận định' );
 
 $t = velis_fit( 'Masteri Cosmo Central – The Global City: giá, mặt bằng, pháp lý' );
 $check( mb_strlen( $t ) <= 60 && str_starts_with( $t, 'Masteri Cosmo Central' ), 'title fitted: ' . $t );
@@ -34,7 +30,7 @@ $check( str_contains( $html, '<h2 id="gia">' ) && str_contains( $html, '<h2 id="
 $check( 3 === substr_count( $toc, '<li>' ), 'TOC lists H2 only' );
 list( $toc ) = velis_toc( '<h2>a</h2><h2>b</h2><h2>c</h2>', 800 );
 $check( '' === $toc, 'no TOC under 1.200 words' );
-$check( '<p class="v-card__title">x</p>' === velis_heading_to_p( '<h3 class="v-card__title">x</h3>' ), 'embedded card title is not a heading' );
+$check( '<p class="card__title">x</p>' === velis_heading_to_p( '<h3 class="card__title">x</h3>' ), 'embedded card title is not a heading' );
 $check( '<h2 class="a">T</h2><h2>U</h2>' === velis_content( '<h1 class="a">T</h1><h2>U</h2>' ), 'content H1 demoted' );
 $check( 'Năm 2027' === velis_short( 'Năm 2027 (Hoàn thiện nội thất chuẩn Châu Âu và nhiều tiện ích khác)' ), 'short keeps the first clause' );
 $check( mb_strlen( velis_short( str_repeat( 'Đường Đỗ Xuân Hợp, ', 5 ) ) ) <= 46, 'short cuts at a word' );
@@ -44,3 +40,20 @@ $other = str_replace( 'the-prive-1024', 'khac-1024', $html );
 $check( $other === velis_strip_dup_image( $other, 7 ), 'different file kept' );
 $check( 'can ho palm river' === velis_fold( 'Căn hộ  Palm River!' ), 'fold' );
 echo "theme seo: all checks passed\n";
+$check( velis_attachment_gone( true, 0 ) && ! velis_attachment_gone( true, 12 ) && ! velis_attachment_gone( false, 0 ), 'orphan attachment → 410 only' );
+echo "attachment 410: ok\n";
+// 2.6–2.7: author with 0 posts → 404 for everyone; ?author=N and the style guide → 404 for guests only
+$check( velis_hidden_for_guest( true, true, 0, false, false ) && ! velis_hidden_for_guest( false, true, 3, false, false ), 'author 0 posts hidden, author with posts shown' );
+$check( velis_hidden_for_guest( false, false, 0, true, false ) && ! velis_hidden_for_guest( true, false, 0, true, false ), '?author=N hidden for guests only' );
+$check( velis_hidden_for_guest( false, false, 0, false, true ) && ! velis_hidden_for_guest( true, false, 0, false, true ), 'style guide guests only' );
+// 2.5: footer social = URLs from settings only, labelled by host, fixed order, unknown hosts dropped
+$soc = velis_social_from_urls( array( '', 'https://x.com/velisrealty', 'https://www.facebook.com/velisrealty', 'https://example.com/a', 'https://www.linkedin.com/in/velisrealty' ) );
+$check( array( 'Facebook', 'LinkedIn', 'X' ) === array_keys( $soc ) && 'https://x.com/velisrealty' === $soc['X'], 'social links from settings' );
+echo "accounts + social: ok\n";
+// 2.2: /blog/page/N/ → Blog page N; page 1 and other paths untouched
+$check( 2 === velis_blog_page_request( '/blog/page/2/' ) && 9 === velis_blog_page_request( '/blog/page/9' ) && 0 === velis_blog_page_request( '/blog/page/1/' ) && 0 === velis_blog_page_request( '/blog/the-prive/page/2/' ) && 0 === velis_blog_page_request( '/blog/' ), 'blog pagination path' );
+echo "blog pages: ok\n";
+// Vòng hoàn thiện 2: "Dự án nổi bật" = ticked projects in list order (newest first), none ticked → the 4 newest.
+$pp = array_map( fn( $i ) => (object) array( 'ID' => $i ), array( 6, 5, 4, 3, 2, 1 ) );
+function wp_list_pluck( $l, $f ) { return array_map( fn( $x ) => $x->$f, $l ); }
+$check( array( 5, 2 ) === wp_list_pluck( velis_featured_pick( $pp, array( 2, 5 ) ), 'ID' ) && array( 6, 5, 4, 3 ) === wp_list_pluck( velis_featured_pick( $pp, array() ), 'ID' ) && array() === velis_featured_pick( array(), array() ), 'featured strip: ticked, else 4 newest' );

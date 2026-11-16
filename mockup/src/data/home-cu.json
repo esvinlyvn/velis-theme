@@ -1,0 +1,72 @@
+{
+ "source": {
+  "live": "https://velisrealty.vn/",
+  "read": "2026-11-05",
+  "job": "https://staging.velisrealty.vn/tuyen-dung/",
+  "jobModified": "2026-11-04T18:00:07"
+ },
+ "h1Old": "CÔNG TY TNHH VELIS REALTY",
+ "heroHead": "CÔNG TY TNHH VELIS REALTY",
+ "paras": [
+  "Tại Velis Realty, chúng tôi tin rằng mỗi bất động sản không chỉ là một tài sản, mà là tâm huyết và tương lai của nhà đầu tư. Velis Realty tư vấn các dự án của Vinhomes, Sun Group, Masterise Homes, Ecopark, Gamuda Land, với giỏ hàng đa dạng từ căn hộ hạng sang, villa nghỉ dưỡng đến shophouse thương mại tại các khu vực đang có hạ tầng mới tại TP.HCM và vùng lân cận.",
+  "Đội ngũ chuyên gia của chúng tôi kết hợp giữa tư duy Marketing sắc bén và sự am hiểu thị trường thực chiến, cung cấp thông tin có nguồn, phân tích dòng tiền và rủi ro để khách hàng tự quyết định."
+ ],
+ "buttons": [
+  "NHẬN TƯ VẤN",
+  "GỌI 0911 237 979"
+ ],
+ "numbers": [
+  {
+   "value": "10+",
+   "label": "Năm kinh nghiệm"
+  },
+  {
+   "value": "+50",
+   "label": "Đối tác"
+  },
+  {
+   "value": "+999",
+   "label": "Giao dịch"
+  },
+  {
+   "value": "+99",
+   "label": "Dự án"
+  }
+ ],
+ "featuredHead": "CÁC DỰ ÁN NỔI BẬT",
+ "featured": [
+  "Căn hộ Palm River",
+  "Căn hộ The Privé",
+  "THE GLOBAL CITY"
+ ],
+ "partnersHead": "ĐỐI TÁC CỦA CHÚNG TÔI",
+ "partners": [
+  {
+   "name": "Vinhomes",
+   "oldLink": "https://velisrealty.vn/du-an/vinhomes/"
+  },
+  {
+   "name": "Masterise Homes",
+   "oldLink": "https://velisrealty.vn/du-an/masterise-homes/"
+  },
+  {
+   "name": "Sun Group",
+   "oldLink": "https://velisrealty.vn/du-an/sun-group/"
+  },
+  {
+   "name": "Gamuda Land",
+   "oldLink": "https://velisrealty.vn/du-an/gamuda-land/"
+  }
+ ],
+ "postsHead": "BÀI PHÂN TÍCH CHUYÊN SÂU",
+ "exam": {
+  "button": "THI THỬ CHỨNG CHỈ MÔI GIỚI",
+  "link": "/thi/"
+ },
+ "career": {
+  "head": "CƠ HỘI NGHỀ NGHIỆP",
+  "button": "ỨNG TUYỂN NGAY",
+  "link": "/tuyen-dung/",
+  "line": "Velis Realty đang tuyển nhiều vị trí Chuyên viên Kinh doanh Bất động sản cao cấp, làm việc toàn thời gian tại văn phòng 34 Lương Định Của, Phường Bình Trưng, TP. Hồ Chí Minh."
+ }
+}

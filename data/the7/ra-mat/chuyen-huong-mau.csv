@@ -1,0 +1,18 @@
+url_mau,dich,quy_tac
+/can-ho-spring-ville,/spring-ville/,1 exact can-ho-spring-ville
+/chuyen-gia/admin,/chuyen-gia/vu-xuan/,3 exact chuyen-gia/admin
+/2026/,/blog/,4 regex lưu trữ ngày
+/2025/06/,/blog/,4 regex lưu trữ ngày
+/blog-bds/,/blog/,13 regex blog-bds
+/blog-bds/page/2/,/blog/page/2/,13 regex blog-bds trang 2
+/blog-bds/blog-ansana/,/blog/ansana/,14
+/blog-bds/blog-gamuda-land/blog-spring-ville/,/blog/spring-ville/,15
+/blog-bds/blog-masterise-homes/blog-the-global-city/,/blog/the-global-city/,16
+/blog-bds/blog-the-prive/,/blog/the-prive/,17
+/blog-bds/blog-vinhomes/blog-vinhomes-saigon-park/,/blog/vinhomes-saigon-park/,18
+/blog-bds/blog-vinhomes/,/blog/vinhomes/,19
+/blog-bds/palm-city/,/blog/palm-city/,20
+/blog/blog-gamuda-land/,/blog/spring-ville/,21
+/blog/blog-masterise-homes/,/blog/the-global-city/,22
+/the-prive/,/can-ho-the-prive/,23
+/du-an/the-prive/,/can-ho-the-prive/,23

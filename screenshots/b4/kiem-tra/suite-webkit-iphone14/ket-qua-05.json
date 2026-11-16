@@ -1,0 +1,133 @@
+{
+ "404": {
+  "3": {
+   "broken": [],
+   "wrong": [],
+   "dpr": [],
+   "mixed": [],
+   "noname": [],
+   "feats": [],
+   "photos": [],
+   "edge": [],
+   "postgrid": [],
+   "meta": [],
+   "empty": [],
+   "table": [],
+   "overflow": [],
+   "h1": [],
+   "caps": [],
+   "gaps": [],
+   "lowres": [
+    "390px: vi-tri-ansana-by-kita.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: phoi-canh-spring-ville.webp [thẻ]: cần 2036px, lớn nhất 1200px",
+    "390px: the-global-city-3-1.webp [thẻ]: cần 1290px, lớn nhất 1200px"
+   ],
+   "blurryOld": [],
+   "gridinfo": []
+  }
+ },
+ "tuyen-dung": {
+  "3": {
+   "broken": [],
+   "wrong": [],
+   "dpr": [],
+   "mixed": [],
+   "noname": [],
+   "feats": [],
+   "photos": [],
+   "edge": [],
+   "postgrid": [],
+   "meta": [],
+   "empty": [],
+   "table": [],
+   "overflow": [],
+   "h1": [],
+   "caps": [],
+   "gaps": [],
+   "lowres": [],
+   "blurryOld": [],
+   "gridinfo": []
+  }
+ },
+ "lien-he": {
+  "3": {
+   "broken": [],
+   "wrong": [],
+   "dpr": [],
+   "mixed": [],
+   "noname": [],
+   "feats": [],
+   "photos": [],
+   "edge": [],
+   "postgrid": [],
+   "meta": [],
+   "empty": [],
+   "table": [],
+   "overflow": [],
+   "h1": [],
+   "caps": [],
+   "gaps": [],
+   "lowres": [],
+   "blurryOld": [],
+   "gridinfo": []
+  }
+ },
+ "chinh-sach": {
+  "3": {
+   "broken": [],
+   "wrong": [],
+   "dpr": [],
+   "mixed": [],
+   "noname": [],
+   "feats": [],
+   "photos": [],
+   "edge": [],
+   "postgrid": [],
+   "meta": [],
+   "empty": [],
+   "table": [],
+   "overflow": [],
+   "h1": [],
+   "caps": [],
+   "gaps": [],
+   "lowres": [],
+   "blurryOld": [],
+   "gridinfo": []
+  }
+ },
+ "tim-kiem": {
+  "3": {
+   "broken": [],
+   "wrong": [],
+   "dpr": [],
+   "mixed": [],
+   "noname": [],
+   "feats": [],
+   "photos": [],
+   "edge": [],
+   "postgrid": [],
+   "meta": [],
+   "empty": [],
+   "table": [],
+   "overflow": [],
+   "h1": [],
+   "caps": [],
+   "gaps": [],
+   "lowres": [
+    "390px: can-ho-the-prive.webp [thẻ]: cần 1647px, lớn nhất 1200px",
+    "390px: velis-realty-f1-the-prive.webp [thẻ]: cần 1389px, lớn nhất 1200px",
+    "390px: tiem-nang-nam-rach-chiec-2028.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: rui-ro-dau-tu-the-prive.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: loi-nhuan-dau-tu-the-prive-1.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: penthouse-duplex-the-prive.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: vi-tri-du-an-the-prive-2.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: so-sanh-phu-my-hung-the-global-city.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: dau-tu-luot-song-the-prive.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: dau-tu-luot-song-the-prive.webp [thẻ]: cần 1241px, lớn nhất 1200px",
+    "390px: nha-dau-tu-ha-noi-the-prive.webp [thẻ]: cần 1241px, lớn nhất 1200px"
+   ],
+   "blurryOld": [],
+   "gridinfo": []
+  }
+ }
+}

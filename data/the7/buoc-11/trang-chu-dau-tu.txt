@@ -1,0 +1,19 @@
+[vc_row el_id="gioi-thieu"][vc_column][vc_column_text css=""]
+<p class="velis-lead">Velis Realty tư vấn dự án của các chủ đầu tư có hồ sơ bàn giao và pháp lý công khai. Mỗi trang chủ đầu tư tổng hợp phân tích của Velis, dự án đang tư vấn và câu hỏi thường gặp.</p>
+[/vc_column_text][/vc_column][/vc_row][vc_row equal_height="yes" el_id="danh-sach" el_class="velis-devs velis-boxes"][vc_column width="1/4" offset="vc_col-lg-3 vc_col-md-6"][vc_single_image image="20820" img_size="full" alignment="center" css=""][vc_column_text css=""]
+<h2><a href="/du-an/vinhomes/">Vinhomes</a></h2>
+<p>1 dự án đang tư vấn: Vinhomes Saigon Park</p>
+<p class="velis-card-more" aria-hidden="true">Xem chủ đầu tư →</p>
+[/vc_column_text][/vc_column][vc_column width="1/4" offset="vc_col-lg-3 vc_col-md-6"][vc_single_image image="20821" img_size="full" alignment="center" css=""][vc_column_text css=""]
+<h2><a href="/du-an/masterise-homes/">Masterise Homes</a></h2>
+<p>1 dự án đang tư vấn: The Global City</p>
+<p class="velis-card-more" aria-hidden="true">Xem chủ đầu tư →</p>
+[/vc_column_text][/vc_column][vc_column width="1/4" offset="vc_col-lg-3 vc_col-md-6"][vc_single_image image="20822" img_size="full" alignment="center" css=""][vc_column_text css=""]
+<h2><a href="/du-an/sun-group/">Sun Group</a></h2>
+<p>Phân tích hệ sinh thái và tầm nhìn 2026</p>
+<p class="velis-card-more" aria-hidden="true">Xem chủ đầu tư →</p>
+[/vc_column_text][/vc_column][vc_column width="1/4" offset="vc_col-lg-3 vc_col-md-6"][vc_single_image image="20823" img_size="full" alignment="center" css=""][vc_column_text css=""]
+<h2><a href="/du-an/gamuda-land/">Gamuda Land</a></h2>
+<p>1 dự án đang tư vấn: Spring Ville (gồm phân khu Persa Place)</p>
+<p class="velis-card-more" aria-hidden="true">Xem chủ đầu tư →</p>
+[/vc_column_text][/vc_column][/vc_row]

@@ -1,0 +1,29 @@
+[
+ {
+  "id": 43,
+  "name": "Spring Ville",
+  "slug": "blog-spring-ville",
+  "parent": 42,
+  "description": "",
+  "count": 0,
+  "link": "https://staging.velisrealty.vn/blog/blog-gamuda-land/blog-spring-ville/"
+ },
+ {
+  "id": 42,
+  "name": "Gamuda Land",
+  "slug": "blog-gamuda-land",
+  "parent": 40,
+  "description": "",
+  "count": 0,
+  "link": "https://staging.velisrealty.vn/blog/blog-gamuda-land/"
+ },
+ {
+  "id": 49,
+  "name": "Masterise Homes",
+  "slug": "blog-masterise-homes",
+  "parent": 40,
+  "description": "",
+  "count": 0,
+  "link": "https://staging.velisrealty.vn/blog/blog-masterise-homes/"
+ }
+]

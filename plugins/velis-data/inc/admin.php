@@ -109,6 +109,7 @@ function velis_box_level( $post ) {
 		printf( '<label class="velis-radio"><input type="radio" name="velis_status" value="%d"%s> %s</label>', $t->term_id, checked( in_array( $t->term_id, $current, true ), true, false ), esc_html( $t->name ) );
 	}
 	echo '</fieldset>';
+	printf( '<p><label><input type="checkbox" name="velis_featured" value="1"%s> <strong>Nổi bật</strong></label><br><span class="description">Hiện ở dải "Dự án nổi bật" trên trang chủ. Không dự án nào được tick thì dải lấy 4 dự án mới nhất.</span></p>', checked( (bool) get_post_meta( $post->ID, 'velis_featured', true ), true, false ) );
 	if ( $missing = velis_missing( $post ) ) {
 		echo '<p class="velis-noindex">Đang noindex tạm thời – thiếu: ' . esc_html( implode( ', ', $missing ) ) . '.</p>';
 	}
@@ -184,8 +185,9 @@ function velis_box_post_projects( $post ) {
 	wp_nonce_field( 'velis_save', 'velis_nonce' );
 	echo velis_field_html( 'velis_projects', array( 'Bài viết nói về', 'posts', false, 'Bài về một phân khu: chọn đúng phân khu.' ), get_post_meta( $post->ID, 'velis_projects', true ), $post ); // phpcs:ignore
 	if ( defined( 'VELIS_KINDS' ) ) { // labels belong to the theme (5 post template variants)
-		echo velis_field_html( 'velis_post_kind', array( 'Loại bài', 'select', false, 'Để trống: tự đoán theo tiêu đề.', array( '' => '— Tự đoán —' ) + VELIS_KINDS ), get_post_meta( $post->ID, 'velis_post_kind', true ) ); // phpcs:ignore
+		echo velis_field_html( 'velis_post_kind', array( 'Loại bài', 'select', false, 'Để trống: không hiện nhãn loại, hiện tên cụm dự án.', array( '' => '— Chưa gán —' ) + VELIS_KINDS ), get_post_meta( $post->ID, 'velis_post_kind', true ) ); // phpcs:ignore
 	}
+	echo velis_field_html( 'velis_image_kind', array( 'Ảnh đại diện là', 'select', false, 'Trang chủ chỉ chọn bài có ảnh dự án.', velis_image_kinds() ), get_post_meta( $post->ID, 'velis_image_kind', true ) ); // phpcs:ignore
 }
 
 add_action( 'save_post', function ( $post_id, $post ) {
@@ -196,7 +198,7 @@ add_action( 'save_post', function ( $post_id, $post ) {
 	$fields = array(
 		VELIS_CPT_PROJECT   => 'thap-tang' === $level ? velis_lowrise_fields() : velis_project_fields(),
 		VELIS_CPT_DEVELOPER => velis_developer_fields(),
-		'post'              => array( 'velis_projects' => array( '', 'posts' ), 'velis_post_kind' => array( '', 'text' ) ),
+		'post'              => array( 'velis_projects' => array( '', 'posts' ), 'velis_post_kind' => array( '', 'text' ), 'velis_image_kind' => array( '', 'text' ) ),
 	)[ $post->post_type ] ?? array();
 	foreach ( $fields as $key => $def ) {
 		$raw = wp_unslash( $_POST[ $key ] ?? ( in_array( $def[1], array( 'posts', 'ids' ), true ) ? array() : '' ) ); // phpcs:ignore -- sanitized by velis_clean
@@ -204,6 +206,7 @@ add_action( 'save_post', function ( $post_id, $post ) {
 	}
 	if ( VELIS_CPT_PROJECT === $post->post_type ) {
 		update_post_meta( $post_id, 'velis_level', isset( velis_levels()[ $level ] ) ? $level : 'du-an' );
+		empty( $_POST['velis_featured'] ) ? delete_post_meta( $post_id, 'velis_featured' ) : update_post_meta( $post_id, 'velis_featured', true );
 		if ( 'thap-tang' !== $level ) {
 			update_post_meta( $post_id, 'velis_lines', velis_clean_lines( wp_unslash( $_POST['velis_lines'] ?? array() ), $post->post_name ) ); // phpcs:ignore
 		} elseif ( ! wp_get_object_terms( $post_id, 'loai-san-pham', array( 'fields' => 'ids' ) ) && ( $type = velis_guess_type( $post->post_title ) ) ) {
