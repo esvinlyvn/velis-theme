@@ -162,6 +162,8 @@ Chỉ sửa chữ trong các khối có sẵn. Hai phần **tự lấy bài, kh�
 
 Trên điện thoại (bước 15): lưới dự án là dải trượt ngang; đoạn "Công ty TNHH Velis Realty" hiện 4 dòng + "Xem thêm" nhờ Extra class
 `velis-clamp` của Text Block – đoạn chữ dài khác cũng dùng được class này (đoạn đầu ngay dưới tiêu đề là đoạn hiện).
+Trang dự án (mẫu "Velis – Dự án", bước 15b): đoạn mở đầu dưới ảnh hero đã có sẵn `velis-clamp` – trên điện thoại hiện 4 dòng + "Xem thêm";
+câu ưu đãi in đậm nằm sau đoạn đầu nên chỉ hiện khi bấm "Xem thêm" → viết câu quan trọng nhất ở đầu đoạn mở.
 
 ### 1.8 Khối dùng chung (không nằm trong bài)
 

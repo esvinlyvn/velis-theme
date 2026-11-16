@@ -110,6 +110,8 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
   "Sidebar danh sách bài" (không form). Đo `node tools/the7_check_footer.mjs out.json` (trống ≤ 96, gạch chân, vùng bấm, tương phản, ≤ 1 form, nút lên đầu; `--test`).
 - Bước 14 (2026-11-13): email hiển thị **info@velisrealty.vn** (nhận form CF7 vẫn velisrealtyvn@gmail.com); MST 0319425663 ở Bottom bar + Rank Math SEO Local (`taxID`);
   hướng dẫn cho người viết nội dung: `docs/HUONG-DAN-NOI-DUNG.md` (cập nhật khi đổi mẫu / ô soạn); `contact_form_security_token` không bao giờ lưu vào repo ("<đã xóa>").
+- Bước 15b (2026-11-16): đoạn mở đầu trang dự án = Text Block `velis-clamp` (`tools/the7_sua_buoc15b.py`, có trong mẫu Dự án); viền ô nhập gốc #C9C1B5,
+  nền than viền trắng (mọi khung); "…" phân trang là `<span>` (lọc đầu ra trang danh sách trong `functions.php`). `the7_check_mobile.mjs … 1536` đo ô form ở máy tính.
 - Bước 15 (2026-11-16) điện thoại: mọi quy tắc mobile ở khối `@media (max-width: 767px)` cuối `velis.css` – máy tính không đổi (so ảnh mốc 1536);
   Extra class `velis-clamp` = 4 dòng + "Xem thêm"; ảnh tiến độ = Single Image "Link to large image". Đo `node tools/the7_check_mobile.mjs out.json` (`--test`).
 - Ra mắt (2026-11-14, chốt "dựng song song, bật công tắc"): `docs/KE-HOACH-RA-MAT.md`; site thật tiền tố **`velis_`**, bộ mới `vl2_`. Công cụ:

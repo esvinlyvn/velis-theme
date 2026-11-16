@@ -98,3 +98,15 @@ Nhật ký: `docs/STAGING-LOG.md` mục bước 15; báo cáo: `docs/reports/the
 | 42 | Nội dung trang dự án | Hàng chỉ gồm ảnh (ảnh tiến độ): mỗi Single Image → On click action = **Link to large image** (The Privé, Ansana, Palm River, Persa Place – 4 ảnh / trang); chạy `python3 -I tools/the7_sua_buoc15.py` (đổi BASE sang site thật **chỉ khi được duyệt ghi site thật**) hoặc sửa tay | sửa bài → WPBakery → Single Image → On click action | bấm ảnh tiến độ mở ảnh lớn |
 
 Thứ tự: 40 → 41 → 42 → xóa cache FVM + LiteSpeed. Không đổi Theme Options, menu, widget, CF7.
+
+## Bước 15b (2026-11-16) – 3 sửa nhỏ sau vòng điện thoại
+
+Nhật ký: `docs/STAGING-LOG.md` mục bước 15b; báo cáo: `docs/reports/the7-buoc-15b.md`.
+
+| # | Loại | Thay đổi | Ở đâu (wp-admin) | Kiểm sau khi đưa lên |
+|---|---|---|---|---|
+| 43 | File theme con | **1.9.1** (thay 40): `velis.css` – viền ô nhập gốc #C9C1B5, nền than viền trắng (mọi khung; sửa ô vô hình ở form Liên hệ máy tính); `velis-clamp` hiện đoạn đầu khi Text Block không có H2/H3 (sửa lỗi bước 15: đoạn "Công ty TNHH Velis Realty" trang chủ bị ẩn hết trên điện thoại), nút "Xem thêm" sát đoạn; `.paginator .dots` ô 44; `functions.php` – "…" phân trang thành chữ thường, nút "Xem thêm" chỉ khi có chữ bị ẩn | Giao diện → Tải lên → "Thay thế cài đặt bằng tải lên" | `node tools/the7_check_mobile.mjs out.json` và `… out.json 1536` (ô form lệch / không thấy = 0); Lighthouse SEO /blog/ ≥ 95; `php tools/tests/the7-child-cta-test.php` |
+| 44 | Nội dung 7 trang dự án / phân khu | Text Block đoạn mở đầu (hàng `velis-hero`, sau ảnh): Extra class **`velis-clamp`** (The Privé, The Global City, Ansana, Spring Ville, Vinhomes Saigon Park, Palm River, Persa Place) | `python3 -I tools/the7_sua_buoc15b.py --apply` (đổi BASE sang site thật **chỉ khi được duyệt ghi site thật**) hoặc sửa bài → WPBakery → Text Block → Extra class name | điện thoại: đoạn mở đầu 4 dòng + "Xem thêm"; The Privé ≤ 9 500 px ở 390 |
+| 45 | Mẫu của tôi | "Velis – Dự án" lưu lại theo `data/the7/mau-wpbakery/du-an.txt` (đoạn mở đầu có `velis-clamp`) | trình sửa WPBakery → Templates → My templates (xóa bản cũ cùng tên, lưu lại) | thêm trang mới từ mẫu: Text Block mở đầu có `velis-clamp` |
+
+Thứ tự: 43 → 44 → 45 → xóa cache FVM + LiteSpeed.

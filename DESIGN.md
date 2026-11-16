@@ -510,9 +510,13 @@ Hai cấp Vùng → Tiểu khu (danh sách ở `docs/KHU-VUC.md`). Thẻ hiện 
 - **Đầu trang The7** (Dự án, Blog, chuyên mục, Liên hệ, Giới thiệu, Tuyển dụng, bài viết, 404, tìm kiếm): căn trái cùng nội dung,
   đệm 24 / 24, H1 30 / 1,25. Bài viết: dưới H1 là dòng "cụm · ngày · N phút đọc" (14 px; phút = số chữ / 200); dòng meta The7 cuối bài ẩn.
 - **Chữ nội dung** 17 / 27. Chữ < 14 px chỉ ở nhãn chữ hoa và chú thích (dòng lưu ý footer 13).
-- **Form:** Họ tên → Số điện thoại → ô đồng ý → nút gửi; ô nhập 16 px; đang gõ thì thanh liên hệ dính ẩn. Form trên nền sáng: viền ô #C9C1B5.
+- **Form:** Họ tên → Số điện thoại → ô đồng ý → nút gửi; ô nhập 16 px; đang gõ thì thanh liên hệ dính ẩn.
+- **Viền ô nhập (mọi khung, bước 15b):** form nền sáng (Liên hệ, khối liên hệ cuối trang) viền #C9C1B5; form nền than (CTA, hộp cột phải) viền trắng.
+  Mọi ô một dòng trong một form cùng viền, cùng cao 52 px.
 - **Hỏi đáp:** "+ / –" 24 px bên phải câu hỏi, xoay khi mở; cả dòng câu hỏi bấm được, Tab + Enter / Space (mọi khung), viền focus.
-- **Khối chữ dài** (Extra class `velis-clamp` trên Text Block): đoạn đầu 4 dòng + nút "Xem thêm / Thu gọn".
+- **Khối chữ dài** (Extra class `velis-clamp` trên Text Block): đoạn đầu (hoặc đoạn ngay dưới H2 / H3) 4 dòng + nút "Xem thêm / Thu gọn";
+  chữ ngắn không bị ẩn gì thì không có nút. Đoạn mở đầu trang dự án (sau ảnh hero) dùng class này (bước 15b; ưu đãi in đậm hiện khi mở).
+- **Phân trang:** dấu "…" là chữ thường (không link), cùng ô 44 × 44 với số trang (mọi khung).
 - **Nút lên đầu trang:** ẩn (< 768). **Vùng bấm** ≥ 44 × 44 mọi link / nút ngoài đoạn văn.
 - **Logo đối tác:** lưới 2 × 2, logo ≈ 60 % ô (file 400 × 128 đã cân diện tích, lệch ≤ 14 %).
 - **Dòng cuối footer:** bản quyền + MST, lưu ý, link chính sách – tất cả căn **trái** cùng mép cột footer (footer điện thoại căn trái;
