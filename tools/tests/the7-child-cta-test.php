@@ -97,4 +97,8 @@ $ok  = $ok && 2 === velis_reading_minutes( $raw ) && 1 === velis_reading_minutes
 $ln  = velis_post_line( 'Palm City', '2026-07-29T14:56:58+07:00', '29/07/2026', 9 );
 $ok  = $ok && '<p class="velis-post-line"><span>Palm City</span><time datetime="2026-07-29T14:56:58+07:00">29/07/2026</time><span>9 phút đọc</span></p>' === $ln
 	&& ! str_contains( velis_post_line( '', 'x', '01/01/2026', 1 ), '<span></span>' );
+// Bước 15b – phân trang The7: "…" javascript:void(0) thành chữ thường; link số trang giữ nguyên.
+$pg  = '<a href="https://x/blog/page/5/" class="page-numbers" data-page-num="5">5</a><a href="javascript:void(0);" class="dots">…</a><div style="display: none;"><a href="https://x/blog/page/6/" class="page-numbers">6</a></div>';
+$pd  = velis_paginator_dots( $pg );
+$ok  = $ok && ! str_contains( $pd, 'javascript' ) && str_contains( $pd, '<span class="dots">…</span>' ) && str_contains( $pd, 'href="https://x/blog/page/6/"' ) && ! empty( $GLOBALS['hooks']['template_redirect'] );
 echo $ok ? "the7-child cta: ok\n" : "the7-child cta: FAIL\n"; exit( $ok ? 0 : 1 );

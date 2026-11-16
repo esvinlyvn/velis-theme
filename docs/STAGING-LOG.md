@@ -568,3 +568,12 @@ Chuyển hướng, Người dùng, UpdraftPlus – không bấm lưu, không ch�
 | Ảnh tiến độ (hàng chỉ gồm ảnh) | The Privé 19962 (bản trước 20961), Ansana 19934 (20964), Palm River 20422 (20960), Persa Place 19855 (20963) | 4 ảnh / trang thêm `onclick="link_image"` (bấm phóng to) | `tools/the7_sua_buoc15.py --apply` (REST) |
 | Cache | – | xóa FVM + LiteSpeed (chỉ purge) sau mỗi lần tải theme | thanh quản trị |
 Không đổi Theme Options, mẫu WPBakery ("Mẫu của tôi" không có hàng ảnh tiến độ), widget, menu. Không gửi form.
+
+## 2026-11-16 – bước 15b: 3 sửa nhỏ sau vòng điện thoại (`docs/reports/the7-buoc-15b.md`)
+| Mục | Trước | Sau | Nơi đổi |
+|---|---|---|---|
+| Đoạn mở đầu 7 trang dự án / phân khu: The Privé 19962, The Global City 20067, Ansana 19934, Spring Ville 19773, Vinhomes Saigon Park 20360, Palm River 20422, Persa Place 19855 | bản sửa đổi trước 21016 / 20962 / 21017 / 20978 / 20966 / 21018 / 21019 | Text Block mở đầu (hàng `velis-hero`, sau ảnh) thêm Extra class `velis-clamp` | `tools/the7_sua_buoc15b.py --apply` (REST `content.raw`) |
+| Mẫu của tôi "Velis – Dự án" | bản bước 12 | lưu lại theo `data/the7/mau-wpbakery/du-an.txt` (đoạn mở đầu có `velis-clamp`) | AJAX `vc_delete_template` / `vc_save_template` của trình sửa |
+| Theme con | 1.9.0 | **1.9.1** (`velis.css`: viền ô nhập #C9C1B5 / nền than trắng, `velis-clamp` không H2, `.paginator .dots`; `functions.php`: "…" phân trang `<span>`, nút "Xem thêm" chỉ khi có chữ ẩn) | Giao diện → Tải lên → thay bản đang dùng (4 lần trong vòng khi chỉnh khoảng nút / ô "…") |
+| Cache | – | xóa FVM + LiteSpeed (chỉ purge) sau mỗi lần tải theme | thanh quản trị |
+Không đổi Theme Options, widget, menu, CF7. Không gửi form. Đăng nhập wp-admin 5 lần (mỗi lần tải theme / lưu mẫu), đều thành công.

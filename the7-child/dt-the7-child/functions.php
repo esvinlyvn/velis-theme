@@ -170,6 +170,17 @@ add_action( 'presscore_before_loop', function () {
 	}
 } );
 
+// The7 paginator prints the "…" between page numbers as <a href="javascript:void(0);"> (Lighthouse SEO: link not crawlable) and has
+// no filter for it: on list pages turn it into plain text. The hidden page links next to it keep their real URLs.
+function velis_paginator_dots( $html ) {
+	return preg_replace( '#<a href="javascript:void\(0\);" class="dots">(.*?)</a>#', '<span class="dots">$1</span>', $html );
+}
+add_action( 'template_redirect', function () {
+	if ( is_archive() || is_search() || is_home() ) {
+		ob_start( 'velis_paginator_dots' );
+	}
+} );
+
 // Small page script (no library): CF7 submit button shows "Đang gửi…" and cannot be pressed twice until CF7 answers; the one-line
 // "chủ đầu tư · khu vực" label of a project card gets the full text as a tooltip when it is cut with "…".
 function velis_page_script() {
@@ -193,8 +204,9 @@ function velis_page_script() {
 		. 'document.querySelectorAll(".vc_toggle_title").forEach(function(t){var g=t.closest(".vc_toggle");t.setAttribute("role","button");t.tabIndex=0;'
 		. 'var s=function(){t.setAttribute("aria-expanded",String(g.classList.contains("vc_toggle_active")))};s();new MutationObserver(s).observe(g,{attributes:true,attributeFilter:["class"]});'
 		. 't.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();t.click()}})});'
-		// Điện thoại: Text Block có Extra class "velis-clamp" hiện 4 dòng đầu + nút "Xem thêm" / "Thu gọn" (velis.css). shortcut: xét cỡ màn hình lúc tải trang.
-		. 'if(matchMedia("(max-width:767px)").matches)document.querySelectorAll(".velis-clamp").forEach(function(x){var b=document.createElement("button");b.type="button";'
+		// Điện thoại: Text Block có Extra class "velis-clamp" hiện 4 dòng đầu + nút "Xem thêm" / "Thu gọn" (velis.css); chữ ngắn không bị ẩn gì → không có nút.
+		// shortcut: xét cỡ màn hình lúc tải trang.
+		. 'if(matchMedia("(max-width:767px)").matches)document.querySelectorAll(".velis-clamp").forEach(function(x){if(![].some.call(x.querySelectorAll(".wpb_wrapper > p"),function(p){return !p.offsetParent||p.scrollHeight>p.clientHeight+1}))return;var b=document.createElement("button");b.type="button";'
 		. 'b.className="velis-clamp-btn";b.textContent="Xem thêm";b.setAttribute("aria-expanded","false");b.addEventListener("click",function(){var o=x.classList.toggle("is-open");'
 		. 'b.textContent=o?"Thu gọn":"Xem thêm";b.setAttribute("aria-expanded",String(o))});x.after(b)})})();</script>';
 }

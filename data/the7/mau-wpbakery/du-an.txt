@@ -1,7 +1,7 @@
 [vc_row el_id="gioi-thieu" el_class="velis-hero" css=".vc_custom_1762900000001{background-color: #FAF7F2 !important;}"][vc_column][dt_breadcrumbs][vc_column_text css=""]
 <p class="velis-eyebrow">[Chủ đầu tư] · [Khu vực thị trường – docs/KHU-VUC.md]</p>
 <h1>[Tên dự án]</h1>
-[/vc_column_text][vc_single_image image="" img_size="full" alignment="center" el_class="velis-crop" css=""][vc_column_text css=""]
+[/vc_column_text][vc_single_image image="" img_size="full" alignment="center" el_class="velis-crop" css=""][vc_column_text css="" el_class="velis-clamp"]
 <p>[1–2 câu mở: dự án là gì, ở đâu]</p>
 <p><strong>[Ưu đãi/điểm nổi bật đang áp dụng – xóa nếu không có]</strong></p>
 [/vc_column_text][vc_row_inner el_class="velis-specs velis-facts"][vc_column_inner width="1/3" offset="vc_col-xs-6"][vc_column_text css=""]
