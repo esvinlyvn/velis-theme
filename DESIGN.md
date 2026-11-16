@@ -497,6 +497,27 @@ URL trang (thư báo), utm_source / utm_medium / utm_campaign.
 Hai cấp Vùng → Tiểu khu (danh sách ở `docs/KHU-VUC.md`). Thẻ hiện cấp cụ thể nhất; bộ lọc chọn được cả hai cấp.
 Địa chỉ dùng phường/xã mới, có thể kèm "(trước đây …)".
 
+### Điện thoại < 768 px (chốt 2026-11-16, bước 15 – máy tính không đổi)
+- **Độ dài trang ở 390 px** (mục tiêu người dùng): trang chủ ≤ 6 500, The Privé ≤ 9 500, /blog/ ≤ 4 500, bài trung bình giảm ≥ 15 %
+  (đo `node tools/the7_check_mobile.mjs`). Rút ngắn bằng bố cục, không ẩn nội dung có giá trị SEO (chỉ ẩn tóm tắt thẻ bài).
+- **Lưới dự án trang chủ:** dải trượt ngang (CSS scroll-snap, không JS), thẻ 85 % màn, lộ mép thẻ sau, đủ thông tin thẻ; "Xem tất cả dự án"
+  dưới dải. /du-an/ và lưới phân khu: 1 cột. Ảnh thẻ dự án 16:9.
+- **Danh sách bài** (trang chủ, /blog/, chuyên mục, tìm kiếm, "Bài viết nên xem"): dạng dòng – ảnh 104 px (96 px ở bài liên quan) 4:3 bên trái;
+  phải: nhãn cụm (13 px chữ hoa), tiêu đề ≤ 3 dòng 16 / 600, ngày 14; không tóm tắt; cả dòng là link bài (nhãn cụm, ngày là chữ).
+  Bài liên quan tối đa 4; danh sách cột phải bài blog tối đa 3 mỗi nhóm.
+- **Ảnh trong nội dung:** hàng chỉ gồm ≥ 2 cột ảnh (tiến độ, thư viện) → lưới 2 cột (đúng 3 ảnh → 3 cột), ảnh bấm phóng to (Single Image
+  "On click action" = Link to large image).
+- **Đầu trang The7** (Dự án, Blog, chuyên mục, Liên hệ, Giới thiệu, Tuyển dụng, bài viết, 404, tìm kiếm): căn trái cùng nội dung,
+  đệm 24 / 24, H1 30 / 1,25. Bài viết: dưới H1 là dòng "cụm · ngày · N phút đọc" (14 px; phút = số chữ / 200); dòng meta The7 cuối bài ẩn.
+- **Chữ nội dung** 17 / 27. Chữ < 14 px chỉ ở nhãn chữ hoa và chú thích (dòng lưu ý footer 13).
+- **Form:** Họ tên → Số điện thoại → ô đồng ý → nút gửi; ô nhập 16 px; đang gõ thì thanh liên hệ dính ẩn. Form trên nền sáng: viền ô #C9C1B5.
+- **Hỏi đáp:** "+ / –" 24 px bên phải câu hỏi, xoay khi mở; cả dòng câu hỏi bấm được, Tab + Enter / Space (mọi khung), viền focus.
+- **Khối chữ dài** (Extra class `velis-clamp` trên Text Block): đoạn đầu 4 dòng + nút "Xem thêm / Thu gọn".
+- **Nút lên đầu trang:** ẩn (< 768). **Vùng bấm** ≥ 44 × 44 mọi link / nút ngoài đoạn văn.
+- **Logo đối tác:** lưới 2 × 2, logo ≈ 60 % ô (file 400 × 128 đã cân diện tích, lệch ≤ 14 %).
+- **Dòng cuối footer:** bản quyền + MST, lưu ý, link chính sách – tất cả căn **trái** cùng mép cột footer (footer điện thoại căn trái;
+  một mép cho cả chân trang, không thụt lề lửng).
+
 ## Do's and Don'ts
 
 ### Do

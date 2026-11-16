@@ -86,3 +86,15 @@ Nhật ký: `docs/STAGING-LOG.md` mục bước 14; báo cáo: `docs/reports/the
 | 39 | Nội dung + widget | lienhe@ → info@ ở: Tuyển dụng (4), Chính sách bảo mật (1), Liên hệ (2), Giới thiệu (1), widget HTML cột 1 footer (2) – trên site thật quét lại bằng tìm kiếm "lienhe@" trong Bài viết / Trang / Tiện ích trước khi sửa | sửa trang (WPBakery) · Giao diện → Tiện ích | quét HTML toàn site: 0 "lienhe@" |
 
 Thứ tự: 34 → 35 → 36 → 37 → 38 → 39 → xóa cache FVM + LiteSpeed. Email nhận form (CF7) giữ velisrealtyvn@gmail.com.
+
+## Bước 15 (2026-11-16) – bản điện thoại (< 768 px; máy tính không đổi)
+
+Nhật ký: `docs/STAGING-LOG.md` mục bước 15; báo cáo: `docs/reports/the7-buoc-15.md`; dữ liệu trước: `data/the7/buoc-15/`.
+
+| # | Loại | Thay đổi | Ở đâu (wp-admin) | Kiểm sau khi đưa lên |
+|---|---|---|---|---|
+| 40 | File theme con | **1.9.0**: `velis.css` khối "Bước 15" (`@media (max-width: 767px)`); `functions.php` – dòng "cụm · ngày · phút đọc" đầu nội dung bài (ẩn từ 768 px), Tab + Enter / Space cho hỏi đáp (`vc_toggle`), nút "Xem thêm" cho Extra class `velis-clamp` | Giao diện → Tải lên → "Thay thế cài đặt bằng tải lên" (`dist/dt-the7-child.zip`) | `node tools/the7_check_mobile.mjs out.json` (bấm < 44 = 0, chữ < 14 = 0, ô < 16 = 0, thứ tự form 0, tràn 0, nút lên đầu 0); `php tools/tests/the7-child-cta-test.php` |
+| 41 | Nội dung trang chủ | Text Block "Công ty TNHH Velis Realty": Extra class **`velis-clamp`** | Trang chủ → WPBakery → sửa Text Block → Extra class name | điện thoại: 4 dòng + "Xem thêm" |
+| 42 | Nội dung trang dự án | Hàng chỉ gồm ảnh (ảnh tiến độ): mỗi Single Image → On click action = **Link to large image** (The Privé, Ansana, Palm River, Persa Place – 4 ảnh / trang); chạy `python3 -I tools/the7_sua_buoc15.py` (đổi BASE sang site thật **chỉ khi được duyệt ghi site thật**) hoặc sửa tay | sửa bài → WPBakery → Single Image → On click action | bấm ảnh tiến độ mở ảnh lớn |
+
+Thứ tự: 40 → 41 → 42 → xóa cache FVM + LiteSpeed. Không đổi Theme Options, menu, widget, CF7.

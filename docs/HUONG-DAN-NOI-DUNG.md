@@ -160,6 +160,9 @@ Chỉ sửa chữ trong các khối có sẵn. Hai phần **tự lấy bài, kh�
 - **lưới dự án:** chuyên mục Dự án;
 - **dải "Dự án nổi bật":** chọn bài ở ô Posts của khối `velis-feats`. Phần này nhờ Quản trị viên nếu không quen WPBakery.
 
+Trên điện thoại (bước 15): lưới dự án là dải trượt ngang; đoạn "Công ty TNHH Velis Realty" hiện 4 dòng + "Xem thêm" nhờ Extra class
+`velis-clamp` của Text Block – đoạn chữ dài khác cũng dùng được class này (đoạn đầu ngay dưới tiêu đề là đoạn hiện).
+
 ### 1.8 Khối dùng chung (không nằm trong bài)
 
 | Khối | Ở đâu | Ai sửa |
@@ -186,6 +189,10 @@ Chỉ sửa chữ trong các khối có sẵn. Hai phần **tự lấy bài, kh�
 | Logo chủ đầu tư | ngang, nền trong | cao ≥ 80 px | PNG/SVG |
 
 - **Không** watermark, huy hiệu VELIS, logo đơn vị khác, chữ in sẵn (giá, khẩu hiệu, "QUẬN 2"…). Cần bản gốc thì xin chủ đầu tư; xem `docs/HUONG-DAN-GUI-ANH.md`, `docs/CHUAN-ANH.md`.
+- **Ảnh tiến độ / thư viện** đặt nhiều ảnh trong các cột cạnh nhau (Inner Row, mỗi cột chỉ có ảnh): trên điện thoại thành lưới 2 cột ảnh nhỏ,
+  nên mỗi Single Image chọn **On click action → Link to large image** để người xem bấm phóng to.
+- **Tóm tắt (Excerpt)** của bài blog không hiện ở danh sách bài trên điện thoại (chỉ ảnh, nhãn cụm, tiêu đề, ngày) – tiêu đề phải tự đủ nghĩa
+  trong 3 dòng (≈ 70 ký tự). Dòng "cụm · ngày · N phút đọc" dưới H1 bài tự sinh (cụm = chuyên mục con đầu tiên), không gõ tay.
 - **Tên file** viết thường không dấu, gạch nối, mô tả ảnh: `the-prive-phoi-canh-ven-song.jpg`, không đặt `IMG_1234.jpg`.
 - **Alt (Văn bản thay thế)** viết có dấu, tả đúng ảnh trong một câu ngắn, ví dụ "Phối cảnh The Privé nhìn từ sông Giồng Ông Tố". Không nhồi từ khóa và không chép tên file. Ảnh phối cảnh thì ghi thêm chú thích "Ảnh phối cảnh minh họa – nguồn: CĐT".
 

@@ -560,7 +560,7 @@ CF7 19582 / 20958: không đổi; người nhận vẫn velisrealtyvn@gmail.com 
 Không đổi cài đặt / nội dung staging. Site thật: chỉ đọc (REST GET; wp-admin xem Site Health, Plugin, Header and Footer Scripts, Rank Math
 Chuyển hướng, Người dùng, UpdraftPlus – không bấm lưu, không chạy sao lưu). 7 ứng dụng: chỉ `curl -sI`.
 
-### 2026-11-16 – bước 15: bản điện thoại (< 768 px; máy tính không đổi)
+## 2026-11-16 – bước 15: bản điện thoại (< 768 px; máy tính không đổi)
 | Mục | Trước | Sau | Nơi đổi |
 |---|---|---|---|
 | Theme con | 1.8.1 | **1.9.0** (`velis.css` khối "Bước 15" trong `@media (max-width: 767px)`; `functions.php`: dòng "cụm · ngày · phút đọc" đầu bài, phím Enter/Space cho hỏi đáp, nút "Xem thêm" cho Extra class `velis-clamp`) | Giao diện → Tải lên → thay bản đang dùng (5 lần trong vòng; 1 lần tạm nạp lại 1.8.1 để chụp ảnh "trước" 360/430 rồi nạp lại 1.9.0) |
