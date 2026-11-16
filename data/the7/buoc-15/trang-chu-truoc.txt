@@ -1,0 +1,45 @@
+[vc_section full_width="stretch_row" el_id="hero" el_class="velis-home-hero velis-feats" css=".vc_custom_1763000000019{background-color: #1A1A1A !important;}"][vc_row][vc_column][vc_single_image image="19968" img_size="full" el_class="velis-hero-bg"][vc_column_text css=""]
+<p class="velis-eyebrow">Velis Realty</p>
+<h1>Tư vấn bất động sản cao cấp tại TP.HCM và vùng lân cận</h1>
+<p class="velis-lead">Căn hộ hạng sang, villa nghỉ dưỡng, shophouse của Vinhomes, Sun Group, Masterise Homes, Gamuda Land cho người mua ở và nhà đầu tư. CEO Vũ Xuân trực tiếp phân tích dòng tiền và rủi ro từng dự án.</p>
+[/vc_column_text][dt_default_button link="url:%23velis-tu-van|title:Nh%E1%BA%ADn%20t%C6%B0%20v%E1%BA%A5n" size="big" button_alignment="btn_inline"]Nhận tư vấn[/dt_default_button][dt_default_button link="url:%2Fdu-an%2F|title:Xem%20d%E1%BB%B1%20%C3%A1n" size="big" button_alignment="btn_inline" el_class="velis-btn-ghost"]Xem dự án[/dt_default_button][vc_column_text css="" el_class="velis-feats-title"]
+<h2 class="velis-eyebrow">Dự án nổi bật</h2>
+[/vc_column_text][dt_blog_masonry post_type="posts" posts="19962,20067,19934,19773" mode="grid" layout="classic" image_sizing="resize" resized_image_dimensions="13x9" image_scale_animation_on_hover="disabled" image_hover_bg_color="disabled" bwb_columns="desktop:4|h_tablet:3|v_tablet:2|phone:1" gap_between_posts="6px" all_posts_the_same_width="y" content_alignment="left" content_bg="n" post_content_paddings="0px 0px 0px 0px" post_date="n" post_category="n" post_author="n" post_comments="n" post_content="show_excerpt" read_more_button="off" loading_mode="disabled" dis_posts_total="4" orderby="date" order="desc"][/vc_column][/vc_row][/vc_section][vc_section full_width="stretch_row" el_id="con-so" el_class="velis-section velis-stats-band" css=".vc_custom_1763000000020{}"][vc_row][vc_column][vc_row_inner el_class="velis-stats"][vc_column_inner width="1/4" offset="vc_col-xs-6"][vc_column_text css=""]
+<p class="velis-stat"><span class="velis-stat-num">10+</span><span class="velis-stat-label">Năm kinh nghiệm</span></p>
+[/vc_column_text][/vc_column_inner][vc_column_inner width="1/4" offset="vc_col-xs-6"][vc_column_text css=""]
+<p class="velis-stat"><span class="velis-stat-num">50+</span><span class="velis-stat-label">Đối tác</span></p>
+[/vc_column_text][/vc_column_inner][vc_column_inner width="1/4" offset="vc_col-xs-6"][vc_column_text css=""]
+<p class="velis-stat"><span class="velis-stat-num">999+</span><span class="velis-stat-label">Giao dịch</span></p>
+[/vc_column_text][/vc_column_inner][vc_column_inner width="1/4" offset="vc_col-xs-6"][vc_column_text css=""]
+<p class="velis-stat"><span class="velis-stat-num">99+</span><span class="velis-stat-label">Dự án</span></p>
+[/vc_column_text][/vc_column_inner][/vc_row_inner][/vc_column][/vc_row][/vc_section][vc_section full_width="stretch_row" el_id="du-an" el_class="velis-section velis-projects" css=".vc_custom_1763000000021{background-color: #FAF7F2 !important;}"][vc_row][vc_column][vc_column_text css=""]
+<h2>Dự án Velis đang tư vấn</h2>
+[/vc_column_text][dt_blog_masonry post_type="category" category="34" mode="grid" layout="classic" image_sizing="resize" resized_image_dimensions="4x3" image_scale_animation_on_hover="disabled" image_hover_bg_color="disabled" bwb_columns="desktop:3|h_tablet:3|v_tablet:2|phone:1" gap_between_posts="12px" all_posts_the_same_width="y" content_alignment="left" post_content_paddings="24px 24px 24px 24px" post_date="n" post_category="n" post_author="n" post_comments="n" post_content="show_excerpt" read_more_button="off" loading_mode="disabled" dis_posts_total="6" orderby="date" order="desc"][dt_default_button link="url:%2Fdu-an%2F|title:Xem%20t%E1%BA%A5t%20c%E1%BA%A3%20d%E1%BB%B1%20%C3%A1n" size="big" button_alignment="btn_center"]Xem tất cả dự án[/dt_default_button][/vc_column][/vc_row][/vc_section][vc_section full_width="stretch_row" el_id="doi-tac" el_class="velis-section" css=".vc_custom_1763000000022{}"][vc_row][vc_column][vc_column_text css=""]
+<h2>Đối tác của chúng tôi</h2>
+<p>Velis Realty là đơn vị chuyên tư vấn và phân phối bất động sản cao cấp, tập trung vào dự án của các chủ đầu tư có hồ sơ bàn giao và pháp lý công khai.</p>
+[/vc_column_text][vc_row_inner el_class="velis-logos"][vc_column_inner width="1/4" offset="vc_col-xs-6"][vc_single_image image="20820" img_size="full" alignment="center" onclick="custom_link" link="/du-an/vinhomes/" css=""][/vc_column_inner][vc_column_inner width="1/4" offset="vc_col-xs-6"][vc_single_image image="20821" img_size="full" alignment="center" onclick="custom_link" link="/du-an/masterise-homes/" css=""][/vc_column_inner][vc_column_inner width="1/4" offset="vc_col-xs-6"][vc_single_image image="20822" img_size="full" alignment="center" onclick="custom_link" link="/du-an/sun-group/" css=""][/vc_column_inner][vc_column_inner width="1/4" offset="vc_col-xs-6"][vc_single_image image="20823" img_size="full" alignment="center" onclick="custom_link" link="/du-an/gamuda-land/" css=""][/vc_column_inner][/vc_row_inner][/vc_column][/vc_row][/vc_section][vc_section full_width="stretch_row" el_id="ve-velis" el_class="velis-section" css=".vc_custom_1763000000023{background-color: #FAF7F2 !important;}"][vc_row][vc_column width="1/2"][vc_column_text css=""]
+<p class="velis-eyebrow">Về Velis</p>
+<h2>Công ty TNHH Velis Realty</h2>
+<p>Tại Velis Realty, chúng tôi tin rằng mỗi bất động sản không chỉ là một tài sản, mà là tâm huyết và tương lai của nhà đầu tư. Velis Realty tư vấn các dự án của Vinhomes, Sun Group, Masterise Homes, Ecopark, Gamuda Land, với giỏ hàng đa dạng từ căn hộ hạng sang, villa nghỉ dưỡng đến shophouse thương mại tại các khu vực đang có hạ tầng mới tại TP.HCM và vùng lân cận.</p>
+<p>Đội ngũ chuyên gia của chúng tôi kết hợp giữa tư duy Marketing sắc bén và sự am hiểu thị trường thực chiến, cung cấp thông tin có nguồn, phân tích dòng tiền và rủi ro để khách hàng tự quyết định.</p>
+[/vc_column_text][dt_default_button link="url:%2Fgioi-thieu%2F|title:T%C3%ACm%20hi%E1%BB%83u%20Velis" size="big" button_alignment="btn_inline"]Tìm hiểu Velis[/dt_default_button][/vc_column][vc_column width="1/2"][vc_column_text css=""]
+<h3 class="velis-values-title">Giá trị khác biệt tại Velis Realty</h3>
+<ol class="velis-values">
+<li><span class="velis-value-num">01</span><h3>Thông tin có nguồn</h3>
+<p>Chúng tôi cung cấp thông tin dự án đầy đủ, chính xác về pháp lý và quy hoạch, giúp khách hàng yên tâm trước mỗi quyết định.</p></li>
+<li><span class="velis-value-num">02</span><h3>Hỗ trợ sau bán</h3>
+<p>Từ lúc tư vấn, ký kết hợp đồng đến khi nhận nhà và quản lý vận hành, Velis Realty luôn hiện diện để hỗ trợ.</p></li>
+<li><span class="velis-value-num">03</span><h3>Tư duy chiến lược</h3>
+<p>Không chỉ bán sản phẩm, chúng tôi cung cấp giải pháp. Velis Realty phân tích dòng tiền, đánh giá tiềm năng tăng giá và tính thanh khoản của từng vị trí.</p></li>
+<li><span class="velis-value-num">04</span><h3>Cập nhật quỹ căn và chính sách</h3>
+<p>Cập nhật quỹ căn và chính sách bán hàng ngay khi chủ đầu tư công bố.</p></li>
+</ol>
+[/vc_column_text][/vc_column][/vc_row][/vc_section][vc_section full_width="stretch_row" el_id="bai-viet" el_class="velis-section" css=".vc_custom_1763000000024{}"][vc_row][vc_column][vc_column_text css=""]
+<h2>Bài phân tích chuyên sâu</h2>
+[/vc_column_text][dt_blog_masonry mode="grid" image_scale_animation_on_hover="disabled" bwb_columns="desktop:3|h_tablet:3|v_tablet:2|phone:1" all_posts_the_same_width="y" content_alignment="left" post_author="n" post_comments="n" post_content="off" read_more_button="off" dis_posts_total="3" posts_offset="0" category="40"][dt_default_button link="url:%2Fblog%2F|title:Xem%20t%E1%BA%A5t%20c%E1%BA%A3%20b%C3%A0i%20vi%E1%BA%BFt" size="big" button_alignment="btn_center"]Xem tất cả bài viết[/dt_default_button][/vc_column][/vc_row][/vc_section][vc_section full_width="stretch_row" el_id="thi-thu-tuyen-dung" el_class="velis-section velis-boxes" css=".vc_custom_1763000000025{background-color: #FAF7F2 !important;}"][vc_row equal_height="yes"][vc_column width="1/2"][vc_column_text css=""]
+<h3>Thi thử chứng chỉ môi giới</h3>
+<p>Ôn luyện và thi thử chứng chỉ hành nghề môi giới bất động sản miễn phí.</p>
+[/vc_column_text][dt_default_button link="url:%2Fthi%2F|title:Thi%20th%E1%BB%AD%20CCMG" size="big" button_alignment="btn_inline"]Thi thử CCMG[/dt_default_button][/vc_column][vc_column width="1/2"][vc_column_text css=""]
+<h3>Cơ hội nghề nghiệp</h3>
+<p>Velis Realty đang tuyển nhiều vị trí Chuyên viên Kinh doanh Bất động sản cao cấp, làm việc toàn thời gian tại văn phòng 34 Lương Định Của, Phường Bình Trưng, TP. Hồ Chí Minh.</p>
+[/vc_column_text][dt_default_button link="url:%2Ftuyen-dung%2F|title:%E1%BB%A8ng%20tuy%E1%BB%83n%20ngay" size="big" button_alignment="btn_inline"]Ứng tuyển ngay[/dt_default_button][/vc_column][/vc_row][/vc_section]

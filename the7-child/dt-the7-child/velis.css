@@ -596,3 +596,138 @@ body:has(.velis-prefoot-wrap) .velis-section:is(.vc_section-has-fill, .vc_row-ha
 @media (min-width: 1024px) { .scroll-top { right: 24px !important; bottom: 24px !important; } } /* !important: The7 đặt vị trí trong CSS động */
 @media (min-width: 1024px) and (max-width: 1359px) { #bottom-bar .wf-container-bottom { padding-right: 76px; } }
 @media (min-width: 768px) and (max-width: 1023px) { #bottom-bar .wf-container-bottom { padding-right: 64px; } }
+
+/* ── Bước 15 (2026-11-16): bản điện thoại (< 768 px). Máy tính không đổi – mọi quy tắc dưới đây nằm trong @media (max-width: 767px)
+   (trừ .velis-post-line ẩn từ 768 px và phím cho hỏi đáp trong functions.php). DESIGN.md "Điện thoại". ── */
+.velis-post-line { display: none; }
+@media (max-width: 767px) {
+	/* Chữ nội dung 17 / 27 (1,6 – DESIGN body mobile 17); The7 dùng một cỡ "big" 18 / 30 cho mọi khung */
+	html:root { --the7-text-big-font-size: 17px; --the7-text-big-line-height: 27px; --the7-page-title-top-padding: 24px; --the7-page-title-bottom-padding: 24px; } /* html:root – CSS động của The7 (nạp sau) cũng đặt các biến này trên :root */
+
+	/* Đầu trang The7 (Dự án, Blog, chuyên mục, Liên hệ, Giới thiệu, Tuyển dụng, bài viết, 404, tìm kiếm): căn trái cùng nội dung, đệm 24, H1 30 */
+	#page .page-title { min-height: 0; }
+	#page .page-title .wf-wrap { min-height: 0 !important; padding-top: 24px; padding-bottom: 24px; flex-direction: column; align-items: flex-start; justify-content: flex-start; text-align: left; } /* !important: The7 đặt chiều cao trong CSS động */
+	#page .page-title .page-title-head, #page .page-title h1 { width: 100%; margin: 0; text-align: left; }
+	#page .page-title.page-title .page-title-head h1, #page .page-title.page-title .page-title-head h1 * { font-size: 30px; line-height: 1.25; } /* thắng cỡ 36 của The7 (.page-title-responsive-enabled … .entry-title) */
+	/* Bài viết: dưới H1 là "cụm · ngày · phút đọc" (functions.php in đầu nội dung); dòng meta The7 cuối bài thôi lặp lại */
+	.single-post #main { padding-top: 16px; }
+	.velis-post-line { display: flex; flex-wrap: wrap; align-items: baseline; margin: 0 0 24px; font-size: 14px; line-height: 1.5; color: #5C5C5C; }
+	.velis-post-line > * + *::before { content: "·"; padding: 0 8px; color: #8C8C8C; }
+	.velis-post-line span:first-child { font-weight: 600; color: #8A6A3A; }
+	.single-post article.post > .post-meta { display: none; }
+
+	/* Lưới dự án trang chủ: dải trượt ngang, thẻ 85 % màn (lộ mép thẻ sau), đủ thông tin thẻ; "Xem tất cả dự án" dưới dải */
+	body.home #page .velis-projects .blog-shortcode .dt-css-grid { display: grid; grid-auto-flow: column; grid-auto-columns: 85%; grid-template-columns: none !important; gap: 12px; justify-content: start; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 16px; margin: 0 -16px; padding: 4px 16px 16px; scrollbar-width: none; } /* !important: The7 đặt số cột trong CSS riêng của phần tử */
+	body.home #page .velis-projects .blog-shortcode .dt-css-grid::-webkit-scrollbar { display: none; }
+	body.home #page .velis-projects .blog-shortcode .dt-css-grid > .wf-cell { width: auto; scroll-snap-align: start; }
+	body.home .velis-projects .btn-align-center { margin-top: 16px; }
+	/* Thẻ dự án (trang chủ, /du-an/, phân khu): ảnh 16:9 */
+	#page .velis-projects .blog-shortcode .post-thumbnail { aspect-ratio: 16 / 9; }
+
+	/* Danh sách bài dạng dòng (trang chủ "Bài phân tích", /blog/, chuyên mục, tìm kiếm): ảnh 104 px 4:3 trái; phải nhãn cụm, tiêu đề ≤ 3 dòng,
+	   ngày; ẩn tóm tắt. Cả dòng là link bài (link tiêu đề phủ dòng); nhãn cụm / ngày là chữ (không là đích bấm riêng < 44 px). */
+	#page .blog-shortcode .dt-css-grid:has(article.post .entry-meta) { gap: 0; }
+	#page .blog-shortcode article.post:has(> .post-entry-content > .entry-meta) { position: relative; display: grid; grid-template-columns: 104px minmax(0, 1fr); column-gap: 12px; align-items: start; margin: 0; padding: 16px 0; border: 0; border-bottom: 1px solid #E4DED5; border-radius: 0; background: transparent; box-shadow: none; transform: none; }
+	#page .blog-shortcode article.post:has(> .post-entry-content > .entry-meta)::before, #page .blog-shortcode article.post:has(> .post-entry-content > .entry-meta)::after, .single-related-posts .related-item article::before, .single-related-posts .related-item article::after { display: none; } /* clearfix của The7 thành ô lưới */
+	#page .blog-shortcode article.post:has(> .post-entry-content > .entry-meta) .post-thumbnail-wrap { width: auto; margin: 0; padding: 0; float: none; border-radius: 4px; overflow: hidden; }
+	#page .blog-shortcode article.post:has(> .post-entry-content > .entry-meta) .post-thumbnail { aspect-ratio: 4 / 3; margin: 0; border-radius: 4px; overflow: hidden; }
+	#page .blog-shortcode article.post:has(> .post-entry-content > .entry-meta) .post-thumbnail > a { display: block; height: 100%; }
+	#page .blog-shortcode article.post:has(> .post-entry-content > .entry-meta) .post-thumbnail img { width: 100%; height: 100%; object-fit: cover; }
+	#page .blog-shortcode article.post:has(> .post-entry-content > .entry-meta) .post-entry-content { display: flex; flex-direction: column; min-width: 0; margin: 0; padding: 0; background: none; }
+	#page .blog-shortcode article.post .post-entry-content > .entry-meta { display: contents; }
+	#page .blog-shortcode article.post .post-entry-content > .entry-meta > *::before { display: none; }
+	#page .blog-shortcode article.post .post-entry-content > .entry-meta > .category-link { order: -1; margin: 0 0 4px; font-size: 13px; line-height: 1.4; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #8A6A3A; }
+	#page .blog-shortcode article.post .post-entry-content > .entry-meta > :not(.category-link) { order: 1; margin-top: 4px; }
+	#page .blog-shortcode article.post .post-entry-content > .entry-meta a { padding: 0; color: inherit; pointer-events: none; }
+	#page .blog-shortcode article.post:has(> .post-entry-content > .entry-meta) .entry-title { order: 0; margin: 0; font-family: "Be Vietnam Pro", Arial, sans-serif; font-size: 16px; line-height: 1.4; font-weight: 600; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+	#page .blog-shortcode article.post:has(> .post-entry-content > .entry-meta) .entry-title a { padding: 0; color: #1A1A1A; }
+	#page .blog-shortcode article.post:has(> .post-entry-content > .entry-meta) .entry-title a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+	#page .blog-shortcode article.post:has(> .post-entry-content > .entry-meta) :is(.entry-excerpt, .post-details, .details, .entry-tags) { display: none; }
+	#page .blog-shortcode article.post:has(> .post-entry-content > .entry-meta):has(.entry-title a:focus-visible) { outline: 2px solid #1A1A1A; outline-offset: 2px; }
+	/* Bài viết nên xem (bài liên quan The7): cùng dạng dòng, ảnh 96 px 4:3, bỏ khung thẻ */
+	.single-related-posts .items-grid { display: block; }
+	.single-related-posts .related-item { width: auto; margin: 0; padding: 0; float: none; }
+	.single-related-posts .related-item article { display: grid; grid-template-columns: 96px minmax(0, 1fr); column-gap: 12px; align-items: start; padding: 12px 0; border-bottom: 1px solid #E4DED5; border-radius: 0; background: transparent; box-shadow: none; transform: none; }
+	.single-related-posts .mini-post-img { width: auto; margin: 0; float: none; }
+	.single-related-posts .mini-post-img a { display: block; margin: 0; border-radius: 4px; overflow: hidden; }
+	.single-related-posts .mini-post-img img { display: block; width: 96px; height: 72px; object-fit: cover; }
+	.single-related-posts .post-content > a { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: 16px; line-height: 1.4; font-weight: 600; color: #1A1A1A; }
+	.single-related-posts .post-content > br { display: none; }
+	.single-related-posts .post-content time { display: block; margin-top: 4px; font-size: 14px; }
+
+	/* Ảnh trong nội dung (tiến độ, thư viện, mặt bằng): hàng chỉ gồm ≥ 2 cột ảnh → lưới 2 cột, không xếp dọc từng ảnh khổ to */
+	.wpb-content-wrapper :is(.vc_row, .vc_row_inner, .vc_inner):has(> .wpb_column + .wpb_column):has(.wpb_single_image):not(:has(.wpb_text_column, .vc_btn3-container, .dt-btn, form, .blog-shortcode, h2, h3, .vc_toggle)):not(.velis-logos, .velis-facts, .velis-devs) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-left: 0; margin-right: 0; }
+	.wpb-content-wrapper :is(.vc_row, .vc_row_inner, .vc_inner):has(> .wpb_column + .wpb_column):has(.wpb_single_image):not(:has(.wpb_text_column, .vc_btn3-container, .dt-btn, form, .blog-shortcode, h2, h3, .vc_toggle)):not(.velis-logos, .velis-facts, .velis-devs)::before { display: none; }
+	.wpb-content-wrapper :is(.vc_row, .vc_row_inner, .vc_inner):has(> .wpb_column + .wpb_column):has(.wpb_single_image):not(:has(.wpb_text_column, .vc_btn3-container, .dt-btn, form, .blog-shortcode, h2, h3, .vc_toggle)):not(.velis-logos, .velis-facts, .velis-devs) > .wpb_column { width: auto; float: none; padding: 0; margin: 0; }
+	.wpb-content-wrapper :is(.vc_row, .vc_row_inner, .vc_inner):has(> .wpb_column + .wpb_column):has(.wpb_single_image):not(:has(.wpb_text_column, .vc_btn3-container, .dt-btn, form, .blog-shortcode, h2, h3, .vc_toggle)):not(.velis-logos, .velis-facts, .velis-devs) > .wpb_column > .vc_column-inner { padding: 0; }
+	.wpb-content-wrapper :is(.vc_row, .vc_row_inner, .vc_inner):has(> .wpb_column + .wpb_column):has(.wpb_single_image):not(:has(.wpb_text_column, .vc_btn3-container, .dt-btn, form, .blog-shortcode, h2, h3, .vc_toggle)):not(.velis-logos, .velis-facts, .velis-devs) .wpb_single_image { margin: 0; }
+
+	.wpb-content-wrapper :is(.vc_row, .vc_row_inner, .vc_inner):has(> .wpb_column:nth-child(3):last-child):has(.wpb_single_image):not(:has(.wpb_text_column, .vc_btn3-container, .dt-btn, form, .blog-shortcode, h2, h3, .vc_toggle)):not(.velis-logos, .velis-facts, .velis-devs) { grid-template-columns: repeat(3, minmax(0, 1fr)); } /* đúng 3 ảnh (mặt bằng): 1 hàng 3, bấm ảnh để phóng to */
+
+	/* Giá trị khác biệt: giữ 4 mục, khoảng giữa mục gọn */
+	.velis-values li { padding: 14px 0; grid-template-columns: 44px minmax(0, 1fr); column-gap: 12px; }
+	.velis-value-num { font-size: 26px; }
+	.velis-values h3 { font-size: 17px; }
+	/* Đoạn văn dài (Extra class "velis-clamp" trên Text Block, vd. "Công ty TNHH Velis Realty" trang chủ): 4 dòng + "Xem thêm" (JS functions.php) */
+	.velis-cta-js .velis-clamp:not(.is-open) .wpb_wrapper > p:not(.velis-eyebrow) { display: none; }
+	.velis-cta-js .velis-clamp:not(.is-open) .wpb_wrapper > :is(h2, h3) + p { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden; }
+	.velis-clamp-btn { display: flex; align-items: center; min-height: 44px; margin: -8px 0 16px; padding: 0; border: 0; background: none; font: 600 16px/1.4 "Be Vietnam Pro", Arial, sans-serif; color: #B8282E; cursor: pointer; }
+
+	/* Logo đối tác: lưới 2 × 2, logo ~60 % ô (diện tích thị giác đã cân trong file) */
+	.velis-logos .wpb_single_image { padding: 12px 8px; }
+	.velis-logos img { width: 100%; } /* file 400 × 128 có lề trong suốt: logo thấy được ≈ 48–94 % file → ~60 % ô; diện tích khung logo lệch ≤ 14 % */
+
+	/* Hỏi đáp: "+ / –" 24 px bên PHẢI câu hỏi, xoay khi mở; cả dòng câu hỏi bấm được (phím: functions.php); viền focus */
+	#page .vc_toggle:not(.velis-more) .vc_toggle_title { position: relative; justify-content: space-between; min-height: 44px; padding: 4px 40px 4px 0; cursor: pointer; }
+	.vc_toggle:not(.velis-more) .vc_toggle_title > :is(h3, h4, p) { font-size: 17px; }
+	#page .vc_toggle:not(.velis-more) .vc_toggle_title .vc_toggle_icon { position: absolute; left: auto; right: 0; top: 50%; width: 24px; height: 24px; margin: -12px 0 0; transition: transform 200ms cubic-bezier(0.2, 0.6, 0.2, 1); }
+	#page .vc_toggle:not(.velis-more) .vc_toggle_title .vc_toggle_icon { border: 0; background: none; }
+	#page .vc_toggle:not(.velis-more) .vc_toggle_title .vc_toggle_icon::before, #page .vc_toggle:not(.velis-more) .vc_toggle_title .vc_toggle_icon::after { content: ""; position: absolute; left: 5px; top: 11px; width: 14px; height: 2px; margin: 0; border: 0; border-radius: 1px; background: #1A1A1A; transform: none; }
+	#page .vc_toggle:not(.velis-more) .vc_toggle_title .vc_toggle_icon::after { left: 11px; top: 5px; width: 2px; height: 14px; }
+	#page .vc_toggle:not(.velis-more).vc_toggle_active .vc_toggle_title .vc_toggle_icon { transform: rotate(180deg); }
+	#page .vc_toggle:not(.velis-more).vc_toggle_active .vc_toggle_title .vc_toggle_icon::after { display: none; }
+	.vc_toggle .vc_toggle_title:focus-visible { outline: 2px solid #1A1A1A; outline-offset: 2px; }
+
+	/* Nhịp gọn trong trang dài (dự án, bài): gạch dưới H2 16, "Xem thêm" sát khối sau; bài liên quan 4 bài */
+	.velis-section h2::after { margin-top: 16px; }
+	.vc_toggle.velis-more { margin-bottom: 8px; }
+	.single-related-posts .related-item:nth-child(n+5) { display: none; }
+	/* Bảng 2 cột nhãn | giá trị (Thông tin tổng quan): cột nhãn 40 % – ít xuống dòng */
+	.entry-content table td { padding: 10px 12px; }
+	.entry-content table tr > td:first-child:nth-last-child(2) { width: 40%; }
+
+	/* Thanh thông tin 6 ô: hàng gọn; hộp CTA bài blog: đệm 20, tiêu đề 22 */
+	body .vc_row.velis-facts { row-gap: 16px; }
+	.velis-specs .wpb_text_column, .velis-facts .wpb_text_column { padding-top: 8px; margin-bottom: 0; }
+	.velis-cta-box { padding: 20px; }
+	#page .velis-cta-box h2 { font-size: 22px; margin-bottom: 12px; }
+	.velis-cta-box .velis-checks { gap: 6px; margin-bottom: 16px; }
+
+	/* Danh sách bài cột phải bài blog ([velis_bai_viet]): điện thoại 3 bài mỗi nhóm (máy tính đủ 5) */
+	.velis-post-list li:nth-child(n+4) { display: none; }
+
+	/* Form (mọi form): Họ tên → Số điện thoại → ô đồng ý → nút gửi */
+	form.wpcf7-form:has(> .velis-cta-form) { display: flex; flex-direction: column; gap: 12px; }
+	form.wpcf7-form > .velis-cta-form, form.wpcf7-form > .velis-cta-form > p { display: contents; }
+	form.wpcf7-form > .velis-cf7-consent { order: 1; margin: 0; }
+	form.wpcf7-form > .velis-cta-form .wpcf7-submit, form.wpcf7-form > .velis-cta-form .wpcf7-spinner { order: 2; }
+	form.wpcf7-form:has(> .velis-cta-form) > .wpcf7-response-output { order: 3; }
+	form.wpcf7-form > .velis-cf7-consent > p { margin: 0; }
+	.velis-cf7-consent label { min-height: 44px; align-items: center; } /* 2 dòng chữ 14 = 42: đủ 44 */
+	#page .wpcf7:not(.velis-cta .wpcf7, .velis-cta-box .wpcf7) .velis-cta-form :is(input[type="text"], input[type="tel"]) { border-color: #C9C1B5; } /* form trên nền sáng (Liên hệ): viền ô thấy được */
+
+	/* Thanh liên hệ: nhãn 14 px; nút lên đầu trang ẩn (thanh liên hệ đã có, không đè nút form) */
+	.velis-cta-bar__item { font-size: 14px; }
+	.scroll-top { display: none !important; } /* !important: The7 hiện nút bằng JS */
+
+	/* Vùng bấm ≥ 44: breadcrumb (đệm 13), "Xem dự án …" trong hộp CTA */
+	.page-title .breadcrumbs a, .dt-breadcrumbs-shortcode .breadcrumbs a { padding-block: 13px; }
+	#page #sidebar .velis-cta-box a.velis-cta-project { display: inline-flex; align-items: center; min-height: 44px; }
+
+	/* Dòng dưới cùng footer: căn TRÁI cùng mép nội dung footer (cột footer căn trái – một mép cho cả chân trang) */
+	#bottom-bar .wf-container-bottom { padding-inline: 0; }
+	#bottom-bar .wf-container-bottom .wf-float-right { align-items: flex-start; text-align: left; }
+	#bottom-bar .bottom-text-block { text-align: left; }
+	#bottom-bar #bottom-menu { justify-content: flex-start; column-gap: 0; }
+	#bottom-bar #bottom-menu > li + li::before { display: inline; }
+}

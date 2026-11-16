@@ -188,7 +188,15 @@ function velis_page_script() {
 		// Footer điện thoại: cột link (tiêu đề + danh sách) gập / mở bằng tiêu đề. shortcut: chỉ xét cỡ màn hình lúc tải trang, đủ cho điện thoại.
 		. 'if(matchMedia("(max-width:767px)").matches)document.querySelectorAll("#footer .widget:has(.menu,.wp-block-latest-posts) > .widget-title").forEach(function(t){var w=t.parentNode;'
 		. 'w.classList.add("is-shut");t.setAttribute("role","button");t.tabIndex=0;t.setAttribute("aria-expanded","false");var f=function(){var o=w.classList.toggle("is-shut");t.setAttribute("aria-expanded",String(!o))};'
-		. 't.addEventListener("click",f);t.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();f()}})})})();</script>';
+		. 't.addEventListener("click",f);t.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();f()}})});'
+		// Hỏi đáp / "Xem thêm" (vc_toggle của WPBakery chỉ bắt chuột): dòng tiêu đề nhận Tab, Enter / Space mở – đóng.
+		. 'document.querySelectorAll(".vc_toggle_title").forEach(function(t){var g=t.closest(".vc_toggle");t.setAttribute("role","button");t.tabIndex=0;'
+		. 'var s=function(){t.setAttribute("aria-expanded",String(g.classList.contains("vc_toggle_active")))};s();new MutationObserver(s).observe(g,{attributes:true,attributeFilter:["class"]});'
+		. 't.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();t.click()}})});'
+		// Điện thoại: Text Block có Extra class "velis-clamp" hiện 4 dòng đầu + nút "Xem thêm" / "Thu gọn" (velis.css). shortcut: xét cỡ màn hình lúc tải trang.
+		. 'if(matchMedia("(max-width:767px)").matches)document.querySelectorAll(".velis-clamp").forEach(function(x){var b=document.createElement("button");b.type="button";'
+		. 'b.className="velis-clamp-btn";b.textContent="Xem thêm";b.setAttribute("aria-expanded","false");b.addEventListener("click",function(){var o=x.classList.toggle("is-open");'
+		. 'b.textContent=o?"Thu gọn":"Xem thêm";b.setAttribute("aria-expanded",String(o))});x.after(b)})})();</script>';
 }
 
 add_action( 'wp_footer', function () {
@@ -412,4 +420,25 @@ add_action( 'presscore_after_main_container', function () {
 	dynamic_sidebar( 'velis-lien-he-cuoi' );
 	echo '</div></section>';
 	do_action( 'velis_prefoot_shown' );
+}, 5 );
+
+// Bài viết – điện thoại: dòng "cụm · ngày · phút đọc" ngay dưới H1 (in đầu nội dung; velis.css chỉ hiện < 768 px, máy tính giữ dòng meta The7).
+// Cụm = chuyên mục con đầu tiên (chuyên mục cha "Blog" bỏ qua); phút đọc = số chữ / 200, tối thiểu 1. Trang dự án (có velis-hero) không in.
+function velis_reading_minutes( $raw ) {
+	$text  = preg_replace( '/\[\/?[A-Za-z0-9_-]+[^\]]*\]/', ' ', (string) $raw ); // bỏ thẻ shortcode WPBakery, giữ chữ bên trong
+	$words = preg_split( '/\s+/u', trim( html_entity_decode( strip_tags( $text ), ENT_QUOTES, 'UTF-8' ) ), -1, PREG_SPLIT_NO_EMPTY );
+	return max( 1, (int) round( count( $words ) / 200 ) );
+}
+
+function velis_post_line( $cat, $date_iso, $date, $minutes ) {
+	return '<p class="velis-post-line">' . ( $cat ? '<span>' . esc_html( $cat ) . '</span>' : '' )
+		. '<time datetime="' . esc_attr( $date_iso ) . '">' . esc_html( $date ) . '</time><span>' . (int) $minutes . ' phút đọc</span></p>';
+}
+
+add_filter( 'the_content', function ( $content ) {
+	if ( ! is_singular( 'post' ) || ! in_the_loop() || ! is_main_query() || get_the_ID() !== get_queried_object_id() || str_contains( $content, 'velis-hero' ) ) {
+		return $content;
+	}
+	$cats = array_values( array_filter( get_the_category(), function ( $c ) { return $c->parent > 0; } ) );
+	return velis_post_line( $cats ? $cats[0]->name : '', get_the_date( 'c' ), get_the_date( 'd/m/Y' ), velis_reading_minutes( get_post_field( 'post_content' ) ) ) . $content;
 }, 5 );

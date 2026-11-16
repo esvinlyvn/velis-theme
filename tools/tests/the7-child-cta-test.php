@@ -90,4 +90,11 @@ $ok  = $ok && velis_prefoot_on( false, '[vc_row][vc_column_text]Giới thiệu[/
 // Trang có khối liên hệ cuối (form đã nhận id velis-tu-van): nút "Nhận tư vấn" của thanh dính nhảy tới form ngay trang đó.
 $_SERVER['REQUEST_URI'] = '/blog/'; $GLOBALS['mods'] = array(); do_action( 'velis_prefoot_shown' );
 $ok  = $ok && str_contains( velis_cta_html(), 'href="#velis-tu-van"' );
+// Bước 15 – dòng "cụm · ngày · phút đọc" (bài viết, điện thoại): phút = số chữ / 200 (bỏ thẻ shortcode, giữ chữ), tối thiểu 1; không cụm thì chỉ ngày + phút.
+if ( ! function_exists( 'esc_html' ) ) { function esc_html( $s ) { return htmlspecialchars( $s, ENT_QUOTES ); } }
+$raw = '[vc_row][vc_column][vc_column_text css=""]<p>' . str_repeat( 'chữ ', 450 ) . '</p>[/vc_column_text][/vc_column][/vc_row]';
+$ok  = $ok && 2 === velis_reading_minutes( $raw ) && 1 === velis_reading_minutes( '[vc_row][/vc_row]' ) && 1 === velis_reading_minutes( 'một hai ba' );
+$ln  = velis_post_line( 'Palm City', '2026-07-29T14:56:58+07:00', '29/07/2026', 9 );
+$ok  = $ok && '<p class="velis-post-line"><span>Palm City</span><time datetime="2026-07-29T14:56:58+07:00">29/07/2026</time><span>9 phút đọc</span></p>' === $ln
+	&& ! str_contains( velis_post_line( '', 'x', '01/01/2026', 1 ), '<span></span>' );
 echo $ok ? "the7-child cta: ok\n" : "the7-child cta: FAIL\n"; exit( $ok ? 0 : 1 );

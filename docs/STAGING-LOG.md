@@ -559,3 +559,12 @@ CF7 19582 / 20958: không đổi; người nhận vẫn velisrealtyvn@gmail.com 
 | UpdraftPlus (staging) | 2 bản sao lưu (2026-11-03) | + 1 bản **chỉ CSDL** 2026-11-14 10:38 (không tệp, không gửi lưu trữ từ xa); tải về máy làm việc để diễn tập bước 3–4, đã xóa bản tải về sau khi đo | Cài đặt → UpdraftPlus → Sao lưu ngay |
 Không đổi cài đặt / nội dung staging. Site thật: chỉ đọc (REST GET; wp-admin xem Site Health, Plugin, Header and Footer Scripts, Rank Math
 Chuyển hướng, Người dùng, UpdraftPlus – không bấm lưu, không chạy sao lưu). 7 ứng dụng: chỉ `curl -sI`.
+
+### 2026-11-16 – bước 15: bản điện thoại (< 768 px; máy tính không đổi)
+| Mục | Trước | Sau | Nơi đổi |
+|---|---|---|---|
+| Theme con | 1.8.1 | **1.9.0** (`velis.css` khối "Bước 15" trong `@media (max-width: 767px)`; `functions.php`: dòng "cụm · ngày · phút đọc" đầu bài, phím Enter/Space cho hỏi đáp, nút "Xem thêm" cho Extra class `velis-clamp`) | Giao diện → Tải lên → thay bản đang dùng (5 lần trong vòng; 1 lần tạm nạp lại 1.8.1 để chụp ảnh "trước" 360/430 rồi nạp lại 1.9.0) |
+| Trang chủ 19526 | bản sửa đổi 20853 (`data/the7/buoc-15/trang-chu-truoc.txt`) | Text Block "Công ty TNHH Velis Realty" thêm Extra class `velis-clamp` | REST `content.raw` |
+| Ảnh tiến độ (hàng chỉ gồm ảnh) | The Privé 19962 (bản trước 20961), Ansana 19934 (20964), Palm River 20422 (20960), Persa Place 19855 (20963) | 4 ảnh / trang thêm `onclick="link_image"` (bấm phóng to) | `tools/the7_sua_buoc15.py --apply` (REST) |
+| Cache | – | xóa FVM + LiteSpeed (chỉ purge) sau mỗi lần tải theme | thanh quản trị |
+Không đổi Theme Options, mẫu WPBakery ("Mẫu của tôi" không có hàng ảnh tiến độ), widget, menu. Không gửi form.
