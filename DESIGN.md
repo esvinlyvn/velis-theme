@@ -174,6 +174,55 @@ Không có cỡ nào khác (đo bằng `tools/mockup_scale.mjs`). `h4` trong fro
   dùng kiểu `eyebrow`.
 - Không viết hoa toàn bộ tiêu đề tiếng Việt (dấu chồng lên nhau khó đọc); chữ hoa chỉ cho `eyebrow` ngắn.
 
+## Hệ bố cục duy nhất + làm bóng (chốt 2026-11-25 – vòng sửa tổng sau ra mắt; THAY mọi quy tắc bố cục / cỡ chữ / khoảng cách cũ bên dưới khi mâu thuẫn)
+
+### Hướng thiết kế (unslop – mức "slop nhẹ": giữ thương hiệu, bố cục, nội dung)
+- **Sản phẩm:** tư vấn, phân phối căn hộ – nhà phố cao cấp TP.HCM; CEO phân tích dòng tiền cho người mua ở và nhà đầu tư.
+- **Tính cách:** điềm tĩnh, chính xác, nói bằng số. **Thế giới:** bản vẽ mặt bằng, bảng tính dòng tiền, ánh chiều trên sông.
+- **Điểm nhấn:** ảnh phối cảnh đầu trang chủ / đầu trang dự án; bảng thông tin dự án (phần tử "Velis · Thông tin dự án").
+- **Dấu riêng:** mọi con số quan trọng (giá, diện tích, %, bàn giao) dùng chữ số tabular màu champagne `#8A6A3A` (lớp `.velis-so`, tự gắn trong
+  Thông tin dự án / Điểm chính); champagne CHỈ dùng cho việc này (ngoại lệ người dùng chốt: nền khối "Nhận tư vấn" `#EADFCC`, gạch dưới tiêu đề khối trang chủ);
+  đỏ `#B8282E` CHỈ cho nút hành động và link trong đoạn văn.
+- Nhãn: chữ thường đầu câu, giãn chữ 0 (không `uppercase`, không `letter-spacing`). Thang chữ 7 cỡ: **14 · 16 · 18 · 24 · 32 · 40 · 56**
+  (điện thoại dùng cỡ nhỏ hơn trong thang: chữ 16, H1 32, H2 24, H3 18); độ đậm 400 / 500 / 600. Màu chữ: chính `#1A1A1A`, phụ `#5C5C5C`,
+  đỏ, trắng trên nền tối (chữ phụ trên nền tối = trắng + độ mờ 0,72), champagne cho số. Bo góc: nút + ô nhập 6, thẻ 10, khung lồng nhau = ngoài − đệm (≥ 4).
+  Viền mảnh `rgba(26,26,26,.1)`; bóng thẻ trung tính nhỏ; rê chuột chỉ đổi bóng. Chuyển động: chỉ color / background / border / box-shadow / transform / opacity,
+  180 ms một easing; header dính hiện ngay. Khoảng cách bội số 4.
+- **Xung đột đã giải:** mục 1 (chữ 19 px từ 1600) ↔ thang 7 cỡ → giữ thang, chữ nội dung 18 px mọi màn ≥ 768.
+
+### Khung & loại trang
+- Khung 1200 px (dưới 1600), 1320 px (từ 1600), căn giữa; đệm hai bên 48 (máy tính), 16 (điện thoại). Theme Options: Content width 1296 + đệm 48.
+- Mọi phần tử trong một cột rộng bằng cột, cùng mép trái / phải; chỉ nút, thẻ, ảnh nhỏ hẹp hơn. CẤM `width / max-width / ch / text-wrap: balance`
+  cho tiêu đề, đoạn, danh sách, bảng, ảnh trong nội dung (đo: `tools/the7_css_kiem_ke.py` = 0).
+- **Loại A – trang 2 cột The7** (≥ 1200): bài viết, /blog/ + chuyên mục + tìm kiếm, Giới thiệu, Tuyển dụng, Chính sách, Điều khoản. Cột trái 8/12, cột phải 4/12,
+  rãnh 48 (Theme Options → Sidebar 32 %, rãnh 48, không nền); cột phải = widget dùng chung, dính khi cuộn, MỘT lớp thẻ. < 1200: 1 cột.
+- **Trang sản phẩm** (dự án, phân khu, chủ đầu tư, /chu-dau-tu/): KHÔNG cột phải; một luồng dựng bằng phần tử "Velis" (mục dưới). Phần đầu 7/12 (giới thiệu, nút) + 5/12 (Thông tin dự án), ảnh phối cảnh rộng hết khung.
+- **Loại B – trang khối** (trang chủ, /du-an/, /chu-dau-tu/, trang chủ đầu tư, Liên hệ): mỗi khối rộng hết khung, nền tràn mép; khối chữ dài: Extra class `velis-cot2` (2 cột chữ ≥ 1200).
+- Chữ nội dung 18 / 1,7; ≤ 90 ký tự / dòng. Khoảng cách (máy tính / điện thoại): giữa khối 96 / 64; trên H2 64 / 48; dưới H2 24 / 20; trên H3 40 / 32; giữa đoạn 16. Không 2 đệm cộng dồn.
+- Phần đầu trang: breadcrumb, nhãn, H1, ảnh, giới thiệu, lưới thông tin, nút cùng một mép trái khung ±1; không căn giữa.
+
+### Nền khối (trang khối – không 2 khối liền nhau cùng nền; một lớp chung, không CSS riêng trang)
+| Nền | Mã | Lớp (Extra class của Row / Section) | Dùng cho |
+|---|---|---|---|
+| Trắng | `#FFFFFF` | (mặc định) | khối xen kẽ |
+| Ngà | `#F4EEE4` | `velis-nen-nga` | khối xen kẽ, dải tiêu đề trang (Theme Options), phần đầu dự án |
+| Champagne nhạt | `#EADFCC` | `velis-nen-champagne` (khối "Nhận tư vấn" cuối trang tự có) | khối liên hệ cuối trang |
+| Than | `#1A1A1A` | `velis-nen-toi` | hero trang chủ, câu trích Giới thiệu, thẻ / khối "Nhận bảng giá" |
+| Footer | `#141414` | Theme Options → Footer | footer |
+Trang chủ: hero (than) → con số (trắng) → Dự án Velis đang tư vấn (ngà) → Đối tác (trắng) → Công ty TNHH Velis Realty (ngà) → Bài phân tích (trắng) →
+Thi thử / Tuyển dụng (ngà) → Nhận tư vấn (champagne) → footer. Đo: `tools/the7_check_bocuc.mjs` mục "nền" = 0.
+
+### Phần tử WPBakery "Velis" (nhóm Velis trong trình sửa; `inc/velis-elements.php`, mẫu `wpb_templates/`)
+| Phần tử | Dùng cho | Hiển thị |
+|---|---|---|
+| Velis · Thông tin dự án | lưới thông số (nhãn + giá trị) | lưới 3 / 2 cột, ô cùng mép trên, số champagne tabular |
+| Velis · Khối nội dung | mỗi mục của trang (tổng quan, vị trí, tiện ích, mặt bằng, giá, tiến độ, pháp lý, góc nhìn CEO…) | ≥ 1200: chữ 7/12 \| minh họa 5/12 cùng mép trên; minh họa = ảnh / thư viện / bản đồ / bảng / "Điểm chính" 3–5 dòng; < 1200 chữ trước |
+| Velis · Mục lục | ngay sau phần đầu | tự lấy H2 của các khối; máy tính 2 cột, điện thoại thu gọn |
+| Velis · Hỏi đáp | câu hỏi thường gặp | `details/summary`, "+ / –"; tự tạo FAQPage |
+| Velis · Nhận bảng giá | form duy nhất của trang | nền than, chữ 5/12 \| form 7/12; Gọi / Zalo lấy từ Tùy biến → Thanh liên hệ |
+| Velis · Lưới dự án / bài liên quan | thẻ dự án hoặc danh sách bài theo chuyên mục | mẫu thẻ chung (phần tử The7 Blog Masonry) |
+"Xem thêm": máy tính không thu gọn; < 1024 px JS thu tối đa 2 khối dài nhất (> 900 px), không thu giá / pháp lý / tiến độ / hỏi đáp; bấm mục lục tới khối đang thu thì tự mở.
+
 ## Quy tắc bố cục (chốt 2026-11-05, sửa 2026-11-06 – áp cho mockup và theme)
 
 **Chuẩn thị giác (duyệt: người dùng, 2026-11-06):** mockup PR #7 bản `eda87a0` + các quy tắc 1.1–1.8 dưới đây, **trừ hero trang chủ**

@@ -338,3 +338,15 @@ Nguồn: máy quét toàn site staging (`tools/crawl_b5.mjs`, 181 trang, `screen
 | `/vo-van-kiet-noi-dai-don-bay-ansana-by-kita/` | du an vo van kiet ansana |
 | `/von-1-ty-nen-mua-the-prive-hay-dat-nen-vung-ven/` | so sanh dau tu the prive |
 | `/xu-huong-ly-tam-nhon-trach-can-ho-cao-cap/` | can ho cao cap nhon trach persa place |
+
+## Unslop – nội dung (2026-11-25, cho người viết nội dung – KHÔNG tự sửa trong vòng giao diện)
+
+Vòng "làm bóng" chỉ đổi hình thức (nhãn, cỡ chữ, màu, bo góc, chuyển động). Các điểm dưới là **chữ**, chờ người dùng / người viết quyết:
+
+| # | Chỗ | Hiện tại | Vì sao cần xem | Đề xuất |
+|---|---|---|---|---|
+| 1 | Trang chủ – khối con số | "10+ năm kinh nghiệm · 50+ đối tác · 999+ giao dịch · 99+ dự án" | số tròn kiểu ước lượng, chưa có nguồn; "999+" đọc như chữ giữ chỗ | **chờ người dùng xác nhận** số thật (kèm thời điểm) rồi mới đổi |
+| 2 | Hero trang chủ | tiêu đề "Tư vấn bất động sản cao cấp tại TP.HCM và vùng lân cận" | giữ nguyên theo yêu cầu | – |
+| 3 | Đoạn mở trang dự án | "di sản hiếm hoi", "Hoa hậu", "giới siêu giàu", "đẳng cấp", "đỉnh cao" (The Privé, The Global City, Gamuda Land…) | từ thổi phồng, không nói bằng số – trái tính cách "điềm tĩnh, chính xác" | thay bằng số đo được (khoảng cách, diện tích, giá có nguồn) |
+| 4 | Khối "Điểm chính" tự lấy câu | các khối chỉ có chữ (danh sách trong `data/the7/sua-tong/ap16c-log.json`, trường `chi_chu`) | Điểm chính tạm = câu có sẵn trong khối | người viết bổ sung minh họa thật (ảnh / bảng / bản đồ) hoặc chọn lại 3–5 điểm |
+| 5 | Câu trích Giới thiệu | "Thành công của bạn chính là thước đo giá trị của Velis Realty." | giữ, chỉ bỏ ép xuống dòng | – |

@@ -4,6 +4,15 @@
    bề rộng chỉ do khung + cột quyết định. Không CSS riêng từng trang (Design Options → dùng lớp chung ở mục 1).
    Mục: 0 biến · 1 khung & nền · 2 chữ · 3 thành phần nội dung · 4 cột phải · 5 thẻ & danh sách · 6 nút · 7 form · 8 header · 9 footer · 10 điện thoại */
 
+/* ── Font tự lưu (sửa lỗi dấu tiếng Việt 2026-11-25): Be Vietnam Pro 400/500/600 + Playfair Display 400/600, mỗi độ đậm một tệp woff2
+   latin + latin-ext + vietnamese (fonts/, OFL – fonts/OFL-*.txt; dựng bằng tools/the7_font_tieng_viet.py). The7 không gọi Google Fonts
+   (functions.php gỡ "dt-web-fonts"); tên họ font trùng tên trong Theme Options → Typography. ── */
+@font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/be-vietnam-pro-400.woff2") format("woff2"); }
+@font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/be-vietnam-pro-500.woff2") format("woff2"); }
+@font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 600 700; font-display: swap; src: url("fonts/be-vietnam-pro-600.woff2") format("woff2"); }
+@font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/playfair-display-400.woff2") format("woff2"); }
+@font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 500 700; font-display: swap; src: url("fonts/playfair-display-600.woff2") format("woff2"); }
+
 /* ── 0. Biến ─────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
 :root {
 	--velis-chu: #1A1A1A;          /* chữ chính */
@@ -38,9 +47,9 @@ body *:not(.dt-mobile-header):not(.dt-mobile-header *):not(.velis-cta-bar) {
 
 /* ── 1. Khung & nền ─────────────────────────────────────────────────────────────────────────────────────────────────────── */
 /* Nền khối: MỘT lớp chung (Extra class trên Row/Section) – không Design Options riêng trang. Bảng nền: DESIGN.md "Nền khối". */
-.velis-nen-nga { background-color: var(--velis-nen-nga) !important; }   /* !important: thắng nền cũ còn trong Design Options */
-.velis-nen-toi { background-color: var(--velis-nen-toi) !important; }
-.velis-nen-champagne { background-color: var(--velis-nen-champagne) !important; }
+body .velis-nen-nga { background-color: var(--velis-nen-nga); }
+body .velis-nen-toi { background-color: var(--velis-nen-toi); }
+body .velis-nen-champagne { background-color: var(--velis-nen-champagne); }
 /* Nhịp khối 96 / 64: hàng class velis-section (đệm trên = khoảng giữa 2 khối); hàng có nền: đệm cả dưới */
 .velis-section { padding-top: var(--velis-khoi); padding-bottom: 0; }
 .velis-section:is(.velis-nen-nga, .velis-nen-toi, .velis-nen-champagne), .velis-hero, .vc_row.velis-nen-nga, .vc_section.velis-nen-nga { padding-top: var(--velis-khoi); padding-bottom: var(--velis-khoi); }
@@ -51,17 +60,6 @@ body *:not(.dt-mobile-header):not(.dt-mobile-header *):not(.velis-cta-bar) {
 	body .vc_row .vc_column_container > .vc_column-inner { padding-left: 16px; padding-right: 16px; }
 }
 
-/* Loại A – trang dự án / phân khu (WPBakery): hàng velis-body = cột trái 8/12 (velis-main) + cột phải 4/12 (velis-aside), rãnh 48,
-   hai cột lấp đủ khung; cột phải dính khi cuộn (đáy header + 16), dừng ở cuối hàng (trước khối Nhận bảng giá cuối trang). < 1200: 1 cột. */
-body .vc_row.velis-body { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); column-gap: 48px; margin: 0; }
-.vc_row.velis-body::before, .vc_row.velis-body::after { display: none; }
-body .vc_row.velis-body > .vc_column_container { width: auto; float: none; padding: 0; }
-body .vc_row.velis-body > .vc_column_container > .vc_column-inner { padding: 0; }
-.velis-aside > .vc_column-inner { position: sticky; top: calc(var(--velis-header) + 16px); }
-.velis-main > .vc_column-inner > .wpb_wrapper > :first-child { margin-top: 0; }
-.velis-body { padding-top: 64px; }
-@media (max-width: 1199px) { body .vc_row.velis-body { display: block; } .velis-aside { display: none; } .velis-body { padding-top: 48px; } }
-@media (min-width: 1200px) { .velis-main .velis-toc { display: none; } } /* mục lục trong bài: cột phải có mục lục */
 /* Loại A – trang The7 có cột phải (bài viết, danh sách bài, Giới thiệu, Tuyển dụng, Chính sách, Điều khoản):
    Theme Options → Sidebar: 32 %, rãnh 48, 1 cột dưới 1200. The7 trừ rãnh vào cột phải → cột phải = 4/12 khung chính xác bằng lưới. */
 @media (min-width: 1200px) {
@@ -94,13 +92,14 @@ body .vc_row.velis-body > .vc_column_container > .vc_column-inner { padding: 0; 
 .velis-hero h1 { margin-bottom: 24px; }
 .velis-hero .velis-crop { margin: 0 0 24px; }
 .velis-hero .dt-btn { margin: 0 0 16px; }
-/* ≥ 1200: phần đầu theo lưới 8/12 + 4/12 như thân trang – breadcrumb, nhãn + H1, ảnh rộng hết khung; dòng giới thiệu + nút ở cột trái
+/* ≥ 1200: phần đầu theo lưới 7/12 + 5/12 như Khối nội dung – breadcrumb, nhãn + H1, ảnh rộng hết khung; dòng giới thiệu + nút ở cột trái
    (≤ 90 ký tự/dòng), lưới thông tin ở cột phải; cùng mép trái khung */
 @media (min-width: 1200px) {
-	.velis-hero > .wpb_column > .vc_column-inner > .wpb_wrapper { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); column-gap: 48px; grid-auto-flow: row dense; align-items: start; }
+	.velis-hero > .wpb_column > .vc_column-inner > .wpb_wrapper { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: 48px; grid-auto-flow: row dense; align-items: start; }
 	.velis-hero > .wpb_column > .vc_column-inner > .wpb_wrapper > * { grid-column: 1; }
+	.velis-hero > .wpb_column > .vc_column-inner > .wpb_wrapper > :is(a.dt-btn, .dt-btn-wrap) { justify-self: start; }
 	.velis-hero > .wpb_column > .vc_column-inner > .wpb_wrapper > :is(.dt-breadcrumbs-shortcode, .wpb_single_image, .wpb_text_column:has(h1)) { grid-column: 1 / -1; }
-	.velis-hero > .wpb_column > .vc_column-inner > .wpb_wrapper > .velis-facts { grid-column: 2; grid-row: span 3; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; }
+	.velis-hero > .wpb_column > .vc_column-inner > .wpb_wrapper > :is(.velis-facts, .velis-thong-tin) { grid-column: 2; grid-row: span 3; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; }
 }
 article:has(.velis-hero) > .post-meta { display: none; }
 body:has(.velis-hero) #main { padding-top: 0; }
@@ -266,6 +265,81 @@ body .vc_section.velis-home-hero::after { display: none; }
 .velis-404-search label { grid-column: 1 / -1; font-weight: 600; line-height: 24px; }
 .velis-404-search input[type="search"] { width: 100%; min-width: 0; height: 48px; margin: 0; box-sizing: border-box; }
 .velis-404-links { display: flex; flex-wrap: wrap; gap: 16px; margin: 24px 0 0; }
+
+/* ── 3b. Phần tử WPBakery "Velis" (inc/velis-elements.php, mẫu wpb_templates/) – trang sản phẩm một luồng, không cột phải ─── */
+.velis-so { color: var(--velis-so); font-variant-numeric: tabular-nums; }
+/* Thông tin dự án: lưới ô bằng nhau, mỗi ô kẻ mảnh trên; hàng ô cùng mép trên */
+.velis-thong-tin { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 32px; align-items: start; margin: 0 0 32px; }
+.velis-thong-tin--cot-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.velis-thong-tin__o { margin: 0; padding-top: 12px; border-top: 1px solid var(--velis-ke); }
+.velis-thong-tin dt { margin: 0; font-size: 14px; line-height: 20px; font-weight: 400; color: var(--velis-chu-phu); }
+.velis-thong-tin dd { margin: 4px 0 0; font-size: 18px; line-height: 28px; font-weight: 600; color: var(--velis-chu); }
+@media (max-width: 767px) { .velis-thong-tin, .velis-thong-tin--cot-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; } }
+/* Khối nội dung: chữ 7/12 | minh họa 5/12, cùng mép trên (tiêu đề nằm đầu cột chữ); < 1200 chữ trước, minh họa sau */
+.velis-khoi { margin: var(--velis-tren-h2) 0 0; }
+#page .velis-khoi .velis-khoi__tieu-de { margin: 0 0 var(--velis-duoi-h2); } /* tiêu đề là đầu khối: không lề trên */
+.velis-khoi__chu > :last-child { margin-bottom: 0; }
+.velis-khoi__minh-hoa { margin-top: 32px; }
+@media (min-width: 1200px) {
+	.velis-khoi { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: 48px; align-items: start; }
+	.velis-khoi--trai .velis-khoi__minh-hoa { order: -1; }
+	.velis-khoi--trai { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+	.velis-khoi--chu { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+	.velis-khoi__minh-hoa { margin-top: 0; position: sticky; top: calc(var(--velis-header) + 24px); }
+	.velis-xem-them { grid-column: 1; }
+}
+.velis-khoi__minh-hoa img { border-radius: var(--velis-bo-the); }
+.velis-thu-vien { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.velis-thu-vien .wpb_single_image { margin: 0; }
+.velis-thu-vien img { aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--velis-bo-trong); }
+.velis-ban-do iframe { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; border: 0; border-radius: var(--velis-bo-the); }
+.velis-bang table { width: 100%; margin: 0; }
+.velis-diem { padding: 24px; border-radius: var(--velis-bo-the); background: var(--velis-nen-nga); }
+.velis-diem ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.velis-diem li { position: relative; margin: 0; padding: 12px 0 0; border-top: 1px solid var(--velis-ke); font-size: 16px; line-height: 24px; color: var(--velis-chu); }
+.velis-diem li::before { display: none; }
+/* Điện thoại: khối dài thu gọn (JS) – 12 dòng đầu + "Xem thêm" */
+.velis-khoi.velis-thu .velis-khoi__chu { max-height: 480px; overflow: hidden; -webkit-mask-image: linear-gradient(#000 75%, transparent); mask-image: linear-gradient(#000 75%, transparent); }
+.velis-xem-them { display: flex; align-items: center; min-height: 44px; margin: 8px 0 0; padding: 0; border: 0; background: none; font: 600 16px/24px "Be Vietnam Pro", Arial, sans-serif; color: var(--velis-do); cursor: pointer; }
+/* Phần tử là đầu / cuối hàng: không cộng lề với đệm hàng (hàng tràn nền có đệm trên + dưới = nhịp khối) */
+.wpb_wrapper > :is(.velis-khoi, .velis-luoi, .velis-hoi-dap, .velis-nbg, .velis-muc-luc):first-child { margin-top: 0; }
+.vc_row[data-vc-full-width].velis-section { padding-bottom: var(--velis-khoi); }
+.vc_row:not(.velis-section) > .wpb_column > .vc_column-inner > .wpb_wrapper > .velis-muc-luc:first-child { margin-top: var(--velis-tren-h2); }
+/* Mục lục: hộp kẻ mảnh; máy tính 2 cột, điện thoại thu gọn (JS) */
+.velis-muc-luc { margin: 0 0 var(--velis-tren-h2); border: 1px solid var(--velis-ke); border-radius: var(--velis-bo-the); background: #FFFFFF; }
+.velis-muc-luc summary { display: flex; align-items: center; justify-content: space-between; min-height: 52px; padding: 0 24px; font-size: 14px; line-height: 20px; font-weight: 600; color: var(--velis-chu-phu); cursor: pointer; list-style: none; }
+.velis-muc-luc summary::-webkit-details-marker { display: none; }
+.velis-muc-luc summary::after { content: "+"; font-size: 24px; font-weight: 400; color: var(--velis-chu); }
+.velis-muc-luc[open] summary::after { content: "–"; }
+.velis-muc-luc ol { margin: 0; padding: 0 24px 12px; list-style: none; }
+@media (min-width: 768px) { .velis-muc-luc ol { columns: 2; column-gap: 48px; } }
+.velis-muc-luc li { margin: 0; break-inside: avoid; border-top: 1px solid var(--velis-ke); }
+.velis-muc-luc li::before { display: none; }
+#page .velis-muc-luc a { display: flex; align-items: center; min-height: 44px; padding: 8px 0; font-size: 16px; line-height: 24px; font-weight: 400; color: var(--velis-chu); }
+#page .velis-muc-luc a:hover { color: var(--velis-do); }
+:is(.velis-khoi, .velis-hoi-dap, .velis-nbg, .velis-luoi), .velis-nbg h2 { scroll-margin-top: calc(var(--velis-header) + 24px); }
+/* Hỏi đáp: details/summary, câu hỏi 18 / 600, "+ / –" 24 px bên phải, xoay khi mở */
+.velis-hoi-dap { margin: var(--velis-tren-h2) 0 0; }
+#page .velis-hoi-dap > h2 { margin-top: 0; }
+.velis-hoi-dap__muc { border-bottom: 1px solid var(--velis-ke); }
+.velis-hoi-dap__muc summary { position: relative; display: flex; align-items: center; min-height: 56px; padding: 12px 40px 12px 0; cursor: pointer; list-style: none; }
+.velis-hoi-dap__muc summary::-webkit-details-marker { display: none; }
+#page .velis-hoi-dap__muc summary h3 { margin: 0; font-size: 18px; line-height: 28px; font-weight: 600; }
+.velis-hoi-dap__muc summary::before, .velis-hoi-dap__muc summary::after { content: ""; position: absolute; right: 4px; top: 50%; width: 16px; height: 2px; margin-top: -1px; background: var(--velis-chu); transition-property: transform; }
+.velis-hoi-dap__muc summary::after { transform: rotate(90deg); }
+.velis-hoi-dap__muc[open] summary::after { transform: rotate(0deg); }
+.velis-hoi-dap__tra-loi { padding: 0 0 16px; }
+.velis-hoi-dap__tra-loi > :last-child { margin-bottom: 0; }
+/* Nhận bảng giá (phần tử): cùng hệ CTA – nền than, chữ trái | form phải */
+.velis-cta.velis-nbg { margin: var(--velis-khoi) 0 0; padding: 64px 48px; border-radius: var(--velis-bo-the); background: var(--velis-nen-toi); }
+@media (min-width: 1200px) { .velis-nbg { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: 48px; align-items: center; } }
+.velis-nbg__chu > :last-child { margin-bottom: 0; }
+#page .velis-nbg h2 { margin: 0 0 16px; color: #FFFFFF; }
+@media (max-width: 767px) { .velis-cta.velis-nbg { padding: 48px 16px; margin-left: -16px; margin-right: -16px; border-radius: 0; } .velis-nbg__form { margin-top: 24px; } }
+/* Lưới dự án / bài liên quan (phần tử): bài liên quan của The7 cuối bài thôi lặp lại */
+.velis-luoi { margin: var(--velis-khoi) 0 0; }
+#page .velis-luoi > h2 { margin-top: 0; }
+body:has(.velis-luoi.velis-bai) .single-related-posts { display: none; }
 
 /* ── 4. Cột phải: MỘT lớp thẻ (không hộp lồng hộp) ───────────────────────────────────────────────────────────────────────── */
 #page .velis-aside :is(.widget, .wpb_widgetised_column) { margin: 0 0 32px; padding: 0; background: none; border: 0; } /* The7 bọc Widgetised Sidebar bằng .solid-bg (nền ngà) */
@@ -580,7 +654,6 @@ body.show-overlay-mobile-header .dt-mobile-header { visibility: visible; transit
 	.velis-quote { font-size: 18px; line-height: 28px; }
 	.vc_toggle_title > :is(h3, h4) { font-size: 16px; line-height: 24px; }
 	.entry-content table td { padding: 8px 12px; }
-	.entry-content table tr > td:first-child:nth-last-child(2) { width: 40%; }
 	#thong-so table tr { display: block; padding: 12px 0; border-bottom: 1px solid var(--velis-ke); }
 	#thong-so table td { display: block; border: 0; padding: 0; }
 	.vc_row.velis-cta { padding: 48px 16px; border-radius: 0; margin-left: -16px; margin-right: -16px; }

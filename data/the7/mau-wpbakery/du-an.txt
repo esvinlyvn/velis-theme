@@ -1,59 +1,25 @@
-[vc_row el_id="gioi-thieu" el_class="velis-hero" css=".vc_custom_1762900000001{background-color: #FAF7F2 !important;}"][vc_column][dt_breadcrumbs][vc_column_text css=""]
+[vc_row full_width="stretch_row" el_id="gioi-thieu" el_class="velis-hero velis-nen-nga"][vc_column][dt_breadcrumbs][vc_column_text]
 <p class="velis-eyebrow">[Chủ đầu tư] · [Khu vực thị trường – docs/KHU-VUC.md]</p>
 <h1>[Tên dự án]</h1>
-[/vc_column_text][vc_single_image image="" img_size="full" alignment="center" el_class="velis-crop" css=""][vc_column_text css="" el_class="velis-clamp"]
+[/vc_column_text][vc_single_image image="" img_size="full" alignment="center" el_class="velis-crop"][vc_column_text]
 <p>[1–2 câu mở: dự án là gì, ở đâu]</p>
 <p><strong>[Ưu đãi/điểm nổi bật đang áp dụng – xóa nếu không có]</strong></p>
-[/vc_column_text][vc_row_inner el_class="velis-specs velis-facts"][vc_column_inner width="1/3" offset="vc_col-xs-6"][vc_column_text css=""]
-<p class="velis-spec-label">Chủ đầu tư</p>
-<p class="velis-spec-value">[…]</p>
-[/vc_column_text][/vc_column_inner][vc_column_inner width="1/3" offset="vc_col-xs-6"][vc_column_text css=""]
-<p class="velis-spec-label">Vị trí</p>
-<p class="velis-spec-value">[phường/xã mới hoặc khu vực thị trường (trước đây …)]</p>
-[/vc_column_text][/vc_column_inner][vc_column_inner width="1/3" offset="vc_col-xs-6"][vc_column_text css=""]
-<p class="velis-spec-label">Quy mô</p>
-<p class="velis-spec-value">[…]</p>
-[/vc_column_text][/vc_column_inner][vc_column_inner width="1/3" offset="vc_col-xs-6"][vc_column_text css=""]
-<p class="velis-spec-label">Sản phẩm</p>
-<p class="velis-spec-value">[…]</p>
-[/vc_column_text][/vc_column_inner][vc_column_inner width="1/3" offset="vc_col-xs-6"][vc_column_text css=""]
-<p class="velis-spec-label">Pháp lý</p>
-<p class="velis-spec-value">[…]</p>
-[/vc_column_text][/vc_column_inner][vc_column_inner width="1/3" offset="vc_col-xs-6"][vc_column_text css=""]
-<p class="velis-spec-label">Bàn giao</p>
-<p class="velis-spec-value">[… hoặc "chưa công bố"]</p>
-[/vc_column_text][/vc_column_inner][/vc_row_inner][dt_default_button link="url:%23lien-he-tu-van|title:Nh%E1%BA%ADn%20b%E1%BA%A3ng%20gi%C3%A1" size="big"]Nhận bảng giá[/dt_default_button][vc_column_text css=""]
+[/vc_column_text][velis_thong_tin cot="2" muc="%5B%7B%22nhan%22%3A%22Ch%E1%BB%A7%20%C4%91%E1%BA%A7u%20t%C6%B0%22%2C%22gia_tri%22%3A%22(%E2%80%A6)%22%7D%2C%7B%22nhan%22%3A%22V%E1%BB%8B%20tr%C3%AD%22%2C%22gia_tri%22%3A%22(ph%C6%B0%E1%BB%9Dng%2Fx%C3%A3%20m%E1%BB%9Bi%20ho%E1%BA%B7c%20khu%20v%E1%BB%B1c%20th%E1%BB%8B%20tr%C6%B0%E1%BB%9Dng%20(tr%C6%B0%E1%BB%9Bc%20%C4%91%C3%A2y%20%E2%80%A6))%22%7D%2C%7B%22nhan%22%3A%22Quy%20m%C3%B4%22%2C%22gia_tri%22%3A%22(%E2%80%A6)%22%7D%2C%7B%22nhan%22%3A%22S%E1%BA%A3n%20ph%E1%BA%A9m%22%2C%22gia_tri%22%3A%22(%E2%80%A6)%22%7D%2C%7B%22nhan%22%3A%22Ph%C3%A1p%20l%C3%BD%22%2C%22gia_tri%22%3A%22(%E2%80%A6)%22%7D%2C%7B%22nhan%22%3A%22B%C3%A0n%20giao%22%2C%22gia_tri%22%3A%22(%E2%80%A6%20ho%E1%BA%B7c%20%E2%80%9Cch%C6%B0a%20c%C3%B4ng%20b%E1%BB%91%E2%80%9D)%22%7D%5D"][dt_default_button link="url:%23lien-he-tu-van|title:Nh%E1%BA%ADn%20b%E1%BA%A3ng%20gi%C3%A1" size="big"]Nhận bảng giá[/dt_default_button][vc_column_text]
 <p class="velis-call">Hoặc gọi <a href="tel:0911237979">0911 237 979</a> · <a href="https://zalo.me/0911237979" target="_blank" rel="noopener">Zalo</a></p>
-[/vc_column_text][/vc_column][/vc_row][vc_row el_id="thong-so" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
-<h2>Thông tin tổng quan [tên dự án]</h2>
-<table>
-<tbody>
-<tr><td><b>Chủ đầu tư</b></td><td>[…]</td></tr>
-<tr><td><b>Vị trí</b></td><td>[…]</td></tr>
-<tr><td><b>Pháp lý</b></td><td>[…]</td></tr>
-</tbody>
-</table>
-[/vc_column_text][/vc_column][/vc_row][vc_row el_id="tong-quan" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
-<h2>Tổng quan [tên dự án]</h2>
-<p>[Đoạn mở ~60 chữ, luôn hiện]</p>
-[/vc_column_text][vc_toggle title="Xem thêm" style="text_only" el_class="velis-more" use_custom_heading="true" custom_font_container="tag:p|text_align:left" custom_use_theme_fonts="yes"]<p>[Phần chữ dài còn lại – thu gọn, bấm "Xem thêm" để mở]</p>[/vc_toggle][/vc_column][/vc_row][vc_row el_id="vi-tri" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
-<h2>Vị trí [tên dự án] ở đâu?</h2>
-<p>[Đoạn mở ~60 chữ, luôn hiện]</p>
-[/vc_column_text][vc_toggle title="Xem thêm" style="text_only" el_class="velis-more" use_custom_heading="true" custom_font_container="tag:p|text_align:left" custom_use_theme_fonts="yes"]<p>[Phần chữ dài còn lại – thu gọn, bấm "Xem thêm" để mở]</p>[/vc_toggle][/vc_column][/vc_row][vc_row el_id="tien-ich" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
-<h2>Tiện ích [tên dự án] có gì?</h2>
-<p>[Đoạn mở ~60 chữ, luôn hiện]</p>
-[/vc_column_text][vc_toggle title="Xem thêm" style="text_only" el_class="velis-more" use_custom_heading="true" custom_font_container="tag:p|text_align:left" custom_use_theme_fonts="yes"]<p>[Phần chữ dài còn lại – thu gọn, bấm "Xem thêm" để mở]</p>[/vc_toggle][/vc_column][/vc_row][vc_row el_id="mat-bang" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
-<h2>Mặt bằng [tên dự án]</h2>
-<p>[Đoạn mở ~60 chữ, luôn hiện]</p>
-[/vc_column_text][vc_toggle title="Xem thêm" style="text_only" el_class="velis-more" use_custom_heading="true" custom_font_container="tag:p|text_align:left" custom_use_theme_fonts="yes"]<p>[Phần chữ dài còn lại – thu gọn, bấm "Xem thêm" để mở]</p>[/vc_toggle][/vc_column][/vc_row][vc_row el_id="gia-ban" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
-<h2>Giá bán [tên dự án] bao nhiêu? [chỉ giá có nguồn, kèm thời điểm]</h2>
-<p>[Đoạn mở ~60 chữ, luôn hiện]</p>
-[/vc_column_text][vc_toggle title="Xem thêm" style="text_only" el_class="velis-more" use_custom_heading="true" custom_font_container="tag:p|text_align:left" custom_use_theme_fonts="yes"]<p>[Phần chữ dài còn lại – thu gọn, bấm "Xem thêm" để mở]</p>[/vc_toggle][/vc_column][/vc_row][vc_row el_id="cau-hoi" el_class="velis-section" css=""][vc_column][vc_column_text css=""]
-<h2>Câu hỏi thường gặp</h2>
-[/vc_column_text][vc_toggle title="[Câu hỏi 1]" css="" use_custom_heading="true" custom_font_container="tag:h3|text_align:left" custom_use_theme_fonts="yes"]<p>[Trả lời]</p>[/vc_toggle][vc_toggle title="[Câu hỏi 2]" css="" use_custom_heading="true" custom_font_container="tag:h3|text_align:left" custom_use_theme_fonts="yes"]<p>[Trả lời]</p>[/vc_toggle][vc_toggle title="[Câu hỏi 3]" css="" use_custom_heading="true" custom_font_container="tag:h3|text_align:left" custom_use_theme_fonts="yes"]<p>[Trả lời]</p>[/vc_toggle][/vc_column][/vc_row][vc_row el_id="lien-he-tu-van" el_class="velis-cta"][vc_column][vc_column_text css=""]
-<p class="velis-eyebrow">Tư vấn trực tiếp từ Velis Realty</p>
-<h2>Nhận bảng giá &amp; giỏ hàng [tên dự án]</h2>
-<ul class="velis-checks"><li>Bảng giá chi tiết và chính sách bán hàng mới nhất</li><li>Giỏ hàng căn đang có, chọn theo nhu cầu và số vốn</li><li>Phân tích pháp lý và tiềm năng đầu tư của dự án</li></ul>
-[/vc_column_text][contact-form-7 id="20958" title="Nhận bảng giá" du-an="[Tên dự án]"][vc_column_text css=""]
-<p class="velis-cta-call">Hoặc gọi ngay <a href="tel:0911237979">0911 237 979</a> · <a href="https://zalo.me/0911237979" target="_blank" rel="noopener">Zalo</a> (08:00–21:00 hằng ngày)</p>
-[/vc_column_text][/vc_column][/vc_row]
+[/vc_column_text][/vc_column][/vc_row][vc_row][vc_column][velis_muc_luc tieu_de="Nội dung chính"][velis_khoi tieu_de="Thông tin tổng quan [tên dự án]" minh_hoa="bang" bang="JTNDdGFibGUlM0UlM0N0Ym9keSUzRSUzQ3RyJTNFJTNDdGQlM0UlM0NiJTNFQ2glRTElQkIlQTclMjAlQzQlOTElRTElQkElQTd1JTIwdCVDNiVCMCUzQyUyRmIlM0UlM0MlMkZ0ZCUzRSUzQ3RkJTNFJTVCJUUyJTgwJUE2JTVEJTNDJTJGdGQlM0UlM0MlMkZ0ciUzRSUzQ3RyJTNFJTNDdGQlM0UlM0NiJTNFViVFMSVCQiU4QiUyMHRyJUMzJUFEJTNDJTJGYiUzRSUzQyUyRnRkJTNFJTNDdGQlM0UlNUIlRTIlODAlQTYlNUQlM0MlMkZ0ZCUzRSUzQyUyRnRyJTNFJTNDdHIlM0UlM0N0ZCUzRSUzQ2IlM0VRdXklMjBtJUMzJUI0JTNDJTJGYiUzRSUzQyUyRnRkJTNFJTNDdGQlM0UlNUIlRTIlODAlQTYlMjBoYSU1RCUzQyUyRnRkJTNFJTNDJTJGdHIlM0UlM0N0ciUzRSUzQ3RkJTNFJTNDYiUzRVBoJUMzJUExcCUyMGwlQzMlQkQlM0MlMkZiJTNFJTNDJTJGdGQlM0UlM0N0ZCUzRSU1QiVFMiU4MCVBNiU1RCUzQyUyRnRkJTNFJTNDJTJGdHIlM0UlM0MlMkZ0Ym9keSUzRSUzQyUyRnRhYmxlJTNF"]
+<p>[Đoạn văn: viết bằng số liệu có nguồn, ngày cập nhật; chữ dài cứ để hết – điện thoại tự thu gọn 2 khối dài nhất]</p>
+[/velis_khoi][velis_khoi tieu_de="Vị trí [tên dự án] ở đâu?" minh_hoa="anh" anh=""]
+<p>[Đoạn văn: viết bằng số liệu có nguồn, ngày cập nhật; chữ dài cứ để hết – điện thoại tự thu gọn 2 khối dài nhất]</p>
+[/velis_khoi][velis_khoi tieu_de="Tiện ích [tên dự án] có gì?" minh_hoa="thu_vien" thu_vien=""]
+<p>[Đoạn văn: viết bằng số liệu có nguồn, ngày cập nhật; chữ dài cứ để hết – điện thoại tự thu gọn 2 khối dài nhất]</p>
+[/velis_khoi][velis_khoi tieu_de="Mặt bằng [tên dự án]" minh_hoa="thu_vien" thu_vien=""]
+<p>[Đoạn văn: viết bằng số liệu có nguồn, ngày cập nhật; chữ dài cứ để hết – điện thoại tự thu gọn 2 khối dài nhất]</p>
+[/velis_khoi][velis_khoi tieu_de="Giá bán [tên dự án] bao nhiêu?" minh_hoa="diem" diem="%5B%7B%22dong%22%3A%22%5BGi%C3%A1%20t%E1%BB%AB%20%E2%80%A6%20tri%E1%BB%87u%2Fm%C2%B2%20%E2%80%93%20ngu%E1%BB%93n%2C%20th%C3%A1ng%2Fn%C4%83m%5D%22%7D%2C%7B%22dong%22%3A%22%5BThanh%20to%C3%A1n%20%E2%80%A6%25%5D%22%7D%2C%7B%22dong%22%3A%22%5B%C6%AFu%20%C4%91%C3%A3i%20%C4%91ang%20%C3%A1p%20d%E1%BB%A5ng%5D%22%7D%5D"]
+<p>[Đoạn văn: viết bằng số liệu có nguồn, ngày cập nhật; chữ dài cứ để hết – điện thoại tự thu gọn 2 khối dài nhất]</p>
+[/velis_khoi][velis_khoi tieu_de="Tiến độ [tên dự án]" minh_hoa="thu_vien" thu_vien=""]
+<p>[Cập nhật đến tháng …/…: …]</p>
+[/velis_khoi][velis_khoi tieu_de="Pháp lý [tên dự án]" minh_hoa="diem" diem="%5B%7B%22dong%22%3A%22%5BGi%E1%BA%A5y%20ph%C3%A9p%20x%C3%A2y%20d%E1%BB%B1ng%20s%E1%BB%91%20%E2%80%A6%20ng%C3%A0y%20%E2%80%A6%5D%22%7D%2C%7B%22dong%22%3A%22%5BT%C3%ACnh%20tr%E1%BA%A1ng%20s%E1%BB%95%3A%20%E2%80%A6%5D%22%7D%2C%7B%22dong%22%3A%22%5BNg%C3%A2n%20h%C3%A0ng%20b%E1%BA%A3o%20l%C3%A3nh%3A%20%E2%80%A6%5D%22%7D%5D"]
+<p>[Đoạn văn: viết bằng số liệu có nguồn, ngày cập nhật; chữ dài cứ để hết – điện thoại tự thu gọn 2 khối dài nhất]</p>
+[/velis_khoi][velis_khoi tieu_de="Góc nhìn của CEO Vũ Xuân" minh_hoa="diem" diem="%5B%7B%22dong%22%3A%22%5BC%C3%A2u%20c%C3%B3%20s%E1%BB%91%20li%E1%BB%87u%201%20l%E1%BA%A5y%20t%E1%BB%AB%20%C4%91o%E1%BA%A1n%20v%C4%83n%5D%22%7D%2C%7B%22dong%22%3A%22%5BC%C3%A2u%20c%C3%B3%20s%E1%BB%91%20li%E1%BB%87u%202%5D%22%7D%2C%7B%22dong%22%3A%22%5BC%C3%A2u%20c%C3%B3%20s%E1%BB%91%20li%E1%BB%87u%203%5D%22%7D%5D"]
+<p>[Đoạn văn: viết bằng số liệu có nguồn, ngày cập nhật; chữ dài cứ để hết – điện thoại tự thu gọn 2 khối dài nhất]</p>
+[/velis_khoi][velis_hoi_dap tieu_de="Câu hỏi thường gặp về [tên dự án]" gioi_thieu="" muc="%5B%7B%22hoi%22%3A%22%5BC%C3%A2u%20h%E1%BB%8Fi%201%5D%22%2C%22dap%22%3A%22%3Cp%3E%5BTr%E1%BA%A3%20l%E1%BB%9Di%5D%3C%2Fp%3E%22%7D%2C%7B%22hoi%22%3A%22%5BC%C3%A2u%20h%E1%BB%8Fi%202%5D%22%2C%22dap%22%3A%22%3Cp%3E%5BTr%E1%BA%A3%20l%E1%BB%9Di%5D%3C%2Fp%3E%22%7D%2C%7B%22hoi%22%3A%22%5BC%C3%A2u%20h%E1%BB%8Fi%203%5D%22%2C%22dap%22%3A%22%3Cp%3E%5BTr%E1%BA%A3%20l%E1%BB%9Di%5D%3C%2Fp%3E%22%7D%5D"][velis_nhan_bang_gia tieu_de="" loi_ich="%5B%7B%22dong%22%3A%22B%E1%BA%A3ng%20gi%C3%A1%20chi%20ti%E1%BA%BFt%20v%C3%A0%20ch%C3%ADnh%20s%C3%A1ch%20b%C3%A1n%20h%C3%A0ng%20m%E1%BB%9Bi%20nh%E1%BA%A5t%22%7D%2C%7B%22dong%22%3A%22Gi%E1%BB%8F%20h%C3%A0ng%20c%C4%83n%20%C4%91ang%20c%C3%B3%2C%20ch%E1%BB%8Dn%20theo%20nhu%20c%E1%BA%A7u%20v%C3%A0%20s%E1%BB%91%20v%E1%BB%91n%22%7D%2C%7B%22dong%22%3A%22Ph%C3%A2n%20t%C3%ADch%20ph%C3%A1p%20l%C3%BD%20v%C3%A0%20ti%E1%BB%81m%20n%C4%83ng%20%C4%91%E1%BA%A7u%20t%C6%B0%22%7D%5D" form="20958" du_an="" goi_them="(08:00–21:00 hằng ngày)"][velis_luoi tieu_de="Bài viết liên quan" loai="bai" danh_muc="[ID chuyên mục cụm blog]" so="6"][/vc_column][/vc_row]

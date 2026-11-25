@@ -85,8 +85,14 @@ export function measure(W) {
     if (!img || !t || !vis(img)) continue; const ti = [...art.querySelectorAll('.entry-meta, .entry-title')].filter(vis).map(x => box(x).top);
     const d = Math.min(...ti) - box(img).top; if (Math.abs(d) > 4 && box(img).right <= box(t).left) out.e.push(`"${art.querySelector('.entry-title')?.textContent.trim().slice(0, 30)}" lệch ${Math.round(d)} px`);
   }
+  // trang sản phẩm (phần tử Velis): Widgetised Sidebar trong nội dung = 0; ô Thông tin dự án cùng hàng cùng mép trên ±1; chữ ↔ minh họa mép trên ±4 (≥ 1200)
+  out.sp = [];
+  out.sp.push(...[...document.querySelectorAll('.wpb-content-wrapper .wpb_widgetised_column')].map(() => 'Widgetised Sidebar trong nội dung'));
+  for (const g of document.querySelectorAll('.velis-thong-tin')) { const rows = {}; for (const o of g.children) { const t = box(o).top; const k = Object.keys(rows).find(x => Math.abs(x - t) < 12) ?? t; (rows[k] ??= []).push(t); }
+    for (const v of Object.values(rows)) if (Math.max(...v) - Math.min(...v) > 1) out.sp.push('Thông tin dự án: ô cùng hàng lệch ' + Math.round(Math.max(...v) - Math.min(...v)) + ' px'); }
+  if (W >= 1200) for (const k of document.querySelectorAll('.velis-khoi')) { const c = k.querySelector('.velis-khoi__chu'), m = k.querySelector('.velis-khoi__minh-hoa'); if (c && m && vis(m) && Math.abs(box(c).top - box(m).top) > 4) out.sp.push(`Khối "${k.querySelector('.velis-khoi__tieu-de')?.textContent.slice(0, 30)}": chữ / minh họa lệch ${Math.round(box(m).top - box(c).top)} px`); }
   // f
-  out.f.xemThem = [...document.querySelectorAll('.velis-more .vc_toggle_title, .velis-clamp-btn')].filter(vis).length;
+  out.f.xemThem = [...document.querySelectorAll('.velis-more .vc_toggle_title, .velis-clamp-btn, .velis-xem-them')].filter(vis).length;
   out.f.form = [...document.querySelectorAll('form.wpcf7-form')].filter(vis).length;
   // g: ký tự / dòng
   for (const p of main.querySelectorAll('p')) {
@@ -137,10 +143,10 @@ async function run(base, outFile, widths, only) {
   // tóm tắt
   const sum = {}; let loi = 0;
   for (const [k, ws] of Object.entries(res)) for (const [w, m] of Object.entries(ws)) {
-    const n = { nen: (m.nenLien || []).length, a: m.a.length, b: m.b.length, c: m.c.length, d: m.d.length, e: m.e.length, f: (+w >= 1024 ? m.f.xemThem : Math.max(0, m.f.xemThem - 2)) + (m.f.form !== 1 ? 1 : 0), g: m.g.length, h: m.h, tran: m.overflow > 0 ? 1 : 0, h1: m.h1 !== 1 ? 1 : 0 };
+    const n = { sp: (m.sp || []).length, nen: (m.nenLien || []).length, a: m.a.length, b: m.b.length, c: m.c.length, d: m.d.length, e: m.e.length, f: (+w >= 1024 ? m.f.xemThem : Math.max(0, m.f.xemThem - 2)) + (m.f.form !== 1 ? 1 : 0), g: m.g.length, h: m.h, tran: m.overflow > 0 ? 1 : 0, h1: m.h1 !== 1 ? 1 : 0 };
     loi += Object.values(n).reduce((x, y) => x + y, 0);
     for (const [kk, v] of Object.entries(n)) sum[kk] = (sum[kk] || 0) + v;
-    console.log(`${k.padEnd(18)} ${String(w).padStart(4)}  nền${n.nen} a${n.a} b${n.b} c${n.c} d${n.d} e${n.e} f${n.f}(xem thêm ${m.f.xemThem}, form ${m.f.form}) g${n.g} h${n.h} tràn${m.overflow} h1=${m.h1} | hoa ${m.chuHoa} · cỡ ${m.coChu.length} · màu ${m.mauChu.length} · tr-all ${m.transitionAll} · lẻ4 ${m.khoangLe}${m.cot ? ` · cột ${m.cot.trai}|${m.cot.ranh}|${m.cot.phai}` : ''}`);
+    console.log(`${k.padEnd(18)} ${String(w).padStart(4)}  sp${n.sp} nền${n.nen} a${n.a} b${n.b} c${n.c} d${n.d} e${n.e} f${n.f}(xem thêm ${m.f.xemThem}, form ${m.f.form}) g${n.g} h${n.h} tràn${m.overflow} h1=${m.h1} | hoa ${m.chuHoa} · cỡ ${m.coChu.length} · màu ${m.mauChu.length} · tr-all ${m.transitionAll} · lẻ4 ${m.khoangLe}${m.cot ? ` · cột ${m.cot.trai}|${m.cot.ranh}|${m.cot.phai}` : ''}`);
   }
   console.log('TỔNG', JSON.stringify(sum), 'lỗi bố cục:', loi);
 }

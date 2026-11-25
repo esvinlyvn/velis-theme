@@ -32,46 +32,39 @@ Tài liệu gốc khi cần tra sâu hơn:
 | Chính sách bảo mật, Điều khoản | `/chinh-sach-bao-mat/` | Trang | – |
 | Khối dùng chung | footer, khối liên hệ cuối trang, "Nhận bảng giá", "Dự án nổi bật" | xem mục 1.8 | – |
 
-### 1.1 Trang dự án (và trang phân khu)
+### 1.1 Trang dự án (và trang phân khu) – thêm dự án mới bằng mẫu "Velis – Dự án" (cập nhật 2026-11-25)
 
-Ảnh: trang thật `01-du-an-trang-that.jpg` · màn soạn `02a-du-an-man-soan-tren.jpg`, `02b-du-an-man-soan-duoi.jpg`.
+Trang sản phẩm dựng bằng **6 phần tử Velis** (trong trình sửa WPBakery: dấu **+** → tab **Velis**, ảnh `velis/them-phan-tu.png`).
+Không dùng Inner Row nhiều cột + nhiều Text Block để làm lưới, không gõ `[ez-toc]`, không thêm phần tử "Xem thêm", không thêm "Widgetised Sidebar".
+Trình sửa trước | sau: `screenshots/the7/sua-tong/editor/the-prive-truoc.jpg` | `the-prive-sau.jpg`.
 
-**Ở đâu:** Bài viết → mở bài dự án (hoặc Thêm bài mới → nút **Mẫu của tôi** (ảnh 02a số 3) → "Velis – Dự án").
+**Thêm dự án mới:**
+1. Bài viết → Thêm bài mới → nút **Mẫu của tôi** → **"Velis – Dự án"** (mẫu có sẵn mọi phần tử, ô ghi `[…]` là chỗ điền).
+2. Hàng đầu (nền ngà): sửa nhãn "Chủ đầu tư · Khu vực", H1, ảnh lớn (Single Image `velis-crop`), đoạn mở 1–2 câu (câu quan trọng nhất đặt đầu).
+3. **Velis · Thông tin dự án** (`velis/thong-tin.png`): mỗi dòng một ô *Nhãn* + *Giá trị* (6 ô: chủ đầu tư, vị trí, quy mô, sản phẩm, pháp lý, bàn giao).
+   Số viết theo một định dạng: `6,7 ha`, `98,5 m²`, `6,82 tỷ`, `quý 3/2028`. Số có đơn vị tự in màu champagne.
+4. **Velis · Mục lục** (`velis/muc-luc.png`): để nguyên – tự lấy tiêu đề H2 của các khối bên dưới.
+5. **Velis · Khối nội dung** (`velis/khoi.png`) – mỗi mục một khối, theo thứ tự: tổng quan → vị trí → tiện ích → mặt bằng → giá → tiến độ → pháp lý → góc nhìn CEO.
+   *Tiêu đề* = H2 (câu hỏi người mua hay tìm). *Nội dung* = đoạn văn, danh sách, ảnh trong bài (viết hết, không cần "Xem thêm" – điện thoại tự thu gọn 2 khối dài nhất).
+   *Minh họa* (cột phải, cùng mép trên với tiêu đề): **Ảnh** (vị trí, phối cảnh) · **Thư viện ảnh** (tiện ích, mặt bằng, tiến độ – bấm để phóng to) ·
+   **Bản đồ nhúng** (dán iframe Google Maps) · **Bảng** (bảng thông số) · **Điểm chính** (3–5 dòng ngắn lấy từ chính đoạn văn, ưu tiên câu có số – không viết điều đoạn văn không có).
+   *Minh họa nằm bên*: phải (mặc định) hoặc trái để đổi nhịp.
+6. **Velis · Hỏi đáp** (`velis/hoi-dap.png`): 3–6 câu; mỗi câu *Câu hỏi* + *Trả lời* (40–80 chữ). Google đọc được (FAQPage) – không cần thêm gì.
+7. **Velis · Nhận bảng giá** (`velis/nhan-bang-gia.png`): để trống *Tiêu đề* (tự thành "Nhận bảng giá <tên bài>"), 3 *Lợi ích*, *Form* = "Nhận bảng giá (20958)".
+   Đây là form duy nhất của trang; số gọi / Zalo đổi ở Giao diện → Tùy biến → "Thanh liên hệ (điện thoại)".
+8. **Velis · Lưới dự án / bài liên quan** (`velis/luoi.png`): *Loại* = Danh sách bài, *ID chuyên mục* = cụm blog của dự án (vd. The Privé = 48), *Số bài* 6.
+9. Ô ngoài nội dung: bảng dưới (Sidebar: **Disabled**).
 
-| Số trên ảnh 01 | Khối | Ô soạn | Bắt buộc? | Độ dài gợi ý |
-|---|---|---|---|---|
-| 1 | Đường dẫn "Trang chủ / Dự án / …" | tự sinh | – | – |
-| 2 | Nhãn "Chủ đầu tư · Khu vực" | hàng đầu (velis-hero) → ô chữ trên H1 | có | tên khu vực theo `KHU-VUC.md` |
-| 3 | Tiêu đề trang (H1) | hàng đầu → ô chữ | có | ≤ 60 ký tự, có từ khóa chính |
-| 4 | Ảnh lớn đầu trang | hàng đầu → Single Image (`velis-crop`) | có | xem "Ảnh" |
-| 5 | Đoạn mở | ô chữ dưới ảnh | có | 1–2 câu, ≤ 50 chữ |
-| 6 | Lưới thông tin (6 ô) | Inner Row `velis-specs` – mỗi ô: nhãn + giá trị | có | mỗi giá trị ≤ 8 chữ |
-| 7 | Nút "Nhận bảng giá" + dòng gọi | nút The7 | có (giữ nguyên) | – |
-| 8 | Mục lục | tự sinh từ các H2 | – | – |
-| 9 | Các mục H2 | mỗi mục là một hàng `velis-section` | xem thứ tự dưới | ~60 chữ phần luôn hiện |
-| 10 | "Xem thêm" (phần chữ dài thu gọn) | khối Toggle `velis-more` trong mục | tùy chọn | phần còn lại của mục |
-| 11 | Ảnh / thư viện ảnh rộng hết khung | Inner Row trong mục | tùy chọn | 2–3 ảnh mỗi hàng |
-| 12 | Hỏi đáp | Toggle, tiêu đề = câu hỏi (H3) | nên có | 3–6 câu, mỗi trả lời 40–80 chữ |
-| 13 | Khối "Nhận bảng giá" (form) | hàng `velis-cta` | có – **chỉ sửa tên dự án** | – |
-| 14 | Bài viết liên quan | tự lấy theo chuyên mục (ảnh 02b số 9) | – | – |
-
-**Gồm gì, theo thứ tự:**
-1. đoạn mở;
-2. bảng thông tin;
-3. tổng quan;
-4. vị trí;
-5. tiện ích;
-6. mặt bằng;
-7. giá;
-8. tiến độ;
-9. chủ đầu tư;
-10. góc nhìn CEO (tùy chọn);
-11. hỏi đáp;
-12. nhận bảng giá.
-
-Mục 1–7, 9, 11 và 12 bắt buộc. Tiến độ và góc nhìn CEO thì có thông tin mới viết. Bảng thông tin dùng bảng 2 cột (nhãn | giá trị).
-
-**Chữ tự xếp vào cột đọc 760 px ở giữa.** Ảnh, lưới thông tin, thư viện ảnh và khối "Nhận bảng giá" thì rộng hết khung. Muốn một khối rộng hết khung thì đặt nó trong **Inner Row**. Không kéo dãn bảng hay đặt độ rộng bảng bằng tay; bảng tự rộng đúng cột.
+| Số trên ảnh 01 | Khối | Phần tử | Bắt buộc? |
+|---|---|---|---|
+| 1–5 | Đường dẫn, nhãn, H1, ảnh lớn, đoạn mở | hàng đầu (giữ nguyên cấu trúc) | có |
+| 6 | Lưới thông tin | Velis · Thông tin dự án | có |
+| 7 | Nút "Nhận bảng giá" + dòng gọi | nút The7 trong hàng đầu | có (giữ nguyên) |
+| 8 | Mục lục | Velis · Mục lục | có (tự sinh) |
+| 9–11 | Các mục + ảnh / bảng / bản đồ | Velis · Khối nội dung | có |
+| 12 | Hỏi đáp | Velis · Hỏi đáp | nên có |
+| 13 | Khối "Nhận bảng giá" (form) | Velis · Nhận bảng giá | có |
+| 14 | Bài viết liên quan | Velis · Lưới dự án / bài liên quan | có |
 
 **Ô ngoài nội dung (ảnh 02a, 02b):**
 
@@ -91,10 +84,10 @@ Mục 1–7, 9, 11 và 12 bắt buộc. Tiến độ và góc nhìn CEO thì có
 Mẫu "Velis – Chủ đầu tư":
 1. phần đầu (H1 = tên chủ đầu tư);
 2. lưới "Dự án <chủ đầu tư> tại Velis Realty", tự lấy bài theo chuyên mục chủ đầu tư;
-3. "Về <chủ đầu tư>", có "Xem thêm";
-4. hỏi đáp 3 câu;
-5. "Nhận bảng giá các dự án <chủ đầu tư>";
-6. bài liên quan.
+3. "Về <chủ đầu tư>" và các mục phân tích – mỗi mục một **Velis · Khối nội dung** (mỗi khối một hàng, nền xen kẽ trắng / ngà `velis-nen-nga`);
+4. **Velis · Hỏi đáp** 3 câu;
+5. **Velis · Nhận bảng giá** ("Nhận bảng giá các dự án <chủ đầu tư>");
+6. **Velis · Lưới dự án / bài liên quan** (lưới dự án ở mục 2 cũng là phần tử này, *Loại* = Thẻ dự án).
 
 Chủ đầu tư có từ 2 dự án trên site trở lên mới tạo trang.
 
@@ -160,10 +153,9 @@ Chỉ sửa chữ trong các khối có sẵn. Hai phần **tự lấy bài, kh�
 - **lưới dự án:** chuyên mục Dự án;
 - **dải "Dự án nổi bật":** chọn bài ở ô Posts của khối `velis-feats`. Phần này nhờ Quản trị viên nếu không quen WPBakery.
 
-Trên điện thoại (bước 15): lưới dự án là dải trượt ngang; đoạn "Công ty TNHH Velis Realty" hiện 4 dòng + "Xem thêm" nhờ Extra class
-`velis-clamp` của Text Block – đoạn chữ dài khác cũng dùng được class này (đoạn đầu ngay dưới tiêu đề là đoạn hiện).
-Trang dự án (mẫu "Velis – Dự án", bước 15b): đoạn mở đầu dưới ảnh hero đã có sẵn `velis-clamp` – trên điện thoại hiện 4 dòng + "Xem thêm";
-câu ưu đãi in đậm nằm sau đoạn đầu nên chỉ hiện khi bấm "Xem thêm" → viết câu quan trọng nhất ở đầu đoạn mở.
+Trên điện thoại (bước 15): lưới dự án là dải trượt ngang. Từ 2026-11-25 không còn `velis-clamp` / "Xem thêm" đặt tay: máy tính hiện hết;
+điện thoại tự thu gọn tối đa 2 Khối nội dung dài nhất (không thu giá, pháp lý, tiến độ, hỏi đáp). Nền khối trang chủ / trang khối: Extra class
+`velis-nen-nga` (ngà) xen kẽ với trắng – không đặt màu nền trong Design Options (DESIGN.md "Nền khối").
 
 ### 1.8 Khối dùng chung (không nằm trong bài)
 

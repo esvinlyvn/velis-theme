@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/inc/velis-elements.php'; // phần tử WPBakery "Velis"
 /**
  * The7 Velis child theme. Layout and content stay editable in WPBakery and The7 → Theme Options; this file only loads
  * velis.css (what the options cannot do) after The7's own CSS.
@@ -204,16 +205,16 @@ function velis_page_script() {
 		. 'document.querySelectorAll(".vc_toggle_title").forEach(function(t){var g=t.closest(".vc_toggle");t.setAttribute("role","button");t.tabIndex=0;'
 		. 'var s=function(){t.setAttribute("aria-expanded",String(g.classList.contains("vc_toggle_active")))};s();new MutationObserver(s).observe(g,{attributes:true,attributeFilter:["class"]});'
 		. 't.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();t.click()}})});'
-		// "Xem thêm" (vc_toggle class velis-more): mặc định MỞ (velis.css hiện nội dung, ẩn dòng "Xem thêm"). Dưới 1024 px chỉ thu gọn tối đa 2 khối
-		// dài nhất (> 900 px), không thu khối giá / pháp lý / tiến độ / hỏi đáp (tiêu đề H2 đứng trước khối); bấm mục lục / link # tới chữ
-		// trong khối đang thu thì tự mở. Bấm dòng "Xem thêm": mở hẳn (chặn bộ xử lý trượt của WPBakery ở pha capture). shortcut: xét cỡ màn hình lúc tải.
-		. 'var M=[].slice.call(document.querySelectorAll(".velis-more"));if(M.length&&matchMedia("(max-width:1023px)").matches){'
-		. 'var hd=function(g){var e=g;while(e=e.previousElementSibling){var h=e.matches("h2")?e:e.querySelector&&[].slice.call(e.querySelectorAll("h2")).pop();if(h)return h.textContent}return ""};'
-		. 'M.map(function(g){var k=g.querySelector(".vc_toggle_content");return{g:g,h:k?k.scrollHeight:0}}).filter(function(x){return x.h>900&&!/giá|pháp lý|tiến độ|hỏi|FAQ/i.test(hd(x.g))})'
-		. '.sort(function(a,b){return b.h-a.h}).slice(0,2).forEach(function(x){x.g.classList.add("velis-thu")})}'
-		. 'var mo=function(e){var g=e&&e.closest&&e.closest(".velis-thu");if(g)g.classList.remove("velis-thu")};'
-		. 'window.addEventListener("click",function(e){var t=e.target.closest&&e.target.closest(".velis-more .vc_toggle_title");if(t){e.preventDefault();e.stopImmediatePropagation();mo(t)}'
-		. 'var a=e.target.closest&&e.target.closest("a[href^=\'#\']");if(a&&a.hash.length>1)mo(document.getElementById(decodeURIComponent(a.hash.slice(1))))},true);'
+		// Điện thoại / máy tính bảng (< 1024): thu gọn tối đa 2 khối nội dung dài nhất (> 900 px) – không thu khối giá / pháp lý / tiến độ / hỏi đáp;
+		// nút "Xem thêm" do JS tạo (không phải phần tử riêng); bấm mục lục / link # tới chữ trong khối đang thu thì tự mở. Mục lục Velis thu gọn.
+		// shortcut: xét cỡ màn hình lúc tải trang.
+		. 'var mo=function(e){var g=e&&e.closest&&e.closest(".velis-thu");if(g){g.classList.remove("velis-thu");var b=g.querySelector(".velis-xem-them");if(b)b.remove()}};'
+		. 'if(matchMedia("(max-width:1023px)").matches){document.querySelectorAll("details.velis-muc-luc").forEach(function(d){d.open=false});'
+		. '[].slice.call(document.querySelectorAll(".velis-khoi")).map(function(g){var c=g.querySelector(".velis-khoi__chu");return{g:g,c:c,h:c?c.scrollHeight:0}})'
+		. '.filter(function(x){var t=x.g.querySelector(".velis-khoi__tieu-de");return x.h>900&&!/giá|pháp lý|tiến độ|hỏi|FAQ/i.test(t?t.textContent:"")})'
+		. '.sort(function(a,b){return b.h-a.h}).slice(0,2).forEach(function(x){x.g.classList.add("velis-thu");var b=document.createElement("button");b.type="button";'
+		. 'b.className="velis-xem-them";b.textContent="Xem thêm";b.setAttribute("aria-expanded","false");b.addEventListener("click",function(){mo(b)});x.c.after(b)})}'
+		. 'window.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href^=\'#\']");if(a&&a.hash.length>1)mo(document.getElementById(decodeURIComponent(a.hash.slice(1))))},true);'
 		. 'window.addEventListener("hashchange",function(){mo(document.getElementById(decodeURIComponent(location.hash.slice(1))))})})();</script>';
 }
 
@@ -285,6 +286,18 @@ function velis_masonry_queries( $content ) {
 				$out[] = ( ! empty( $a['posts'] ) ? array( 'post__in' => array_map( 'intval', explode( ',', $a['posts'] ) ) ) : array( 'cat' => $a['category'] ) )
 					+ array( 'numberposts' => (int) ( $a['dis_posts_total'] ?? 12 ), 'orderby' => 'date', 'order' => 'DESC' );
 			}
+		}
+	}
+	// phần tử Velis · Lưới dự án (loại "Thẻ dự án") – cùng truy vấn với mẫu wpb_templates/velis_luoi.php
+	preg_match_all( '/\[velis_luoi ([^\]]*)\]/', (string) $content, $m );
+	foreach ( $m[1] as $a ) {
+		$a = shortcode_parse_atts( $a );
+		if ( 'du_an' !== ( $a['loai'] ?? '' ) ) {
+			continue;
+		}
+		$ids = array_filter( array_map( 'intval', explode( ',', (string) ( $a['bai'] ?? '' ) ) ) );
+		if ( $ids || ! empty( $a['danh_muc'] ) ) {
+			$out[] = ( $ids ? array( 'post__in' => $ids ) : array( 'cat' => $a['danh_muc'] ) ) + array( 'numberposts' => max( 1, (int) ( $a['so'] ?? 3 ) ), 'orderby' => 'date', 'order' => 'DESC' );
 		}
 	}
 	return $out;
@@ -464,3 +477,16 @@ add_filter( 'the_content', function ( $content ) {
 	$cats = array_values( array_filter( get_the_category(), function ( $c ) { return $c->parent > 0; } ) );
 	return velis_post_line( $cats ? $cats[0]->name : '', get_the_date( 'c' ), get_the_date( 'd/m/Y' ), velis_reading_minutes( get_post_field( 'post_content' ) ) ) . $content;
 }, 5 );
+
+// Font tự lưu (velis.css @font-face, thư mục fonts/): không tải Google Fonts của The7 ("dt-web-fonts" – Theme Options → Typography vẫn giữ
+// tên Be Vietnam Pro / Playfair Display, trình duyệt dùng tệp trong theme con); tải sớm 2 tệp màn đầu (chữ thân 400, tiêu đề Playfair 600).
+add_action( 'wp_enqueue_scripts', function () {
+	wp_dequeue_style( 'dt-web-fonts' );
+	wp_deregister_style( 'dt-web-fonts' );
+}, 100 );
+add_filter( 'wp_resource_hints', fn( $urls, $rel ) => 'dns-prefetch' === $rel || 'preconnect' === $rel ? array_values( array_filter( $urls, fn( $u ) => ! str_contains( is_array( $u ) ? ( $u['href'] ?? '' ) : (string) $u, 'fonts.g' ) ) ) : $urls, 10, 2 );
+add_action( 'wp_head', function () {
+	foreach ( array( 'be-vietnam-pro-400', 'playfair-display-600' ) as $f ) {
+		echo '<link rel="preload" href="' . esc_url( get_stylesheet_directory_uri() . '/fonts/' . $f . '.woff2' ) . '" as="font" type="font/woff2" crossorigin>' . "\n";
+	}
+}, 1 );
