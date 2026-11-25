@@ -55,15 +55,17 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
 - Site thật `https://velisrealty.vn` (biến `WP_URL`): mặc định **CHỈ ĐỌC**; chỉ ghi theo bước người dùng giao, sau khi đã làm
   và kiểm trên staging (thứ tự: staging → kiểm → site thật). Mọi thao tác ghi khác chỉ trên staging
   `https://staging.velisrealty.vn` (biến `WP_STAGING_URL` nếu có; hiện chưa đặt trong môi trường, dùng URL này).
-- **Đăng nhập theo tên miền (chốt 2026-11-25, thay mọi hướng dẫn trước):** STAGING → `WP_USER` + `WP_APP_PASSWORD`;
-  SITE THẬT → `WP_LIVE_USER` (= `claude-bot`) + `WP_LIVE_APP_PASSWORD`. Không bao giờ dùng `WP_*` cho site thật.
+- **Đăng nhập theo tên miền (chốt 2026-11-25, thay mọi hướng dẫn trước):** STAGING → REST `WP_USER` + `WP_APP_PASSWORD`,
+  wp-admin `WP_USER` + `WP_ADMIN_PASSWORD`, xem như khách `STAGING_VIEW_PASSWORD`; SITE THẬT → REST `WP_LIVE_USER` (= `claude-bot`)
+  + `WP_LIVE_APP_PASSWORD`, wp-admin `WP_LIVE_USER` + `WP_LIVE_ADMIN_PASSWORD`. Không bao giờ dùng `WP_*` cho site thật.
+  wp-admin: `node tools/wp_admin_login.mjs <url>` (hoặc import `wpAdminLogin`; xử lý màn xác minh email; sai mật khẩu → dừng; `--test`).
   Script lấy thông tin đăng nhập qua `tools/wp_cred.py` (`wp_auth(url)` / `curl_cfg(url)` chọn biến theo tên miền,
   tên miền lạ → dừng); không script nào dùng chung một biến cho 2 site.
 - Trước khi **ghi** lên site thật: `kiem_site_that()` – đúng 1 lần GET `/wp-json/wp/v2/users/me` bằng `WP_LIVE_*`;
   200 và đúng user `claude-bot` mới làm tiếp, không thì dừng, báo. Mọi lần ghi site thật ghi vào `docs/the7/NHAT-KY-SITE-THAT.md`.
-- Thông tin đăng nhập (`WP_USER`, `WP_APP_PASSWORD`, `WP_LIVE_USER`, `WP_LIVE_APP_PASSWORD`, `WP_ADMIN_PASSWORD`) chỉ nằm
+- Thông tin đăng nhập (`WP_USER`, `WP_APP_PASSWORD`, `WP_LIVE_USER`, `WP_LIVE_APP_PASSWORD`, `WP_ADMIN_PASSWORD`, `WP_LIVE_ADMIN_PASSWORD`, `STAGING_VIEW_PASSWORD`) chỉ nằm
   trong biến môi trường: không in, không log, không ghi file, không đưa vào URL/ảnh chụp, không commit. Truyền cho curl qua stdin (`-K -`).
-- Chỉ gửi thông tin đăng nhập tới `velisrealty.vn` (`WP_LIVE_*`) và `staging.velisrealty.vn` (`WP_*`).
+- Chỉ gửi thông tin đăng nhập tới `velisrealty.vn` (`WP_LIVE_*`, kể cả `WP_LIVE_ADMIN_PASSWORD`) và `staging.velisrealty.vn` (`WP_*`).
 - TLS: chỉ tin thêm `/root/.ccr/ca-bundle.crt`. Cấm `curl -k`, `verify=False`, `ignoreHTTPSErrors`.
   Lỗi chứng chỉ khác (sai tên miền, hết hạn, CA lạ) → DỪNG, báo.
 - Đăng nhập thất bại 1 lần → DỪNG, không thử lại.

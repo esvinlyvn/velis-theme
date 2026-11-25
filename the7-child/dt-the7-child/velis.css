@@ -475,6 +475,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .velis-cf7-consent input[type="checkbox"] { flex: none; width: 20px; height: 20px; margin: 0; accent-color: var(--velis-do); }
 body .wpcf7 .wpcf7-form-control-wrap .wpcf7-not-valid-tip { display: block; position: static; margin-top: 4px; padding: 0; background: none; font-size: 14px; line-height: 20px; color: #B3261E; } /* The7 ẩn lời nhắc dưới ô */
 .wpcf7 form.sent > :not(.wpcf7-response-output) { display: none; }
+.wpcf7 form.invalid .wpcf7-response-output { display: none; } /* lỗi nhập chỉ báo 1 chỗ: lời nhắc dưới ô */
 #page .wpcf7 form.sent .wpcf7-response-output { margin: 0; padding: 16px; border: 0; border-left: 4px solid #2E6B3F; border-radius: var(--velis-bo-nut); background: var(--velis-nen-lot); color: var(--velis-chu) !important; font-size: 16px; line-height: 24px; } /* !important: The7 tô chữ thông báo trắng có !important */
 .wpcf7 form.submitting .wpcf7-submit { cursor: progress; }
 .velis-cta-form { display: grid; gap: 12px; }
