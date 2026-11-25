@@ -170,7 +170,8 @@ async function test() {
   await b.close(); console.log(process.exitCode ? 'test: TRƯỢT' : 'test: OK');
 }
 
-const a = process.argv.slice(2);
-if (a[0] === '--test') await test();
+const a = process.argv[1] && import.meta.url === (await import('node:url')).pathToFileURL(process.argv[1]).href ? process.argv.slice(2) : null; // null: được import (lấy PAGES)
+if (!a) ;
+else if (a[0] === '--test') await test();
 else if (a.length >= 2) await run(a[0].replace(/\/$/, ''), a[1], (a[2] || '1366,1536,1920,390').split(',').map(Number), a[3]?.split(','));
 else console.log('Dùng: node tools/the7_check_bocuc.mjs <base> <out.json> [widths] [tên,...] | --test');
