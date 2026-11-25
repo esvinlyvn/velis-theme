@@ -1,0 +1,65 @@
+[
+ {
+  "id": 20422,
+  "loai": "posts",
+  "link": "https://staging.velisrealty.vn/can-ho-palm-river/",
+  "rev_truoc": 20474,
+  "diem_bo": 0,
+  "doi": true,
+  "rev_sau": 20474
+ },
+ {
+  "id": 19962,
+  "loai": "posts",
+  "link": "https://staging.velisrealty.vn/can-ho-the-prive/",
+  "rev_truoc": 21227,
+  "diem_bo": 0,
+  "doi": true,
+  "rev_sau": 21238
+ },
+ {
+  "id": 20067,
+  "loai": "posts",
+  "link": "https://staging.velisrealty.vn/the-global-city/",
+  "rev_truoc": 21230,
+  "diem_bo": 0,
+  "doi": true,
+  "rev_sau": 21239
+ },
+ {
+  "id": 19855,
+  "loai": "posts",
+  "link": "https://staging.velisrealty.vn/can-ho-persa-place/",
+  "rev_truoc": 21225,
+  "diem_bo": 0,
+  "doi": true,
+  "rev_sau": 21240
+ },
+ {
+  "id": 19934,
+  "loai": "posts",
+  "link": "https://staging.velisrealty.vn/ansana-by-kita/",
+  "rev_truoc": 21226,
+  "diem_bo": 0,
+  "doi": true,
+  "rev_sau": 21241
+ },
+ {
+  "id": 19773,
+  "loai": "posts",
+  "link": "https://staging.velisrealty.vn/spring-ville/",
+  "rev_truoc": 21231,
+  "diem_bo": 0,
+  "doi": true,
+  "rev_sau": 21242
+ },
+ {
+  "id": 20360,
+  "loai": "posts",
+  "link": "https://staging.velisrealty.vn/vinhomes-saigon-park/",
+  "rev_truoc": 21228,
+  "diem_bo": 0,
+  "doi": true,
+  "rev_sau": 21243
+ }
+]

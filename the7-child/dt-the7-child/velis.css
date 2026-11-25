@@ -92,15 +92,6 @@ body .velis-nen-champagne { background-color: var(--velis-nen-champagne); }
 .velis-hero h1 { margin-bottom: 24px; }
 .velis-hero .velis-crop { margin: 0 0 24px; }
 .velis-hero .dt-btn { margin: 0 0 16px; }
-/* ≥ 1200: phần đầu theo lưới 7/12 + 5/12 như Khối nội dung – breadcrumb, nhãn + H1, ảnh rộng hết khung; dòng giới thiệu + nút ở cột trái
-   (≤ 90 ký tự/dòng), lưới thông tin ở cột phải; cùng mép trái khung */
-@media (min-width: 1200px) {
-	.velis-hero > .wpb_column > .vc_column-inner > .wpb_wrapper { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: 48px; grid-auto-flow: row dense; align-items: start; }
-	.velis-hero > .wpb_column > .vc_column-inner > .wpb_wrapper > * { grid-column: 1; }
-	.velis-hero > .wpb_column > .vc_column-inner > .wpb_wrapper > :is(a.dt-btn, .dt-btn-wrap) { justify-self: start; }
-	.velis-hero > .wpb_column > .vc_column-inner > .wpb_wrapper > :is(.dt-breadcrumbs-shortcode, .wpb_single_image, .wpb_text_column:has(h1)) { grid-column: 1 / -1; }
-	.velis-hero > .wpb_column > .vc_column-inner > .wpb_wrapper > :is(.velis-facts, .velis-thong-tin) { grid-column: 2; grid-row: span 3; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; }
-}
 article:has(.velis-hero) > .post-meta { display: none; }
 body:has(.velis-hero) #main { padding-top: 0; }
 body:has(.velis-hero) .page-title { display: none; }
@@ -123,6 +114,9 @@ b, strong { font-weight: 600; }
 .wpb_content_element { margin-bottom: 32px; } /* WPBakery 35 → 32 (bội 4) */
 .wpb_wrapper > .wpb_text_column:first-child > .wpb_wrapper > :is(h2, h3):first-child, .velis-section .wpb_wrapper > .wpb_text_column:first-child > .wpb_wrapper > :is(h2, h3):first-child,
 .entry-content > :is(h2, h3):first-child { margin-top: 0; }
+/* H2 mở đầu một hàng / section / Text Block (The7 + WPBakery bỏ lề trên phần tử đầu cột) vẫn cách khối trên 64 / 48; hàng có nền / đệm riêng không cộng */
+.wpb-content-wrapper :is(.vc_row, .vc_section):not(:first-child):not(.velis-section, .velis-hero, [class*="velis-nen-"], [data-vc-full-width]):is(:has(> .wpb_column:first-child > .vc_column-inner > .wpb_wrapper > .wpb_text_column:first-child > .wpb_wrapper > h2:first-child), :has(> .vc_row:first-child > .wpb_column:first-child > .vc_column-inner > .wpb_wrapper > .wpb_text_column:first-child > .wpb_wrapper > h2:first-child)) { margin-top: var(--velis-tren-h2); }
+.wpb-content-wrapper .wpb_wrapper > :not(:first-child) > :is(.wpb_wrapper > h2:first-child, h2.wpb_heading:first-child) { margin-top: var(--velis-tren-h2); }
 /* gạch champagne dưới tiêu đề khối: CHỈ trang chủ */
 body.home .velis-section h2:not(.velis-eyebrow)::after { content: ""; display: block; width: 48px; height: 1px; margin-top: 24px; background: var(--velis-so); }
 /* Nhãn (trên tiêu đề, thẻ, khối): chữ thường đầu câu, giãn chữ 0, 14 / 600, chữ phụ */

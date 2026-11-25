@@ -3,6 +3,7 @@
 trong [velis_khoi …]; chữ nội dung không đổi (kiểm: phần ngoài thẻ mở [velis_khoi …] giữ nguyên từng ký tự).
 STAGING: sửa qua REST content.raw (WP_* qua wp_cred), ghi revision trước/sau vào <log.json>.
 Dùng: python3 -I tools/the7_bo_diem_chinh.py --test | --tep <tệp mẫu> | --staging <id,id,…> <log.json> [--that]   (không --that = chạy khô)
+--cot3 (2026-11-26, người soát: khung đầu trang trả về như site thật): thay việc trên bằng bỏ cot="2" khỏi [velis_thong_tin] (về mặc định 3 cột).
 """
 import json, re, sys
 
@@ -14,8 +15,15 @@ def bo(content):
     return THE.sub(lambda m: BO.sub('', m.group(0)), content)
 
 
-def ngoai_the(c):
-    return THE.sub('', c)
+THE_TT = re.compile(r'\[velis_thong_tin\b(?:[^\]"]|"[^"]*")*\]')
+
+
+def bo_cot2(content):
+    return THE_TT.sub(lambda m: m.group(0).replace(' cot="2"', ''), content)
+
+
+def ngoai_the(c, the=THE):
+    return the.sub('', c)
 
 
 def _test():
@@ -27,10 +35,13 @@ def _test():
     assert ngoai_the(r) == ngoai_the(c) and bo(r) == r
     m = '[velis_khoi tieu_de="Giá [tên dự án]?" minh_hoa="diem" diem="x" ben="phai"]<p>[tên dự án]</p>[/velis_khoi]'
     assert bo(m) == '[velis_khoi tieu_de="Giá [tên dự án]?"]<p>[tên dự án]</p>[/velis_khoi]', bo(m)
+    t = '[velis_thong_tin cot="2" muc="%5B%5D"][velis_khoi tieu_de="cot=\\"2\\""]x cot="2"[/velis_khoi]'
+    assert bo_cot2(t) == '[velis_thong_tin muc="%5B%5D"][velis_khoi tieu_de="cot=\\"2\\""]x cot="2"[/velis_khoi]', bo_cot2(t)
+    assert ngoai_the(bo_cot2(t), THE_TT) == ngoai_the(t, THE_TT)
     print('test ok')
 
 
-def staging(ids, log, that):
+def staging(ids, log, that, f=bo, the=THE):
     sys.path.insert(0, __file__.rsplit('/', 1)[0])
     import requests
     from wp_cred import wp_auth, STAGING
@@ -44,8 +55,8 @@ def staging(ids, log, that):
                 typ, d = t, r.json(); break
         if r.status_code == 401:
             raise SystemExit('401 – dừng')
-        c = d['content']['raw']; n = bo(c)
-        assert ngoai_the(n) == ngoai_the(c)
+        c = d['content']['raw']; n = f(c)
+        assert ngoai_the(n, the) == ngoai_the(c, the)
         rv = s.get(f'{STAGING}/wp-json/wp/v2/{typ}/{i}/revisions', params={'per_page': 1, '_fields': 'id'}).json()
         rec = {'id': i, 'loai': typ, 'link': d['link'], 'rev_truoc': rv[0]['id'] if rv else None, 'diem_bo': c.count('minh_hoa="diem"'), 'doi': c != n}
         if that and c != n:
@@ -57,11 +68,13 @@ def staging(ids, log, that):
 
 if __name__ == '__main__':
     a = sys.argv[1:]
+    f, the = (bo_cot2, THE_TT) if '--cot3' in a else (bo, THE)
+    a = [x for x in a if x != '--cot3']
     if a == ['--test']:
         _test()
     elif a[:1] == ['--tep']:
-        t = open(a[1]).read(); n = bo(t); assert ngoai_the(n) == ngoai_the(t); open(a[1], 'w').write(n); print(a[1], 'bỏ', t.count('minh_hoa="diem"'))
+        t = open(a[1]).read(); n = f(t); assert ngoai_the(n, the) == ngoai_the(t, the); open(a[1], 'w').write(n); print(a[1], 'đổi', t != n)
     elif a[:1] == ['--staging']:
-        staging([int(x) for x in a[1].split(',')], a[2], '--that' in a)
+        staging([int(x) for x in a[1].split(',')], a[2], '--that' in a, f, the)
     else:
         sys.exit(__doc__)
