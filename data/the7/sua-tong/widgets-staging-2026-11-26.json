@@ -1,0 +1,46 @@
+{
+ "custom_html-10": {
+  "id_base": "custom_html",
+  "sidebar": "sidebar_3",
+  "instance": {
+   "encoded": "YToyOntzOjU6InRpdGxlIjtzOjA6IiI7czo3OiJjb250ZW50IjtzOjUwMjoiPHAgY2xhc3M9InZlbGlzLWV5ZWJyb3ciPkJsb2cgdGhlbyBk4buxIMOhbjwvcD4KPHVsIGNsYXNzPSJ2ZWxpcy1jaGlwcyI+PGxpPjxhIGhyZWY9Ii9ibG9nLyI+VOG6pXQgY+G6ozwvYT48L2xpPjxsaT48YSBocmVmPSIvYmxvZy90aGUtcHJpdmUvIj5UaGUgUHJpdsOpPC9hPjwvbGk+PGxpPjxhIGhyZWY9Ii9ibG9nL3RoZS1nbG9iYWwtY2l0eS8iPlRoZSBHbG9iYWwgQ2l0eTwvYT48L2xpPjxsaT48YSBocmVmPSIvYmxvZy9wYWxtLWNpdHkvIj5QYWxtIFJpdmVyPC9hPjwvbGk+PGxpPjxhIGhyZWY9Ii9ibG9nL3NwcmluZy12aWxsZS8iPlNwcmluZyBWaWxsZTwvYT48L2xpPjxsaT48YSBocmVmPSIvYmxvZy9hbnNhbmEvIj5BbnNhbmEgYnkgS2l0YTwvYT48L2xpPjxsaT48YSBocmVmPSIvYmxvZy92aW5ob21lcy1zYWlnb24tcGFyay8iPlZpbmhvbWVzIFNhaWdvbiBQYXJrPC9hPjwvbGk+PGxpPjxhIGhyZWY9Ii9ibG9nL3ZpbmhvbWVzLyI+VmluaG9tZXM8L2E+PC9saT48L3VsPiI7fQ==",
+   "hash": "2b77898b8e02697c0776f8a1427030da",
+   "raw": {
+    "title": "",
+    "content": "<p class=\"velis-eyebrow\">Blog theo dự án</p>\n<ul class=\"velis-chips\"><li><a href=\"/blog/\">Tất cả</a></li><li><a href=\"/blog/the-prive/\">The Privé</a></li><li><a href=\"/blog/the-global-city/\">The Global City</a></li><li><a href=\"/blog/palm-city/\">Palm River</a></li><li><a href=\"/blog/spring-ville/\">Spring Ville</a></li><li><a href=\"/blog/ansana/\">Ansana by Kita</a></li><li><a href=\"/blog/vinhomes-saigon-park/\">Vinhomes Saigon Park</a></li><li><a href=\"/blog/vinhomes/\">Vinhomes</a></li></ul>"
+   }
+  }
+ },
+ "custom_html-8": {
+  "id_base": "custom_html",
+  "sidebar": "sidebar_4",
+  "instance": {
+   "encoded": "YToyOntzOjU6InRpdGxlIjtzOjA6IiI7czo3OiJjb250ZW50IjtzOjYwOToiPGRpdiBjbGFzcz0idmVsaXMtYXNpZGUtY2FyZCI+CjxwIGNsYXNzPSJ2ZWxpcy1leWVicm93Ij5UxrAgduG6pW4gdHLhu7FjIHRp4bq/cDwvcD4KPGgyPk5o4bqtbiBi4bqjbmcgZ2nDoSB7ZHVfYW58ZOG7sSDDoW59PC9oMj4KPHVsIGNsYXNzPSJ2ZWxpcy1jaGVja3MiPjxsaT5C4bqjbmcgZ2nDoSB2w6AgY2jDrW5oIHPDoWNoIGLDoW4gaMOgbmcgbeG7m2kgbmjhuqV0PC9saT48bGk+R2nhu48gaMOgbmcgY8SDbiDEkWFuZyBjw7MgdGhlbyBuaHUgY+G6p3UsIHPhu5EgduG7kW48L2xpPjxsaT5QaMOibiB0w61jaCBwaMOhcCBsw70gdsOgIHRp4buBbSBuxINuZyDEkeG6p3UgdMawPC9saT48L3VsPgo8cCBjbGFzcz0idmVsaXMtYXNpZGUtYnRuIj48YSBjbGFzcz0iZHQtYnRuIGR0LWJ0bi1tIiBocmVmPSIjbGllbi1oZS10dS12YW4iPk5o4bqtbiBi4bqjbmcgZ2nDoTwvYT48L3A+CjxwIGNsYXNzPSJ2ZWxpcy1jdGEtY2FsbCI+R+G7jWkgPGEgaHJlZj0idGVsOjA5MTEyMzc5NzkiPjA5MTEgMjM3IDk3OTwvYT4gwrcgPGEgaHJlZj0iaHR0cHM6Ly96YWxvLm1lLzA5MTEyMzc5NzkiIHRhcmdldD0iX2JsYW5rIiByZWw9Im5vb3BlbmVyIj5aYWxvPC9hPjwvcD4KPC9kaXY+Ijt9",
+   "hash": "9f0d1753f48a76daa0619b791f83f3fc",
+   "raw": {
+    "title": "",
+    "content": "<div class=\"velis-aside-card\">\n<p class=\"velis-eyebrow\">Tư vấn trực tiếp</p>\n<h2>Nhận bảng giá {du_an|dự án}</h2>\n<ul class=\"velis-checks\"><li>Bảng giá và chính sách bán hàng mới nhất</li><li>Giỏ hàng căn đang có theo nhu cầu, số vốn</li><li>Phân tích pháp lý và tiềm năng đầu tư</li></ul>\n<p class=\"velis-aside-btn\"><a class=\"dt-btn dt-btn-m\" href=\"#lien-he-tu-van\">Nhận bảng giá</a></p>\n<p class=\"velis-cta-call\">Gọi <a href=\"tel:0911237979\">0911 237 979</a> · <a href=\"https://zalo.me/0911237979\" target=\"_blank\" rel=\"noopener\">Zalo</a></p>\n</div>"
+   }
+  }
+ },
+ "ezw_tco-3": {
+  "id_base": "ezw_tco",
+  "sidebar": "sidebar_4",
+  "instance": {
+   "encoded": "YToxNDp7czo1OiJ0aXRsZSI7czoxNzoiTuG7mWkgZHVuZyBjaMOtbmgiO3M6NToiYWZmaXgiO3M6MToiMCI7czoxNToiaGlnaGxpZ2h0X2NvbG9yIjtzOjc6IiNGMkVFRTgiO3M6MTg6InNpZGViYXJfdGl0bGVfc2l6ZSI7aToxMjA7czoyMzoic2lkZWJhcl90aXRsZV9zaXplX3VuaXQiO3M6MToiJSI7czoyMDoic2lkZWJhcl90aXRsZV93ZWlnaHQiO3M6MzoiNTAwIjtzOjE5OiJzaWRlYmFyX3RpdGxlX2NvbG9yIjtzOjQ6IiMwMDAiO3M6MTc6InNpZGViYXJfdGV4dF9zaXplIjtpOjEyMDtzOjIyOiJzaWRlYmFyX3RleHRfc2l6ZV91bml0IjtzOjE6IiUiO3M6MTk6InNpZGViYXJfdGV4dF93ZWlnaHQiO3M6MzoiNTAwIjtzOjE4OiJzaWRlYmFyX3RleHRfY29sb3IiO3M6NDoiIzAwMCI7czoxNjoiZXp0b2NfYXBwZWFyYW5jZSI7czowOiIiO3M6MTc6ImhlYWRpbmdfbGFiZWxfdGFnIjtzOjc6ImRlZmF1bHQiO3M6MTE6ImhpZGVfaW5saW5lIjtzOjE6IjAiO30=",
+   "hash": "ae6b561dbc45a9567bffbb9ad1260ca9"
+  }
+ },
+ "custom_html-9": {
+  "id_base": "custom_html",
+  "sidebar": "sidebar_5",
+  "instance": {
+   "encoded": "YToyOntzOjU6InRpdGxlIjtzOjA6IiI7czo3OiJjb250ZW50IjtzOjU2NzoiPGRpdiBjbGFzcz0idmVsaXMtYXNpZGUtY2FyZCI+CjxwIGNsYXNzPSJ2ZWxpcy1leWVicm93Ij5UxrAgduG6pW4gdHLhu7FjIHRp4bq/cDwvcD4KPGgyPkPhuqduIHTGsCB24bqlbiBk4buxIMOhbj88L2gyPgo8cD5C4bqjbmcgZ2nDoSwgY2jDrW5oIHPDoWNoIGLDoW4gaMOgbmcgdsOgIHBow6FwIGzDvSBt4bubaSBuaOG6pXQ6IMSR4buDIGzhuqFpIGjhu40gdMOqbiB2w6Agc+G7kSDEkWnhu4duIHRob+G6oWksIGNodXnDqm4gdmnDqm4gVmVsaXMgUmVhbHR5IGfhu41pIGzhuqFpIHRyb25nIGdp4budIGzDoG0gdmnhu4djLjwvcD4KPHAgY2xhc3M9InZlbGlzLWFzaWRlLWJ0biI+PGEgY2xhc3M9ImR0LWJ0biBkdC1idG4tbSIgaHJlZj0iI3ZlbGlzLXR1LXZhbiI+Tmjhuq1uIHTGsCB24bqlbjwvYT48L3A+CjxwIGNsYXNzPSJ2ZWxpcy1jdGEtY2FsbCI+R+G7jWkgPGEgaHJlZj0idGVsOjA5MTEyMzc5NzkiPjA5MTEgMjM3IDk3OTwvYT4gwrcgPGEgaHJlZj0iaHR0cHM6Ly96YWxvLm1lLzA5MTEyMzc5NzkiIHRhcmdldD0iX2JsYW5rIiByZWw9Im5vb3BlbmVyIj5aYWxvPC9hPjwvcD4KPC9kaXY+Ijt9",
+   "hash": "89adf8ce664cff8cbd564d8823cb2ceb",
+   "raw": {
+    "title": "",
+    "content": "<div class=\"velis-aside-card\">\n<p class=\"velis-eyebrow\">Tư vấn trực tiếp</p>\n<h2>Cần tư vấn dự án?</h2>\n<p>Bảng giá, chính sách bán hàng và pháp lý mới nhất: để lại họ tên và số điện thoại, chuyên viên Velis Realty gọi lại trong giờ làm việc.</p>\n<p class=\"velis-aside-btn\"><a class=\"dt-btn dt-btn-m\" href=\"#velis-tu-van\">Nhận tư vấn</a></p>\n<p class=\"velis-cta-call\">Gọi <a href=\"tel:0911237979\">0911 237 979</a> · <a href=\"https://zalo.me/0911237979\" target=\"_blank\" rel=\"noopener\">Zalo</a></p>\n</div>"
+   }
+  }
+ }
+}

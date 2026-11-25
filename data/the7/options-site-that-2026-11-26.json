@@ -1,0 +1,369 @@
+{
+ "giu_nguyen": [
+  "advanced-fvm_enable_integration",
+  "contact_form_security_token",
+  "general-tracking_code"
+ ],
+ "khoa_doi": {
+  "bottom_bar-color": {
+   "truoc": "#B9B9B9",
+   "sau": "#FFFFFF"
+  },
+  "buttons-l_border_radius": {
+   "truoc": "2px",
+   "sau": "6px"
+  },
+  "buttons-m_border_radius": {
+   "truoc": "2px",
+   "sau": "6px"
+  },
+  "buttons-s-typography": {
+   "truoc": {
+    "font_family": "Be Vietnam Pro:600",
+    "text_transform": "none",
+    "font_size": "15",
+    "letter_spacing": "0"
+   },
+   "sau": {
+    "font_family": "Be Vietnam Pro:600",
+    "text_transform": "none",
+    "font_size": "16",
+    "letter_spacing": "0"
+   }
+  },
+  "buttons-s_border_radius": {
+   "truoc": "2px",
+   "sau": "6px"
+  },
+  "content-links_color": {
+   "truoc": "#C42F35",
+   "sau": "#B8282E"
+  },
+  "fonts-h1-typography": {
+   "truoc": {
+    "font_family": "Playfair Display:600",
+    "responsive_font_size": {
+     "desktop": "56px",
+     "tablet": "36px",
+     "mobile": "36px"
+    },
+    "responsive_line_height": {
+     "desktop": "70px",
+     "tablet": "46px",
+     "mobile": "46px"
+    },
+    "text_transform": "none"
+   },
+   "sau": {
+    "font_family": "Playfair Display:600",
+    "responsive_font_size": {
+     "desktop": "56px",
+     "tablet": "40px",
+     "mobile": "32px"
+    },
+    "responsive_line_height": {
+     "desktop": "68px",
+     "tablet": "48px",
+     "mobile": "40px"
+    },
+    "text_transform": "none"
+   }
+  },
+  "fonts-h2-typography": {
+   "truoc": {
+    "font_family": "Playfair Display:600",
+    "responsive_font_size": {
+     "desktop": "40px",
+     "tablet": "28px",
+     "mobile": "28px"
+    },
+    "responsive_line_height": {
+     "desktop": "48px",
+     "tablet": "34px",
+     "mobile": "34px"
+    },
+    "text_transform": "none"
+   },
+   "sau": {
+    "font_family": "Playfair Display:600",
+    "responsive_font_size": {
+     "desktop": "40px",
+     "tablet": "32px",
+     "mobile": "24px"
+    },
+    "responsive_line_height": {
+     "desktop": "48px",
+     "tablet": "40px",
+     "mobile": "32px"
+    },
+    "text_transform": "none"
+   }
+  },
+  "fonts-h3-typography": {
+   "truoc": {
+    "font_family": "Be Vietnam Pro:600",
+    "responsive_font_size": {
+     "desktop": "22px",
+     "tablet": "22px",
+     "mobile": "22px"
+    },
+    "responsive_line_height": {
+     "desktop": "29px",
+     "tablet": "29px",
+     "mobile": "29px"
+    },
+    "text_transform": "none"
+   },
+   "sau": {
+    "font_family": "Be Vietnam Pro:600",
+    "responsive_font_size": {
+     "desktop": "24px",
+     "tablet": "24px",
+     "mobile": "18px"
+    },
+    "responsive_line_height": {
+     "desktop": "32px",
+     "tablet": "32px",
+     "mobile": "28px"
+    },
+    "text_transform": "none"
+   }
+  },
+  "fonts-h4-typography": {
+   "truoc": {
+    "font_family": "Be Vietnam Pro:600",
+    "responsive_font_size": {
+     "desktop": "19px",
+     "tablet": "19px",
+     "mobile": "19px"
+    },
+    "responsive_line_height": {
+     "desktop": "27px",
+     "tablet": "27px",
+     "mobile": "27px"
+    },
+    "text_transform": "none"
+   },
+   "sau": {
+    "font_family": "Be Vietnam Pro:600",
+    "responsive_font_size": {
+     "desktop": "18px",
+     "tablet": "18px",
+     "mobile": "18px"
+    },
+    "responsive_line_height": {
+     "desktop": "28px",
+     "tablet": "28px",
+     "mobile": "28px"
+    },
+    "text_transform": "none"
+   }
+  },
+  "fonts-normal_size": {
+   "truoc": {
+    "font_size": "16px",
+    "line_height": "25px"
+   },
+   "sau": {
+    "font_size": "16px",
+    "line_height": "26px"
+   }
+  },
+  "fonts-widget-content": {
+   "truoc": {
+    "font_family": "Be Vietnam Pro",
+    "responsive_font_size": {
+     "desktop": "15px"
+    },
+    "responsive_line_height": {
+     "desktop": "24px"
+    },
+    "text_transform": "none"
+   },
+   "sau": {
+    "font_family": "Be Vietnam Pro",
+    "responsive_font_size": {
+     "desktop": "16px"
+    },
+    "responsive_line_height": {
+     "desktop": "24px"
+    },
+    "text_transform": "none"
+   }
+  },
+  "footer-padding": {
+   "truoc": "64px 50px 40px 50px",
+   "sau": "64px 48px 40px 48px"
+  },
+  "general-border_radius": {
+   "truoc": "2px",
+   "sau": "6px"
+  },
+  "general-content_width": {
+   "truoc": "1300px",
+   "sau": "1296px"
+  },
+  "general-page-title-typography": {
+   "truoc": {
+    "font_family": "Playfair Display:600",
+    "text_transform": "none",
+    "font_size": "56",
+    "line_height": "70"
+   },
+   "sau": {
+    "font_family": "Playfair Display:600",
+    "text_transform": "none",
+    "font_size": "56",
+    "line_height": "68"
+   }
+  },
+  "general-page_content_margin": {
+   "truoc": "64px 50px 64px 50px",
+   "sau": "64px 48px 64px 48px"
+  },
+  "general-responsive_title_line_height": {
+   "truoc": "46",
+   "sau": "40"
+  },
+  "general-responsive_title_size": {
+   "truoc": "36",
+   "sau": "32"
+  },
+  "general-title_align": {
+   "truoc": "center",
+   "sau": "left"
+  },
+  "general-title_bg_color": {
+   "truoc": "#FAF7F2",
+   "sau": "#F4EEE4"
+  },
+  "general-title_bg_gradient": {
+   "truoc": "0deg|#FAF7F2 30%|#FAF7F2 100%",
+   "sau": "0deg|#F4EEE4 30%|#F4EEE4 100%"
+  },
+  "header-elements-button-1-border_radius": {
+   "truoc": "2px",
+   "sau": "6px"
+  },
+  "header-inline-elements-near_menu-typography": {
+   "truoc": {
+    "font_family": "Be Vietnam Pro:600",
+    "font_size": "15"
+   },
+   "sau": {
+    "font_family": "Be Vietnam Pro:600",
+    "font_size": "16"
+   }
+  },
+  "header-inline-side-padding": {
+   "truoc": "50px 50px",
+   "sau": "48px 48px"
+  },
+  "header-menu-submenu-active-bg-color": {
+   "truoc": "#FAF7F2",
+   "sau": "#F4EEE4"
+  },
+  "header-menu-submenu-hover-bg-color": {
+   "truoc": "#FAF7F2",
+   "sau": "#F4EEE4"
+  },
+  "header-menu-submenu-typography": {
+   "truoc": {
+    "font_family": "Be Vietnam Pro",
+    "text_transform": "none",
+    "font_size": "15"
+   },
+   "sau": {
+    "font_family": "Be Vietnam Pro",
+    "text_transform": "none",
+    "font_size": "16"
+   }
+  },
+  "header-menu-typography": {
+   "truoc": {
+    "font_family": "Be Vietnam Pro:600",
+    "text_transform": "none",
+    "font_size": "15"
+   },
+   "sau": {
+    "font_family": "Be Vietnam Pro:600",
+    "text_transform": "none",
+    "font_size": "16"
+   }
+  },
+  "header-mobile-first_switch-side-padding": {
+   "truoc": "50px 50px",
+   "sau": "48px 48px"
+  },
+  "input_border_radius": {
+   "truoc": "2px",
+   "sau": "6px"
+  },
+  "page_title-padding": {
+   "truoc": "48px 50px",
+   "sau": "48px 48px"
+  },
+  "sidebar-divider-horizontal": {
+   "truoc": "1",
+   "sau": "0"
+  },
+  "sidebar-divider-vertical": {
+   "truoc": "1",
+   "sau": "0"
+  },
+  "sidebar-floating": {
+   "truoc": "1",
+   "sau": false
+  },
+  "sidebar-responsiveness": {
+   "truoc": "992px",
+   "sau": "1200px"
+  },
+  "sidebar-visual_style": {
+   "truoc": "with_widgets_bg",
+   "sau": "with_dividers"
+  },
+  "sidebar-width": {
+   "truoc": "360px",
+   "sau": "32%"
+  },
+  "widgetareas": {
+   "truoc": {
+    "1": {
+     "sidebar_name": "Default Sidebar",
+     "sidebar_desc": "Sidebar primary widget area"
+    },
+    "2": {
+     "sidebar_name": "Default Footer",
+     "sidebar_desc": "Footer primary widget area"
+    },
+    "3": {
+     "sidebar_name": "Sidebar danh sách bài",
+     "sidebar_desc": "Cột phải trang chuyên mục / tìm kiếm (trang mẫu 20733) – không đặt form ở đây: form nằm ở Khối liên hệ cuối trang"
+    }
+   },
+   "sau": {
+    "1": {
+     "sidebar_name": "Default Sidebar",
+     "sidebar_desc": "Sidebar primary widget area"
+    },
+    "2": {
+     "sidebar_name": "Default Footer",
+     "sidebar_desc": "Footer primary widget area"
+    },
+    "3": {
+     "sidebar_name": "Sidebar danh sách bài",
+     "sidebar_desc": "Cột phải trang chuyên mục / tìm kiếm (trang mẫu 20733) – không đặt form ở đây: form nằm ở Khối liên hệ cuối trang"
+    },
+    "4": {
+     "sidebar_name": "Cột phải dự án",
+     "sidebar_desc": "Trang dự án / phân khu (phần tử Widgetised Sidebar trong mẫu \"Velis – Dự án\"): thẻ Nhận bảng giá {du_an} + mục lục. Không đặt form."
+    },
+    "5": {
+     "sidebar_name": "Cột phải trang",
+     "sidebar_desc": "Giới thiệu, Tuyển dụng, Chính sách, Điều khoản: thẻ Tư vấn trực tiếp (form ở Khối liên hệ cuối trang)."
+    }
+   }
+  }
+ }
+}

@@ -12,7 +12,7 @@ const b = await chromium.launch();
 for (const w of ws.split(',').map(Number)) {
   const ctx = await b.newContext({ viewport: { width: w, height: w < 768 ? 844 : 1080 }, userAgent: UA[+(w >= 768)], isMobile: w < 768, hasTouch: w < 768 });
   const p = await ctx.newPage();
-  if (base.includes('staging.')) { await p.goto(base + '/'); if (await p.locator('input[type=password]').count()) { await p.fill('input[type=password]', readFileSync(process.env.VIEW_PASSWORD_FILE, 'utf8').trim()); await Promise.all([p.waitForNavigation(), p.locator('input[type=submit], button[type=submit]').first().click()]); } }
+  if (base.includes('staging.')) { await p.goto(base + '/'); if (await p.locator('input[type=password]').count()) { await p.fill('input[type=password]', (process.env.STAGING_VIEW_PASSWORD || readFileSync(process.env.VIEW_PASSWORD_FILE, 'utf8').trim())); await Promise.all([p.waitForNavigation(), p.locator('input[type=submit], button[type=submit]').first().click()]); } }
   for (const [n, path] of Object.entries(PAGES).filter(([n]) => !names || names.split(',').includes(n))) {
     await p.goto(base + path, { waitUntil: 'networkidle', timeout: 90000 });
     // cuộn hết trang để ảnh lười nạp hiện, rồi về đầu

@@ -147,6 +147,35 @@ Nhận bảng giá The Privé, "Kiểm thử ra mắt", `+84 911 237 979` → `m
 **Chưa làm:** kiểm toàn site trên PHP 8.3 – lúc 17:45 Site Health cả 2 site vẫn PHP 8.2.36 (người dùng báo đã nâng; chưa có hiệu lực với `public_html`).
 Quay lui CF7: tải lại bản cần qua `tools/wp_tai_theme.mjs … --plugin`.
 
+## 2026-11-25 (18:43–19:10 giờ VN) – ĐƯA BẢN 2.x LÊN SITE THẬT (người soát: "ĐẠT – áp", sau 2 sửa trên staging 2.1.4)
+
+Staging trước (2.1.4): khung đầu trang dự án / phân khu trả về xếp dọc như site thật (bỏ lưới "chữ trái, thông tin phải" ≥ 1200; `cot="2"` → 3 cột ở 7 trang + mẫu,
+`tools/the7_bo_diem_chinh.py --cot3`); H2 mở đầu hàng / Text Block cách 64 / 48 (Giới thiệu 3 chỗ, Liên hệ 1 chỗ dính 0 px).
+
+| Giờ | Việc | Bản trước / quay lui |
+|---|---|---|
+| 18:43 | `kiem_site_that()` 200 claude-bot | – |
+| 18:44 | Theme con 1.9.3 → **2.1.4** (`tools/wp_tai_theme.mjs`, Thay thế) + Purge | `data/the7/goi-1.9.3/dt-the7-child-1.9.3-live.zip` |
+| 18:46 | Theme Options: **39 khóa** như staging (b16 / b16b / font: cột phải 32 %, rãnh 48, thang chữ, bo 6, ngà #F4EEE4, khung 1296, link #B8282E…; widget area 4 + 5); giữ của site thật: mã bảo mật form, Tracking code (GA4 / Pinterest / UX-05/06/14), cờ FVM. `tools/the7_options_wpadmin.mjs` – xuất lại khớp tệp nhập 100 % | trước / sau từng khóa: `data/the7/options-site-that-2026-11-26.json` (bản đầy đủ có mã bảo mật: scratchpad, không commit) |
+| 18:50 | Tiện ích (REST): Sidebar danh sách bài + "Blog theo dự án" (custom_html-8, trước custom_html-4); Cột phải dự án: thẻ Tư vấn + Mục lục (custom_html-9, ezw_tco-2); Cột phải trang: thẻ Tư vấn (custom_html-10) | trước: sidebar_3 = [custom_html-4], sidebar_4/5 rỗng |
+| 18:55 | Giới thiệu 19551, Tuyển dụng 19542, Chính sách bảo mật 19662, Điều khoản 19659: cột phải `disabled/sidebar_1` → `right/sidebar_5` (trình sửa; nút Cập nhật bị JS treo → gửi form trực tiếp); nội dung 4 trang giữ nguyên (so REST) | `disabled`, `sidebar_1` |
+| 18:58–19:04 | Nội dung **120 bài / trang** (`tools/the7_dong_bo_noi_dung.py --that`): staging → đổi địa chỉ (bien_doi của gói vl2) → REST; đọc lại context=edit trùng **120/120**. 118 "an toàn" (bản site thật = 1 revision staging); Ansana 19934 (chỉ khác khoảng trắng / `<p>` do lưu trình sửa) và **trang chủ 19526** (site thật có sửa riêng: nền khung đầu bằng CSS #1A1A1A, lưới dự án không chọn bài) ghi đè theo lệnh "đúng như staging" | nội dung cũ + revision trước/sau từng bài: `data/the7/sua-tong/dongbo-site-that-log.json` |
+| 19:00 | Mẫu của tôi "Velis – Dự án": xóa `velis-du-an_2458630951`, lưu mới `velis-du-an_277074455` (khớp `data/the7/mau-wpbakery/du-an.txt`); 3 mẫu khác đã giống | – |
+| 19:05 | LiteSpeed Purge All. CF7 giữ **6.1.6**, tự cập nhật tắt | – |
+
+**Kiểm trên velisrealty.vn (19:05–19:20):**
+- `the7_kiem_ra_mat.py --chi-hang-ngay`: REST contact-form-7/v1 có; **130/130 URL 0 shortcode thô**; 12 khối Nhận bảng giá – đúng 1 form trong khối.
+- `the7_kiem_sau_ap.mjs` (trang chủ, Giới thiệu, 12 trang sản phẩm × 1920 + 390): 0 "Xem thêm" máy tính, 0 cột phải trang sản phẩm, H2 ≥ 64 / 48,
+  trang chủ nền xen kẽ (than → trắng → ngà → trắng → ngà → trắng → ngà) – `data/the7/sua-tong/sau-ap-site-that.json`.
+- `the7_check_mot_cot.mjs` 11 trang × 2 khổ: 0 ô Điểm chính, 0 phần tử cạnh khối chữ, 1 form – 22/22.
+- Font (trang chủ, The Privé, Giới thiệu × 2 khổ): CSS 1 / JS 7, 4 tệp font (3 theme con + icon The7), Google 0, FVM 0, console 0
+  (Giới thiệu máy tính: 9 yêu cầu Google Fonts từ **iframe bản đồ Google** nhúng sẵn – không phải font site).
+- Menu điện thoại mở, hỏi đáp (phần tử Velis) mở 390 + 1920; form The Privé chạy khô: +84 / 84 / 0 nhận, "12345" báo lỗi. Không gửi thật thêm.
+- Ảnh: `screenshots/the7/site-that-2.1.4/` (trang chủ, The Privé, /blog/, bài giá The Privé, Giới thiệu × 1920 + 390).
+- `the7_kiem_ra_mat.py` đầy đủ: robots, 10 trang mẫu (0 "staging."), sitemap (0 "staging."), 17 chuyển hướng, 7 ứng dụng HEAD – đạt; **TRƯỢT 1: `/ansana-by-kita/` 404** –
+  bài 19934 trên site thật ở trạng thái **private** (staging: publish), đã vậy từ trước lần áp này (17:12 bản site thật đã không có nội dung); công cụ chỉ ghi `content`, không đổi `status`.
+  Chưa đổi – chờ người dùng quyết. Bộ đo một cột / sau áp từng tính trang 404 là đạt → đã sửa (HTTP ≠ 200 hoặc 0 khối = SAI). 19/20 trang đã đo: HTTP 200.
+
 ## Quy tắc đăng nhập (người dùng chốt 2026-11-25, thay mọi hướng dẫn trước)
 
 - STAGING (`staging.velisrealty.vn`): `WP_USER` + `WP_APP_PASSWORD`.
@@ -172,3 +201,4 @@ Quay lui CF7: tải lại bản cần qua `tools/wp_tai_theme.mjs … --plugin`.
 | 2026-11-25 | Theme con 1.9.2 → 1.9.3 (form +84) + Purge All; gửi thật 1 form "Kiểm thử ra mắt" | dt-the7-child | gói 1.9.2 trong repo | 200, claude-bot |
 | 2026-11-25 | LiteSpeed Page Optimization: CSS/JS minify + combine BẬT; Purge All (.htaccess không đổi) | LiteSpeed | mọi ô TẮT | 200, claude-bot |
 | 2026-11-25 | CF7 6.2.6 (tự thay 17:10, không chạy trên PHP 8.2) → 6.1.6 + kích hoạt + tắt tự cập nhật CF7; câu invalid_tel 2 form; Purge All | contact-form-7 | 6.2.6 inactive | 200, claude-bot |
+| 2026-11-25 | Bản 2.x: theme 2.1.4, 39 khóa Theme Options, 4 tiện ích, cột phải 4 trang, nội dung 120 bài/trang, mẫu Velis – Dự án; Purge | site thật | gói 1.9.3, options trước, dongbo-site-that-log.json | 200, claude-bot |

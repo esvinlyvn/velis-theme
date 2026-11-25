@@ -30,10 +30,10 @@ async function main() {
     const p = await ctx.newPage();
     if (base.includes('staging.')) { await p.goto(base + '/'); if (await p.locator('input[type=password]').count()) { await p.fill('input[type=password]', process.env.STAGING_VIEW_PASSWORD); await Promise.all([p.waitForNavigation(), p.locator('input[type=submit], button[type=submit]').first().click()]); } }
     for (const u of paths) {
-      await p.goto(base + u + '?v=' + Date.now(), { waitUntil: 'networkidle', timeout: 90000 });
-      const r = { url: u, w, ...(await p.evaluate(doTrang)) }; kq.push(r);
-      const dat = r.diem === 0 && r.canh.length === 0 && r.form <= 1; if (!dat) sai++;
-      console.log(dat ? 'ĐẠT' : 'SAI', w, u, 'khối', r.khoi, '| điểm chính', r.diem, '| cạnh', r.canh.length, r.canh.slice(0, 2).join(' ; '), '| form', r.form);
+      const res = await p.goto(base + u + '?v=' + Date.now(), { waitUntil: 'networkidle', timeout: 90000 });
+      const r = { url: u, w, http: res.status(), ...(await p.evaluate(doTrang)) }; kq.push(r);
+      const dat = r.http === 200 && r.khoi > 0 && r.diem === 0 && r.canh.length === 0 && r.form <= 1; if (!dat) sai++; // 404 / 0 khối không được tính đạt
+      console.log(dat ? 'ĐẠT' : 'SAI', w, u, 'HTTP', r.http, 'khối', r.khoi, '| điểm chính', r.diem, '| cạnh', r.canh.length, r.canh.slice(0, 2).join(' ; '), '| form', r.form);
     }
     await ctx.close();
   }

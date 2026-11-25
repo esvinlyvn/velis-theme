@@ -4,7 +4,8 @@
 site thật: theme con **1.9.3** (form +84) + LiteSpeed gộp CSS/JS (xem `docs/the7/NHAT-KY-SITE-THAT.md`);
 staging: theme con **2.1.3**, gỡ "diem" khỏi 11 trang, mẫu "Velis – Dự án" lưu lại, đo đạt, ảnh Ansana sau (`screenshots/the7/bo-diem-chinh/ansana-sau-*`).
 **Sự cố 17:10 (đã xử lý):** CF7 site thật tự thành 6.2.6 (cần PHP 8.3, hosting 8.2.36) → mọi form chết, shortcode in thô; đã hạ về 6.1.6 + tắt tự cập nhật CF7, kiểm 130 URL đạt (nhật ký site thật). Chờ PHP 8.3 có hiệu lực để kiểm toàn site. Bộ kiểm hằng ngày: `python3 -I tools/the7_kiem_ra_mat.py --base <site> --chi-hang-ngay`.
-**Đang chờ:** người soát kiểm ảnh/đo → "ĐẠT – áp" → việc 4 (đưa 2.x lên site thật). Mọi mục dưới đây là bản cũ (trước phiên này), giữ để tra.
+**Bản 2.x đã lên site thật (19:05, theme 2.1.4)** – nhật ký site thật. Còn: Ansana 19934 private trên site thật (404) – chờ người dùng quyết.
+**Đang chờ (cũ):** người soát kiểm ảnh/đo → "ĐẠT – áp" → việc 4 (đưa 2.x lên site thật). Mọi mục dưới đây là bản cũ (trước phiên này), giữ để tra.
 
 ---
 

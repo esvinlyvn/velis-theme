@@ -111,7 +111,7 @@ Nhật ký: `docs/STAGING-LOG.md` mục bước 15b; báo cáo: `docs/reports/th
 
 Thứ tự: 43 → 44 → 45 → xóa cache FVM + LiteSpeed.
 
-## Vòng sửa tổng 2026-11-25 (chờ người dùng duyệt – mục 9 của yêu cầu)
+## Vòng sửa tổng 2026-11-25 – ĐÃ ÁP 2026-11-25 19:05 (theme 2.1.4; cách làm thật: nhật ký site thật, `tools/the7_dong_bo_noi_dung.py`, `tools/the7_options_wpadmin.mjs`)
 
 Áp theo thứ tự; trước mỗi bước ghi bản lưu / giá trị cũ vào `docs/the7/NHAT-KY-SITE-THAT.md`. Site thật đang chạy theme con 1.9.1 (+ 1.9.2 nếu đã áp sửa font).
 
