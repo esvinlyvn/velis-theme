@@ -596,3 +596,15 @@ Site thật: chỉ GET REST (người dùng, plugin, theme, media), trang công 
 | Fast Velocity Minify | bật (cài đặt: `data/the7/sua-tong/fvm-litespeed-truoc-staging.json`) | xóa cache FVM → **tắt → xóa plugin** (người dùng duyệt gỡ) | Plugin |
 | LiteSpeed → Page Optimization | CSS/JS minify, gộp: tắt | CSS minify + gộp, JS minify + gộp: **bật**; defer / UCSS / CCSS: tắt. `.htaccess` so trước / sau: **không đổi** | trang cài đặt, Lưu, Purge All |
 Còn lại: thư mục `/home/gdssxvdn/staging/wp-content/cache/fvm/` (không còn gì gọi tới; xóa bằng Terminal). Không gửi form (yêu cầu gửi bị chặn trong trình duyệt).
+
+## 2026-11-25 – Vòng sửa tổng (một hệ bố cục, dọn CSS, làm bóng, phần tử Velis)
+
+| Việc | Trước | Sau | Cách |
+|---|---|---|---|
+| Theme Options b16 / b16b | `data/the7/options-truoc-b16.json`, `options-truoc-b16b.json` | `options-buoc-16.json`, `options-buoc-16b.json` | Export / Import (mã bảo mật "<đã xóa>" trong repo) |
+| Nội dung 120 bài / trang (lượt 1) + 17 (lượt 2) + 15 (lượt 3, nền xen kẽ) + 1 | revision trước từng bài: `data/the7/sua-tong/ap16-log.json` (`rev_truoc`) | `rev_sau` cùng tệp; lượt sau: `ap16-log-*.json` | REST `content.raw` |
+| 17 bài / trang lưu lại trong trình sửa | – | CSS riêng trang rỗng; 4 trang Sidebar phải + sidebar_5 | trình sửa → Cập nhật |
+| 12 trang sản phẩm dựng lại bằng phần tử Velis | `data/the7/sua-tong/ap16c-log.json` (`rev_truoc`; Palm River 20422: 21174 → 21204 – ngày sửa của bài bị khóa nên danh sách revision xếp lệch) | `rev_sau` | REST |
+| Widget | `custom_html-10` (chip cụm, sidebar_3), `custom_html-8` + `ezw_tco-3` (sidebar_4), `custom_html-9` (sidebar_5) | thêm mới, không xóa widget cũ | REST widgets |
+| Mẫu của tôi "Velis – Dự án" | mẫu bước 15b | mẫu phần tử Velis | AJAX WPBakery |
+Không gửi form; không đụng 7 ứng dụng; site thật chỉ đọc (GET). REST staging trả 401 lúc cuối vòng (mật khẩu ứng dụng đổi?) – không thử lại, đo cuối dùng trang xem.

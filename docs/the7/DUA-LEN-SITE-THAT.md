@@ -110,3 +110,20 @@ Nhật ký: `docs/STAGING-LOG.md` mục bước 15b; báo cáo: `docs/reports/th
 | 45 | Mẫu của tôi | "Velis – Dự án" lưu lại theo `data/the7/mau-wpbakery/du-an.txt` (đoạn mở đầu có `velis-clamp`) | trình sửa WPBakery → Templates → My templates (xóa bản cũ cùng tên, lưu lại) | thêm trang mới từ mẫu: Text Block mở đầu có `velis-clamp` |
 
 Thứ tự: 43 → 44 → 45 → xóa cache FVM + LiteSpeed.
+
+## Vòng sửa tổng 2026-11-25 (chờ người dùng duyệt – mục 9 của yêu cầu)
+
+Áp theo thứ tự; trước mỗi bước ghi bản lưu / giá trị cũ vào `docs/the7/NHAT-KY-SITE-THAT.md`. Site thật đang chạy theme con 1.9.1 (+ 1.9.2 nếu đã áp sửa font).
+
+| # | Thứ | Đổi gì | Cách áp | Nguồn |
+|---|---|---|---|---|
+| 46 | Theme con 2.1.1 | `velis.css` viết lại (một hệ bố cục, làm bóng, phần tử Velis, font); `functions.php` (dự án hiện tại = chính bài dự án, "Xem thêm" < 1024, ItemList từ Lưới Velis, `inc/velis-elements.php`); `wpb_templates/` (6 mẫu phần tử); `fonts/` | tải lên thay bản đang dùng (hoặc lệnh Terminal chép thư mục, sao lưu trước) | `the7-child/dt-the7-child/` |
+| 47 | Theme Options (b16) | cột phải 32 %, rãnh 48, không nền / đường chia, 1 cột dưới 1200, không floating; widget area 4 "Cột phải dự án", 5 "Cột phải trang" | Export bản hiện tại → `tools/the7_options_buoc16.py` → Import | `data/the7/options-buoc-16.json` |
+| 48 | Theme Options (b16b) | thang chữ 7 cỡ (H1 56/40/32, H2 40/32/24, H3 24/24/18, H4 18), menu / widget / nút nhỏ 16, bo 6 (nút, ô nhập), ngà `#F4EEE4` dải tiêu đề, khung 1296 + đệm 48, link `#B8282E`, chữ dòng cuối trắng; Tracking code bỏ preload FVM | `tools/the7_options_buoc16b.py` + `tools/the7_options_font.py` | `data/the7/options-buoc-16b.json` |
+| 49 | Nội dung 120 bài / trang | bỏ `style=` / `data-*` dán thừa, `<br>` trong tiêu đề, đoạn rỗng, `velis-clamp`, CSS riêng trang → lớp nền chung; Giới thiệu "Giá trị khác biệt" 01–04; trang khối nền xen kẽ + `velis-cot2` | REST `content.raw` bằng `tools/the7_sua_buoc16.py` (ghi revision trước) + mở trình sửa bấm Cập nhật 14 trang có CSS riêng (WPBakery dựng lại CSS trang = rỗng) | `data/the7/sua-tong/ap16-log*.json` |
+| 50 | 12 trang sản phẩm | dựng lại bằng phần tử Velis (Thông tin dự án, Mục lục, Khối nội dung, Hỏi đáp, Nhận bảng giá, Lưới) – chuyển nguyên chữ / ảnh / bảng | `tools/the7_sua_buoc16c.py` qua REST; kiểm mất chữ `tools/the7_check_mat_chu.mjs` ≥ 99 % | `data/the7/sua-tong/ap16c-log*.json` |
+| 51 | Mẫu của tôi "Velis – Dự án" | mẫu mới dựng sẵn mọi phần tử Velis | AJAX `vc_save_template` (xóa mẫu cũ cùng tên) | `data/the7/mau-wpbakery/du-an.txt` |
+| 52 | Tiện ích | Sidebar danh sách bài: thêm "Blog theo dự án" (chip cụm) trước "Tư vấn trực tiếp"; "Cột phải trang": thẻ Tư vấn trực tiếp; (Cột phải dự án: thẻ + Mục lục – hiện không trang nào dùng) | REST widgets / Giao diện → Tiện ích | `data/the7/sua-tong/` |
+| 53 | Giới thiệu, Tuyển dụng, Chính sách, Điều khoản | Sidebar Options: phải + "Cột phải trang" | trình sửa → Sidebar Options | – |
+| 54 | FAQPage | tự sinh từ phần tử Hỏi đáp (không trùng Rank Math) | theo theme con | `the7_check_schema.mjs` 0 lỗi / 12 trang |
+Sau khi áp: LiteSpeed → Xóa tất cả; chạy lại `the7_check_bocuc.mjs`, `the7_check_mat_chu.mjs`, bộ đo cũ trên velisrealty.vn; chuỗi "staging." = 0.
