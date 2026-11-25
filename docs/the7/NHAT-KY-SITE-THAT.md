@@ -1,7 +1,7 @@
 # Nhật ký thay đổi site thật (velisrealty.vn)
 
-Mọi thay đổi lên site thật ghi ở đây: trước khi đổi (sao lưu, giá trị cũ) → đổi gì → kiểm sau. Claude **không có quyền ghi** site thật
-(không có mật khẩu ứng dụng site thật; tài khoản claude-bot không còn trên site thật) → người dùng làm theo các bước, Claude chỉ đọc để kiểm.
+Mọi thay đổi lên site thật ghi ở đây: trước khi đổi (sao lưu, giá trị cũ) → đổi gì → kiểm sau. Không ghi giá trị mật khẩu, dữ liệu khách hàng.
+Gói 1.9.2 (mục dưới) do người dùng tự áp; Claude chỉ đọc để kiểm. Từ 2026-11-25 Claude có `WP_LIVE_*` (claude-bot) nhưng chỉ ghi khi người dùng giao bước cụ thể.
 
 ## 2026-11-25 – Sửa gấp: font tiếng Việt lỗi + chỉ dùng LiteSpeed (gỡ FVM)
 
@@ -51,3 +51,26 @@ tiếng Việt), không gọi Google Fonts; gỡ FVM; LiteSpeed lo minify + gộ
 | Lighthouse mobile (trung vị 3 lần) | – | trang chủ 90, The Privé 93, /blog/ 95, bài 96, Gamuda Land 91; CLS 0 mọi trang |
 Thử từng tùy chọn LiteSpeed (menu điện thoại mở, hỏi đáp mở, form CF7 gửi bị chặn trong trình duyệt – không gửi thật, lỗi console 0): minify CSS+JS ✓, + gộp CSS ✓, + gộp JS ✓.
 Ảnh: `screenshots/the7/font/` (so sánh font FVM | font mới; H1 trang chủ, H2 + đoạn trang dự án ở 1920 / 390).
+
+## Quy tắc đăng nhập (người dùng chốt 2026-11-25, thay mọi hướng dẫn trước)
+
+- STAGING (`staging.velisrealty.vn`): `WP_USER` + `WP_APP_PASSWORD`.
+- SITE THẬT (`velisrealty.vn`): `WP_LIVE_USER` (= `claude-bot`) + `WP_LIVE_APP_PASSWORD`. Không dùng `WP_USER` / `WP_APP_PASSWORD` cho site thật.
+- Script chọn biến theo tên miền qua `tools/wp_cred.py` (`wp_auth(url)`, `curl_cfg(url)`; tên miền khác → dừng).
+- Trước khi ghi lên site thật: `kiem_site_that()` – đúng 1 lần `GET /wp-json/wp/v2/users/me` bằng `WP_LIVE_*`;
+  200 và đúng user `claude-bot` mới làm tiếp; không thì dừng, báo, không thử lại.
+- Thứ tự mỗi vòng: staging trước → kiểm → rồi site thật.
+
+## Script đã tách theo tên miền (2026-11-25)
+
+| Script | Trước | Sau |
+|---|---|---|
+| `tools/the7_noi_dung_moi.py` (chỉ đọc, đọc cả 2 site) | `WP_USER`/`WP_APP_PASSWORD` cho cả site thật lẫn staging | `wp_auth(base)`: site thật `WP_LIVE_*`, staging `WP_*` |
+| `tools/kiem_ke_anh.mjs`, `tools/mockup_extract_r4.mjs`, `tools/the7_kiem_ra_mat.py` | site thật đọc **không** đăng nhập | không đổi |
+| Các script chỉ ghi staging (`import_staging.py`, `the7_sua_buoc15*.py`, `the7_check_onpage.py`, `check_mat_chu.mjs`, `mockup_extract*.mjs`) | `WP_*`, URL staging cố định | không đổi (đúng quy tắc) |
+
+## Nhật ký ghi
+
+| Ngày | Việc | Đối tượng | Bản trước / quay lui | Kiểm users/me |
+|---|---|---|---|---|
+| – | (chưa ghi lần nào) | | | |

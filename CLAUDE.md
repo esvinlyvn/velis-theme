@@ -49,11 +49,18 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
 
 ## Phạm vi & an toàn (ưu tiên cao nhất)
 
-- Site thật `https://velisrealty.vn` (biến `WP_URL`): **CHỈ ĐỌC**. Mọi thao tác ghi chỉ trên staging
+- Site thật `https://velisrealty.vn` (biến `WP_URL`): mặc định **CHỈ ĐỌC**; chỉ ghi theo bước người dùng giao, sau khi đã làm
+  và kiểm trên staging (thứ tự: staging → kiểm → site thật). Mọi thao tác ghi khác chỉ trên staging
   `https://staging.velisrealty.vn` (biến `WP_STAGING_URL` nếu có; hiện chưa đặt trong môi trường, dùng URL này).
-- Thông tin đăng nhập (`WP_USER`, `WP_APP_PASSWORD`, `WP_ADMIN_PASSWORD`) chỉ nằm trong biến môi trường:
-  không in, không log, không ghi file, không đưa vào URL/ảnh chụp, không commit. Truyền cho curl qua stdin (`-K -`).
-- Chỉ gửi thông tin đăng nhập tới `velisrealty.vn` (đọc) và `staging.velisrealty.vn` (ghi).
+- **Đăng nhập theo tên miền (chốt 2026-11-25, thay mọi hướng dẫn trước):** STAGING → `WP_USER` + `WP_APP_PASSWORD`;
+  SITE THẬT → `WP_LIVE_USER` (= `claude-bot`) + `WP_LIVE_APP_PASSWORD`. Không bao giờ dùng `WP_*` cho site thật.
+  Script lấy thông tin đăng nhập qua `tools/wp_cred.py` (`wp_auth(url)` / `curl_cfg(url)` chọn biến theo tên miền,
+  tên miền lạ → dừng); không script nào dùng chung một biến cho 2 site.
+- Trước khi **ghi** lên site thật: `kiem_site_that()` – đúng 1 lần GET `/wp-json/wp/v2/users/me` bằng `WP_LIVE_*`;
+  200 và đúng user `claude-bot` mới làm tiếp, không thì dừng, báo. Mọi lần ghi site thật ghi vào `docs/the7/NHAT-KY-SITE-THAT.md`.
+- Thông tin đăng nhập (`WP_USER`, `WP_APP_PASSWORD`, `WP_LIVE_USER`, `WP_LIVE_APP_PASSWORD`, `WP_ADMIN_PASSWORD`) chỉ nằm
+  trong biến môi trường: không in, không log, không ghi file, không đưa vào URL/ảnh chụp, không commit. Truyền cho curl qua stdin (`-K -`).
+- Chỉ gửi thông tin đăng nhập tới `velisrealty.vn` (`WP_LIVE_*`) và `staging.velisrealty.vn` (`WP_*`).
 - TLS: chỉ tin thêm `/root/.ccr/ca-bundle.crt`. Cấm `curl -k`, `verify=False`, `ignoreHTTPSErrors`.
   Lỗi chứng chỉ khác (sai tên miền, hết hạn, CA lạ) → DỪNG, báo.
 - Đăng nhập thất bại 1 lần → DỪNG, không thử lại.
@@ -127,6 +134,7 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
 - `tools/` — script crawl/kiểm tra; `screenshots/` — ảnh chụp đã nén dùng trong báo cáo.
 
 ## Lệnh hay dùng
+- Thông tin đăng nhập theo tên miền + chốt chặn site thật: `tools/wp_cred.py` (tự kiểm: `python3 -I tools/wp_cred.py --test`).
 
 - Sinh `theme.json` từ DESIGN.md: `python3 -I tools/build_theme_json.py` (không sửa tay theme.json).
 - Sinh logo SVG: `python3 -I tools/build_logo.py`.

@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """Bước 0 kế hoạch ra mắt: nội dung mới trên site thật kể từ ngày chép staging + tệp uploads site thật thiếu trên staging.
-CHỈ ĐỌC (REST GET, mật khẩu ứng dụng từ env WP_USER / WP_APP_PASSWORD, không in). Người dùng: chỉ số lượng + vai trò.
+CHỈ ĐỌC (REST GET, mật khẩu ứng dụng theo tên miền qua tools/wp_cred.py: site thật WP_LIVE_*, staging WP_*; không in). Người dùng: chỉ số lượng + vai trò.
 
 Dùng: python3 -I tools/the7_noi_dung_moi.py [--tu 2026-11-11]      python3 -I tools/the7_noi_dung_moi.py --test
 """
 import os, sys
 from urllib.parse import urlparse
 
-L, S = 'https://velisrealty.vn', 'https://staging.velisrealty.vn'
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from wp_cred import wp_auth, LIVE as L, STAGING as S
 
 
 def duong_dan(media):
@@ -24,7 +25,7 @@ def lay(base, path, params):
     out, pg = [], 1
     while True:
         r = requests.get(base + path, params={**params, 'per_page': 100, 'page': pg}, timeout=60,
-                         auth=(os.environ['WP_USER'], os.environ['WP_APP_PASSWORD']), verify='/root/.ccr/ca-bundle.crt')
+                         auth=wp_auth(base), verify='/root/.ccr/ca-bundle.crt')
         if r.status_code != 200:
             sys.exit('%s%s: HTTP %s – dừng' % (base, path, r.status_code))
         out += r.json()
