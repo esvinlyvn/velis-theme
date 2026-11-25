@@ -110,7 +110,8 @@ function velis_cta_script() {
 }
 
 add_action( 'wp_head', function () {
-	echo '<script>document.documentElement.classList.add("velis-cta-js")</script>';
+	// The7 main.js gọi vc_initVideoBackgrounds (tệp js_composer_front của WPBakery) cả khi trang chỉ có phần tử Velis – hàm rỗng tránh lỗi console
+	echo '<script>document.documentElement.classList.add("velis-cta-js");window.vc_initVideoBackgrounds=window.vc_initVideoBackgrounds||function(){}</script>';
 }, 1 );
 
 add_action( 'wp_footer', function () {

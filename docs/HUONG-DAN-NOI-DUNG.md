@@ -231,9 +231,7 @@ Trên điện thoại (bước 15): lưới dự án là dải trượt ngang. T
 2. **Kiểm** theo checklist mục 4.
 3. **Xem trước.** Bấm nút Xem trước, xem cả máy tính và điện thoại. Trên Chrome: F12 → biểu tượng điện thoại, chọn 390 px.
 4. **Đăng.** Bấm nút Đăng (hoặc Cập nhật).
-5. **Xóa cache.** Trên thanh đen trên cùng:
-   - **LiteSpeed Cache → Xóa tất cả**;
-   - mục **FVM → Clear Cache** (nếu có quyền; không có thì nhờ Quản trị viên).
+5. **Xóa cache.** Trên thanh đen trên cùng: **LiteSpeed Cache → Xóa tất cả** (site chỉ còn một plugin tối ưu – FVM đã gỡ 2026-11-25).
 6. **Kiểm trang thật.** Mở bằng cửa sổ ẩn danh trên máy tính và điện thoại. Xem ảnh, form, thẻ dự án, mục lục.
 7. **Báo Search Console (trang mới).** Search Console → Kiểm tra URL → dán URL → **Yêu cầu lập chỉ mục**. Bài sửa nhỏ thì không cần.
 
@@ -261,7 +259,7 @@ CHECKLIST ĐĂNG BÀI / TRANG – velisrealty.vn                        Ngày: _
 [ ] 16 Trang dự án: Sidebar = Disabled; khối "Nhận bảng giá" đúng tên dự án
 [ ] 17 Trang dự án: Post Options → Related = cụm blog của dự án
 [ ] 18 Xem trước máy tính + điện thoại (390 px): không chữ tràn, ảnh hiện đủ
-[ ] 19 Đăng → xóa cache LiteSpeed + FVM → mở lại bằng tab ẩn danh
+[ ] 19 Đăng → LiteSpeed Cache → Xóa tất cả → mở lại bằng tab ẩn danh
 [ ] 20 Trang mới: Search Console → Kiểm tra URL → Yêu cầu lập chỉ mục
 ```
 
@@ -302,7 +300,6 @@ Người viết dùng tài khoản **Biên tập viên** (Editor) do Quản tr�
 | Rank Math trong từng bài (tiêu đề, mô tả, từ khóa, schema bài) | ✓ | – |
 | Mẫu WPBakery "Mẫu của tôi": dùng | ✓ | lưu/sửa mẫu gốc: báo Quản trị viên |
 | Xóa cache LiteSpeed | ✓ thường có trên thanh quản trị | nếu không thấy nút |
-| Xóa cache FVM | – | ✓ |
 | Giao diện → Menu, Tiện ích (footer, khối liên hệ cuối, hộp cột phải bài blog) | – | ✓ |
 | The7 → Theme Options (màu, chữ, dòng dưới cùng, MST) | – | ✓ |
 | Rank Math → cài đặt chung, SEO Local (email, địa chỉ, MST, mô tả tổ chức), chuyển hướng 301 | – | ✓ |

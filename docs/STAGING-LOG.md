@@ -586,3 +586,13 @@ Không đổi Theme Options, widget, menu, CF7. Không gửi form. Đăng nhập
 | Rank Math noindex trang tìm kiếm | đã bật | không đổi (chỉ đọc trang cài đặt) | – |
 Không đổi cài đặt, nội dung, plugin, theme. Không gửi form. Đăng nhập wp-admin 4 lần (đọc cài đặt Rank Math, xuất CSDL, đọc tệp CSS), đều thành công.
 Site thật: chỉ GET REST (người dùng, plugin, theme, media), trang công khai, HEAD 7 ứng dụng.
+
+## 2026-11-25 – Sửa gấp font tiếng Việt + gỡ FVM (staging)
+
+| Việc | Trước | Sau | Cách |
+|---|---|---|---|
+| Theme con | 2.1.0 | 2.1.1: `fonts/` (5 woff2 + OFL), `velis.css` @font-face, `functions.php` gỡ `dt-web-fonts` + tải sớm 2 font + hàm rỗng `vc_initVideoBackgrounds` | tải lên thay bản đang dùng |
+| Theme Options → Tracking code | 2 dòng tải sớm font FVM (UX-16) | bỏ (`tools/the7_options_font.py`) | Export / Import |
+| Fast Velocity Minify | bật (cài đặt: `data/the7/sua-tong/fvm-litespeed-truoc-staging.json`) | xóa cache FVM → **tắt → xóa plugin** (người dùng duyệt gỡ) | Plugin |
+| LiteSpeed → Page Optimization | CSS/JS minify, gộp: tắt | CSS minify + gộp, JS minify + gộp: **bật**; defer / UCSS / CCSS: tắt. `.htaccess` so trước / sau: **không đổi** | trang cài đặt, Lưu, Purge All |
+Còn lại: thư mục `/home/gdssxvdn/staging/wp-content/cache/fvm/` (không còn gì gọi tới; xóa bằng Terminal). Không gửi form (yêu cầu gửi bị chặn trong trình duyệt).

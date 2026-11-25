@@ -30,9 +30,11 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
   từng chỗ. Custom CSS cũ "velis-ux" trong `general-custom_css` là nợ cần gộp/gỡ, không thêm vào.
 - Theme Options lưu riêng theo theme (theme con có bộ riêng). Không nhập lại cả file options cũ (ghi đè thay đổi sau);
   xuất bộ hiện tại trước, chỉ đổi đúng khóa (`tools/the7_options_buoc*.py`), lưu bản trước/sau ở `data/the7/`.
-- Sau khi đổi CSS/options: xóa cache FVM (The7 tích hợp FVM, gộp CSS) + LiteSpeed purge. Không lưu trang cài đặt LiteSpeed
-  (có thể ghi `.htaccess`). FVM trì hoãn JS plugin tới khi chạm/cuộn và bỏ qua UA Headless/Lighthouse → điểm Lighthouse
-  đẹp hơn thực tế; đo console/tương tác bằng UA điện thoại thật.
+- Tối ưu: CHỈ LiteSpeed Cache (FVM đã gỡ 2026-11-25 – FVM tự tải Google Fonts thiếu dấu tiếng Việt). LiteSpeed: page cache + CSS/JS minify + gộp
+  CSS/JS (đã thử: The7 + WPBakery không lỗi), không JS defer / UCSS / CCSS. Sau khi đổi CSS/options: LiteSpeed → Xóa tất cả. Lưu trang cài đặt
+  LiteSpeed có thể ghi `.htaccess` → báo trước (staging 2026-11-25: Page Optimization không đổi .htaccess).
+- Font: tự lưu trong theme con `fonts/` (Be Vietnam Pro 400/500/600, Playfair Display 400/600; latin + latin-ext + vietnamese; OFL), dựng bằng
+  `tools/the7_font_tieng_viet.py` (kiểm cmap tiếng Việt); The7 không gọi Google Fonts (functions.php gỡ `dt-web-fonts`). Đo: `node tools/the7_check_font.mjs <url> <out> [m]`, cmap: `python3 tools/the7_font_tieng_viet.py --kiem <tệp>`.
 - Nội dung trang: sửa qua REST (`content.raw`) giữ shortcode WPBakery; ghi ID revision trước khi sửa vào `docs/STAGING-LOG.md`.
   Mẫu WPBakery nguồn ở `data/the7/mau-wpbakery/`, áp bằng `tools/the7_ap_mau_buoc2.py`.
 - Kiểm tra: `python3 -I tools/the7_check_onpage.py` (on-page toàn sitemap staging, có self-check);
@@ -128,7 +130,7 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
 
 - Sinh `theme.json` từ DESIGN.md: `python3 -I tools/build_theme_json.py` (không sửa tay theme.json).
 - Sinh logo SVG: `python3 -I tools/build_logo.py`.
-- Đóng gói theme con The7: `cd the7-child && zip -qr ../dist/dt-the7-child.zip dt-the7-child` → Giao diện → Tải lên → "Thay thế cài đặt bằng tải lên"; sau đó xóa cache FVM + LiteSpeed.
+- Đóng gói theme con The7: `cd the7-child && zip -qr ../dist/dt-the7-child.zip dt-the7-child` → Giao diện → Tải lên → "Thay thế cài đặt bằng tải lên"; sau đó LiteSpeed → Xóa tất cả.
 - (Đã bỏ) Đóng gói theme velis: `cd theme && zip -qr ../dist/velis.zip velis`.
 - Crawl mốc (chỉ đọc, không đăng nhập): `REQUESTS_CA_BUNDLE=/root/.ccr/ca-bundle.crt python3 -I tools/crawl_baseline.py https://velisrealty.vn data/baseline`.
 
