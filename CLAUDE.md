@@ -40,6 +40,8 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
   `tools/the7_font_tieng_viet.py` (kiểm cmap tiếng Việt); The7 không gọi Google Fonts (functions.php gỡ `dt-web-fonts`). Đo: `node tools/the7_check_font.mjs <url> <out> [m]`, cmap: `python3 tools/the7_font_tieng_viet.py --kiem <tệp>`.
 - Nội dung trang: sửa qua REST (`content.raw`) giữ shortcode WPBakery; ghi ID revision trước khi sửa vào `docs/STAGING-LOG.md`.
   Mẫu WPBakery nguồn ở `data/the7/mau-wpbakery/`, áp bằng `tools/the7_ap_mau_buoc2.py`.
+- Kiểm hằng ngày (cả staging + site thật): `python3 -I tools/the7_kiem_ra_mat.py --base <site> --chi-hang-ngay` (REST contact-form-7/v1 có; mọi URL sitemap
+  0 shortcode thô; khối Nhận bảng giá đúng 1 form). Plugin: không bật tự cập nhật; cập nhật tay, staging trước (CF7 6.2.6 cần PHP 8.3 – sự cố 2026-11-25).
 - Kiểm tra: `python3 -I tools/the7_check_onpage.py` (on-page toàn sitemap staging, có self-check);
   `node tools/the7_ui_audit.mjs` (computed style so với token DESIGN.md); Lighthouse `lighthouserc-the7.json`.
   Báo cáo từng bước ở `docs/reports/the7-*.md`.

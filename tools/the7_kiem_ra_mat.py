@@ -6,9 +6,12 @@
   3. sitemap_index.xml + mọi sitemap con: 200, có <loc>, đủ loại post/page/category, 0 "staging.";
   4. URL có lượt nhấp (data/gsc/pages.csv): 200 hoặc đúng 1 bước 301 tới trang 200;
   5. bảng chuyển hướng (data/the7/ra-mat/chuyen-huong-mau.csv – mỗi quy tắc Rank Math đang bật 1–2 URL mẫu): 1 bước đúng đích, đích 200;
-  6. 7 ứng dụng: CHỈ HEAD (CLAUDE.md), so mã với mốc – nội dung / dữ liệu ứng dụng do người dùng tự mở kiểm.
+  6. 7 ứng dụng: CHỈ HEAD (CLAUDE.md), so mã với mốc – nội dung / dữ liệu ứng dụng do người dùng tự mở kiểm;
+  7. (2026-11-25, dùng hằng ngày) REST contact-form-7/v1 có trong /wp-json/ (CF7 đang chạy);
+  8. (2026-11-25, dùng hằng ngày) MỌI URL trong sitemap (bỏ cache bằng ?nc=…): 0 shortcode in thô; trang có khối "Nhận bảng giá"
+     (class velis-cta) có đúng 1 form CF7 và form nằm trong khối. --chi-hang-ngay: chỉ chạy 7 + 8.
 
-Dùng: python3 -I tools/the7_kiem_ra_mat.py [--base https://velisrealty.vn] [--ung-dung-chuan]   (staging: env VIEW_PASSWORD_FILE)
+Dùng: python3 -I tools/the7_kiem_ra_mat.py [--base https://velisrealty.vn] [--ung-dung-chuan] [--chi-hang-ngay]   (staging: env STAGING_VIEW_PASSWORD)
       python3 -I tools/the7_kiem_ra_mat.py --ghi-moc   NGAY TRƯỚC khi bật: ghi mã HEAD hiện tại của 7 ứng dụng vào MOC_UD
       (lần kiểm sau so với mốc này thay cho mốc 2026-11-14).
       python3 -I tools/the7_kiem_ra_mat.py --test
@@ -83,6 +86,30 @@ def phan_xu(hops, dich=None):
     return '' if s1 == 200 else 'chuỗi/đích lỗi: %s → %s %s' % (l0, s1, l1)
 
 
+# shortcode in thô: "[tên" của shortcode hay dùng trên site, kể cả khi wptexturize đổi nháy (&#8221; …); bỏ script/style/textarea
+SC_THO = re.compile(r'\[/?(?:contact-form-7|vc_\w+|ez-toc|ultimate_\w+|ult_\w+|dt_\w+|velis_\w+|rank_math\w*|gallery|caption)\b')
+KHOI_NBG = re.compile(r'class="[^"]*(?<![\w-])velis-cta(?=["\s])')
+FORM = re.compile(r'<form\b[^>]*class="[^"]*\bwpcf7-form\b')
+
+
+def shortcode_tho(html):
+    than = re.sub(r'(?is)<(script|style|textarea|noscript)\b.*?</\1>|<!--.*?-->', '', html)
+    than = re.sub(r'(?s)<[^>]+>', ' ', than)  # chỉ xét chữ hiển thị, không xét thuộc tính
+    return sorted(set(m.group(0) for m in SC_THO.finditer(than)))
+
+
+def form_nbg_loi(html):
+    """'' nếu trang không có khối Nhận bảng giá, hoặc có đúng 1 form và form nằm trong khối; không thì mô tả lỗi."""
+    k = KHOI_NBG.search(html)
+    if not k:
+        return ''
+    f = [m.start() for m in FORM.finditer(html)]
+    if len(f) != 1:
+        return '%d form (phải 1)' % len(f)
+    # shortcut: "trong khối" = form bắt đầu sau đầu khối ≤ 20 000 ký tự HTML; nếu khối dài hơn → đo bằng trình duyệt
+    return '' if 0 < f[0] - k.start() <= 20000 else 'form không nằm trong khối Nhận bảng giá'
+
+
 def phien(base):
     import requests
     from urllib3.util.retry import Retry
@@ -90,13 +117,13 @@ def phien(base):
     s.mount('https://', requests.adapters.HTTPAdapter(max_retries=Retry(total=4, connect=4, read=4, backoff_factor=2, status_forcelist=(), allowed_methods=None, raise_on_status=False)))
     s.headers['User-Agent'] = 'Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0 Mobile Safari/537.36'
     if 'staging.' in base:  # trang khóa mật khẩu xem (Password Protected)
-        pw = open(os.environ['VIEW_PASSWORD_FILE'], encoding='utf-8').read().strip()
+        pw = os.environ.get('STAGING_VIEW_PASSWORD') or open(os.environ['VIEW_PASSWORD_FILE'], encoding='utf-8').read().strip()
         login = base + '/?password-protected=login&redirect_to=' + base + '/'
         s.get(login); s.post(login, data={'password_protected_pwd': pw, 'password_protected_cookie_test': '1', 'password-protected': 'login', 'redirect_to': base + '/'})
     return s
 
 
-def chay(base, chuan_ung_dung):
+def chay(base, chuan_ung_dung, chi_hang_ngay=False):
     t0 = time.time(); s = phien(base); loi = []; host = urlsplit(base).netloc
     nhom = []  # (tên nhóm, số mục, số lỗi trước nhóm)
 
@@ -117,6 +144,40 @@ def chay(base, chuan_ung_dung):
             path = lp
         return out
 
+    mo('REST contact-form-7/v1 có trong /wp-json/ (Contact Form 7 đang chạy)', 1)
+    r = s.get(base + '/wp-json/', timeout=60)
+    if 'contact-form-7/v1' not in (r.json().get('namespaces', []) if r.ok else []):
+        loi.append('REST: không có contact-form-7/v1 (HTTP %s) – CF7 không chạy, mọi form in thô' % r.status_code)
+    idx = s.get(base + '/sitemap_index.xml', timeout=60)
+    urls = []
+    for c in (re.findall(r'<loc>([^<]+)</loc>', idx.text) if idx.ok else []):
+        urls += re.findall(r'<loc>([^<]+)</loc>', s.get(c, timeout=60).text)
+    if not urls and 'staging.' in base:  # staging chặn sitemap (403) → danh sách trang + bài đã xuất bản qua REST (WP_* theo wp_cred)
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from wp_cred import wp_auth
+        for loai in ('pages', 'posts'):
+            for trang in range(1, 20):
+                r = s.get('%s/wp-json/wp/v2/%s' % (base, loai), params={'per_page': 100, 'page': trang, '_fields': 'link'}, auth=wp_auth(base), timeout=60)
+                if r.status_code != 200 or not r.json():
+                    break
+                urls += [x['link'] for x in r.json()]
+    urls = [u for u in dict.fromkeys(urls) if urlsplit(u).netloc == host and not la_ung_dung(urlsplit(u).path)]
+    if not urls:
+        loi.append('không lấy được URL nào (sitemap_index.xml HTTP %s)' % idx.status_code)
+    mo('%d URL sitemap: 0 shortcode in thô; khối Nhận bảng giá có đúng 1 form trong khối' % len(urls), len(urls))
+    n_nbg = 0
+    for u in urls:
+        r = s.get(u + ('&' if '?' in u else '?') + 'nc=%d' % (time.time() * 1000), timeout=60)
+        if r.status_code != 200:
+            loi.append('sitemap %s: HTTP %s' % (urlsplit(u).path, r.status_code)); continue
+        tho = shortcode_tho(r.text); fl = form_nbg_loi(r.text); n_nbg += bool(KHOI_NBG.search(r.text))
+        if tho:
+            loi.append('shortcode thô %s: %s' % (urlsplit(u).path, ', '.join(tho)))
+        if fl:
+            loi.append('Nhận bảng giá %s: %s' % (urlsplit(u).path, fl))
+    print('  (ghi chú) %d / %d URL có khối Nhận bảng giá' % (n_nbg, len(urls)))
+    if chi_hang_ngay:
+        return ket_qua(base, nhom, loi, t0, '%d URL sitemap' % len(urls))
     mo('robots.txt (không chặn toàn site, có Sitemap)', 1)
     r = s.get(base + '/robots.txt', timeout=60)
     loi += ['robots: ' + x for x in robots_loi(r.text if r.ok else '', base)]
@@ -165,8 +226,12 @@ def chay(base, chuan_ung_dung):
             (loi if chuan_ung_dung else []).append('ứng dụng %s: HEAD %s (mốc %s)' % (p, h, ma))
             if not chuan_ung_dung:
                 print('  (ghi chú) ứng dụng %s: HEAD %s, mốc site thật %s' % (p, h, ma))
-    print('%s – %d trang mẫu, %d sitemap con, %d URL GSC, %d URL chuyển hướng mẫu, %d ứng dụng (HEAD) – %.0f s'
-          % (base, len(TRANG_MAU), len(con), len(gsc), len(mau), len(UNG_DUNG), time.time() - t0))
+    return ket_qua(base, nhom, loi, t0, '%d trang mẫu, %d sitemap con, %d URL GSC, %d URL chuyển hướng mẫu, %d ứng dụng (HEAD)'
+                   % (len(TRANG_MAU), len(con), len(gsc), len(mau), len(UNG_DUNG)))
+
+
+def ket_qua(base, nhom, loi, t0, tom_tat):
+    print('%s – %s – %.0f s' % (base, tom_tat, time.time() - t0))
     for i, (ten, n, dau) in enumerate(nhom):
         cuoi = nhom[i + 1][2] if i + 1 < len(nhom) else len(loi)
         print('  %-7s %s%s' % ('ĐẠT' if cuoi == dau else 'TRƯỢT', ten, '' if cuoi == dau else ' – %d lỗi' % (cuoi - dau)))
@@ -191,6 +256,14 @@ def test():
     assert phan_xu([(301, '/blog/'), (200, '')], '/blog/') == '' and phan_xu([(301, '/x/'), (200, '')], '/blog/').startswith('đích sai')
     g = url_gsc(os.path.join(ROOT, 'data', 'gsc', 'pages.csv'))
     assert '/' in g and '/thi/' not in g and all(not la_ung_dung(p) for p in g), g
+    assert shortcode_tho('<p>[contact-form-7 id=&#8221;20958&#8243; title=&#8221;X&#8221;]</p>') == ['[contact-form-7']
+    assert shortcode_tho('<p>[vc_row][/vc_row] [ez-toc]</p>') == ['[/vc_row', '[ez-toc', '[vc_row']
+    assert shortcode_tho('<script>x="[vc_row]"</script><textarea>[velis_khoi]</textarea><a title="[dt_x]">Giá [tên dự án]</a>') == []
+    nbg = '<div class="vc_row velis-cta"><h2>Nhận bảng giá</h2><form action="/" class="wpcf7-form init"></form></div>'
+    assert form_nbg_loi('<div class="velis-cta-bar"></div>') == '' and form_nbg_loi(nbg) == ''
+    assert form_nbg_loi('<div class="velis-cta">[contact-form-7 id=&#8221;1&#8243;]</div>') == '0 form (phải 1)'
+    assert form_nbg_loi(nbg + '<form class="wpcf7-form"></form>') == '2 form (phải 1)'
+    assert form_nbg_loi('<form class="wpcf7-form"></form><div class="velis-cta"></div>').startswith('form không nằm')
     print('test: OK (%d URL GSC có lượt nhấp, đã bỏ ứng dụng)' % len(g))
 
 
@@ -202,4 +275,5 @@ if __name__ == '__main__':
         s = phien('https://velisrealty.vn')
         moc = {p: s.head('https://velisrealty.vn' + p, allow_redirects=False, timeout=60).status_code for p in UNG_DUNG}
         json.dump(moc, open(MOC_UD, 'w'), indent=1); print('mốc ứng dụng (HEAD):', moc, '→', MOC_UD); sys.exit(0)
-    sys.exit(chay(a[a.index('--base') + 1].rstrip('/') if '--base' in a else 'https://velisrealty.vn', '--ung-dung-chuan' in a))
+    sys.exit(chay(a[a.index('--base') + 1].rstrip('/') if '--base' in a else 'https://velisrealty.vn', '--ung-dung-chuan' in a,
+                  '--chi-hang-ngay' in a))

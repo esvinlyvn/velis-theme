@@ -648,3 +648,8 @@ Chỉ đọc: REST `contact-forms` (19582, 20958 – ô `[tel* sdt]`, thông bá
 | 19625 | /du-an/sun-group/ | 21213 | 21233 | 5 |
 | 19633 | /du-an/masterise-homes/ | 21214 | 21234 | 3 |
 | 19637 | /du-an/gamuda-land/ | 21215 | 21235 | 4 |
+
+
+## 2026-11-25 (17:50 giờ VN) – CF7 câu báo lỗi số điện thoại
+
+Form 19582 Liên Hệ + 20958 Nhận bảng giá, `invalid_tel`: "Số điện thoại gồm 10 chữ số, bắt đầu bằng 0 (ví dụ 0911 237 979)." → "Số điện thoại chưa đúng, ví dụ 0911 237 979" (`tools/the7_cf7_thong_bao.mjs`). CF7 staging 6.1.6, tự cập nhật đã tắt từ trước.

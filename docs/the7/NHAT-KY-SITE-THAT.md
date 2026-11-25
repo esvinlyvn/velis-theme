@@ -119,6 +119,34 @@ Bản trước: `/home/gdssxvdn/velis-saoluu/{staging,sitethat}-{functions,style
 
 Ảnh: `screenshots/the7/font/site-that-gop-*.jpg`. Quay lui: Page Optimization đặt lại 4 ô CSS/JS minify + combine = TẮT, Purge All.
 
+## 2026-11-25 (17:10–17:55 giờ VN) – SỰ CỐ: mọi form site thật chết (CF7 6.2.6 cần PHP 8.3) → hạ CF7 về 6.1.6
+
+**Nguyên nhân (có bằng chứng):**
+- Tệp `wp-content/plugins/contact-form-7/` được ghi lúc **10:10:38 UTC = 17:10:38 giờ VN** (Last-Modified `readme.txt`, `includes/js/index.js`) → CF7 6.1.6 → **6.2.6**
+  (`Requires PHP: 8.3`, `Requires at least: 7.1`). Hosting: **PHP 8.2.36** (Site Health, cả 2 site; `.htaccess` site thật vẫn `AddHandler application/x-httpd-alt-php82`).
+- plugins.php site thật: CF7 6.2.6 **"Không thể kích hoạt"**, thông báo "Plugin này không làm việc với phiên bản PHP hiện tại của bạn"; REST: `inactive`; `/wp-json/` không còn `contact-form-7/v1`.
+- CF7 tắt → shortcode `[contact-form-7 …]` không được đăng ký → WordPress in thô và **wptexturize** đổi nháy khi in (`id=&#8221;20958&#8243;`). Trang chủ in thô cả `[contact-form-7 id="19582" title="Liên Hệ"]`.
+- **Nội dung không hỏng**: `content.raw` (context=edit) The Privé 19962, The Global City 20067, Masterise 19633 – hiện tại và mọi revision (20793…21025, tác giả 1) đều
+  `[contact-form-7 id="20958" title="Nhận bảng giá" du-an="…"]` nháy thẳng. Form 20958 = "Nhận bảng giá", 19582 = "Liên Hệ" có trên site thật (cùng ID staging).
+  → không phải lỗi gói vl2 / `the7_doi_tien_to.py` / lần lưu REST nào; không sửa nội dung trang nào.
+- Mốc: 16:57 gửi thật `mail_sent`, 17:01 kiểm khô The Privé đạt → CF7 còn chạy; 17:10:38 bị thay. Claude không thao tác plugin trong khoảng đó
+  (17:00:26 lưu LiteSpeed, sau đó chỉ đọc). Lúc đó CF7 đang **bật tự cập nhật** (dòng plugin có "Tắt cập nhật tự động") → nhiều khả năng do tự cập nhật
+  của WordPress; chưa có nhật ký để chứng minh (không có plugin nhật ký; WP Mail SMTP Lite không lưu thư) – email "plugin được tự động cập nhật" gửi tới email quản trị lúc ~17:10 sẽ xác nhận.
+
+**Đã làm (người dùng chọn "Hạ về 6.1.6"):**
+| Giờ VN | Việc |
+|---|---|
+| 17:3x | `kiem_site_that()` 200 claude-bot. Tải `contact-form-7.6.1.6.zip` từ downloads.wordpress.org, khớp checksum chính thức 143/143 tệp |
+| 17:35:59 | `node tools/wp_tai_theme.mjs https://velisrealty.vn …/contact-form-7.6.1.6.zip --plugin` – Thay thế 6.2.6 → 6.1.6 |
+| 17:36 | REST kích hoạt → `active 6.1.6`; tắt tự cập nhật CF7 (site thật; staging vốn tắt); Purge All |
+| 17:52 | Câu báo lỗi số điện thoại (CF7 → Thông báo `invalid_tel`), form 19582 + 20958: cũ "Số điện thoại gồm 10 chữ số, bắt đầu bằng 0 (ví dụ 0911 237 979)." → mới "Số điện thoại chưa đúng, ví dụ 0911 237 979" (`tools/the7_cf7_thong_bao.mjs`; so cài đặt REST trước/sau: chỉ `messages/invalid_tel` đổi); Purge All. Staging làm trước |
+
+**Kiểm sau:** `python3 -I tools/the7_kiem_ra_mat.py --chi-hang-ngay`: REST `contact-form-7/v1` có; **130/130 URL sitemap 0 shortcode thô**; 12 trang có khối Nhận bảng giá – mỗi trang đúng 1 form trong khối
+(staging 121 URL, 13 trang – đạt). Form kiểm khô / (trang chủ), /lien-he/, /can-ho-the-prive/: +84 / 84 / 0 nhận, "12345" báo lỗi (câu mới). Gửi thật 1 lần 17:44 form
+Nhận bảng giá The Privé, "Kiểm thử ra mắt", `+84 911 237 979` → `mail_sent`; dòng cảm ơn hiện (kiểm lại bằng chặn yêu cầu, 1366 + 390).
+**Chưa làm:** kiểm toàn site trên PHP 8.3 – lúc 17:45 Site Health cả 2 site vẫn PHP 8.2.36 (người dùng báo đã nâng; chưa có hiệu lực với `public_html`).
+Quay lui CF7: tải lại bản cần qua `tools/wp_tai_theme.mjs … --plugin`.
+
 ## Quy tắc đăng nhập (người dùng chốt 2026-11-25, thay mọi hướng dẫn trước)
 
 - STAGING (`staging.velisrealty.vn`): `WP_USER` + `WP_APP_PASSWORD`.
@@ -143,3 +171,4 @@ Bản trước: `/home/gdssxvdn/velis-saoluu/{staging,sitethat}-{functions,style
 | 2026-11-25 | (không ghi – kiểm users/me đạt, không có đường REST cho Theme Options / LiteSpeed) | – | – | 200, claude-bot |
 | 2026-11-25 | Theme con 1.9.2 → 1.9.3 (form +84) + Purge All; gửi thật 1 form "Kiểm thử ra mắt" | dt-the7-child | gói 1.9.2 trong repo | 200, claude-bot |
 | 2026-11-25 | LiteSpeed Page Optimization: CSS/JS minify + combine BẬT; Purge All (.htaccess không đổi) | LiteSpeed | mọi ô TẮT | 200, claude-bot |
+| 2026-11-25 | CF7 6.2.6 (tự thay 17:10, không chạy trên PHP 8.2) → 6.1.6 + kích hoạt + tắt tự cập nhật CF7; câu invalid_tel 2 form; Purge All | contact-form-7 | 6.2.6 inactive | 200, claude-bot |

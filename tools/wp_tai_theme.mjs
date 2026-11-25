@@ -1,21 +1,23 @@
-// Tải theme zip qua wp-admin (Giao diện → Tải lên → "Thay thế bản hiện tại") rồi LiteSpeed → Xóa tất cả.
+// Tải theme zip (hoặc plugin zip với --plugin) qua wp-admin ("Thay thế bản hiện tại") rồi LiteSpeed → Xóa tất cả.
+// Plugin: chỉ thay tệp, KHÔNG tự kích hoạt / đổi cập nhật tự động (làm riêng, có duyệt).
 // Site thật: chạy `python3 -I tools/wp_cred.py`-kiem_site_that() trước, ghi docs/the7/NHAT-KY-SITE-THAT.md. Không in mật khẩu.
-// Dùng: node tools/wp_tai_theme.mjs <url site> <tệp.zip> [--chi-purge]
+// Dùng: node tools/wp_tai_theme.mjs <url site> <tệp.zip> [--plugin] [--chi-purge]
 import { createRequire } from 'node:module';
 import { wpAdminLogin } from './wp_admin_login.mjs';
 const { chromium } = createRequire(import.meta.url)('playwright');
 const [site, zip] = process.argv.slice(2);
-const chiPurge = process.argv.includes('--chi-purge');
+const chiPurge = process.argv.includes('--chi-purge'), pl = process.argv.includes('--plugin');
+const [trang, o_file, o_nut] = pl ? ['/wp-admin/plugin-install.php?tab=upload', '#pluginzip', '#install-plugin-submit'] : ['/wp-admin/theme-install.php?browse=upload', '#themezip', '#install-theme-submit'];
 const o = new URL(site).origin;
 const b = await chromium.launch();
 try {
   const p = await (await b.newContext()).newPage();
   console.log('Đăng nhập:', (await wpAdminLogin(p, o)).replace(/\?.*/, ''));
   if (!chiPurge) {
-    await p.goto(o + '/wp-admin/theme-install.php?browse=upload');
-    if (!(await p.locator('#install-theme-submit').isVisible())) await p.click('.upload-view-toggle');
-    await p.setInputFiles('#themezip', zip);
-    await Promise.all([p.waitForNavigation({ timeout: 180000 }), p.click('#install-theme-submit')]);
+    await p.goto(o + trang);
+    if (!(await p.locator(o_nut).isVisible())) await p.click('.upload-view-toggle');
+    await p.setInputFiles(o_file, zip);
+    await Promise.all([p.waitForNavigation({ timeout: 180000 }), p.click(o_nut)]);
     const thay = p.locator('a.update-from-upload-overwrite');
     if (!(await thay.count())) throw new Error('Không thấy nút "Thay thế": ' + (await p.locator('.wrap').innerText()).slice(0, 600));
     console.log((await p.locator('.update-from-upload-comparison').innerText().catch(() => '')).replace(/\s+/g, ' ').slice(0, 400));
