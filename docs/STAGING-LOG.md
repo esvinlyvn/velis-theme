@@ -577,3 +577,12 @@ Không đổi Theme Options, mẫu WPBakery ("Mẫu của tôi" không có hàng
 | Theme con | 1.9.0 | **1.9.1** (`velis.css`: viền ô nhập #C9C1B5 / nền than trắng, `velis-clamp` không H2, `.paginator .dots`; `functions.php`: "…" phân trang `<span>`, nút "Xem thêm" chỉ khi có chữ ẩn) | Giao diện → Tải lên → thay bản đang dùng (4 lần trong vòng khi chỉnh khoảng nút / ô "…") |
 | Cache | – | xóa FVM + LiteSpeed (chỉ purge) sau mỗi lần tải theme | thanh quản trị |
 Không đổi Theme Options, widget, menu, CF7. Không gửi form. Đăng nhập wp-admin 5 lần (mỗi lần tải theme / lưu mẫu), đều thành công.
+
+## 2026-11-25 – Gói ra mắt "bật công tắc" (chỉ xuất, không đổi cài đặt)
+
+| Việc | Trước | Sau | Cách |
+|---|---|---|---|
+| UpdraftPlus | – | "Sao lưu ngay" **chỉ CSDL** lúc 11:29 (bản trên staging, không gửi đi đâu) → tải về máy làm việc → `tools/the7_dong_goi_ra_mat.sh` | wp-admin UpdraftPlus |
+| Rank Math noindex trang tìm kiếm | đã bật | không đổi (chỉ đọc trang cài đặt) | – |
+Không đổi cài đặt, nội dung, plugin, theme. Không gửi form. Đăng nhập wp-admin 4 lần (đọc cài đặt Rank Math, xuất CSDL, đọc tệp CSS), đều thành công.
+Site thật: chỉ GET REST (người dùng, plugin, theme, media), trang công khai, HEAD 7 ứng dụng.

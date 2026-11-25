@@ -9,10 +9,12 @@
   6. 7 ứng dụng: CHỈ HEAD (CLAUDE.md), so mã với mốc – nội dung / dữ liệu ứng dụng do người dùng tự mở kiểm.
 
 Dùng: python3 -I tools/the7_kiem_ra_mat.py [--base https://velisrealty.vn] [--ung-dung-chuan]   (staging: env VIEW_PASSWORD_FILE)
+      python3 -I tools/the7_kiem_ra_mat.py --ghi-moc   NGAY TRƯỚC khi bật: ghi mã HEAD hiện tại của 7 ứng dụng vào MOC_UD
+      (lần kiểm sau so với mốc này thay cho mốc 2026-11-14).
       python3 -I tools/the7_kiem_ra_mat.py --test
 Thoát 0 = đạt hết; 1 = có mục trượt → theo kế hoạch: quay lui bước 5.
 """
-import csv, os, re, sys, time
+import csv, json, os, re, sys, time
 from urllib.parse import urljoin, urlsplit
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,6 +23,9 @@ TRANG_MAU = ['/', '/du-an/', '/chu-dau-tu/', '/blog/', '/blog/the-prive/', '/can
 UNG_DUNG = {  # mốc HEAD site thật 2026-11-14 (curl -sI)
     '/check-can-the-prive/': 405, '/check-sdt/': 200, '/cmgd/': 200, '/lucky-lead/': 302,
     '/meta-check/': 200, '/tao-qr-bank/': 200, '/thi/': 200, '/meta-check.zip': 200}
+# noindex có chủ đích, giống site thật (chuyên mục blog đặt Rank Math "noindex" từ trước) – chỉ ghi chú, không tính trượt
+NOINDEX_BIET = {'/blog/'}
+MOC_UD = os.path.join(ROOT, 'data', 'the7', 'ra-mat', 'moc-ung-dung.json')
 APPS = tuple(k.rstrip('/') for k in UNG_DUNG if not k.endswith('.zip'))
 
 
@@ -93,6 +98,10 @@ def phien(base):
 
 def chay(base, chuan_ung_dung):
     t0 = time.time(); s = phien(base); loi = []; host = urlsplit(base).netloc
+    nhom = []  # (tên nhóm, số mục, số lỗi trước nhóm)
+
+    def mo(ten, n):
+        nhom.append([ten, n, len(loi)])
 
     def buoc(path):
         out, seen = [], set()
@@ -108,16 +117,22 @@ def chay(base, chuan_ung_dung):
             path = lp
         return out
 
+    mo('robots.txt (không chặn toàn site, có Sitemap)', 1)
     r = s.get(base + '/robots.txt', timeout=60)
     loi += ['robots: ' + x for x in robots_loi(r.text if r.ok else '', base)]
+    mo('10 trang mẫu: 200, không noindex (meta + X-Robots-Tag), 0 chuỗi "staging."', len(TRANG_MAU))
     for p in TRANG_MAU:
         r = s.get(base + p, timeout=60)
         if r.status_code != 200:
             loi.append('trang %s: %s' % (p, r.status_code)); continue
         if noindex(r.text, r.headers):
-            loi.append('trang %s: noindex' % p)
+            if p in NOINDEX_BIET:
+                print('  (ghi chú) %s noindex – cài đặt có sẵn của chuyên mục, giống site thật' % p)
+            else:
+                loi.append('trang %s: noindex' % p)
         if staging_trong(r.text):
             loi.append('trang %s: %d chuỗi staging' % (p, staging_trong(r.text)))
+    mo('sitemap_index.xml + mọi sitemap con: 200, có <loc>, 0 "staging."', 1)
     r = s.get(base + '/sitemap_index.xml', timeout=60)
     con = re.findall(r'<loc>([^<]+)</loc>', r.text) if r.ok else []
     if not con:
@@ -130,16 +145,21 @@ def chay(base, chuan_ung_dung):
         if rc.status_code != 200 or '<loc>' not in rc.text or staging_trong(rc.text):
             loi.append('sitemap %s: %s, staging=%d' % (urlsplit(c).path, rc.status_code, staging_trong(rc.text)))
     gsc = url_gsc(os.path.join(ROOT, 'data', 'gsc', 'pages.csv'))
+    mo('%d URL có lượt nhấp (Search Console): 200 hoặc 1 bước 301 → 200' % len(gsc), len(gsc))
     for p in gsc:
         x = phan_xu(buoc(p))
         if x:
             loi.append('GSC %s: %s' % (p, x))
     mau = list(csv.DictReader(open(os.path.join(ROOT, 'data', 'the7', 'ra-mat', 'chuyen-huong-mau.csv'), encoding='utf-8')))
+    mo('%d URL mẫu của mọi quy tắc chuyển hướng: 1 bước 301 đúng đích' % len(mau), len(mau))
     for m in mau:
         x = phan_xu(buoc(m['url_mau']), m['dich'])
         if x:
             loi.append('chuyển hướng %s: %s' % (m['url_mau'], x))
-    for p, ma in UNG_DUNG.items():
+    moc = json.load(open(MOC_UD)) if os.path.exists(MOC_UD) else UNG_DUNG
+    mo('7 ứng dụng (+ meta-check.zip): HEAD đúng mã mốc %s' % ('ghi ngay trước khi bật' if moc is not UNG_DUNG else '2026-11-14')
+       + ('' if chuan_ung_dung else ' – chỉ ghi chú'), len(moc))
+    for p, ma in moc.items():
         h = s.head(base + p, allow_redirects=False, timeout=60).status_code
         if h != ma:
             (loi if chuan_ung_dung else []).append('ứng dụng %s: HEAD %s (mốc %s)' % (p, h, ma))
@@ -147,7 +167,10 @@ def chay(base, chuan_ung_dung):
                 print('  (ghi chú) ứng dụng %s: HEAD %s, mốc site thật %s' % (p, h, ma))
     print('%s – %d trang mẫu, %d sitemap con, %d URL GSC, %d URL chuyển hướng mẫu, %d ứng dụng (HEAD) – %.0f s'
           % (base, len(TRANG_MAU), len(con), len(gsc), len(mau), len(UNG_DUNG), time.time() - t0))
-    print('KẾT QUẢ: ' + ('ĐẠT' if not loi else 'TRƯỢT %d mục' % len(loi)))
+    for i, (ten, n, dau) in enumerate(nhom):
+        cuoi = nhom[i + 1][2] if i + 1 < len(nhom) else len(loi)
+        print('  %-7s %s%s' % ('ĐẠT' if cuoi == dau else 'TRƯỢT', ten, '' if cuoi == dau else ' – %d lỗi' % (cuoi - dau)))
+    print('KẾT QUẢ: ' + ('ĐẠT' if not loi else 'TRƯỢT %d mục → theo kế hoạch: quay lui (sửa lại $table_prefix = \'velis_\')' % len(loi)))
     for x in loi:
         print('  - ' + x)
     return 0 if not loi else 1
@@ -175,4 +198,8 @@ if __name__ == '__main__':
     a = sys.argv[1:]
     if a == ['--test']:
         test(); sys.exit(0)
+    if a == ['--ghi-moc']:
+        s = phien('https://velisrealty.vn')
+        moc = {p: s.head('https://velisrealty.vn' + p, allow_redirects=False, timeout=60).status_code for p in UNG_DUNG}
+        json.dump(moc, open(MOC_UD, 'w'), indent=1); print('mốc ứng dụng (HEAD):', moc, '→', MOC_UD); sys.exit(0)
     sys.exit(chay(a[a.index('--base') + 1].rstrip('/') if '--base' in a else 'https://velisrealty.vn', '--ung-dung-chuan' in a))

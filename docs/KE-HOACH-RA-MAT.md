@@ -4,6 +4,8 @@ Người dùng chốt cách làm 2026-11-14. Thay bản 2026-11-12 (chuyển đ�
 Số đo, cách đo và kết quả diễn tập: `docs/reports/the7-ke-hoach-ra-mat.md`. **Chưa ra mắt.** Mỗi bước ghi lên site thật cần
 người dùng ra lệnh; bước có thể ghi `.htaccess` duyệt riêng (CLAUDE.md).
 
+**Gói thực hiện (2026-11-25): `docs/the7/GOI-RA-MAT.md`** – các bước 2–4 nay làm sẵn trong tệp SQL (staging không bị đổi cài đặt).
+
 ## Nguyên tắc
 
 - **Không ghi đè** bảng, tệp, cài đặt nào của site thật. Dữ liệu staging nhập thành **bộ bảng mới tiền tố `vl2_`** trong cùng CSDL

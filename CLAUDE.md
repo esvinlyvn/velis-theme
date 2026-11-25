@@ -116,6 +116,8 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
   Extra class `velis-clamp` = 4 dòng + "Xem thêm"; ảnh tiến độ = Single Image "Link to large image". Đo `node tools/the7_check_mobile.mjs out.json` (`--test`).
 - Ra mắt (2026-11-14, chốt "dựng song song, bật công tắc"): `docs/KE-HOACH-RA-MAT.md`; site thật tiền tố **`velis_`**, bộ mới `vl2_`. Công cụ:
   `tools/the7_noi_dung_moi.py` (nội dung mới, chỉ đọc), `tools/the7_doi_tien_to.py` (bản xuất staging → bộ `vl2_`, search-replace serialized), `tools/the7_kiem_ra_mat.py` (bước 6); đều có `--test`.
+- Gói ra mắt (2026-11-25): `docs/the7/GOI-RA-MAT.md`; dựng gói `tools/the7_dong_goi_ra_mat.sh <bản xuất UpdraftPlus> <thư mục ngoài repo>`
+  (= `the7_doi_tien_to.py` → `the7_sua_ra_mat.php` sửa cài đặt staging-only trên CSDL thử cục bộ → `the7_kiem_goi_sql.py`); `uploads/the7-css/` phải thay lúc bật.
 - `data/the7/mau-wpbakery/` — 3 mẫu WPBakery (Dự án, Chủ đầu tư, Bài viết) đã lưu vào "Mẫu của tôi" trên staging; bố cục trang nằm trong WPBakery, không trong PHP.
 - `theme/velis/` — theme khối velis, **đã bỏ 2026-11-11** (giữ để tham khảo); `dist/` (bỏ qua git) — file zip đóng gói.
 - `assets/brand/original/` — logo gốc tải từ Media site thật + PDF vector; `assets/brand/svg/` — SVG vẽ lại.
