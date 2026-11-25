@@ -22,7 +22,8 @@ tiếng Việt), không gọi Google Fonts; gỡ FVM; LiteSpeed lo minify + gộ
    ```
    wp-admin → **Cài đặt → Fast Velocity Minify** → chụp màn hình các tab (đối chiếu: cài đặt staging đã ghi ở
    `data/the7/sua-tong/fvm-litespeed-truoc-staging.json`; site thật cùng bản sao lúc ra mắt). **LiteSpeed Cache → Toolbox → Xuất cài đặt** (Export) – tải tệp về máy.
-1. **Theme con 1.9.2** – Giao diện → Giao diện → Thêm mới → Tải giao diện lên → chọn `dt-the7-child-1.9.2-live.zip` (Claude gửi kèm) →
+1. **Theme con 1.9.3** (= 1.9.2 + sửa form số +84, xem mục dưới; chưa áp 1.9.2 thì áp thẳng 1.9.3) – Giao diện → Giao diện → Thêm mới → Tải giao diện lên →
+   chọn `data/the7/goi-1.9.3/dt-the7-child-1.9.3-live.zip` (bản chỉ font: `data/the7/goi-1.9.2/dt-the7-child-1.9.2-live.zip`) →
    **Thay thế bản hiện tại bằng bản tải lên**. Đổi đúng 3 tệp + 1 thư mục: `style.css` (1.9.2), `velis.css` (+ @font-face), `functions.php` (+ gỡ Google Fonts, tải sớm 2 font), `fonts/`.
    Trả lại nếu cần: `cd /home/gdssxvdn && rm -rf public_html/wp-content/themes/dt-the7-child && cp -a dt-the7-child-1.9.1-sao-luu-20261125 public_html/wp-content/themes/dt-the7-child`
 2. **The7 → Theme Options → Advanced → Custom tracking code** (ô "Tracking code"): xóa 3 dòng đầu (dòng ghi chú `<!-- velis-ux: UX-16 …` và 2 dòng
@@ -51,6 +52,14 @@ tiếng Việt), không gọi Google Fonts; gỡ FVM; LiteSpeed lo minify + gộ
 | Lighthouse mobile (trung vị 3 lần) | – | trang chủ 90, The Privé 93, /blog/ 95, bài 96, Gamuda Land 91; CLS 0 mọi trang |
 Thử từng tùy chọn LiteSpeed (menu điện thoại mở, hỏi đáp mở, form CF7 gửi bị chặn trong trình duyệt – không gửi thật, lỗi console 0): minify CSS+JS ✓, + gộp CSS ✓, + gộp JS ✓.
 Ảnh: `screenshots/the7/font/` (so sánh font FVM | font mới; H1 trang chủ, H2 + đoạn trang dự án ở 1920 / 390).
+
+## 2026-11-25 – Sửa gấp form: nhận số +84 (gói 1.9.3, chưa áp)
+
+Trước: mọi form CF7 (Liên hệ, Nhận bảng giá) báo lỗi khi khách gõ `+84 911 237 979` / `84911237979` (chỉ nhận `0` + 9 số).
+Sau (theme con `functions.php`, hàm `velis_vn_phone`): nhận `0` + 9 số, `+84` / `84` + 9 số, cho phép cách / chấm / gạch / ngoặc; số gửi vào email
+luôn dạng `0xxxxxxxxx`. Thông báo lỗi giữ nguyên (vẫn đúng). Test: `php tools/tests/the7-child-cta-test.php`.
+Gói `data/the7/goi-1.9.3/dt-the7-child-1.9.3-live.zip` = gói 1.9.2 + đúng khối này (`style.css` 1.9.3). Quay lui: như bước 1 (bản sao lưu 1.9.1).
+Staging: mã đã có trong theme con 2.1.2 (repo) nhưng **chưa tải lên** – đăng nhập wp-admin staging thất bại 1 lần (đã dừng, chưa thử lại).
 
 ## Quy tắc đăng nhập (người dùng chốt 2026-11-25, thay mọi hướng dẫn trước)
 

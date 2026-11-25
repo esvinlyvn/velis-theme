@@ -608,3 +608,10 @@ Còn lại: thư mục `/home/gdssxvdn/staging/wp-content/cache/fvm/` (không c�
 | Widget | `custom_html-10` (chip cụm, sidebar_3), `custom_html-8` + `ezw_tco-3` (sidebar_4), `custom_html-9` (sidebar_5) | thêm mới, không xóa widget cũ | REST widgets |
 | Mẫu của tôi "Velis – Dự án" | mẫu bước 15b | mẫu phần tử Velis | AJAX WPBakery |
 Không gửi form; không đụng 7 ứng dụng; site thật chỉ đọc (GET). REST staging trả 401 lúc cuối vòng (mật khẩu ứng dụng đổi?) – không thử lại, đo cuối dùng trang xem.
+
+## 2026-11-25 – Sửa form số +84 (chưa áp staging)
+
+| Việc | Trước | Sau | Cách |
+|---|---|---|---|
+| Theme con 2.1.2 (form nhận +84 / 84, lưu 0xxxxxxxxx) | 2.1.1 đang chạy | **chưa tải** | wp-admin: đăng nhập thất bại 1 lần → dừng, chưa thử lại |
+Chỉ đọc: REST `contact-forms` (19582, 20958 – ô `[tel* sdt]`, thông báo `invalid_tel`), tệp theme con công khai (khớp repo 2.1.1).

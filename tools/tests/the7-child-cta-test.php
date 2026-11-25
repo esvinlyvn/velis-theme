@@ -32,9 +32,11 @@ $ok  = $ok && str_contains( velis_cta_script(), 'classList.toggle("is-on"' ) && 
 // Hero image = WPBakery Single Image with class velis-hero-bg (attribute order free); none → 0.
 $ok  = $ok && 19968 === velis_hero_image_id( '[vc_section el_class="velis-home-hero"][vc_single_image image="19968" img_size="full" el_class="velis-hero-bg"]' )
 	&& 7 === velis_hero_image_id( '[vc_single_image el_class="x velis-hero-bg" image="7"][vc_single_image image="8"]' ) && 0 === velis_hero_image_id( '[vc_single_image image="8"]' );
-// Vietnamese mobile number: 10 digits from 0, spaces / dots allowed; +84, 9 or 11 digits, letters rejected.
+// Vietnamese phone: 0 + 9 digits or +84 / 84 + 9 digits (spaces, dots, dashes, brackets), saved as 0xxxxxxxxx; 9 / 11 digits, +1, letters rejected.
 $ok  = $ok && velis_vn_phone_ok( '0911 237 979' ) && velis_vn_phone_ok( '0911.237.979' ) && velis_vn_phone_ok( '0911237979' )
-	&& ! velis_vn_phone_ok( '+84911237979' ) && ! velis_vn_phone_ok( '091123797' ) && ! velis_vn_phone_ok( '09112379790' ) && ! velis_vn_phone_ok( '0911a37979' ) && ! velis_vn_phone_ok( '' );
+	&& velis_vn_phone_ok( '+84911237979' ) && velis_vn_phone_ok( '+84 911 237 979' ) && velis_vn_phone_ok( '84911237979' ) && velis_vn_phone_ok( '(+84) 911-237-979' )
+	&& '0911237979' === velis_vn_phone( '+84 911 237 979' ) && '0911237979' === velis_vn_phone( '0911.237.979' ) && '' === velis_vn_phone( '+840911237979' )
+	&& ! velis_vn_phone_ok( '+8491123797' ) && ! velis_vn_phone_ok( '+1 911 237 979' ) && ! velis_vn_phone_ok( '84 0911 237 979' ) && ! velis_vn_phone_ok( '091123797' ) && ! velis_vn_phone_ok( '09112379790' ) && ! velis_vn_phone_ok( '0911a37979' ) && ! velis_vn_phone_ok( '' );
 $f   = $GLOBALS['hooks']['wpcf7_form_elements'][0];
 $ok  = $ok && '<input inputmode="tel" type="tel" name="sdt">' === $f( '<input type="tel" name="sdt">' ) && '<input type="text">' === $f( '<input type="text">' )
 	&& '<input inputmode="numeric" type="tel">' === $f( '<input inputmode="numeric" type="tel">' );

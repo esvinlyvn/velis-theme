@@ -145,20 +145,26 @@ add_filter( 'wp_get_attachment_image_attributes', function ( $attr, $attachment 
 	return $attr;
 }, 20, 2 );
 
-// Contact Form 7 – every form (B3): Vietnamese mobile number (10 digits starting with 0; spaces and dots allowed), the error text is
-// the form's own "invalid_tel" message (Liên hệ → Contact Form 7 → Thông báo); numeric phone keypad.
-function velis_vn_phone_ok( $value ) {
-	return (bool) preg_match( '/^0\d{9}$/', preg_replace( '/[\s.]/', '', (string) $value ) );
+// Contact Form 7 – every form (B3): Vietnamese phone number – 0 + 9 digits, or +84 / 84 + 9 digits (spaces, dots, dashes, brackets
+// allowed); the error text is the form's own "invalid_tel" message (Liên hệ → Contact Form 7 → Thông báo); numeric phone keypad.
+// The mail / lead gets the number as 0xxxxxxxxx whatever form the visitor typed.
+function velis_vn_phone( $value ) {
+	return preg_match( '/^(?:0|\+?84)(\d{9})$/', preg_replace( '/[\s.\-()]/', '', (string) $value ), $m ) ? '0' . $m[1] : '';
 }
 
-foreach ( array( 'wpcf7_validate_tel', 'wpcf7_validate_tel*' ) as $velis_hook ) {
-	add_filter( $velis_hook, function ( $result, $tag ) {
+function velis_vn_phone_ok( $value ) {
+	return '' !== velis_vn_phone( $value );
+}
+
+foreach ( array( 'tel', 'tel*' ) as $velis_type ) {
+	add_filter( 'wpcf7_validate_' . $velis_type, function ( $result, $tag ) {
 		$value = isset( $_POST[ $tag->name ] ) ? sanitize_text_field( wp_unslash( $_POST[ $tag->name ] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification -- CF7 verifies the submission
 		if ( '' !== $value && ! velis_vn_phone_ok( $value ) ) {
 			$result->invalidate( $tag, wpcf7_get_message( 'invalid_tel' ) );
 		}
 		return $result;
 	}, 20, 2 );
+	add_filter( 'wpcf7_posted_data_' . $velis_type, fn( $value ) => is_string( $value ) && velis_vn_phone_ok( $value ) ? velis_vn_phone( $value ) : $value );
 }
 
 add_filter( 'wpcf7_form_elements', function ( $html ) {
