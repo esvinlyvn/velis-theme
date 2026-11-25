@@ -1,0 +1,54 @@
+[
+{
+"id": 19637,
+"type": "pages",
+"slug": "gamuda-land",
+"len": [
+17447,
+17579
+],
+"style_truoc": 6,
+"style_sau": 6,
+"rev_truoc": 21189,
+"rev_sau": 21194
+},
+{
+"id": 19625,
+"type": "pages",
+"slug": "sun-group",
+"len": [
+15309,
+15419
+],
+"style_truoc": 4,
+"style_sau": 4,
+"rev_truoc": 21183,
+"rev_sau": 21195
+},
+{
+"id": 19633,
+"type": "pages",
+"slug": "masterise-homes",
+"len": [
+9208,
+9296
+],
+"style_truoc": 1,
+"style_sau": 1,
+"rev_truoc": 21184,
+"rev_sau": 21196
+},
+{
+"id": 19593,
+"type": "pages",
+"slug": "vinhomes",
+"len": [
+15945,
+16033
+],
+"style_truoc": 3,
+"style_sau": 3,
+"rev_truoc": 21185,
+"rev_sau": 21197
+}
+]

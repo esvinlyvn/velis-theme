@@ -204,11 +204,17 @@ function velis_page_script() {
 		. 'document.querySelectorAll(".vc_toggle_title").forEach(function(t){var g=t.closest(".vc_toggle");t.setAttribute("role","button");t.tabIndex=0;'
 		. 'var s=function(){t.setAttribute("aria-expanded",String(g.classList.contains("vc_toggle_active")))};s();new MutationObserver(s).observe(g,{attributes:true,attributeFilter:["class"]});'
 		. 't.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();t.click()}})});'
-		// Điện thoại: Text Block có Extra class "velis-clamp" hiện 4 dòng đầu + nút "Xem thêm" / "Thu gọn" (velis.css); chữ ngắn không bị ẩn gì → không có nút.
-		// shortcut: xét cỡ màn hình lúc tải trang.
-		. 'if(matchMedia("(max-width:767px)").matches)document.querySelectorAll(".velis-clamp").forEach(function(x){if(![].some.call(x.querySelectorAll(".wpb_wrapper > p"),function(p){return !p.offsetParent||p.scrollHeight>p.clientHeight+1}))return;var b=document.createElement("button");b.type="button";'
-		. 'b.className="velis-clamp-btn";b.textContent="Xem thêm";b.setAttribute("aria-expanded","false");b.addEventListener("click",function(){var o=x.classList.toggle("is-open");'
-		. 'b.textContent=o?"Thu gọn":"Xem thêm";b.setAttribute("aria-expanded",String(o))});x.after(b)})})();</script>';
+		// "Xem thêm" (vc_toggle class velis-more): mặc định MỞ (velis.css hiện nội dung, ẩn dòng "Xem thêm"). Dưới 1024 px chỉ thu gọn tối đa 2 khối
+		// dài nhất (> 900 px), không thu khối giá / pháp lý / tiến độ / hỏi đáp (tiêu đề H2 đứng trước khối); bấm mục lục / link # tới chữ
+		// trong khối đang thu thì tự mở. Bấm dòng "Xem thêm": mở hẳn (chặn bộ xử lý trượt của WPBakery ở pha capture). shortcut: xét cỡ màn hình lúc tải.
+		. 'var M=[].slice.call(document.querySelectorAll(".velis-more"));if(M.length&&matchMedia("(max-width:1023px)").matches){'
+		. 'var hd=function(g){var e=g;while(e=e.previousElementSibling){var h=e.matches("h2")?e:e.querySelector&&[].slice.call(e.querySelectorAll("h2")).pop();if(h)return h.textContent}return ""};'
+		. 'M.map(function(g){var k=g.querySelector(".vc_toggle_content");return{g:g,h:k?k.scrollHeight:0}}).filter(function(x){return x.h>900&&!/giá|pháp lý|tiến độ|hỏi|FAQ/i.test(hd(x.g))})'
+		. '.sort(function(a,b){return b.h-a.h}).slice(0,2).forEach(function(x){x.g.classList.add("velis-thu")})}'
+		. 'var mo=function(e){var g=e&&e.closest&&e.closest(".velis-thu");if(g)g.classList.remove("velis-thu")};'
+		. 'window.addEventListener("click",function(e){var t=e.target.closest&&e.target.closest(".velis-more .vc_toggle_title");if(t){e.preventDefault();e.stopImmediatePropagation();mo(t)}'
+		. 'var a=e.target.closest&&e.target.closest("a[href^=\'#\']");if(a&&a.hash.length>1)mo(document.getElementById(decodeURIComponent(a.hash.slice(1))))},true);'
+		. 'window.addEventListener("hashchange",function(){mo(document.getElementById(decodeURIComponent(location.hash.slice(1))))})})();</script>';
 }
 
 add_action( 'wp_footer', function () {
@@ -349,6 +355,10 @@ function velis_current_project() {
 	$p = null;
 	if ( ! is_singular( 'post' ) ) {
 		return $p;
+	}
+	$id = get_queried_object_id();
+	if ( array_intersect( array( 34, 57 ), wp_get_post_categories( $id ) ) ) { // trang dự án / phân khu: chính nó (thẻ cột phải "Nhận bảng giá {du_an}")
+		return $p = array( 'title' => get_the_title( $id ), 'link' => get_permalink( $id ), 'cat' => 0, 'cats' => array_map( 'intval', wp_get_post_categories( $id ) ) );
 	}
 	foreach ( wp_get_post_categories( get_queried_object_id() ) as $cat ) {
 		$cands = array();
