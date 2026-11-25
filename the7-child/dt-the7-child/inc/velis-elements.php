@@ -90,22 +90,18 @@ add_action( 'vc_before_init', function () {
 
 	vc_map( array(
 		'name' => 'Velis · Khối nội dung', 'base' => 'velis_khoi', 'category' => $cat, 'icon' => 'icon-wpb-layer-shape-text',
-		'description' => 'Một mục của trang: tiêu đề + chữ (7/12) cạnh minh họa (5/12): ảnh, thư viện, bản đồ, bảng hoặc "Điểm chính".',
+		'description' => 'Một mục của trang, một cột rộng hết khung: tiêu đề → nội dung → minh họa (ảnh, thư viện, bản đồ hoặc bảng) bên dưới.',
 		'html_template' => $dir . 'velis_khoi.php',
 		'params' => array(
 			array( 'type' => 'textfield', 'heading' => 'Tiêu đề', 'param_name' => 'tieu_de', 'admin_label' => true, 'value' => 'Vị trí dự án có gì nổi bật?' ),
 			array( 'type' => 'dropdown', 'heading' => 'Cấp tiêu đề', 'param_name' => 'cap', 'value' => array( 'H2 (có trong mục lục)' => 'h2', 'H3' => 'h3' ), 'std' => 'h2' ),
 			array( 'type' => 'textarea_html', 'heading' => 'Nội dung', 'param_name' => 'content', 'value' => '<p>Đoạn văn mô tả – viết bằng số liệu có nguồn.</p>' ),
-			array( 'type' => 'dropdown', 'heading' => 'Minh họa', 'param_name' => 'minh_hoa', 'std' => 'diem', 'admin_label' => true,
-				'value' => array( 'Điểm chính (3–5 dòng)' => 'diem', 'Ảnh' => 'anh', 'Thư viện ảnh' => 'thu_vien', 'Bản đồ nhúng' => 'ban_do', 'Bảng' => 'bang' ) ),
+			array( 'type' => 'dropdown', 'heading' => 'Minh họa', 'param_name' => 'minh_hoa', 'std' => '', 'admin_label' => true,
+				'value' => array( 'Không' => '', 'Ảnh' => 'anh', 'Thư viện ảnh' => 'thu_vien', 'Bản đồ nhúng' => 'ban_do', 'Bảng' => 'bang' ) ),
 			array( 'type' => 'attach_image', 'heading' => 'Ảnh', 'param_name' => 'anh', 'dependency' => array( 'element' => 'minh_hoa', 'value' => 'anh' ) ),
 			array( 'type' => 'attach_images', 'heading' => 'Thư viện ảnh (bấm để phóng to)', 'param_name' => 'thu_vien', 'dependency' => array( 'element' => 'minh_hoa', 'value' => 'thu_vien' ) ),
 			array( 'type' => 'textarea_raw_html', 'heading' => 'Mã nhúng bản đồ (iframe Google Maps)', 'param_name' => 'ban_do', 'dependency' => array( 'element' => 'minh_hoa', 'value' => 'ban_do' ) ),
 			array( 'type' => 'textarea_raw_html', 'heading' => 'Bảng (HTML <table>)', 'param_name' => 'bang', 'dependency' => array( 'element' => 'minh_hoa', 'value' => 'bang' ) ),
-			array( 'type' => 'param_group', 'heading' => 'Điểm chính (3–5 dòng, lấy từ chính nội dung)', 'param_name' => 'diem', 'dependency' => array( 'element' => 'minh_hoa', 'value' => 'diem' ),
-				'value' => rawurlencode( wp_json_encode( array( array( 'dong' => 'Cách trung tâm 10 phút' ), array( 'dong' => '3 mặt giáp sông' ), array( 'dong' => 'Bàn giao năm 2027' ) ) ) ),
-				'params' => array( array( 'type' => 'textfield', 'heading' => 'Dòng', 'param_name' => 'dong', 'admin_label' => true ) ) ),
-			array( 'type' => 'dropdown', 'heading' => 'Minh họa nằm bên', 'param_name' => 'ben', 'value' => array( 'Phải' => 'phai', 'Trái' => 'trai' ), 'std' => 'phai' ),
 			$neo,
 		),
 	) );

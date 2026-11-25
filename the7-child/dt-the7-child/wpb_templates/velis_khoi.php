@@ -1,5 +1,5 @@
 <?php
-/** Velis · Khối nội dung – tiêu đề + chữ (7/12) | minh họa (5/12), cùng mép trên; < 1200: chữ trước, minh họa sau. */
+/** Velis · Khối nội dung – một cột rộng hết khung: tiêu đề → nội dung → minh họa (ảnh / thư viện / bảng / bản đồ) bên dưới. */
 defined( 'ABSPATH' ) || exit;
 $atts = vc_map_get_attributes( $this->getShortcode(), $atts );
 $cap  = 'h3' === $atts['cap'] ? 'h3' : 'h2';
@@ -23,12 +23,9 @@ switch ( $atts['minh_hoa'] ) {
 			$mh = '<div class="velis-ban-do">' . wp_kses( $raw, array( 'iframe' => array( 'src' => true, 'width' => true, 'height' => true, 'style' => true, 'allowfullscreen' => true, 'loading' => true, 'referrerpolicy' => true, 'title' => true ) ) ) . '</div>';
 		}
 		break;
-	default:
-		$d = array_filter( array_column( (array) vc_param_group_parse_atts( $atts['diem'] ), 'dong' ) );
-		$mh = $d ? '<div class="velis-diem"><p class="velis-eyebrow">Điểm chính</p><ul>' . implode( '', array_map( fn( $x ) => '<li>' . velis_so( esc_html( $x ) ) . '</li>', $d ) ) . '</ul></div>' : '';
 }
 ?>
-<section class="velis-khoi<?php echo $mh ? ' velis-khoi--' . esc_attr( $atts['minh_hoa'] ) . ( 'trai' === $atts['ben'] ? ' velis-khoi--trai' : '' ) : ' velis-khoi--chu'; ?>" id="<?php echo esc_attr( $id ); ?>">
+<section class="velis-khoi<?php echo $mh ? ' velis-khoi--' . esc_attr( $atts['minh_hoa'] ) : ''; ?>" id="<?php echo esc_attr( $id ); ?>">
 	<div class="velis-khoi__chu">
 		<?php if ( $atts['tieu_de'] ) : ?><<?php echo $cap; ?> class="velis-khoi__tieu-de"><?php echo esc_html( $atts['tieu_de'] ); ?></<?php echo $cap; ?>><?php endif; ?>
 		<?php echo wpb_js_remove_wpautop( $content, true ); // phpcs:ignore ?>

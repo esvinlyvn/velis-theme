@@ -615,3 +615,11 @@ Không gửi form; không đụng 7 ứng dụng; site thật chỉ đọc (GET)
 |---|---|---|---|
 | Theme con 2.1.2 (form nhận +84 / 84, lưu 0xxxxxxxxx) | 2.1.1 đang chạy | **chưa tải** | wp-admin: đăng nhập thất bại 1 lần → dừng, chưa thử lại |
 Chỉ đọc: REST `contact-forms` (19582, 20958 – ô `[tel* sdt]`, thông báo `invalid_tel`), tệp theme con công khai (khớp repo 2.1.1).
+
+## 2026-11-25 – Gỡ thiết kế không được yêu cầu: bỏ "Điểm chính", Khối nội dung một cột (người dùng yêu cầu)
+
+| Việc | Trước | Sau | Cách |
+|---|---|---|---|
+| Theme con 2.1.2 (`velis_khoi.php`, `velis-elements.php`, `velis.css`, `functions.php`) | 2.1.1: khối 7/12 + 5/12, ô "Điểm chính", minh họa sticky | một cột, minh họa dưới chữ, không "Điểm chính", chữ khối 19/20 px dòng 1,7 (≥ 768); form +84; trang có "Velis · Nhận bảng giá" không in thêm khối liên hệ cuối (hết 2 form) | **chờ người dùng tải** `dist/dt-the7-child-2.1.2.zip` (wp-admin) hoặc lệnh A – đăng nhập wp-admin của Claude thất bại |
+| Nội dung 11 trang sản phẩm | `minh_hoa="diem" diem="…"` trong `[velis_khoi]` | bỏ (chữ ngoài thẻ mở giữ nguyên từng ký tự) | `tools/the7_bo_diem_chinh.py --staging … --that` – **sau** khi theme 2.1.2 chạy |
+| Mẫu "Velis – Dự án" | 3 khối "Điểm chính" | tệp nguồn `data/the7/mau-wpbakery/du-an.txt` đã bỏ; "Mẫu của tôi" trên staging **chưa lưu lại** (cần wp-admin) | – |

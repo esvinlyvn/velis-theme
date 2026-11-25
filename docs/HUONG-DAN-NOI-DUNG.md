@@ -46,9 +46,8 @@ Trình sửa trước | sau: `screenshots/the7/sua-tong/editor/the-prive-truoc.j
 4. **Velis · Mục lục** (`velis/muc-luc.png`): để nguyên – tự lấy tiêu đề H2 của các khối bên dưới.
 5. **Velis · Khối nội dung** (`velis/khoi.png`) – mỗi mục một khối, theo thứ tự: tổng quan → vị trí → tiện ích → mặt bằng → giá → tiến độ → pháp lý → góc nhìn CEO.
    *Tiêu đề* = H2 (câu hỏi người mua hay tìm). *Nội dung* = đoạn văn, danh sách, ảnh trong bài (viết hết, không cần "Xem thêm" – điện thoại tự thu gọn 2 khối dài nhất).
-   *Minh họa* (cột phải, cùng mép trên với tiêu đề): **Ảnh** (vị trí, phối cảnh) · **Thư viện ảnh** (tiện ích, mặt bằng, tiến độ – bấm để phóng to) ·
-   **Bản đồ nhúng** (dán iframe Google Maps) · **Bảng** (bảng thông số) · **Điểm chính** (3–5 dòng ngắn lấy từ chính đoạn văn, ưu tiên câu có số – không viết điều đoạn văn không có).
-   *Minh họa nằm bên*: phải (mặc định) hoặc trái để đổi nhịp.
+   *Minh họa* (không bắt buộc; hiện **dưới** nội dung, rộng hết khung): **Ảnh** (vị trí, phối cảnh) · **Thư viện ảnh** (tiện ích, mặt bằng, tiến độ – bấm để phóng to) ·
+   **Bản đồ nhúng** (dán iframe Google Maps) · **Bảng** (bảng thông số). Khối luôn một cột – không có gì đặt cạnh chữ.
 6. **Velis · Hỏi đáp** (`velis/hoi-dap.png`): 3–6 câu; mỗi câu *Câu hỏi* + *Trả lời* (40–80 chữ). Google đọc được (FAQPage) – không cần thêm gì.
 7. **Velis · Nhận bảng giá** (`velis/nhan-bang-gia.png`): để trống *Tiêu đề* (tự thành "Nhận bảng giá <tên bài>"), 3 *Lợi ích*, *Form* = "Nhận bảng giá (20958)".
    Đây là form duy nhất của trang; số gọi / Zalo đổi ở Giao diện → Tùy biến → "Thanh liên hệ (điện thoại)".

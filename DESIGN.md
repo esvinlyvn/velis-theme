@@ -181,7 +181,7 @@ Không có cỡ nào khác (đo bằng `tools/mockup_scale.mjs`). `h4` trong fro
 - **Tính cách:** điềm tĩnh, chính xác, nói bằng số. **Thế giới:** bản vẽ mặt bằng, bảng tính dòng tiền, ánh chiều trên sông.
 - **Điểm nhấn:** ảnh phối cảnh đầu trang chủ / đầu trang dự án; bảng thông tin dự án (phần tử "Velis · Thông tin dự án").
 - **Dấu riêng:** mọi con số quan trọng (giá, diện tích, %, bàn giao) dùng chữ số tabular màu champagne `#8A6A3A` (lớp `.velis-so`, tự gắn trong
-  Thông tin dự án / Điểm chính); champagne CHỈ dùng cho việc này (ngoại lệ người dùng chốt: nền khối "Nhận tư vấn" `#EADFCC`, gạch dưới tiêu đề khối trang chủ);
+  Thông tin dự án); champagne CHỈ dùng cho việc này (ngoại lệ người dùng chốt: nền khối "Nhận tư vấn" `#EADFCC`, gạch dưới tiêu đề khối trang chủ);
   đỏ `#B8282E` CHỈ cho nút hành động và link trong đoạn văn.
 - Nhãn: chữ thường đầu câu, giãn chữ 0 (không `uppercase`, không `letter-spacing`). Thang chữ 7 cỡ: **14 · 16 · 18 · 24 · 32 · 40 · 56**
   (điện thoại dùng cỡ nhỏ hơn trong thang: chữ 16, H1 32, H2 24, H3 18); độ đậm 400 / 500 / 600. Màu chữ: chính `#1A1A1A`, phụ `#5C5C5C`,
@@ -216,7 +216,7 @@ Thi thử / Tuyển dụng (ngà) → Nhận tư vấn (champagne) → footer. �
 | Phần tử | Dùng cho | Hiển thị |
 |---|---|---|
 | Velis · Thông tin dự án | lưới thông số (nhãn + giá trị) | lưới 3 / 2 cột, ô cùng mép trên, số champagne tabular |
-| Velis · Khối nội dung | mỗi mục của trang (tổng quan, vị trí, tiện ích, mặt bằng, giá, tiến độ, pháp lý, góc nhìn CEO…) | ≥ 1200: chữ 7/12 \| minh họa 5/12 cùng mép trên; minh họa = ảnh / thư viện / bản đồ / bảng / "Điểm chính" 3–5 dòng; < 1200 chữ trước |
+| Velis · Khối nội dung | mỗi mục của trang (tổng quan, vị trí, tiện ích, mặt bằng, giá, tiến độ, pháp lý, góc nhìn CEO…) | MỘT cột rộng hết khung (1200; 1320 từ 1600), cùng mép trái khung đầu trang: tiêu đề → đoạn văn → danh sách → minh họa (ảnh / thư viện / bảng / bản đồ) bên dưới; không phần tử nào cạnh chữ, không "Điểm chính" (người dùng chốt 2026-11-25). Chữ 19 px (20 px từ 1600), dòng 1,7 (≥ 768) |
 | Velis · Mục lục | ngay sau phần đầu | tự lấy H2 của các khối; máy tính 2 cột, điện thoại thu gọn |
 | Velis · Hỏi đáp | câu hỏi thường gặp | `details/summary`, "+ / –"; tự tạo FAQPage |
 | Velis · Nhận bảng giá | form duy nhất của trang | nền than, chữ 5/12 \| form 7/12; Gọi / Zalo lấy từ Tùy biến → Thanh liên hệ |

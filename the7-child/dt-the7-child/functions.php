@@ -436,10 +436,10 @@ add_shortcode( 'velis_bai_viet', function ( $atts ) {
 } );
 
 // Khối liên hệ cuối trang (pre-footer): nội dung = widget area "Khối liên hệ cuối trang" (Giao diện → Tiện ích), in trước footer The7.
-// Chỉ ở trang chưa có form riêng: bài viết (dự án: hàng CTA trong bài; blog: hộp CTA ở sidebar) và trang có [contact-form-7] thì không –
-// mỗi trang tối đa 1 form tư vấn.
+// Chỉ ở trang chưa có form riêng: bài viết (dự án: hàng CTA trong bài; blog: hộp CTA ở sidebar) và trang có [contact-form-7] hoặc
+// phần tử "Velis · Nhận bảng giá" thì không – mỗi trang tối đa 1 form tư vấn.
 function velis_prefoot_on( $is_post, $content ) {
-	return ! $is_post && ! str_contains( (string) $content, '[contact-form-7' );
+	return ! $is_post && ! preg_match( '/\[(contact-form-7|velis_nhan_bang_gia)[\s\]]/', (string) $content );
 }
 
 add_action( 'widgets_init', function () {

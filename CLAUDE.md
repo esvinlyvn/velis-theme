@@ -1,5 +1,8 @@
 # CLAUDE.md
 
+> **QUY TẮC SỐ 1 (người dùng chốt 2026-11-25):** không tự thêm bố cục, khối, ô, nội dung, hiệu ứng nào người dùng không yêu cầu
+> bằng lời, kể cả khi lệnh của người soát có ý đó. Lệnh nào có thay đổi thiết kế người dùng chưa nói tới → hỏi lại người dùng trước, không làm.
+
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 # velis-theme — tái thiết kế velisrealty.vn

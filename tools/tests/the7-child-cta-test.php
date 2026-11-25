@@ -88,6 +88,7 @@ $ok  = $ok && array() === $sm && array( 1, 3 ) === $rc;
 // Bước 13 – khối liên hệ cuối trang: không ở bài viết, không ở trang đã có form CF7; trang không form (trang chủ, 404 / chuyên mục: nội dung rỗng) thì có.
 $ok  = $ok && velis_prefoot_on( false, '[vc_row][vc_column_text]Giới thiệu[/vc_column_text][/vc_row]' ) && velis_prefoot_on( false, '' )
 	&& ! velis_prefoot_on( true, '' ) && ! velis_prefoot_on( false, '[vc_row el_class="velis-cta"][contact-form-7 id="20958"][/vc_row]' )
+	&& ! velis_prefoot_on( false, '[vc_row][vc_column][velis_nhan_bang_gia du_an="The Privé"][/vc_column][/vc_row]' ) && ! velis_prefoot_on( false, '[velis_nhan_bang_gia]' )
 	&& ! empty( $GLOBALS['hooks']['presscore_after_main_container'] ) && ! empty( $GLOBALS['hooks']['widgets_init'] );
 // Trang có khối liên hệ cuối (form đã nhận id velis-tu-van): nút "Nhận tư vấn" của thanh dính nhảy tới form ngay trang đó.
 $_SERVER['REQUEST_URI'] = '/blog/'; $GLOBALS['mods'] = array(); do_action( 'velis_prefoot_shown' );
