@@ -83,6 +83,25 @@ REST không ghi được tệp theme; Media staging không nhận `.txt` → l�
 Bản trước: `/home/gdssxvdn/velis-saoluu/{staging,sitethat}-{functions,style}-<bản cũ>.*`. Quay lui (site thật):
 `cd /home/gdssxvdn/public_html/wp-content/themes/dt-the7-child && cp -a /home/gdssxvdn/velis-saoluu/sitethat-functions-1.9.2.php functions.php && cp -a /home/gdssxvdn/velis-saoluu/sitethat-style-1.9.2.css style.css`
 
+## 2026-11-25 (16:56 giờ VN) – Form số +84: theme con 1.9.3 ĐÃ ÁP (Claude, wp-admin)
+
+- `kiem_site_that()`: 200, claude-bot. Đăng nhập wp-admin `node tools/wp_admin_login.mjs` (lần đầu sai mật khẩu → dừng; người dùng báo đã sửa → lần 2 vào được).
+- Bản trước: **1.9.2** = `data/the7/goi-1.9.2/dt-the7-child-1.9.2-live.zip` (đối chiếu `velis.css` site thật trùng từng byte). Gói 1.9.3 cũ có `style.css` rỗng → đã dựng lại.
+- 1.9.3 = 1.9.2 + `functions.php` khối form (`velis_vn_phone`: nhận 0… / +84… / 84…, email luôn 0xxxxxxxxx) + 1 dòng `velis.css`
+  (`form.invalid .wpcf7-response-output` ẩn → lỗi nhập chỉ báo ở lời nhắc dưới ô). Staging làm trước: 2.1.3, đạt.
+- Tải: `node tools/wp_tai_theme.mjs https://velisrealty.vn data/the7/goi-1.9.3/dt-the7-child-1.9.3-live.zip` (Thay thế 1.9.2 → 1.9.3) + LiteSpeed Purge All: thành công.
+- Kiểm (`node tools/the7_kiem_form_sdt.mjs`, chạy khô – họ tên trống, không gửi mail), /lien-he/ và /can-ho-the-prive/ (Nhận bảng giá):
+
+| Số | Trước | Sau |
+|---|---|---|
+| `+84 911 237 979` | báo lỗi | nhận |
+| `84911237979` | báo lỗi | nhận |
+| `091 123 7979` | nhận | nhận |
+| `12345` | báo lỗi (2 chỗ: dưới ô + dòng chung) | báo lỗi (1 chỗ: dưới ô) |
+
+- Gửi thật 1 lần 16:57 (giờ VN): /lien-he/, tên "Kiểm thử ra mắt", số `+84 911 237 979` → `mail_sent` (email phải ghi 0911237979).
+- Quay lui: tải lại `data/the7/goi-1.9.2/dt-the7-child-1.9.2-live.zip` bằng `tools/wp_tai_theme.mjs`.
+
 ## Quy tắc đăng nhập (người dùng chốt 2026-11-25, thay mọi hướng dẫn trước)
 
 - STAGING (`staging.velisrealty.vn`): `WP_USER` + `WP_APP_PASSWORD`.
@@ -105,3 +124,4 @@ Bản trước: `/home/gdssxvdn/velis-saoluu/{staging,sitethat}-{functions,style
 | Ngày | Việc | Đối tượng | Bản trước / quay lui | Kiểm users/me |
 |---|---|---|---|---|
 | 2026-11-25 | (không ghi – kiểm users/me đạt, không có đường REST cho Theme Options / LiteSpeed) | – | – | 200, claude-bot |
+| 2026-11-25 | Theme con 1.9.2 → 1.9.3 (form +84) + Purge All; gửi thật 1 form "Kiểm thử ra mắt" | dt-the7-child | gói 1.9.2 trong repo | 200, claude-bot |
