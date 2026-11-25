@@ -176,6 +176,16 @@ Staging trước (2.1.4): khung đầu trang dự án / phân khu trả về x�
   bài 19934 trên site thật ở trạng thái **private** (staging: publish), đã vậy từ trước lần áp này (17:12 bản site thật đã không có nội dung); công cụ chỉ ghi `content`, không đổi `status`.
   Chưa đổi – chờ người dùng quyết. Bộ đo một cột / sau áp từng tính trang 404 là đạt → đã sửa (HTTP ≠ 200 hoặc 0 khối = SAI). 19/20 trang đã đo: HTTP 200.
 
+## 2026-11-25 (20:25–20:40 giờ VN) – Gỡ cột phải 4 trang + ảnh mở cửa sổ ảnh (người dùng phản ánh)
+
+- **Cột phải Giới thiệu 19551, Tuyển dụng 19542, Chính sách bảo mật 19662, Điều khoản 19659**: thiết kế Claude tự thêm ở vòng sửa tổng (DESIGN.md "Loại A"),
+  người dùng không yêu cầu (vi phạm quy tắc số 1) → trả về như trước: `right/sidebar_5` → `disabled/sidebar_1`, staging rồi site thật (`kiem_site_that()` 200).
+  Nội dung 4 trang × 2 site giữ nguyên (so REST). Khách xem: 4 trang × 1920 / 390 không còn cột phải, nội dung rộng 1200 / 358 px.
+- **Ảnh trong "Khối nội dung" bấm vào mở sang trang tệp ảnh** (Single Image `onclick="img_link_large"`, Claude chọn ở bước 15) → `onclick="link_image"`
+  (cửa sổ ảnh The7 `dt-pswp-item`) – sửa 1 chỗ `wpb_templates/velis_khoi.php`; theme con **2.1.5** staging → site thật 20:36 + Purge.
+  `node tools/the7_kiem_anh_popup.mjs`: trước (2.1.4) The Privé chuyển trang; sau: The Privé 7, Spring Ville 10, Palm River 8, Persa Place 7 ảnh – bấm mở cửa sổ ảnh,
+  không chuyển trang, Esc đóng (1920 + 390). Quay lui: gói `data/the7/goi-2.1.4/`.
+
 ## Quy tắc đăng nhập (người dùng chốt 2026-11-25, thay mọi hướng dẫn trước)
 
 - STAGING (`staging.velisrealty.vn`): `WP_USER` + `WP_APP_PASSWORD`.
@@ -202,3 +212,4 @@ Staging trước (2.1.4): khung đầu trang dự án / phân khu trả về x�
 | 2026-11-25 | LiteSpeed Page Optimization: CSS/JS minify + combine BẬT; Purge All (.htaccess không đổi) | LiteSpeed | mọi ô TẮT | 200, claude-bot |
 | 2026-11-25 | CF7 6.2.6 (tự thay 17:10, không chạy trên PHP 8.2) → 6.1.6 + kích hoạt + tắt tự cập nhật CF7; câu invalid_tel 2 form; Purge All | contact-form-7 | 6.2.6 inactive | 200, claude-bot |
 | 2026-11-25 | Bản 2.x: theme 2.1.4, 39 khóa Theme Options, 4 tiện ích, cột phải 4 trang, nội dung 120 bài/trang, mẫu Velis – Dự án; Purge | site thật | gói 1.9.3, options trước, dongbo-site-that-log.json | 200, claude-bot |
+| 2026-11-25 | Cột phải 4 trang → tắt (như trước); theme con 2.1.4 → 2.1.5 (ảnh mở cửa sổ ảnh); Purge | site thật | right/sidebar_5; gói 2.1.4 | 200, claude-bot |

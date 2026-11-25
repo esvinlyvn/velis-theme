@@ -183,7 +183,7 @@ Trên điện thoại (bước 15): lưới dự án là dải trượt ngang. T
 
 - **Không** watermark, huy hiệu VELIS, logo đơn vị khác, chữ in sẵn (giá, khẩu hiệu, "QUẬN 2"…). Cần bản gốc thì xin chủ đầu tư; xem `docs/HUONG-DAN-GUI-ANH.md`, `docs/CHUAN-ANH.md`.
 - **Ảnh tiến độ / thư viện** đặt nhiều ảnh trong các cột cạnh nhau (Inner Row, mỗi cột chỉ có ảnh): trên điện thoại thành lưới 2 cột ảnh nhỏ,
-  nên mỗi Single Image chọn **On click action → Link to large image** để người xem bấm phóng to.
+  nên mỗi Single Image chọn **On click action → Open lightbox** (link_image – mở cửa sổ ảnh, không chuyển trang; KHÔNG dùng "Link to large image").
 - **Tóm tắt (Excerpt)** của bài blog không hiện ở danh sách bài trên điện thoại (chỉ ảnh, nhãn cụm, tiêu đề, ngày) – tiêu đề phải tự đủ nghĩa
   trong 3 dòng (≈ 70 ký tự). Dòng "cụm · ngày · N phút đọc" dưới H1 bài tự sinh (cụm = chuyên mục con đầu tiên), không gõ tay.
 - **Tên file** viết thường không dấu, gạch nối, mô tả ảnh: `the-prive-phoi-canh-ven-song.jpg`, không đặt `IMG_1234.jpg`.

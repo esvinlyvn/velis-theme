@@ -7,11 +7,11 @@ $id   = $atts['el_id'] ? $atts['el_id'] : velis_neo( $atts['tieu_de'] );
 $mh   = '';
 switch ( $atts['minh_hoa'] ) {
 	case 'anh':
-		$mh = $atts['anh'] ? do_shortcode( '[vc_single_image image="' . (int) $atts['anh'] . '" img_size="large" onclick="img_link_large" el_class="velis-badge"]' ) : '';
+		$mh = $atts['anh'] ? do_shortcode( '[vc_single_image image="' . (int) $atts['anh'] . '" img_size="large" onclick="link_image" el_class="velis-badge"]' ) : '';
 		break;
 	case 'thu_vien':
 		foreach ( array_filter( array_map( 'intval', explode( ',', (string) $atts['thu_vien'] ) ) ) as $img ) {
-			$mh .= do_shortcode( '[vc_single_image image="' . $img . '" img_size="large" onclick="img_link_large" el_class="velis-badge"]' );
+			$mh .= do_shortcode( '[vc_single_image image="' . $img . '" img_size="large" onclick="link_image" el_class="velis-badge"]' );
 		}
 		$mh = $mh ? '<div class="velis-thu-vien">' . $mh . '</div>' : '';
 		break;

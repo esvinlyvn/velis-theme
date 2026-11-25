@@ -129,7 +129,7 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
 - Bước 15b (2026-11-16): đoạn mở đầu trang dự án = Text Block `velis-clamp` (`tools/the7_sua_buoc15b.py`, có trong mẫu Dự án); viền ô nhập gốc #C9C1B5,
   nền than viền trắng (mọi khung); "…" phân trang là `<span>` (lọc đầu ra trang danh sách trong `functions.php`). `the7_check_mobile.mjs … 1536` đo ô form ở máy tính.
 - Bước 15 (2026-11-16) điện thoại: mọi quy tắc mobile ở khối `@media (max-width: 767px)` cuối `velis.css` – máy tính không đổi (so ảnh mốc 1536);
-  Extra class `velis-clamp` = 4 dòng + "Xem thêm"; ảnh tiến độ = Single Image "Link to large image". Đo `node tools/the7_check_mobile.mjs out.json` (`--test`).
+  Extra class `velis-clamp` = 4 dòng + "Xem thêm"; ảnh tiến độ = Single Image "Open lightbox" (`link_image`, cửa sổ ảnh The7 – không "Link to large image" vì mở sang trang tệp; kiểm `node tools/the7_kiem_anh_popup.mjs`). Đo `node tools/the7_check_mobile.mjs out.json` (`--test`).
 - Ra mắt (2026-11-14, chốt "dựng song song, bật công tắc"): `docs/KE-HOACH-RA-MAT.md`; site thật tiền tố **`velis_`**, bộ mới `vl2_`. Công cụ:
   `tools/the7_noi_dung_moi.py` (nội dung mới, chỉ đọc), `tools/the7_doi_tien_to.py` (bản xuất staging → bộ `vl2_`, search-replace serialized), `tools/the7_kiem_ra_mat.py` (bước 6); đều có `--test`.
 - Gói ra mắt (2026-11-25): `docs/the7/GOI-RA-MAT.md`; dựng gói `tools/the7_dong_goi_ra_mat.sh <bản xuất UpdraftPlus> <thư mục ngoài repo>`

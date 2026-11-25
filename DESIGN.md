@@ -194,7 +194,7 @@ Không có cỡ nào khác (đo bằng `tools/mockup_scale.mjs`). `h4` trong fro
 - Khung 1200 px (dưới 1600), 1320 px (từ 1600), căn giữa; đệm hai bên 48 (máy tính), 16 (điện thoại). Theme Options: Content width 1296 + đệm 48.
 - Mọi phần tử trong một cột rộng bằng cột, cùng mép trái / phải; chỉ nút, thẻ, ảnh nhỏ hẹp hơn. CẤM `width / max-width / ch / text-wrap: balance`
   cho tiêu đề, đoạn, danh sách, bảng, ảnh trong nội dung (đo: `tools/the7_css_kiem_ke.py` = 0).
-- **Loại A – trang 2 cột The7** (≥ 1200): bài viết, /blog/ + chuyên mục + tìm kiếm, Giới thiệu, Tuyển dụng, Chính sách, Điều khoản. Cột trái 8/12, cột phải 4/12,
+- **Loại A – trang 2 cột The7** (≥ 1200): bài viết, /blog/ + chuyên mục + tìm kiếm. (Giới thiệu, Tuyển dụng, Chính sách, Điều khoản: một cột, KHÔNG cột phải – người dùng 2026-11-25.) Cột trái 8/12, cột phải 4/12,
   rãnh 48 (Theme Options → Sidebar 32 %, rãnh 48, không nền); cột phải = widget dùng chung, dính khi cuộn, MỘT lớp thẻ. < 1200: 1 cột.
 - **Trang sản phẩm** (dự án, phân khu, chủ đầu tư, /chu-dau-tu/): KHÔNG cột phải; một luồng dựng bằng phần tử "Velis" (mục dưới). Phần đầu 7/12 (giới thiệu, nút) + 5/12 (Thông tin dự án), ảnh phối cảnh rộng hết khung.
 - **Loại B – trang khối** (trang chủ, /du-an/, /chu-dau-tu/, trang chủ đầu tư, Liên hệ): mỗi khối rộng hết khung, nền tràn mép; khối chữ dài: Extra class `velis-cot2` (2 cột chữ ≥ 1200).
