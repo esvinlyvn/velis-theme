@@ -61,6 +61,18 @@ luôn dạng `0xxxxxxxxx`. Thông báo lỗi giữ nguyên (vẫn đúng). Test:
 Gói `data/the7/goi-1.9.3/dt-the7-child-1.9.3-live.zip` = gói 1.9.2 + đúng khối này (`style.css` 1.9.3). Quay lui: như bước 1 (bản sao lưu 1.9.1).
 Staging: mã đã có trong theme con 2.1.2 (repo) nhưng **chưa tải lên** – đăng nhập wp-admin staging thất bại 1 lần (đã dừng, chưa thử lại).
 
+## 2026-11-25 (chiều) – Áp nốt sửa font: Tracking code + LiteSpeed gộp CSS/JS
+
+Người soát báo: site thật đã chạy theme con 1.9.2, FVM đã gỡ, 0 Google Fonts. Claude được giao tự làm bằng `WP_LIVE_*`.
+
+| Bước | Kết quả |
+|---|---|
+| `kiem_site_that()` (1 lần GET `/users/me`) | **200, claude-bot** – đạt |
+| Đường ghi qua REST | **không có**: `/wp/v2/settings` chỉ có 20 khóa lõi WordPress; `the7/v1` chỉ có `send-mail`, `fse-font`; `litespeed/v1`, `litespeed/v3` chỉ có crawler, IP, ping, CDN, ảnh – không có cài đặt Page Optimization hay Purge. Mật khẩu ứng dụng không đăng nhập được wp-admin → Claude **không ghi gì** lên site thật lần này |
+| Tracking code – giá trị hiện tại (đọc HTML trang chủ, bỏ qua cache bằng `?v=`, 15:58) | **đã không còn** dòng `velis-ux: UX-16` và 2 dòng preload `/cache/fvm/fonts/` (0 lần xuất hiện); còn UX-05, UX-06, UX-14, GA4 `G-QSJ8EH9CWB`, xác minh Pinterest `p:domain_verify`. Không có mã Facebook (`fbq` / `connect.facebook.net`) trong trang – không đụng tới → **bước 3 không cần làm** |
+| Đo trước LiteSpeed (vai khách, Chrome UA thật, `tools/the7_check_font.mjs`) | trang chủ CSS 15 / JS 15; The Privé 17 / 15; bài giá The Privé 14 / 14 (máy tính = điện thoại); font 4 tệp (3 tệp `dt-the7-child/fonts/` + icon The7); Google 0; FVM 0; tệp lỗi 0; lỗi console 0 |
+| LiteSpeed Page Optimization (cũ = mọi ô tắt, theo bản sao staging lúc ra mắt `data/the7/sua-tong/fvm-litespeed-truoc-staging.json` – site thật chưa đọc được trực tiếp) | **chờ người dùng bấm** (các ô ở báo cáo trong chat / mục "Người dùng làm" bước 4 ở trên) |
+
 ## Quy tắc đăng nhập (người dùng chốt 2026-11-25, thay mọi hướng dẫn trước)
 
 - STAGING (`staging.velisrealty.vn`): `WP_USER` + `WP_APP_PASSWORD`.
@@ -82,4 +94,4 @@ Staging: mã đã có trong theme con 2.1.2 (repo) nhưng **chưa tải lên** �
 
 | Ngày | Việc | Đối tượng | Bản trước / quay lui | Kiểm users/me |
 |---|---|---|---|---|
-| – | (chưa ghi lần nào) | | | |
+| 2026-11-25 | (không ghi – kiểm users/me đạt, không có đường REST cho Theme Options / LiteSpeed) | – | – | 200, claude-bot |
