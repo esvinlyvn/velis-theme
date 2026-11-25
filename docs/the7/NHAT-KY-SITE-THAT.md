@@ -73,6 +73,16 @@ Người soát báo: site thật đã chạy theme con 1.9.2, FVM đã gỡ, 0 G
 | Đo trước LiteSpeed (vai khách, Chrome UA thật, `tools/the7_check_font.mjs`) | trang chủ CSS 15 / JS 15; The Privé 17 / 15; bài giá The Privé 14 / 14 (máy tính = điện thoại); font 4 tệp (3 tệp `dt-the7-child/fonts/` + icon The7); Google 0; FVM 0; tệp lỗi 0; lỗi console 0 |
 | LiteSpeed Page Optimization (cũ = mọi ô tắt, theo bản sao staging lúc ra mắt `data/the7/sua-tong/fvm-litespeed-truoc-staging.json` – site thật chưa đọc được trực tiếp) | **chờ người dùng bấm** (các ô ở báo cáo trong chat / mục "Người dùng làm" bước 4 ở trên) |
 
+## 2026-11-25 (chiều) – Form số +84: lệnh Terminal (người dùng chạy)
+
+Kiểm site thật trước (không gửi thật: ô họ tên để trống → CF7 `validation_failed`, không gửi mail; script kiểm trong scratchpad):
+`+84 911 237 979` **bị từ chối**, `84911237979` **bị từ chối**, `091 123 7979` nhận, `0911 237 979` nhận.
+REST không ghi được tệp theme; Media staging không nhận `.txt` → lệnh 1 dòng chứa `functions.php` (gzip + base64), kiểm sha256 + `php -l` rồi mới thay:
+- A staging: `data/the7/goi-1.9.3/lenh-A-staging-2.1.2.txt` (2.1.1 → 2.1.2, sha256 `19d7fcc5…a1e298d`).
+- B site thật: `data/the7/goi-1.9.3/lenh-B-site-that-1.9.3.txt` (1.9.2 → 1.9.3, sha256 `cb8282fd…87a1cc95`).
+Bản trước: `/home/gdssxvdn/velis-saoluu/{staging,sitethat}-{functions,style}-<bản cũ>.*`. Quay lui (site thật):
+`cd /home/gdssxvdn/public_html/wp-content/themes/dt-the7-child && cp -a /home/gdssxvdn/velis-saoluu/sitethat-functions-1.9.2.php functions.php && cp -a /home/gdssxvdn/velis-saoluu/sitethat-style-1.9.2.css style.css`
+
 ## Quy tắc đăng nhập (người dùng chốt 2026-11-25, thay mọi hướng dẫn trước)
 
 - STAGING (`staging.velisrealty.vn`): `WP_USER` + `WP_APP_PASSWORD`.
