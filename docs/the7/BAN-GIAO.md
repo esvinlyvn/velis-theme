@@ -1,70 +1,67 @@
-# Bàn giao – dừng giữa vòng sửa tổng (2026-11-25)
+# Bàn giao – dừng giữa chừng (cập nhật 2026-11-25, phiên sau)
 
-Người dùng ra lệnh DỪNG mọi việc. Đã dừng: không còn tiến trình nào chạy, không ghi thêm gì lên staging hay site thật sau thời điểm này.
-Mọi việc dở đã commit trên nhánh `claude/the7-child` (PR https://github.com/esvinlyvn/velis-theme/pull/12).
+Người dùng ra lệnh DỪNG. Mọi việc đã commit + push trên `claude/the7-child`. Không còn tiến trình chạy.
+Phiên này **không ghi gì lên site thật**; trên staging chỉ đọc (REST GET, xem trang) – **chưa tải theme, chưa sửa nội dung**.
 
-## 1. Site thật velisrealty.vn
+## 0. Đăng nhập (đã rõ nguyên nhân)
 
-- Đã **bật công tắc** (người dùng làm): `$table_prefix = 'vl2_'`, theme con **1.9.1**. Bộ kiểm `tools/the7_kiem_ra_mat.py --ung-dung-chuan`
-  ngay sau khi bật: **ĐẠT cả 6 nhóm** (robots, 10 trang mẫu, sitemap, 34 URL GSC, 17 URL chuyển hướng, 7 ứng dụng so mốc
-  `data/the7/ra-mat/moc-ung-dung.json`).
-- Claude **chưa có quyền ghi** site thật: REST với `WP_USER` / `WP_APP_PASSWORD` hiện có trả 401 (2 lần, đã dừng thử);
-  `WP_LIVE_APP_PASSWORD` không có trong phiên.
-- **Gói sửa font 1.9.2 – CHƯA áp lên site thật** (người dùng tự áp):
-  - tệp: `data/the7/goi-1.9.2/dt-the7-child-1.9.2-live.zip` (commit trong repo; bản gốc ở thư mục tạm của phiên, có thể mất);
-    = theme con 1.9.1 đang chạy + **chỉ** phần font (fonts/ 5 tệp woff2 đủ tiếng Việt + giấy phép OFL, `velis.css` @font-face,
-    `functions.php` gỡ Google Fonts + preload, `style.css` 1.9.2). **Không** kèm vòng sửa giao diện;
-  - các bước: `docs/the7/NHAT-KY-SITE-THAT.md` (sao lưu → tải theme lên → Theme Options bỏ 3 dòng preload FVM → tắt + xóa FVM,
-    `rm -rf public_html/wp-content/cache/fvm` → LiteSpeed Page Optimization (có thể ghi `.htaccess`, sao lưu trước) → Xóa tất cả);
-  - sau khi áp: kiểm chỉ đọc bằng `node tools/the7_check_font.mjs`, `tools/the7_kiem_ra_mat.py`, Lighthouse.
+- `WP_ADMIN_PASSWORD` trước đây chứa **nhầm mật khẩu xem staging** (trùng `STAGING_VIEW_PASSWORD`) → đăng nhập wp-admin staging
+  (`WP_USER` + `WP_ADMIN_PASSWORD`, cơ chế cũ theo `docs/SCOPE.md`) hỏng 1 lần, đã dừng theo quy tắc.
+- Người dùng **đã đổi toàn bộ mật khẩu** và **thêm `WP_LIVE_ADMIN_PASSWORD`** (wp-admin site thật, user claude-bot).
+  Việc cần làm: thêm `WP_LIVE_ADMIN_PASSWORD` vào quy tắc `tools/wp_cred.py` + CLAUDE.md (chỉ gửi tới velisrealty.vn; `kiem_site_that()` trước khi ghi).
+- REST: staging `WP_USER`/`WP_APP_PASSWORD` chạy (users/me 200, claude-bot, administrator); site thật `kiem_site_that()` đạt (200, claude-bot) lúc chiều.
+- Không có script đăng nhập wp-admin trong repo (các phiên trước dùng script tạm); script tạm phiên này: tải theme qua
+  `wp-admin/theme-install.php?browse=upload` → `#themezip` → "Thay thế" (`a.update-from-upload-overwrite`). Khi kiểm đăng nhập: đừng coi mọi
+  URL `wp-login.php` là thất bại (`?action=confirm_admin_email` là màn xác minh email) – đọc thông báo lỗi trên trang.
 
-## 2. Staging – trạng thái lúc dừng
+## 1. Đang tới đâu
 
-- Theme con **2.1.1** đang chạy (vòng sửa tổng + font). FVM **đã gỡ**; LiteSpeed: minify + gộp CSS/JS bật, JS defer / UCSS / CCSS tắt,
-  `.htaccess` không đổi. Thư mục `staging/wp-content/cache/fvm` **chưa xóa** (không còn gì gọi tới; lệnh trong NHAT-KY-SITE-THAT).
-- Theme Options b16 + b16b + font đã áp (trước/sau: `data/the7/options-truoc-b16*.json`, `options-buoc-16*.json`; mã bảo mật "<đã xóa>").
-- Nội dung: 120 + 17 + 15 + 1 bài/trang sửa qua REST (revision trước/sau: `data/the7/sua-tong/ap16-log*.json`); 12 trang sản phẩm dựng lại
-  bằng phần tử Velis (`data/the7/sua-tong/ap16c-log.json`, mất chữ ≥ 99,3 %); mẫu "Velis – Dự án" mới; widget thêm mới (không xóa cũ).
-  Chi tiết: `docs/STAGING-LOG.md` mục "2026-11-25 – Vòng sửa tổng".
-- **REST staging trả 401 lúc cuối vòng** (mật khẩu ứng dụng của claude-bot trên staging có thể đã đổi) – chưa thử lại.
-
-## 3. Việc đã xong của vòng sửa tổng (commit d3ecc31, 9bb3737, dc94952, c350792 + commit bàn giao)
-
-| Mục yêu cầu | Trạng thái |
+| Việc | Trạng thái |
 |---|---|
-| 0 Kiểm kê + dọn CSS | xong trên staging; `docs/the7/CSS-KIEM-KE.md` (bảng trước/sau) – **chưa soát lại số liệu** |
-| 1 Hệ bố cục duy nhất (DESIGN.md) | xong (velis.css 2.x, Theme Options b16/b16b) |
-| 2 Khung đầu trang cùng mép | xong theo CSS – chưa đo cuối |
-| 3 Trang sản phẩm (thay bằng lệnh "phần tử Velis") | xong: 6 phần tử (`inc/velis-elements.php`, `wpb_templates/`), 12 trang + mẫu |
-| 4 "Xem thêm" | xong (≥ 1024 không thu; < 1024 tối đa 2) |
-| 5 Danh sách bài | xong theo CSS – chưa đo cuối |
-| 6 Trang bài | xong theo CSS/widget – chưa đo cuối |
-| 7 Giới thiệu / Tuyển dụng / Chính sách | xong (01–04, cột phải "Cột phải trang") |
-| 7b Làm bóng (unslop) | xong phần CSS / Theme Options; DESIGN.md + AUDIT-NOI-DUNG "Unslop – nội dung" |
-| Nền xen kẽ khối | xong (lớp `velis-nen-nga` #F4EEE4, `velis-nen-champagne` #EADFCC, `velis-nen-toi`) |
-| Sửa gấp font + chỉ LiteSpeed | **xong trên staging**; gói 1.9.2 cho site thật chờ người dùng áp |
+| Font site thật | Site thật chạy theme con **1.9.2** (người dùng áp): 0 Google Fonts, 0 FVM, preload FVM trong Tracking code **đã không còn** (đọc HTML), font = 3 tệp `dt-the7-child/fonts/` + icon The7, lỗi console 0. **Còn:** LiteSpeed Page Optimization chưa gộp CSS/JS (CSS 14–17 / JS 14–15 tệp mỗi trang) – không có đường REST, cần wp-admin. Không có mã Facebook trong trang (không đụng). |
+| Form +84 | Site thật **vẫn từ chối** `+84 911 237 979`, `84911237979` (kiểm không gửi thật). Mã sửa xong + test (`velis_vn_phone`, email luôn `0xxxxxxxxx`). Chưa áp đâu cả. |
+| Gỡ thiết kế không yêu cầu (lệnh người dùng) | Mã xong trong theme con **2.1.2**: Khối nội dung một cột rộng hết khung, minh họa dưới chữ, bỏ "Điểm chính" + "Minh họa nằm bên", chữ khối 19/20 px dòng 1,7 (≥ 768; điện thoại giữ 17 – **chờ người dùng xác nhận**). Chưa tải staging. |
+| Quy tắc số 1 (không tự thêm thiết kế) | đã ghi đầu CLAUDE.md |
+| Vòng sửa tổng – đo | Đo bố cục 16 trang × 4 khổ đã chạy (scratchpad, mất) trước khi gỡ thiết kế → **phải đo lại** sau 2.1.2. Bộ đo `tools/the7_check_bocuc.mjs` đã dạy cột khối Velis (`velis-khoi__chu/__minh-hoa`). |
 
-## 4. Việc còn lại
+## 2. Việc còn lại – theo thứ tự
 
-1. **Đo cuối mục 8** trên staging (1366 / 1536 / 1920 / 390, 16 trang): `node tools/the7_check_bocuc.mjs`, `tools/the7_check_mat_chu.mjs`,
-   bộ đo cũ (clip, footer, mobile, on-page, tràn ngang, H1), Lighthouse 5 trang. `data/the7/sua-tong/bocuc-sau.json` là lần đo **dở,
-   chưa tin cậy** (vd. trang chủ 390 chỉ thấy 2 cỡ chữ, 0 form – có thể đo nhầm trang khóa / REST 401) – đo lại.
-2. **Ảnh "sau"** 1920 + 390 mọi trang: thư mục `screenshots/the7/sua-tong/sau/` hiện còn bộ ảnh 1920 **trước khi sửa font** (bản cũ, giữ
-   vì chưa có bản thay); chụp lại toàn bộ sau khi đo.
-3. **Báo cáo** `docs/reports/the7-sua-tong.md` (chưa viết): trước|sau CSS, mục 0–8 + 7b, số đo, danh sách MỌI thay đổi giao diện ngoài yêu cầu
-   (so ảnh mốc từng trang) để người dùng duyệt từng mục, khối chỉ có chữ cần người viết bổ sung "Điểm chính".
-4. Hướng dẫn `docs/HUONG-DAN-NOI-DUNG.md`: thêm ảnh từng phần tử Velis + "Thêm dự án mới bằng mẫu Velis – Dự án" (đã có chữ, thiếu ảnh – soát lại).
-5. Gửi ảnh cho người dùng duyệt → chỉ sau khi duyệt: áp lên site thật theo `docs/the7/DUA-LEN-SITE-THAT.md` mục 46–54 (cần quyền ghi site thật
-   hoặc người dùng tự làm).
-6. Xóa `staging/wp-content/cache/fvm`; xác minh lại mật khẩu ứng dụng staging (401).
+1. `tools/wp_cred.py` + CLAUDE.md: thêm `WP_LIVE_ADMIN_PASSWORD` (site thật). Kiểm lại đăng nhập wp-admin staging bằng mật khẩu mới (1 lần).
+2. **Staging:** tải `data/the7/goi-2.1.2/dt-the7-child-2.1.2.zip` (Giao diện → Tải lên → Thay thế) → LiteSpeed Xóa tất cả →
+   `python3 -I tools/the7_bo_diem_chinh.py --staging 19855,19934,19962,20360,20422,20067,19773,19593,19625,19633,19637 <log.json> --that`
+   (chạy khô trước, không `--that`; ghi revision vào STAGING-LOG) → lưu lại "Mẫu của tôi" "Velis – Dự án" theo `data/the7/mau-wpbakery/du-an.txt` (AJAX `vc_delete_template` / `vc_save_template`).
+   **Thứ tự bắt buộc:** theme trước, dọn nội dung sau (theme cũ + nội dung đã bỏ `diem` → chữ bị bóp 2/3).
+3. Kiểm (lệnh người dùng): ảnh Ansana by Kita đoạn "Thông tin tổng quan", "Mặt bằng", "Cập nhật tiến độ" 1920 + 390 trước | sau
+   (`node tools/the7_chup_doan.mjs https://staging.velisrealty.vn/ansana-by-kita/ screenshots/the7/bo-diem-chinh ansana-sau 1920,390 "Thông tin tổng quan" "Mặt bằng" "Cập nhật tiến độ"`; ảnh trước đã có);
+   mất chữ ≥ 99 % (`tools/the7_check_mat_chu.mjs`); 0 ô "Điểm chính"; 0 phần tử cạnh khối chữ; ≤ 1 form/trang (chủ đầu tư, Gamuda Land trước đây 2). Gửi ảnh, **dừng chờ duyệt**.
+4. **Form +84 site thật** (người dùng đã giao "staging → site thật ngay", sau đó lệnh "không đưa gì lên site thật" – **hỏi lại trước khi áp**):
+   kiểm trên staging (2.1.2 có sẵn) bằng script không gửi thật (ô họ tên trống → `validation_failed`), rồi tải `data/the7/goi-1.9.3/dt-the7-child-1.9.3-live.zip`
+   qua wp-admin site thật (`WP_LIVE_ADMIN_PASSWORD`, `kiem_site_that()` trước, ghi `docs/the7/NHAT-KY-SITE-THAT.md`), gửi thật 1 lần "Kiểm thử ra mắt" (số công ty 0911 237 979).
+5. **Font site thật – LiteSpeed** (lệnh người dùng): Page Optimization như staging (CSS minify + combine bật; UCSS, CCSS, CSS async, Google Fonts async tắt;
+   JS minify + combine bật; JS defer tắt) – sao lưu `.htaccess` trước, ghi diff nếu đổi → Purge All → kiểm 0 Google / FVM, số CSS/JS, font, ảnh cận H1 + thân bài 1920/390,
+   menu mobile, hỏi đáp, form (chặn gửi), console 0; vỡ do gộp JS → tắt JS combine. Lệnh tùy chọn cho người dùng: `rm -rf /home/gdssxvdn/public_html/wp-content/cache/fvm`.
+6. Vòng sửa tổng: đo lại toàn bộ (bố cục, mất chữ, clip, footer, mobile, on-page, Lighthouse), chụp 1920 + 390 (`node tools/the7_chup.mjs <base> <thư mục>`),
+   báo ngắn bảng đo + đường dẫn staging từng trang. Chỉ áp site thật khi người soát báo "ĐẠT – áp".
 
-## 5. Tệp dở / cần soát
+## 3. Gói / tệp
+
+| Tệp | Nội dung |
+|---|---|
+| `data/the7/goi-2.1.2/dt-the7-child-2.1.2.zip` | **staging**: theme con 2.1.2 = repo `the7-child/dt-the7-child` (khối một cột, bỏ Điểm chính, form +84, trang có Nhận bảng giá không in thêm form cuối) |
+| `data/the7/goi-1.9.3/dt-the7-child-1.9.3-live.zip` | **site thật**: = gói 1.9.2 + đúng khối form +84 (`style.css` 1.9.3). Chưa áp |
+| `data/the7/goi-1.9.2/dt-the7-child-1.9.2-live.zip` | gói font (đã áp trên site thật) |
+| `data/the7/goi-1.9.3/lenh-A-staging-2.1.2.txt`, `lenh-B-site-that-1.9.3.txt` | lệnh Terminal 1 dòng (tệp nén base64, kiểm sha256 + `php -l`, sao lưu `/home/gdssxvdn/velis-saoluu/`) – dự phòng khi không có wp-admin; **lệnh B tạm giữ, không chạy** |
+| `tools/the7_bo_diem_chinh.py` | bỏ `minh_hoa="diem" diem=… ben=…` khỏi `[velis_khoi]`, chữ ngoài thẻ giữ nguyên (`--test`) |
+| `tools/the7_chup.mjs`, `tools/the7_chup_doan.mjs` | chụp cả trang / từng đoạn (khách xem) |
+| `screenshots/the7/bo-diem-chinh/ansana-truoc-*.jpg` | ảnh trước (3 đoạn × 1920 + 390) |
+
+## 4. Tệp dở / cần soát
 
 | Tệp | Tình trạng |
 |---|---|
-| `data/the7/sua-tong/bocuc-sau.json` | lần đo dở, chưa tin cậy |
-| `docs/the7/CSS-KIEM-KE.md` | đã có bảng, chưa soát số |
-| `screenshots/the7/sua-tong/sau/*-1920.jpg` | ảnh cũ (trước sửa font), sẽ thay |
-| `docs/the7/DUA-LEN-SITE-THAT.md` mục 46–54 | danh sách thay đổi cho site thật – chờ đo cuối để chốt |
-| `docs/STAGING-LOG.md` mục 2026-11-25 vòng sửa tổng | đủ tới lúc dừng |
-| `tools/check_mat_chu.mjs` (gốc repo `tools/`) | bản nháp trùng `tools/the7_check_mat_chu.mjs` – có thể xóa sau khi soát |
+| `docs/the7/CSS-KIEM-KE.md` | chưa soát số (từ phiên trước) |
+| `data/the7/sua-tong/bocuc-sau.json` | đo cũ, không tin cậy – thay sau khi đo lại |
+| `screenshots/the7/sua-tong/sau/*` | ảnh cũ, chụp lại sau 2.1.2 |
+| `docs/the7/DUA-LEN-SITE-THAT.md` mục 46–54 | cần thêm 2.1.2 (một cột, bỏ Điểm chính) trước khi chốt |
+| `docs/reports/the7-sua-tong.md` | chưa viết |
+| Nhánh `claude/laughing-bohr-0ik1jb` | đã gộp hết vào `claude/the7-child`; proxy chặn xóa – người dùng xóa trên GitHub |
