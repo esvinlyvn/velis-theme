@@ -29,6 +29,7 @@ Nguồn mục D: BRIEF, `docs/VOICE.md`, `docs/BRAND.md`, `content/samples/SUMMA
 8. Câu tối đa 30 từ, đoạn tối đa 80 từ (VOICE); **mục tiêu câu trung bình 15–20 từ**. **Không dùng dấu gạch dài (U+2014)** trong bài:
    thay bằng dấu phẩy, hai chấm, gạch nối ngắn hoặc tách câu.
 9. **Link ra ngoài chỉ đến Wikipedia** (`rules.md` mục 10).
+10. **Không có dấu hiệu văn AI**: skill `.claude/skills/velis-khong-dau-hieu-ai/` (`rules.md` mục 15), chạy `scan_ai_signs.py` trước khi commit.
 
 ## D2. AEO – để được chọn làm câu trả lời
 

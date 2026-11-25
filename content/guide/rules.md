@@ -75,6 +75,7 @@ nhưng phần "áp dụng cho Velis" thì không.
 8. Bài/đoạn về cho thuê, lợi suất của dự án chưa khai thác: chỉ dùng số liệu tham khảo đã duyệt trong `content/data/comparables/`,
    ghi rõ dự án, loại căn, thời điểm; lợi suất dạng khoảng + giả định; có câu "chưa khai thác, không phải cam kết" (mục 12).
 9. Chủ đầu tư / đơn vị phát triển ghi theo tên thị trường và vai trò trong `content/data/entities/entities.csv`; không đưa pháp nhân lên bài blog (mục 13).
+10. `python3 -I .claude/skills/velis-khong-dau-hieu-ai/scan_ai_signs.py <bài>` không còn LỖI; đã đọc lại mọi CẢNH BÁO (mục 15).
 
 ## 9. Danh sách tên đối thủ cấm xuất hiện
 
@@ -246,3 +247,9 @@ Dữ liệu: `content/data/entities/entities.csv`. Silo `/chu-dau-tu/` giữ ngu
 
 Phát hiện việc cần làm ngoài `content/` (theme, `data/`, `docs/`, `tools/`, BRIEF…): **không tự làm, không hỏi người dùng**; ghi thêm một dòng
 vào `content/handoff-main.md` (việc, file, căn cứ, trạng thái) và nhắc trong báo cáo.
+
+## 15. Không có dấu hiệu văn AI (người dùng chốt 2026-11-25)
+
+Áp dụng skill `.claude/skills/velis-khong-dau-hieu-ai/` (nguồn: Wikipedia "Signs of AI writing", chuyển sang tiếng Việt) cho mọi nội dung
+xuất bản: bài, trang, title, meta, FAQ, mô tả schema. **Cấm vi phạm** 19 quy tắc trong `SKILL.md`; bảng tra ở `reference.md`.
+Trước khi commit bài: chạy `scan_ai_signs.py`, sửa hết LỖI, đọc lại từng CẢNH BÁO (checklist mục 8, bước 10).

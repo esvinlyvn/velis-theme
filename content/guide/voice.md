@@ -12,6 +12,9 @@ Nguồn chính (đọc trước, không chép lại): `docs/VOICE.md` (ngôi xư
 
 ## Bổ sung
 
+- **Không có dấu hiệu văn AI**: bắt buộc theo skill `.claude/skills/velis-khong-dau-hieu-ai/` (`rules.md` mục 15): không thổi phồng,
+  không đuôi ", góp phần…", không "không chỉ… mà còn", không "tóm lại", không từ sáo dày đặc; dùng "là / có", dữ kiện cụ thể, lặp tên riêng.
+
 - **Tác giả**: Vũ Xuân (họ tên đầy đủ Vũ Thanh Xuân), CEO Velis Realty. Tiểu sử viết mới; kinh nghiệm cũ chỉ nói chung,
   không nêu tên đơn vị cũ (`rules.md` mục 3).
 - **Cách viết đoạn trải nghiệm** (để không mâu thuẫn dữ kiện):
