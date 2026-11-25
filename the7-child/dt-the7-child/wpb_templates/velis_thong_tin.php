@@ -1,7 +1,6 @@
 <?php
 /** Velis · Thông tin dự án – lưới nhãn / giá trị (velis.css mục 3b). */
 defined( 'ABSPATH' ) || exit;
-wp_enqueue_script( 'wpb_composer_front_js' ); // The7 main.js gọi hàm của WPBakery (vc_initVideoBackgrounds) – trang chỉ có phần tử Velis cũng cần tệp này
 $atts = vc_map_get_attributes( $this->getShortcode(), $atts );
 $muc  = (array) vc_param_group_parse_atts( $atts['muc'] );
 if ( ! $muc ) {

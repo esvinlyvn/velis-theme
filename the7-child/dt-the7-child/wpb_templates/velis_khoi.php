@@ -1,7 +1,6 @@
 <?php
 /** Velis · Khối nội dung – tiêu đề + chữ (7/12) | minh họa (5/12), cùng mép trên; < 1200: chữ trước, minh họa sau. */
 defined( 'ABSPATH' ) || exit;
-wp_enqueue_script( 'wpb_composer_front_js' ); // The7 main.js gọi hàm của WPBakery (vc_initVideoBackgrounds) – trang chỉ có phần tử Velis cũng cần tệp này
 $atts = vc_map_get_attributes( $this->getShortcode(), $atts );
 $cap  = 'h3' === $atts['cap'] ? 'h3' : 'h2';
 $id   = $atts['el_id'] ? $atts['el_id'] : velis_neo( $atts['tieu_de'] );
