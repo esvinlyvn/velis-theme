@@ -102,6 +102,23 @@ Bản trước: `/home/gdssxvdn/velis-saoluu/{staging,sitethat}-{functions,style
 - Gửi thật 1 lần 16:57 (giờ VN): /lien-he/, tên "Kiểm thử ra mắt", số `+84 911 237 979` → `mail_sent` (email phải ghi 0911237979).
 - Quay lui: tải lại `data/the7/goi-1.9.2/dt-the7-child-1.9.2-live.zip` bằng `tools/wp_tai_theme.mjs`.
 
+## 2026-11-25 (17:00 giờ VN) – Áp nốt font: LiteSpeed gộp CSS/JS ĐÃ ÁP (Claude, wp-admin)
+
+- Theme Options → Tracking code (đọc trong wp-admin, `the7velischild[general-tracking_code]`): **không còn** UX-16 / preload FVM; còn UX-05, UX-06, UX-14 → không sửa.
+  GA4 `G-QSJ8EH9CWB` + xác minh Pinterest vẫn trong HTML trang chủ; không có mã Facebook (trước giờ cũng không) → không đụng.
+- LiteSpeed Page Optimization, trước: mọi ô TẮT. Sau: CSS minify + combine BẬT, JS minify + combine BẬT; UCSS, CSS async (CCSS), Google Fonts async,
+  bỏ Google Fonts, JS defer TẮT (đọc lại sau khi lưu: đúng). `.htaccess` sao lưu trước (Toolbox, 4004 byte) – so sau khi lưu: **không đổi**. Purge All.
+
+| Đo (khách, Chrome thật; trang chủ / Căn hộ The Privé / blog; máy tính = điện thoại) | Trước | Sau |
+|---|---|---|
+| Tệp CSS / JS | 15–17 / 15 | **1 / 7** |
+| Yêu cầu Google Fonts / `cache/fvm` | 0 / 0 | 0 / 0 |
+| Font | 3 tệp theme con + icon The7 | không đổi |
+| Lỗi console | 0 | 0 |
+| Menu điện thoại 390 / hỏi đáp (vc_toggle) 390 + 1920 / form (chạy khô) | – | mở / mở / đạt |
+
+Ảnh: `screenshots/the7/font/site-that-gop-*.jpg`. Quay lui: Page Optimization đặt lại 4 ô CSS/JS minify + combine = TẮT, Purge All.
+
 ## Quy tắc đăng nhập (người dùng chốt 2026-11-25, thay mọi hướng dẫn trước)
 
 - STAGING (`staging.velisrealty.vn`): `WP_USER` + `WP_APP_PASSWORD`.
@@ -125,3 +142,5 @@ Bản trước: `/home/gdssxvdn/velis-saoluu/{staging,sitethat}-{functions,style
 |---|---|---|---|---|
 | 2026-11-25 | (không ghi – kiểm users/me đạt, không có đường REST cho Theme Options / LiteSpeed) | – | – | 200, claude-bot |
 | 2026-11-25 | Theme con 1.9.2 → 1.9.3 (form +84) + Purge All; gửi thật 1 form "Kiểm thử ra mắt" | dt-the7-child | gói 1.9.2 trong repo | 200, claude-bot |
+
+| 2026-11-25 | LiteSpeed Page Optimization: CSS/JS minify + combine BẬT; Purge All (.htaccess không đổi) | LiteSpeed | mọi ô TẮT | 200, claude-bot |
