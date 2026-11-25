@@ -1,0 +1,101 @@
+[
+ {
+  "id": 19855,
+  "loai": "posts",
+  "link": "https://staging.velisrealty.vn/can-ho-persa-place/",
+  "rev_truoc": 21200,
+  "diem_bo": 4,
+  "doi": true,
+  "rev_sau": 21225
+ },
+ {
+  "id": 19934,
+  "loai": "posts",
+  "link": "https://staging.velisrealty.vn/ansana-by-kita/",
+  "rev_truoc": 21201,
+  "diem_bo": 7,
+  "doi": true,
+  "rev_sau": 21226
+ },
+ {
+  "id": 19962,
+  "loai": "posts",
+  "link": "https://staging.velisrealty.vn/can-ho-the-prive/",
+  "rev_truoc": 21202,
+  "diem_bo": 6,
+  "doi": true,
+  "rev_sau": 21227
+ },
+ {
+  "id": 20360,
+  "loai": "posts",
+  "link": "https://staging.velisrealty.vn/vinhomes-saigon-park/",
+  "rev_truoc": 21203,
+  "diem_bo": 8,
+  "doi": true,
+  "rev_sau": 21228
+ },
+ {
+  "id": 20422,
+  "loai": "posts",
+  "link": "https://staging.velisrealty.vn/can-ho-palm-river/",
+  "rev_truoc": 20474,
+  "diem_bo": 6,
+  "doi": true,
+  "rev_sau": 20474
+ },
+ {
+  "id": 20067,
+  "loai": "posts",
+  "link": "https://staging.velisrealty.vn/the-global-city/",
+  "rev_truoc": 21205,
+  "diem_bo": 8,
+  "doi": true,
+  "rev_sau": 21230
+ },
+ {
+  "id": 19773,
+  "loai": "posts",
+  "link": "https://staging.velisrealty.vn/spring-ville/",
+  "rev_truoc": 21206,
+  "diem_bo": 3,
+  "doi": true,
+  "rev_sau": 21231
+ },
+ {
+  "id": 19593,
+  "loai": "pages",
+  "link": "https://staging.velisrealty.vn/du-an/vinhomes/",
+  "rev_truoc": 21212,
+  "diem_bo": 3,
+  "doi": true,
+  "rev_sau": 21232
+ },
+ {
+  "id": 19625,
+  "loai": "pages",
+  "link": "https://staging.velisrealty.vn/du-an/sun-group/",
+  "rev_truoc": 21213,
+  "diem_bo": 5,
+  "doi": true,
+  "rev_sau": 21233
+ },
+ {
+  "id": 19633,
+  "loai": "pages",
+  "link": "https://staging.velisrealty.vn/du-an/masterise-homes/",
+  "rev_truoc": 21214,
+  "diem_bo": 3,
+  "doi": true,
+  "rev_sau": 21234
+ },
+ {
+  "id": 19637,
+  "loai": "pages",
+  "link": "https://staging.velisrealty.vn/du-an/gamuda-land/",
+  "rev_truoc": 21215,
+  "diem_bo": 4,
+  "doi": true,
+  "rev_sau": 21235
+ }
+]

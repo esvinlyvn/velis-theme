@@ -623,3 +623,28 @@ Chỉ đọc: REST `contact-forms` (19582, 20958 – ô `[tel* sdt]`, thông bá
 | Theme con 2.1.2 (`velis_khoi.php`, `velis-elements.php`, `velis.css`, `functions.php`) | 2.1.1: khối 7/12 + 5/12, ô "Điểm chính", minh họa sticky | một cột, minh họa dưới chữ, không "Điểm chính", chữ khối 19/20 px dòng 1,7 (≥ 768); form +84; trang có "Velis · Nhận bảng giá" không in thêm khối liên hệ cuối (hết 2 form) | **chờ người dùng tải** `dist/dt-the7-child-2.1.2.zip` (wp-admin) hoặc lệnh A – đăng nhập wp-admin của Claude thất bại |
 | Nội dung 11 trang sản phẩm | `minh_hoa="diem" diem="…"` trong `[velis_khoi]` | bỏ (chữ ngoài thẻ mở giữ nguyên từng ký tự) | `tools/the7_bo_diem_chinh.py --staging … --that` – **sau** khi theme 2.1.2 chạy |
 | Mẫu "Velis – Dự án" | 3 khối "Điểm chính" | tệp nguồn `data/the7/mau-wpbakery/du-an.txt` đã bỏ; "Mẫu của tôi" trên staging **chưa lưu lại** (cần wp-admin) | – |
+
+
+## 2026-11-25 (17:00–17:20 giờ VN) – Gỡ thiết kế không yêu cầu: ĐÃ ÁP trên staging
+
+| Việc | Kết quả |
+|---|---|
+| Theme con | 2.1.1 → 2.1.2 → **2.1.3** (= 2.1.2 + 1 dòng `velis.css`: lỗi nhập form báo 1 chỗ), `tools/wp_tai_theme.mjs`, LiteSpeed Purge All |
+| Nội dung 11 trang | `tools/the7_bo_diem_chinh.py --that` (chữ ngoài thẻ mở giữ nguyên từng ký tự – assert); chạy lại sau: 0 khối "diem" còn lại |
+| Mẫu "Velis – Dự án" | công cụ cũ không dọn được 2 khối có tiêu đề `"[tên dự án]"` (regex dừng ở `]`) → sửa regex + test; xóa mẫu cũ `velis-du-an_3785534385`, lưu mới `velis-du-an_864563966` (khớp tệp từng ký tự, 0 "diem"). Mẫu "Du An" (`du-an_3175422803`, không rõ nguồn) để nguyên |
+| Đo `tools/the7_check_mot_cot.mjs` 11 trang × 1920 + 390 | 0 ô Điểm chính, 0 phần tử cạnh khối chữ, form = 1 mỗi trang – đạt 22/22 (`data/the7/sua-tong/mot-cot-staging.json`) |
+| Mất chữ (site thật cũ → staging) | 9 trang 99,47–99,83 %; Masterise 98,78 % = đúng 13 từ của chuỗi shortcode thô `[contact-form-7 id=”20958″ …]` đang hiện trên site thật (không phải chữ nội dung); Ansana: bản site thật không phải WPBakery – bỏ qua (chữ giữ nguyên theo assert công cụ) |
+
+| ID | Trang | Revision trước | Revision sau | Khối diem bỏ |
+|---|---|---|---|---|
+| 19855 | /can-ho-persa-place/ | 21200 | 21225 | 4 |
+| 19934 | /ansana-by-kita/ | 21201 | 21226 | 7 |
+| 19962 | /can-ho-the-prive/ | 21202 | 21227 | 6 |
+| 20360 | /vinhomes-saigon-park/ | 21203 | 21228 | 8 |
+| 20422 | /can-ho-palm-river/ | 20474 | 20474 | 6 |
+| 20067 | /the-global-city/ | 21205 | 21230 | 8 |
+| 19773 | /spring-ville/ | 21206 | 21231 | 3 |
+| 19593 | /du-an/vinhomes/ | 21212 | 21232 | 3 |
+| 19625 | /du-an/sun-group/ | 21213 | 21233 | 5 |
+| 19633 | /du-an/masterise-homes/ | 21214 | 21234 | 3 |
+| 19637 | /du-an/gamuda-land/ | 21215 | 21235 | 4 |

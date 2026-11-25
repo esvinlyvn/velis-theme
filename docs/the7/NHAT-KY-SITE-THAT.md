@@ -142,5 +142,4 @@ Bản trước: `/home/gdssxvdn/velis-saoluu/{staging,sitethat}-{functions,style
 |---|---|---|---|---|
 | 2026-11-25 | (không ghi – kiểm users/me đạt, không có đường REST cho Theme Options / LiteSpeed) | – | – | 200, claude-bot |
 | 2026-11-25 | Theme con 1.9.2 → 1.9.3 (form +84) + Purge All; gửi thật 1 form "Kiểm thử ra mắt" | dt-the7-child | gói 1.9.2 trong repo | 200, claude-bot |
-
 | 2026-11-25 | LiteSpeed Page Optimization: CSS/JS minify + combine BẬT; Purge All (.htaccess không đổi) | LiteSpeed | mọi ô TẮT | 200, claude-bot |

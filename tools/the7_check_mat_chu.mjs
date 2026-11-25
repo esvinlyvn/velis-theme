@@ -1,7 +1,7 @@
 // "Mất chữ" khi dựng lại trang (bước 16c): chữ trong nội dung trang (kể cả phần đang ẩn) bản CŨ (site thật, chưa đổi) so bản MỚI (staging).
 // Bỏ khỏi so sánh: mục lục, Điểm chính (chép lại câu có sẵn), danh sách bài (động), ô form.
 // Tỉ lệ = số từ của bản cũ còn trong bản mới (đếm theo bội số) – yêu cầu ≥ 99 %. CHỈ ĐỌC.
-// Dùng: VIEW_PASSWORD_FILE=… node tools/the7_check_mat_chu.mjs <base cũ> <base mới> <out.json> /a/ /b/ …     | --test
+// Dùng: STAGING_VIEW_PASSWORD (hoặc VIEW_PASSWORD_FILE) node tools/the7_check_mat_chu.mjs <base cũ> <base mới> <out.json> /a/ /b/ …     | --test
 import { createRequire } from 'node:module'; import { readFileSync, writeFileSync } from 'node:fs';
 const { chromium } = createRequire(import.meta.url)('playwright');
 export const tu = (s) => (s.toLowerCase().replace(/[“”"]/g, '"').match(/[\p{L}\p{N}]+/gu) || []);
@@ -12,7 +12,7 @@ const a = process.argv.slice(2);
 if (a[0] === '--test') { const r = tyLe('Một hai “ba” Xem thêm', 'một hai "ba" bốn'); if (r.tyLe !== 1 || tyLe('a b c d', 'a b').tyLe !== 0.5) { console.log('test: TRƯỢT', r); process.exit(1); } console.log('test: OK'); process.exit(0); }
 const [cu, moi, out, ...urls] = a; const b = await chromium.launch(); const res = {};
 const lay = async (base, u) => { const c = await b.newContext(); const p = await c.newPage();
-  if (base.includes('staging.')) { await p.goto(base + '/'); if (await p.locator('input[type=password]').count()) { await p.fill('input[type=password]', readFileSync(process.env.VIEW_PASSWORD_FILE, 'utf8').trim()); await Promise.all([p.waitForNavigation(), p.locator('input[type=submit], button[type=submit]').first().click()]); } }
+  if (base.includes('staging.')) { await p.goto(base + '/'); if (await p.locator('input[type=password]').count()) { await p.fill('input[type=password]', (process.env.STAGING_VIEW_PASSWORD || readFileSync(process.env.VIEW_PASSWORD_FILE, 'utf8').trim())); await Promise.all([p.waitForNavigation(), p.locator('input[type=submit], button[type=submit]').first().click()]); } }
   await p.goto(base + u + '?nc=' + Date.now(), { waitUntil: 'domcontentloaded', timeout: 120000 });
   const t = await p.evaluate(() => { const w = document.querySelector('.wpb-content-wrapper') || document.querySelector('.entry-content'); if (!w) return ''; const x = w.cloneNode(true); x.querySelectorAll('script, style, noscript, .velis-muc-luc, #ez-toc-container, .velis-diem, .blog-shortcode, .dt-blog-shortcode, .articles-list, form').forEach(e => e.remove()); x.querySelectorAll('*').forEach(e => e.append(' ')); return x.textContent; }); // khoảng trắng sau mỗi thẻ: <li>a</li><li>b</li> không dính chữ
   await c.close(); return t; };

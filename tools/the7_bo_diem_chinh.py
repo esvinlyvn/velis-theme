@@ -6,7 +6,7 @@ Dùng: python3 -I tools/the7_bo_diem_chinh.py --test | --tep <tệp mẫu> | --s
 """
 import json, re, sys
 
-THE = re.compile(r'\[velis_khoi\b[^\]]*\]')
+THE = re.compile(r'\[velis_khoi\b(?:[^\]"]|"[^"]*")*\]')  # "]" trong giá trị nháy (tiêu đề mẫu "[tên dự án]") không đóng thẻ
 BO = re.compile(r'\s+(?:minh_hoa="diem"|diem="[^"]*"|ben="[^"]*")')
 
 
@@ -25,6 +25,8 @@ def _test():
     assert r == ('[vc_row][velis_khoi tieu_de="A"]<p>Chữ</p>[/velis_khoi][velis_khoi tieu_de="B" minh_hoa="bang" bang="JTND"]'
                  '<p>diem="giữ" trong chữ</p>[/velis_khoi][vc_column_text]minh_hoa="diem"[/vc_column_text]'), r
     assert ngoai_the(r) == ngoai_the(c) and bo(r) == r
+    m = '[velis_khoi tieu_de="Giá [tên dự án]?" minh_hoa="diem" diem="x" ben="phai"]<p>[tên dự án]</p>[/velis_khoi]'
+    assert bo(m) == '[velis_khoi tieu_de="Giá [tên dự án]?"]<p>[tên dự án]</p>[/velis_khoi]', bo(m)
     print('test ok')
 
 

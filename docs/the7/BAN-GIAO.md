@@ -1,3 +1,14 @@
+# Bàn giao (cập nhật 2026-11-25, 17:25 giờ VN)
+
+**Phiên này đã làm:** đăng nhập wp-admin chính thức (`tools/wp_admin_login.mjs`), tải theme (`tools/wp_tai_theme.mjs`);
+site thật: theme con **1.9.3** (form +84) + LiteSpeed gộp CSS/JS (xem `docs/the7/NHAT-KY-SITE-THAT.md`);
+staging: theme con **2.1.3**, gỡ "diem" khỏi 11 trang, mẫu "Velis – Dự án" lưu lại, đo đạt, ảnh Ansana sau (`screenshots/the7/bo-diem-chinh/ansana-sau-*`).
+**Đang chờ:** người soát kiểm ảnh/đo → "ĐẠT – áp" → việc 4 (đưa 2.x lên site thật). **Phát hiện:** site thật khối "Nhận bảng giá" các trang sản phẩm
+hiện chuỗi shortcode thô `[contact-form-7 id=”20958″ …]` (nháy cong + ID form của staging) thay vì form – chưa sửa, chờ người dùng quyết.
+Mọi mục dưới đây là bản cũ (trước phiên này), giữ để tra.
+
+---
+
 # Bàn giao – dừng giữa chừng (cập nhật 2026-11-25, phiên sau)
 
 Người dùng ra lệnh DỪNG. Mọi việc đã commit + push trên `claude/the7-child`. Không còn tiến trình chạy.

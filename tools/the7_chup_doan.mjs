@@ -9,7 +9,7 @@ for (const w of ws.split(',').map(Number)) {
   const ctx = await b.newContext({ viewport: { width: w, height: w < 768 ? 844 : 1080 }, isMobile: w < 768, hasTouch: w < 768,
     userAgent: w < 768 ? 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.1 Mobile/15E148 Safari/604.1' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36' });
   const p = await ctx.newPage(); const o = new URL(url).origin;
-  if (o.includes('staging.')) { await p.goto(o + '/'); if (await p.locator('input[type=password]').count()) { await p.fill('input[type=password]', readFileSync(process.env.VIEW_PASSWORD_FILE, 'utf8').trim()); await Promise.all([p.waitForNavigation(), p.locator('input[type=submit], button[type=submit]').first().click()]); } }
+  if (o.includes('staging.')) { await p.goto(o + '/'); if (await p.locator('input[type=password]').count()) { await p.fill('input[type=password]', (process.env.STAGING_VIEW_PASSWORD || readFileSync(process.env.VIEW_PASSWORD_FILE, 'utf8').trim())); await Promise.all([p.waitForNavigation(), p.locator('input[type=submit], button[type=submit]').first().click()]); } }
   await p.goto(url, { waitUntil: 'networkidle', timeout: 90000 });
   await p.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 600) { scrollTo(0, y); await new Promise(r => setTimeout(r, 100)); } scrollTo(0, 0); });
   await p.waitForTimeout(800);

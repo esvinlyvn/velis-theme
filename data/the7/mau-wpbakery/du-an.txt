@@ -14,11 +14,11 @@
 <p>[Đoạn văn: viết bằng số liệu có nguồn, ngày cập nhật; chữ dài cứ để hết – điện thoại tự thu gọn 2 khối dài nhất]</p>
 [/velis_khoi][velis_khoi tieu_de="Mặt bằng [tên dự án]" minh_hoa="thu_vien" thu_vien=""]
 <p>[Đoạn văn: viết bằng số liệu có nguồn, ngày cập nhật; chữ dài cứ để hết – điện thoại tự thu gọn 2 khối dài nhất]</p>
-[/velis_khoi][velis_khoi tieu_de="Giá bán [tên dự án] bao nhiêu?" minh_hoa="diem" diem="%5B%7B%22dong%22%3A%22%5BGi%C3%A1%20t%E1%BB%AB%20%E2%80%A6%20tri%E1%BB%87u%2Fm%C2%B2%20%E2%80%93%20ngu%E1%BB%93n%2C%20th%C3%A1ng%2Fn%C4%83m%5D%22%7D%2C%7B%22dong%22%3A%22%5BThanh%20to%C3%A1n%20%E2%80%A6%25%5D%22%7D%2C%7B%22dong%22%3A%22%5B%C6%AFu%20%C4%91%C3%A3i%20%C4%91ang%20%C3%A1p%20d%E1%BB%A5ng%5D%22%7D%5D"]
+[/velis_khoi][velis_khoi tieu_de="Giá bán [tên dự án] bao nhiêu?"]
 <p>[Đoạn văn: viết bằng số liệu có nguồn, ngày cập nhật; chữ dài cứ để hết – điện thoại tự thu gọn 2 khối dài nhất]</p>
 [/velis_khoi][velis_khoi tieu_de="Tiến độ [tên dự án]" minh_hoa="thu_vien" thu_vien=""]
 <p>[Cập nhật đến tháng …/…: …]</p>
-[/velis_khoi][velis_khoi tieu_de="Pháp lý [tên dự án]" minh_hoa="diem" diem="%5B%7B%22dong%22%3A%22%5BGi%E1%BA%A5y%20ph%C3%A9p%20x%C3%A2y%20d%E1%BB%B1ng%20s%E1%BB%91%20%E2%80%A6%20ng%C3%A0y%20%E2%80%A6%5D%22%7D%2C%7B%22dong%22%3A%22%5BT%C3%ACnh%20tr%E1%BA%A1ng%20s%E1%BB%95%3A%20%E2%80%A6%5D%22%7D%2C%7B%22dong%22%3A%22%5BNg%C3%A2n%20h%C3%A0ng%20b%E1%BA%A3o%20l%C3%A3nh%3A%20%E2%80%A6%5D%22%7D%5D"]
+[/velis_khoi][velis_khoi tieu_de="Pháp lý [tên dự án]"]
 <p>[Đoạn văn: viết bằng số liệu có nguồn, ngày cập nhật; chữ dài cứ để hết – điện thoại tự thu gọn 2 khối dài nhất]</p>
 [/velis_khoi][velis_khoi tieu_de="Góc nhìn của CEO Vũ Xuân"]
 <p>[Đoạn văn: viết bằng số liệu có nguồn, ngày cập nhật; chữ dài cứ để hết – điện thoại tự thu gọn 2 khối dài nhất]</p>
