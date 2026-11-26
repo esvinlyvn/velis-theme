@@ -19,7 +19,7 @@
 	--velis-chu-phu: #5C5C5C;      /* chữ phụ: nhãn, ngày, breadcrumb (6,3:1) */
 	--velis-do: #B8282E;           /* CHỈ nút hành động + link trong đoạn văn */
 	--velis-do-dam: #9E1F26;
-	--velis-so: #8A6A3A;           /* champagne CHỈ cho con số quan trọng (giá, diện tích, %, bàn giao) – chữ số tabular */
+	--velis-so: #866738;           /* champagne (#8A6A3A cũ = 4,32:1 trên ngà #F4EEE4 – 2026-11-26) CHỈ cho con số quan trọng (giá, diện tích, %, bàn giao) – chữ số tabular */
 	--velis-tren-toi: #FFFFFF;     /* chữ trên nền tối; chữ phụ trên nền tối = trắng + opacity (một màu) */
 	--velis-nen-nga: #F4EEE4;
 	--velis-nen-champagne: #EADFCC;

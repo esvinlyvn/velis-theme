@@ -281,6 +281,23 @@ Nguyên nhân (bằng chứng `tools/the7_lcp.mjs`): trang chủ LCP = ảnh n�
 (87 % không dùng); The Privé / bài: LCP = đoạn chữ, chờ CSS 130 KB + jquery đồng bộ trong <head>; /du-an/: LCP = ảnh thẻ đầu (173 KB); GA4 gtag 183 KB, TBT ~400–500 ms.
 Cache LiteSpeed trúng (x-litespeed-cache: hit), TTFB ~280 ms. Thay đổi 2.1.7 nằm trong độ dao động đo – nút thắt chính cần duyệt (CCSS / CSS async, JS defer – CLAUDE.md đang cấm).
 
+## 2026-11-26 (14:40–15:25 giờ VN) – Tốc độ mobile theo PageSpeed thật (đợt 1)
+
+Sao lưu trước: `data/the7/litespeed/htaccess-truoc-toc-do-2026-11-26.txt`, `litespeed-cai-dat-truoc-toc-do-2026-11-26.data` (hash đã xóa; bản đủ ở scratchpad).
+`kiem_site_that()` 200 trước mỗi lần ghi; Purge sau mỗi bước.
+
+| Giờ | Việc | Trước → sau |
+|---|---|---|
+| 14:46 | QUIC.cloud: "Bật dịch vụ" → **Stay Anonymous** (không tạo tài khoản bằng email người dùng; CDN không dùng được, Tối ưu trang + Tối ưu ảnh dùng được) | chưa kết nối → kết nối ẩn danh |
+| 14:50 | Tối ưu ảnh: `img_optm-auto` 0→1 (cron gửi toàn thư viện), `img_optm-webp` 0→1 (WebP), `img_optm-webp_replace_srcset` 0→1; giữ ảnh gốc (`img_optm-ori`=1, `rm_bkup`=0). **.htaccess thêm khối `### marker WEBP start/end ###`** (Vary webp – đã được duyệt) | 15:25: 19 ảnh đã gửi, giảm 57 KB (ảnh vốn đã WebP) |
+| 14:55 | Đúng cỡ ảnh: thử tùy chọn The7 "Preserve images proportions" trên staging – ảnh thẻ dự án / dải nổi bật **không lấp khung** (hở nền) → trả lại "resize" (staging so lại 0,00 %). Không đổi trên site thật | – |
+| – | Ảnh LCP trang chủ: đã là `<img>` srcset 300–1200w, fetchpriority=high, eager, preload imagesrcset khớp (từ bước 10) – không đổi | – |
+| 15:03 | LiteSpeed CSS: `optm-css_async` 0→1 (CCSS QUIC.cloud + tải CSS bất đồng bộ), `optm-css_font_display` 0→1 (Swap), UCSS giữ 0, minify/combine giữ 1. .htaccess không đổi | CCSS sinh theo hàng đợi (ẩn danh: giới hạn – lần chạy tiếp "khả dụng sau 6558 s") |
+| 15:12 | Trang chủ đã có CCSS: ảnh 1 s đầu + tải xong 1920 / 390 **giống hệt trước**; CLS không đổi (390: 0; 1920: 0,178 như trước); menu điện thoại chạy; 0 lỗi JS. Trang khác: chưa có CCSS → vẫn tải CSS thường (không rủi ro) | – |
+| 15:20 | Theme con 2.1.7 → **2.1.8**: token `--velis-so` #8A6A3A → **#866738** (con số `.velis-so`, vd. lưới thông tin dự án; 4,32 → 4,54:1 trên ngà #F4EEE4, 5,24:1 trên trắng). Lighthouse a11y The Privé 97 → 100 | gói 2.1.7 để quay lui |
+
+Dung lượng (khung 412 px, cuộn hết trang, 15:22): trang chủ 2100 KB / 37 req (ảnh 1457 KB); /du-an/ 1303 KB / 25 (ảnh 666); The Privé 1814 KB / 37 (ảnh 1158); bài 810 KB / 27 (ảnh 170).
+
 ## Quy tắc đăng nhập (người dùng chốt 2026-11-25, thay mọi hướng dẫn trước)
 
 - STAGING (`staging.velisrealty.vn`): `WP_USER` + `WP_APP_PASSWORD`.
@@ -311,3 +328,4 @@ Cache LiteSpeed trúng (x-litespeed-cache: hit), TTFB ~280 ms. Thay đổi 2.1.7
 | 2026-11-26 | Thẻ Đang bán / Nổi bật + gắn 6 / 4 bài; tóm tắt 2 phân khu; lưới trang chủ + /du-an/ theo thẻ; Ansana Riêng tư → Công khai; Purge | site thật | rev 21052 / 21054; Ansana private | 200, claude-bot |
 | 2026-11-26 | Rank Math breadcrumbs bật; 7 chuyển hướng 301 + noindex 9 chuyên mục cũ; 9 tiêu đề SEO; 1 link nội bộ; Purge | site thật | breadcrumbs tắt; tiêu đề cũ trong log; rev 21148 | 200, claude-bot |
 | 2026-11-26 | Chân trang bỏ Ansana (block-2 → HTML); theme con 2.1.5 → 2.1.7 (term_link chuyên mục cũ, lazy ảnh); Purge | site thật | block-2 cũ trong log; gói 2.1.5 | 200, claude-bot |
+| 2026-11-26 | QUIC.cloud ẩn danh; tối ưu ảnh + WebP (.htaccess +marker WEBP); CCSS + CSS async + font-display swap; theme con 2.1.8 (#866738); Purge | site thật | sao lưu data/the7/litespeed/; gói 2.1.7 | 200, claude-bot |

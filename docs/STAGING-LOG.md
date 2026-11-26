@@ -668,3 +668,8 @@ Rank Math breadcrumbs bật + nhãn "Trang chủ" + hiện danh mục cha; 9 chu
 ## 2026-11-26 – Chân trang, breadcrumb, tốc độ
 
 Tiện ích block-2 (latest-posts Dự án) → HTML bỏ Ansana; theme con 2.1.6 (term_link chuyên mục cũ → trang đích) → 2.1.7 (wp_omit_loading_attr_threshold = 1).
+
+
+## 2026-11-26 – Thử "Preserve images proportions" (dt_blog_masonry)
+
+Trang chủ 19526 rev 21260 / du-an 19537 rev 21261 → ảnh không lấp khung → trả về resize (rev 21262–21264), so ảnh vùng 0,00 %. Theme con 2.1.8 (--velis-so #866738).

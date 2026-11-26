@@ -34,7 +34,8 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
 - Theme Options lưu riêng theo theme (theme con có bộ riêng). Không nhập lại cả file options cũ (ghi đè thay đổi sau);
   xuất bộ hiện tại trước, chỉ đổi đúng khóa (`tools/the7_options_buoc*.py`), lưu bản trước/sau ở `data/the7/`.
 - Tối ưu: CHỈ LiteSpeed Cache (FVM đã gỡ 2026-11-25 – FVM tự tải Google Fonts thiếu dấu tiếng Việt). LiteSpeed: page cache + CSS/JS minify + gộp
-  CSS/JS (đã thử: The7 + WPBakery không lỗi), không JS defer / UCSS / CCSS. Sau khi đổi CSS/options: LiteSpeed → Xóa tất cả. Lưu trang cài đặt
+  CSS/JS (đã thử: The7 + WPBakery không lỗi); CCSS + Load CSS Async + font-display Swap (người dùng duyệt 2026-11-26, QUIC.cloud ẩn danh – kiểm FOUC từng loại trang);
+  KHÔNG JS defer / dời jQuery / hoãn GA4 / UCSS. Tối ưu ảnh QUIC.cloud + WebP (giữ ảnh gốc). Đo tốc độ: KHÔNG thêm tham số chống cache (LiteSpeed miss). Sau khi đổi CSS/options: LiteSpeed → Xóa tất cả. Lưu trang cài đặt
   LiteSpeed có thể ghi `.htaccess` → báo trước (staging 2026-11-25: Page Optimization không đổi .htaccess).
 - Font: tự lưu trong theme con `fonts/` (Be Vietnam Pro 400/500/600, Playfair Display 400/600; latin + latin-ext + vietnamese; OFL), dựng bằng
   `tools/the7_font_tieng_viet.py` (kiểm cmap tiếng Việt); The7 không gọi Google Fonts (functions.php gỡ `dt-web-fonts`). Đo: `node tools/the7_check_font.mjs <url> <out> [m]`, cmap: `python3 tools/the7_font_tieng_viet.py --kiem <tệp>`.

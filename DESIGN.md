@@ -16,7 +16,7 @@ colors:
   velis-red: "#B8282E"
   velis-red-hover: "#9E1F26"
   champagne: "#B08D57"
-  champagne-text: "#8A6A3A"
+  champagne-text: "#866738"
   champagne-light: "#EADBC0"
   champagne-soft: "#F3ECDF"
   on-dark: "#FFFFFF"
@@ -123,7 +123,7 @@ bằng `prefers-reduced-motion`; WCAG 2.2 AA.
 - **velis-red-hover `#9E1F26`** – hover/nhấn (7,84:1 với chữ trắng).
 - **champagne `#B08D57`** – đường kẻ, icon trang trí, chữ ≥ 24 px trên nền tối (≈ 6:1 trên `#111111`).
   Chỉ 2,92:1 trên nền ngà: **không dùng cho chữ** trên nền sáng.
-- **champagne-text `#8A6A3A`** – chữ nhỏ màu vàng khi cần (5,00:1 trên trắng, 4,71:1 trên ngà).
+- **champagne-text `#866738`** – chữ nhỏ màu vàng khi cần (5,24:1 trên trắng, 4,54:1 trên ngà #F4EEE4; trước 2026-11-26 là #8A6A3A = 4,32:1 trên ngà mới).
 - **Màu logo** `#DC2524` / `#D2941B` lấy đúng từ file Illustrator gốc; chỉ dùng trong file logo, không dùng làm màu giao diện
   (đỏ logo trên nền ngà 4,57:1, sát ngưỡng; vàng logo 2,48:1).
 
@@ -180,7 +180,7 @@ Không có cỡ nào khác (đo bằng `tools/mockup_scale.mjs`). `h4` trong fro
 - **Sản phẩm:** tư vấn, phân phối căn hộ – nhà phố cao cấp TP.HCM; CEO phân tích dòng tiền cho người mua ở và nhà đầu tư.
 - **Tính cách:** điềm tĩnh, chính xác, nói bằng số. **Thế giới:** bản vẽ mặt bằng, bảng tính dòng tiền, ánh chiều trên sông.
 - **Điểm nhấn:** ảnh phối cảnh đầu trang chủ / đầu trang dự án; bảng thông tin dự án (phần tử "Velis · Thông tin dự án").
-- **Dấu riêng:** mọi con số quan trọng (giá, diện tích, %, bàn giao) dùng chữ số tabular màu champagne `#8A6A3A` (lớp `.velis-so`, tự gắn trong
+- **Dấu riêng:** mọi con số quan trọng (giá, diện tích, %, bàn giao) dùng chữ số tabular màu champagne `#866738` (lớp `.velis-so`, tự gắn trong
   Thông tin dự án); champagne CHỈ dùng cho việc này (ngoại lệ người dùng chốt: nền khối "Nhận tư vấn" `#EADFCC`, gạch dưới tiêu đề khối trang chủ);
   đỏ `#B8282E` CHỈ cho nút hành động và link trong đoạn văn.
 - Nhãn: chữ thường đầu câu, giãn chữ 0 (không `uppercase`, không `letter-spacing`). Thang chữ 7 cỡ: **14 · 16 · 18 · 24 · 32 · 40 · 56**
