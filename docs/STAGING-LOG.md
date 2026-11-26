@@ -653,3 +653,8 @@ Chỉ đọc: REST `contact-forms` (19582, 20958 – ô `[tel* sdt]`, thông bá
 ## 2026-11-25 (17:50 giờ VN) – CF7 câu báo lỗi số điện thoại
 
 Form 19582 Liên Hệ + 20958 Nhận bảng giá, `invalid_tel`: "Số điện thoại gồm 10 chữ số, bắt đầu bằng 0 (ví dụ 0911 237 979)." → "Số điện thoại chưa đúng, ví dụ 0911 237 979" (`tools/the7_cf7_thong_bao.mjs`). CF7 staging 6.1.6, tự cập nhật đã tắt từ trước.
+
+
+## 2026-11-26 – Dự án hiển thị theo thẻ
+
+Thẻ dang-ban (60) / noi-bat (61) + gắn 6 / 4 bài; tóm tắt Palm River / Persa Place thêm dòng dự án mẹ; trang chủ 19526 rev 21186 → 21245 (+ 21247 đổi slug → ID), /du-an/ 19537 rev 21187 → 21246 (+ 21248): lưới `post_type="tags"`. Thử bỏ thẻ Vinhomes Saigon Park → lưới 5, trang 200; gắn lại.

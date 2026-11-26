@@ -109,8 +109,8 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
 - Thẻ dự án (2026-11-12, một mẫu mọi nơi): phần tử The7 `dt_blog_masonry` lấy bài động trong hàng `velis-projects`; dữ liệu thẻ = ảnh đại diện +
   tiêu đề bài + ô Tóm tắt 4 dòng (chủ đầu tư / khu vực / loại / "Bàn giao: …"); dải nổi bật hero trang chủ = `velis-feats` (chọn ở ô Posts).
   Bộ tên khu vực: `KHU_VUC` trong `tools/the7_sua_buoc9.py` (theo `docs/KHU-VUC.md`, người dùng duyệt 2026-11-12).
-- Bước 10 (2026-11-12): lưới trang chủ = chuyên mục Dự án (34); phân khu (Palm River, Persa Place) ở chuyên mục riêng "Phân khu" (57) nên tự bị loại,
-  /du-an/ lấy `34,57`. Ảnh hero trang chủ = Single Image Extra class `velis-hero-bg` (theme con preload + fetchpriority). Thẻ / nút / vùng bấm theo
+- Lưới dự án (2026-11-26, người dùng duyệt): trang chủ + /du-an/ = `dt_blog_masonry post_type="tags"` thẻ **Đang bán** (`dang-ban`, ID 60 cả 2 site), mọi bài, mới nhất trước;
+  dải nổi bật = thẻ **Nổi bật** (`noi-bat`, 61), tối đa 4 – phần tử nhận ID thẻ, không nhận slug (`tools/the7_luoi_theo_the.py`, `tools/the7_the_du_an.py`). Bước 10 cũ (chuyên mục 34 / 57) bỏ. Ảnh hero trang chủ = Single Image Extra class `velis-hero-bg` (theme con preload + fetchpriority). Thẻ / nút / vùng bấm theo
   DESIGN.md "Thẻ" + "Buttons". Trang chuyên mục / tìm kiếm: The7 chỉ lấy cài đặt của trang mẫu 20733, không lấy nội dung. Kiểm schema cục bộ:
   `node tools/the7_check_schema.mjs <schemaorg.jsonld> <ldfull.json>` (validator.schema.org chặn truy cập tự động). Đưa lên site thật: `docs/the7/DUA-LEN-SITE-THAT.md`.
 - Trang tổng `/chu-dau-tu/` (bước 11, staging ID 20955): thẻ chủ đầu tư = hàng WPBakery `velis-devs velis-boxes` (mỗi cột: logo + H2 có link + dòng dự án);

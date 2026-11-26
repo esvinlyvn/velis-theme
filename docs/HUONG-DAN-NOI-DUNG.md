@@ -92,7 +92,7 @@ Chủ đầu tư có từ 2 dự án trên site trở lên mới tạo trang.
 
 ### 1.3 Trang tổng `/du-an/`, `/chu-dau-tu/`
 
-- **/du-an/:** lưới thẻ tự lấy bài chuyên mục Dự án + Phân khu. Không cần viết gì thêm. Thêm dự án mới = đăng bài dự án đúng chuyên mục.
+- **/du-an/:** lưới thẻ tự lấy mọi bài có thẻ **Đang bán** (xem 1.7). Thêm dự án mới = đăng bài dự án + gắn thẻ "Đang bán".
 - **/chu-dau-tu/:** mỗi chủ đầu tư là 1 cột trong hàng `velis-devs velis-boxes`, gồm logo, tên (H2, có link tới trang chủ đầu tư) và dòng dự án. Thêm chủ đầu tư = nhân bản 1 cột rồi sửa.
 
 ### 1.4 Bài blog (theo cụm dự án và bài thị trường)
@@ -148,9 +148,18 @@ Trang chữ thuần (H2 cho từng mục). Chính sách bảo mật cần viết
 
 ### 1.7 Trang chủ
 
-Chỉ sửa chữ trong các khối có sẵn. Hai phần **tự lấy bài, không sửa tay**:
-- **lưới dự án:** chuyên mục Dự án;
-- **dải "Dự án nổi bật":** chọn bài ở ô Posts của khối `velis-feats`. Phần này nhờ Quản trị viên nếu không quen WPBakery.
+Chỉ sửa chữ trong các khối có sẵn. Lưới dự án trang chủ, lưới /du-an/ và dải "Dự án nổi bật" **tự lấy bài theo thẻ** (từ 2026-11-26), không sửa tay phần tử:
+
+| Muốn | Làm (trong bài / trang dự án, ô **Thẻ** bên phải trình sửa) |
+|---|---|
+| Đưa sản phẩm lên lưới trang chủ + /du-an/ | gắn thẻ **Đang bán** (bất kể chuyên mục: dự án, phân khu, dòng sản phẩm…) |
+| Rút sản phẩm xuống (trang vẫn giữ, vẫn mở được) | bỏ thẻ **Đang bán** |
+| Lên dải "Dự án nổi bật" (ảnh đầu trang chủ, tối đa 4) | gắn thêm thẻ **Nổi bật** |
+| Đổi thứ tự | sửa **ngày đăng** (mới nhất đứng trước) |
+| Chưa bán / ngừng bán nhưng giữ trang (như Ansana by Kita) | để trang **Công khai**, **không** gắn "Đang bán" |
+
+- Phân khu / dòng sản phẩm: thêm 1 dòng cuối ở ô **Tóm tắt** dạng "<tên> · <dự án mẹ>" (vd. "Palm River · Palm City") – thẻ dự án hiện dòng này.
+- Thẻ chỉ áp cho **Bài viết** (trang dự án là bài viết). Trang lưu trữ /tag/… để noindex, không có trong sitemap (Rank Math – đừng bật lại).
 
 Trên điện thoại (bước 15): lưới dự án là dải trượt ngang. Từ 2026-11-25 không còn `velis-clamp` / "Xem thêm" đặt tay: máy tính hiện hết;
 điện thoại tự thu gọn tối đa 2 Khối nội dung dài nhất (không thu giá, pháp lý, tiến độ, hỏi đáp). Nền khối trang chủ / trang khối: Extra class
@@ -165,7 +174,7 @@ Trên điện thoại (bước 15): lưới dự án là dải trượt ngang. T
 | Khối liên hệ cuối trang (ảnh `07-khoi-lien-he-cuoi.jpg`) – tự hiện ở trang **chưa có** form (trang chủ, /du-an/, /blog/, chuyên mục, Giới thiệu, Tuyển dụng, tìm kiếm, 404) | Giao diện → Tiện ích → **Khối liên hệ cuối trang** | Quản trị viên |
 | Khối "Nhận bảng giá" trên trang dự án / chủ đầu tư | trong bài (hàng `velis-cta`); chỉ đổi tên dự án ở tiêu đề và trong `du-an="…"` | Người viết |
 | Hộp "Nhận bảng giá <dự án>" ở cột phải bài blog | Giao diện → Tiện ích → Default Sidebar (chữ `{du_an}` tự thay bằng tên dự án) | Quản trị viên |
-| Dải "Dự án nổi bật" | trang chủ, khối `velis-feats` | Quản trị viên |
+| Dải "Dự án nổi bật" | thẻ **Nổi bật** trên bài dự án (xem 1.7) | Người viết |
 
 ---
 

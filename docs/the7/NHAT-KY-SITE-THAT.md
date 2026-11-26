@@ -186,6 +186,25 @@ Staging trước (2.1.4): khung đầu trang dự án / phân khu trả về x�
   `node tools/the7_kiem_anh_popup.mjs`: trước (2.1.4) The Privé chuyển trang; sau: The Privé 7, Spring Ville 10, Palm River 8, Persa Place 7 ảnh – bấm mở cửa sổ ảnh,
   không chuyển trang, Esc đóng (1920 + 390). Quay lui: gói `data/the7/goi-2.1.4/`.
 
+## 2026-11-26 (10:24–10:40 giờ VN) – Dự án hiển thị theo thẻ + Ansana công khai (người dùng duyệt)
+
+Staging trước (thẻ 60 / 61; bỏ thẻ Đang bán Vinhomes Saigon Park → lưới 5, trang vẫn 200; gắn lại → 6). Site thật, `kiem_site_that()` 200:
+
+| Việc | Trước | Sau |
+|---|---|---|
+| Thẻ (post_tag) | chưa có thẻ nào | "Đang bán" `dang-ban` (60), "Nổi bật" `noi-bat` (61) – `tools/the7_the_du_an.py` |
+| Gắn thẻ | – | Đang bán: Palm River, The Privé, The Global City, Persa Place, Spring Ville, Vinhomes Saigon Park; Nổi bật: Palm River, The Privé, The Global City, Spring Ville |
+| Tóm tắt phân khu | 4 dòng | + dòng cuối "Palm River · Palm City" (20422), "Persa Place · Spring Ville" (19855) – nguồn: nội dung trang |
+| Trang chủ 19526 (rev 21052 → 21168) | dải nổi bật `post_type="posts" posts="19962,20067,19934,19773"`; lưới `category="34"` 6 bài | `post_type="tags" tags="61"` (4, mới nhất); lưới `tags="60"` `dis_posts_total="-1"` |
+| /du-an/ 19537 (rev 21054 → 21169) | `category="34,57"` 12 bài | `tags="60"` mọi bài – `tools/the7_luoi_theo_the.py`, log `data/the7/sua-tong/luoi-the-site-that.json` |
+| Ansana by Kita 19934 | Riêng tư (404) | **Công khai**, không thẻ, nội dung giữ nguyên; không tạo chuyển hướng (Rank Math: chỉ 2 quy tắc cũ `blog-bds/blog-ansana`, không liên quan) |
+| Rank Math trang thẻ | đã noindex, không trong sitemap | không đổi (kiểm `/tag/dang-ban/`, `/tag/noi-bat/`: `follow, noindex`; sitemap không có mục thẻ) |
+
+Purge LiteSpeed. Kiểm (khách, bỏ cache): trang chủ dải nổi bật = Palm River, The Privé, The Global City, Spring Ville; lưới trang chủ = /du-an/ = 6 trang
+(Palm River đầu), đủ ảnh; Ansana 200, index, có trong sitemap, 1 form, không Xem thêm / cột phải, không ở trang chủ / /du-an/;
+`the7_kiem_ra_mat.py --chi-hang-ngay` đạt (131 URL, 13 khối Nhận bảng giá); `the7_kiem_sau_ap.mjs` 28/28. Ảnh `screenshots/the7/the-du-an/`.
+Quay lui: revision trước của 19526 / 19537; gỡ thẻ; Ansana về Riêng tư.
+
 ## Quy tắc đăng nhập (người dùng chốt 2026-11-25, thay mọi hướng dẫn trước)
 
 - STAGING (`staging.velisrealty.vn`): `WP_USER` + `WP_APP_PASSWORD`.
@@ -213,3 +232,4 @@ Staging trước (2.1.4): khung đầu trang dự án / phân khu trả về x�
 | 2026-11-25 | CF7 6.2.6 (tự thay 17:10, không chạy trên PHP 8.2) → 6.1.6 + kích hoạt + tắt tự cập nhật CF7; câu invalid_tel 2 form; Purge All | contact-form-7 | 6.2.6 inactive | 200, claude-bot |
 | 2026-11-25 | Bản 2.x: theme 2.1.4, 39 khóa Theme Options, 4 tiện ích, cột phải 4 trang, nội dung 120 bài/trang, mẫu Velis – Dự án; Purge | site thật | gói 1.9.3, options trước, dongbo-site-that-log.json | 200, claude-bot |
 | 2026-11-25 | Cột phải 4 trang → tắt (như trước); theme con 2.1.4 → 2.1.5 (ảnh mở cửa sổ ảnh); Purge | site thật | right/sidebar_5; gói 2.1.4 | 200, claude-bot |
+| 2026-11-26 | Thẻ Đang bán / Nổi bật + gắn 6 / 4 bài; tóm tắt 2 phân khu; lưới trang chủ + /du-an/ theo thẻ; Ansana Riêng tư → Công khai; Purge | site thật | rev 21052 / 21054; Ansana private | 200, claude-bot |
