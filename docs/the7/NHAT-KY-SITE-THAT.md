@@ -311,6 +311,16 @@ Dung lượng (khung 412 px, cuộn hết trang, 15:22): trang chủ 2100 KB / 3
 - Dung lượng (412 px, cuộn hết): trang chủ 2100 → **1416 KB** (ảnh 1457 → 774); The Privé 1814 → **1360 KB** (ảnh 1158 → 703); /du-an/ 1302 → 1302; bài 810 → 810.
 - CCSS: bật WebP làm LiteSpeed tách nhóm cache (+webp) → hàng đợi 25 URL, trang chủ cần sinh lại; nút chạy hàng đợi khóa (giới hạn ẩn danh).
 
+## 2026-11-26 (16:10–17:25 giờ VN) – Ảnh QUIC.cloud kiểm hiển thị; tắt thay WebP (người dùng chọn); CCSS trang chủ
+
+- Kiểm ảnh 6 trang × 390 / 1920 (trang chủ, /du-an/, The Privé, bài, Giới thiệu, Liên hệ): 0 ảnh hỏng, 0 HTTP lỗi; ảnh nội dung đều .webp (vốn đã WebP).
+- Bật WebP làm LiteSpeed tách nhóm cache (+webp) → Chrome / PageSpeed (UA chrome-lighthouse) không nhận CCSS, hàng đợi gấp đôi. Người dùng chọn
+  "Tắt thay WebP": `img_optm-webp` 1→0, `img_optm-webp_replace_srcset` 1→0 (17:17); LiteSpeed gỡ khối `marker WEBP` → **.htaccess = bản sao lưu trước** (so lại, chỉ khác dòng trống).
+  Nén ảnh QUIC.cloud (`img_optm-auto`) giữ bật.
+- CCSS trang chủ phục vụ mọi trình duyệt (`litespeed-ccss` + CSS async). Ảnh 1 s đầu / tải xong 1920 + 390: khác 0,00 % so trước. CLS 390: 0–0,014 (như trước);
+  1920: 0,177–0,679 qua 9 lần đo (trước khi bật: 0,178, 1 lần) – nguồn xô: dải số liệu + lưới thẻ (The7 dàn lưới bằng JS ~2,7 s) và có lần cả #main.
+- Hàng đợi CCSS (QUIC.cloud ẩn danh: ~1 lượt / 2 giờ): xóa mục +webp cũ (Clear hàng đợi chờ), còn 4: bài (gia-ban…), /du-an/, /blog/, /gioi-thieu/; lượt kế ~19:06.
+
 ## Quy tắc đăng nhập (người dùng chốt 2026-11-25, thay mọi hướng dẫn trước)
 
 - STAGING (`staging.velisrealty.vn`): `WP_USER` + `WP_APP_PASSWORD`.
@@ -343,3 +353,4 @@ Dung lượng (khung 412 px, cuộn hết trang, 15:22): trang chủ 2100 KB / 3
 | 2026-11-26 | Chân trang bỏ Ansana (block-2 → HTML); theme con 2.1.5 → 2.1.7 (term_link chuyên mục cũ, lazy ảnh); Purge | site thật | block-2 cũ trong log; gói 2.1.5 | 200, claude-bot |
 | 2026-11-26 | QUIC.cloud ẩn danh; tối ưu ảnh + WebP (.htaccess +marker WEBP); CCSS + CSS async + font-display swap; theme con 2.1.8 (#866738); Purge | site thật | sao lưu data/the7/litespeed/; gói 2.1.7 | 200, claude-bot |
 | 2026-11-26 | Theme con 2.1.8 → 2.1.9 (ảnh đúng cỡ); tạo cỡ ảnh 232 ảnh (REST post-process); Purge | site thật | gói 2.1.8 | 200, claude-bot |
+| 2026-11-26 | Tắt thay WebP (img_optm-webp 0, srcset 0; .htaccess về bản trước); Clear hàng đợi CCSS chờ; Purge | site thật | img_optm-webp 1 | 200, claude-bot |
