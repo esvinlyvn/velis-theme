@@ -298,6 +298,19 @@ Sao lưu trước: `data/the7/litespeed/htaccess-truoc-toc-do-2026-11-26.txt`, `
 
 Dung lượng (khung 412 px, cuộn hết trang, 15:22): trang chủ 2100 KB / 37 req (ảnh 1457 KB); /du-an/ 1303 KB / 25 (ảnh 666); The Privé 1814 KB / 37 (ảnh 1158); bài 810 KB / 27 (ảnh 170).
 
+## 2026-11-26 (15:40–16:10 giờ VN) – Ảnh đúng cỡ (theme con 2.1.9) + tạo cỡ ảnh cho thư viện
+
+- Theme con 2.1.8 → **2.1.9** (staging trước): cỡ cắt mới theo tỉ lệ khung The7 (13:9 176/352; 4:3 320/480/640; 3:2 160/320/480/640) + 480/640 px giữ tỉ lệ;
+  bộ lọc lõi `do_shortcode_tag` (dt_blog_masonry): ảnh The7 cắt sẵn 768 px nhận srcset gồm các cỡ nhỏ + bản 768 và `sizes` theo khung đo thật
+  (nổi bật 100px; thẻ dự án `(max-width:767px) 100vw, 430px`; thẻ bài `(max-width:767px) 120px, 320px`); ảnh chưa có cỡ mới giữ nguyên HTML The7. Test PHP.
+- Tạo cỡ còn thiếu cho thư viện: REST lõi `POST /wp/v2/media/<id>/post-process` (create-image-subsizes – chỉ thêm, không xóa cỡ cũ; không cần plugin)
+  – `tools/the7_tao_co_anh.py`: staging 230/230, site thật **232/232** ảnh HTTP 200 (log `data/the7/sua-tong/co-anh-site-that.json`).
+- So từng điểm ảnh trước | sau (site thật, 390 + 1920): dải nổi bật 0,00 %, thẻ dự án ≤ 0,07 %, thẻ bài ≤ 0,14 %, /du-an/ ≤ 0,09 %, ảnh tiến độ 0,00 %, sidebar bài 0,00 %.
+- Ảnh tải ≤ 2 × khung × DPR (`tools/the7_kiem_co_anh.mjs`, 390@1,75 + 1920@1): trang chủ, /du-an/, The Privé đạt; bài: 5 ảnh vuông 150 px / khung 72 px ở 1920
+  (cần cỡ 96 px – đã viết trong 2.1.10, chưa áp: wp-admin staging đăng nhập thất bại 1 lần → dừng theo quy tắc).
+- Dung lượng (412 px, cuộn hết): trang chủ 2100 → **1416 KB** (ảnh 1457 → 774); The Privé 1814 → **1360 KB** (ảnh 1158 → 703); /du-an/ 1302 → 1302; bài 810 → 810.
+- CCSS: bật WebP làm LiteSpeed tách nhóm cache (+webp) → hàng đợi 25 URL, trang chủ cần sinh lại; nút chạy hàng đợi khóa (giới hạn ẩn danh).
+
 ## Quy tắc đăng nhập (người dùng chốt 2026-11-25, thay mọi hướng dẫn trước)
 
 - STAGING (`staging.velisrealty.vn`): `WP_USER` + `WP_APP_PASSWORD`.
@@ -329,3 +342,4 @@ Dung lượng (khung 412 px, cuộn hết trang, 15:22): trang chủ 2100 KB / 3
 | 2026-11-26 | Rank Math breadcrumbs bật; 7 chuyển hướng 301 + noindex 9 chuyên mục cũ; 9 tiêu đề SEO; 1 link nội bộ; Purge | site thật | breadcrumbs tắt; tiêu đề cũ trong log; rev 21148 | 200, claude-bot |
 | 2026-11-26 | Chân trang bỏ Ansana (block-2 → HTML); theme con 2.1.5 → 2.1.7 (term_link chuyên mục cũ, lazy ảnh); Purge | site thật | block-2 cũ trong log; gói 2.1.5 | 200, claude-bot |
 | 2026-11-26 | QUIC.cloud ẩn danh; tối ưu ảnh + WebP (.htaccess +marker WEBP); CCSS + CSS async + font-display swap; theme con 2.1.8 (#866738); Purge | site thật | sao lưu data/the7/litespeed/; gói 2.1.7 | 200, claude-bot |
+| 2026-11-26 | Theme con 2.1.8 → 2.1.9 (ảnh đúng cỡ); tạo cỡ ảnh 232 ảnh (REST post-process); Purge | site thật | gói 2.1.8 | 200, claude-bot |

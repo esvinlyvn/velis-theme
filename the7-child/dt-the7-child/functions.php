@@ -145,6 +145,71 @@ add_filter( 'wp_get_attachment_image_attributes', function ( $attr, $attachment 
 	return $attr;
 }, 20, 2 );
 
+// Right-sized images (2026-11-26). The7's post grids crop ONE 768 px image per post (srcset 768w/788w) even for 99–430 px slots.
+// Extra hard-crop sizes in the same ratios as the grids (13:9 hero strip, 4:3 project cards, 3:2 post cards) + 480/640 px proportional sizes
+// (single images). Different ratio from the originals, so WordPress never mixes the crops into other images' srcset. Thumbnails for existing
+// uploads: REST POST /wp/v2/media/<id>/post-process {action: create-image-subsizes} (tools/the7_tao_co_anh.py).
+const VELIS_CO_ANH = array( '13x9' => array( array( 176, 122 ), array( 352, 244 ) ), '4x3' => array( array( 320, 240 ), array( 480, 360 ), array( 640, 480 ) ),
+	'3x2' => array( array( 160, 107 ), array( 320, 213 ), array( 480, 320 ), array( 640, 427 ) ) );
+// Displayed slot width per grid ratio (measured 390 / 768 / 1366 / 1920 px; velis.css): hero strip 99 px, project card ≤ 430 px, post card 116 / 314 px.
+const VELIS_SIZES = array( '13x9' => '100px', '4x3' => '(max-width: 767px) 100vw, 430px', '3x2' => '(max-width: 767px) 120px, 320px' );
+
+add_action( 'after_setup_theme', function () {
+	foreach ( VELIS_CO_ANH as $tl => $ds ) {
+		foreach ( $ds as $wh ) {
+			add_image_size( "velis-$tl-{$wh[0]}", $wh[0], $wh[1], true );
+		}
+	}
+	add_image_size( 'velis-480', 480, 0 );
+	add_image_size( 'velis-640', 640, 0 );
+	add_image_size( 'velis-1x1-96', 96, 96, true ); // 72 px related-post squares (velis_bai_viet): same ratio as 'thumbnail', joins its srcset
+} );
+
+// Ratio key of a W×H crop, or '' when it is none of the grid ratios.
+function velis_ti_le( $w, $h ) {
+	foreach ( array( '13x9' => 13 / 9, '4x3' => 4 / 3, '3x2' => 3 / 2 ) as $k => $r ) {
+		if ( $h > 0 && abs( $w / $h - $r ) < 0.02 ) {
+			return $k;
+		}
+	}
+	return '';
+}
+
+// Rebuild srcset / sizes of The7 grid images (<img class="preload-me" src="…-768x576.webp">) from the crops above; images without those
+// crops yet (thumbnails not regenerated) keep The7's markup.
+function velis_anh_dung_co( $html, $find_id = 'attachment_url_to_postid', $get_src = 'wp_get_attachment_image_src' ) {
+	return preg_replace_callback( '/<img\b[^>]*\bclass="[^"]*\bpreload-me\b[^"]*"[^>]*>/', function ( $m ) use ( $find_id, $get_src ) {
+		$img = $m[0];
+		if ( ! preg_match( '/\bsrc="([^"]+)-(\d+)x(\d+)\.(webp|jpe?g|png)"/i', $img, $s ) || ! ( $tl = velis_ti_le( (int) $s[2], (int) $s[3] ) ) ) {
+			return $img;
+		}
+		static $ids = array();
+		$goc = $s[1] . '.' . $s[4];
+		$id  = $ids[ $goc ] ??= (int) $find_id( $goc );
+		if ( ! $id ) {
+			return $img;
+		}
+		$set = array();
+		foreach ( VELIS_CO_ANH[ $tl ] as $wh ) {
+			$a = $get_src( $id, "velis-$tl-{$wh[0]}" );
+			if ( $a && (int) $a[1] === $wh[0] && (int) $a[2] === $wh[1] ) {
+				$set[] = $a[0] . ' ' . $wh[0] . 'w';
+			}
+		}
+		if ( ! $set ) {
+			return $img;
+		}
+		$set[] = "{$s[1]}-{$s[2]}x{$s[3]}.{$s[4]} {$s[2]}w";
+		$sizes = ( str_contains( $img, 'loading="lazy"' ) ? 'auto, ' : '' ) . VELIS_SIZES[ $tl ];
+		$img   = preg_replace( '/\s(srcset|sizes)="[^"]*"/', '', $img );
+		return str_replace( '<img ', '<img srcset="' . esc_attr( implode( ', ', $set ) ) . '" sizes="' . esc_attr( $sizes ) . '" ', $img );
+	}, $html );
+}
+
+add_filter( 'do_shortcode_tag', function ( $out, $tag ) {
+	return 'dt_blog_masonry' === $tag ? velis_anh_dung_co( $out ) : $out;
+}, 10, 2 );
+
 // Only the first image skips lazy-loading (WordPress default: 3) – the hero is already eager + fetchpriority=high above; the 2nd/3rd images
 // (hero project thumbs, progress photos far below) were downloading before the CSS/LCP. Lazy images also get sizes="auto" (right file size).
 add_filter( 'wp_omit_loading_attr_threshold', fn() => 1 );
@@ -435,7 +500,7 @@ add_shortcode( 'velis_bai_viet', function ( $atts ) {
 	list( $same, $recent ) = velis_post_list_ids( $p ? $ids( array( 'cat' => $p['cat'] ) ) : array(), $ids( array() ), array_merge( array( $id ), array_keys( $GLOBALS['velis_seen'] ?? array() ) ), $n );
 	$li  = function ( $pid ) {
 		$cat = get_the_category( $pid );
-		return '<li><a href="' . esc_url( get_permalink( $pid ) ) . '" tabindex="-1" aria-hidden="true">' . get_the_post_thumbnail( $pid, 'thumbnail', array( 'alt' => '', 'loading' => 'lazy' ) ) . '</a><div>'
+		return '<li><a href="' . esc_url( get_permalink( $pid ) ) . '" tabindex="-1" aria-hidden="true">' . get_the_post_thumbnail( $pid, 'thumbnail', array( 'alt' => '', 'loading' => 'lazy', 'sizes' => '72px' ) ) . '</a><div>'
 			. '<a class="velis-post-title" href="' . esc_url( get_permalink( $pid ) ) . '">' . esc_html( get_the_title( $pid ) ) . '</a>'
 			. '<div class="entry-meta">' . ( $cat ? '<span>' . esc_html( $cat[0]->name ) . '</span>' : '' ) . '<time datetime="' . esc_attr( get_the_date( 'c', $pid ) ) . '">' . esc_html( get_the_date( 'd/m/Y', $pid ) ) . '</time></div></div></li>';
 	};

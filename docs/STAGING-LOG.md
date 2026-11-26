@@ -673,3 +673,8 @@ Tiện ích block-2 (latest-posts Dự án) → HTML bỏ Ansana; theme con 2.1.
 ## 2026-11-26 – Thử "Preserve images proportions" (dt_blog_masonry)
 
 Trang chủ 19526 rev 21260 / du-an 19537 rev 21261 → ảnh không lấp khung → trả về resize (rev 21262–21264), so ảnh vùng 0,00 %. Theme con 2.1.8 (--velis-so #866738).
+
+
+## 2026-11-26 – Ảnh đúng cỡ
+
+Theme con 2.1.9 + tạo cỡ ảnh 230 ảnh (REST post-process). So ảnh vùng ≤ 0,14 %. 16:0x: đăng nhập wp-admin staging thất bại 1 lần (không thông báo lỗi) → dừng wp-admin staging theo quy tắc; 2.1.10 (ảnh vuông 96 px) chưa tải.

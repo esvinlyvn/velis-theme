@@ -14,6 +14,7 @@ function untrailingslashit( $s ) { return rtrim( $s, '/' ); }
 function wp_parse_url( $u, $c ) { return parse_url( $u, $c ); }
 function add_query_arg( $a ) { return $_SERVER['REQUEST_URI']; }
 function home_url( $p = '' ) { return 'https://x' . $p; }
+function add_image_size() {}
 function add_shortcode( $t, $cb ) { $GLOBALS['hooks'][ 'shortcode_' . $t ][] = $cb; }
 function sanitize_text_field( $s ) { return trim( strip_tags( $s ) ); }
 require __DIR__ . '/../../the7-child/dt-the7-child/functions.php';
@@ -22,6 +23,18 @@ $ok_term = 'https://x/du-an/' === velis_term_link( 'https://x/du-an-bds/', (obje
 	&& 'https://x/blog/the-prive/' === velis_term_link( 'https://x/blog/the-prive/', (object) array( 'slug' => 'the-prive' ), 'category' )
 	&& 'https://x/tag/du-an-bds/' === velis_term_link( 'https://x/tag/du-an-bds/', (object) array( 'slug' => 'du-an-bds' ), 'post_tag' );
 if ( ! $ok_term ) { echo "term_link: FAIL\n"; exit( 1 ); }
+// Right-sized images: The7 4:3 crop gets the small crops + sizes; unknown ratio / missing crops / unknown file stay untouched.
+$img = '<img loading="lazy" class="preload-me aspect" src="https://x/u/a-768x576.webp" srcset="https://x/u/a-768x576.webp 768w, https://x/u/a-788x591.webp 788w" sizes="(max-width: 768px) 100vw, 768px" width="768" height="576">';
+$fid = fn( $u ) => 'https://x/u/a.webp' === $u ? 7 : 0;
+$src = fn( $id, $size ) => preg_match( '/-(\d+)$/', $size, $m ) && in_array( $m[1], array( '320', '480' ), true ) ? array( "https://x/u/a-{$m[1]}.webp", (int) $m[1], (int) round( $m[1] * 3 / 4 ) ) : array( 'https://x/u/a.webp', 1200, 900 );
+$out = velis_anh_dung_co( '<p>' . $img . '</p>', $fid, $src );
+$ok_img = str_contains( $out, 'srcset="https://x/u/a-320.webp 320w, https://x/u/a-480.webp 480w, https://x/u/a-768x576.webp 768w"' )
+	&& str_contains( $out, 'sizes="auto, (max-width: 767px) 100vw, 430px"' ) && 1 === substr_count( $out, 'srcset=' ) && ! str_contains( $out, '788w' )
+	&& velis_anh_dung_co( str_replace( '768x576', '768x432', $img ), $fid, $src ) === str_replace( '768x576', '768x432', $img )
+	&& velis_anh_dung_co( str_replace( 'a-768', 'b-768', $img ), $fid, $src ) === str_replace( 'a-768', 'b-768', $img )
+	&& velis_anh_dung_co( $img, $fid, fn() => array( 'https://x/u/a.webp', 1200, 900 ) ) === $img
+	&& '13x9' === velis_ti_le( 768, 532 ) && '3x2' === velis_ti_le( 768, 512 ) && '' === velis_ti_le( 768, 432 );
+if ( ! $ok_img ) { echo "anh dung co: FAIL\n$out\n"; exit( 1 ); }
 $h = velis_cta_html();
 $ok = str_contains( $h, 'href="tel:0911237979"' ) && str_contains( $h, 'href="https://zalo.me/0911237979"' ) && str_contains( $h, 'href="/lien-he/">Nhận tư vấn' ) && str_contains( $h, 'aria-label="Liên hệ nhanh"' );
 // On the consult page itself, once a CF7 form got the stable id, the button jumps to the form.
