@@ -663,3 +663,8 @@ Thẻ dang-ban (60) / noi-bat (61) + gắn 6 / 4 bài; tóm tắt Palm River / P
 ## 2026-11-26 – Onpage (staging trước site thật)
 
 Rank Math breadcrumbs bật + nhãn "Trang chủ" + hiện danh mục cha; 9 chuyên mục cũ noindex, 7 chuyển hướng 301 (ID 24–30); 9 tiêu đề SEO (`data/the7/sua-tong/tieu-de-staging.json`); link "Spring Ville" bài 19876 (rev 21129 → 21257).
+
+
+## 2026-11-26 – Chân trang, breadcrumb, tốc độ
+
+Tiện ích block-2 (latest-posts Dự án) → HTML bỏ Ansana; theme con 2.1.6 (term_link chuyên mục cũ → trang đích) → 2.1.7 (wp_omit_loading_attr_threshold = 1).

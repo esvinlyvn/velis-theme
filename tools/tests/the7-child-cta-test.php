@@ -17,6 +17,11 @@ function home_url( $p = '' ) { return 'https://x' . $p; }
 function add_shortcode( $t, $cb ) { $GLOBALS['hooks'][ 'shortcode_' . $t ][] = $cb; }
 function sanitize_text_field( $s ) { return trim( strip_tags( $s ) ); }
 require __DIR__ . '/../../the7-child/dt-the7-child/functions.php';
+// Old project categories link straight to their replacement page; other terms keep their URL.
+$ok_term = 'https://x/du-an/' === velis_term_link( 'https://x/du-an-bds/', (object) array( 'slug' => 'du-an-bds' ), 'category' )
+	&& 'https://x/blog/the-prive/' === velis_term_link( 'https://x/blog/the-prive/', (object) array( 'slug' => 'the-prive' ), 'category' )
+	&& 'https://x/tag/du-an-bds/' === velis_term_link( 'https://x/tag/du-an-bds/', (object) array( 'slug' => 'du-an-bds' ), 'post_tag' );
+if ( ! $ok_term ) { echo "term_link: FAIL\n"; exit( 1 ); }
 $h = velis_cta_html();
 $ok = str_contains( $h, 'href="tel:0911237979"' ) && str_contains( $h, 'href="https://zalo.me/0911237979"' ) && str_contains( $h, 'href="/lien-he/">Nhận tư vấn' ) && str_contains( $h, 'aria-label="Liên hệ nhanh"' );
 // On the consult page itself, once a CF7 form got the stable id, the button jumps to the form.

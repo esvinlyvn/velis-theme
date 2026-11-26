@@ -145,6 +145,19 @@ add_filter( 'wp_get_attachment_image_attributes', function ( $attr, $attachment 
 	return $attr;
 }, 20, 2 );
 
+// Only the first image skips lazy-loading (WordPress default: 3) – the hero is already eager + fetchpriority=high above; the 2nd/3rd images
+// (hero project thumbs, progress photos far below) were downloading before the CSS/LCP. Lazy images also get sizes="auto" (right file size).
+add_filter( 'wp_omit_loading_attr_threshold', fn() => 1 );
+
+// Old project categories are 301-redirected (Rank Math) to their replacement pages: link straight to the page, so the The7 breadcrumb and
+// Rank Math's BreadcrumbList never point at a redirect (2026-11-26). Map = tools/the7_rankmath_chuyen_huong.mjs.
+function velis_term_link( $url, $term, $taxonomy ) {
+	$map = array( 'du-an-bds' => '/du-an/', 'du-an-vinhomes' => '/du-an/vinhomes/', 'du-an-gamuda-land' => '/du-an/gamuda-land/', 'du-an-masterise-homes' => '/du-an/masterise-homes/',
+		'du-an-sungroup' => '/du-an/sun-group/', 'du-an-vinhomes-saigon-park' => '/vinhomes-saigon-park/', 'du-an-spring-ville' => '/spring-ville/' );
+	return 'category' === $taxonomy && isset( $map[ $term->slug ] ) ? home_url( $map[ $term->slug ] ) : $url;
+}
+add_filter( 'term_link', 'velis_term_link', 10, 3 );
+
 // Contact Form 7 – every form (B3): Vietnamese phone number – 0 + 9 digits, or +84 / 84 + 9 digits (spaces, dots, dashes, brackets
 // allowed); the error text is the form's own "invalid_tel" message (Liên hệ → Contact Form 7 → Thông báo); numeric phone keypad.
 // The mail / lead gets the number as 0xxxxxxxxx whatever form the visitor typed.

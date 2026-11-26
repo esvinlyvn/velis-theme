@@ -14,7 +14,7 @@ if (a[0] === '--sitemap') {
 const CHUYEN = { '/du-an-bds': '/du-an', '/du-an-bds/du-an-vinhomes': '/du-an/vinhomes', '/du-an-bds/du-an-gamuda-land': '/du-an/gamuda-land', '/du-an-bds/du-an-masterise-homes': '/du-an/masterise-homes', '/du-an-bds/du-an-sungroup': '/du-an/sun-group', '/du-an-bds/du-an-vinhomes/du-an-vinhomes-saigon-park': '/vinhomes-saigon-park', '/du-an-bds/du-an-gamuda-land/du-an-spring-ville': '/spring-ville' };
 const dich = (u) => { const x = new URL(u); const k = x.pathname.replace(/\/$/, ''); return x.origin + (CHUYEN[k] || k); };
 export const chuan = (t) => t.replace(/^Chuyên mục\s*[“"](.*)[”"]$/u, '$1').replace(/\s+/g, ' ').trim().toLowerCase();
-const b = await chromium.launch(); const p = await b.newPage(); let sai = 0, co = 0;
+const b = await chromium.launch(); const p = await b.newPage(); let sai = 0, co = 0; const linkBc = new Map();
 if (base.includes('staging.')) { await p.goto(base + '/'); await p.fill('input[type=password]', process.env.STAGING_VIEW_PASSWORD); await Promise.all([p.waitForNavigation(), p.locator('input[type=submit], button[type=submit]').first().click()]); }
 for (const u of paths) {
   await p.goto(base + u + (u.includes('?') ? '&' : '?') + 'nc=' + Date.now(), { waitUntil: 'domcontentloaded', timeout: 90000 });
@@ -27,6 +27,7 @@ for (const u of paths) {
   });
   if (!r.hien) { if (r.bl) console.log('–', u, 'không breadcrumb hiển thị, có BreadcrumbList', r.bl.length); continue; }
   co++;
+  for (const h of r.hien) if (h.url) linkBc.set(h.url, u);
   const loi = [];
   if (!r.bl) loi.push('THIẾU BreadcrumbList');
   else {
@@ -36,4 +37,7 @@ for (const u of paths) {
   if (loi.length) sai++;
   console.log(loi.length ? 'SAI' : 'ĐẠT', u, loi.join(' | ') || r.hien.map((x) => x.ten).join(' › '));
 }
-await b.close(); console.log(`trang có breadcrumb: ${co}, sai: ${sai}`); process.exitCode = sai ? 1 : 0;
+// link breadcrumb hiển thị phải 200 trực tiếp (không qua chuyển hướng)
+let qua = 0;
+for (const [url, tu] of linkBc) { const r = await p.request.get(url.split('#')[0], { maxRedirects: 0 }); if (r.status() !== 200) { qua++; console.log('LINK', r.status(), url, '(vd. ở', tu + ')'); } }
+await b.close(); console.log(`trang có breadcrumb: ${co}, sai: ${sai}, link breadcrumb: ${linkBc.size}, không 200: ${qua}`); if (qua) sai++; process.exitCode = sai ? 1 : 0;

@@ -249,6 +249,38 @@ Sitemap 131 → 127 URL (bỏ /du-an-bds/, /du-an-bds/du-an-vinhomes/, /du-an-bd
 **C1** ảnh thứ 3 "Bài phân tích chuyên sâu" trang chủ: có ảnh, tải xong ở 1920 + 390 (cuộn chậm) – trống trên ảnh chụp cũ do tải chậm, không sửa.
 **C2** menu chân trang "Dự án" còn "Ansana by Kita" – không sửa, chờ người dùng quyết.
 
+## 2026-11-26 (14:06–14:30 giờ VN) – Chân trang bỏ Ansana, breadcrumb không qua chuyển hướng, tốc độ
+
+Staging trước, kiểm đạt. Site thật `kiem_site_that()` 200; Purge sau mỗi phần.
+
+**1. Chân trang "Dự án"** – không phải menu: tiện ích `block-2` (khối Bài viết mới nhất, chuyên mục Dự án, tự lấy 6 bài – Ansana vào vì
+thuộc chuyên mục Dự án và đã công khai). Khối này không loại được 1 bài → thay bằng khối HTML đúng markup nó đang in, bớt dòng Ansana
+(`tools/the7_footer_du_an.py`; nội dung cũ trong `data/the7/sua-tong/footer-du-an-site-that.json`). Trước: The Privé, The Global City, Ansana by Kita,
+Spring Ville, Vinhomes Saigon Park → sau: bỏ Ansana. Danh sách thôi tự cập nhật (sửa ở Giao diện → Tiện ích). Kiểm: 126 trang HTML, 0 link Ansana ở chân trang;
+/ansana-by-kita/ 200, index.
+
+**2. Breadcrumb** – trang dự án: "Dự án" → /du-an-bds/ (301), Spring Ville: "Gamuda Land" → /du-an-bds/du-an-gamuda-land/ (301). Không có tùy chọn sẵn
+(The7 / Rank Math dựng theo link chuyên mục; chuyên mục chính của bài dự án chỉ có "Dự án") → theme con: bộ lọc `term_link` (7 chuyên mục cũ đã 301 → link thẳng
+trang đích; test PHP). Sau: "Dự án" → /du-an/, "Gamuda Land" → /du-an/gamuda-land/. Phân khu giữ "Phân khu" → /phan-khu/ (200, noindex – không qua chuyển hướng).
+Kiểm toàn sitemap: 123/123 breadcrumb khớp BreadcrumbList; 12 link breadcrumb, 0 link không 200.
+
+**3. Tốc độ** – theme con 2.1.5 → **2.1.7** (gồm 2.1.6 breadcrumb): `wp_omit_loading_attr_threshold` 3 → 1 (ảnh thứ 2–3 thôi tải sớm: dải nổi bật trang chủ,
+ảnh tiến độ The Privé; ảnh lazy được `sizes="auto"`). Quay lui: gói `data/the7/goi-2.1.5/`.
+
+Đo (Lighthouse 12.2.1 cục bộ, mobile mặc định, 3 lần / trang, trung vị; KHÔNG tham số chống cache – mọi lần đo trước có `?nc=` = LiteSpeed miss, TTFB ~1,85 s;
+PSI API không khóa: 429 hết hạn mức; môi trường qua proxy ~0,8 s / byte đầu):
+
+| Trang | Perf | LCP | FCP | TBT | CLS | Dung lượng / request |
+|---|---|---|---|---|---|---|
+| / | 69 → 68 | 3.7 → 3.8 s | 2.8 → 2.7 s | 513 → 480 ms | 0.000 | 1827 KB / 39 |
+| /du-an/ | 65 → 73 | 4.6 → 3.6 s | 2.7 → 2.7 s | 404 → 430 ms | 0.000 | 1294 KB / 26 |
+| /can-ho-the-prive/ | 70 → 68 | 3.8 → 3.9 s | 2.8 → 2.8 s | 456 → 492 ms | 0.000 | 1101 KB / 25 |
+| /gia-ban-the-prive-quan-2-2026/ | 71 → 74 | 3.5 → 3.4 s | 2.9 → 2.5 s | 381 → 416 ms | 0.000 | 781 KB / 25 |
+
+Nguyên nhân (bằng chứng `tools/the7_lcp.mjs`): trang chủ LCP = ảnh nền đầu trang (đã preload + fetchpriority=high, 98 KB) nhưng chỉ hiện sau CSS gộp 130 KB chặn hiển thị
+(87 % không dùng); The Privé / bài: LCP = đoạn chữ, chờ CSS 130 KB + jquery đồng bộ trong <head>; /du-an/: LCP = ảnh thẻ đầu (173 KB); GA4 gtag 183 KB, TBT ~400–500 ms.
+Cache LiteSpeed trúng (x-litespeed-cache: hit), TTFB ~280 ms. Thay đổi 2.1.7 nằm trong độ dao động đo – nút thắt chính cần duyệt (CCSS / CSS async, JS defer – CLAUDE.md đang cấm).
+
 ## Quy tắc đăng nhập (người dùng chốt 2026-11-25, thay mọi hướng dẫn trước)
 
 - STAGING (`staging.velisrealty.vn`): `WP_USER` + `WP_APP_PASSWORD`.
@@ -278,3 +310,4 @@ Sitemap 131 → 127 URL (bỏ /du-an-bds/, /du-an-bds/du-an-vinhomes/, /du-an-bd
 | 2026-11-25 | Cột phải 4 trang → tắt (như trước); theme con 2.1.4 → 2.1.5 (ảnh mở cửa sổ ảnh); Purge | site thật | right/sidebar_5; gói 2.1.4 | 200, claude-bot |
 | 2026-11-26 | Thẻ Đang bán / Nổi bật + gắn 6 / 4 bài; tóm tắt 2 phân khu; lưới trang chủ + /du-an/ theo thẻ; Ansana Riêng tư → Công khai; Purge | site thật | rev 21052 / 21054; Ansana private | 200, claude-bot |
 | 2026-11-26 | Rank Math breadcrumbs bật; 7 chuyển hướng 301 + noindex 9 chuyên mục cũ; 9 tiêu đề SEO; 1 link nội bộ; Purge | site thật | breadcrumbs tắt; tiêu đề cũ trong log; rev 21148 | 200, claude-bot |
+| 2026-11-26 | Chân trang bỏ Ansana (block-2 → HTML); theme con 2.1.5 → 2.1.7 (term_link chuyên mục cũ, lazy ảnh); Purge | site thật | block-2 cũ trong log; gói 2.1.5 | 200, claude-bot |
