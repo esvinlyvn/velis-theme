@@ -326,6 +326,23 @@ body .vc_section.velis-home-hero::after { display: none; }
 #page .velis-luoi > h2 { margin-top: 0; }
 body:has(.velis-luoi.velis-bai) .single-related-posts { display: none; }
 
+/* Trả lời nhanh · Đọc thêm · dòng "Phân tích chi tiết" cuối khối (2026-11-26, người dùng yêu cầu) – đặt link đúng chỗ người đọc cần */
+.velis-tra-loi { margin: 0 0 32px; padding: 24px; border-radius: var(--velis-bo-the); background: var(--velis-nen-nga); }
+#page :is(.velis-tra-loi__nhan, .velis-doc-them__nhan) { margin: 0 0 8px; font-size: 14px; line-height: 20px; font-weight: 600; color: var(--velis-chu-phu); }
+#page .velis-tra-loi > :last-child, #page .velis-tra-loi > :last-child > li:last-child { margin-bottom: 0; }
+.velis-doc-them { position: relative; margin: 32px 0; padding: 20px 24px; border: 1px solid var(--velis-ke); border-radius: var(--velis-bo-the); background: #FFFFFF; transition: box-shadow 0.2s var(--velis-ease); }
+.velis-doc-them:hover { box-shadow: var(--velis-bong-hover); }
+#page .velis-doc-them__link { display: block; font-size: 18px; line-height: 28px; font-weight: 600; color: var(--velis-chu); text-decoration: none; }
+.velis-doc-them__link::after { content: ""; position: absolute; inset: 0; border-radius: inherit; } /* cả thẻ là vùng bấm */
+#page .velis-doc-them:hover .velis-doc-them__link { color: var(--velis-do); }
+.velis-doc-them__link:focus-visible { outline: none; }
+.velis-doc-them:has(.velis-doc-them__link:focus-visible) { outline: 2px solid var(--velis-chu); outline-offset: 2px; }
+#page .velis-doc-them__mo-ta { margin: 4px 0 0; font-size: 16px; line-height: 24px; color: var(--velis-chu-phu); }
+.velis-khoi__chi-tiet { margin: 16px 0 0; }
+/* Thang tiêu đề trong nội dung: H4 ≥ chữ thân + 1 (cỡ ở Theme Options → Typography); câu hỏi Hỏi đáp không nhỏ hơn chữ thân (19–20 px máy tính) */
+.entry-content h4, .wpb_text_column h4 { margin: 32px 0 12px; }
+@media (min-width: 768px) { #page .velis-hoi-dap__muc summary h3 { font-size: 20px; line-height: 30px; } }
+
 /* ── 4. Cột phải: MỘT lớp thẻ (không hộp lồng hộp) ───────────────────────────────────────────────────────────────────────── */
 #page .velis-aside :is(.widget, .wpb_widgetised_column) { margin: 0 0 32px; padding: 0; background: none; border: 0; } /* The7 bọc Widgetised Sidebar bằng .solid-bg (nền ngà) */
 .velis-aside .widget:last-child { margin-bottom: 0; }
@@ -612,6 +629,8 @@ body.show-overlay-mobile-header .dt-mobile-header { visibility: visible; transit
 
 /* ── 10. Điện thoại (< 768 px): mọi quy tắc riêng điện thoại ở đây ─────────────────────────────────────────────────────── */
 @media (max-width: 767px) {
+	.velis-tra-loi { padding: 20px; }
+	.velis-doc-them { padding: 16px 20px; }
 	html:root { --the7-text-big-font-size: 16px; --the7-text-big-line-height: 28px; --the7-page-title-top-padding: 24px; --the7-page-title-bottom-padding: 24px; } /* chữ 16 (cỡ nhỏ hơn trong thang) */
 	#page .page-title { min-height: 0; }
 	#page .page-title .wf-wrap { min-height: 0 !important; padding-top: 24px; padding-bottom: 24px; } /* !important: The7 đặt chiều cao trong CSS động */

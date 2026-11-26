@@ -189,6 +189,11 @@ Không có cỡ nào khác (đo bằng `tools/mockup_scale.mjs`). `h4` trong fro
   Viền mảnh `rgba(26,26,26,.1)`; bóng thẻ trung tính nhỏ; rê chuột chỉ đổi bóng. Chuyển động: chỉ color / background / border / box-shadow / transform / opacity,
   180 ms một easing; header dính hiện ngay. Khoảng cách bội số 4.
 - **Xung đột đã giải:** mục 1 (chữ 19 px từ 1600) ↔ thang 7 cỡ → giữ thang, chữ nội dung 18 px mọi màn ≥ 768.
+- **Thang tiêu đề trong nội dung (2026-11-26, người dùng yêu cầu – thay cỡ H2–H6 ở thang trên):** H2 40 / 32 / 26, H3 24 / 24 / 21,
+  H4 21 / 21 / 18 (600), H5 20 / 20 / 17, H6 20 / 20 / 16 (máy tính / máy tính bảng / điện thoại, Theme Options → Typography); câu hỏi Hỏi đáp 20 px
+  máy tính. Không tiêu đề nào nhỏ hơn chữ thân; thứ bậc H2 > H3 > H4 ≥ thân + 1. Kiểm `node tools/the7_kiem_tieu_de.mjs <base> out.json`.
+- **Phần tử đặt link (2026-11-26):** Trả lời nhanh = nền ngà `#F4EEE4`, bo 10, đệm 24 / 20, nhãn 14 / 600 chữ phụ; Đọc thêm = thẻ trắng viền mảnh,
+  bo 10, đệm 20×24 / 16×20, tiêu đề 18 / 600 (rê chuột: đỏ + bóng), dòng mô tả 16 chữ phụ, cả thẻ là vùng bấm; "Phân tích chi tiết:" = link đỏ trong đoạn.
 
 ### Khung & loại trang
 - Khung 1200 px (dưới 1600), 1320 px (từ 1600), căn giữa; đệm hai bên 48 (máy tính), 16 (điện thoại). Theme Options: Content width 1296 + đệm 48.

@@ -122,4 +122,7 @@ $ok  = $ok && '<p class="velis-post-line"><span>Palm City</span><time datetime="
 $pg  = '<a href="https://x/blog/page/5/" class="page-numbers" data-page-num="5">5</a><a href="javascript:void(0);" class="dots">…</a><div style="display: none;"><a href="https://x/blog/page/6/" class="page-numbers">6</a></div>';
 $pd  = velis_paginator_dots( $pg );
 $ok  = $ok && ! str_contains( $pd, 'javascript' ) && str_contains( $pd, '<span class="dots">…</span>' ) && str_contains( $pd, 'href="https://x/blog/page/6/"' ) && ! empty( $GLOBALS['hooks']['template_redirect'] );
+// Trải nghiệm đọc (2026-11-26): tiêu đề cuối bài theo dự án → cụm; "Đọc thêm" tối đa 2 thẻ mỗi bài.
+$ok  = $ok && 'Cùng chủ đề The Privé' === velis_related_title( array( 'title' => 'The Privé' ), 'The Privé blog' ) && 'Cùng chủ đề Thị trường' === velis_related_title( null, 'Thị trường' )
+	&& array( true, true, false ) === array( velis_doc_them_con_cho(), velis_doc_them_con_cho(), velis_doc_them_con_cho() );
 echo $ok ? "the7-child cta: ok\n" : "the7-child cta: FAIL\n"; exit( $ok ? 0 : 1 );

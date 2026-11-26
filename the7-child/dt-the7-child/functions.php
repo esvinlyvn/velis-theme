@@ -145,6 +145,16 @@ add_filter( 'wp_get_attachment_image_attributes', function ( $attr, $attachment 
 	return $attr;
 }, 20, 2 );
 
+// Desktop CLS (2026-11-26): WPBakery "stretch row" sections are full-bleed from the start but their side padding is set by JS only at
+// window load (content 1920 px wide → 1200 px: the whole page below jumps, CLS 0.18–0.68). Pre-set the exact padding the JS will set
+// (sections: left edge of the content box − 15 px, rows: − 16 px; The7 box: 1296 − 2 × 48, ≤ 778 px: 1 px) and, for rows still inside the content box, the
+// full-bleed offset until the JS marks them data-vc-full-width-init="true", so nothing moves; the JS inline values then match.
+// Printed inline in <head>, not velis.css, so it applies before LiteSpeed's async CSS / stale critical CSS. 100vw ignores the scrollbar
+// (shortcut: ≤ 8 px off on classic-scrollbar desktops, still far below the old 345 px jump).
+add_action( 'wp_head', function () {
+	echo '<style id="velis-stretch">.vc_section[data-vc-full-width]:not([data-vc-stretch-content]){padding-left:calc((100vw - min(1200px, 100vw - 96px)) / 2 - 15px);padding-right:calc((100vw - min(1200px, 100vw - 96px)) / 2 - 15px)}.vc_row[data-vc-full-width]:not([data-vc-stretch-content]){padding-left:calc((100vw - min(1200px, 100vw - 96px)) / 2 - 16px);padding-right:calc((100vw - min(1200px, 100vw - 96px)) / 2 - 16px)}.vc_row[data-vc-full-width-init="false"]{margin-left:calc(50% - 50vw) !important}@media (max-width:778px){.vc_section[data-vc-full-width]:not([data-vc-stretch-content]),.vc_row[data-vc-full-width]:not([data-vc-stretch-content]){padding-left:1px;padding-right:1px}}</style>';
+}, 3 );
+
 // Right-sized images (2026-11-26). The7's post grids crop ONE 768 px image per post (srcset 768w/788w) even for 99–430 px slots.
 // Extra hard-crop sizes in the same ratios as the grids (13:9 hero strip, 4:3 project cards, 3:2 post cards) + 480/640 px proportional sizes
 // (single images). Different ratio from the originals, so WordPress never mixes the crops into other images' srcset. Thumbnails for existing
@@ -479,6 +489,20 @@ add_filter( 'shortcode_atts_wpcf7', function ( $out, $pairs, $atts ) {
 	}
 	return $out;
 }, 10, 3 );
+
+// Cuối bài (2026-11-26): The7 "Bài viết liên quan" (lấy bài cùng chuyên mục = cùng cụm, mới nhất, trừ bài đang đọc; mỗi bài blog đúng 1
+// chuyên mục) → tiêu đề "Cùng chủ đề <dự án>" (không có dự án: tên cụm), 3 bài. The7 đọc Theme Options qua of_get_option → bộ lọc
+// "dt_of_get_option-<khóa>"; số bài vẫn chỉnh được ở Theme Options → Blog (ô này chỉ thay tiêu đề).
+function velis_related_title( $p, $cat_name ) {
+	return 'Cùng chủ đề ' . ( $p ? $p['title'] : ( $cat_name ? $cat_name : 'này' ) );
+}
+add_filter( 'dt_of_get_option-general-rel_posts_head_title', function ( $title ) {
+	if ( ! is_singular( 'post' ) ) {
+		return $title;
+	}
+	$cat = get_the_category( get_queried_object_id() );
+	return velis_related_title( velis_current_project(), $cat ? $cat[0]->name : '' );
+} );
 
 // Bài đã hiện trên trang (The7 "Bài viết liên quan" cuối bài chạy trước sidebar) – danh sách sidebar không lặp lại.
 add_action( 'the_post', function ( $post ) {

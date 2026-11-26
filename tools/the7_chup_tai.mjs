@@ -9,6 +9,7 @@ for (const w of ws.split(',').map(Number)) {
   for (const u of paths) {
     const ctx = await b.newContext({ viewport: { width: w, height: m ? 844 : 1000 }, isMobile: m, hasTouch: m, deviceScaleFactor: 1 });
     const p = await ctx.newPage(); const loi = [];
+    if (base.includes('staging.')) { await p.goto(base + '/'); if (await p.locator('input[type=password]').count()) { await p.fill('input[type=password]', process.env.STAGING_VIEW_PASSWORD); await Promise.all([p.waitForNavigation(), p.locator('input[type=submit], button[type=submit]').first().click()]); } }
     p.on('pageerror', (e) => loi.push(e.message.slice(0, 80)));
     await p.addInitScript(() => { window.__cls = 0; new PerformanceObserver((l) => { for (const e of l.getEntries()) if (!e.hadRecentInput) window.__cls += e.value; }).observe({ type: 'layout-shift', buffered: true }); });
     const ten = (u.replace(/\//g, '_') || '_') + '-' + w;

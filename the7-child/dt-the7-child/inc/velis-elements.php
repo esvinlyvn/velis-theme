@@ -68,9 +68,34 @@ function velis_hoi_dap_items( $content ) {
 	return $out;
 }
 
+/** Bài đích cho ô chọn (Đọc thêm / Bài phân tích chi tiết): bài blog đã đăng, mới nhất trước; chỉ dựng trong trình sửa. */
+function velis_bai_lua_chon() {
+	$out = array( 'Chọn bài' => '' );
+	if ( ! is_admin() && ! ( function_exists( 'vc_is_inline' ) && vc_is_inline() ) ) {
+		return $out; // ngoài trình sửa không cần danh sách (vc_before_init chạy ở mọi trang)
+	}
+	foreach ( get_posts( array( 'numberposts' => 300, 'category__not_in' => array( 34, 57 ), 'fields' => 'ids' ) ) as $id ) {
+		$out[ get_the_title( $id ) . ' (' . $id . ')' ] = (string) $id;
+	}
+	return $out;
+}
+
+/** Bài đích còn đăng → array( link, tiêu đề ), không thì null (bài bị gỡ / nháp: phần tử không in gì). */
+function velis_bai_dich( $id ) {
+	$id = (int) $id;
+	return $id && 'publish' === get_post_status( $id ) ? array( get_permalink( $id ), get_the_title( $id ) ) : null;
+}
+
+/** "Đọc thêm": tối đa 2 thẻ mỗi bài – thẻ thứ 3 trở đi không in. */
+function velis_doc_them_con_cho() {
+	static $n = 0;
+	return ++$n <= 2;
+}
+
 add_action( 'vc_before_init', function () {
 	$dir  = get_stylesheet_directory() . '/wpb_templates/';
 	$cat  = 'Velis';
+	$bai  = velis_bai_lua_chon();
 	$neo  = array( 'type' => 'el_id', 'heading' => 'ID neo (để trống = tự tạo từ tiêu đề)', 'param_name' => 'el_id' );
 
 	vc_map( array(
@@ -102,6 +127,7 @@ add_action( 'vc_before_init', function () {
 			array( 'type' => 'attach_images', 'heading' => 'Thư viện ảnh (bấm để phóng to)', 'param_name' => 'thu_vien', 'dependency' => array( 'element' => 'minh_hoa', 'value' => 'thu_vien' ) ),
 			array( 'type' => 'textarea_raw_html', 'heading' => 'Mã nhúng bản đồ (iframe Google Maps)', 'param_name' => 'ban_do', 'dependency' => array( 'element' => 'minh_hoa', 'value' => 'ban_do' ) ),
 			array( 'type' => 'textarea_raw_html', 'heading' => 'Bảng (HTML <table>)', 'param_name' => 'bang', 'dependency' => array( 'element' => 'minh_hoa', 'value' => 'bang' ) ),
+			array( 'type' => 'dropdown', 'heading' => 'Bài phân tích chi tiết (không bắt buộc) – hiện 1 dòng link cuối khối', 'param_name' => 'bai_chi_tiet', 'value' => $bai, 'std' => '' ),
 			$neo,
 		),
 	) );
@@ -157,6 +183,25 @@ add_action( 'vc_before_init', function () {
 			array( 'type' => 'checkbox', 'heading' => 'Chỉ bài nổi bật (Bài viết → Dính lên đầu)', 'param_name' => 'noi_bat', 'value' => array( 'Có' => 'y' ) ),
 			array( 'type' => 'textfield', 'heading' => 'Số bài', 'param_name' => 'so', 'value' => '3' ),
 			$neo,
+		),
+	) );
+	vc_map( array(
+		'name' => 'Velis · Trả lời nhanh', 'base' => 'velis_tra_loi', 'category' => $cat, 'icon' => 'icon-wpb-information-white',
+		'description' => 'Ô nền nhẹ ngay đầu bài: 2–4 câu hoặc 3–5 gạch đầu dòng số liệu chính. Chỉ dùng cho bài trả lời một câu hỏi cụ thể.',
+		'html_template' => $dir . 'velis_tra_loi.php',
+		'params' => array(
+			array( 'type' => 'textfield', 'heading' => 'Nhãn', 'param_name' => 'nhan', 'value' => 'Trả lời nhanh', 'admin_label' => true ),
+			array( 'type' => 'textarea_html', 'heading' => 'Nội dung (2–4 câu hoặc 3–5 gạch đầu dòng, có số liệu + thời điểm)', 'param_name' => 'content', 'value' => '<p>Câu trả lời chính trong 2–4 câu.</p>' ),
+		),
+	) );
+
+	vc_map( array(
+		'name' => 'Velis · Đọc thêm', 'base' => 'velis_doc_them', 'category' => $cat, 'icon' => 'icon-wpb-ui-icon',
+		'description' => 'Thẻ link giữa bài, đặt ngay sau đoạn nhắc tới chủ đề. Tối đa 2 thẻ mỗi bài (thẻ thứ 3 không hiện).',
+		'html_template' => $dir . 'velis_doc_them.php',
+		'params' => array(
+			array( 'type' => 'dropdown', 'heading' => 'Bài đích', 'param_name' => 'bai', 'value' => $bai, 'admin_label' => true ),
+			array( 'type' => 'textfield', 'heading' => 'Một dòng: người đọc sẽ biết thêm gì', 'param_name' => 'mo_ta', 'value' => '' ),
 		),
 	) );
 } );

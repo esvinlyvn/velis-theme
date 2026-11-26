@@ -138,6 +138,11 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
   `tools/the7_noi_dung_moi.py` (nội dung mới, chỉ đọc), `tools/the7_doi_tien_to.py` (bản xuất staging → bộ `vl2_`, search-replace serialized), `tools/the7_kiem_ra_mat.py` (bước 6); đều có `--test`.
 - Gói ra mắt (2026-11-25): `docs/the7/GOI-RA-MAT.md`; dựng gói `tools/the7_dong_goi_ra_mat.sh <bản xuất UpdraftPlus> <thư mục ngoài repo>`
   (= `the7_doi_tien_to.py` → `the7_sua_ra_mat.php` sửa cài đặt staging-only trên CSDL thử cục bộ → `the7_kiem_goi_sql.py`); `uploads/the7-css/` phải thay lúc bật.
+- Trải nghiệm đọc (2026-11-26): **viết / sửa nội dung theo `docs/QUY-TAC-NOI-DUNG.md`** (ý định tìm kiếm, độ dài theo nhu cầu, link cho người đọc, khung theo loại).
+  Thang tiêu đề H2 40/32/26, H3 24/24/21, H4 21/21/18 (Theme Options bước 17, `tools/the7_options_buoc17.py`); kiểm `node tools/the7_kiem_tieu_de.mjs <base> out.json`
+  (staging: `SITEMAP_BASE=https://velisrealty.vn`). Phần tử Velis · Trả lời nhanh / Đọc thêm (≤ 2 / bài) / ô "Bài phân tích chi tiết" của Khối nội dung;
+  cuối bài The7 "Bài viết liên quan" = "Cùng chủ đề <dự án>" 3 bài cùng cụm (bộ lọc `dt_of_get_option-general-rel_posts_head_title`). Mẫu duyệt: `tools/the7_mau_doc.py`.
+  CLS máy tính: `<style id="velis-stretch">` (functions.php) đặt sẵn đệm hàng kéo rộng WPBakery; đo `node tools/the7_cls.mjs <base> 1366,1920 5 /a/`.
 - `data/the7/mau-wpbakery/` — 3 mẫu WPBakery (Dự án, Chủ đầu tư, Bài viết) đã lưu vào "Mẫu của tôi" trên staging; bố cục trang nằm trong WPBakery, không trong PHP.
 - `theme/velis/` — theme khối velis, **đã bỏ 2026-11-11** (giữ để tham khảo); `dist/` (bỏ qua git) — file zip đóng gói.
 - `assets/brand/original/` — logo gốc tải từ Media site thật + PDF vector; `assets/brand/svg/` — SVG vẽ lại.

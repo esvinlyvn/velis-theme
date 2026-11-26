@@ -354,3 +354,5 @@ Dung lượng (khung 412 px, cuộn hết trang, 15:22): trang chủ 2100 KB / 3
 | 2026-11-26 | QUIC.cloud ẩn danh; tối ưu ảnh + WebP (.htaccess +marker WEBP); CCSS + CSS async + font-display swap; theme con 2.1.8 (#866738); Purge | site thật | sao lưu data/the7/litespeed/; gói 2.1.7 | 200, claude-bot |
 | 2026-11-26 | Theme con 2.1.8 → 2.1.9 (ảnh đúng cỡ); tạo cỡ ảnh 232 ảnh (REST post-process); Purge | site thật | gói 2.1.8 | 200, claude-bot |
 | 2026-11-26 | Tắt thay WebP (img_optm-webp 0, srcset 0; .htaccess về bản trước); Clear hàng đợi CCSS chờ; Purge | site thật | img_optm-webp 1 | 200, claude-bot |
+| 2026-11-26 | Theme con 2.1.9 → 2.1.10 (CLS máy tính: đệm hàng kéo rộng WPBakery đặt sẵn; ảnh vuông 96px); tạo cỡ velis-1x1-96 (REST post-process); Purge | site thật | gói 2.1.9 | 200, claude-bot |
+| 2026-11-26 | Theme Options bước 17 (H2/H3 điện thoại 26/21, H4–H6, bài liên quan 6 → 3); theme con 2.1.10 → 2.2.0 (phần tử Trả lời nhanh / Đọc thêm / Phân tích chi tiết, "Cùng chủ đề <dự án>"); trang chủ: nhãn "Dự án nổi bật" h2 → p; Xóa tất cả CCSS + chạy hàng đợi; Purge | site thật | options-truoc-site-that-buoc-17.json; gói 2.1.10; rev 21168 | 200, claude-bot |

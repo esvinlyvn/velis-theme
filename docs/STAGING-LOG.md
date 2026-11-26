@@ -678,3 +678,13 @@ Trang chủ 19526 rev 21260 / du-an 19537 rev 21261 → ảnh không lấp khung
 ## 2026-11-26 – Ảnh đúng cỡ
 
 Theme con 2.1.9 + tạo cỡ ảnh 230 ảnh (REST post-process). So ảnh vùng ≤ 0,14 %. 16:0x: đăng nhập wp-admin staging thất bại 1 lần (không thông báo lỗi) → dừng wp-admin staging theo quy tắc; 2.1.10 (ảnh vuông 96 px) chưa tải.
+
+## 2026-11-26 – CLS máy tính (2.1.10) + trải nghiệm đọc (2.2.0)
+
+- Theme con 2.1.10 (đệm hàng kéo rộng WPBakery đặt sẵn trong `<head>`, ảnh vuông 96 px) – CLS 1366 / 1920 / 412 về 0,000; so ảnh #main trước / sau 0,000 %.
+  Tạo cỡ `velis-1x1-96` 232 ảnh (REST post-process).
+- Theme Options bước 17 (`tools/the7_options_buoc17.py`, bản trước / sau `data/the7/options-*-buoc-17.json`): H2 mobile 26, H3 mobile 21, H4 21/21/18, H5 20/20/17,
+  H6 20/20/16; `general-rel_posts_max` 6 → 3. Nhập 955 khóa, xuất lại lệch 0.
+- Theme con 2.2.0: phần tử Velis · Trả lời nhanh, Velis · Đọc thêm, ô "Bài phân tích chi tiết" của Khối nội dung; cuối bài "Cùng chủ đề <dự án>".
+- Trang chủ 19526 (revision trước 21264): `<h2 class="velis-eyebrow">Dự án nổi bật</h2>` → `<p …>` (nhãn 14 px không phải tiêu đề; ảnh lệch 0,000 %).
+- Mẫu để duyệt (`tools/the7_mau_doc.py --ghi`, chỉ chèn – tự kiểm chữ gốc không đổi): 20144 (rev trước 21089), 19876 (21257), 19962 (21238).

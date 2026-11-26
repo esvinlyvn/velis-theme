@@ -5,6 +5,7 @@ Dựa trên giao diện đã chốt trên staging ngày 2026-11-13 (theme con Th
 số trong vòng tròn đỏ trên ảnh khớp với số trong bảng của từng mục.
 
 Tài liệu gốc khi cần tra sâu hơn:
+- **viết gì, dài bao nhiêu, đặt link ở đâu: `docs/QUY-TAC-NOI-DUNG.md`** (đọc trước khi viết; khác tài liệu này thì theo tài liệu đó);
 - giọng văn: `docs/VOICE.md`;
 - câu chữ cấm và công bố bắt buộc: `docs/BRAND.md`;
 - tên khu vực: `docs/KHU-VUC.md`;
@@ -45,6 +46,7 @@ Trình sửa trước | sau: `screenshots/the7/sua-tong/editor/the-prive-truoc.j
    Số viết theo một định dạng: `6,7 ha`, `98,5 m²`, `6,82 tỷ`, `quý 3/2028`. Số có đơn vị tự in màu champagne.
 4. **Velis · Mục lục** (`velis/muc-luc.png`): để nguyên – tự lấy tiêu đề H2 của các khối bên dưới.
 5. **Velis · Khối nội dung** (`velis/khoi.png`) – mỗi mục một khối, theo thứ tự: tổng quan → vị trí → tiện ích → mặt bằng → giá → tiến độ → pháp lý → góc nhìn CEO.
+   Ô *Bài phân tích chi tiết* (không bắt buộc): chọn bài blog phân tích sâu đúng mục đó (khối Giá → bài giá, khối Pháp lý → bài pháp lý) → cuối khối hiện 1 dòng "Phân tích chi tiết: <tiêu đề bài>".
    *Tiêu đề* = H2 (câu hỏi người mua hay tìm). *Nội dung* = đoạn văn, danh sách, ảnh trong bài (viết hết, không cần "Xem thêm" – điện thoại tự thu gọn 2 khối dài nhất).
    *Minh họa* (không bắt buộc; hiện **dưới** nội dung, rộng hết khung): **Ảnh** (vị trí, phối cảnh) · **Thư viện ảnh** (tiện ích, mặt bằng, tiến độ – bấm để phóng to) ·
    **Bản đồ nhúng** (dán iframe Google Maps) · **Bảng** (bảng thông số). Khối luôn một cột – không có gì đặt cạnh chữ.
@@ -113,21 +115,19 @@ Chủ đầu tư có từ 2 dự án trên site trở lên mới tạo trang.
 Trên trang (ảnh 05):
 - số 5 – hộp "Nhận bảng giá <dự án>" ở cột phải, tự đổi theo cụm của bài;
 - số 6 – "Cùng dự án …" tự liệt kê bài cùng cụm;
-- số 7 – "Bài viết liên quan".
+- số 7 – "Cùng chủ đề <dự án>": 3 bài mới nhất **cùng cụm** (tự lấy theo danh mục cụm của bài, trừ bài đang đọc; số bài đổi ở The7 → Theme Options → Blog).
 
 Bài thị trường (không có cụm) thì hộp ở cột phải là hộp tư vấn chung.
 
 **Gồm gì** (theo `VOICE.md`):
 1. **Mở bài** – 1 đoạn nêu vấn đề của người mua, 1 đoạn góc nhìn Vũ Xuân, ngắn, không kể thành tích.
-2. **Tóm tắt nhanh** – 3–5 gạch đầu dòng có số liệu và nguồn.
-3. **Thân bài theo H2** – mỗi H2 trả lời một câu hỏi; H3 nằm dưới H2, không nhảy cấp.
+2. **Trả lời nhanh** – phần tử **Velis · Trả lời nhanh** ngay đầu bài (chỉ với bài trả lời một câu hỏi cụ thể: giá, pháp lý, tiến độ, bàn giao…): 2–4 câu hoặc 3–5 gạch đầu dòng số liệu chính, có thời điểm.
+3. **Thân bài theo H2** – mỗi H2 trả lời một câu hỏi; H3 nằm dưới H2, không nhảy cấp. Giữa bài: tối đa 2 thẻ **Velis · Đọc thêm** (ô *Bài đích* chọn từ danh sách + ô *Một dòng: người đọc sẽ biết thêm gì*), đặt ngay sau đoạn nhắc tới chủ đề. Muốn chèn giữa một khối chữ: tách khối Text Block làm hai rồi kéo thẻ vào giữa.
 4. **"Rủi ro và điều cần kiểm tra"** – bắt buộc với bài phân tích đầu tư.
 5. **Hộp công bố cuối bài** – nguyên văn trong `BRAND.md` mục "Công bố bắt buộc".
 6. **Kết bài** – CTA mềm, dẫn về trang dự án của cụm.
 
-**Độ dài:**
-- bài thường: 1.200–2.000 chữ;
-- bài trụ cột: 2.500–4.000 chữ;
+**Độ dài:** theo nhu cầu người tìm (`QUY-TAC-NOI-DUNG.md` mục 2) – bài trả lời 1 câu hỏi 400–800 chữ, bài phân tích sâu mới dài;
 - câu: ≤ 30 chữ;
 - đoạn: ≤ 80 chữ.
 

@@ -29,6 +29,7 @@ switch ( $atts['minh_hoa'] ) {
 	<div class="velis-khoi__chu">
 		<?php if ( $atts['tieu_de'] ) : ?><<?php echo $cap; ?> class="velis-khoi__tieu-de"><?php echo esc_html( $atts['tieu_de'] ); ?></<?php echo $cap; ?>><?php endif; ?>
 		<?php echo wpb_js_remove_wpautop( $content, true ); // phpcs:ignore ?>
+		<?php $ct = velis_bai_dich( $atts['bai_chi_tiet'] ); if ( $ct ) : ?><p class="velis-khoi__chi-tiet">Phân tích chi tiết: <a href="<?php echo esc_url( $ct[0] ); ?>"><?php echo esc_html( $ct[1] ); ?></a></p><?php endif; ?>
 	</div>
 	<?php if ( $mh ) : ?><div class="velis-khoi__minh-hoa"><?php echo $mh; // phpcs:ignore ?></div><?php endif; ?>
 </section>
