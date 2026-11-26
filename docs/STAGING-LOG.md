@@ -688,3 +688,13 @@ Theme con 2.1.9 + tạo cỡ ảnh 230 ảnh (REST post-process). So ảnh vùng
 - Theme con 2.2.0: phần tử Velis · Trả lời nhanh, Velis · Đọc thêm, ô "Bài phân tích chi tiết" của Khối nội dung; cuối bài "Cùng chủ đề <dự án>".
 - Trang chủ 19526 (revision trước 21264): `<h2 class="velis-eyebrow">Dự án nổi bật</h2>` → `<p …>` (nhãn 14 px không phải tiêu đề; ảnh lệch 0,000 %).
 - Mẫu để duyệt (`tools/the7_mau_doc.py --ghi`, chỉ chèn – tự kiểm chữ gốc không đổi): 20144 (rev trước 21089), 19876 (21257), 19962 (21238).
+
+## 2026-11-26 – Lượt hoàn tất (2.3.0)
+
+- Two Factor 0.17.0 + Limit Login Attempts Reloaded 3.4.8 (REST); tắt tự cập nhật Rank Math / PRO; lõi chỉ bản bảo trì.
+- Theme con 2.3.0 (hộp đồng ý cookie + Consent Mode v2, ngày sửa, khung tác giả, lọc /du-an/, Trả lời nhanh bản 2, tắt XML-RPC).
+- Chuyên mục Persa Place 62 (cha 44) + 19 bài; trang 19855 "liên quan" 44 → 62 (wp-admin, nội dung không đổi).
+- H4→H3: 20422 (rev trước 20474), 19855 (21250), 19676 (21138), 19684 (21135), 19669 (21144).
+- Thẻ lọc 63–70 + gắn 6 trang Đang bán; /du-an/ 19537 (rev trước 21263) bật show_categories_filter.
+- Chính sách bảo mật 19662: autosave nháp 21277 (bản đăng không đổi).
+- Trả lời nhanh 27 trang (log `data/the7/sua-tong/tra-loi-nhanh-staging.json`).

@@ -526,6 +526,28 @@ add_filter( 'dt_of_get_option-general-rel_posts_head_title', function ( $title )
 	return velis_related_title( velis_current_project(), $cat ? $cat[0]->name : '' );
 } );
 
+// "Cùng chủ đề" theo chuyên mục SÂU NHẤT (2026-11-26): truy vấn bài liên quan của The7 (trang bài viết, loại bài đang đọc qua post__not_in)
+// mặc định lấy cả chuyên mục con (Spring Ville → kéo bài Persa Place) – chỉ lấy đúng chuyên mục của bài.
+function velis_lien_quan_khong_con( $q ) {
+	if ( $q->is_main_query() || ! is_singular( 'post' ) || ! in_array( get_queried_object_id(), array_map( 'intval', (array) $q->get( 'post__not_in' ) ), true ) ) {
+		return;
+	}
+	$tq = $q->get( 'tax_query' );
+	if ( is_array( $tq ) && $tq ) {
+		foreach ( $tq as $k => $t ) {
+			if ( is_array( $t ) && 'category' === ( $t['taxonomy'] ?? '' ) ) {
+				$tq[ $k ]['include_children'] = false;
+			}
+		}
+		$q->set( 'tax_query', $tq );
+	}
+	if ( $q->get( 'cat' ) ) {
+		$q->set( 'category__in', array_map( 'intval', explode( ',', (string) $q->get( 'cat' ) ) ) );
+		$q->set( 'cat', '' );
+	}
+}
+add_action( 'pre_get_posts', 'velis_lien_quan_khong_con' );
+
 // Bài đã hiện trên trang (The7 "Bài viết liên quan" cuối bài chạy trước sidebar) – danh sách sidebar không lặp lại.
 add_action( 'the_post', function ( $post ) {
 	$GLOBALS['velis_seen'][ $post->ID ] = true;
@@ -543,7 +565,7 @@ add_shortcode( 'velis_bai_viet', function ( $atts ) {
 	$id   = get_queried_object_id();
 	$p    = velis_current_project();
 	$ids  = fn( $args ) => get_posts( $args + array( 'numberposts' => $n + 40, 'fields' => 'ids', 'category__not_in' => array( 34, 57 ) ) );
-	list( $same, $recent ) = velis_post_list_ids( $p ? $ids( array( 'cat' => $p['cat'] ) ) : array(), $ids( array() ), array_merge( array( $id ), array_keys( $GLOBALS['velis_seen'] ?? array() ) ), $n );
+	list( $same, $recent ) = velis_post_list_ids( $p ? $ids( array( 'category__in' => array( (int) $p['cat'] ) ) ) : array(), $ids( array() ), array_merge( array( $id ), array_keys( $GLOBALS['velis_seen'] ?? array() ) ), $n );
 	$li  = function ( $pid ) {
 		$cat = get_the_category( $pid );
 		return '<li><a href="' . esc_url( get_permalink( $pid ) ) . '" tabindex="-1" aria-hidden="true">' . get_the_post_thumbnail( $pid, 'thumbnail', array( 'alt' => '', 'loading' => 'lazy', 'sizes' => '72px' ) ) . '</a><div>'

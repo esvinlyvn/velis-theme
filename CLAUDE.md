@@ -142,6 +142,9 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
   Thang tiêu đề H2 40/32/26, H3 24/24/21, H4 21/21/18 (Theme Options bước 17, `tools/the7_options_buoc17.py`); kiểm `node tools/the7_kiem_tieu_de.mjs <base> out.json`
   (staging: `SITEMAP_BASE=https://velisrealty.vn`). Phần tử Velis · Trả lời nhanh / Đọc thêm (≤ 2 / bài) / ô "Bài phân tích chi tiết" của Khối nội dung;
   cuối bài The7 "Bài viết liên quan" = "Cùng chủ đề <dự án>" 3 bài cùng cụm (bộ lọc `dt_of_get_option-general-rel_posts_head_title`). Mẫu duyệt: `tools/the7_mau_doc.py`.
+  Lượt 2026-11-26 (2.3.0): hộp đồng ý cookie + Consent Mode v2 (`inc/velis-tac-gia-dong-y.php`, mặc định denied, localStorage `velis-dong-y`); khung tác giả (Hồ sơ → "Trang tác giả");
+  "Cập nhật dd/mm/yyyy" (`velis_ngay_sua`, = dateModified); lọc /du-an/ = thẻ khu vực / loại hình (`velis_loc_the`, `tools/the7_the_loc.py`); chuyên mục Persa Place (62, `tools/the7_persa_place.py`);
+  Trả lời nhanh bản 2 chèn bằng `tools/the7_tra_loi_ap.py`; Two Factor + Limit Login Attempts Reloaded (không bật 2FA cho claude-bot – `docs/the7/BAO-MAT.md`). QUIC.cloud gói miễn phí: CCSS 2/ngày (Tách CCSS theo URI = 7 trang dự án).
   CLS máy tính: `<style id="velis-stretch">` (functions.php) đặt sẵn đệm hàng kéo rộng WPBakery; đo `node tools/the7_cls.mjs <base> 1366,1920 5 /a/`.
 - `data/the7/mau-wpbakery/` — 3 mẫu WPBakery (Dự án, Chủ đầu tư, Bài viết) đã lưu vào "Mẫu của tôi" trên staging; bố cục trang nằm trong WPBakery, không trong PHP.
 - `theme/velis/` — theme khối velis, **đã bỏ 2026-11-11** (giữ để tham khảo); `dist/` (bỏ qua git) — file zip đóng gói.
