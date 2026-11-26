@@ -222,11 +222,11 @@ Trên điện thoại (bước 15): lưới dự án là dải trượt ngang. T
 |---|---|
 | Từ khóa chính / phụ | tra `data/keyword-map.csv`: cột `url_cu` = đường dẫn hiện tại của bài, lấy `tu_khoa_chinh`, `tu_khoa_phu` (cột `url_moi` là phương án cũ, **không** dùng làm URL). Bài mới: chọn 1 từ khóa chính người mua thật sự gõ, không trùng từ khóa chính của bài khác cùng cụm |
 | Đặt từ khóa | H1 (tốt nhất ở đầu), câu đầu đoạn mở, ít nhất 1 H2, alt 1 ảnh, đường dẫn |
-| Tiêu đề SEO | ô "Tiêu đề" trong Rank Math → Chỉnh sửa đoạn trích: **≤ 60 ký tự** (Rank Math hiện số đếm) |
+| Tiêu đề SEO | ô "Tiêu đề" trong Rank Math → Chỉnh sửa đoạn trích: **50–60 ký tự**, có tên dự án (Rank Math hiện số đếm). Trang chuyên mục cụm: mẫu "Phân tích <dự án>: giá, tiến độ, cho thuê \| Velis Realty" (dài quá 60 thì bỏ ", cho thuê") |
 | Mô tả | **140–155 ký tự**, có từ khóa chính, nói rõ người đọc được gì |
 | Đường dẫn | đặt 1 lần khi tạo: chữ thường không dấu, gạch nối, ≤ 5 từ chính, có từ khóa (vd. `/loi-suat-cho-thue-the-prive/`). **Không đổi đường dẫn bài đã đăng** (đổi làm mất thứ hạng; nếu bắt buộc phải nhờ Quản trị viên tạo chuyển hướng 301) |
 | Tiêu đề trong bài | 1 H1 (tiêu đề), dưới là H2 rồi H3, không nhảy cấp (H2 → H4) |
-| Link nội bộ bắt buộc | **bài blog → trang dự án của cụm** (ít nhất 1 link trong thân bài); **trang dự án → trang chủ đầu tư, phân khu (nếu có) và 3 bài blog** của cụm |
+| Link nội bộ bắt buộc | **mỗi bài mới: 1 link về trang dự án của cụm + 1–2 link sang bài cùng cụm** (trong thân bài, gắn vào cụm từ có sẵn, không đặt trong tiêu đề); **trang dự án → trang chủ đầu tư, phân khu (nếu có) và 3 bài blog** của cụm. Kiểm: `python3 -I tools/the7_kiem_onpage_link.py <site> out.json` |
 | Chuyên mục | bài blog: Blog + đúng 1 cụm; dự án: Dự án + chủ đầu tư; phân khu: Phân khu |
 | Thẻ dự án | ảnh đại diện + Mô tả ngắn 4 dòng (mục 1.1) |
 | Hỏi đáp | dùng khi người mua hay hỏi một câu cụ thể (giá, pháp lý, bàn giao, vay); 3–6 câu; câu hỏi viết đúng như người mua hỏi, trả lời thẳng ở câu đầu |

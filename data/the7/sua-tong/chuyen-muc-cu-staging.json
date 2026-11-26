@@ -1,0 +1,109 @@
+[
+ {
+  "id": 34,
+  "url": "/du-an-bds/",
+  "so_bai": 5,
+  "xu_ly": "301 → /du-an/",
+  "ly_do": "trang thay thế \"Dự án\"",
+  "dich_http": 200,
+  "robots": 200,
+  "chuyen_huong": [
+   200,
+   "{\"id\":\"\",\"action\":\"new\",\"message\":\"Chuy\\u1ec3n h\\u01b0\\u1edbng m\\u1edbi \\u0111\\u00e3 \\u0111\\u01b0\\u1ee3c t\\u1ea1o.\"}"
+  ]
+ },
+ {
+  "id": 35,
+  "url": "/du-an-bds/du-an-vinhomes/",
+  "so_bai": 1,
+  "xu_ly": "301 → /du-an/vinhomes/",
+  "ly_do": "trang chủ đầu tư Vinhomes",
+  "dich_http": 200,
+  "robots": 200,
+  "chuyen_huong": [
+   200,
+   "{\"id\":\"\",\"action\":\"new\",\"message\":\"Chuy\\u1ec3n h\\u01b0\\u1edbng m\\u1edbi \\u0111\\u00e3 \\u0111\\u01b0\\u1ee3c t\\u1ea1o.\"}"
+  ]
+ },
+ {
+  "id": 38,
+  "url": "/du-an-bds/du-an-gamuda-land/",
+  "so_bai": 1,
+  "xu_ly": "301 → /du-an/gamuda-land/",
+  "ly_do": "trang chủ đầu tư Gamuda Land",
+  "dich_http": 200,
+  "robots": 200,
+  "chuyen_huong": [
+   200,
+   "{\"id\":\"\",\"action\":\"new\",\"message\":\"Chuy\\u1ec3n h\\u01b0\\u1edbng m\\u1edbi \\u0111\\u00e3 \\u0111\\u01b0\\u1ee3c t\\u1ea1o.\"}"
+  ]
+ },
+ {
+  "id": 36,
+  "url": "/du-an-bds/du-an-masterise-homes/",
+  "so_bai": 0,
+  "xu_ly": "301 → /du-an/masterise-homes/",
+  "ly_do": "trang chủ đầu tư Masterise Homes",
+  "dich_http": 200,
+  "robots": 200,
+  "chuyen_huong": [
+   200,
+   "{\"id\":\"\",\"action\":\"new\",\"message\":\"Chuy\\u1ec3n h\\u01b0\\u1edbng m\\u1edbi \\u0111\\u00e3 \\u0111\\u01b0\\u1ee3c t\\u1ea1o.\"}"
+  ]
+ },
+ {
+  "id": 37,
+  "url": "/du-an-bds/du-an-sungroup/",
+  "so_bai": 0,
+  "xu_ly": "301 → /du-an/sun-group/",
+  "ly_do": "trang chủ đầu tư Sun Group",
+  "dich_http": 200,
+  "robots": 200,
+  "chuyen_huong": [
+   200,
+   "{\"id\":\"\",\"action\":\"new\",\"message\":\"Chuy\\u1ec3n h\\u01b0\\u1edbng m\\u1edbi \\u0111\\u00e3 \\u0111\\u01b0\\u1ee3c t\\u1ea1o.\"}"
+  ]
+ },
+ {
+  "id": 52,
+  "url": "/du-an-bds/du-an-vinhomes/du-an-vinhomes-saigon-park/",
+  "so_bai": 0,
+  "xu_ly": "301 → /vinhomes-saigon-park/",
+  "ly_do": "trang dự án Vinhomes Saigon Park",
+  "dich_http": 200,
+  "robots": 200,
+  "chuyen_huong": [
+   200,
+   "{\"id\":\"\",\"action\":\"new\",\"message\":\"Chuy\\u1ec3n h\\u01b0\\u1edbng m\\u1edbi \\u0111\\u00e3 \\u0111\\u01b0\\u1ee3c t\\u1ea1o.\"}"
+  ]
+ },
+ {
+  "id": 45,
+  "url": "/du-an-bds/du-an-gamuda-land/du-an-spring-ville/",
+  "so_bai": 0,
+  "xu_ly": "301 → /spring-ville/",
+  "ly_do": "trang dự án Spring Ville",
+  "dich_http": 200,
+  "robots": 200,
+  "chuyen_huong": [
+   200,
+   "{\"id\":\"\",\"action\":\"new\",\"message\":\"Chuy\\u1ec3n h\\u01b0\\u1edbng m\\u1edbi \\u0111\\u00e3 \\u0111\\u01b0\\u1ee3c t\\u1ea1o.\"}"
+  ]
+ },
+ {
+  "id": 39,
+  "url": "/du-an-bds/du-an-ecopark/",
+  "so_bai": 0,
+  "xu_ly": "noindex",
+  "ly_do": "không có trang Ecopark",
+  "robots": 200
+ },
+ {
+  "id": 57,
+  "url": "/phan-khu/",
+  "so_bai": 2,
+  "xu_ly": "noindex",
+  "ly_do": "lệnh người dùng: /phan-khu/ noindex",
+  "robots": 200
+ }
+]

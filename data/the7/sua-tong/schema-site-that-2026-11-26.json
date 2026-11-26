@@ -1,0 +1,148 @@
+{
+ "https://velisrealty.vn/": {
+  "errors": [],
+  "warnings": [
+   "WebSite.potentialAction: query-input (thuộc tính riêng của Google)"
+  ],
+  "types": [
+   "Place",
+   "RealEstateAgent+Organization",
+   "WebSite",
+   "ImageObject",
+   "WebPage"
+  ]
+ },
+ "https://velisrealty.vn/du-an/": {
+  "errors": [],
+  "warnings": [],
+  "types": [
+   "Service",
+   "Place",
+   "RealEstateAgent+Organization",
+   "WebSite",
+   "ImageObject",
+   "BreadcrumbList",
+   "WebPage",
+   "BreadcrumbList(microdata)"
+  ]
+ },
+ "https://velisrealty.vn/can-ho-the-prive/": {
+  "errors": [],
+  "warnings": [],
+  "types": [
+   "Place",
+   "RealEstateAgent+Organization",
+   "WebSite",
+   "ImageObject",
+   "BreadcrumbList",
+   "WebPage",
+   "Person",
+   "BlogPosting",
+   "Place",
+   "FAQPage",
+   "BreadcrumbList(microdata)"
+  ]
+ },
+ "https://velisrealty.vn/can-ho-palm-river/": {
+  "errors": [],
+  "warnings": [],
+  "types": [
+   "Place",
+   "RealEstateAgent+Organization",
+   "WebSite",
+   "ImageObject",
+   "BreadcrumbList",
+   "WebPage",
+   "Person",
+   "BlogPosting",
+   "Place",
+   "FAQPage",
+   "BreadcrumbList(microdata)"
+  ]
+ },
+ "https://velisrealty.vn/du-an/vinhomes/": {
+  "errors": [],
+  "warnings": [],
+  "types": [
+   "Place",
+   "RealEstateAgent+Organization",
+   "WebSite",
+   "ImageObject",
+   "BreadcrumbList",
+   "CollectionPage",
+   "ItemList",
+   "FAQPage",
+   "BreadcrumbList(microdata)"
+  ]
+ },
+ "https://velisrealty.vn/blog/": {
+  "errors": [],
+  "warnings": [],
+  "types": [
+   "Place",
+   "RealEstateAgent",
+   "WebSite",
+   "BreadcrumbList",
+   "CollectionPage",
+   "ItemList",
+   "BreadcrumbList(microdata)"
+  ]
+ },
+ "https://velisrealty.vn/blog/the-prive/": {
+  "errors": [],
+  "warnings": [],
+  "types": [
+   "Place",
+   "RealEstateAgent",
+   "WebSite",
+   "BreadcrumbList",
+   "CollectionPage",
+   "ItemList",
+   "BreadcrumbList(microdata)"
+  ]
+ },
+ "https://velisrealty.vn/gia-ban-the-prive-quan-2-2026/": {
+  "errors": [],
+  "warnings": [],
+  "types": [
+   "Place",
+   "RealEstateAgent+Organization",
+   "WebSite",
+   "ImageObject",
+   "BreadcrumbList",
+   "WebPage",
+   "Person",
+   "BlogPosting",
+   "BreadcrumbList(microdata)"
+  ]
+ },
+ "https://velisrealty.vn/cho-thue-the-prive/": {
+  "errors": [],
+  "warnings": [],
+  "types": [
+   "Place",
+   "RealEstateAgent+Organization",
+   "WebSite",
+   "ImageObject",
+   "BreadcrumbList",
+   "WebPage",
+   "Person",
+   "BlogPosting",
+   "BreadcrumbList(microdata)"
+  ]
+ },
+ "https://velisrealty.vn/gioi-thieu/": {
+  "errors": [],
+  "warnings": [],
+  "types": [
+   "Person",
+   "Place",
+   "RealEstateAgent+Organization",
+   "WebSite",
+   "ImageObject",
+   "BreadcrumbList",
+   "AboutPage",
+   "BreadcrumbList(microdata)"
+  ]
+ }
+}

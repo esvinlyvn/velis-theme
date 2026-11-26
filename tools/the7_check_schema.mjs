@@ -91,6 +91,8 @@ function selfTest() {
 	]);
 	const ok = checkPage(v, { ld: [{ '@type': 'CollectionPage', '@id': 'u#w', name: 'a', mainEntity: { '@id': 'u#l' } }, { '@type': 'ItemList', '@id': 'u#l', itemListElement: [{ position: 1, url: 'x', name: 'n' }] }], crumbs: [[{ name: 'A', item: '/', pos: '1' }, { name: 'B', item: null, pos: '2' }]] });
 	assert.deepEqual(ok.errors.filter((e) => !e.includes('ListItem')), []);
+	const rm = checkPage(v, { ld: [{ '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: '1', item: { '@id': 'https://x/', name: 'Trang chủ' } }, { '@type': 'ListItem', position: '2', item: { '@id': 'https://x/a/' } }] }] });
+	const rmLoi = rm.errors.filter((e) => /thiếu position/.test(e)); if (rmLoi.length !== 1 || !/mục 2/.test(rmLoi[0])) throw new Error('BreadcrumbList kiểu Rank Math: ' + JSON.stringify(rm.errors));
 	const bad = checkPage(v, { ld: [{ '@type': 'Foo', bar: 1 }, { '@type': 'WebPage', itemListElement: [], mainEntity: { '@id': 'u#none' } }, { '@type': 'PARSE_ERROR' }], crumbs: [[{ name: 'A', item: null, pos: '1' }, { name: '', item: '/', pos: '3' }]] });
 	assert.ok(bad.errors.some((e) => e.includes('kiểu Foo')) && bad.errors.some((e) => e.includes('thuộc tính bar')) && bad.errors.some((e) => e.includes('u#none')));
 	assert.ok(bad.errors.some((e) => e.includes('không đọc được')) && bad.errors.some((e) => e.includes('microdata')));

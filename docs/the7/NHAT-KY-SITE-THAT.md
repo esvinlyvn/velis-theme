@@ -205,6 +205,50 @@ Purge LiteSpeed. Kiểm (khách, bỏ cache): trang chủ dải nổi bật = Pa
 `the7_kiem_ra_mat.py --chi-hang-ngay` đạt (131 URL, 13 khối Nhận bảng giá); `the7_kiem_sau_ap.mjs` 28/28. Ảnh `screenshots/the7/the-du-an/`.
 Quay lui: revision trước của 19526 / 19537; gỡ thẻ; Ansana về Riêng tư.
 
+## 2026-11-26 (13:23–13:30 giờ VN) – Onpage: BreadcrumbList, chuyên mục cũ, tiêu đề SEO, link nội bộ
+
+Staging trước (cùng công cụ, kiểm đạt). Site thật `kiem_site_that()` 200, Purge sau khi làm.
+
+**A1 BreadcrumbList** – Rank Math → Cài đặt chung → Điều hướng trang: bật (trước: tắt); nhãn trang chủ "Home" → "Trang chủ"; "Hiển thị (các) danh mục" bật
+(để có Blog › cụm như breadcrumb The7). `tools/the7_rankmath_breadcrumb.mjs`. Kiểm `tools/the7_kiem_breadcrumb.mjs` toàn sitemap: **123/123 trang có breadcrumb có BreadcrumbList khớp**
+(tên, số mục, URL; link cũ /du-an-bds/… coi là đích 301). Schema 10 trang mẫu (`the7_lay_ld.mjs` + `the7_check_schema.mjs`, từ vựng schema.org bản hiện hành): **0 lỗi**.
+
+**A2 chuyên mục cũ** (`tools/the7_chuyen_muc_cu.py` noindex + `tools/the7_rankmath_chuyen_huong.mjs` 301 Exact, ID 24–30; trước: không có chuyển hướng, index):
+
+| URL | Xử lý | Lý do |
+|---|---|---|
+| /du-an-bds/ | 301 → /du-an/ + noindex | trang thay thế "Dự án" |
+| /du-an-bds/du-an-vinhomes/ | 301 → /du-an/vinhomes/ | trang chủ đầu tư |
+| /du-an-bds/du-an-gamuda-land/ | 301 → /du-an/gamuda-land/ | trang chủ đầu tư |
+| /du-an-bds/du-an-masterise-homes/ | 301 → /du-an/masterise-homes/ | trang chủ đầu tư |
+| /du-an-bds/du-an-sungroup/ | 301 → /du-an/sun-group/ | trang chủ đầu tư |
+| /du-an-bds/du-an-vinhomes/du-an-vinhomes-saigon-park/ | 301 → /vinhomes-saigon-park/ | trang dự án |
+| /du-an-bds/du-an-gamuda-land/du-an-spring-ville/ | 301 → /spring-ville/ | trang dự án |
+| /du-an-bds/du-an-ecopark/ | noindex, follow | không có trang Ecopark |
+| /phan-khu/ | noindex, follow | lệnh người dùng |
+
+Sitemap 131 → 127 URL (bỏ /du-an-bds/, /du-an-bds/du-an-vinhomes/, /du-an-bds/du-an-gamuda-land/, /phan-khu/).
+
+**A3 tiêu đề SEO** (`tools/the7_tieu_de_seo.py`, Rank Math `rank_math_title`; log `data/the7/sua-tong/tieu-de-site-that.json`):
+
+| URL | Cũ | Mới (ký tự) |
+|---|---|---|
+| /blog/ansana/ | Ansana by Kita - Velis Realty | Phân tích Ansana by Kita: giá, tiến độ | Velis Realty (53) |
+| /blog/palm-city/ | Palm City - Velis Realty | Phân tích Palm City: giá, tiến độ, cho thuê | Velis Realty (58) |
+| /blog/spring-ville/ | Blog Spring Ville: phân tích, kinh nghiệm mua | Velis Realty | Phân tích Spring Ville: giá, tiến độ | Velis Realty (51) |
+| /blog/the-global-city/ | The Global City - Velis Realty | Phân tích The Global City: giá, tiến độ | Velis Realty (54) |
+| /blog/the-prive/ | The Privé - Velis Realty | Phân tích The Privé: giá, tiến độ, cho thuê | Velis Realty (58) |
+| /blog/vinhomes/ | Blog Vinhomes: phân tích đầu tư | Velis Realty | Phân tích Vinhomes: giá, tiến độ, cho thuê | Velis Realty (57) |
+| /blog/vinhomes-saigon-park/ | Vinhomes Saigon Park - Velis Realty | Phân tích Vinhomes Saigon Park: giá, tiến độ | Velis Realty (59) |
+| /cho-thue-the-prive/ | Tiềm năng cho thuê The Prive | Tiềm năng cho thuê The Privé: khách SHTP, 20–28 triệu/tháng (59) |
+| /loi-nhuan-kep-dau-tu-the-prive-quan-2/ | Lợi nhuận kép từ The Prive | Lợi nhuận kép The Privé Quận 2: tăng giá 20%, cho thuê 6% (57) |
+
+**B link nội bộ** (`tools/the7_gan_link.py`, không đổi chữ): /phap-ly-can-ho-spring-ville-co-gi/ "Spring Ville" → /spring-ville/ (rev 21148 → 21170). Bỏ qua: 2 bài Persa Place
+(đã có link /can-ho-persa-place/); 10 bài cụm Vinhomes đã có link "Vinhomes" → /du-an/vinhomes/; không bài nào có "Saigon Park" / "Vinhomes Saigon Park" → không gắn.
+
+**C1** ảnh thứ 3 "Bài phân tích chuyên sâu" trang chủ: có ảnh, tải xong ở 1920 + 390 (cuộn chậm) – trống trên ảnh chụp cũ do tải chậm, không sửa.
+**C2** menu chân trang "Dự án" còn "Ansana by Kita" – không sửa, chờ người dùng quyết.
+
 ## Quy tắc đăng nhập (người dùng chốt 2026-11-25, thay mọi hướng dẫn trước)
 
 - STAGING (`staging.velisrealty.vn`): `WP_USER` + `WP_APP_PASSWORD`.
@@ -233,3 +277,4 @@ Quay lui: revision trước của 19526 / 19537; gỡ thẻ; Ansana về Riêng 
 | 2026-11-25 | Bản 2.x: theme 2.1.4, 39 khóa Theme Options, 4 tiện ích, cột phải 4 trang, nội dung 120 bài/trang, mẫu Velis – Dự án; Purge | site thật | gói 1.9.3, options trước, dongbo-site-that-log.json | 200, claude-bot |
 | 2026-11-25 | Cột phải 4 trang → tắt (như trước); theme con 2.1.4 → 2.1.5 (ảnh mở cửa sổ ảnh); Purge | site thật | right/sidebar_5; gói 2.1.4 | 200, claude-bot |
 | 2026-11-26 | Thẻ Đang bán / Nổi bật + gắn 6 / 4 bài; tóm tắt 2 phân khu; lưới trang chủ + /du-an/ theo thẻ; Ansana Riêng tư → Công khai; Purge | site thật | rev 21052 / 21054; Ansana private | 200, claude-bot |
+| 2026-11-26 | Rank Math breadcrumbs bật; 7 chuyển hướng 301 + noindex 9 chuyên mục cũ; 9 tiêu đề SEO; 1 link nội bộ; Purge | site thật | breadcrumbs tắt; tiêu đề cũ trong log; rev 21148 | 200, claude-bot |

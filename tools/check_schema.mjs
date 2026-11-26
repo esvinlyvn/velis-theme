@@ -20,8 +20,9 @@ export function googleIssues(nodes) {
 		}
 		if (n['@type'] === 'BreadcrumbList') {
 			(n.itemListElement || []).forEach((li, i) => {
-				// Rank Math prints numbers as strings ("1"); compare the value.
-				if (+li.position !== i + 1 || !li.name || !li.item) out.push(`BreadcrumbList: mục ${i + 1} thiếu position/name/item`);
+				// Rank Math prints numbers as strings ("1") and nests name in item ({"@id", "name"}) – both valid for schema.org / Google.
+				const ten = li.name || li.item?.name, url = typeof li.item === 'object' && li.item ? li.item['@id'] || li.item.url : li.item;
+				if (+li.position !== i + 1 || !ten || !url) out.push(`BreadcrumbList: mục ${i + 1} thiếu position/name/item`);
 			});
 		}
 	}

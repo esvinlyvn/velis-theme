@@ -42,6 +42,9 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
   Mẫu WPBakery nguồn ở `data/the7/mau-wpbakery/`, áp bằng `tools/the7_ap_mau_buoc2.py`.
 - Kiểm hằng ngày (cả staging + site thật): `python3 -I tools/the7_kiem_ra_mat.py --base <site> --chi-hang-ngay` (REST contact-form-7/v1 có; mọi URL sitemap
   0 shortcode thô; khối Nhận bảng giá đúng 1 form). Plugin: không bật tự cập nhật; cập nhật tay, staging trước (CF7 6.2.6 cần PHP 8.3 – sự cố 2026-11-25).
+- Onpage (2026-11-26): BreadcrumbList = Rank Math "Điều hướng trang" (nhãn "Trang chủ", hiện danh mục cha) khớp breadcrumb The7 – kiểm `node tools/the7_kiem_breadcrumb.mjs <base> /a/ …`;
+  schema `node tools/the7_lay_ld.mjs` + `the7_check_schema.mjs`; toàn sitemap tiêu đề < 30 / link cụm / link hỏng `python3 -I tools/the7_kiem_onpage_link.py <base> out.json`.
+  Chuyên mục cũ /du-an-bds/… 301 (Rank Math, tạo bằng `tools/the7_rankmath_chuyen_huong.mjs` – REST updateRedirection không tạo được cho chuyên mục), /phan-khu/ noindex.
 - Kiểm tra: `python3 -I tools/the7_check_onpage.py` (on-page toàn sitemap staging, có self-check);
   `node tools/the7_ui_audit.mjs` (computed style so với token DESIGN.md); Lighthouse `lighthouserc-the7.json`.
   Báo cáo từng bước ở `docs/reports/the7-*.md`.

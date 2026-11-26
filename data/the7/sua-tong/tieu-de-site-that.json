@@ -1,0 +1,74 @@
+[
+ {
+  "loai": "term",
+  "id": 47,
+  "url": "/blog/ansana/",
+  "cu": "Ansana by Kita - Velis Realty",
+  "moi": "Phân tích Ansana by Kita: giá, tiến độ | Velis Realty",
+  "do_dai": 53
+ },
+ {
+  "loai": "term",
+  "id": 53,
+  "url": "/blog/palm-city/",
+  "cu": "Palm City - Velis Realty",
+  "moi": "Phân tích Palm City: giá, tiến độ, cho thuê | Velis Realty",
+  "do_dai": 58
+ },
+ {
+  "loai": "term",
+  "id": 44,
+  "url": "/blog/spring-ville/",
+  "cu": "Blog Spring Ville: phân tích, kinh nghiệm mua | Velis Realty",
+  "moi": "Phân tích Spring Ville: giá, tiến độ | Velis Realty",
+  "do_dai": 51
+ },
+ {
+  "loai": "term",
+  "id": 50,
+  "url": "/blog/the-global-city/",
+  "cu": "The Global City - Velis Realty",
+  "moi": "Phân tích The Global City: giá, tiến độ | Velis Realty",
+  "do_dai": 54
+ },
+ {
+  "loai": "term",
+  "id": 48,
+  "url": "/blog/the-prive/",
+  "cu": "The Privé - Velis Realty",
+  "moi": "Phân tích The Privé: giá, tiến độ, cho thuê | Velis Realty",
+  "do_dai": 58
+ },
+ {
+  "loai": "term",
+  "id": 41,
+  "url": "/blog/vinhomes/",
+  "cu": "Blog Vinhomes: phân tích đầu tư | Velis Realty",
+  "moi": "Phân tích Vinhomes: giá, tiến độ, cho thuê | Velis Realty",
+  "do_dai": 57
+ },
+ {
+  "loai": "term",
+  "id": 51,
+  "url": "/blog/vinhomes-saigon-park/",
+  "cu": "Vinhomes Saigon Park - Velis Realty",
+  "moi": "Phân tích Vinhomes Saigon Park: giá, tiến độ | Velis Realty",
+  "do_dai": 59
+ },
+ {
+  "loai": "post",
+  "id": 20354,
+  "url": "/cho-thue-the-prive/",
+  "cu": "Tiềm năng cho thuê The Prive",
+  "moi": "Tiềm năng cho thuê The Privé: khách SHTP, 20–28 triệu/tháng",
+  "do_dai": 59
+ },
+ {
+  "loai": "post",
+  "id": 20339,
+  "url": "/loi-nhuan-kep-dau-tu-the-prive-quan-2/",
+  "cu": "Lợi nhuận kép từ The Prive",
+  "moi": "Lợi nhuận kép The Privé Quận 2: tăng giá 20%, cho thuê 6%",
+  "do_dai": 57
+ }
+]

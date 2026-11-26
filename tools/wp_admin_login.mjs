@@ -36,6 +36,8 @@ async function congXem(page, origin) {
 /** Đăng nhập trên `page`; trả về địa chỉ trang sau đăng nhập (wp-admin). */
 export async function wpAdminLogin(page, url) {
   const { origin, user, pass } = credFor(url);
+  // cửa sổ gợi ý của plugin (wp-pointer: Easy TOC, WPBakery…) che nút → ẩn bằng CSS, không bấm đóng (khỏi ghi thêm user meta)
+  await page.context().addInitScript(() => document.addEventListener('DOMContentLoaded', () => { const s = document.createElement('style'); s.textContent = '.wp-pointer{display:none!important}'; document.head.appendChild(s); }));
   await page.goto(origin + '/wp-login.php', { waitUntil: 'domcontentloaded', timeout: 90000 });
   await congXem(page, origin);
   if (!(await page.locator('#user_login').count())) await page.goto(origin + '/wp-login.php', { waitUntil: 'domcontentloaded' });

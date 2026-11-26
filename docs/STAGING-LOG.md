@@ -658,3 +658,8 @@ Form 19582 Liên Hệ + 20958 Nhận bảng giá, `invalid_tel`: "Số điện t
 ## 2026-11-26 – Dự án hiển thị theo thẻ
 
 Thẻ dang-ban (60) / noi-bat (61) + gắn 6 / 4 bài; tóm tắt Palm River / Persa Place thêm dòng dự án mẹ; trang chủ 19526 rev 21186 → 21245 (+ 21247 đổi slug → ID), /du-an/ 19537 rev 21187 → 21246 (+ 21248): lưới `post_type="tags"`. Thử bỏ thẻ Vinhomes Saigon Park → lưới 5, trang 200; gắn lại.
+
+
+## 2026-11-26 – Onpage (staging trước site thật)
+
+Rank Math breadcrumbs bật + nhãn "Trang chủ" + hiện danh mục cha; 9 chuyên mục cũ noindex, 7 chuyển hướng 301 (ID 24–30); 9 tiêu đề SEO (`data/the7/sua-tong/tieu-de-staging.json`); link "Spring Ville" bài 19876 (rev 21129 → 21257).
