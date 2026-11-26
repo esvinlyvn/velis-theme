@@ -698,3 +698,9 @@ Theme con 2.1.9 + tạo cỡ ảnh 230 ảnh (REST post-process). So ảnh vùng
 - Thẻ lọc 63–70 + gắn 6 trang Đang bán; /du-an/ 19537 (rev trước 21263) bật show_categories_filter.
 - Chính sách bảo mật 19662: autosave nháp 21277 (bản đăng không đổi).
 - Trả lời nhanh 27 trang (log `data/the7/sua-tong/tra-loi-nhanh-staging.json`).
+
+## 2026-11-26 – Sửa nốt (2.3.1)
+
+- Theme con 2.3.1: khóa hình học hàng kéo rộng (CSS !important + --velis-vw). So ảnh #main 2.3.0 → 2.3.1: 0,000 % (3 trang khác chỉ ở ô ảnh lười chưa tải ở bản trước).
+- Chuyên mục blog: xóa meta rank_math_robots (staging toàn site noindex nên chỉ kiểm được ở site thật).
+- 19962: Đất Xanh → Bluemarq Group (rev trước 21287).

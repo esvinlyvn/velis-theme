@@ -350,3 +350,35 @@ Vòng "làm bóng" chỉ đổi hình thức (nhãn, cỡ chữ, màu, bo góc, 
 | 3 | Đoạn mở trang dự án | "di sản hiếm hoi", "Hoa hậu", "giới siêu giàu", "đẳng cấp", "đỉnh cao" (The Privé, The Global City, Gamuda Land…) | từ thổi phồng, không nói bằng số – trái tính cách "điềm tĩnh, chính xác" | thay bằng số đo được (khoảng cách, diện tích, giá có nguồn) |
 | 4 | Khối "Điểm chính" tự lấy câu | các khối chỉ có chữ (danh sách trong `data/the7/sua-tong/ap16c-log.json`, trường `chi_chu`) | Điểm chính tạm = câu có sẵn trong khối | người viết bổ sung minh họa thật (ảnh / bảng / bản đồ) hoặc chọn lại 3–5 điểm |
 | 5 | Câu trích Giới thiệu | "Thành công của bạn chính là thước đo giá trị của Velis Realty." | giữ, chỉ bỏ ép xuống dòng | – |
+
+## Số liệu vênh giữa các bài (2026-11-26) – cho người viết nội dung, CHƯA sửa
+
+Nguồn: nội dung site thật đọc ngày 2026-11-26. Ngày = ngày đăng bài. Cách xử lý: chốt một số theo nguồn chủ đầu tư mới nhất, sửa mọi bài cho khớp, rồi cập nhật ngày sửa.
+
+| Dự án · số liệu | Bài | Số trong bài | Ngày bài |
+|---|---|---|---|
+| **Palm River · giá / m²** | `/can-ho-palm-river/` (trang dự án) | 168 triệu đồng/m² (rumor, đã gồm VAT) | 25/06/2026 |
+| | `/tai-sao-gioi-tinh-hoa-chon-tich-san-tai-palm-river/` | 180–220 triệu/m² (rumor) | 25/06/2026 |
+| | `/danh-gia-chu-ky-tang-gia-bat-dong-san-ven-song-giong-ong-to/` | 180–220 triệu/m² (rumor) | 06/07/2026 |
+| | `/su-dich-chuyen-dong-von-dau-tu-tu-loi-trung-tam-ve-nam-rach-chiec/` | 180–220 triệu/m² (rumor) | 29/07/2026 |
+| **Palm River · số căn hộ** | `/can-ho-palm-river/` | 620 căn hộ | 25/06/2026 |
+| | `/danh-gia-chu-ky-tang-gia-bat-dong-san-ven-song-giong-ong-to/` | khoảng 630 căn hộ | 06/07/2026 |
+| | `/tai-sao-gioi-tinh-hoa-chon-tich-san-tai-palm-river/`, `/loi-giai-bai-toan-bao-ve-tai-san-truoc-lam-phat-voi-palm-river/` | 620–630 căn | 25/06 · 26/06/2026 |
+| **The Privé · giá thuê căn 1PN** | `/cho-thue-the-prive/` | 15–18 triệu đồng/tháng (dự báo 2027) | 04/05/2026 |
+| | `/loi-suat-cho-thue-the-prive/` | 22–26 triệu đồng/tháng (dự phóng 2027) | 04/06/2026 |
+| **The Privé · giá / m²** | `/can-ho-the-prive/` (trang dự án) | 125 triệu/m² (rumor); cùng trang có câu "100–130 triệu/m²" | 09/04/2026 |
+| | 8 bài (vd. `/gia-ban-the-prive-quan-2-2026/`, `/vi-tri-the-prive-quan-2-3-mat-song/`) | 100–130 triệu/m² | 04–06/2026 |
+| | `/chinh-sach-ban-hang-the-prive-phase-2/`, `/chinh-sach-mua-si-cloud-9-tower-the-prive/` | giá Net 85–90 triệu/m² | 07–10/04/2026 |
+| | `/gia-ban-the-prive-quan-2-2026/` | giá Net 85–108 triệu/m² (sau chiết khấu 16,5%) | 10/04/2026 |
+| | `/loi-suat-cho-thue-the-prive/` | giá vốn ~95 triệu/m² | 04/06/2026 |
+| **The Privé · bàn giao** | `/can-ho-the-prive/` (lưới thông tin + ô Tóm tắt) | năm 2027 (dự kiến) | 09/04/2026 |
+| | `/can-ho-the-prive/` (đoạn "giá bán") | giao nhà Quý 1/2028 | 09/04/2026 |
+| | `/gia-ban-the-prive-quan-2-2026/`, `/cho-thue-the-prive/` | năm 2027 | 10/04 · 04/05/2026 |
+| | `/dau-tu-the-prive-don-bay-nut-giao-an-phu/`, `/khoang-cach-thuc-te-the-prive-quan-2-di-lam-bao-lau/` | giai đoạn 2026 | 07/04/2026 |
+| **Vinhomes Saigon Park · quy mô** | `/vinhomes-saigon-park/` (trang dự án, 5 chỗ) | 1.080 ha | 20/02/2026 |
+| | `/gia-tri-doc-ban-biet-thu-ven-kenh-vinhomes-saigon-park/` | "từ 880 ha đến hơn 1.080 ha" | 20/05/2026 |
+| **The Privé · chủ đầu tư** | 10 bài blog cũ (ghi "Đất Xanh"; không sửa theo lệnh 2026-11-26) | Đất Xanh | 04/2026 |
+
+Ghi chú:
+- Ô "Trả lời nhanh" (chèn 2026-11-26) chỉ dùng số của chính bài chứa nó. Sau khi chốt số, sửa cả nội dung ô cho khớp.
+- Các con số "rumor" phải ghi rõ "chưa được chủ đầu tư xác nhận" (`docs/QUY-TAC-NOI-DUNG.md` mục 3).

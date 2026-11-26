@@ -145,7 +145,8 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
   Lượt 2026-11-26 (2.3.0): hộp đồng ý cookie + Consent Mode v2 (`inc/velis-tac-gia-dong-y.php`, mặc định denied, localStorage `velis-dong-y`); khung tác giả (Hồ sơ → "Trang tác giả");
   "Cập nhật dd/mm/yyyy" (`velis_ngay_sua`, = dateModified); lọc /du-an/ = thẻ khu vực / loại hình (`velis_loc_the`, `tools/the7_the_loc.py`); chuyên mục Persa Place (62, `tools/the7_persa_place.py`);
   Trả lời nhanh bản 2 chèn bằng `tools/the7_tra_loi_ap.py`; Two Factor + Limit Login Attempts Reloaded (không bật 2FA cho claude-bot – `docs/the7/BAO-MAT.md`). QUIC.cloud gói miễn phí: CCSS 2/ngày (Tách CCSS theo URI = 7 trang dự án).
-  CLS máy tính: `<style id="velis-stretch">` (functions.php) đặt sẵn đệm hàng kéo rộng WPBakery; đo `node tools/the7_cls.mjs <base> 1366,1920 5 /a/`.
+  CLS máy tính (2.3.1): `<style id="velis-stretch">` + biến `--velis-vw` (clientWidth) KHÓA left/width/padding hàng kéo rộng WPBakery bằng !important (JS The7 `vc_rowBehaviour` tính lại không xô; trang có cột phải không áp); đo `node tools/the7_cls.mjs <base> 1366,1920 5 /a/`.
+  Chuyên mục blog: có bài → index (xóa meta rank_math_robots), rỗng → noindex (`tools/the7_cm_robots.py`). Đổi tên chủ đầu tư trên trang dự án: `tools/the7_doi_ten_cdt.py` (Đất Xanh → Bluemarq Group, không sửa bài blog).
 - `data/the7/mau-wpbakery/` — 3 mẫu WPBakery (Dự án, Chủ đầu tư, Bài viết) đã lưu vào "Mẫu của tôi" trên staging; bố cục trang nằm trong WPBakery, không trong PHP.
 - `theme/velis/` — theme khối velis, **đã bỏ 2026-11-11** (giữ để tham khảo); `dist/` (bỏ qua git) — file zip đóng gói.
 - `assets/brand/original/` — logo gốc tải từ Media site thật + PDF vector; `assets/brand/svg/` — SVG vẽ lại.
