@@ -76,3 +76,41 @@ thật. Mục nào đụng tới giao diện thì làm theo quy tắc khóa (`CL
 | 20477 | poster mặt bằng: tiêu đề, số liệu, logo | Layout căn 2PN đặc biệt Palm River dạng tờ rơi dọc | `/can-ho-palm-river/` |
 | 20478 | poster mặt bằng: tiêu đề, số liệu, logo | Layout căn 2PN Palm River dạng tờ rơi dọc | `/can-ho-palm-river/` |
 | 20479 | poster mặt bằng: tiêu đề, số liệu, logo | Layout căn 3PN Palm River dạng tờ rơi dọc | `/can-ho-palm-river/` |
+
+## Đề bài cho người viết nội dung (2026-11-26 – 2 truy vấn Search Console chưa có trang trả lời đúng)
+
+Viết theo `docs/QUY-TAC-NOI-DUNG.md`. Đầu bài đặt ô **Velis · Trả lời nhanh**. Mỗi số liệu ghi nguồn và thời điểm. Claude không tự viết các bài này.
+
+### 1. "Có nên đầu tư The Global City" (80 lượt hiển thị / 12 tháng, vị trí ~55)
+
+- **Câu hỏi H1 / ô Trả lời nhanh:** "Có nên đầu tư The Global City lúc này không?" Trả lời: nên với ai / không nên với ai, và vì sao, trong 2–4 câu.
+- **Khung ý định "nên mua":**
+  1. Giá hiện tại theo loại sản phẩm (căn hộ, nhà phố, shophouse, biệt thự).
+  2. Pháp lý từng phân khu.
+  3. Tiến độ và mốc bàn giao.
+  4. Hạ tầng đã có so với sắp có (nút giao An Phú, metro, vành đai), kèm năm.
+  5. Dòng tiền: vốn tự có, vay, giá thuê tham khảo.
+  6. Rủi ro (xem bài `/rui-ro-dau-tu-the-global-city/`).
+  7. Hợp với ai.
+- **Nguồn cần có:**
+  - bảng giá / chính sách mới nhất của Masterise Homes (ngày phát hành);
+  - quyết định pháp lý của phân khu;
+  - ảnh tiến độ có ngày chụp;
+  - số liệu giá thuê khu vực (nguồn, tháng).
+- **Link đi:** trang dự án `/the-global-city/`. Thẻ Đọc thêm tới `/rui-ro-dau-tu-the-global-city/` và `/the-global-city-bat-day-hay-du-dinh/`.
+
+### 2. "Tiến độ Spring Ville" (73 lượt hiển thị: "tiến độ dự án spring ville" 33, "spring ville tiến độ" 22, "tiến độ spring ville" 18)
+
+- **Câu hỏi H1 / ô Trả lời nhanh:** "Tiến độ Spring Ville đến tháng …/2026 ra sao?" Trả lời: giai đoạn hiện tại, mốc kế tiếp, mốc bàn giao dự kiến (quý 2/2027 theo trang dự án).
+- **Khung ý định "tiến độ / bàn giao":**
+  1. Tiến độ thực tế từng phân khu (nhà phố, shophouse, căn hộ Persa Place), kèm ảnh có ngày chụp.
+  2. Mốc đã qua: động thổ 03/01/2025 (bài pháp lý).
+  3. Mốc bàn giao dự kiến.
+  4. Tiêu chuẩn bàn giao.
+  5. Rủi ro chậm tiến độ và cách người mua kiểm tra.
+- **Nguồn cần có:**
+  - ảnh công trường mới (ngày chụp);
+  - thông báo tiến độ của Gamuda Land;
+  - hợp đồng mẫu: điều khoản bàn giao.
+- **Cập nhật:** mỗi lần có ảnh mới thì sửa bài và đổi ngày. Dòng "Cập nhật dd/mm/yyyy" tự hiện.
+- **Link đi:** `/spring-ville/`. Đọc thêm tới `/phap-ly-can-ho-spring-ville-co-gi/` và `/kiem-chung-thuc-te-ban-giao-gamuda-land-persa-place/`.

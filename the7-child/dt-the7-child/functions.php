@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/inc/velis-elements.php'; // phần tử WPBakery "Velis"
+require_once __DIR__ . '/inc/velis-tac-gia-dong-y.php'; // khung trang tác giả + hộp đồng ý cookie (2026-11-26)
+add_filter( 'xmlrpc_enabled', '__return_false' ); // không plugin nào dùng XML-RPC (không Jetpack / ứng dụng di động); máy chủ cũng chặn 403
 /**
  * The7 Velis child theme. Layout and content stay editable in WPBakery and The7 → Theme Options; this file only loads
  * velis.css (what the options cannot do) after The7's own CSS.
@@ -217,8 +219,28 @@ function velis_anh_dung_co( $html, $find_id = 'attachment_url_to_postid', $get_s
 }
 
 add_filter( 'do_shortcode_tag', function ( $out, $tag ) {
-	return 'dt_blog_masonry' === $tag ? velis_anh_dung_co( $out ) : $out;
+	return 'dt_blog_masonry' === $tag ? velis_loc_the( velis_anh_dung_co( $out ) ) : $out;
 }, 10, 2 );
+
+// Lọc /du-an/ theo thẻ khu vực + loại hình (2026-11-26): nút lọc có sẵn của The7 chỉ lấy CHUYÊN MỤC và so lớp của ô lưới (wf-cell).
+// Khi lưới bật bộ lọc: chép lớp tag-* của từng bài lên ô lưới (data-filter ".tag-x": JS của The7 bỏ ký tự đầu), thay nút lọc bằng các thẻ trong VELIS_LOC_THE có bài trong lưới (JS lọc của The7 giữ nguyên).
+const VELIS_LOC_THE = array( 'khu-dong' => 'Khu Đông', 'khu-tay' => 'Khu Tây', 'tay-bac' => 'Tây Bắc', 'vung-ve-tinh' => 'Vùng vệ tinh',
+	'can-ho' => 'Căn hộ', 'nha-pho' => 'Nhà phố', 'shophouse' => 'Shophouse', 'biet-thu' => 'Biệt thự' );
+function velis_loc_the( $html ) {
+	if ( ! str_contains( $html, 'filter-categories' ) ) {
+		return $html;
+	}
+	$html = preg_replace_callback( '/(<div class="[^"]*\bwf-cell\b[^"]*)("[^>]*>\s*<article class="([^"]*)")/', function ( $m ) {
+		preg_match_all( '/\btag-[a-z0-9-]+/', $m[3], $t );
+		return $m[1] . ( $t[0] ? ' ' . implode( ' ', $t[0] ) : '' ) . $m[2];
+	}, $html );
+	$co = array_filter( VELIS_LOC_THE, fn( $slug ) => str_contains( $html, ' tag-' . $slug . ' ' ) || str_contains( $html, ' tag-' . $slug . '"' ), ARRAY_FILTER_USE_KEY );
+	$nut = '<a href="#" class="show-all act" data-filter="*">Tất cả</a>';
+	foreach ( $co as $slug => $ten ) {
+		$nut .= '<a href="#" data-filter=".tag-' . esc_attr( $slug ) . '">' . esc_html( $ten ) . '</a>';
+	}
+	return preg_replace( '/(<div class="filter-categories"[^>]*>).*?(<\/div>)/s', '$1' . $nut . '$2', $html, 1 );
+}
 
 // Only the first image skips lazy-loading (WordPress default: 3) – the hero is already eager + fetchpriority=high above; the 2nd/3rd images
 // (hero project thumbs, progress photos far below) were downloading before the CSS/LCP. Lazy images also get sizes="auto" (right file size).
@@ -574,17 +596,30 @@ function velis_reading_minutes( $raw ) {
 	return max( 1, (int) round( count( $words ) / 200 ) );
 }
 
-function velis_post_line( $cat, $date_iso, $date, $minutes ) {
+function velis_post_line( $cat, $date_iso, $date, $minutes, $sua = '' ) {
 	return '<p class="velis-post-line">' . ( $cat ? '<span>' . esc_html( $cat ) . '</span>' : '' )
-		. '<time datetime="' . esc_attr( $date_iso ) . '">' . esc_html( $date ) . '</time><span>' . (int) $minutes . ' phút đọc</span></p>';
+		. '<time datetime="' . esc_attr( $date_iso ) . '">' . esc_html( $date ) . '</time>' . $sua . '<span>' . (int) $minutes . ' phút đọc</span></p>';
 }
+
+// "Cập nhật dd/mm/yyyy" (ngày sửa, = schema dateModified của Rank Math) cạnh ngày đăng – chỉ khi sửa khác ngày đăng. The7 không có tùy chọn này.
+function velis_ngay_sua( $id = null ) {
+	return get_the_modified_date( 'Ymd', $id ) > get_the_date( 'Ymd', $id )
+		? '<time class="velis-ngay-sua" datetime="' . esc_attr( get_the_modified_date( 'c', $id ) ) . '">Cập nhật ' . esc_html( get_the_modified_date( 'd/m/Y', $id ) ) . '</time>' : '';
+}
+// Dòng meta The7 (máy tính, cuối bài): thêm phần "Cập nhật" vào danh sách phần tử ngày / tác giả / chuyên mục.
+add_filter( 'presscore_posted_on_parts', function ( $parts ) {
+	if ( is_array( $parts ) && is_singular( 'post' ) && get_the_ID() === get_queried_object_id() && velis_ngay_sua() ) {
+		$parts['velis_ngay_sua'] = velis_ngay_sua();
+	}
+	return $parts;
+} );
 
 add_filter( 'the_content', function ( $content ) {
 	if ( ! is_singular( 'post' ) || ! in_the_loop() || ! is_main_query() || get_the_ID() !== get_queried_object_id() || str_contains( $content, 'velis-hero' ) ) {
 		return $content;
 	}
 	$cats = array_values( array_filter( get_the_category(), function ( $c ) { return $c->parent > 0; } ) );
-	return velis_post_line( $cats ? $cats[0]->name : '', get_the_date( 'c' ), get_the_date( 'd/m/Y' ), velis_reading_minutes( get_post_field( 'post_content' ) ) ) . $content;
+	return velis_post_line( $cats ? $cats[0]->name : '', get_the_date( 'c' ), get_the_date( 'd/m/Y' ), velis_reading_minutes( get_post_field( 'post_content' ) ), velis_ngay_sua() ) . $content;
 }, 5 );
 
 // Font tự lưu (velis.css @font-face, thư mục fonts/): không tải Google Fonts của The7 ("dt-web-fonts" – Theme Options → Typography vẫn giữ

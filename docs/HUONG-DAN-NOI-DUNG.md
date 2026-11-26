@@ -99,6 +99,8 @@ Chủ đầu tư có từ 2 dự án trên site trở lên mới tạo trang.
 
 ### 1.4 Bài blog (theo cụm dự án và bài thị trường)
 
+Ngày sửa: bài sửa sau ngày đăng tự hiện "Cập nhật dd/mm/yyyy" cạnh ngày đăng (không cần làm gì).
+
 Ảnh: màn soạn `04-bai-viet-man-soan.jpg` · trang thật `05-bai-viet-nhap-xem-truoc.jpg`.
 
 | Số ảnh 04 | Ô | Viết gì |
@@ -121,7 +123,11 @@ Bài thị trường (không có cụm) thì hộp ở cột phải là hộp t�
 
 **Gồm gì** (theo `VOICE.md`):
 1. **Mở bài** – 1 đoạn nêu vấn đề của người mua, 1 đoạn góc nhìn Vũ Xuân, ngắn, không kể thành tích.
-2. **Trả lời nhanh** – phần tử **Velis · Trả lời nhanh** ngay đầu bài (chỉ với bài trả lời một câu hỏi cụ thể: giá, pháp lý, tiến độ, bàn giao…): 2–4 câu hoặc 3–5 gạch đầu dòng số liệu chính, có thời điểm.
+2. **Trả lời nhanh** – phần tử **Velis · Trả lời nhanh** kéo vào ngay trước khối chữ đầu bài (trang dự án: ngay trước Mục lục). Chỉ dùng cho bài trả lời một câu hỏi cụ thể: giá, pháp lý, tiến độ, bàn giao…
+   - Ô *Câu hỏi*: thành H2 trên ô; viết đúng như người đọc gõ tìm, vd. "Giá The Privé 2026 bao nhiêu?".
+   - Ô *Trả lời*: 2–4 câu hoặc 3–5 gạch đầu dòng. Chỉ dùng số đã có trong bài; viết số kiểu Việt (5,0–6,5 tỷ; 100–130 triệu/m²).
+   - Ô *Nguồn*: nguồn bài đã ghi. Để trống thì hiện "Tổng hợp từ thông tin chủ đầu tư công bố".
+   - Dòng cuối ô tự hiện "Nguồn · Cập nhật dd/mm/yyyy (ngày sửa bài) · Phân tích: <tác giả>".
 3. **Thân bài theo H2** – mỗi H2 trả lời một câu hỏi; H3 nằm dưới H2, không nhảy cấp. Giữa bài: tối đa 2 thẻ **Velis · Đọc thêm** (ô *Bài đích* chọn từ danh sách + ô *Một dòng: người đọc sẽ biết thêm gì*), đặt ngay sau đoạn nhắc tới chủ đề. Muốn chèn giữa một khối chữ: tách khối Text Block làm hai rồi kéo thẻ vào giữa.
 4. **"Rủi ro và điều cần kiểm tra"** – bắt buộc với bài phân tích đầu tư.
 5. **Hộp công bố cuối bài** – nguyên văn trong `BRAND.md` mục "Công bố bắt buộc".
@@ -315,3 +321,12 @@ Người viết dùng tài khoản **Biên tập viên** (Editor) do Quản tr�
 | Tạo / sửa người dùng, cài plugin / theme | – | ✓ |
 
 Đầu mối Quản trị viên: chủ site (tài khoản quản trị Velis Realty).
+
+
+## Bổ sung 2026-11-26
+
+- **Persa Place**: chuyên mục con của Spring Ville (`/blog/spring-ville/persa-place/`). Bài về Persa Place chọn **chỉ** chuyên mục Persa Place (không chọn thêm Spring Ville).
+- **/du-an/ – thẻ lọc**: mỗi trang dự án Đang bán gắn 1 thẻ khu vực (Khu Đông / Khu Tây / Tây Bắc / Vùng vệ tinh) và các thẻ loại hình có bán (Căn hộ / Nhà phố / Shophouse / Biệt thự).
+  Nút lọc ở /du-an/ tự hiện theo thẻ. Trang thẻ không lên Google (noindex, không vào sitemap).
+- **Trang tác giả** (`/chuyen-gia/<tên>/`): điền ở **Tài khoản → Hồ sơ** – "Thông tin tiểu sử" + mục "Trang tác giả" (chức danh, chứng chỉ hành nghề, liên hệ, ID ảnh chân dung trong Thư viện).
+  Ô nào trống thì khách không thấy.

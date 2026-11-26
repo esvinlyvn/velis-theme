@@ -187,11 +187,13 @@ add_action( 'vc_before_init', function () {
 	) );
 	vc_map( array(
 		'name' => 'Velis · Trả lời nhanh', 'base' => 'velis_tra_loi', 'category' => $cat, 'icon' => 'icon-wpb-information-white',
-		'description' => 'Ô nền nhẹ ngay đầu bài: 2–4 câu hoặc 3–5 gạch đầu dòng số liệu chính. Chỉ dùng cho bài trả lời một câu hỏi cụ thể.',
+		'description' => 'Đầu bài: H2 câu hỏi + ô nền nhẹ 2–4 câu (hoặc 3–5 gạch đầu dòng số liệu) + dòng "Nguồn · Cập nhật · Phân tích". Chỉ bài trả lời một câu hỏi cụ thể.',
 		'html_template' => $dir . 'velis_tra_loi.php',
 		'params' => array(
-			array( 'type' => 'textfield', 'heading' => 'Nhãn', 'param_name' => 'nhan', 'value' => 'Trả lời nhanh', 'admin_label' => true ),
-			array( 'type' => 'textarea_html', 'heading' => 'Nội dung (2–4 câu hoặc 3–5 gạch đầu dòng, có số liệu + thời điểm)', 'param_name' => 'content', 'value' => '<p>Câu trả lời chính trong 2–4 câu.</p>' ),
+			array( 'type' => 'textfield', 'heading' => 'Câu hỏi (H2, theo cách người đọc tìm, vd. "Giá The Privé bao nhiêu?")', 'param_name' => 'cau_hoi', 'admin_label' => true ),
+			array( 'type' => 'textarea_html', 'heading' => 'Trả lời (2–4 câu hoặc 3–5 gạch đầu dòng; số kiểu Việt: 5,0–6,5 tỷ; 100–130 triệu/m²)', 'param_name' => 'content', 'value' => '<p>Câu trả lời chính trong 2–4 câu.</p>' ),
+			array( 'type' => 'textfield', 'heading' => 'Nguồn (để trống = "Tổng hợp từ thông tin chủ đầu tư công bố")', 'param_name' => 'nguon' ),
+			array( 'type' => 'textfield', 'heading' => 'Nhãn trong ô', 'param_name' => 'nhan', 'value' => 'Trả lời nhanh' ),
 		),
 	) );
 
@@ -227,7 +229,8 @@ add_filter( 'rank_math/json_ld', function ( $data ) {
 	return $data;
 }, 100 ); // sau Rank Math + velis_schema_graph (99): không chen vào lúc Rank Math dựng WebPage
 
-// Trang có Mục lục Velis: không chèn mục lục Easy TOC tự động
+// Trang có Mục lục Velis / ô Trả lời nhanh: không chèn mục lục Easy TOC tự động
 add_filter( 'ez_toc_maybe_apply_the_content_filter', function ( $apply ) {
-	return is_singular() && has_shortcode( (string) get_post_field( 'post_content', get_queried_object_id() ), 'velis_muc_luc' ) ? false : $apply;
+	$nd = is_singular() ? (string) get_post_field( 'post_content', get_queried_object_id() ) : '';
+	return has_shortcode( $nd, 'velis_muc_luc' ) || has_shortcode( $nd, 'velis_tra_loi' ) ? false : $apply; // ô Trả lời nhanh tự in mục lục sau nó
 } );

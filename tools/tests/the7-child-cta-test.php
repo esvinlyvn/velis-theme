@@ -125,4 +125,16 @@ $ok  = $ok && ! str_contains( $pd, 'javascript' ) && str_contains( $pd, '<span c
 // Trải nghiệm đọc (2026-11-26): tiêu đề cuối bài theo dự án → cụm; "Đọc thêm" tối đa 2 thẻ mỗi bài.
 $ok  = $ok && 'Cùng chủ đề The Privé' === velis_related_title( array( 'title' => 'The Privé' ), 'The Privé blog' ) && 'Cùng chủ đề Thị trường' === velis_related_title( null, 'Thị trường' )
 	&& array( true, true, false ) === array( velis_doc_them_con_cho(), velis_doc_them_con_cho(), velis_doc_them_con_cho() );
+// Trang tác giả: ô trống không hiện với khách, hiện ô chờ với quản trị viên; tất cả trống + khách → không in gì.
+if ( ! function_exists( 'wpautop' ) ) { function wpautop( $s ) { return '<p>' . $s . '</p>'; } }
+$o0  = array( 'chuc_danh' => '', 'tieu_su' => '', 'chung_chi' => '', 'lien_he' => '', 'anh' => '' );
+$o1  = array( 'chuc_danh' => 'CEO' ) + $o0;
+$ok  = $ok && '' === velis_tac_gia_html( $o0, false ) && str_contains( velis_tac_gia_html( $o0, true ), 'Chờ nội dung: chứng chỉ hành nghề' )
+	&& str_contains( velis_tac_gia_html( $o1, false ), '>CEO</div>' ) && ! str_contains( velis_tac_gia_html( $o1, false ), 'Chờ nội dung' );
+// Lọc /du-an/: lớp tag-* của bài chép lên ô lưới; nút lọc = thẻ khu vực / loại hình có bài trong lưới; lưới không bộ lọc giữ nguyên.
+$g   = '<div class="css-grid-filter filter"><div class="filter-categories" data-x="1"><a class="show-all act" data-filter="*">View all</a><a data-filter="category-34">Dự án</a></div></div>'
+	. '<div class="visible wf-cell category-34" data-post-id="1"><article class="post tag-khu-dong tag-dang-ban tag-can-ho category-34">a</article></div>';
+$lg  = velis_loc_the( $g );
+$ok  = $ok && str_contains( $lg, 'wf-cell category-34 tag-khu-dong tag-dang-ban tag-can-ho"' ) && str_contains( $lg, 'data-filter=".tag-khu-dong">Khu Đông</a><a href="#" data-filter=".tag-can-ho">Căn hộ</a></div>' )
+	&& ! str_contains( $lg, 'Dự án</a>' ) && ! str_contains( $lg, 'tag-dang-ban">' ) && velis_loc_the( 'x<div class="wf-cell">' ) === 'x<div class="wf-cell">';
 echo $ok ? "the7-child cta: ok\n" : "the7-child cta: FAIL\n"; exit( $ok ? 0 : 1 );
