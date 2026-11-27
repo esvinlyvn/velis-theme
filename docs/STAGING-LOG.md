@@ -730,3 +730,20 @@ Theme con 2.1.9 + tạo cỡ ảnh 230 ảnh (REST post-process). So ảnh vùng
 - Cổng kiểm 2.5.0 (critical BẬT) – 2 lần, đều TRƯỢT ở /can-ho-the-prive/ (TBT staging quy đổi 393 / 597 ms; Performance 89 / 83). 3 trang còn lại ĐẠT (Perf 97–98, LCP 1,0–1,7 s, TBT 77–126 ms).
   Đo riêng The Privé 2 lần: TBT 148 / 102 ms. Nguồn TBT: tác vụ jQuery / The7 khởi tạo 250–350 ms + tác vụ của trang 150 ms; Style & Layout 0,9–1,1 s (trang dài 24.000 px).
   → KHÔNG đưa lên site thật (đúng quy tắc cổng kiểm). Site thật vẫn chạy 2.4.1; GA4 trên site thật chưa đổi.
+
+## 2026-11-27 – 2.5.1 / 2.5.2: content-visibility + bỏ hộp đồng ý cookie (người dùng duyệt / quyết)
+
+- 2.5.1: velis.css `content-visibility: auto` + `contain-intrinsic-size: auto <trung vị đo>` cho khối dưới khối đầu (hàng / khối Velis; trừ form CF7, CTA, header, footer). Không có khối sticky trong nội dung.
+  JS sẵn có của link `#`: cuộn xong lệch > 8 px thì chỉnh lại (khối phía trên dựng muộn, cao khác ước lượng – Gamuda 412 lệch 120 px trước khi chỉnh).
+- 2.5.2:
+  - Gỡ hộp đồng ý cookie (HTML / CSS / JS, localStorage) và Consent Mode.
+  - GA4 tải 1 lần khi khách tương tác lần đầu hoặc 4 giây sau khi tải xong lúc rảnh.
+  - Critical CSS sinh lại.
+- Kiểm (staging):
+  - GA4 5/5 (`the7_kiem_ga.mjs`).
+  - content-visibility 0 trượt (`the7_kiem_cv.mjs`: mục lục lệch 0 px, Xem thêm, cuộn nhanh 0 px).
+  - Ctrl+F thật 4/4 (`the7_kiem_ctrlf.mjs`).
+  - So ảnh từng màn hình có / tắt cv: 360 ảnh, lớn nhất 0,073 %.
+  - CLS 412 / 1366 / 1920 ≤ 0,013.
+  - Chức năng 6/6; cửa sổ ảnh 4/4.
+- Lỗi nội dung sẵn có (không do cv): bài /gia-ban-the-prive-quan-2-2026/ có 4 link Easy TOC trỏ id không tồn tại (tiêu đề có ngoặc kép “ ” / tiêu đề trùng số).

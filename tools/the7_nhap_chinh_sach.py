@@ -1,20 +1,23 @@
 #!/usr/bin/env python3
 """Nháp chính sách bảo mật (2026-11-26, người dùng yêu cầu): thay MỤC 8 "Sử dụng cookies & thẻ theo dõi (tracking pixels)" bằng mục cookie / GA4
-khớp hộp đồng ý (2026-11-27: GA4 chỉ tải sau khi đồng ý); giữ nguyên mọi mục khác. Lưu bằng REST autosave (bản nháp / revision, KHÔNG đổi bản đang đăng);
+(2026-11-27: bỏ hộp đồng ý cookie – mô tả GA4, dữ liệu, thời gian lưu, cách từ chối); giữ nguyên mọi mục khác. Lưu bằng REST autosave (bản nháp / revision, KHÔNG đổi bản đang đăng);
 người dùng duyệt chữ rồi bấm Cập nhật. Site thật: kiem_site_that() trước. Dùng: python3 -I tools/the7_nhap_chinh_sach.py <staging|that> [--ghi]   |   --test
 """
 import re, sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-MUC8 = ('<h3 id="cookie">8. Cookie và Google Analytics</h3>\n'
-        '<p>Website chỉ dùng cookie đo lường của Google Analytics 4 (GA4) để thống kê lượt xem trang và cách khách truy cập sử dụng website '
-        '(trang đã xem, thời gian xem, loại thiết bị, khu vực ước tính). Website không dùng cookie quảng cáo và không gắn thẻ theo dõi (tracking pixel) của bên thứ ba.</p>\n'
-        '<ul>\n<li>Khi vào website lần đầu, hộp "Đồng ý cookie" hiện ở cuối màn hình. Mã GA4 chỉ được tải khi quý khách bấm <b>Đồng ý</b> '
-        '(hoặc đã bấm Đồng ý ở lần truy cập trước). Nếu quý khách bấm <b>Từ chối</b> hoặc chưa chọn, website không tải mã GA4, '
-        'không ghi cookie đo lường và không gửi dữ liệu nào tới Google Analytics.</li>\n'
-        '<li>Lựa chọn được lưu trên trình duyệt của quý khách. Muốn đổi lựa chọn, quý khách xóa dữ liệu trang velisrealty.vn trong cài đặt trình duyệt; '
-        'hộp đồng ý sẽ hiện lại ở lần truy cập sau.</li>\n'
-        '<li>Dữ liệu đo lường do Google xử lý theo chính sách của Google; Velis Realty chỉ xem số liệu thống kê tổng hợp.</li>\n</ul>\n')
+MUC8 = ('<h3 id="cookie">8. Google Analytics và cookie</h3>\n'
+        '<p>Website dùng Google Analytics 4 (GA4) của Google để thống kê lượt xem trang và cách khách truy cập sử dụng website. '
+        'Website không dùng cookie quảng cáo và không gắn thẻ theo dõi (tracking pixel) của bên thứ ba khác.</p>\n'
+        '<ul>\n<li><b>Dữ liệu thu thập:</b> trang đã xem, thời gian xem, trang giới thiệu (nguồn truy cập), loại thiết bị, trình duyệt, hệ điều hành, '
+        'khu vực ước tính (tỉnh / thành phố, suy ra từ địa chỉ IP – GA4 không lưu địa chỉ IP). GA4 ghi cookie <code>_ga</code> trên trình duyệt để phân biệt lượt truy cập; '
+        'website không gửi họ tên, số điện thoại hay email của quý khách tới Google Analytics.</li>\n'
+        '<li><b>Thời gian lưu:</b> dữ liệu chi tiết được lưu trên Google Analytics trong 2 tháng, sau đó tự xóa; Velis Realty chỉ giữ số liệu thống kê tổng hợp. '
+        'Cookie <code>_ga</code> hết hạn sau 2 năm kể từ lần truy cập cuối, trừ khi quý khách xóa trước.</li>\n'
+        '<li><b>Cách từ chối:</b> cài tiện ích chặn Google Analytics của Google '
+        '(<a href="https://tools.google.com/dlpage/gaoptout" rel="nofollow noopener" target="_blank">tools.google.com/dlpage/gaoptout</a>); '
+        'hoặc chặn / xóa cookie trong cài đặt trình duyệt; hoặc gửi email tới <a href="mailto:info@velisrealty.vn">info@velisrealty.vn</a> để yêu cầu xóa dữ liệu liên quan tới quý khách.</li>\n'
+        '<li>Dữ liệu đo lường do Google xử lý theo chính sách quyền riêng tư của Google.</li>\n</ul>\n')
 MAU = re.compile(r'<h3>8\. Sử dụng cookies &amp; thẻ theo dõi \(tracking pixels\)</h3>.*?(?=<h3>9\.)', re.S)
 
 

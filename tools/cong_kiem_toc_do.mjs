@@ -1,5 +1,5 @@
 // CỔNG KIỂM TỐC ĐỘ (2026-11-27, người dùng chốt – bắt buộc trước mọi lần đưa theme / CSS / phần tử lên site thật).
-// Lighthouse mobile (mô phỏng như PageSpeed: throttling "simulate", Moto G Power), 3 lần / trang, lấy trung vị, 4 trang chuẩn; + CLS máy tính 1366 / 1920.
+// Lighthouse mobile (mô phỏng như PageSpeed: throttling "simulate", Moto G Power), 5 lần / trang, lấy trung vị, 4 trang chuẩn; + CLS máy tính 1366 / 1920.
 // So bản mới (staging) với bản đang chạy (site thật). Staging không có cache trang → phản hồi đầu (TTFB) chậm hơn: trừ phần chênh TTFB khỏi
 // FCP / LCP / Speed Index của staging rồi TÍNH LẠI điểm Performance bằng đúng công thức chấm của Lighthouse (trọng số + log-normal) → "điểm quy đổi".
 // TRƯỢT nếu: vượt ngân sách (LCP ≤ 2,5 s, CLS ≤ 0,05, TBT ≤ 200 ms, tổng ≤ 1,5 MB, Performance ≥ 85 – trên số quy đổi) hoặc Performance quy đổi
@@ -26,7 +26,7 @@ if (process.argv[2] === '--test') {
   }
   console.log('cong_kiem_toc_do: ok'); process.exit(0);
 }
-const out = process.argv[2]; const chiThat = process.argv.includes('--chi-that'); const LAN = +(process.argv[process.argv.indexOf('--lan') + 1] || 3) || 3;
+const out = process.argv[2]; const chiThat = process.argv.includes('--chi-that'); const LAN = +(process.argv[process.argv.indexOf('--lan') + 1] || 5) || 5; // 5 lần trung vị (2026-11-27, người dùng chốt: TBT dao động mạnh)
 const LH = (process.env.LIGHTHOUSE_DIR || '.') + '/node_modules/.bin/lighthouse'; const CHROME = process.env.CHROME_PATH || '/opt/pw-browsers/chromium-1243/chrome-linux64/chrome';
 async function cookieStaging() { // đăng nhập trang khóa "Password Protected" của staging (mật khẩu chỉ từ biến môi trường)
   const { chromium } = createRequire(import.meta.url)('playwright'); const b = await chromium.launch(); const ctx = await b.newContext(); const p = await ctx.newPage();

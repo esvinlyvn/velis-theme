@@ -2,7 +2,7 @@
 /**
  * (1) Khung trang tác giả (/chuyen-gia/<tên>/): ảnh, chức danh, tiểu sử, chứng chỉ hành nghề, liên hệ – chữ nhập ở Tài khoản → Hồ sơ.
  *     Ô trống không hiện với khách; quản trị viên thấy ô chờ (viền gạch) để biết chỗ cần điền.
- * (2) Hộp đồng ý cookie: GA4 chỉ tải sau khi bấm "Đồng ý" (hoặc đã đồng ý trước đó, lưu localStorage); chưa chọn / "Từ chối" → không tải.
+ * (2) GA4 tải muộn: khi khách tương tác lần đầu hoặc 4 giây sau khi trang tải xong (không có hộp đồng ý cookie – người dùng quyết 2026-11-27).
  */
 defined( 'ABSPATH' ) || exit;
 
@@ -76,25 +76,16 @@ add_action( 'loop_start', function ( $q ) {
 	);
 } );
 
-// ── Hộp đồng ý cookie (Nghị định 13/2023) + GA4 CHỈ TẢI SAU KHI ĐỒNG Ý (2026-11-27): chưa chọn / "Từ chối" → không có yêu cầu nào tới Google.
-// velisGA() chèn gtag.js + config khi localStorage velis-dong-y = '1' (đồng ý trước đó) hoặc ngay lúc bấm "Đồng ý".
-// Staging (tên miền khác) chỉ tải khi URL có ?velis_ga_thu=1 – để kiểm, không làm bẩn số liệu GA.
+// ── GA4 tải muộn (2026-11-27, người dùng quyết – bỏ hộp đồng ý cookie): KHÔNG tải khi trang mở; tải 1 lần khi khách tương tác lần đầu
+// (scroll / pointerdown / keydown / touchstart) hoặc 4 giây sau khi trang tải xong lúc trình duyệt rảnh (requestIdleCallback), cái nào đến trước
+// → gtag.js không nằm trong lần tải đầu / TBT. Staging (tên miền khác) chỉ tải khi URL có ?velis_ga_thu=1 – để kiểm, không làm bẩn số liệu GA.
 // data-no-optimize: LiteSpeed không gộp / dời đoạn này.
 const VELIS_GA_ID = 'G-QSJ8EH9CWB';
 add_action( 'wp_head', function () {
-	echo "<script data-no-optimize=\"1\">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}"
-		. "window.velisGA=function(){if(window.velisGA.xong||(location.hostname!=='velisrealty.vn'&&location.search.indexOf('velis_ga_thu=1')<0))return;window.velisGA.xong=1;"
-		. "gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted'});"
-		. "var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=" . VELIS_GA_ID . "';document.head.appendChild(s);"
-		. "gtag('js',new Date());gtag('config','" . VELIS_GA_ID . "')};"
-		. "(function(){var c=null;try{c=localStorage.getItem('velis-dong-y')}catch(e){}if(c==='1')window.velisGA()})();</script>\n";
+	echo "<script data-no-optimize=\"1\">(function(){if(location.hostname!=='velisrealty.vn'&&location.search.indexOf('velis_ga_thu=1')<0)return;"
+		. "var xong=0,E=['scroll','pointerdown','keydown','touchstart'];function tai(){if(xong)return;xong=1;E.forEach(function(e){removeEventListener(e,tai,true)});"
+		. "window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};var s=document.createElement('script');s.async=true;"
+		. "s.src='https://www.googletagmanager.com/gtag/js?id=" . VELIS_GA_ID . "';document.head.appendChild(s);gtag('js',new Date());gtag('config','" . VELIS_GA_ID . "')}"
+		. "E.forEach(function(e){addEventListener(e,tai,{capture:true,passive:true})});"
+		. "addEventListener('load',function(){setTimeout(function(){window.requestIdleCallback?requestIdleCallback(tai,{timeout:2000}):tai()},4000)})})();</script>\n";
 }, 1 );
-
-add_action( 'wp_footer', function () {
-	$cs = get_privacy_policy_url() ? get_privacy_policy_url() : home_url( '/chinh-sach-bao-mat/' );
-	echo '<div class="velis-dong-y" role="region" aria-label="Đồng ý cookie" hidden><p>Velis Realty dùng cookie Google Analytics để đo lượt xem trang. Xem <a href="' . esc_url( $cs ) . '#cookie">Chính sách bảo mật</a>.</p>'
-		. '<div class="velis-dong-y__nut"><button type="button" data-dong-y="0">Từ chối</button><button type="button" data-dong-y="1">Đồng ý</button></div></div>'
-		. "<script data-no-optimize=\"1\">(function(){var b=document.querySelector('.velis-dong-y');if(!b)return;var c=null;try{c=localStorage.getItem('velis-dong-y')}catch(e){}if(c===null)b.hidden=false;"
-		. "b.addEventListener('click',function(e){var v=e.target.getAttribute('data-dong-y');if(v===null)return;try{localStorage.setItem('velis-dong-y',v)}catch(x){}"
-		. "if(v==='1')window.velisGA();b.hidden=true;})})();</script>\n";
-}, 20 );

@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/inc/velis-elements.php'; // phần tử WPBakery "Velis"
-require_once __DIR__ . '/inc/velis-tac-gia-dong-y.php'; // khung trang tác giả + hộp đồng ý cookie (2026-11-26)
+require_once __DIR__ . '/inc/velis-tac-gia-dong-y.php'; // khung trang tác giả + GA4 tải muộn (2026-11-27: bỏ hộp đồng ý cookie)
 add_filter( 'xmlrpc_enabled', '__return_false' ); // không plugin nào dùng XML-RPC (không Jetpack / ứng dụng di động); máy chủ cũng chặn 403
 /**
  * The7 Velis child theme. Layout and content stay editable in WPBakery and The7 → Theme Options; this file only loads
@@ -443,7 +443,9 @@ function velis_page_script() {
 		. '.filter(function(x){var t=x.g.querySelector(".velis-khoi__tieu-de");return x.h>900&&!/giá|pháp lý|tiến độ|hỏi|FAQ/i.test(t?t.textContent:"")})'
 		. '.sort(function(a,b){return b.h-a.h}).slice(0,2).forEach(function(x){x.g.classList.add("velis-thu");var b=document.createElement("button");b.type="button";'
 		. 'b.className="velis-xem-them";b.textContent="Xem thêm";b.setAttribute("aria-expanded","false");b.addEventListener("click",function(){mo(b)});x.c.after(b)})}'
-		. 'window.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href^=\'#\']");if(a&&a.hash.length>1)mo(document.getElementById(decodeURIComponent(a.hash.slice(1))))},true);'
+		// content-visibility (2.5.1): khối phía trên đích chỉ dựng thật khi cuộn tới → cao khác ước lượng, đích lệch → cuộn xong chỉnh lại về đúng scroll-margin-top
+		. 'var chinh=function(t){var f=function(){var d=t.getBoundingClientRect().top-(parseFloat(getComputedStyle(t).scrollMarginTop)||0);if(Math.abs(d)>8)scrollBy(0,d)};addEventListener("scrollend",f,{once:true});setTimeout(f,1200)};'
+		. 'window.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href^=\'#\']");if(a&&a.hash.length>1){var t=document.getElementById(decodeURIComponent(a.hash.slice(1)));mo(t);if(t)chinh(t)}},true);'
 		. 'window.addEventListener("hashchange",function(){mo(document.getElementById(decodeURIComponent(location.hash.slice(1))))})})();</script>';
 }
 

@@ -1,5 +1,5 @@
 // Kiểm chức năng sau khi đổi CSS (2026-11-27): menu điện thoại mở + menu con, menu thả xuống máy tính khi rê chuột, Hỏi đáp mở/đóng,
-// lọc /du-an/ đổi số thẻ hiện, form CF7 bấm gửi trống hiện lỗi từng ô (CHỈ staging), hộp đồng ý cookie hiện. Cửa sổ ảnh: tools/the7_kiem_anh_popup.mjs.
+// lọc /du-an/ đổi số thẻ hiện, form CF7 bấm gửi trống hiện lỗi từng ô (CHỈ staging). Cửa sổ ảnh: tools/the7_kiem_anh_popup.mjs.
 // Dùng: node tools/the7_kiem_chuc_nang.mjs <base>   (staging: STAGING_VIEW_PASSWORD) – in bảng, thoát 1 nếu có mục trượt.
 import { createRequire } from 'node:module';
 const { chromium } = createRequire(import.meta.url)('playwright');
@@ -10,7 +10,7 @@ const mo = async (w, m) => { const ctx = await b.newContext({ viewport: { width:
 const ghi = (ten, ok, ct) => kq.push(`| ${ten} | ${ok ? 'đạt' : 'TRƯỢT'} | ${ct} |`);
 let p = await mo(412, true);
 await p.goto(base + '/'); await p.waitForTimeout(1000);
-ghi('Hộp đồng ý cookie hiện (chưa chọn)', await p.locator('.velis-dong-y').isVisible(), '');
+
 await p.locator('.dt-mobile-menu-icon').first().click(); await p.waitForTimeout(800);
 const mm = await p.locator('.mobile-main-nav > li > a').evaluateAll((as) => as.filter((a) => { const r = a.getBoundingClientRect(); return r.width > 0 && r.left >= 0 && r.right <= innerWidth; }).length);
 ghi('Menu điện thoại mở', mm > 2, mm + ' mục hiện trong khung');

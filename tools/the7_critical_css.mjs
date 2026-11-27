@@ -25,7 +25,7 @@ for (const [loai, urls] of Object.entries(LOAI)) {
     const ids = await p.evaluate(() => {
       const H = innerHeight * 1.5; const els = new Set([document.documentElement, document.body]);
       for (const e of document.body.querySelectorAll('*')) { const r = e.getBoundingClientRect(); if (r.top < H && r.bottom > -1 && (r.width || r.height)) { let x = e; while (x && !els.has(x)) { els.add(x); x = x.parentElement; } } }
-      for (const e of document.querySelectorAll('.dt-mobile-header, .dt-mobile-header *, .velis-cta-bar, .velis-cta-bar *, .velis-dong-y, .velis-dong-y *, .masthead, .masthead *')) els.add(e);
+      for (const e of document.querySelectorAll('.dt-mobile-header, .dt-mobile-header *, .velis-cta-bar, .velis-cta-bar *, .masthead, .masthead *')) els.add(e);
       // khung bố cục (con của #page / #main) dù nằm dưới màn đầu: thiếu grid-area / display của chúng thì chân trang lọt lên đầu (CLS 0,9 – 2026-11-27)
       for (const e of document.querySelectorAll('#page > *, #main > *, #main > * > *, #main .wf-container-main, #content, #sidebar, #footer, #footer > *, #bottom-bar, .velis-prefoot-wrap, .page-title, .page-title > *, .scroll-top')) els.add(e);
       const list = [...els]; const SACH = /::?(hover|focus-visible|focus-within|focus|active|visited|before|after|placeholder|selection|marker|first-letter|first-line|-webkit-[\w-]+|-moz-[\w-]+|-ms-[\w-]+)(\([^)]*\))?/g;

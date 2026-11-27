@@ -357,15 +357,6 @@ body:has(.velis-luoi.velis-bai) .single-related-posts { display: none; }
 .velis-tac-gia__chuc-danh { font-weight: 600; }
 .velis-tac-gia__chung-chi, .velis-tac-gia__lien-he { font-size: 14px; line-height: 20px; color: var(--velis-chu-phu); }
 .velis-tac-gia__cho { padding: 8px 12px; border: 1px dashed var(--velis-chu-phu); border-radius: var(--velis-bo-trong); font-size: 14px; line-height: 20px; color: var(--velis-chu-phu); }
-/* Hộp đồng ý cookie: đáy giữa; < 1024 nằm trên thanh Gọi / Zalo (64 px) – không che */
-.velis-dong-y { position: fixed; z-index: 9995; left: 16px; right: 16px; bottom: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; max-width: 560px; margin: 0 auto; padding: 16px 20px; box-sizing: border-box; border: 1px solid var(--velis-ke); border-radius: var(--velis-bo-the); background: #FFFFFF; box-shadow: var(--velis-bong-hover); }
-.velis-dong-y[hidden] { display: none; }
-.velis-dong-y p { flex: 1 1 260px; margin: 0; font-size: 14px; line-height: 20px; color: var(--velis-chu); }
-.velis-dong-y__nut { display: flex; gap: 8px; }
-body .velis-dong-y button { min-height: 44px; margin: 0; padding: 0 16px; border: 1px solid var(--velis-chu); border-radius: var(--velis-bo-nut); background: #FFFFFF; color: var(--velis-chu); font: 600 14px/20px "Be Vietnam Pro", Arial, sans-serif; cursor: pointer; }
-body .velis-dong-y button[data-dong-y="1"] { border-color: var(--velis-do); background: var(--velis-do); color: #FFFFFF; }
-body .velis-dong-y button:focus-visible { outline: 2px solid var(--velis-chu); outline-offset: 2px; }
-@media (max-width: 1023px) { .velis-dong-y { bottom: calc(64px + env(safe-area-inset-bottom) + 12px); } }
 /* Thang tiêu đề trong nội dung: H4 ≥ chữ thân + 1 (cỡ ở Theme Options → Typography); câu hỏi Hỏi đáp không nhỏ hơn chữ thân (19–20 px máy tính) */
 .entry-content h4, .wpb_text_column h4 { margin: 32px 0 12px; }
 @media (min-width: 768px) { #page .velis-hoi-dap__muc summary h3 { font-size: 20px; line-height: 30px; } }
@@ -655,6 +646,21 @@ body.show-overlay-mobile-header .dt-mobile-header { visibility: visible; transit
 @media (min-width: 768px) and (max-width: 1023px) { #bottom-bar .wf-container-bottom { padding-right: 64px; } }
 
 /* ── 10. Điện thoại (< 768 px): mọi quy tắc riêng điện thoại ở đây ─────────────────────────────────────────────────────── */
+/* ── content-visibility (2026-11-27, người dùng duyệt): trình duyệt bỏ qua dựng / vẽ khối DƯỚI màn đầu cho tới khi cuộn gần tới → giảm tính kiểu + bố cục lúc tải
+   (trang dự án dài 20.000+ px). Không đổi giao diện. Không áp: khối đầu trang (màn đầu), header, footer, khối có form CF7, CTA. Chiều cao ước lượng
+   = trung vị đo thật ở 1366 (412 trong khối điện thoại cuối tệp) – đo lại: node tools/the7_cv_do.mjs <staging>. "auto" = nhớ chiều cao thật sau lần dựng đầu. */
+.wpb-content-wrapper > :is(.vc_row, .vc_section):not(:first-child):not(:has(.velis-khoi, .velis-hoi-dap, .velis-luoi, .wpcf7, .velis-cta)),
+.wpb-content-wrapper > :not(:first-child) :is(.velis-khoi, .velis-hoi-dap, .velis-luoi):not(:has(.wpcf7)) { content-visibility: auto; contain-intrinsic-size: auto 600px; }
+.wpb-content-wrapper > .vc_section { contain-intrinsic-size: auto 917px; }
+.wpb-content-wrapper > .velis-section { contain-intrinsic-size: auto 500px; }
+.wpb-content-wrapper > .velis-devs { contain-intrinsic-size: auto 644px; }
+.wpb_wrapper > .velis-khoi { contain-intrinsic-size: auto 1927px; }
+.wpb_wrapper > .velis-khoi--bang { contain-intrinsic-size: auto 1011px; }
+.wpb_wrapper > .velis-khoi--thu_vien { contain-intrinsic-size: auto 1135px; }
+.wpb_wrapper > .velis-khoi--anh { contain-intrinsic-size: auto 3988px; }
+.wpb_wrapper > .velis-hoi-dap { contain-intrinsic-size: auto 371px; }
+.wpb_wrapper > .velis-luoi { contain-intrinsic-size: auto 1690px; }
+
 @media (max-width: 767px) {
 	.velis-tra-loi { padding: 20px; }
 	.velis-doc-them { padding: 16px 20px; }
@@ -737,4 +743,14 @@ body.show-overlay-mobile-header .dt-mobile-header { visibility: visible; transit
 	#bottom-bar .wf-container-bottom .wf-float-right { flex-direction: column; align-items: flex-start; text-align: left; }
 	#bottom-bar .mini-nav { margin: 0; }
 	#bottom-bar #bottom-menu { justify-content: flex-start; }
+	/* content-visibility: chiều cao ước lượng ở 412 */
+	.wpb-content-wrapper > .vc_section { contain-intrinsic-size: auto 1016px; }
+	.wpb-content-wrapper > .velis-section { contain-intrinsic-size: auto 582px; }
+	.wpb-content-wrapper > .velis-devs { contain-intrinsic-size: auto 1543px; }
+	.wpb_wrapper > .velis-khoi { contain-intrinsic-size: auto 1492px; }
+	.wpb_wrapper > .velis-khoi--bang { contain-intrinsic-size: auto 1136px; }
+	.wpb_wrapper > .velis-khoi--thu_vien { contain-intrinsic-size: auto 663px; }
+	.wpb_wrapper > .velis-khoi--anh { contain-intrinsic-size: auto 4145px; }
+	.wpb_wrapper > .velis-hoi-dap { contain-intrinsic-size: auto 437px; }
+	.wpb_wrapper > .velis-luoi { contain-intrinsic-size: auto 740px; }
 }

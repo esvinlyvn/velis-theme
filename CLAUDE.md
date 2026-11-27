@@ -57,7 +57,7 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
 - **Critical CSS tự làm:** `node tools/the7_critical_css.mjs` (trên staging) → `the7-child/dt-the7-child/critical/<loại>.css` (trang-chu, danh-sach, du-an, bai, chuyen-muc, trang);
   theme in nội tuyến theo loại trang, CSS gộp LiteSpeed tải bất đồng bộ (`litespeed_buffer_after`). **Sinh lại mỗi khi CSS đổi** (velis.css, Theme Options, plugin) rồi đóng gói theme.
   LiteSpeed: CCSS + "Load CSS Asynchronously" TẮT; giữ cache trang + minify / gộp; QUIC.cloud chỉ để nén ảnh.
-- **Ngân sách mobile** (Lighthouse mobile mô phỏng như PageSpeed, 3 lần trung vị; trang chủ, /du-an/, The Privé, 1 bài): LCP ≤ 2,5 s, CLS ≤ 0,05, TBT ≤ 200 ms,
+- **Ngân sách mobile** (Lighthouse mobile mô phỏng như PageSpeed, **5 lần trung vị** – người dùng chốt 2026-11-27 vì TBT dao động mạnh; trang chủ, /du-an/, The Privé, 1 bài): LCP ≤ 2,5 s, CLS ≤ 0,05, TBT ≤ 200 ms,
   tổng ≤ 1,5 MB, Performance ≥ 85. Máy tính: CLS ≤ 0,05 ở 1366 + 1920.
 - **CỔNG KIỂM BẮT BUỘC** cho MỌI thay đổi theme / CSS / phần tử: `LIGHTHOUSE_DIR=<thư mục có node_modules/lighthouse> node tools/cong_kiem_toc_do.mjs out.json` (staging so với site thật;
   staging không có cache trang → trừ chênh TTFB rồi tính lại điểm theo công thức Lighthouse; `--test`). TRƯỢT (vượt ngân sách hoặc Performance tụt > 3 điểm) → KHÔNG đưa lên site thật.
@@ -69,7 +69,10 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
   `node tools/the7_gon_css.mjs --quet <staging> dung.json` (SITEMAP_BASE=https://velisrealty.vn, ~40 phút) → `--sinh <site> dung.json` cho CẢ 2 tên miền.
   Theme chỉ dùng bản gọn khi md5 tệp nguồn còn khớp (đổi Theme Options / cập nhật plugin → tự về tệp gốc, critical tắt theo) → **sau mỗi lần đổi đó: quét + sinh lại, sinh critical, đóng gói**.
   Kiểm: `tools/the7_do_css_trang.mjs` (tổng CSS / trang), `tools/the7_so_anh.mjs --chup/--so` (17 trang × 3 khổ, ≤ 0,5 %), `tools/the7_kiem_chuc_nang.mjs`.
-- GA4: chỉ tải sau "Đồng ý" (theme con `velisGA()`), KHÔNG chèn gtag ở Header and Footer Scripts / Theme Options; kiểm `node tools/the7_kiem_ga.mjs <base>`.
+- GA4 (người dùng quyết 2026-11-27, bỏ hộp đồng ý cookie): theme con (`inc/velis-tac-gia-dong-y.php`) tải gtag.js 1 lần khi khách tương tác lần đầu (scroll / pointerdown / keydown / touchstart)
+  hoặc 4 giây sau khi tải xong lúc rảnh; KHÔNG chèn gtag ở Header and Footer Scripts / Theme Options (đây là ngoại lệ có chủ đích của dòng "KHÔNG hoãn GA4" ở LiteSpeed). Kiểm `node tools/the7_kiem_ga.mjs <base>`.
+- content-visibility (2.5.2): khối dưới khối đầu (hàng / khối Velis, trừ form / CTA) – chiều cao ước lượng đo bằng `node tools/the7_cv_do.mjs`; kiểm `tools/the7_kiem_cv.mjs` (mục lục ≤ 8 px, Xem thêm, cuộn nhanh)
+  + `tools/the7_kiem_ctrlf.mjs` (Ctrl+F thật trong Xvfb) + so ảnh `the7_so_anh.mjs --tat-cv` đối chiếu. Bấm link # → JS sẵn có chỉnh lại vị trí sau khi cuộn xong (khối phía trên dựng muộn).
 
 ## Giao diện đã khóa (2026-11-09, theme velis 1.0.0 — chỉ áp cho theme velis đã bỏ)
 
@@ -163,7 +166,7 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
   Thang tiêu đề H2 40/32/26, H3 24/24/21, H4 21/21/18 (Theme Options bước 17, `tools/the7_options_buoc17.py`); kiểm `node tools/the7_kiem_tieu_de.mjs <base> out.json`
   (staging: `SITEMAP_BASE=https://velisrealty.vn`). Phần tử Velis · Trả lời nhanh / Đọc thêm (≤ 2 / bài) / ô "Bài phân tích chi tiết" của Khối nội dung;
   cuối bài The7 "Bài viết liên quan" = "Cùng chủ đề <dự án>" 3 bài cùng cụm (bộ lọc `dt_of_get_option-general-rel_posts_head_title`). Mẫu duyệt: `tools/the7_mau_doc.py`.
-  Lượt 2026-11-26 (2.3.0): hộp đồng ý cookie + Consent Mode v2 (`inc/velis-tac-gia-dong-y.php`, mặc định denied, localStorage `velis-dong-y`); khung tác giả (Hồ sơ → "Trang tác giả");
+  Lượt 2026-11-26 (2.3.0): (hộp đồng ý cookie – GỠ 2026-11-27, xem GA4 ở mục Tốc độ); khung tác giả (Hồ sơ → "Trang tác giả");
   "Cập nhật dd/mm/yyyy" (`velis_ngay_sua`, = dateModified); lọc /du-an/ = thẻ khu vực / loại hình (`velis_loc_the`, `tools/the7_the_loc.py`); chuyên mục Persa Place (62, `tools/the7_persa_place.py`);
   Trả lời nhanh bản 2 chèn bằng `tools/the7_tra_loi_ap.py` – CHỈ bài blog (2026-11-27 gỡ khỏi trang sản phẩm: `tools/the7_bo_tra_loi.py`; phần tử ẩn khi soạn trang sản phẩm + không hiện ở đó); Two Factor + Limit Login Attempts Reloaded (không bật 2FA cho claude-bot – `docs/the7/BAO-MAT.md`). QUIC.cloud gói miễn phí: CCSS 2/ngày (Tách CCSS theo URI = 7 trang dự án).
   CLS máy tính (2.3.1): `<style id="velis-stretch">` + biến `--velis-vw` (clientWidth) KHÓA left/width/padding hàng kéo rộng WPBakery bằng !important (JS The7 `vc_rowBehaviour` tính lại không xô; trang có cột phải không áp); đo `node tools/the7_cls.mjs <base> 1366,1920 5 /a/`.
