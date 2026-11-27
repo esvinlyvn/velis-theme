@@ -192,6 +192,9 @@ Không có cỡ nào khác (đo bằng `tools/mockup_scale.mjs`). `h4` trong fro
 - **Thang tiêu đề trong nội dung (2026-11-26, người dùng yêu cầu – thay cỡ H2–H6 ở thang trên):** H2 40 / 32 / 26, H3 24 / 24 / 21,
   H4 21 / 21 / 18 (600), H5 20 / 20 / 17, H6 20 / 20 / 16 (máy tính / máy tính bảng / điện thoại, Theme Options → Typography); câu hỏi Hỏi đáp 20 px
   máy tính. Không tiêu đề nào nhỏ hơn chữ thân; thứ bậc H2 > H3 > H4 ≥ thân + 1. Kiểm `node tools/the7_kiem_tieu_de.mjs <base> out.json`.
+- **Màn đầu tiên không được phụ thuộc JS; không dùng hàng kéo rộng WPBakery (Full width row / data-vc-full-width) trong màn đầu** (người dùng chốt 2026-11-27).
+  Phần đầu trang = phần tử **Velis · Đầu trang** (khung chứa: breadcrumb, nhãn, H1, ảnh lớn `<img>` thật có srcset / fetchpriority=high / không lazy / width-height, đoạn dẫn, nút),
+  rộng hết khung bằng CSS thuần (`.velis-dau-trang`). CSS cần cho màn đầu in nội tuyến theo loại trang (`critical/*.css`), CSS gộp tải bất đồng bộ.
 - **Lượt 2026-11-26 (2.3.0):** Trả lời nhanh có H2 câu hỏi trên ô + dòng "Nguồn · Cập nhật · Phân tích" 14 px chữ phụ; hộp đồng ý cookie = thẻ trắng viền mảnh bo 10, đáy giữa
   tối đa 560 px (< 1024 px đặt trên thanh Gọi / Zalo), nút "Từ chối" viền than + "Đồng ý" đỏ, cao 44; khung tác giả = thẻ trắng viền mảnh bo 10, ảnh tròn 120; nút lọc /du-an/ = kiểu lọc gạch chân của The7.
 - **Phần tử đặt link (2026-11-26):** Trả lời nhanh = nền ngà `#F4EEE4`, bo 10, đệm 24 / 20, nhãn 14 / 600 chữ phụ; Đọc thêm = thẻ trắng viền mảnh,

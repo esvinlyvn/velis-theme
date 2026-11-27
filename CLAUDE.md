@@ -50,6 +50,19 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
   `node tools/the7_ui_audit.mjs` (computed style so với token DESIGN.md); Lighthouse `lighthouserc-the7.json`.
   Báo cáo từng bước ở `docs/reports/the7-*.md`.
 
+## Tốc độ – quyết định toàn cục (người dùng chốt 2026-11-27, THAY mọi lệnh vá tốc độ trước)
+
+- **Màn đầu tiên không được phụ thuộc JS; không dùng hàng kéo rộng WPBakery trong màn đầu.** Phần đầu trang = phần tử **Velis · Đầu trang**
+  (`velis_dau_trang`, khung chứa kéo thả; đổi trang cũ bằng `tools/the7_dau_trang.py`); mẫu "Velis – Dự án" đã dùng phần tử này (`tools/the7_luu_mau.mjs` lưu lại "Mẫu của tôi").
+- **Critical CSS tự làm:** `node tools/the7_critical_css.mjs` (trên staging) → `the7-child/dt-the7-child/critical/<loại>.css` (trang-chu, danh-sach, du-an, bai, chuyen-muc, trang);
+  theme in nội tuyến theo loại trang, CSS gộp LiteSpeed tải bất đồng bộ (`litespeed_buffer_after`). **Sinh lại mỗi khi CSS đổi** (velis.css, Theme Options, plugin) rồi đóng gói theme.
+  LiteSpeed: CCSS + "Load CSS Asynchronously" TẮT; giữ cache trang + minify / gộp; QUIC.cloud chỉ để nén ảnh.
+- **Ngân sách mobile** (Lighthouse mobile mô phỏng như PageSpeed, 3 lần trung vị; trang chủ, /du-an/, The Privé, 1 bài): LCP ≤ 2,5 s, CLS ≤ 0,05, TBT ≤ 200 ms,
+  tổng ≤ 1,5 MB, Performance ≥ 85. Máy tính: CLS ≤ 0,05 ở 1366 + 1920.
+- **CỔNG KIỂM BẮT BUỘC** cho MỌI thay đổi theme / CSS / phần tử: `LIGHTHOUSE_DIR=<thư mục có node_modules/lighthouse> node tools/cong_kiem_toc_do.mjs out.json` (staging so với site thật;
+  staging không có cache trang → trừ chênh TTFB rồi tính lại điểm theo công thức Lighthouse; `--test`). TRƯỢT (vượt ngân sách hoặc Performance tụt > 3 điểm) → KHÔNG đưa lên site thật.
+  Mỗi lần đưa theme lên site thật: dán bảng cổng kiểm vào `docs/the7/NHAT-KY-SITE-THAT.md`.
+
 ## Giao diện đã khóa (2026-11-09, theme velis 1.0.0 — chỉ áp cho theme velis đã bỏ)
 
 - Mốc ảnh `tests/visual/moc/` (Git LFS; `npm run test:visual`, ngưỡng 0,1 %). Thay đổi giao diện sau mốc này phải cập nhật

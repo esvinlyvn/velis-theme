@@ -104,10 +104,25 @@ function velis_tra_loi_hien_khi_soan() {
 }
 
 add_action( 'vc_before_init', function () {
+	if ( class_exists( 'WPBakeryShortCodesContainer' ) && ! class_exists( 'WPBakeryShortCode_Velis_Dau_Trang' ) ) {
+		class WPBakeryShortCode_Velis_Dau_Trang extends WPBakeryShortCodesContainer {} // phpcs:ignore -- khung chứa kéo thả của WPBakery
+	}
 	$dir  = get_stylesheet_directory() . '/wpb_templates/';
 	$cat  = 'Velis';
 	$bai  = velis_bai_lua_chon();
 	$neo  = array( 'type' => 'el_id', 'heading' => 'ID neo (để trống = tự tạo từ tiêu đề)', 'param_name' => 'el_id' );
+
+	vc_map( array(
+		'name' => 'Velis · Đầu trang', 'base' => 'velis_dau_trang', 'category' => $cat, 'icon' => 'icon-wpb-row',
+		'description' => 'Màn đầu của trang (breadcrumb, nhãn, H1, ảnh lớn, đoạn dẫn, nút) – rộng hết khung bằng CSS, KHÔNG chờ JS. Không dùng hàng kéo rộng (Full width row) cho màn đầu.',
+		'is_container' => true, 'as_parent' => array( 'except' => 'velis_dau_trang' ), 'content_element' => true, 'show_settings_on_create' => false, 'js_view' => 'VcColumnView',
+		'html_template' => $dir . 'velis_dau_trang.php',
+		'params' => array(
+			array( 'type' => 'dropdown', 'heading' => 'Kiểu', 'param_name' => 'kieu', 'value' => array( 'Dải nền (trang dự án / chủ đầu tư / danh sách)' => 'hang', 'Khối ảnh nền tối (trang chủ)' => 'khoi' ), 'std' => 'hang', 'admin_label' => true ),
+			array( 'type' => 'textfield', 'heading' => 'Lớp thêm (vd. velis-hero velis-nen-nga)', 'param_name' => 'el_class' ),
+			$neo,
+		),
+	) );
 
 	vc_map( array(
 		'name' => 'Velis · Thông tin dự án', 'base' => 'velis_thong_tin', 'category' => $cat, 'icon' => 'icon-wpb-ui-separator',

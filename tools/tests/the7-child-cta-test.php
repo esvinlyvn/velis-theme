@@ -137,4 +137,10 @@ $g   = '<div class="css-grid-filter filter"><div class="filter-categories" data-
 $lg  = velis_loc_the( $g );
 $ok  = $ok && str_contains( $lg, 'wf-cell category-34 tag-khu-dong tag-dang-ban tag-can-ho"' ) && str_contains( $lg, 'data-filter=".tag-khu-dong">Khu Đông</a><a href="#" data-filter=".tag-can-ho">Căn hộ</a></div>' )
 	&& ! str_contains( $lg, 'Dự án</a>' ) && ! str_contains( $lg, 'tag-dang-ban">' ) && velis_loc_the( 'x<div class="wf-cell">' ) === 'x<div class="wf-cell">';
+// CSS bất đồng bộ: chỉ khi có critical; chỉ link stylesheet trong <head>; giữ media=print; trang không critical giữ nguyên.
+$h0  = '<html><head><style id="velis-critical">a{}</style><link data-optimized="2" rel="stylesheet" href="/x.css" /><link rel="stylesheet" media="print" href="/p.css"></head><body><link rel="stylesheet" href="/b.css"></body>';
+$h1  = velis_css_bat_dong_bo( $h0 );
+$ok  = $ok && str_contains( $h1, '<link rel="preload" as="style" href="/x.css" onload="this.onload=null;this.rel=\'stylesheet\'"><noscript><link data-optimized="2" rel="stylesheet" href="/x.css" /></noscript>' )
+	&& str_contains( $h1, '<link rel="stylesheet" media="print" href="/p.css">' ) && str_contains( $h1, '<body><link rel="stylesheet" href="/b.css"></body>' )
+	&& velis_css_bat_dong_bo( str_replace( 'id="velis-critical"', '', $h0 ) ) === str_replace( 'id="velis-critical"', '', $h0 );
 echo $ok ? "the7-child cta: ok\n" : "the7-child cta: FAIL\n"; exit( $ok ? 0 : 1 );

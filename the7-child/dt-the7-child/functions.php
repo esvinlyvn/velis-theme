@@ -157,6 +157,49 @@ add_action( 'wp_head', function () {
 		. '<style id="velis-stretch">#main:not(.sidebar-left):not(.sidebar-right) [data-vc-full-width="true"]{position:relative;left:auto!important;right:auto!important;box-sizing:border-box!important;width:var(--velis-vw,100vw)!important;max-width:none!important;margin-left:calc(50% - var(--velis-vw,100vw) / 2)!important;margin-right:0!important}#main:not(.sidebar-left):not(.sidebar-right) .vc_section[data-vc-full-width="true"]:not([data-vc-stretch-content]){padding-left:calc(var(--velis-vw,100vw) / 2 - 50% - 15px)!important;padding-right:calc(var(--velis-vw,100vw) / 2 - 50% - 15px)!important}#main:not(.sidebar-left):not(.sidebar-right) .vc_row[data-vc-full-width="true"]:not([data-vc-stretch-content]){padding-left:calc(var(--velis-vw,100vw) / 2 - 50% - 16px)!important;padding-right:calc(var(--velis-vw,100vw) / 2 - 50% - 16px)!important}@media (max-width:778px){#main:not(.sidebar-left):not(.sidebar-right) [data-vc-full-width="true"]:not([data-vc-stretch-content]){padding-left:1px!important;padding-right:1px!important}}</style>';
 }, 3 );
 
+// Critical CSS tự làm (2026-11-27, người dùng chốt – thay CCSS QUIC.cloud): critical/<loại>.css (sinh bằng tools/the7_critical_css.mjs trên staging)
+// in nội tuyến đầu <head>; CSS gộp của LiteSpeed (sau khi tối ưu – bộ lọc litespeed_buffer_after) chuyển sang tải bất đồng bộ.
+// Không có tệp cho loại trang → giữ CSS chặn như cũ (an toàn). LiteSpeed "Load CSS Asynchronously" + CCSS phải TẮT (tránh chồng).
+function velis_loai_trang() {
+	if ( is_front_page() ) {
+		return 'trang-chu';
+	}
+	if ( is_page( array( 'du-an', 'chu-dau-tu' ) ) ) {
+		return 'danh-sach';
+	}
+	if ( is_singular( 'post' ) ) {
+		return velis_la_trang_san_pham( get_queried_object_id() ) ? 'du-an' : 'bai';
+	}
+	if ( is_page() ) {
+		return str_contains( (string) get_post_field( 'post_content', get_queried_object_id() ), 'velis-hero' ) ? 'du-an' : 'trang';
+	}
+	return 'chuyen-muc';
+}
+add_action( 'wp_head', function () {
+	$f = get_stylesheet_directory() . '/critical/' . velis_loai_trang() . '.css';
+	if ( is_readable( $f ) && ! is_user_logged_in() ) {
+		echo '<style id="velis-critical">' . preg_replace( '/^\/\*.*?\*\/\s*/s', '', (string) file_get_contents( $f ) ) . '</style>' . "\n"; // phpcs:ignore
+	}
+}, 2 );
+function velis_css_bat_dong_bo( $html ) {
+	if ( ! str_contains( $html, 'id="velis-critical"' ) ) {
+		return $html;
+	}
+	$i = stripos( $html, '</head>' );
+	if ( false === $i ) {
+		return $html;
+	}
+	$dau = preg_replace_callback( '/<link\b[^>]*\brel=["\']stylesheet["\'][^>]*>/i', function ( $m ) {
+		$t = $m[0];
+		if ( preg_match( '/\bmedia=["\'](print|speech)["\']/i', $t ) || ! preg_match( '/\bhref=["\']([^"\']+)["\']/i', $t, $h ) ) {
+			return $t;
+		}
+		return '<link rel="preload" as="style" href="' . $h[1] . '" onload="this.onload=null;this.rel=\'stylesheet\'"><noscript>' . $t . '</noscript>';
+	}, substr( $html, 0, $i ) );
+	return $dau . substr( $html, $i );
+}
+add_filter( 'litespeed_buffer_after', 'velis_css_bat_dong_bo', 20 );
+
 // Right-sized images (2026-11-26). The7's post grids crop ONE 768 px image per post (srcset 768w/788w) even for 99–430 px slots.
 // Extra hard-crop sizes in the same ratios as the grids (13:9 hero strip, 4:3 project cards, 3:2 post cards) + 480/640 px proportional sizes
 // (single images). Different ratio from the originals, so WordPress never mixes the crops into other images' srcset. Thumbnails for existing

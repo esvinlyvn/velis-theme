@@ -211,6 +211,14 @@ div#ez-toc-container p.ez-toc-title { display: block; margin: 0; padding: 12px 6
 .velis-logos .wpb_single_image { margin: 0; padding: 24px 16px; }
 .velis-logos .vc_single_image-wrapper { display: flex; align-items: center; min-height: 44px; }
 .velis-logos img { display: block; width: 200px; max-width: 100%; height: auto; margin: 0 auto; }
+/* Velis · Đầu trang (2026-11-27): màn đầu rộng hết khung bằng CSS thuần – KHÔNG data-vc-full-width / JS. Hàng bao ngoài (velis-dau-trang-hang)
+   không lề / đệm; phần tử tràn khung theo --velis-vw (độ rộng khung nhìn không gồm thanh cuộn, functions.php), đệm = nửa phần dư − 16 (hàng) / − 15 (section) */
+#page .wpb-content-wrapper > .velis-dau-trang-hang { margin-left: 0; margin-right: 0; }
+#page .velis-dau-trang-hang > .wpb_column > .vc_column-inner { padding-left: 0; padding-right: 0; }
+#page .velis-dau-trang-hang > .wpb_column > .vc_column-inner > .wpb_wrapper > .velis-dau-trang { position: relative; box-sizing: border-box; width: var(--velis-vw, 100vw); max-width: none; margin-left: calc(50% - var(--velis-vw, 100vw) / 2); margin-right: 0; padding-left: calc(var(--velis-vw, 100vw) / 2 - 50% - 16px); padding-right: calc(var(--velis-vw, 100vw) / 2 - 50% - 16px); }
+#page .velis-dau-trang-hang > .wpb_column > .vc_column-inner > .wpb_wrapper > .velis-dau-trang.vc_section { padding-left: calc(var(--velis-vw, 100vw) / 2 - 50% - 15px); padding-right: calc(var(--velis-vw, 100vw) / 2 - 50% - 15px); }
+.velis-dau-trang.vc_section > .vc_row { margin-left: 0; margin-right: 0; }
+@media (max-width: 778px) { #page .velis-dau-trang-hang > .wpb_column > .vc_column-inner > .wpb_wrapper > .velis-dau-trang { padding-left: 0; padding-right: 0; } }
 /* Hero trang chủ: ảnh phủ (Single Image velis-hero-bg, tải sớm – functions.php) dưới lớp chuyển sắc; chữ trắng ≥ 4,5:1 */
 .velis-home-hero { position: relative; padding: 160px 0 128px; }
 body .vc_section.velis-home-hero { overflow: hidden; isolation: isolate; }
@@ -658,7 +666,7 @@ body.show-overlay-mobile-header .dt-mobile-header { visibility: visible; transit
 	#page .page-title { min-height: 0; }
 	#page .page-title .wf-wrap { min-height: 0 !important; padding-top: 24px; padding-bottom: 24px; } /* !important: The7 đặt chiều cao trong CSS động */
 	#page .page-title.page-title .page-title-head h1, #page .page-title.page-title .page-title-head h1 * { font-size: 32px; line-height: 40px; }
-	.wpb-content-wrapper > .velis-hero:first-child { margin-top: -48px; }
+	.wpb-content-wrapper > .velis-hero:first-child, .wpb-content-wrapper > .velis-dau-trang-hang:first-child:has(.velis-hero) { margin-top: -48px; }
 	.single-post #main { padding-top: 16px; }
 	.velis-post-line { display: flex; flex-wrap: wrap; align-items: baseline; margin: 0 0 24px; font-size: 14px; line-height: 20px; color: var(--velis-chu-phu); }
 	.velis-post-line > * + *::before { content: "·"; padding: 0 8px; }
