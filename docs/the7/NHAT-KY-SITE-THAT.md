@@ -363,3 +363,39 @@ Dung lượng (khung 412 px, cuộn hết trang, 15:22): trang chủ 2100 KB / 3
 | 2026-11-26 | Theme con 2.3.0 (bản sửa): "Cùng chủ đề" + danh sách cột phải chỉ lấy chuyên mục sâu nhất (không kéo bài Persa Place vào Spring Ville); Purge | site thật | gói 2.3.0 trước | 200, claude-bot |
 | 2026-11-26 | Theme con 2.3.0 → 2.3.1 (khóa hình học hàng kéo rộng WPBakery bằng CSS – CLS máy tính); chuyên mục /blog/spring-ville/ + /blog/vinhomes/ bỏ noindex (xóa meta rank_math_robots, như các cụm khác); Uncategorized giữ noindex; trang dự án 19962: Đất Xanh → Bluemarq Group (9 chỗ nội dung + ô Tóm tắt, rev trước 21186); Purge | site thật | gói 2.3.0; rank_math_robots noindex,follow | 200, claude-bot |
 | 2026-11-27 | Gỡ ô "Trả lời nhanh" khỏi 6 trang dự án / phân khu (20422, 19962, 20067, 19855, 19773, 20360 – revision trước trong log công cụ); theme con 2.3.1 → 2.3.2 (phần tử chỉ liệt kê / hiện ở bài blog); Purge | site thật | gói 2.3.1 | 200, claude-bot |
+| 2026-11-27 | **Tốc độ toàn cục 2.4.0**: LiteSpeed "Load CSS Asynchronously" TẮT (CCSS theo đó tắt; .htaccess không đổi); theme con 2.3.2 → 2.4.0 (Velis · Đầu trang, critical CSS nội tuyến theo loại trang + CSS gộp bất đồng bộ); phần đầu 14 trang → Velis · Đầu trang (`tools/the7_dau_trang.py`, revision trước trong log công cụ); "Mẫu của tôi" Velis – Dự án lưu lại; xóa hàng đợi CCSS; Purge | site thật | gói 2.3.2; optm-css_async=1 | 200, claude-bot |
+
+### Bảng cổng kiểm trước khi đưa 2.4.0 lên (2026-11-27, `tools/cong_kiem_toc_do.mjs`: CỔNG KIỂM ĐẠT)
+
+| Trang | Site thật: Perf / LCP / TBT / CLS / MB | Staging quy đổi: Perf / LCP / TBT / CLS / MB | Kết luận |
+|---|---|---|---|
+| / | 78 / 3.3 s / 319 ms / 0.000 / 1.31 | 94 / 2.2 s / 117 ms / 0.000 / 1.15 (TTFB −753 ms) | ĐẠT |
+| /du-an/ | 77 / 3.6 s / 279 ms / 0.000 / 1.26 | 96 / 2.0 s / 89 ms / 0.000 / 1.11 (TTFB −878 ms) | ĐẠT |
+| /can-ho-the-prive/ | 67 / 3.9 s / 377 ms / 0.002 / 0.91 | 96 / 1.8 s / 110 ms / 0.002 / 0.75 (TTFB −989 ms) | ĐẠT |
+| /gia-ban-the-prive-quan-2-2026/ | 78 / 3.4 s / 281 ms / 0.000 / 0.76 | 97 / 1.8 s / 73 ms / 0.000 / 0.60 (TTFB −920 ms) | ĐẠT |
+
+CLS máy tính (staging, lớn nhất 3 lần): 1366 / 0.000 · 1366 /du-an/ 0.000 · 1366 /can-ho-the-prive/ 0.000 · 1366 /gia-ban-the-prive-quan-2-2026/ 0.001 · 1920 / 0.000 · 1920 /du-an/ 0.000 · 1920 /can-ho-the-prive/ 0.000 · 1920 /gia-ban-the-prive-quan-2-2026/ 0.003
+
+| 2026-11-27 | Theme con 2.4.0 → 2.4.1: TẮT critical CSS + CSS bất đồng bộ (công tắc VELIS_CRITICAL_BAT) vì đo site thật sau 2.4.0: TBT 372–1.218 ms, Performance 67–73 (kém hơn trước); giữ Velis · Đầu trang; Purge | site thật | gói 2.4.0 | 200, claude-bot |
+
+### Bảng cổng kiểm trước khi đưa 2.4.1 lên (2026-11-27, CỔNG KIỂM ĐẠT – cột site thật lúc đó = 2.4.0)
+
+| Trang | Site thật: Perf / LCP / TBT / CLS / MB | Staging quy đổi: Perf / LCP / TBT / CLS / MB | Kết luận |
+|---|---|---|---|
+| / | 73 / 3.6 s / 373 ms / 0.000 / 1.33 | 95 / 1.9 s / 129 ms / 0.000 / 1.13 (TTFB −987 ms) | ĐẠT |
+| /du-an/ | 69 / 4.1 s / 296 ms / 0.000 / 1.28 | 94 / 2.4 s / 80 ms / 0.000 / 1.09 (TTFB −843 ms) | ĐẠT |
+| /can-ho-the-prive/ | 71 / 4.0 s / 364 ms / 0.002 / 0.93 | 96 / 1.6 s / 126 ms / 0.002 / 0.73 (TTFB −1016 ms) | ĐẠT |
+| /gia-ban-the-prive-quan-2-2026/ | 70 / 4.0 s / 324 ms / 0.000 / 0.77 | 96 / 1.8 s / 70 ms / 0.000 / 0.58 (TTFB −837 ms) | ĐẠT |
+
+CLS máy tính (staging, lớn nhất 3 lần): 1366 / 0.000 · 1366 /du-an/ 0.000 · 1366 /can-ho-the-prive/ 0.000 · 1366 /gia-ban-the-prive-quan-2-2026/ 0.000 · 1920 / 0.000 · 1920 /du-an/ 0.000 · 1920 /can-ho-the-prive/ 0.000 · 1920 /gia-ban-the-prive-quan-2-2026/ 0.001
+
+### Đo site thật sau 2.4.1 (2026-11-27, Lighthouse mobile 3 lần trung vị)
+
+| Trang | Perf | LCP | TBT | CLS | MB |
+|---|---|---|---|---|---|
+| / | 78 | 3,1 s | 391 ms | 0,000 | 1,31 |
+| /du-an/ | 75 | 3,6 s | 331 ms | 0,000 | 1,26 |
+| /can-ho-the-prive/ | 74 | 3,6 s | 385 ms | 0,002 | 0,91 |
+| /gia-ban-the-prive-quan-2-2026/ | 76 | 3,7 s | 323 ms | 0,000 | 0,76 |
+
+Chưa đạt ngân sách (LCP ≤ 2,5 s, TBT ≤ 200 ms, Perf ≥ 85). CLS máy tính ≤ 0,001.

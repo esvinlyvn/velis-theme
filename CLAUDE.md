@@ -62,6 +62,10 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
 - **CỔNG KIỂM BẮT BUỘC** cho MỌI thay đổi theme / CSS / phần tử: `LIGHTHOUSE_DIR=<thư mục có node_modules/lighthouse> node tools/cong_kiem_toc_do.mjs out.json` (staging so với site thật;
   staging không có cache trang → trừ chênh TTFB rồi tính lại điểm theo công thức Lighthouse; `--test`). TRƯỢT (vượt ngân sách hoặc Performance tụt > 3 điểm) → KHÔNG đưa lên site thật.
   Mỗi lần đưa theme lên site thật: dán bảng cổng kiểm vào `docs/the7/NHAT-KY-SITE-THAT.md`.
+  **Giới hạn đã gặp (2026-11-27):** staging không có GA và thời điểm tải khác → TBT staging thấp hơn site thật. Sau MỖI lần đưa lên: đo lại site thật
+  `node tools/cong_kiem_toc_do.mjs out.json --chi-that` ngay; kém hơn số trước khi đưa lên → trả bản trước, báo.
+  Critical CSS + CSS bất đồng bộ đang TẮT bằng công tắc `VELIS_CRITICAL_BAT` (functions.php): với CSS gộp 920 KB, tải bất đồng bộ đẩy việc tính lại kiểu (≈ 575 ms)
+  ra sau lần vẽ đầu → TBT site thật 370–1.200 ms. Chỉ bật lại khi CSS gộp đã gọn và cổng kiểm + đo site thật đều đạt.
 
 ## Giao diện đã khóa (2026-11-09, theme velis 1.0.0 — chỉ áp cho theme velis đã bỏ)
 

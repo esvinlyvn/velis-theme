@@ -330,3 +330,10 @@ Người viết dùng tài khoản **Biên tập viên** (Editor) do Quản tr�
   Nút lọc ở /du-an/ tự hiện theo thẻ. Trang thẻ không lên Google (noindex, không vào sitemap).
 - **Trang tác giả** (`/chuyen-gia/<tên>/`): điền ở **Tài khoản → Hồ sơ** – "Thông tin tiểu sử" + mục "Trang tác giả" (chức danh, chứng chỉ hành nghề, liên hệ, ID ảnh chân dung trong Thư viện).
   Ô nào trống thì khách không thấy.
+
+## Phần đầu trang – Velis · Đầu trang (2026-11-27)
+
+- Màn đầu của trang dự án / chủ đầu tư / trang chủ / /du-an/ / /chu-dau-tu/ là phần tử **Velis · Đầu trang** (khung chứa). Bên trong kéo thả như cũ: breadcrumb, Text Block (nhãn + H1),
+  Single Image (ảnh lớn), Text Block đoạn dẫn, Thông tin dự án, nút. Ô *Kiểu*: "Dải nền" (trang dự án…) hoặc "Khối ảnh nền tối" (trang chủ). Ô *Lớp thêm*: giữ nguyên (vd. `velis-hero velis-nen-nga`).
+- **Không** dùng "Full width row / Stretch row" cho màn đầu (làm trang chờ JS, chậm). Mẫu "Velis – Dự án" đã dựng sẵn phần tử này.
+- Đổi CSS / giao diện → người kỹ thuật chạy lại `node tools/the7_critical_css.mjs` + cổng kiểm `tools/cong_kiem_toc_do.mjs` trước khi đưa lên.

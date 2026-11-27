@@ -160,6 +160,9 @@ add_action( 'wp_head', function () {
 // Critical CSS tự làm (2026-11-27, người dùng chốt – thay CCSS QUIC.cloud): critical/<loại>.css (sinh bằng tools/the7_critical_css.mjs trên staging)
 // in nội tuyến đầu <head>; CSS gộp của LiteSpeed (sau khi tối ưu – bộ lọc litespeed_buffer_after) chuyển sang tải bất đồng bộ.
 // Không có tệp cho loại trang → giữ CSS chặn như cũ (an toàn). LiteSpeed "Load CSS Asynchronously" + CCSS phải TẮT (tránh chồng).
+// CÔNG TẮC (2026-11-27): TẮT. Đo trên site thật: CSS gộp 920 KB tải bất đồng bộ → tính lại kiểu cả trang sau lần vẽ đầu (tác vụ 575 ms) → TBT 370–1.200 ms,
+// Performance không tăng. Bật lại (true) khi CSS gộp đã gọn (gỡ CSS không dùng) và cổng kiểm trên site thật đạt.
+const VELIS_CRITICAL_BAT = false;
 function velis_loai_trang() {
 	if ( is_front_page() ) {
 		return 'trang-chu';
@@ -177,7 +180,7 @@ function velis_loai_trang() {
 }
 add_action( 'wp_head', function () {
 	$f = get_stylesheet_directory() . '/critical/' . velis_loai_trang() . '.css';
-	if ( is_readable( $f ) && ! is_user_logged_in() ) {
+	if ( VELIS_CRITICAL_BAT && is_readable( $f ) && ! is_user_logged_in() ) {
 		echo '<style id="velis-critical">' . preg_replace( '/^\/\*.*?\*\/\s*/s', '', (string) file_get_contents( $f ) ) . '</style>' . "\n"; // phpcs:ignore
 	}
 }, 2 );

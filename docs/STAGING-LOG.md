@@ -709,3 +709,10 @@ Theme con 2.1.9 + tạo cỡ ảnh 230 ảnh (REST post-process). So ảnh vùng
 
 - `tools/the7_bo_tra_loi.py --ghi`: 20422 (rev trước 20474), 19962 (21319), 20067 (21288), 19855 (21289), 19773 (21290), 20360 (21291).
 - Theme con 2.3.2: phần tử ẩn khi soạn trang sản phẩm (content_element), không hiện ở trang sản phẩm; bỏ CSS lề cho ô trên trang dự án.
+
+## 2026-11-27 – Tốc độ toàn cục (2.4.0)
+
+- Theme con 2.4.0: phần tử Velis · Đầu trang (khung chứa, không data-vc-full-width), critical CSS `critical/*.css` + CSS gộp bất đồng bộ.
+- `tools/the7_dau_trang.py --ghi` 14 trang (19526 rev trước 21270, 19537 21283, 20955 21211, 19593 21232, 19633 21234, 19625 21233, 19637 21235, 20422 20474, 19962 21321, 20067 21322, 19855 21323, 19934 21241, 19773 21324, 20360 21325).
+- "Mẫu của tôi" Velis – Dự án: xóa velis-du-an_1602296969, lưu bản mới (`tools/the7_luu_mau.mjs`).
+- So ảnh #main 7 trang × 3 khổ: 0,000 % (trừ ô ảnh lười chưa tải ở bản trước). Cổng kiểm: lần 1 TRƯỢT (bài: TBT 541 ms – dao động), đo lại 5 lần ĐẠT, lần chính thức ĐẠT.
