@@ -64,8 +64,12 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
   Mỗi lần đưa theme lên site thật: dán bảng cổng kiểm vào `docs/the7/NHAT-KY-SITE-THAT.md`.
   **Giới hạn đã gặp (2026-11-27):** staging không có GA và thời điểm tải khác → TBT staging thấp hơn site thật. Sau MỖI lần đưa lên: đo lại site thật
   `node tools/cong_kiem_toc_do.mjs out.json --chi-that` ngay; kém hơn số trước khi đưa lên → trả bản trước, báo.
-  Critical CSS + CSS bất đồng bộ đang TẮT bằng công tắc `VELIS_CRITICAL_BAT` (functions.php): với CSS gộp 920 KB, tải bất đồng bộ đẩy việc tính lại kiểu (≈ 575 ms)
-  ra sau lần vẽ đầu → TBT site thật 370–1.200 ms. Chỉ bật lại khi CSS gộp đã gọn và cổng kiểm + đo site thật đều đạt.
+  Critical CSS + CSS bất đồng bộ: công tắc `VELIS_CRITICAL_BAT` (functions.php) – 2.4.1 tắt (CSS gộp 920 KB → TBT site thật 370–1.200 ms), 2.5.0 bật lại sau khi làm gọn CSS.
+- **CSS gọn (2.5.0):** `gon/<tên miền>/` = bản lọc bỏ quy tắc không khớp phần tử nào của The7 / WPBakery / plugin + biến `css-vars` không dùng;
+  `node tools/the7_gon_css.mjs --quet <staging> dung.json` (SITEMAP_BASE=https://velisrealty.vn, ~40 phút) → `--sinh <site> dung.json` cho CẢ 2 tên miền.
+  Theme chỉ dùng bản gọn khi md5 tệp nguồn còn khớp (đổi Theme Options / cập nhật plugin → tự về tệp gốc, critical tắt theo) → **sau mỗi lần đổi đó: quét + sinh lại, sinh critical, đóng gói**.
+  Kiểm: `tools/the7_do_css_trang.mjs` (tổng CSS / trang), `tools/the7_so_anh.mjs --chup/--so` (17 trang × 3 khổ, ≤ 0,5 %), `tools/the7_kiem_chuc_nang.mjs`.
+- GA4: chỉ tải sau "Đồng ý" (theme con `velisGA()`), KHÔNG chèn gtag ở Header and Footer Scripts / Theme Options; kiểm `node tools/the7_kiem_ga.mjs <base>`.
 
 ## Giao diện đã khóa (2026-11-09, theme velis 1.0.0 — chỉ áp cho theme velis đã bỏ)
 

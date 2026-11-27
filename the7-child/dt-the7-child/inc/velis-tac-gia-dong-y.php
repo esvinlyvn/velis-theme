@@ -2,7 +2,7 @@
 /**
  * (1) Khung trang tác giả (/chuyen-gia/<tên>/): ảnh, chức danh, tiểu sử, chứng chỉ hành nghề, liên hệ – chữ nhập ở Tài khoản → Hồ sơ.
  *     Ô trống không hiện với khách; quản trị viên thấy ô chờ (viền gạch) để biết chỗ cần điền.
- * (2) Hộp đồng ý cookie + Google Consent Mode v2: mặc định từ chối (analytics / ads), "Đồng ý" → granted; lựa chọn lưu localStorage.
+ * (2) Hộp đồng ý cookie: GA4 chỉ tải sau khi bấm "Đồng ý" (hoặc đã đồng ý trước đó, lưu localStorage); chưa chọn / "Từ chối" → không tải.
  */
 defined( 'ABSPATH' ) || exit;
 
@@ -76,11 +76,18 @@ add_action( 'loop_start', function ( $q ) {
 	);
 } );
 
-// ── Hộp đồng ý cookie (Nghị định 13/2023) – chạy trước mã GA4 của plugin Header and Footer Scripts (wp_head mặc định 10). ─────────
-// data-no-optimize: LiteSpeed không gộp / dời đoạn này (thứ tự consent default → gtag config phải giữ).
+// ── Hộp đồng ý cookie (Nghị định 13/2023) + GA4 CHỈ TẢI SAU KHI ĐỒNG Ý (2026-11-27): chưa chọn / "Từ chối" → không có yêu cầu nào tới Google.
+// velisGA() chèn gtag.js + config khi localStorage velis-dong-y = '1' (đồng ý trước đó) hoặc ngay lúc bấm "Đồng ý".
+// Staging (tên miền khác) chỉ tải khi URL có ?velis_ga_thu=1 – để kiểm, không làm bẩn số liệu GA.
+// data-no-optimize: LiteSpeed không gộp / dời đoạn này.
+const VELIS_GA_ID = 'G-QSJ8EH9CWB';
 add_action( 'wp_head', function () {
-	echo "<script data-no-optimize=\"1\">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}(function(){var c=null;try{c=localStorage.getItem('velis-dong-y')}catch(e){}"
-		. "var g=c==='1'?'granted':'denied';gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:g,wait_for_update:500})})();</script>\n";
+	echo "<script data-no-optimize=\"1\">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}"
+		. "window.velisGA=function(){if(window.velisGA.xong||(location.hostname!=='velisrealty.vn'&&location.search.indexOf('velis_ga_thu=1')<0))return;window.velisGA.xong=1;"
+		. "gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted'});"
+		. "var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=" . VELIS_GA_ID . "';document.head.appendChild(s);"
+		. "gtag('js',new Date());gtag('config','" . VELIS_GA_ID . "')};"
+		. "(function(){var c=null;try{c=localStorage.getItem('velis-dong-y')}catch(e){}if(c==='1')window.velisGA()})();</script>\n";
 }, 1 );
 
 add_action( 'wp_footer', function () {
@@ -89,5 +96,5 @@ add_action( 'wp_footer', function () {
 		. '<div class="velis-dong-y__nut"><button type="button" data-dong-y="0">Từ chối</button><button type="button" data-dong-y="1">Đồng ý</button></div></div>'
 		. "<script data-no-optimize=\"1\">(function(){var b=document.querySelector('.velis-dong-y');if(!b)return;var c=null;try{c=localStorage.getItem('velis-dong-y')}catch(e){}if(c===null)b.hidden=false;"
 		. "b.addEventListener('click',function(e){var v=e.target.getAttribute('data-dong-y');if(v===null)return;try{localStorage.setItem('velis-dong-y',v)}catch(x){}"
-		. "gtag('consent','update',{analytics_storage:v==='1'?'granted':'denied'});b.hidden=true;})})();</script>\n";
+		. "if(v==='1')window.velisGA();b.hidden=true;})})();</script>\n";
 }, 20 );

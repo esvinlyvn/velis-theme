@@ -157,12 +157,78 @@ add_action( 'wp_head', function () {
 		. '<style id="velis-stretch">#main:not(.sidebar-left):not(.sidebar-right) [data-vc-full-width="true"]{position:relative;left:auto!important;right:auto!important;box-sizing:border-box!important;width:var(--velis-vw,100vw)!important;max-width:none!important;margin-left:calc(50% - var(--velis-vw,100vw) / 2)!important;margin-right:0!important}#main:not(.sidebar-left):not(.sidebar-right) .vc_section[data-vc-full-width="true"]:not([data-vc-stretch-content]){padding-left:calc(var(--velis-vw,100vw) / 2 - 50% - 15px)!important;padding-right:calc(var(--velis-vw,100vw) / 2 - 50% - 15px)!important}#main:not(.sidebar-left):not(.sidebar-right) .vc_row[data-vc-full-width="true"]:not([data-vc-stretch-content]){padding-left:calc(var(--velis-vw,100vw) / 2 - 50% - 16px)!important;padding-right:calc(var(--velis-vw,100vw) / 2 - 50% - 16px)!important}@media (max-width:778px){#main:not(.sidebar-left):not(.sidebar-right) [data-vc-full-width="true"]:not([data-vc-stretch-content]){padding-left:1px!important;padding-right:1px!important}}</style>';
 }, 3 );
 
+// CSS gọn (2026-11-27, người dùng duyệt): bản lọc bỏ quy tắc không khớp phần tử nào (quét toàn sitemap 2 khổ + trạng thái JS) của The7 / WPBakery / plugin,
+// sinh bằng tools/the7_gon_css.mjs vào gon/<tên miền>/ (bang.json: đường dẫn nguồn → tệp gọn + md5 nguồn). Chỉ thay khi md5 tệp nguồn trên máy chủ còn khớp:
+// đổi Theme Options (uploads/the7-css/*) hoặc cập nhật theme / plugin → tự dùng lại tệp gốc (giao diện đúng, chỉ nặng hơn) tới khi sinh lại + đóng gói.
+// Người đăng nhập luôn nhận tệp gốc (thanh quản trị, trình soạn thảo).
+function velis_gon() {
+	static $g = null;
+	if ( null !== $g ) {
+		return $g;
+	}
+	$g = array( 'tep' => array(), 'du' => false );
+	$dir  = get_stylesheet_directory() . '/gon/' . wp_parse_url( home_url(), PHP_URL_HOST ) . '/';
+	$bang = is_readable( $dir . 'bang.json' ) ? json_decode( (string) file_get_contents( $dir . 'bang.json' ), true ) : null;
+	if ( is_admin() || is_user_logged_in() || ! is_array( $bang ) ) {
+		return $g;
+	}
+	foreach ( $bang as $duong => $v ) {
+		$nguon = ABSPATH . ltrim( $duong, '/' );
+		if ( ! is_readable( $nguon ) || ! is_readable( $dir . $v['tep'] ) ) {
+			continue;
+		}
+		$k  = 'velis_gon_' . md5( $duong . filemtime( $nguon ) . filesize( $nguon ) );
+		$ok = get_transient( $k );
+		if ( false === $ok ) {
+			$ok = md5_file( $nguon ) === $v['md5'] ? 'y' : 'n';
+			set_transient( $k, $ok, WEEK_IN_SECONDS );
+		}
+		if ( 'y' === $ok ) {
+			$g['tep'][ $duong ] = $dir . $v['tep'];
+		}
+	}
+	$g['du'] = count( $g['tep'] ) === count( $bang ); // mọi tệp còn khớp → critical CSS (sinh từ bản gọn) còn đúng
+	return $g;
+}
+add_filter( 'style_loader_src', function ( $src ) {
+	$p = wp_parse_url( (string) $src, PHP_URL_PATH );
+	$t = $p ? ( velis_gon()['tep'][ $p ] ?? '' ) : '';
+	if ( ! $t ) {
+		return $src;
+	}
+	// tệp gọn rỗng (vd. custom-scrollbar không dùng ở đâu) → không in thẻ
+	return filesize( $t ) ? get_stylesheet_directory_uri() . substr( $t, strlen( get_stylesheet_directory() ) ) . '?ver=' . filemtime( $t ) : '';
+}, 20 );
+// khối core WordPress in CSS nội tuyến theo dữ liệu 'path' (vd. social-links) → trỏ 'path' sang bản gọn trước wp_maybe_inline_styles (ưu tiên 1)
+$velis_gon_path = function () {
+	$g = velis_gon();
+	if ( ! $g['tep'] ) {
+		return;
+	}
+	$goc = wp_normalize_path( ABSPATH );
+	foreach ( wp_styles()->registered as $o ) {
+		$pa = isset( $o->extra['path'] ) ? '/' . ltrim( str_replace( $goc, '', wp_normalize_path( $o->extra['path'] ) ), '/' ) : '';
+		if ( $pa && isset( $g['tep'][ $pa ] ) ) {
+			$o->extra['path'] = $g['tep'][ $pa ];
+		}
+	}
+};
+add_action( 'wp_head', $velis_gon_path, 0 );
+add_action( 'wp_footer', $velis_gon_path, 0 );
+
+// Easy TOC chỉ hiện ở bài viết (trang / danh sách / chuyên mục: 0 mục lục – đo 2026-11-27) → không tải CSS của plugin ở chỗ khác.
+add_action( 'wp_enqueue_scripts', function () {
+	if ( ! is_singular( 'post' ) ) {
+		wp_dequeue_style( 'eztoc' );
+	}
+}, 100 );
+
 // Critical CSS tự làm (2026-11-27, người dùng chốt – thay CCSS QUIC.cloud): critical/<loại>.css (sinh bằng tools/the7_critical_css.mjs trên staging)
 // in nội tuyến đầu <head>; CSS gộp của LiteSpeed (sau khi tối ưu – bộ lọc litespeed_buffer_after) chuyển sang tải bất đồng bộ.
 // Không có tệp cho loại trang → giữ CSS chặn như cũ (an toàn). LiteSpeed "Load CSS Asynchronously" + CCSS phải TẮT (tránh chồng).
-// CÔNG TẮC (2026-11-27): TẮT. Đo trên site thật: CSS gộp 920 KB tải bất đồng bộ → tính lại kiểu cả trang sau lần vẽ đầu (tác vụ 575 ms) → TBT 370–1.200 ms,
-// Performance không tăng. Bật lại (true) khi CSS gộp đã gọn (gỡ CSS không dùng) và cổng kiểm trên site thật đạt.
-const VELIS_CRITICAL_BAT = false;
+// CÔNG TẮC: 2.4.1 tắt (CSS gộp 920 KB tải bất đồng bộ → TBT site thật 370–1.200 ms); 2.5.0 BẬT lại sau khi làm gọn CSS (≈ 250 KB, gon/).
+// Chỉ in khi mọi tệp gọn còn khớp nguồn (velis_gon()['du']) – critical sinh từ bản gọn; lệch → CSS chặn như cũ.
+const VELIS_CRITICAL_BAT = true;
 function velis_loai_trang() {
 	if ( is_front_page() ) {
 		return 'trang-chu';
@@ -180,7 +246,7 @@ function velis_loai_trang() {
 }
 add_action( 'wp_head', function () {
 	$f = get_stylesheet_directory() . '/critical/' . velis_loai_trang() . '.css';
-	if ( VELIS_CRITICAL_BAT && is_readable( $f ) && ! is_user_logged_in() ) {
+	if ( VELIS_CRITICAL_BAT && velis_gon()['du'] && is_readable( $f ) && ! is_user_logged_in() ) {
 		echo '<style id="velis-critical">' . preg_replace( '/^\/\*.*?\*\/\s*/s', '', (string) file_get_contents( $f ) ) . '</style>' . "\n"; // phpcs:ignore
 	}
 }, 2 );

@@ -1,0 +1,10 @@
+@font-face{
+	font-family: 'ult-silk';
+	src:url("/wp-content/plugins/Ultimate_VC_Addons/assets/css/fonts/ult-silk.eot");
+	src:url("/wp-content/plugins/Ultimate_VC_Addons/assets/css/fonts/ult-silk.eot") format('embedded-opentype'),
+		url("/wp-content/plugins/Ultimate_VC_Addons/assets/css/fonts/ult-silk.woff") format('woff'),
+		url("/wp-content/plugins/Ultimate_VC_Addons/assets/css/fonts/ult-silk.ttf") format('truetype'),
+		url("/wp-content/plugins/Ultimate_VC_Addons/assets/css/fonts/ult-silk.svg") format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

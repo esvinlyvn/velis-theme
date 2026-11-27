@@ -716,3 +716,17 @@ Theme con 2.1.9 + tạo cỡ ảnh 230 ảnh (REST post-process). So ảnh vùng
 - `tools/the7_dau_trang.py --ghi` 14 trang (19526 rev trước 21270, 19537 21283, 20955 21211, 19593 21232, 19633 21234, 19625 21233, 19637 21235, 20422 20474, 19962 21321, 20067 21322, 19855 21323, 19934 21241, 19773 21324, 20360 21325).
 - "Mẫu của tôi" Velis – Dự án: xóa velis-du-an_1602296969, lưu bản mới (`tools/the7_luu_mau.mjs`).
 - So ảnh #main 7 trang × 3 khổ: 0,000 % (trừ ô ảnh lười chưa tải ở bản trước). Cổng kiểm: lần 1 TRƯỢT (bài: TBT 541 ms – dao động), đo lại 5 lần ĐẠT, lần chính thức ĐẠT.
+
+## 2026-11-27 – GA4 sau đồng ý + CSS gọn + bật critical (2.5.0)
+
+- Theme con 2.5.0:
+  - GA4 chỉ tải sau "Đồng ý" (`velisGA()` trong `inc/velis-tac-gia-dong-y.php`; staging chỉ tải khi có `?velis_ga_thu=1`).
+  - CSS gọn: `gon/<tên miền>/` sinh bằng `tools/the7_gon_css.mjs` (quét 135 đường dẫn × 412 + 1366, 4 luồng). Chỉ dùng khi md5 nguồn khớp; người đăng nhập nhận tệp gốc.
+  - Easy TOC CSS chỉ ở bài viết. Critical CSS sinh lại từ bản gọn, công tắc `VELIS_CRITICAL_BAT` = true.
+- velis.css: gỡ 3 quy tắc không khớp và không còn nơi dùng (`.velis-contact`, `.velis-contact li`, `.velis-ban-do iframe`). Phần còn lại không khớp (5,5 KB) là trạng thái (`[hidden]`, `[open]`, `aria-*`), khung tác giả, tùy chọn phần tử / mẫu WPBakery → giữ.
+- Tổng CSS mỗi trang (điện thoại, trước nén): 918–965 KB (site thật) → 259–302 KB (staging).
+- So ảnh 17 trang × 3 khổ: 46/51 ảnh 0,000 %. Ảnh còn khác chỉ ở ô ảnh lười chưa tải trong một lần chụp; chiều cao trang giống hệt. `tools/the7_so_anh.mjs` nay chờ ảnh tải xong.
+- Chức năng (`tools/the7_kiem_chuc_nang.mjs`) 7/7 đạt.
+- Cổng kiểm 2.5.0 (critical BẬT) – 2 lần, đều TRƯỢT ở /can-ho-the-prive/ (TBT staging quy đổi 393 / 597 ms; Performance 89 / 83). 3 trang còn lại ĐẠT (Perf 97–98, LCP 1,0–1,7 s, TBT 77–126 ms).
+  Đo riêng The Privé 2 lần: TBT 148 / 102 ms. Nguồn TBT: tác vụ jQuery / The7 khởi tạo 250–350 ms + tác vụ của trang 150 ms; Style & Layout 0,9–1,1 s (trang dài 24.000 px).
+  → KHÔNG đưa lên site thật (đúng quy tắc cổng kiểm). Site thật vẫn chạy 2.4.1; GA4 trên site thật chưa đổi.

@@ -259,8 +259,6 @@ body .vc_section.velis-home-hero::after { display: none; }
 @media (max-width: 1023px) { #page .velis-feats .blog-shortcode .dt-css-grid { grid-auto-columns: calc((100% - 12px) / 2); } }
 /* Thi thử + tuyển dụng / chủ đầu tư: hộp trắng cùng cao */
 .velis-boxes .wpb_column > .vc_column-inner > .wpb_wrapper { height: 100%; box-sizing: border-box; background: #FFFFFF; border-radius: var(--velis-bo-the); box-shadow: var(--velis-bong); padding: 32px; }
-.velis-contact { list-style: none; margin: 16px 0 0; padding: 0; }
-.velis-contact li { margin: 0 0 8px; }
 .velis-section .btn-align-center { margin: 32px 0 48px; }
 /* Trang 404 (trang mẫu 20536) */
 .velis-404-search { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
@@ -289,7 +287,6 @@ body .vc_section.velis-home-hero::after { display: none; }
 .velis-thu-vien { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
 .velis-thu-vien .wpb_single_image { margin: 0; }
 .velis-thu-vien img { aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--velis-bo-trong); }
-.velis-ban-do iframe { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; border: 0; border-radius: var(--velis-bo-the); }
 .velis-bang table { width: 100%; margin: 0; }
 /* Điện thoại: khối dài thu gọn (JS) – 12 dòng đầu + "Xem thêm" */
 .velis-khoi.velis-thu .velis-khoi__chu { max-height: 480px; overflow: hidden; -webkit-mask-image: linear-gradient(#000 75%, transparent); mask-image: linear-gradient(#000 75%, transparent); }
