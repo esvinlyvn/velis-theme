@@ -26,7 +26,9 @@ try {
   const ta = p.locator('textarea').first(); const ten = await ta.getAttribute('name'); const cu = await ta.inputValue();
   console.log('ô', ten, '·', cu.length, 'ký tự\n' + cu);
   if (ghi === '--ghi') {
-    const moi = bo(cu); await ta.fill(moi);
+    // ô có thể bị trình soạn mã (CodeMirror) che – ghi qua CodeMirror nếu có, không thì gán thẳng giá trị ô (vẫn gửi theo form)
+    const moi = bo(cu); const cach = await p.evaluate(([ten, v]) => { const t = document.querySelector(`textarea[name="${ten}"]`); const cm = t.nextElementSibling?.CodeMirror || document.querySelector('.CodeMirror')?.CodeMirror;
+      if (cm) { cm.setValue(v); cm.save?.(); } t.value = v; return cm ? 'CodeMirror' : 'textarea'; }, [ten, moi]); console.log('ghi qua', cach);
     await Promise.all([p.waitForNavigation(), p.locator('input[type=submit], button[type=submit]').first().click()]);
     await p.reload(); const sau = await p.locator('textarea').first().inputValue();
     console.log(sau === moi ? 'ĐÃ LƯU' : 'LỆCH sau khi lưu – kiểm ngay', '·', sau.length, 'ký tự\n' + sau);

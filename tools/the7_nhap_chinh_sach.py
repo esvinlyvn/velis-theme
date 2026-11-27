@@ -18,7 +18,8 @@ MUC8 = ('<h3 id="cookie">8. Google Analytics và cookie</h3>\n'
         '(<a href="https://tools.google.com/dlpage/gaoptout" rel="nofollow noopener" target="_blank">tools.google.com/dlpage/gaoptout</a>); '
         'hoặc chặn / xóa cookie trong cài đặt trình duyệt; hoặc gửi email tới <a href="mailto:info@velisrealty.vn">info@velisrealty.vn</a> để yêu cầu xóa dữ liệu liên quan tới quý khách.</li>\n'
         '<li>Dữ liệu đo lường do Google xử lý theo chính sách quyền riêng tư của Google.</li>\n</ul>\n')
-MAU = re.compile(r'<h3>8\. Sử dụng cookies &amp; thẻ theo dõi \(tracking pixels\)</h3>.*?(?=<h3>9\.)', re.S)
+# mục 8 gốc của site, hoặc bản mục 8 "Cookie và Google Analytics" đã đăng từ nháp 2026-11-26
+MAU = re.compile(r'<h3(?: id="cookie")?>8\. (?:Sử dụng cookies &amp; thẻ theo dõi \(tracking pixels\)|Cookie và Google Analytics)</h3>.*?(?=<h3>9\.)', re.S)
 
 
 def sua(raw):
@@ -48,6 +49,6 @@ if __name__ == '__main__':
     a = sys.argv[1:]
     if a == ['--test']:
         g = '<p>a</p><h3>8. Sử dụng cookies &amp; thẻ theo dõi (tracking pixels)</h3>\n<p>cũ</p>\n\n<h3>9. Liên hệ</h3><p>b</p>'
-        m = sua(g); assert 'id="cookie"' in m and 'cũ' not in m and m.startswith('<p>a</p>') and m.endswith('<h3>9. Liên hệ</h3><p>b</p>')
+        m = sua(g); assert sua(g.replace('<h3>8. Sử dụng cookies &amp; thẻ theo dõi (tracking pixels)</h3>', '<h3 id="cookie">8. Cookie và Google Analytics</h3>')) == m; assert 'id="cookie"' in m and 'cũ' not in m and m.startswith('<p>a</p>') and m.endswith('<h3>9. Liên hệ</h3><p>b</p>')
         print('test ok'); sys.exit()
     main(a[0], '--ghi' in a)

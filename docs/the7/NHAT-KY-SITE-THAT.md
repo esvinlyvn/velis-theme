@@ -399,3 +399,38 @@ CLS máy tính (staging, lớn nhất 3 lần): 1366 / 0.000 · 1366 /du-an/ 0.0
 | /gia-ban-the-prive-quan-2-2026/ | 76 | 3,7 s | 323 ms | 0,000 | 0,76 |
 
 Chưa đạt ngân sách (LCP ≤ 2,5 s, TBT ≤ 200 ms, Perf ≥ 85). CLS máy tính ≤ 0,001.
+
+## 2026-11-27 – Theme con 2.5.2: CSS gọn + critical bật + content-visibility + GA4 tải muộn (bỏ hộp đồng ý cookie)
+
+`kiem_site_that()` đạt (claude-bot). Bản trước để trả lại: `data/the7/goi-2.4.1/dt-the7-child-2.4.1.zip`.
+
+| Giờ (UTC) | Thao tác | Kết quả |
+|---|---|---|
+| 11:42 | Giao diện → Tải lên `dt-the7-child-2.5.2.zip` (thay 2.4.1) + LiteSpeed Xóa tất cả | 2.4.1 → 2.5.2 |
+| 11:42–11:45 | Cài đặt → Header and Footer Scripts: gỡ khối gtag.js (`tools/the7_hfs_ga.mjs --ghi`); lần 1 lỗi (ô bị CodeMirror che, không lưu), lần 2 ghi qua CodeMirror | còn đúng 2 dòng xác minh Pinterest + Facebook (447 → 159 ký tự). 11:42–11:45 GA có thể đếm trùng page_view |
+| 11:45 | LiteSpeed Xóa tất cả | đạt |
+| 11:46 | Chính sách bảo mật 19662: mục 8 mới (GA4, dữ liệu, thời gian lưu, cách từ chối) lưu NHÁP (autosave 21244) | bản đang đăng không đổi – chờ người dùng duyệt chữ |
+
+Cổng kiểm (staging so với site thật, 5 lần trung vị):
+
+| Trang | Site thật: Perf / LCP / TBT / CLS / MB | Staging quy đổi: Perf / LCP / TBT / CLS / MB | Kết luận |
+|---|---|---|---|
+| / | 63 / 4.3 s / 438 ms / 0.000 / 1.31 | 97 / 1.6 s / 110 ms / 0.000 / 1.06 | ĐẠT |
+| /du-an/ | 64 / 4.5 s / 347 ms / 0.000 / 1.26 | 97 / 1.6 s / 84 ms / 0.000 / 1.01 | ĐẠT |
+| /can-ho-the-prive/ | 69 / 3.8 s / 408 ms / 0.002 / 0.91 | 97 / 1.1 s / 108 ms / 0.002 / 0.49 | ĐẠT |
+| /gia-ban-the-prive-quan-2-2026/ | 77 / 3.2 s / 317 ms / 0.000 / 0.76 | 98 / 1.1 s / 98 ms / 0.000 / 0.51 | ĐẠT |
+
+Đo lại site thật ngay sau khi đưa lên (`--chi-that`, 5 lần trung vị) – trước (2.4.1) | sau (2.5.2):
+
+| Trang | Perf | LCP | TBT | CLS | MB |
+|---|---|---|---|---|---|
+| / | 63 → **95** | 4,3 → **2,2 s** | 438 → **125 ms** | 0,000 → 0,000 | 1,31 → 1,06 |
+| /du-an/ | 64 → **95** | 4,5 → **2,4 s** | 347 → **88 ms** | 0,000 → 0,000 | 1,26 → 1,01 |
+| The Privé | 69 → **96** | 3,8 → **2,3 s** | 408 → **87 ms** | 0,002 → 0,002 | 0,91 → 0,49 |
+| Bài giá The Privé | 77 → **97** | 3,2 → **1,7 s** | 317 → **83 ms** | 0,000 → 0,000 | 0,76 → 0,51 |
+
+Kiểm site thật sau khi đưa lên:
+- GA4 5/5: lúc tải 0 yêu cầu Google; cuộn hoặc chờ 4 giây có page_view; gtag.js chỉ tải 1 lần. Lighthouse: 0 yêu cầu / tác vụ GA trong lần đo.
+- Chức năng 5/5 (không bấm form ở site thật). Cửa sổ ảnh 4/4. Kiểm hằng ngày ĐẠT (130 URL).
+- Critical CSS có trong HTML; CSS gộp tải bất đồng bộ.
+- Tổng CSS mỗi trang 918–965 → 322–366 KB, gồm cả critical nội tuyến ≈ 60 KB (tệp gộp 241–250 KB).
