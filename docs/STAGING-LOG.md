@@ -704,3 +704,8 @@ Theme con 2.1.9 + tạo cỡ ảnh 230 ảnh (REST post-process). So ảnh vùng
 - Theme con 2.3.1: khóa hình học hàng kéo rộng (CSS !important + --velis-vw). So ảnh #main 2.3.0 → 2.3.1: 0,000 % (3 trang khác chỉ ở ô ảnh lười chưa tải ở bản trước).
 - Chuyên mục blog: xóa meta rank_math_robots (staging toàn site noindex nên chỉ kiểm được ở site thật).
 - 19962: Đất Xanh → Bluemarq Group (rev trước 21287).
+
+## 2026-11-27 – Gỡ Trả lời nhanh khỏi trang sản phẩm (2.3.2)
+
+- `tools/the7_bo_tra_loi.py --ghi`: 20422 (rev trước 20474), 19962 (21319), 20067 (21288), 19855 (21289), 19773 (21290), 20360 (21291).
+- Theme con 2.3.2: phần tử ẩn khi soạn trang sản phẩm (content_element), không hiện ở trang sản phẩm; bỏ CSS lề cho ô trên trang dự án.

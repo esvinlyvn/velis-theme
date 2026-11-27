@@ -13,6 +13,7 @@ Trước khi viết, trả lời một câu: **người gõ từ khóa này cầ
 - một quyết định: có nên mua không, mua lúc nào.
 
 Câu trả lời chính phải nằm trong **2–3 câu đầu bài**, hoặc trong ô **Velis · Trả lời nhanh** ngay đầu bài.
+**Trả lời nhanh chỉ dùng trong bài blog, không dùng trên trang dự án / sản phẩm** (người dùng quyết 2026-11-27); trang dự án trả lời bằng đoạn mở đầu + Velis · Thông tin dự án.
 Người chỉ cần thông tin đó đọc xong ô này là đủ. Phần sau chỉ để mở rộng cho ai cần thêm.
 
 ## 2. Độ dài theo nhu cầu, không theo số chữ

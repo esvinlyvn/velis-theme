@@ -3,7 +3,7 @@
 defined( 'ABSPATH' ) || exit;
 $atts = vc_map_get_attributes( $this->getShortcode(), $atts );
 $chu  = wpb_js_remove_wpautop( $content, true );
-if ( '' === trim( wp_strip_all_tags( $chu ) ) ) {
+if ( '' === trim( wp_strip_all_tags( $chu ) ) || velis_la_trang_san_pham( get_the_ID() ) ) { // trang sản phẩm: không hiện (chỉ bài blog)
 	return;
 }
 $nhan  = $atts['nhan'] ? $atts['nhan'] : 'Trả lời nhanh';

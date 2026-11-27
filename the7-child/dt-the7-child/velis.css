@@ -341,7 +341,6 @@ body:has(.velis-luoi.velis-bai) .single-related-posts { display: none; }
 .velis-khoi__chi-tiet { margin: 16px 0 0; }
 /* Trả lời nhanh bản 2: H2 câu hỏi trên ô + dòng nguồn trong ô */
 #page .velis-tra-loi__hoi { margin: 0 0 16px; }
-#page .wpb-content-wrapper:has(.velis-hero) > .vc_row:not(.velis-section) > .wpb_column > .vc_column-inner > .wpb_wrapper > .velis-tra-loi__hoi:first-child { margin-top: var(--velis-tren-h2); } /* trang dự án: ô đứng đầu hàng sau hero (như Mục lục) */
 #page .velis-tra-loi > :nth-last-child(2) { margin-bottom: 12px; }
 #page .velis-tra-loi__nguon { margin: 0; font-size: 14px; line-height: 20px; color: var(--velis-chu-phu); }
 /* Trang tác giả: khung ảnh / chức danh / tiểu sử / chứng chỉ / liên hệ (ô trống chỉ quản trị viên thấy, viền gạch) */

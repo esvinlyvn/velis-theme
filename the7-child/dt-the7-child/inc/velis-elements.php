@@ -92,6 +92,17 @@ function velis_doc_them_con_cho() {
 	return ++$n <= 2;
 }
 
+/** Trang sản phẩm = trang (page) hoặc bài trong chuyên mục Dự án 34 / Phân khu 57. Trả lời nhanh chỉ dùng cho bài blog (người dùng quyết 2026-11-27). */
+function velis_la_trang_san_pham( $id ) {
+	return 'page' === get_post_type( $id ) || (bool) array_intersect( array( 34, 57 ), wp_get_post_categories( $id ) );
+}
+
+/** Khi soạn: chỉ liệt kê "Velis · Trả lời nhanh" ở bài blog (WPBakery không giới hạn phần tử theo loại nội dung → ẩn bằng content_element). */
+function velis_tra_loi_hien_khi_soan() {
+	$id = absint( $_GET['post'] ?? $_GET['post_id'] ?? 0 ); // phpcs:ignore WordPress.Security.NonceVerification -- chỉ đọc để chọn danh sách phần tử
+	return $id ? ! velis_la_trang_san_pham( $id ) : 'post' === sanitize_key( $_GET['post_type'] ?? 'post' ); // phpcs:ignore
+}
+
 add_action( 'vc_before_init', function () {
 	$dir  = get_stylesheet_directory() . '/wpb_templates/';
 	$cat  = 'Velis';
@@ -187,7 +198,8 @@ add_action( 'vc_before_init', function () {
 	) );
 	vc_map( array(
 		'name' => 'Velis · Trả lời nhanh', 'base' => 'velis_tra_loi', 'category' => $cat, 'icon' => 'icon-wpb-information-white',
-		'description' => 'Đầu bài: H2 câu hỏi + ô nền nhẹ 2–4 câu (hoặc 3–5 gạch đầu dòng số liệu) + dòng "Nguồn · Cập nhật · Phân tích". Chỉ bài trả lời một câu hỏi cụ thể.',
+		'content_element' => velis_tra_loi_hien_khi_soan(),
+		'description' => 'CHỈ bài blog (không dùng trên trang dự án / sản phẩm). Đầu bài: H2 câu hỏi + ô nền nhẹ 2–4 câu (hoặc 3–5 gạch đầu dòng số liệu) + dòng "Nguồn · Cập nhật · Phân tích". Chỉ bài trả lời một câu hỏi cụ thể.',
 		'html_template' => $dir . 'velis_tra_loi.php',
 		'params' => array(
 			array( 'type' => 'textfield', 'heading' => 'Câu hỏi (H2, theo cách người đọc tìm, vd. "Giá The Privé bao nhiêu?")', 'param_name' => 'cau_hoi', 'admin_label' => true ),

@@ -123,7 +123,7 @@ Bài thị trường (không có cụm) thì hộp ở cột phải là hộp t�
 
 **Gồm gì** (theo `VOICE.md`):
 1. **Mở bài** – 1 đoạn nêu vấn đề của người mua, 1 đoạn góc nhìn Vũ Xuân, ngắn, không kể thành tích.
-2. **Trả lời nhanh** – phần tử **Velis · Trả lời nhanh** kéo vào ngay trước khối chữ đầu bài (trang dự án: ngay trước Mục lục). Chỉ dùng cho bài trả lời một câu hỏi cụ thể: giá, pháp lý, tiến độ, bàn giao…
+2. **Trả lời nhanh** – phần tử **Velis · Trả lời nhanh** kéo vào ngay trước khối chữ đầu bài. **Chỉ dùng trong bài blog, không dùng trên trang dự án / sản phẩm** (2026-11-27): khi soạn trang dự án / phân khu / trang (page), phần tử không có trong danh sách; nếu lỡ chèn (vd. bài mới chưa chọn chuyên mục rồi đổi sang Dự án), ô cũng không hiện ra ngoài site. Chỉ dùng cho bài trả lời một câu hỏi cụ thể: giá, pháp lý, tiến độ, bàn giao…
    - Ô *Câu hỏi*: thành H2 trên ô; viết đúng như người đọc gõ tìm, vd. "Giá The Privé 2026 bao nhiêu?".
    - Ô *Trả lời*: 2–4 câu hoặc 3–5 gạch đầu dòng. Chỉ dùng số đã có trong bài; viết số kiểu Việt (5,0–6,5 tỷ; 100–130 triệu/m²).
    - Ô *Nguồn*: nguồn bài đã ghi. Để trống thì hiện "Tổng hợp từ thông tin chủ đầu tư công bố".
