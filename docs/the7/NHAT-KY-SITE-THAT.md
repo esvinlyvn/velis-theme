@@ -434,3 +434,31 @@ Kiểm site thật sau khi đưa lên:
 - Chức năng 5/5 (không bấm form ở site thật). Cửa sổ ảnh 4/4. Kiểm hằng ngày ĐẠT (130 URL).
 - Critical CSS có trong HTML; CSS gộp tải bất đồng bộ.
 - Tổng CSS mỗi trang 918–965 → 322–366 KB, gồm cả critical nội tuyến ≈ 60 KB (tệp gộp 241–250 KB).
+
+## 2026-11-28 – Theme con 2.5.5: ảnh hiện ngay không chờ JS + dải nổi bật trượt ngang ≤ 1247 px
+
+`kiem_site_that()` đạt. 05:12 UTC Giao diện → Tải lên `dt-the7-child-2.5.5.zip` (thay 2.5.2) + LiteSpeed Xóa tất cả. Bản trước để trả lại: `data/the7/goi-2.5.2/`.
+
+Cổng kiểm (5 lần trung vị): ĐẠT cả 4 trang.
+
+| Trang | Site thật (2.5.2): Perf / LCP / TBT / CLS / MB | Staging 2.5.5 quy đổi | Kết luận |
+|---|---|---|---|
+| / | 96 / 2.3 s / 95 ms / 0.000 / 1.06 | 98 / 1.4 s / 80 ms / 0.000 / 1.06 | ĐẠT |
+| /du-an/ | 97 / 2.2 s / 63 ms / 0.000 / 1.01 | 98 / 1.3 s / 52 ms / 0.000 / 1.01 | ĐẠT |
+| /can-ho-the-prive/ | 97 / 1.9 s / 75 ms / 0.002 / 0.49 | 98 / 1.2 s / 56 ms / 0.002 / 0.49 | ĐẠT |
+| /gia-ban-the-prive-quan-2-2026/ | 98 / 1.8 s / 72 ms / 0.000 / 0.51 | 98 / 1.2 s / 56 ms / 0.000 / 0.51 | ĐẠT |
+
+Đo lại site thật sau khi đưa lên (`--chi-that`, 5 lần trung vị). Lượt 1 có The Privé 94 / TBT 188 ms nên đo lượt 2 để loại dao động:
+
+| Trang | Trước (2.5.2) | Sau lượt 1 | Sau lượt 2 |
+|---|---|---|---|
+| / | 96 / 2,3 s / 95 ms | 96 / 2,2 s / 71 ms | 96 / 2,2 s / 120 ms |
+| /du-an/ | 97 / 2,2 s / 63 ms | 95 / 2,4 s / 54 ms | 96 / 2,3 s / 65 ms |
+| The Privé | 97 / 1,9 s / 75 ms | 94 / 2,2 s / 188 ms | 96 / 2,3 s / 54 ms |
+| Bài | 98 / 1,8 s / 72 ms | 98 / 1,3 s / 54 ms | 98 / 1,7 s / 84 ms |
+
+→ Chênh ≤ 1 điểm (dao động), mọi trang trong ngân sách → giữ 2.5.5.
+
+Kiểm site thật sau khi đưa lên:
+- Ảnh bị ẩn khi chưa chạy JS: 23 → 0 (15 trang × 2 khổ).
+- Chức năng 8/8: dải trượt, cuộn nhanh, lọc /du-an/, menu, Hỏi đáp. Cửa sổ ảnh 4/4. GA4 5/5. Kiểm hằng ngày ĐẠT.
