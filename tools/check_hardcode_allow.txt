@@ -1,0 +1,42 @@
+# Câu ≥ 8 từ được phép nằm trong theme (tools/check_hardcode.py): chữ giao diện, không phải nội dung.
+# Mỗi dòng = đúng câu checker tách ra. Nội dung (tiêu đề, đoạn dẫn, giá trị, liên hệ, lưu ý…) nằm ở Cài đặt Velis.
+
+# Khuôn tiêu đề / mô tả SEO mặc định theo loại trang (inc/seo.php). Trang nào ghi tay trong Rank Math thì Rank Math thắng.
+Velis Realty – tư vấn bất động sản cao cấp
+: các phân khu, vị trí, giá tham khảo
+Dự án bất động sản cao cấp TP.HCM – Velis Realty
+Chủ đầu tư bất động sản Velis tư vấn – Velis Realty
+Blog bất động sản: phân tích dự án – Velis Realty
+Velis Realty tư vấn bất động sản cao cấp tại TP.HCM và vùng lân cận:
+Phân tích theo dòng tiền và giá vốn thực.
+giá tham khảo khi chủ đầu tư công bố
+Lọc theo khu vực, chủ đầu tư, loại sản phẩm.
+Chủ đầu tư có dự án Velis đang tư vấn:
+: giá, pháp lý, tiến độ, kinh nghiệm mua và đầu tư.
+Phân tích dự án, nhận định thị trường và hướng dẫn mua bất động sản cao cấp của
+
+# Form: nhãn, lỗi, xác nhận, đồng ý xử lý dữ liệu (inc/ui.php)
+Vui lòng nhập số điện thoại 9–15 chữ số.
+Tôi đồng ý để Velis Realty xử lý dữ liệu cá nhân nhằm tư vấn, theo chính sách bảo mật .
+Velis sẽ gọi lại trong giờ làm việc.
+
+# Hộp hành động ngắn ở cột phải (inc/ui.php)
+Nhận tư vấn Để lại số điện thoại, Velis gọi lại trong giờ làm việc.
+Gửi CV qua email hoặc để lại số điện thoại, Velis liên hệ hẹn phỏng vấn.
+Gọi, nhắn Zalo hoặc để lại số điện thoại, Velis phản hồi trong giờ làm việc.
+
+# Chữ hướng dẫn khi thiếu dữ liệu / không có kết quả
+(mặt bằng, diện tích, giá) khi anh chị để lại liên hệ.
+(chưa có tọa độ riêng của dự án).
+Đường dẫn có thể đã đổi khi Velis sắp xếp lại nội dung.
+Anh chị thử tìm kiếm hoặc đi tới một mục chính.
+Anh chị thử tên dự án hoặc xem các dự án dưới đây.
+
+# Nhãn khối trên trang dự án (tpl-project.php), tên dự án ghép từ dữ liệu
+Mỗi phân khu mở bán riêng, có giá, mặt bằng và tiến độ riêng.
+So sánh với các phân khu khác của
+Vị trí và kết nối viết chung cho cả
+
+# Tên mục cố định của trang dự án (tab + tiêu đề khối, chọn khi thiết kế; chữ giao diện có chữ CEO).
+Góc nhìn CEO
+Góc nhìn của CEO

@@ -1,0 +1,105 @@
+# Kiểm tra mỗi PR (bước 4): test đơn vị + ngân sách CSS, bộ NT rút gọn trên staging (Chromium + WebKit iPhone 14),
+# Lighthouse CI. Staging chỉ đọc. Mật khẩu xem staging lấy từ secret STAGING_VIEW_PASSWORD (Settings → Secrets → Actions),
+# chỉ truyền qua biến môi trường, không in, không ghi vào repo. Không cần tài khoản WordPress.
+name: kiem-tra
+on:
+  pull_request:
+  workflow_dispatch:
+# So ảnh mốc (test:visual) ở workflow riêng mot-giao-dien.yml, chỉ chạy tay.
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kiem-tra-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  unit:
+    name: Test đơn vị (PHP, JS, Python) + ngân sách CSS
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false   # ảnh mốc (Git LFS) không cần cho các job này – 0 MB LFS mỗi lần chạy
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: none
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium   # 4 test JS chạy trang mẫu trong Chromium
+      - run: npm run test:unit
+
+  nt:
+    name: Bộ NT rút gọn – ${{ matrix.browser }}
+    runs-on: ubuntu-24.04
+    needs: unit
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - browser: chromium   # M1 1366 @1 · M5 390 @2
+            m1: '1 1366'
+            m5: '2 390'
+          - browser: webkit     # Safari: desktop 1366 @1 · iPhone 14 390 @3
+            m1: '1 1366'
+            m5: '3 390'
+    env:
+      STAGING_VIEW_PASSWORD: ${{ secrets.STAGING_VIEW_PASSWORD }}
+      BROWSER: ${{ matrix.browser }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false   # ảnh mốc (Git LFS) không cần cho các job này – 0 MB LFS mỗi lần chạy
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps ${{ matrix.browser }}
+      - name: Có secret STAGING_VIEW_PASSWORD
+        run: test -n "$STAGING_VIEW_PASSWORD" || { echo "Thiếu secret STAGING_VIEW_PASSWORD"; exit 1; }
+      - name: 6 trang × M1
+        run: node tools/check_ui.mjs --suite tools/suite-pages-ci.txt test-results/nt-${{ matrix.browser }}-m1 ${{ matrix.m1 }}
+      - name: 6 trang × M5
+        run: node tools/check_ui.mjs --suite tools/suite-pages-ci.txt test-results/nt-${{ matrix.browser }}-m5 ${{ matrix.m5 }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nt-${{ matrix.browser }}
+          path: test-results/nt-*
+          retention-days: 14
+
+  lighthouse:
+    name: Lighthouse CI (4 trang, mobile)
+    runs-on: ubuntu-24.04
+    needs: unit
+    env:
+      STAGING_VIEW_PASSWORD: ${{ secrets.STAGING_VIEW_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false   # ảnh mốc (Git LFS) không cần cho các job này – 0 MB LFS mỗi lần chạy
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Có secret STAGING_VIEW_PASSWORD
+        run: test -n "$STAGING_VIEW_PASSWORD" || { echo "Thiếu secret STAGING_VIEW_PASSWORD"; exit 1; }
+      - name: lhci autorun
+        run: CHROME_PATH="$(node -e "console.log(require('playwright').chromium.executablePath())")" npm run test:lhci
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse
+          path: test-results/lhci
+          retention-days: 14

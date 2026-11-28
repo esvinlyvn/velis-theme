@@ -16,26 +16,38 @@ $paged = max( 1, (int) get_query_var( 'paged' ) );
 $q     = new WP_Query( array( 'author' => $u->ID, 'paged' => $paged, 'posts_per_page' => 12 ) );
 $m     = fn( $k ) => trim( (string) get_user_meta( $u->ID, $k, true ) );
 $photo = (int) $m( 'velis_photo' );
-$role  = $m( 'velis_role' ) ?: 'CEO Velis Realty';
+$role  = velis_author_role( $u->ID );
+$hero  = $photo ?: ( $u->display_name === velis_s( 'ceo_name' ) ? (int) velis_s( 'ceo_portrait' ) : 0 ); // header only: the CEO's portrait from Cài đặt Velis
 $years = $m( 'velis_years' );
 $urls  = array_filter( array_merge( array( $m( 'facebook' ), $m( 'twitter' ) ? 'https://x.com/' . ltrim( $m( 'twitter' ), '@' ) : '' ), preg_split( '/\s+/', $m( 'additional_profile_urls' ) ) ) );
 $areas = array();
 foreach ( get_posts( array( 'author' => $u->ID, 'numberposts' => 200, 'fields' => 'ids' ) ) as $id ) {
 	if ( ( $c = velis_primary_category( $id ) ) && velis_is_cluster( $c ) ) {
-		$areas[ $c->term_id ] = '<a href="' . esc_url( get_category_link( $c ) ) . '">' . esc_html( $c->name ) . '</a>';
+		$areas[ $c->term_id ] = array( get_category_link( $c ), $c->name, '' );
 	}
 }
 $facts = array_filter( array(
 	'Kinh nghiệm' => $years ? esc_html( $years . ' năm' ) : '',
-	'Lĩnh vực' => implode( ', ', $areas ),
 	'Mạng xã hội' => implode( ' · ', array_map( fn( $l ) => '<a href="' . esc_url( $l ) . '" rel="me noopener" target="_blank">' . esc_html( wp_parse_url( $l, PHP_URL_HOST ) ) . '</a>', $urls ) ),
 ) );
 $dl  = implode( '', array_map( fn( $k, $v ) => '<div><dt>' . esc_html( $k ) . '</dt><dd>' . $v . '</dd></div>', array_keys( $facts ), $facts ) );
-$out = velis_breadcrumb_html( velis_trail() ) . '<div class="v-wrap"><section class="v-profile' . ( $photo ? ' has-photo' : '' ) . '">' . ( $photo ? velis_img( $photo, $u->display_name, 'medium', array( 'loading' => 'eager', 'class' => 'v-profile__photo' ) ) : '' )
-	. '<div><p class="v-eyebrow">Chuyên gia · ' . esc_html( $role ) . '</p><h1>' . esc_html( $u->display_name ) . ( $paged > 1 ? ' – trang ' . $paged : '' ) . '</h1>'
-	. ( $u->description ? '<p class="v-lead">' . esc_html( $u->description ) . '</p>' : '' ) . ( $dl ? '<dl class="v-overview">' . $dl . '</dl>' : '' )
-	. '<div class="v-row">' . velis_btn( 'Liên hệ ' . $u->display_name, '#tu-van' ) . '</div></div></section></div>';
-$out .= velis_section( velis_sechead( 'Bài viết của ' . $u->display_name, $q->found_posts . ' bài' ) . velis_grid( array_map( 'velis_card_post', $q->posts ), '3' ) . velis_pagination( $q ) );
+$dl .= $areas ? '</dl><p class="muted mb-0">Lĩnh vực</p>' . velis_sidelist( array_values( $areas ) ) . '<dl>' : ''; // 5.5: one link a line under its label, outside the 2-column facts list
+$stats = array_filter( array( 'bài phân tích' => (int) count_user_posts( $u->ID, 'post', true ), 'cụm dự án theo dõi' => count( $areas ), 'năm kinh nghiệm' => (int) $years ) );
+// Profile = hero B (photo when there is one) + the numbers band (mockup) + the facts as the advisor card.
+$out = velis_breadcrumb_html( velis_trail() ) . velis_hero_b( array(
+	'eyebrow' => implode( ' · ', array_filter( array( 'Chuyên gia', $role ) ) ),
+	'title'   => $u->display_name . ( $paged > 1 ? ' – trang ' . $paged : '' ),
+	'lead'    => $u->description,
+	// 5.10: portrait in the header (the author's photo, the CEO's from Cài đặt Velis), contact button under it
+	'buttons' => ( $hero ? velis_img( $hero, $u->display_name, 'medium_large', array( 'zoom' => 1, 'sizes' => '200px', 'class' => 'hero__portrait', 'lcp' => true ) ) : '' )
+		. velis_btn( 'Liên hệ ' . $u->display_name, '#tu-van' ),
+) );
+if ( $stats ) {
+	$out .= velis_section( '<dl class="numbers" aria-label="' . esc_attr( $u->display_name ) . ' bằng con số">' . implode( '', array_map( fn( $k, $v ) => '<div><dt>' . esc_html( $k ) . '</dt><dd>' . esc_html( (string) $v ) . '</dd></div>', array_keys( $stats ), $stats ) ) . '</dl>', '', 'section--tight section--tint' );
+}
+$side = $dl ? '<aside class="page__side" aria-label="Thông tin tác giả"><div class="advisor"><p class="eyebrow">Hồ sơ</p>' . ( $photo ? '<div class="advisor__who"><span class="advisor__img">' . velis_img( $photo, $u->display_name, 'thumbnail', array( 'zoom' => 1, 'sizes' => '80px' ) ) . '</span><p><b>' . esc_html( $u->display_name ) . '</b><span>' . esc_html( $role ) . '</span></p></div>' : '<p class="pricecard__title">' . esc_html( $u->display_name ) . '</p>' ) . '<dl>' . $dl . '</dl></div></aside>' : '';
+$grid = velis_sechead( 'Bài viết của ' . $u->display_name, $q->found_posts . ' bài' ) . '<div class="postlist">' . implode( '', array_map( 'velis_post_row', $q->posts ) ) . '</div>' . velis_pagination( $q ); // item 4: one post per row
+$out .= $side ? '<div class="wrap page"><div class="page__main"><div class="block">' . $grid . '</div><div class="block advisor-inline">' . str_replace( array( '<aside class="page__side" aria-label="Thông tin tác giả">', '</aside>' ), '', $side ) . '</div></div>' . $side . '</div>' : velis_section( $grid );
 $out .= velis_form_html();
 ?>
 <!-- wp:html -->

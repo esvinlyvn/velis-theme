@@ -1,0 +1,112 @@
+{
+ "/can-ho-the-prive/": {
+  "tyLe": 0.9998179832544594,
+  "tong": 5494,
+  "mat": [
+   [
+    "ngay",
+    1
+   ]
+  ]
+ },
+ "/the-global-city/": {
+  "tyLe": 0.9998321020819342,
+  "tong": 5956,
+  "mat": [
+   [
+    "ngay",
+    1
+   ]
+  ]
+ },
+ "/spring-ville/": {
+  "tyLe": 0.9998201115308508,
+  "tong": 5559,
+  "mat": [
+   [
+    "ngay",
+    1
+   ]
+  ]
+ },
+ "/can-ho-palm-river/": {
+  "tyLe": 0.9998420969524712,
+  "tong": 6333,
+  "mat": [
+   [
+    "ngay",
+    1
+   ]
+  ]
+ },
+ "/can-ho-persa-place/": {
+  "tyLe": 0.9998257232485186,
+  "tong": 5738,
+  "mat": [
+   [
+    "ngay",
+    1
+   ]
+  ]
+ },
+ "/vinhomes-saigon-park/": {
+  "tyLe": 0.9998793581855471,
+  "tong": 8289,
+  "mat": [
+   [
+    "ngay",
+    1
+   ]
+  ]
+ },
+ "/gamuda-land/": {
+  "tyLe": 0.9996062992125985,
+  "tong": 2540,
+  "mat": [
+   [
+    "ngay",
+    1
+   ]
+  ]
+ },
+ "/vinhomes/": {
+  "tyLe": 0.9995964487489911,
+  "tong": 2478,
+  "mat": [
+   [
+    "ngay",
+    1
+   ]
+  ]
+ },
+ "/sun-group/": {
+  "tyLe": 0.9995888157894737,
+  "tong": 2432,
+  "mat": [
+   [
+    "ngay",
+    1
+   ]
+  ]
+ },
+ "/masterise-homes/": {
+  "tyLe": 0.9990530303030303,
+  "tong": 1056,
+  "mat": [
+   [
+    "ngay",
+    1
+   ]
+  ]
+ },
+ "/chu-dau-tu/": {
+  "tyLe": 0.9938650306748467,
+  "tong": 163,
+  "mat": [
+   [
+    "ngay",
+    1
+   ]
+  ]
+ }
+}

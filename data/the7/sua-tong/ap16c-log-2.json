@@ -1,0 +1,142 @@
+[
+ {
+  "id": 19855,
+  "slug": "can-ho-persa-place",
+  "giu_chu": 1.0,
+  "chi_chu": [],
+  "widget_sidebar": 0,
+  "khoi": 9,
+  "hoi_dap": 1,
+  "nbg": 1,
+  "luoi": 1
+ },
+ {
+  "id": 19934,
+  "slug": "ansana-by-kita",
+  "giu_chu": 1.0,
+  "chi_chu": [],
+  "widget_sidebar": 0,
+  "khoi": 10,
+  "hoi_dap": 1,
+  "nbg": 1,
+  "luoi": 1
+ },
+ {
+  "id": 19962,
+  "slug": "can-ho-the-prive",
+  "giu_chu": 1.0,
+  "chi_chu": [],
+  "widget_sidebar": 0,
+  "khoi": 10,
+  "hoi_dap": 1,
+  "nbg": 1,
+  "luoi": 1
+ },
+ {
+  "id": 20360,
+  "slug": "vinhomes-saigon-park",
+  "giu_chu": 1.0,
+  "chi_chu": [],
+  "widget_sidebar": 0,
+  "khoi": 9,
+  "hoi_dap": 0,
+  "nbg": 1,
+  "luoi": 1
+ },
+ {
+  "id": 20422,
+  "slug": "can-ho-palm-river",
+  "giu_chu": 1.0,
+  "chi_chu": [],
+  "widget_sidebar": 0,
+  "khoi": 10,
+  "hoi_dap": 1,
+  "nbg": 1,
+  "luoi": 1
+ },
+ {
+  "id": 20067,
+  "slug": "the-global-city",
+  "giu_chu": 1.0,
+  "chi_chu": [],
+  "widget_sidebar": 0,
+  "khoi": 10,
+  "hoi_dap": 1,
+  "nbg": 1,
+  "luoi": 1
+ },
+ {
+  "id": 19773,
+  "slug": "spring-ville",
+  "giu_chu": 1.0,
+  "chi_chu": [],
+  "widget_sidebar": 0,
+  "khoi": 11,
+  "hoi_dap": 1,
+  "nbg": 1,
+  "luoi": 1
+ },
+ {
+  "id": 19593,
+  "slug": "vinhomes",
+  "giu_chu": 1.0,
+  "chi_chu": [],
+  "widget_sidebar": 0,
+  "khoi": 3,
+  "hoi_dap": 1,
+  "nbg": 1,
+  "luoi": 2,
+  "rev_truoc": 21207,
+  "rev_sau": 21212
+ },
+ {
+  "id": 19625,
+  "slug": "sun-group",
+  "giu_chu": 1.0,
+  "chi_chu": [],
+  "widget_sidebar": 0,
+  "khoi": 5,
+  "hoi_dap": 1,
+  "nbg": 1,
+  "luoi": 0,
+  "rev_truoc": 21208,
+  "rev_sau": 21213
+ },
+ {
+  "id": 19633,
+  "slug": "masterise-homes",
+  "giu_chu": 1.0,
+  "chi_chu": [],
+  "widget_sidebar": 0,
+  "khoi": 3,
+  "hoi_dap": 1,
+  "nbg": 1,
+  "luoi": 2,
+  "rev_truoc": 21209,
+  "rev_sau": 21214
+ },
+ {
+  "id": 19637,
+  "slug": "gamuda-land",
+  "giu_chu": 1.0,
+  "chi_chu": [],
+  "widget_sidebar": 0,
+  "khoi": 5,
+  "hoi_dap": 1,
+  "nbg": 1,
+  "luoi": 2,
+  "rev_truoc": 21210,
+  "rev_sau": 21215
+ },
+ {
+  "id": 20955,
+  "slug": "chu-dau-tu",
+  "giu_chu": 1.0,
+  "chi_chu": [],
+  "widget_sidebar": 0,
+  "khoi": 0,
+  "hoi_dap": 0,
+  "nbg": 1,
+  "luoi": 0
+ }
+]

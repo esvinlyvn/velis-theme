@@ -1,0 +1,32 @@
+# Tên riêng dự án / phân khu / chủ đầu tư (staging, đọc 2026-11-11) – dùng cho tools/check_hardcode.py (so không dấu, nguyên từ).
+# Tên chung (nhà phố, shophouse, biệt thự…) không có ở đây.
+Ansana
+Kita
+Berjaya
+Gamuda
+Masterise
+Masteri
+Vinhomes
+Sun Group
+Đất Xanh
+Ecopark
+Global City
+Global Park
+Ivy Park
+Laguna Park
+Zen Park
+Golf Park
+Lumière
+Midtown
+Palm City
+Palm River
+Persa
+Spring Ville
+Stella
+The Privé
+Saigon Park
+Cosmo Central
+Grand View
+Park Place
+# Người (CEO) – tên lấy từ Cài đặt Velis
+Vũ Xuân

@@ -1,0 +1,182 @@
+{
+ "cuoi-trang 1536": {
+  "start": {
+   "text": "Nhận tư vấn",
+   "bg": "rgb(184, 40, 46)",
+   "disabled": false,
+   "h": 52
+  },
+  "labels": [
+   {
+    "nhan": "Họ và tên",
+    "placeholder": ""
+   },
+   {
+    "nhan": "Số điện thoại / Zalo",
+    "placeholder": "Ví dụ: 0911 237 979"
+   }
+  ],
+  "row": "1 hàng",
+  "s1": {
+   "tips": [
+    "Anh chị vui lòng đánh dấu đồng ý để Velis Realty liên hệ."
+   ],
+   "focus": "checkbox:dong-y",
+   "bg": "rgb(184, 40, 46)"
+  },
+  "s2": {
+   "tips": [
+    "Số điện thoại gồm 10 chữ số, bắt đầu bằng 0 (ví dụ 0911 237 979)."
+   ],
+   "focus": "tel:sdt"
+  },
+  "during": {
+   "value": "Đang gửi…",
+   "bg": "rgb(184, 40, 46)"
+  },
+  "thanks": "Cảm ơn anh chị đã gửi thông tin. Velis Realty sẽ gọi lại sớm; cần gấp, anh chị gọi hotline 0911 237 979.",
+  "requests": 3,
+  "sent": {
+   "du-an": "",
+   "utm_source": "thu",
+   "utm_medium": "kiem-tra",
+   "utm_campaign": "b13"
+  },
+  "samePage": true
+ },
+ "cuoi-trang 390": {
+  "start": {
+   "text": "Nhận tư vấn",
+   "bg": "rgb(184, 40, 46)",
+   "disabled": false,
+   "h": 52
+  },
+  "labels": [
+   {
+    "nhan": "Họ và tên",
+    "placeholder": ""
+   },
+   {
+    "nhan": "Số điện thoại / Zalo",
+    "placeholder": "Ví dụ: 0911 237 979"
+   }
+  ],
+  "row": "xếp dọc",
+  "s1": {
+   "tips": [
+    "Anh chị vui lòng đánh dấu đồng ý để Velis Realty liên hệ."
+   ],
+   "focus": "checkbox:dong-y",
+   "bg": "rgb(158, 31, 38)"
+  },
+  "s2": {
+   "tips": [
+    "Số điện thoại gồm 10 chữ số, bắt đầu bằng 0 (ví dụ 0911 237 979)."
+   ],
+   "focus": "tel:sdt"
+  },
+  "during": {
+   "value": "Đang gửi…",
+   "bg": "rgb(158, 31, 38)"
+  },
+  "thanks": "Cảm ơn anh chị đã gửi thông tin. Velis Realty sẽ gọi lại sớm; cần gấp, anh chị gọi hotline 0911 237 979.",
+  "requests": 3,
+  "sent": {
+   "du-an": "",
+   "utm_source": "thu",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  "samePage": true
+ },
+ "du-an 1536": {
+  "start": {
+   "text": "Nhận bảng giá ngay",
+   "bg": "rgb(184, 40, 46)",
+   "disabled": false,
+   "h": 52
+  },
+  "labels": [
+   {
+    "nhan": "Họ và tên",
+    "placeholder": ""
+   },
+   {
+    "nhan": "Số điện thoại / Zalo",
+    "placeholder": "Ví dụ: 0911 237 979"
+   }
+  ],
+  "row": "1 hàng",
+  "s1": {
+   "tips": [
+    "Anh chị vui lòng đánh dấu đồng ý để Velis Realty liên hệ."
+   ],
+   "focus": "checkbox:dong-y",
+   "bg": "rgb(158, 31, 38)"
+  },
+  "s2": {
+   "tips": [
+    "Số điện thoại gồm 10 chữ số, bắt đầu bằng 0 (ví dụ 0911 237 979)."
+   ],
+   "focus": "tel:sdt"
+  },
+  "during": {
+   "value": "Đang gửi…",
+   "bg": "rgb(158, 31, 38)"
+  },
+  "thanks": "Cảm ơn anh chị đã gửi thông tin. Velis Realty sẽ gọi lại sớm; cần gấp, anh chị gọi hotline 0911 237 979.",
+  "requests": 3,
+  "sent": {
+   "du-an": "The Privé",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  "samePage": true
+ },
+ "bai 1536": {
+  "start": {
+   "text": "Nhận bảng giá ngay",
+   "bg": "rgb(184, 40, 46)",
+   "disabled": false,
+   "h": 52
+  },
+  "labels": [
+   {
+    "nhan": "Họ và tên",
+    "placeholder": ""
+   },
+   {
+    "nhan": "Số điện thoại / Zalo",
+    "placeholder": "Ví dụ: 0911 237 979"
+   }
+  ],
+  "row": "xếp dọc",
+  "s1": {
+   "tips": [
+    "Anh chị vui lòng đánh dấu đồng ý để Velis Realty liên hệ."
+   ],
+   "focus": "checkbox:dong-y",
+   "bg": "rgb(158, 31, 38)"
+  },
+  "s2": {
+   "tips": [
+    "Số điện thoại gồm 10 chữ số, bắt đầu bằng 0 (ví dụ 0911 237 979)."
+   ],
+   "focus": "tel:sdt"
+  },
+  "during": {
+   "value": "Đang gửi…",
+   "bg": "rgb(158, 31, 38)"
+  },
+  "thanks": "Cảm ơn anh chị đã gửi thông tin. Velis Realty sẽ gọi lại sớm; cần gấp, anh chị gọi hotline 0911 237 979.",
+  "requests": 3,
+  "sent": {
+   "du-an": "Palm River",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  "samePage": true
+ }
+}

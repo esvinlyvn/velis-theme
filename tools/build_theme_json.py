@@ -44,7 +44,7 @@ theme = {
     'version': 3,
     'settings': {
         'appearanceTools': True,
-        'useRootPaddingAwareAlignments': True,
+        'useRootPaddingAwareAlignments': False,
         'color': {'defaultPalette': False, 'defaultGradients': False, 'defaultDuotone': False, 'custom': False,
                   'customGradient': False,
                   'palette': [{'slug': k, 'name': NAMES[k], 'color': v} for k, v in C.items() if k in NAMES]},
@@ -58,44 +58,23 @@ theme = {
             ],
             'fontSizes': [size(n) for n in SIZES],
         },
-        'spacing': {'defaultSpacingSizes': False, 'units': ['px', 'rem', '%', 'vw'],
+        'spacing': {'defaultSpacingSizes': False, 'blockGap': None, 'units': ['px', 'rem', '%', 'vw'],
                     'spacingSizes': [{'slug': k, 'name': k, 'size': v} for k, v in SP.items() if k.isdigit()]},
-        'layout': {'contentSize': L['reading'], 'wideSize': L['content']},
+        'layout': {'contentSize': L['reading-column'], 'wideSize': L['content']},  # 760 px reading column (the 664 px measure was dropped 2026-11-11)
         'custom': {'radius': T['rounded'], 'shadow': T['elevation'], 'motion': T['motion'],
-                   'section': {'desktop': SP['section-desktop'], 'mobile': SP['section-mobile']},
+                   'section': {'desktop': SP['section-desktop'], 'tablet': SP['section-tablet'], 'mobile': SP['section-mobile']},
                    'gutter': {'desktop': L['gutter-desktop'], 'mobile': L['gutter-mobile']}},
         'shadow': {'defaultPresets': False, 'presets': [{'slug': k, 'name': k, 'shadow': v} for k, v in T['elevation'].items()]},
     },
-    'styles': {
-        'color': {'background': 'var(--wp--preset--color--canvas)', 'text': 'var(--wp--preset--color--ink)'},
-        'typography': {'fontFamily': FONT['body'], 'fontSize': 'var(--wp--preset--font-size--body)', 'lineHeight': str(TY['body']['lineHeight'])},
-        'spacing': {'blockGap': 'var(--wp--preset--spacing--6)',
-                    'padding': {'left': 'var(--wp--custom--gutter--mobile)', 'right': 'var(--wp--custom--gutter--mobile)'}},
-        'elements': {
-            **{h: heading(h) for h in ('h1', 'h2', 'h3', 'h4')},
-            'link': {'color': {'text': 'var(--wp--preset--color--velis-red)'},
-                     ':hover': {'color': {'text': 'var(--wp--preset--color--velis-red-hover)'}}},
-            'button': {'color': {'background': 'var(--wp--preset--color--velis-red)', 'text': 'var(--wp--preset--color--on-dark)'},
-                       'border': {'radius': T['rounded']['sm']},
-                       'typography': {'fontFamily': FONT['body'], 'fontWeight': str(TY['button']['fontWeight']),
-                                      'fontSize': TY['button']['desktop'], 'lineHeight': str(TY['button']['lineHeight'])},
-                       'spacing': {'padding': {'top': '14px', 'bottom': '14px', 'left': '28px', 'right': '28px'}},
-                       ':hover': {'color': {'background': 'var(--wp--preset--color--velis-red-hover)'}},
-                       ':focus': {'outline': {'color': 'var(--wp--preset--color--ink)', 'width': '2px', 'style': 'solid', 'offset': '2px'}}},
-            'caption': {'typography': {'fontSize': 'var(--wp--preset--font-size--caption)'}, 'color': {'text': 'var(--wp--preset--color--body-muted)'}},
-        },
-        'blocks': {
-            'core/image': {'border': {'radius': T['rounded']['none']}},
-            'core/separator': {'color': {'text': 'var(--wp--preset--color--hairline)'}},
-            'core/quote': {'border': {'left': {'color': 'var(--wp--preset--color--champagne)', 'width': '2px', 'style': 'solid'}}},
-        },
-    },
+    # no global styles: the front end and the editor use the theme CSS (theme/velis/css → assets/velis.min.css) whose tokens are
+    # checked against DESIGN.md (tools/build_css.py); element / block styles here would out-rank it (:root :where()) and
+    # blockGap would add margins between template blocks outside the space scale (bước 3, 2.3)
+    'styles': {},
     'templateParts': [{'name': 'header', 'title': 'Header', 'area': 'header'}, {'name': 'footer', 'title': 'Footer', 'area': 'footer'}],
-    'customTemplates': [{'name': 'page-style-guide', 'title': 'Style guide Velis', 'postTypes': ['page']}],
 }
 
 if __name__ == '__main__':
-    assert C['velis-red'] == '#B8282E' and TY['h1']['desktop'] == '48px', 'token lệch BRIEF.md'
+    assert C['velis-red'] == '#B8282E' and TY['h1']['desktop'] == '56px', 'token lệch BRIEF.md / DESIGN.md 1.3'  # H1 56 px: thang chữ 1.3, người dùng chốt 2026-11-05
     out = os.path.join(ROOT, 'theme', 'velis', 'theme.json')
     with open(out, 'w', encoding='utf-8') as f:
         json.dump(theme, f, ensure_ascii=False, indent='\t')

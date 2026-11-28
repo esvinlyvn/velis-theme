@@ -1,0 +1,735 @@
+[
+ {
+  "name": "trang-chu",
+  "d": "iphone14",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "is-marked vi-tri-ansana-by-kita.webp",
+    "is-marked phoi-canh-spring-ville.webp",
+    "is-marked the-global-city-3-1.webp",
+    "is-marked vinhomes-saigon-park-2.webp",
+    "partners gamuda-land.webp",
+    "partners masterise-homes.webp",
+    "partners sun-group.webp",
+    "partners vinhomes.webp",
+    "is-marked thap-tang-vinhomes-saigon-park.webp",
+    "is-marked tiem-nang-nam-rach-chiec-2028.webp",
+    "is-marked can-ho-mat-tien-ton-duc-thang-nhon-trach.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  },
+  "pdfEmpty": [
+   "partners gamuda-land.webp",
+   "partners masterise-homes.webp",
+   "partners sun-group.webp",
+   "partners vinhomes.webp",
+   "is-marked thap-tang-vinhomes-saigon-park-768x573.webp",
+   "is-marked tiem-nang-nam-rach-chiec-2028-768x573.webp",
+   "is-marked can-ho-mat-tien-ton-duc-thang-nhon-trach-768x573.webp",
+   "footer__grid velis-logo-horizontal-white.svg"
+  ]
+ },
+ {
+  "name": "the-global-city",
+  "d": "iphone14",
+  "scr": {
+   "notLoaded": [],
+   "tables": [
+    "dòng 1 từ: Tên dự án",
+    "dòng 1 từ: Chủ đầu tư",
+    "dòng 1 từ: Thiết kế kiến trúc",
+    "dòng 1 từ: Thiết kế cảnh quan",
+    "dòng 1 từ: Giám sát dự án",
+    "dòng 1 từ: Tư vấn thiết kế",
+    "dòng 1 từ: Nhà thầu thi công",
+    "dòng 1 từ: Quy mô dự án",
+    "dòng 1 từ: Mật độ xây dựng",
+    "dòng 1 từ: Loại hình phát triển",
+    "dòng 1 từ: Thời gian xây dựng",
+    "dòng 1 từ: Hình thức sở hữu",
+    "dòng 1 từ: Thời gian bàn giao",
+    "dòng 1 từ: • Từ tháng 11/2023 (đối với phân khu thấ"
+   ],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "advisor__img ceo-vu-xuan-160.webp",
+    "is-marked phoi-canh-masteri-park-place.webp",
+    "is-marked phoi-canh-masteri-park-place.webp",
+    "is-marked shophouse-soho-tgc.webp",
+    "is-marked phoi-canh-masteri-cosmo.webp",
+    "is-marked phoi-canh-sola.webp",
+    "is-marked mat-bang-the-global-city.webp",
+    "is-marked vi-tri-the-global-city.webp",
+    "is-marked the-global-city-3.webp",
+    "is-marked suc-hut-dau-tu-the-global-city.webp",
+    "is-marked the-global-city-3.webp",
+    "is-marked suc-hut-dau-tu-the-global-city.webp",
+    "is-marked shophouse-soho-tgc.webp",
+    "is-marked phoi-canh-masteri-cosmo.webp",
+    "is-marked phoi-canh-sola.webp",
+    "is-marked phoi-canh-masteri-park-place.webp",
+    "is-plan vi-tri-the-global-city.webp",
+    "is-plan mat-bang-the-global-city-1024x577.webp",
+    "pic hqdefault.jpg",
+    "is-marked khu-pho-thuong-mai-soho-fb.webp",
+    "is-marked bat-dong-san-tich-san-truyen-doi.webp",
+    "is-marked suc-hut-dau-tu-the-global-city-1.webp",
+    "is-marked thanh-khoan-vi-tri-can-goc.webp",
+    "is-marked thiet-ke-shophouse-soho.webp",
+    "is-marked lai-suat-vay-mua-nha-2026.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  },
+  "pdfEmpty": [
+   "is-marked phoi-canh-lumiere-mid-town.webp",
+   "is-marked phoi-canh-masteri-park-place-768x456.webp",
+   "is-marked phoi-canh-masteri-park-place-1024x608.webp",
+   "is-marked shophouse-soho-tgc-1024x576.webp",
+   "is-marked phoi-canh-masteri-cosmo-1024x576.webp",
+   "is-marked phoi-canh-sola-1024x579.webp",
+   "is-marked mat-bang-the-global-city-1024x577.webp",
+   "is-marked vi-tri-the-global-city-1024x460.webp",
+   "is-marked the-global-city-3-1024x736.webp",
+   "is-marked suc-hut-dau-tu-the-global-city-1024x765.webp",
+   "is-marked phoi-canh-the-global-city.webp",
+   "is-marked the-global-city-3-1024x736.webp",
+   "is-marked suc-hut-dau-tu-the-global-city-1024x765.webp",
+   "is-marked shophouse-soho-tgc-1024x576.webp",
+   "is-marked phoi-canh-masteri-cosmo-1024x576.webp",
+   "is-marked phoi-canh-sola-1024x579.webp",
+   "is-marked can-ho-masteri-grand-view.webp",
+   "is-marked phoi-canh-lumiere-mid-town.webp",
+   "is-marked phoi-canh-masteri-park-place-1024x608.webp",
+   "is-plan vi-tri-the-global-city-1024x460.webp",
+   "is-plan mat-bang-the-global-city-1024x577.webp",
+   "pic hqdefault.jpg",
+   "is-marked khu-pho-thuong-mai-soho-fb-768x573.webp",
+   "is-marked bat-dong-san-tich-san-truyen-doi-768x573.webp",
+   "is-marked suc-hut-dau-tu-the-global-city-1-768x573.webp",
+   "is-marked thanh-khoan-vi-tri-can-goc-768x573.webp",
+   "is-marked thiet-ke-shophouse-soho-768x573.webp",
+   "is-marked lai-suat-vay-mua-nha-2026-768x573.webp",
+   "footer__grid velis-logo-horizontal-white.svg"
+  ]
+ },
+ {
+  "name": "the-prive",
+  "d": "iphone14",
+  "scr": {
+   "notLoaded": [],
+   "tables": [
+    "dòng 1 từ: Mảng xanh & Mặt nước"
+   ],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "advisor__img ceo-vu-xuan-160.webp",
+    "attachment-large can-ho-1pn-the-prive-1024x683.webp",
+    "is-marked loi-nhuan-dau-tu-the-prive.webp",
+    "is-marked mat-bang-thap-9-the-prive.webp",
+    "is-marked can-ho-1pn-the-prive-1024x683.webp",
+    "is-marked can-ho-2pn-the-prive-1024x683.webp",
+    "is-marked can-ho-3pn-the-prive-1024x683.webp",
+    "is-marked can-ho-1pn-the-prive-1024x683.webp",
+    "is-marked can-ho-2pn-the-prive-1024x683.webp",
+    "is-marked can-ho-3pn-the-prive-1024x683.webp",
+    "is-marked loi-nhuan-dau-tu-the-prive.webp",
+    "is-plan vi-tri-chien-luoc-the-prive-1024x568.webp",
+    "is-plan mat-bang-thap-9-the-prive-1024x683.webp",
+    "is-plan vi-tri-du-an-the-prive-2-1024x765.webp",
+    "is-plan khoang-cach-di-chuyen-the-prive-1024x765.webp",
+    "is-marked tien-do-the-prive-01.webp",
+    "is-marked tien-do-the-prive-02.webp",
+    "is-marked tien-do-the-prive-03.webp",
+    "is-marked tien-do-the-prive-04.webp",
+    "is-marked tien-do-the-prive-01.webp",
+    "is-marked tien-do-the-prive-02.webp",
+    "is-marked tien-do-the-prive-03.webp",
+    "is-marked tien-do-the-prive-04.webp",
+    "is-marked velis-realty-f1-the-prive.webp",
+    "is-marked tiem-nang-nam-rach-chiec-2028.webp",
+    "is-marked rui-ro-dau-tu-the-prive.webp",
+    "is-marked loi-nhuan-dau-tu-the-prive-1.webp",
+    "is-marked penthouse-duplex-the-prive.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  },
+  "pdfEmpty": [
+   "attachment-large can-ho-1pn-the-prive-1024x683.webp",
+   "is-marked loi-nhuan-dau-tu-the-prive-1024x765.webp",
+   "is-marked mat-bang-thap-9-the-prive-1024x683.webp",
+   "is-marked can-ho-1pn-the-prive-1024x683.webp",
+   "is-marked can-ho-2pn-the-prive-1024x683.webp",
+   "is-marked can-ho-3pn-the-prive-1024x683.webp",
+   "is-marked kinh-doanh-airbnb-the-prive.webp",
+   "is-marked can-ho-1pn-the-prive-1024x683.webp",
+   "is-marked can-ho-2pn-the-prive-1024x683.webp",
+   "is-marked can-ho-3pn-the-prive-1024x683.webp",
+   "is-marked loi-nhuan-dau-tu-the-prive-1024x765.webp",
+   "is-plan vi-tri-chien-luoc-the-prive-1024x568.webp",
+   "is-plan mat-bang-thap-9-the-prive-1024x683.webp",
+   "is-plan vi-tri-du-an-the-prive-2-1024x765.webp",
+   "is-plan khoang-cach-di-chuyen-the-prive-1024x765.webp",
+   "is-marked tien-do-the-prive-01-1024x576.webp",
+   "is-marked tien-do-the-prive-02-1024x576.webp",
+   "is-marked tien-do-the-prive-03-1024x576.webp",
+   "is-marked tien-do-the-prive-04-1024x576.webp",
+   "is-marked tien-do-the-prive-01-1024x576.webp",
+   "is-marked tien-do-the-prive-02-1024x576.webp",
+   "is-marked tien-do-the-prive-03-1024x576.webp",
+   "is-marked tien-do-the-prive-04-1024x576.webp",
+   "is-marked velis-realty-f1-the-prive-768x512.webp",
+   "is-marked tiem-nang-nam-rach-chiec-2028-768x573.webp",
+   "is-marked rui-ro-dau-tu-the-prive-768x573.webp",
+   "is-marked loi-nhuan-dau-tu-the-prive-1-768x573.webp",
+   "is-marked penthouse-duplex-the-prive-768x573.webp",
+   "footer__grid velis-logo-horizontal-white.svg"
+  ]
+ },
+ {
+  "name": "masteri-park-place",
+  "d": "iphone14",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "advisor__img ceo-vu-xuan-160.webp",
+    "is-marked the-global-city-3-1-600x431.webp",
+    "attachment-large ban-do-khu-vuc-nam-rach-chiec.webp",
+    "is-marked khu-pho-thuong-mai-soho-fb.webp",
+    "is-marked bat-dong-san-tich-san-truyen-doi.webp",
+    "is-marked suc-hut-dau-tu-the-global-city-1.webp",
+    "is-marked thanh-khoan-vi-tri-can-goc.webp",
+    "is-marked thiet-ke-shophouse-soho.webp",
+    "is-marked lai-suat-vay-mua-nha-2026.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  },
+  "pdfEmpty": [
+   "is-marked khu-pho-thuong-mai-soho-fb-768x573.webp",
+   "is-marked bat-dong-san-tich-san-truyen-doi-768x573.webp",
+   "is-marked suc-hut-dau-tu-the-global-city-1-768x573.webp",
+   "is-marked thanh-khoan-vi-tri-can-goc-768x573.webp",
+   "is-marked thiet-ke-shophouse-soho-768x573.webp",
+   "is-marked lai-suat-vay-mua-nha-2026-768x573.webp",
+   "footer__grid velis-logo-horizontal-white.svg"
+  ]
+ },
+ {
+  "name": "nha-pho-spring-ville",
+  "d": "iphone14",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "is-marked phoi-canh-spring-ville-768x349.webp",
+    "attachment-large ban-do-khu-vuc-nhon-trach-long-thanh.webp",
+    "is-marked thiet-ke-biophilic-persa-place-nhon-trach.webp",
+    "is-marked tieu-chuan-ban-giao-persa-place-gamuda-land.webp",
+    "is-marked can-ho-mat-tien-ton-duc-thang-nhon-trach.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  },
+  "pdfEmpty": [
+   "footer__grid velis-logo-horizontal-white.svg"
+  ]
+ },
+ {
+  "name": "bai-tgc",
+  "d": "iphone14",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "is-marked the-global-city-3-1.webp",
+    "is-marked bat-dong-san-tich-san-truyen-doi.webp",
+    "is-marked suc-hut-dau-tu-the-global-city-1.webp",
+    "is-marked thanh-khoan-vi-tri-can-goc.webp",
+    "is-marked thiet-ke-shophouse-soho.webp",
+    "is-marked lai-suat-vay-mua-nha-2026.webp",
+    "is-marked so-sanh-phu-my-hung-the-global-city.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  },
+  "pdfEmpty": [
+   "is-marked bat-dong-san-tich-san-truyen-doi-768x573.webp",
+   "is-marked suc-hut-dau-tu-the-global-city-1-768x573.webp",
+   "is-marked thanh-khoan-vi-tri-can-goc-768x573.webp",
+   "is-marked thiet-ke-shophouse-soho-768x573.webp",
+   "is-marked lai-suat-vay-mua-nha-2026-768x573.webp",
+   "is-marked so-sanh-phu-my-hung-the-global-city-768x573.webp",
+   "footer__grid velis-logo-horizontal-white.svg"
+  ]
+ },
+ {
+  "name": "du-an",
+  "d": "iphone14",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "is-marked vi-tri-ansana-by-kita.webp",
+    "is-marked phoi-canh-spring-ville.webp",
+    "is-marked can-ho-the-prive.webp",
+    "is-marked vinhomes-saigon-park-2.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  },
+  "pdfEmpty": [
+   "footer__grid velis-logo-horizontal-white.svg"
+  ]
+ },
+ {
+  "name": "trang-chu",
+  "d": "iphonese",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "is-marked vi-tri-ansana-by-kita-768x573.webp",
+    "is-marked phoi-canh-spring-ville.webp",
+    "is-marked the-global-city-3-1-768x552.webp",
+    "is-marked can-ho-the-prive-900x506.webp",
+    "is-marked vinhomes-saigon-park-2-768x512.webp",
+    "partners gamuda-land.webp",
+    "partners masterise-homes.webp",
+    "partners sun-group.webp",
+    "partners vinhomes.webp",
+    "is-marked thap-tang-vinhomes-saigon-park-768x573.webp",
+    "is-marked tiem-nang-nam-rach-chiec-2028-768x573.webp",
+    "is-marked can-ho-mat-tien-ton-duc-thang-nhon-trach-768x573.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  }
+ },
+ {
+  "name": "the-global-city",
+  "d": "iphonese",
+  "scr": {
+   "notLoaded": [],
+   "tables": [
+    "dòng 1 từ: Tên dự án",
+    "dòng 1 từ: Vị trí",
+    "dòng 1 từ: Chủ đầu tư",
+    "cắt giữa từ \"Thiết\"",
+    "cắt giữa từ \"kiến\"",
+    "cắt giữa từ \"trúc\"",
+    "dòng 1 từ: Thiết kế kiến trúc",
+    "cắt giữa từ \"Thiết\"",
+    "cắt giữa từ \"cảnh\"",
+    "cắt giữa từ \"quan\"",
+    "dòng 1 từ: Thiết kế cảnh quan",
+    "cắt giữa từ \"Giám\"",
+    "dòng 1 từ: Giám sát dự án",
+    "cắt giữa từ \"thiết\"",
+    "dòng 1 từ: Tư vấn thiết kế",
+    "cắt giữa từ \"thầu\"",
+    "cắt giữa từ \"công\"",
+    "dòng 1 từ: Nhà thầu thi công",
+    "dòng 1 từ: Quy mô dự án",
+    "cắt giữa từ \"dựng\"",
+    "dòng 1 từ: Mật độ xây dựng",
+    "cắt giữa từ \"Loại\"",
+    "cắt giữa từ \"hình\"",
+    "cắt giữa từ \"phát\"",
+    "cắt giữa từ \"triển\"",
+    "dòng 1 từ: Loại hình phát triển",
+    "cắt giữa từ \"Thời\"",
+    "cắt giữa từ \"gian\"",
+    "cắt giữa từ \"dựng\"",
+    "dòng 1 từ: Thời gian xây dựng",
+    "cắt giữa từ \"Hình\"",
+    "cắt giữa từ \"thức\"",
+    "dòng 1 từ: Hình thức sở hữu",
+    "cắt giữa từ \"Thời\"",
+    "cắt giữa từ \"gian\"",
+    "cắt giữa từ \"giao\"",
+    "dòng 1 từ: Thời gian bàn giao"
+   ],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "advisor__img ceo-vu-xuan-160.webp",
+    "is-marked phoi-canh-masteri-park-place-900x535.webp",
+    "is-marked phoi-canh-masteri-park-place-768x456.webp",
+    "is-marked shophouse-soho-tgc-768x432.webp",
+    "is-marked phoi-canh-masteri-cosmo-768x432.webp",
+    "is-marked phoi-canh-sola-768x434.webp",
+    "is-marked mat-bang-the-global-city-768x433.webp",
+    "is-marked vi-tri-the-global-city-768x345.webp",
+    "is-marked the-global-city-3-768x552.webp",
+    "is-marked suc-hut-dau-tu-the-global-city-768x573.webp",
+    "is-marked the-global-city-3-600x431.webp",
+    "is-marked suc-hut-dau-tu-the-global-city-600x448.webp",
+    "is-marked shophouse-soho-tgc-600x338.webp",
+    "is-marked phoi-canh-masteri-cosmo-600x338.webp",
+    "is-marked phoi-canh-sola-600x339.webp",
+    "is-marked can-ho-masteri-grand-view-600x448.webp",
+    "is-marked phoi-canh-lumiere-mid-town-600x400.webp",
+    "is-marked phoi-canh-masteri-park-place-600x357.webp",
+    "is-plan vi-tri-the-global-city-768x345.webp",
+    "is-plan mat-bang-the-global-city-600x338.webp",
+    "pic hqdefault.jpg",
+    "is-marked khu-pho-thuong-mai-soho-fb-768x573.webp",
+    "is-marked bat-dong-san-tich-san-truyen-doi-768x573.webp",
+    "is-marked suc-hut-dau-tu-the-global-city-1-768x573.webp",
+    "is-marked thanh-khoan-vi-tri-can-goc-768x573.webp",
+    "is-marked thiet-ke-shophouse-soho-768x573.webp",
+    "is-marked lai-suat-vay-mua-nha-2026-768x573.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  }
+ },
+ {
+  "name": "the-prive",
+  "d": "iphonese",
+  "scr": {
+   "notLoaded": [],
+   "tables": [
+    "dòng 1 từ: Mật độ xây dựng",
+    "dòng 1 từ: Mảng xanh & Mặt nước",
+    "dòng 1 từ: Cơ cấu sản phẩm",
+    "dòng 1 từ: Thiết kế kiến trúc",
+    "dòng 1 từ: Tổng thầu thi công",
+    "dòng 1 từ: Vận hành dự kiến",
+    "dòng 1 từ: Thời gian bàn giao"
+   ],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "advisor__img ceo-vu-xuan-160.webp",
+    "attachment-large can-ho-1pn-the-prive-768x512.webp",
+    "is-marked loi-nhuan-dau-tu-the-prive-768x573.webp",
+    "is-marked mat-bang-thap-9-the-prive-768x512.webp",
+    "is-marked can-ho-1pn-the-prive-768x512.webp",
+    "is-marked can-ho-2pn-the-prive-768x512.webp",
+    "is-marked can-ho-3pn-the-prive-768x512.webp",
+    "is-marked kinh-doanh-airbnb-the-prive-600x448.webp",
+    "is-marked can-ho-1pn-the-prive-600x400.webp",
+    "is-marked can-ho-2pn-the-prive-600x400.webp",
+    "is-marked can-ho-3pn-the-prive-600x400.webp",
+    "is-marked loi-nhuan-dau-tu-the-prive-600x448.webp",
+    "is-plan vi-tri-chien-luoc-the-prive-600x333.webp",
+    "is-plan mat-bang-thap-9-the-prive-600x400.webp",
+    "is-plan vi-tri-du-an-the-prive-2-600x448.webp",
+    "is-plan khoang-cach-di-chuyen-the-prive-600x448.webp",
+    "is-marked tien-do-the-prive-01-600x338.webp",
+    "is-marked tien-do-the-prive-02-600x338.webp",
+    "is-marked tien-do-the-prive-03-600x338.webp",
+    "is-marked tien-do-the-prive-04-600x338.webp",
+    "is-marked tien-do-the-prive-01-900x506.webp",
+    "is-marked tien-do-the-prive-02-900x506.webp",
+    "is-marked tien-do-the-prive-03-900x506.webp",
+    "is-marked tien-do-the-prive-04-900x506.webp",
+    "is-marked velis-realty-f1-the-prive-768x512.webp",
+    "is-marked tiem-nang-nam-rach-chiec-2028-768x573.webp",
+    "is-marked rui-ro-dau-tu-the-prive-768x573.webp",
+    "is-marked loi-nhuan-dau-tu-the-prive-1-768x573.webp",
+    "is-marked penthouse-duplex-the-prive-768x573.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  }
+ },
+ {
+  "name": "masteri-park-place",
+  "d": "iphonese",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "advisor__img ceo-vu-xuan-160.webp",
+    "is-marked the-global-city-3-1-300x216.webp",
+    "attachment-large ban-do-khu-vuc-nam-rach-chiec-600x338.webp",
+    "is-marked khu-pho-thuong-mai-soho-fb-768x573.webp",
+    "is-marked bat-dong-san-tich-san-truyen-doi-768x573.webp",
+    "is-marked suc-hut-dau-tu-the-global-city-1-768x573.webp",
+    "is-marked thanh-khoan-vi-tri-can-goc-768x573.webp",
+    "is-marked thiet-ke-shophouse-soho-768x573.webp",
+    "is-marked lai-suat-vay-mua-nha-2026-768x573.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  }
+ },
+ {
+  "name": "nha-pho-spring-ville",
+  "d": "iphonese",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "is-marked phoi-canh-spring-ville-600x273.webp",
+    "attachment-large ban-do-khu-vuc-nhon-trach-long-thanh-600x338.webp",
+    "is-marked thiet-ke-biophilic-persa-place-nhon-trach-768x573.webp",
+    "is-marked tieu-chuan-ban-giao-persa-place-gamuda-land-768x573.webp",
+    "is-marked can-ho-mat-tien-ton-duc-thang-nhon-trach-768x573.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  }
+ },
+ {
+  "name": "bai-tgc",
+  "d": "iphonese",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "is-marked the-global-city-3-1-768x552.webp",
+    "is-marked bat-dong-san-tich-san-truyen-doi-768x573.webp",
+    "is-marked suc-hut-dau-tu-the-global-city-1-768x573.webp",
+    "is-marked thanh-khoan-vi-tri-can-goc-768x573.webp",
+    "is-marked thiet-ke-shophouse-soho-768x573.webp",
+    "is-marked lai-suat-vay-mua-nha-2026-768x573.webp",
+    "is-marked so-sanh-phu-my-hung-the-global-city-768x573.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  }
+ },
+ {
+  "name": "du-an",
+  "d": "iphonese",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "is-marked vi-tri-ansana-by-kita-768x573.webp",
+    "is-marked phoi-canh-spring-ville.webp",
+    "is-marked the-global-city-3-1-768x552.webp",
+    "is-marked can-ho-the-prive-900x506.webp",
+    "is-marked vinhomes-saigon-park-2-768x512.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  }
+ },
+ {
+  "name": "trang-chu",
+  "d": "desktop",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "is-marked vinhomes-saigon-park-2.webp",
+    "partners gamuda-land.webp",
+    "partners masterise-homes.webp",
+    "partners sun-group.webp",
+    "partners vinhomes.webp",
+    "is-marked thap-tang-vinhomes-saigon-park-900x672.webp",
+    "is-marked tiem-nang-nam-rach-chiec-2028-900x672.webp",
+    "is-marked can-ho-mat-tien-ton-duc-thang-nhon-trach-900x672.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  }
+ },
+ {
+  "name": "the-global-city",
+  "d": "desktop",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "is-marked phoi-canh-masteri-park-place.webp",
+    "is-marked phoi-canh-masteri-park-place.webp",
+    "is-marked shophouse-soho-tgc.webp",
+    "is-marked phoi-canh-masteri-cosmo.webp",
+    "is-marked phoi-canh-sola.webp",
+    "is-marked mat-bang-the-global-city.webp",
+    "is-marked vi-tri-the-global-city.webp",
+    "is-marked the-global-city-3.webp",
+    "is-marked suc-hut-dau-tu-the-global-city.webp",
+    "is-marked the-global-city-3.webp",
+    "is-marked suc-hut-dau-tu-the-global-city.webp",
+    "is-marked shophouse-soho-tgc.webp",
+    "is-marked phoi-canh-masteri-cosmo.webp",
+    "is-marked phoi-canh-sola.webp",
+    "is-marked phoi-canh-masteri-park-place.webp",
+    "is-plan vi-tri-the-global-city.webp",
+    "is-plan mat-bang-the-global-city.webp",
+    "pic hqdefault.jpg",
+    "is-marked khu-pho-thuong-mai-soho-fb.webp",
+    "is-marked bat-dong-san-tich-san-truyen-doi.webp",
+    "is-marked suc-hut-dau-tu-the-global-city-1.webp",
+    "is-marked thanh-khoan-vi-tri-can-goc.webp",
+    "is-marked thiet-ke-shophouse-soho.webp",
+    "is-marked lai-suat-vay-mua-nha-2026.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  }
+ },
+ {
+  "name": "the-prive",
+  "d": "desktop",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "attachment-large can-ho-1pn-the-prive-1024x683.webp",
+    "is-marked loi-nhuan-dau-tu-the-prive.webp",
+    "is-marked mat-bang-thap-9-the-prive.webp",
+    "is-marked can-ho-1pn-the-prive-1024x683.webp",
+    "is-marked can-ho-2pn-the-prive-1024x683.webp",
+    "is-marked can-ho-3pn-the-prive-1024x683.webp",
+    "is-marked can-ho-1pn-the-prive-1024x683.webp",
+    "is-marked can-ho-2pn-the-prive-1024x683.webp",
+    "is-marked can-ho-3pn-the-prive-1024x683.webp",
+    "is-marked loi-nhuan-dau-tu-the-prive.webp",
+    "is-plan mat-bang-thap-9-the-prive.webp",
+    "is-plan vi-tri-du-an-the-prive-2.webp",
+    "is-plan khoang-cach-di-chuyen-the-prive.webp",
+    "is-marked tien-do-the-prive-01.webp",
+    "is-marked tien-do-the-prive-02.webp",
+    "is-marked tien-do-the-prive-03.webp",
+    "is-marked tien-do-the-prive-04.webp",
+    "is-marked tien-do-the-prive-01.webp",
+    "is-marked tien-do-the-prive-02.webp",
+    "is-marked tien-do-the-prive-03.webp",
+    "is-marked tien-do-the-prive-04.webp",
+    "is-marked velis-realty-f1-the-prive.webp",
+    "is-marked tiem-nang-nam-rach-chiec-2028.webp",
+    "is-marked rui-ro-dau-tu-the-prive.webp",
+    "is-marked loi-nhuan-dau-tu-the-prive-1.webp",
+    "is-marked penthouse-duplex-the-prive.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  }
+ },
+ {
+  "name": "masteri-park-place",
+  "d": "desktop",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "attachment-large ban-do-khu-vuc-nam-rach-chiec.webp",
+    "is-marked khu-pho-thuong-mai-soho-fb.webp",
+    "is-marked bat-dong-san-tich-san-truyen-doi.webp",
+    "is-marked suc-hut-dau-tu-the-global-city-1.webp",
+    "is-marked thanh-khoan-vi-tri-can-goc.webp",
+    "is-marked thiet-ke-shophouse-soho.webp",
+    "is-marked lai-suat-vay-mua-nha-2026.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  }
+ },
+ {
+  "name": "nha-pho-spring-ville",
+  "d": "desktop",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "is-marked thiet-ke-biophilic-persa-place-nhon-trach-900x672.webp",
+    "is-marked tieu-chuan-ban-giao-persa-place-gamuda-land-900x672.webp",
+    "is-marked can-ho-mat-tien-ton-duc-thang-nhon-trach-900x672.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  }
+ },
+ {
+  "name": "bai-tgc",
+  "d": "desktop",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "is-marked bat-dong-san-tich-san-truyen-doi.webp",
+    "is-marked suc-hut-dau-tu-the-global-city-1.webp",
+    "is-marked thanh-khoan-vi-tri-can-goc.webp",
+    "is-marked thiet-ke-shophouse-soho.webp",
+    "is-marked lai-suat-vay-mua-nha-2026.webp",
+    "is-marked so-sanh-phu-my-hung-the-global-city.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  }
+ },
+ {
+  "name": "du-an",
+  "d": "desktop",
+  "scr": {
+   "notLoaded": [],
+   "tables": [],
+   "black": []
+  },
+  "prn": {
+   "notLoaded": [
+    "is-marked can-ho-the-prive.webp",
+    "is-marked vinhomes-saigon-park-2.webp",
+    "footer__grid velis-logo-horizontal-white.svg"
+   ],
+   "black": []
+  }
+ }
+]

@@ -1,0 +1,131 @@
+{
+ "hero": {
+  "img": "img/phoi-canh-masteri-park-place.webp",
+  "alt": "Phối cảnh Masteri Park Place",
+  "eyebrow": "MASTERISE HOMES · NAM RẠCH CHIẾC",
+  "title": "Masteri Park Place",
+  "chips": [
+   "Căn hộ",
+   "Bàn giao dự kiến 2027"
+  ],
+  "crumbs": [
+   "Trang chủ",
+   "Dự án",
+   "The Global City",
+   "Masteri Park Place"
+  ]
+ },
+ "nav": [
+  [
+   "Tổng quan",
+   "#tong-quan"
+  ],
+  [
+   "Vị trí & tiện ích",
+   "#vi-tri"
+  ],
+  [
+   "Bài viết",
+   "#bai-viet"
+  ],
+  [
+   "Tư vấn",
+   "#tu-van"
+  ]
+ ],
+ "within": {
+  "img": "img/the-global-city-3-1.webp",
+  "eyebrow": "NẰM TRONG ĐẠI ĐÔ THỊ",
+  "name": "The Global City",
+  "text": "117.4ha · mật độ xây dựng 28% · Masterise Homes · Nam Rạch Chiếc"
+ },
+ "overview": [
+  [
+   "Vị trí",
+   "Đường Đỗ Xuân Hợp, Phường An Phú, Quận 2, TP. Thủ Đức, TP. Hồ Chí Minh"
+  ]
+ ],
+ "heads": {
+  "tong-quan": {
+   "eyebrow": "TỔNG QUAN",
+   "title": "Tổng quan Masteri Park Place"
+  },
+  "so-sanh": {
+   "eyebrow": "SO SÁNH",
+   "title": "So sánh với các phân khu khác của The Global City"
+  },
+  "vi-tri": {
+   "eyebrow": "VỊ TRÍ & KẾT NỐI",
+   "title": "Vị trí Masteri Park Place"
+  },
+  "bai-viet": {
+   "eyebrow": "BÀI VIẾT CỦA VŨ XUÂN",
+   "title": "Phân tích The Global City"
+  }
+ },
+ "compare": "<caption>So sánh Masteri Park Place</caption><thead><tr><th scope=\"col\">Tiêu chí</th><th scope=\"col\">Masteri Park PlaceTrang này</th><th scope=\"col\">Lumière Midtown</th><th scope=\"col\">Masteri Cosmo Central</th><th scope=\"col\">Masteri Grand View</th><th scope=\"col\">Masteri Park PlaceTrang này</th></tr></thead><tbody><tr><th scope=\"row\">Quy mô</th><td>2 tòa cao 24 – 27 tầng · 1.600 căn hộ</td><td>2 tòa tháp cao 27 tầng · 808 căn hộ</td><td>Chưa công bố</td><td>2 tòa tháp cao 25 tầng · 616 căn hộ (8 căn/sàn)</td><td>2 tòa cao 24 – 27 tầng · 1.600 căn hộ</td></tr><tr><th scope=\"row\">Diện tích</th><td>51m² – 135m²</td><td>50m² – 258.8m²</td><td>Chưa công bố</td><td>56.56m² – 372.2m²</td><td>51m² – 135m²</td></tr><tr><th scope=\"row\">Bàn giao</th><td>Dự kiến 2027</td><td>Dự kiến 2027</td><td>Chưa công bố</td><td>Dự kiến cuối 2026</td><td>Dự kiến 2027</td></tr><tr><th scope=\"row\"></th><td></td><td><a href=\"#\">Xem</a></td><td><a href=\"#\">Xem</a></td><td><a href=\"#\">Xem</a></td><td></td></tr></tbody>",
+ "map": {
+  "img": "img/ban-do-khu-vuc-nam-rach-chiec.webp",
+  "alt": "Bản đồ khu vực Nam Rạch Chiếc",
+  "source": "Vị trí khu vực Nam Rạch Chiếc (chưa có tọa độ riêng của dự án). Địa chỉ: Đường Đỗ Xuân Hợp, Phường An Phú, Quận 2, TP. Thủ Đức, TP. Hồ Chí Minh. Bản đồ © OpenStreetMap contributors."
+ },
+ "posts": [
+  {
+   "title": "Làn sóng F&B đổ bộ SOHO đập tan hoàn toàn nỗi sợ đô thị ma",
+   "kicker": "THE GLOBAL CITY",
+   "meta": "Vũ Xuân · 22/04/2026 · 6 phút đọc",
+   "img": "img/khu-pho-thuong-mai-soho-fb.webp",
+   "alt": "Làn sóng F&B đổ bộ SOHO đập tan hoàn toàn nỗi sợ đô thị ma"
+  },
+  {
+   "title": "Lý do mua The Global City làm của để dành vô giá cho thế hệ F2",
+   "kicker": "THE GLOBAL CITY",
+   "meta": "Vũ Xuân · 22/04/2026 · 6 phút đọc",
+   "img": "img/bat-dong-san-tich-san-truyen-doi.webp",
+   "alt": "Lý do mua The Global City làm của để dành vô giá cho thế hệ F2"
+  },
+  {
+   "title": "Bí ẩn dòng vốn triệu đô đang ồ ạt đổ dồn về The Global City",
+   "kicker": "THE GLOBAL CITY",
+   "meta": "Vũ Xuân · 13/04/2026 · 6 phút đọc",
+   "img": "img/suc-hut-dau-tu-the-global-city-1.webp",
+   "alt": "Bí ẩn dòng vốn triệu đô đang ồ ạt đổ dồn về The Global City"
+  },
+  {
+   "title": "Chọn căn góc hay mặt tiền The Global City để dễ bán lại nhất?",
+   "kicker": "THE GLOBAL CITY",
+   "meta": "Vũ Xuân · 13/04/2026 · 7 phút đọc",
+   "img": "img/thanh-khoan-vi-tri-can-goc.webp",
+   "alt": "Chọn căn góc hay mặt tiền The Global City để dễ bán lại nhất?"
+  },
+  {
+   "title": "Bí quyết chia nhỏ mặt bằng Shophouse SOHO để thu về tiền tỷ",
+   "kicker": "THE GLOBAL CITY",
+   "meta": "Vũ Xuân · 13/04/2026 · 6 phút đọc",
+   "img": "img/thiet-ke-shophouse-soho.webp",
+   "alt": "Bí quyết chia nhỏ mặt bằng Shophouse SOHO để thu về tiền tỷ"
+  },
+  {
+   "title": "Lãi suất 2026 biến động nên vay bank hay trả thẳng tiền mặt?",
+   "kicker": "THE GLOBAL CITY",
+   "meta": "Vũ Xuân · 11/04/2026 · 6 phút đọc",
+   "img": "img/lai-suat-vay-mua-nha-2026.webp",
+   "alt": "Lãi suất 2026 biến động nên vay bank hay trả thẳng tiền mặt?"
+  },
+  {
+   "kicker": "",
+   "meta": "",
+   "img": "",
+   "alt": ""
+  }
+ ],
+ "disclosure": "Thông tin trên trang chỉ để tham khảo, tổng hợp từ tài liệu công khai của chủ đầu tư tại thời điểm cập nhật. Giá, chính sách và tiến độ có thể thay đổi; vui lòng kiểm tra hợp đồng và văn bản chính thức của chủ đầu tư trước khi giao dịch.",
+ "form": {
+  "title": "Nhận tư vấn Masteri Park Place"
+ },
+ "fields": {
+  "velis_scale": "2 tòa cao 24 – 27 tầng · 1.600 căn hộ",
+  "velis_area": "51m² – 135m²",
+  "velis_handover": "Dự kiến 2027"
+ }
+}

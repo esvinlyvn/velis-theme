@@ -1,0 +1,9 @@
+# robots.txt bản ra mắt (soạn giai đoạn 5, 2026-11-10) – dán vào Rank Math → Cài đặt chung → Sửa robots.txt trên site thật.
+# Giống robots.txt site thật hiện tại (đọc 2026-11-10), chỉ giữ chặn wp-admin. Trang lọc (?khu=, ?cdt=, ?loai=), trang
+# tìm kiếm và trang 2+ được chặn chỉ mục bằng thẻ meta robots / canonical, KHÔNG chặn ở đây (bot phải đọc được thẻ đó).
+# Staging vẫn "Disallow: /" (plugin velis-staging-guard, chỉ chạy trên staging.velisrealty.vn).
+User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+
+Sitemap: https://velisrealty.vn/sitemap_index.xml

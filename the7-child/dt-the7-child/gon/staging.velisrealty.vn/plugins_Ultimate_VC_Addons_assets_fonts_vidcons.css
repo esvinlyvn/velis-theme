@@ -1,0 +1,10 @@
+@font-face{
+	font-family: 'ult-vid-cntrl';
+	src:url("/wp-content/plugins/Ultimate_VC_Addons/assets/fonts/ult-vid-cntrl.eot?2kpffx");
+	src:url("/wp-content/plugins/Ultimate_VC_Addons/assets/fonts/ult-vid-cntrl.eot#iefix2kpffx") format('embedded-opentype'),
+		url("/wp-content/plugins/Ultimate_VC_Addons/assets/fonts/ult-vid-cntrl.woff?2kpffx") format('woff'),
+		url("/wp-content/plugins/Ultimate_VC_Addons/assets/fonts/ult-vid-cntrl.ttf?2kpffx") format('truetype'),
+		url("/wp-content/plugins/Ultimate_VC_Addons/assets/fonts/ult-vid-cntrl.svg?2kpffx#ult-vid-cntrl") format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

@@ -1,0 +1,134 @@
+{
+ "/wp-content/plugins/contact-form-7/includes/css/styles.css": {
+  "tep": "plugins_contact-form-7_includes_css_styles.css",
+  "md5": "b2b463a5bdb73833be2a6afbc1843ddd",
+  "kb": 2.9,
+  "kb_gon": 2.4
+ },
+ "/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css": {
+  "tep": "plugins_easy-table-of-contents_assets_css_screen.min.css",
+  "md5": "09dc3bc15fbe9333ab8b49bb283b38af",
+  "kb": 8.9,
+  "kb_gon": 2.1
+ },
+ "/wp-content/themes/dt-the7/fonts/icomoon-the7-font/icomoon-the7-font.min.css": {
+  "tep": "themes_dt-the7_fonts_icomoon-the7-font_icomoon-the7-font.min.css",
+  "md5": "6f5f1dc770b7d6b4d1b2d09c04e3b2e4",
+  "kb": 19.5,
+  "kb_gon": 1.5
+ },
+ "/wp-content/plugins/js_composer/assets/css/js_composer_optimized.min.css": {
+  "tep": "plugins_js_composer_assets_css_js_composer_optimized.min.css",
+  "md5": "9ba6caaaef7c3b9ee553df5d0fe90f32",
+  "kb": 190,
+  "kb_gon": 18.2
+ },
+ "/wp-content/themes/dt-the7/css/main.min.css": {
+  "tep": "themes_dt-the7_css_main.min.css",
+  "md5": "f3fc2eb5e4415c848ca4b9ed678f1042",
+  "kb": 241.9,
+  "kb_gon": 67.1
+ },
+ "/wp-content/themes/dt-the7/lib/custom-scrollbar/custom-scrollbar.min.css": {
+  "tep": "themes_dt-the7_lib_custom-scrollbar_custom-scrollbar.min.css",
+  "md5": "26421f9c878acb1fd676d5053a2928ae",
+  "kb": 10.5,
+  "kb_gon": 0
+ },
+ "/wp-content/themes/dt-the7/css/wpbakery.min.css": {
+  "tep": "themes_dt-the7_css_wpbakery.min.css",
+  "md5": "47bf1e2e976c524e25496159b0ef53b2",
+  "kb": 25.3,
+  "kb_gon": 8.6
+ },
+ "/wp-content/uploads/the7-css/custom.css": {
+  "tep": "uploads_the7-css_custom.css",
+  "md5": "c95af5aa279193b6e00824f7b9c03ba6",
+  "kb": 251.1,
+  "kb_gon": 81.8
+ },
+ "/wp-content/uploads/the7-css/media.css": {
+  "tep": "uploads_the7-css_media.css",
+  "md5": "6a3444280559e422e178c35a9776908e",
+  "kb": 71.8,
+  "kb_gon": 19.1
+ },
+ "/wp-content/plugins/js_composer/assets/css/shortcodes/frontend/vc_row.min.css": {
+  "tep": "plugins_js_composer_assets_css_shortcodes_frontend_vc_row.min.css",
+  "md5": "3c416891429a5b565d79a74ec8df10a4",
+  "kb": 4,
+  "kb_gon": 3.2
+ },
+ "/wp-content/plugins/js_composer/assets/css/shortcodes/frontend/vc_section.min.css": {
+  "tep": "plugins_js_composer_assets_css_shortcodes_frontend_vc_section.min.css",
+  "md5": "ebff60b7fd158a7098b74c3404bbe8c3",
+  "kb": 1,
+  "kb_gon": 0.5
+ },
+ "/wp-content/plugins/js_composer/assets/css/shortcodes/frontend/frontend_vc_row.min.css": {
+  "tep": "plugins_js_composer_assets_css_shortcodes_frontend_frontend_vc_row.min.css",
+  "md5": "0441eab77e2b689c20433f4e5203e932",
+  "kb": 3.1,
+  "kb_gon": 2.5
+ },
+ "/wp-content/plugins/js_composer/assets/css/shortcodes/frontend/vc_single_image.min.css": {
+  "tep": "plugins_js_composer_assets_css_shortcodes_frontend_vc_single_image.min.css",
+  "md5": "f2dedab7b276a9f033dbfe5765015bc3",
+  "kb": 7.6,
+  "kb_gon": 7.5
+ },
+ "/wp-includes/blocks/social-links/style.min.css": {
+  "tep": "blocks_social-links_style.min.css",
+  "md5": "e500a5b1c80591c559c51dc6e4882661",
+  "kb": 11.5,
+  "kb_gon": 3.4
+ },
+ "/wp-content/plugins/js_composer/assets/css/shortcodes/frontend/vc_zoom.min.css": {
+  "tep": "plugins_js_composer_assets_css_shortcodes_frontend_vc_zoom.min.css",
+  "md5": "5e5addc9ec158c1c4259393672d92fff",
+  "kb": 0.2,
+  "kb_gon": 0.1
+ },
+ "/wp-includes/blocks/paragraph/style.min.css": {
+  "tep": "blocks_paragraph_style.min.css",
+  "md5": "daa09a2e36a4965d0c1c28f872dc1cd7",
+  "kb": 0.6,
+  "kb_gon": 0.3
+ },
+ "/wp-content/plugins/js_composer/assets/css/shortcodes/frontend/vc_video_widget.min.css": {
+  "tep": "plugins_js_composer_assets_css_shortcodes_frontend_vc_video_widget.min.css",
+  "md5": "9019384fd198d26045f42c3b6d859509",
+  "kb": 1.1,
+  "kb_gon": 0.4
+ },
+ "/wp-content/plugins/js_composer/assets/css/shortcodes/frontend/vc_toggle.min.css": {
+  "tep": "plugins_js_composer_assets_css_shortcodes_frontend_vc_toggle.min.css",
+  "md5": "37e435ab023cadfb16b146f19b3cc07e",
+  "kb": 74.8,
+  "kb_gon": 5.7
+ },
+ "/wp-content/plugins/Ultimate_VC_Addons/assets/min-css/ultimate.min.css": {
+  "tep": "plugins_Ultimate_VC_Addons_assets_min-css_ultimate.min.css",
+  "md5": "ab758e7cd0da39034437205d21a155e4",
+  "kb": 449.7,
+  "kb_gon": 79
+ },
+ "/wp-content/plugins/Ultimate_VC_Addons/assets/css/icons.css": {
+  "tep": "plugins_Ultimate_VC_Addons_assets_css_icons.css",
+  "md5": "9709d276c0f452511b97226a924c895a",
+  "kb": 1.5,
+  "kb_gon": 0.5
+ },
+ "/wp-content/plugins/Ultimate_VC_Addons/assets/fonts/vidcons.css": {
+  "tep": "plugins_Ultimate_VC_Addons_assets_fonts_vidcons.css",
+  "md5": "956459c45013db79feac40131a1a6f58",
+  "kb": 0.8,
+  "kb_gon": 0.6
+ },
+ "/wp-content/uploads/the7-css/css-vars.css": {
+  "tep": "uploads_the7-css_css-vars.css",
+  "md5": "c55ba57d4b6763150b12faee1f78c14b",
+  "kb": 31.2,
+  "kb_gon": 4.9
+ }
+}

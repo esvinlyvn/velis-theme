@@ -1,0 +1,32 @@
+# Kiểm tra tự động – /blog/vinhomes-saigon-park/thiet-ke-cong-nang-nha-pho-lien-ke-vinhomes-saigon-park/
+
+| Khung | Tràn ngang | Ảnh rỗng | Tương phản lỗi | Vùng bấm < 44px | CLS |
+|---|---|---|---|---|---|
+| 360 | không | 0 | 0 | 0 | 0.0005359006076388888 |
+| 390 | không | 0 | 0 | 0 | 0 |
+| 430 | không | 0 | 0 | 0 | 0.01891159168332122 |
+| 600 | không | 0 | 0 | 0 | 0.00023444791666666666 |
+| 768 | không | 0 | 0 | 0 | 0 |
+| 1023 | không | 0 | 0 | 0 | 0 |
+| 1024 | không | 0 | 0 | 0 | 0 |
+| 1100 | không | 0 | 0 | 0 | 0.00027444587924701564 |
+| 1180 | không | 0 | 0 | 0 | 0 |
+| 1280 | không | 0 | 0 | 0 | 0 |
+| 1366 | không | 0 | 0 | 0 | 0 |
+| 1920 | không | 0 | 0 | 0 | 0.000029237196180555557 |
+
+Không có lỗi.
+
+## Tương phản chữ trên ảnh hero (nền sáng nhất phân vị 98)
+- 360px: 
+- 390px: 
+- 430px: 
+- 600px: 
+- 768px: 
+- 1023px: 
+- 1024px: 
+- 1100px: 
+- 1180px: 
+- 1280px: 
+- 1366px: 
+- 1920px: 

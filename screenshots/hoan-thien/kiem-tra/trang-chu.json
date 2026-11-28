@@ -1,0 +1,87 @@
+{
+ "M1": {
+  "cells": 4,
+  "firstLeft": 0,
+  "lastRight": 0,
+  "logoH": [
+   37,
+   64,
+   47,
+   56
+  ],
+  "areaSpread": 12.8,
+  "velisCols": [
+   577,
+   577
+  ],
+  "velisSpread": 0
+ },
+ "M2": {
+  "cells": 4,
+  "firstLeft": 0,
+  "lastRight": 0,
+  "logoH": [
+   37,
+   64,
+   47,
+   56
+  ],
+  "areaSpread": 12.8,
+  "velisCols": [
+   577,
+   577
+  ],
+  "velisSpread": 0
+ },
+ "M3": {
+  "cells": 4,
+  "firstLeft": 0,
+  "lastRight": 0,
+  "logoH": [
+   37,
+   64,
+   47,
+   56
+  ],
+  "areaSpread": 12.8,
+  "velisCols": [
+   552,
+   552
+  ],
+  "velisSpread": 0
+ },
+ "X": {
+  "cells": 4,
+  "firstLeft": 0,
+  "lastRight": 0,
+  "logoH": [
+   37,
+   64,
+   47,
+   56
+  ],
+  "areaSpread": 12.8,
+  "velisCols": [
+   552,
+   552
+  ],
+  "velisSpread": 0
+ },
+ "I14": {
+  "cells": 4,
+  "firstLeft": 0,
+  "lastRight": 0,
+  "logoH": [
+   29,
+   50,
+   37,
+   44
+  ],
+  "areaSpread": 13.1,
+  "velisCols": [
+   680,
+   779
+  ],
+  "velisSpread": "một cột"
+ }
+}

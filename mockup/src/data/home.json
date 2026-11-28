@@ -1,0 +1,279 @@
+{
+ "hero": {
+  "img": "img/can-ho-the-prive.webp",
+  "alt": "Phối cảnh dự án The Privé",
+  "eyebrow": "VELIS REALTY",
+  "title": "Tư vấn bất động sản cao cấp tại TP.HCM và vùng lân cận",
+  "lead": "Căn hộ hạng sang, villa nghỉ dưỡng, shophouse của Vinhomes, Sun Group, Masterise Homes, Gamuda Land cho người mua ở và nhà đầu tư. CEO Vũ Xuân trực tiếp phân tích dòng tiền và rủi ro từng dự án.",
+  "buttons": [
+   "Nhận tư vấn",
+   "Xem dự án"
+  ]
+ },
+ "feats": [
+  {
+   "name": "Ansana by Kita",
+   "meta": "Khu Tây",
+   "img": "img/vi-tri-ansana-by-kita.webp",
+   "alt": "Phối cảnh Ansana by Kita"
+  },
+  {
+   "name": "Spring Ville",
+   "meta": "Nhơn Trạch – Long Thành",
+   "img": "img/phoi-canh-spring-ville.webp",
+   "alt": "Phối cảnh Spring Ville"
+  },
+  {
+   "name": "The Global City",
+   "meta": "Nam Rạch Chiếc",
+   "img": "img/the-global-city-3-1.webp",
+   "alt": "Phối cảnh The Global City"
+  },
+  {
+   "name": "The Privé",
+   "meta": "Nam Rạch Chiếc",
+   "img": "img/can-ho-the-prive.webp",
+   "alt": "Phối cảnh The Privé"
+  },
+  {
+   "name": "Vinhomes Saigon Park",
+   "meta": "Tây Bắc",
+   "img": "img/vinhomes-saigon-park-2.webp",
+   "alt": "Phối cảnh Vinhomes Saigon Park"
+  }
+ ],
+ "numbers": [
+  [
+   "dự án đang tư vấn",
+   "6"
+  ],
+  [
+   "chủ đầu tư đối tác",
+   "6"
+  ],
+  [
+   "bài phân tích của CEO",
+   "100+"
+  ]
+ ],
+ "about": {
+  "img": "img/vp-velis-realty.webp",
+  "alt": "Văn phòng Velis Realty",
+  "eyebrow": "VỀ VELIS",
+  "title": "Velis Realty",
+  "quote": "Chúng tôi không chỉ dừng lại ở việc kết nối những giao dịch bất động sản đơn thuần, mà mục tiêu cao nhất là trở thành cánh tay nối dài, giúp khách hàng chạm đến những giá trị sống đẳng cấp và những cơ hội đầu tư mang tính di sản.",
+  "button": "Tìm hiểu Velis"
+ },
+ "devs": [
+  [
+   "Berjaya Việt Nam",
+   "Vinhomes Saigon Park"
+  ],
+  [
+   "Gamuda Land",
+   "Spring Ville"
+  ],
+  [
+   "Kita Group",
+   "Ansana by Kita"
+  ],
+  [
+   "Masterise Homes",
+   "The Global City"
+  ],
+  [
+   "Tập đoàn Đất Xanh",
+   "The Privé"
+  ],
+  [
+   "Vinhomes",
+   "Vinhomes Saigon Park"
+  ]
+ ],
+ "sections": [
+  {
+   "eyebrow": "VỀ VELIS",
+   "title": "Velis Realty",
+   "lead": "",
+   "more": ""
+  },
+  {
+   "eyebrow": "CHỦ ĐẦU TƯ",
+   "title": "Chủ đầu tư đối tác",
+   "lead": "Chủ đầu tư có dự án Velis đang tư vấn.",
+   "more": "Tất cả chủ đầu tư"
+  },
+  {
+   "eyebrow": "PHÂN TÍCH MỚI",
+   "title": "Góc nhìn CEO Vũ Xuân",
+   "lead": "",
+   "more": "Đọc blog Velis"
+  },
+  {
+   "eyebrow": "VELIS REALTY",
+   "title": "Nhận tư vấn",
+   "lead": "Để lại họ tên và số điện thoại, Velis gọi lại trong giờ làm việc. Cần nhanh hơn, anh chị gọi hoặc nhắn Zalo.",
+   "more": ""
+  }
+ ],
+ "posts": [
+  {
+   "title": "Tại sao nên đầu tư thấp tầng Vinhomes Saigon Park đợt 1",
+   "kicker": "VINHOMES SAIGON PARK",
+   "meta": "Vũ Xuân · 20/05/2026 · 6 phút đọc",
+   "img": "img/thap-tang-vinhomes-saigon-park.webp",
+   "alt": "Tại sao nên đầu tư thấp tầng Vinhomes Saigon Park đợt 1"
+  },
+  {
+   "title": "Tiềm năng cho thuê The Privé",
+   "kicker": "THE PRIVÉ",
+   "meta": "Vũ Xuân · 04/05/2026 · 8 phút đọc",
+   "img": "img/tiem-nang-nam-rach-chiec-2028.webp",
+   "alt": "Tiềm năng cho thuê The Privé"
+  },
+  {
+   "title": "Giá trị của căn hộ mặt tiền Tôn Đức Thắng Persa Place",
+   "kicker": "SPRING VILLE",
+   "meta": "Vũ Xuân · 19/04/2026 · 7 phút đọc",
+   "img": "img/can-ho-mat-tien-ton-duc-thang-nhon-trach.webp",
+   "alt": "Giá trị của căn hộ mặt tiền Tôn Đức Thắng Persa Place"
+  }
+ ],
+ "form": {
+  "eyebrow": "VELIS REALTY",
+  "title": "Nhận tư vấn",
+  "lead": "Để lại họ tên và số điện thoại, Velis gọi lại trong giờ làm việc. Cần nhanh hơn, anh chị gọi hoặc nhắn Zalo.",
+  "contact": [
+   [
+    "Hotline",
+    "0911 237 979"
+   ],
+   [
+    "Zalo",
+    "zalo.me/0911237979"
+   ],
+   [
+    "Email",
+    "lienhe@velisrealty.vn"
+   ],
+   [
+    "Giờ làm việc",
+    "Thứ 2 – Chủ nhật, 08:00–21:00"
+   ]
+  ],
+  "consent": "Tôi đồng ý để Velis Realty xử lý dữ liệu cá nhân nhằm tư vấn, theo chính sách bảo mật.",
+  "submit": "Gửi yêu cầu"
+ },
+ "footer": {
+  "about": "Tư vấn bất động sản cao cấp, phân tích theo dòng tiền và giá vốn thực.",
+  "cols": [
+   [
+    "Tư vấn bất động sản cao cấp, phân tích theo dòng tiền và giá vốn thực.",
+    "0911 237 979",
+    "lienhe@velisrealty.vn",
+    "34 Lương Định Của, phường Bình Trưng, TP.HCM",
+    "Thứ 2 – Chủ nhật, 08:00–21:00"
+   ],
+   [
+    "KHÁM PHÁ",
+    "Dự án",
+    "Chủ đầu tư",
+    "Blog",
+    "Giới thiệu",
+    "Tuyển dụng",
+    "Liên hệ"
+   ],
+   [
+    "ỨNG DỤNG",
+    "Thi thử chứng chỉ môi giới"
+   ],
+   [
+    "THEO DÕI VELIS"
+   ]
+  ],
+  "bottom": "© 2026 Velis Realty. Thông tin dự án chỉ để tham khảo; vui lòng kiểm tra văn bản chính thức của chủ đầu tư.\n\nChính sách bảo mật"
+ },
+ "header": {
+  "nav": [
+   "Dự án",
+   "Chủ đầu tư",
+   "Blog",
+   "Về Velis",
+   "Liên hệ"
+  ],
+  "phone": "Gọi hotline\n0911 237 979",
+  "cta": "Nhận tư vấn"
+ },
+ "cta": [
+  "Gọi",
+  "Zalo",
+  "Nhận tư vấn"
+ ],
+ "projects": [
+  {
+   "title": "Ansana by Kita",
+   "lines": [
+    "Kita Group · Khu Tây",
+    "Căn hộ",
+    "Shophouse",
+    "Bàn giao dự kiến Quý 3/2028"
+   ],
+   "img": "img/vi-tri-ansana-by-kita.webp",
+   "alt": "Ansana by Kita",
+   "noimg": false
+  },
+  {
+   "title": "Palm City",
+   "lines": [
+    "Hướng Việt Holdings · Nam Rạch Chiếc",
+    "1 phân khu"
+   ],
+   "img": "",
+   "alt": "",
+   "noimg": true
+  },
+  {
+   "title": "Spring Ville",
+   "lines": [
+    "Gamuda Land · Nhơn Trạch – Long Thành",
+    "1 phân khu",
+    "Bàn giao quý II/2027"
+   ],
+   "img": "img/phoi-canh-spring-ville.webp",
+   "alt": "Spring Ville",
+   "noimg": false
+  },
+  {
+   "title": "The Global City",
+   "lines": [
+    "Masterise Homes · Nam Rạch Chiếc",
+    "5 phân khu",
+    "Bàn giao từ tháng 11/2023"
+   ],
+   "img": "img/the-global-city-3-1.webp",
+   "alt": "The Global City",
+   "noimg": false
+  },
+  {
+   "title": "The Privé",
+   "lines": [
+    "Tập đoàn Đất Xanh · Nam Rạch Chiếc",
+    "Căn hộ",
+    "Bàn giao năm 2027"
+   ],
+   "img": "img/can-ho-the-prive.webp",
+   "alt": "The Privé",
+   "noimg": false
+  },
+  {
+   "title": "Vinhomes Saigon Park",
+   "lines": [
+    "Vinhomes · Tây Bắc",
+    "5 phân khu"
+   ],
+   "img": "img/vinhomes-saigon-park-2.webp",
+   "alt": "Vinhomes Saigon Park",
+   "noimg": false
+  }
+ ]
+}

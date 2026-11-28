@@ -1,0 +1,5417 @@
+{
+ "trang-chu": {
+  "390": {
+   "a": [],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [
+    "\"The Privé\" lệch 6 px",
+    "\"The Global City\" lệch 6 px",
+    "\"Ansana by Kita\" lệch 6 px",
+    "\"Spring Ville\" lệch -4 px",
+    "\"The Privé\" lệch 221 px",
+    "\"The Global City\" lệch 221 px",
+    "\"Ansana by Kita\" lệch 221 px",
+    "\"Spring Ville\" lệch 221 px",
+    "\"Vinhomes Saigon Park\" lệch 221 px",
+    "\"Sự dịch chuyển dòng vốn đầu tư\" lệch 22 px",
+    "\"Velis Realty phân phối độc quy\" lệch 22 px",
+    "\"Đánh giá chu kỳ tăng giá bất đ\" lệch 22 px"
+   ],
+   "f": {
+    "xemThem": 1,
+    "form": 1
+   },
+   "g": [
+    "P \"Tại Velis Realty, chúng tôi tin rằng mỗi\" 92 ký tự/dòng"
+   ],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "chuHoa": 20,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Velis Realty\"",
+    "H2.velis-eyebrow \"Dự án nổi bật\"",
+    "P \"Đất Xanh\"",
+    "P \"Nam Rạch Chiếc\"",
+    "P \"Masterise Homes\"",
+    "P \"Kita Group\"",
+    "P \"Khu Tây\"",
+    "P \"Gamuda Land\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "22px",
+    "24px",
+    "26px",
+    "28px",
+    "30px",
+    "36px"
+   ],
+   "mauChu": [
+    "rgb(243, 236, 223)",
+    "rgb(255, 255, 255)",
+    "rgb(185, 185, 185)",
+    "rgb(138, 106, 58)",
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(184, 40, 46)",
+    "rgb(61, 61, 61)",
+    "rgb(196, 47, 53)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 21,
+   "khoangLe": 69,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    15,
+    35
+   ]
+  },
+  "1366": {
+   "a": [],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [
+    "\"The Privé\" lệch 6 px",
+    "\"The Global City\" lệch 6 px",
+    "\"Ansana by Kita\" lệch 6 px",
+    "\"Spring Ville\" lệch -4 px",
+    "\"The Privé\" lệch 331 px",
+    "\"The Global City\" lệch 331 px",
+    "\"Ansana by Kita\" lệch 331 px",
+    "\"Spring Ville\" lệch 331 px",
+    "\"Vinhomes Saigon Park\" lệch 331 px",
+    "\"Sự dịch chuyển dòng vốn đầu tư\" lệch 274 px",
+    "\"Velis Realty phân phối độc quy\" lệch 274 px",
+    "\"Đánh giá chu kỳ tăng giá bất đ\" lệch 274 px"
+   ],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 18,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Velis Realty\"",
+    "H2.velis-eyebrow \"Dự án nổi bật\"",
+    "P \"Đất Xanh\"",
+    "P \"Nam Rạch Chiếc\"",
+    "P \"Masterise Homes\"",
+    "P \"Kita Group\"",
+    "P \"Khu Tây\"",
+    "P \"Gamuda Land\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "28px",
+    "32px",
+    "38.248px",
+    "40px",
+    "48px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(243, 236, 223)",
+    "rgb(185, 185, 185)",
+    "rgb(138, 106, 58)",
+    "rgb(61, 61, 61)",
+    "rgb(196, 47, 53)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 22,
+   "khoangLe": 95,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    15,
+    25,
+    25.6,
+    30,
+    35,
+    50
+   ]
+  },
+  "1536": {
+   "a": [],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [
+    "\"The Privé\" lệch 6 px",
+    "\"The Global City\" lệch 6 px",
+    "\"Ansana by Kita\" lệch 6 px",
+    "\"Spring Ville\" lệch -4 px",
+    "\"The Privé\" lệch 331 px",
+    "\"The Global City\" lệch 331 px",
+    "\"Ansana by Kita\" lệch 331 px",
+    "\"Spring Ville\" lệch 331 px",
+    "\"Vinhomes Saigon Park\" lệch 331 px",
+    "\"Sự dịch chuyển dòng vốn đầu tư\" lệch 274 px",
+    "\"Velis Realty phân phối độc quy\" lệch 274 px",
+    "\"Đánh giá chu kỳ tăng giá bất đ\" lệch 274 px"
+   ],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 18,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Velis Realty\"",
+    "H2.velis-eyebrow \"Dự án nổi bật\"",
+    "P \"Đất Xanh\"",
+    "P \"Nam Rạch Chiếc\"",
+    "P \"Masterise Homes\"",
+    "P \"Kita Group\"",
+    "P \"Khu Tây\"",
+    "P \"Gamuda Land\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "28px",
+    "32px",
+    "40px",
+    "48px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(243, 236, 223)",
+    "rgb(185, 185, 185)",
+    "rgb(138, 106, 58)",
+    "rgb(61, 61, 61)",
+    "rgb(196, 47, 53)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 22,
+   "khoangLe": 95,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    15,
+    25,
+    25.6,
+    30,
+    35,
+    50,
+    153
+   ]
+  },
+  "1920": {
+   "a": [],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [
+    "\"The Privé\" lệch 6 px",
+    "\"The Global City\" lệch 6 px",
+    "\"Ansana by Kita\" lệch 6 px",
+    "\"Spring Ville\" lệch -4 px",
+    "\"The Privé\" lệch 331 px",
+    "\"The Global City\" lệch 331 px",
+    "\"Ansana by Kita\" lệch 331 px",
+    "\"Spring Ville\" lệch 331 px",
+    "\"Vinhomes Saigon Park\" lệch 331 px",
+    "\"Sự dịch chuyển dòng vốn đầu tư\" lệch 274 px",
+    "\"Velis Realty phân phối độc quy\" lệch 274 px",
+    "\"Đánh giá chu kỳ tăng giá bất đ\" lệch 274 px"
+   ],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 18,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Velis Realty\"",
+    "H2.velis-eyebrow \"Dự án nổi bật\"",
+    "P \"Đất Xanh\"",
+    "P \"Nam Rạch Chiếc\"",
+    "P \"Masterise Homes\"",
+    "P \"Kita Group\"",
+    "P \"Khu Tây\"",
+    "P \"Gamuda Land\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "28px",
+    "32px",
+    "40px",
+    "48px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(243, 236, 223)",
+    "rgb(185, 185, 185)",
+    "rgb(138, 106, 58)",
+    "rgb(61, 61, 61)",
+    "rgb(196, 47, 53)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 22,
+   "khoangLe": 95,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    15,
+    25,
+    25.6,
+    30,
+    35,
+    50,
+    345
+   ]
+  }
+ },
+ "du-an": {
+  "390": {
+   "a": [
+    "UL \"Quy hoạch vùng: Đón đầu các hạ tầng giao\" lệch 20 px"
+   ],
+   "b": [
+    "UL \"Quy hoạch vùng: Đón đầu các hạ tầng giao\" 338/358 px"
+   ],
+   "c": [
+    "H2 \"Tại sao nên chọn đầu tư cùng Velis Realt\" dòng 1 trống 88 px / 358 (chữ sau 48 px)"
+   ],
+   "d": [],
+   "e": [
+    "\"Palm River\" lệch 252 px",
+    "\"The Privé\" lệch 252 px",
+    "\"The Global City\" lệch 252 px",
+    "\"Persa Place\" lệch 252 px",
+    "\"Ansana by Kita\" lệch 252 px",
+    "\"Spring Ville\" lệch 252 px",
+    "\"Vinhomes Saigon Park\" lệch 252 px"
+   ],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "chuHoa": 18,
+   "chuHoaVd": [
+    "P \"Hướng Việt\"",
+    "P \"Nam Rạch Chiếc\"",
+    "P \"Đất Xanh\"",
+    "P \"Masterise Homes\"",
+    "P \"Gamuda Land\"",
+    "P \"Nhơn Trạch – Long Thành\"",
+    "P \"Kita Group\"",
+    "P \"Khu Tây\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "22px",
+    "24px",
+    "28px",
+    "30px"
+   ],
+   "mauChu": [
+    "rgb(26, 26, 26)",
+    "rgb(92, 92, 92)",
+    "rgb(61, 61, 61)",
+    "rgb(196, 47, 53)",
+    "rgb(185, 185, 185)",
+    "rgb(255, 255, 255)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 8,
+   "khoangLe": 18,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    15,
+    35
+   ]
+  },
+  "1366": {
+   "a": [
+    "UL \"Quy hoạch vùng: Đón đầu các hạ tầng giao\" lệch 20 px"
+   ],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [
+    "\"Palm River\" lệch 331 px",
+    "\"The Privé\" lệch 331 px",
+    "\"The Global City\" lệch 331 px",
+    "\"Persa Place\" lệch 331 px",
+    "\"Ansana by Kita\" lệch 331 px",
+    "\"Spring Ville\" lệch 331 px",
+    "\"Vinhomes Saigon Park\" lệch 331 px"
+   ],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 19,
+   "chuHoaVd": [
+    "P \"Hướng Việt\"",
+    "P \"Nam Rạch Chiếc\"",
+    "P \"Đất Xanh\"",
+    "P \"Masterise Homes\"",
+    "P \"Gamuda Land\"",
+    "P \"Nhơn Trạch – Long Thành\"",
+    "P \"Kita Group\"",
+    "P \"Khu Tây\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "22px",
+    "24px",
+    "28px",
+    "38.248px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(184, 40, 46)",
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(61, 61, 61)",
+    "rgb(196, 47, 53)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 9,
+   "khoangLe": 23,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    15,
+    25.6,
+    35,
+    50
+   ]
+  },
+  "1536": {
+   "a": [
+    "UL \"Quy hoạch vùng: Đón đầu các hạ tầng giao\" lệch 20 px"
+   ],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [
+    "\"Palm River\" lệch 331 px",
+    "\"The Privé\" lệch 331 px",
+    "\"The Global City\" lệch 331 px",
+    "\"Persa Place\" lệch 331 px",
+    "\"Ansana by Kita\" lệch 331 px",
+    "\"Spring Ville\" lệch 331 px",
+    "\"Vinhomes Saigon Park\" lệch 331 px"
+   ],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 19,
+   "chuHoaVd": [
+    "P \"Hướng Việt\"",
+    "P \"Nam Rạch Chiếc\"",
+    "P \"Đất Xanh\"",
+    "P \"Masterise Homes\"",
+    "P \"Gamuda Land\"",
+    "P \"Nhơn Trạch – Long Thành\"",
+    "P \"Kita Group\"",
+    "P \"Khu Tây\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "22px",
+    "24px",
+    "28px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(184, 40, 46)",
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(61, 61, 61)",
+    "rgb(196, 47, 53)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 9,
+   "khoangLe": 23,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    15,
+    25.6,
+    35,
+    50
+   ]
+  },
+  "1920": {
+   "a": [
+    "UL \"Quy hoạch vùng: Đón đầu các hạ tầng giao\" lệch 20 px"
+   ],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [
+    "\"Palm River\" lệch 331 px",
+    "\"The Privé\" lệch 331 px",
+    "\"The Global City\" lệch 331 px",
+    "\"Persa Place\" lệch 331 px",
+    "\"Ansana by Kita\" lệch 331 px",
+    "\"Spring Ville\" lệch 331 px",
+    "\"Vinhomes Saigon Park\" lệch 331 px"
+   ],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 19,
+   "chuHoaVd": [
+    "P \"Hướng Việt\"",
+    "P \"Nam Rạch Chiếc\"",
+    "P \"Đất Xanh\"",
+    "P \"Masterise Homes\"",
+    "P \"Gamuda Land\"",
+    "P \"Nhơn Trạch – Long Thành\"",
+    "P \"Kita Group\"",
+    "P \"Khu Tây\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "22px",
+    "24px",
+    "28px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(184, 40, 46)",
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(61, 61, 61)",
+    "rgb(196, 47, 53)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 9,
+   "khoangLe": 23,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    15,
+    25.6,
+    35,
+    50
+   ]
+  }
+ },
+ "chu-dau-tu": {
+  "390": {
+   "a": [],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "chuHoa": 4,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "22px",
+    "24px",
+    "28px",
+    "30px"
+   ],
+   "mauChu": [
+    "rgb(26, 26, 26)",
+    "rgb(92, 92, 92)",
+    "rgb(184, 40, 46)",
+    "rgb(217, 190, 140)",
+    "rgb(255, 255, 255)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 7,
+   "khoangLe": 10,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    15,
+    30,
+    35
+   ]
+  },
+  "1366": {
+   "a": [
+    "P.velis-lead \"Velis Realty tư vấn dự án của các chủ đầ\" lệch 205 px"
+   ],
+   "b": [
+    "P.velis-lead \"Velis Realty tư vấn dự án của các chủ đầ\" 760/1170 px"
+   ],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 4,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "18px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(184, 40, 46)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 8,
+   "khoangLe": 20,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    15,
+    25.6,
+    30,
+    35,
+    50
+   ]
+  },
+  "1536": {
+   "a": [
+    "P.velis-lead \"Velis Realty tư vấn dự án của các chủ đầ\" lệch 205 px"
+   ],
+   "b": [
+    "P.velis-lead \"Velis Realty tư vấn dự án của các chủ đầ\" 760/1170 px"
+   ],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 4,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "18px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(184, 40, 46)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 8,
+   "khoangLe": 20,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    15,
+    25.6,
+    30,
+    35,
+    50
+   ]
+  },
+  "1920": {
+   "a": [
+    "P.velis-lead \"Velis Realty tư vấn dự án của các chủ đầ\" lệch 205 px"
+   ],
+   "b": [
+    "P.velis-lead \"Velis Realty tư vấn dự án của các chủ đầ\" 760/1170 px"
+   ],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 4,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "18px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(184, 40, 46)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 8,
+   "khoangLe": 20,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    15,
+    25.6,
+    30,
+    35,
+    50
+   ]
+  }
+ },
+ "cdt-gamuda-land": {
+  "390": {
+   "a": [
+    "OL \"Hạ tầng và Cảnh quan luôn hoàn thiện trư\" lệch 20 px"
+   ],
+   "b": [
+    "OL.breadcrumbs \"Trang chủDự ánGamuda Land\" 263/328 px",
+    "OL \"Hạ tầng và Cảnh quan luôn hoàn thiện trư\" 338/358 px"
+   ],
+   "c": [
+    "H1 \"Gamuda Land – đẳng cấp kiến tạo đô thị t\" dòng 1 trống 69 px / 328 (chữ sau 21 px)",
+    "H2 \"Dự án Gamuda Land tại Velis Realty\" dòng 1 trống 165 px / 358 (chữ sau 107 px)",
+    "H2 \"Gamuda Land là ai? “Mã gen” của một nhà \" dòng 1 trống 107 px / 358 (chữ sau 37 px)",
+    "H3 \"Artisan Park (TP. Mới Bình Dương) – phố \" dòng 1 trống 71 px / 358 (chữ sau 48 px)",
+    "H2 \"Thiết kế Biophilic – khi thiên nhiên là \" dòng 1 trống 133 px / 358 (chữ sau 116 px)",
+    "H2 \"Câu hỏi thường gặp về chủ đầu tư Gamuda \" dòng 1 trống 67 px / 358 (chữ sau 28 px)",
+    "H3.vc_custom_heading \"Tại sao tôi nên mua dự án của Gamuda Lan\" dòng 1 trống 68 px / 318 (chữ sau 32 px)"
+   ],
+   "d": [],
+   "e": [
+    "\"Persa Place\" lệch 252 px",
+    "\"Spring Ville\" lệch 252 px"
+   ],
+   "f": {
+    "xemThem": 6,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "chuHoa": 9,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Chủ đầu tư\"",
+    "P \"Gamuda Land\"",
+    "P \"Nhơn Trạch – Long Thành\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "22px",
+    "24px",
+    "28px",
+    "36px"
+   ],
+   "mauChu": [
+    "rgb(26, 26, 26)",
+    "rgb(184, 40, 46)",
+    "rgb(92, 92, 92)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 10,
+   "khoangLe": 44,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    6,
+    10,
+    13,
+    14,
+    15,
+    22,
+    25,
+    30,
+    35
+   ]
+  },
+  "1366": {
+   "a": [
+    "A.default-btn-shortcode \"Nhận bảng giá\" lệch 173 px",
+    "H2 \"Dự án Gamuda Land tại Velis Realty\" lệch 205 px",
+    "P \"Làm việc trong lĩnh vực bất động sản cao\" lệch 205 px",
+    "H2 \"Gamuda Land là ai? “Mã gen” của một nhà \" lệch 205 px",
+    "P \"Để hiểu về Gamuda Land, chúng ta cần nhì\" lệch 205 px",
+    "H2 \"Bản đồ dự án Gamuda Land năm 2026: những\" lệch 205 px",
+    "P \"Tính đến năm 2026, bản đồ đầu tư của Gam\" lệch 205 px",
+    "H3 \"Artisan Park (TP. Mới Bình Dương) – phố \" lệch 205 px",
+    "H2 \"Thiết kế Biophilic – khi thiên nhiên là \" lệch 205 px",
+    "P \"Trong lộ trình kiến tạo của Gamuda Land,\" lệch 205 px",
+    "H2 \"Tại sao nhà đầu tư chọn Gamuda Land năm \" lệch 205 px",
+    "P \"Dựa trên 10 năm kinh nghiệm đồng hành cù\" lệch 205 px",
+    "OL \"Hạ tầng và Cảnh quan luôn hoàn thiện trư\" lệch 225 px",
+    "H2 \"Câu hỏi thường gặp về chủ đầu tư Gamuda \" lệch 205 px",
+    "P \"Trong quá trình tư vấn cho hàng trăm khá\" lệch 205 px",
+    "H2 \"Bài viết liên quan đến các dự án của Gam\" lệch 205 px"
+   ],
+   "b": [
+    "OL.breadcrumbs \"Trang chủDự ánGamuda Land\" 263/1106 px",
+    "P \"“Trong suốt hơn 10 năm đồng hành cùng cá\" 760/1106 px",
+    "H2 \"Dự án Gamuda Land tại Velis Realty\" 760/1170 px",
+    "P \"Làm việc trong lĩnh vực bất động sản cao\" 760/1170 px",
+    "H2 \"Gamuda Land là ai? “Mã gen” của một nhà \" 760/1170 px",
+    "P \"Để hiểu về Gamuda Land, chúng ta cần nhì\" 760/1170 px",
+    "H2 \"Bản đồ dự án Gamuda Land năm 2026: những\" 760/1170 px",
+    "P \"Tính đến năm 2026, bản đồ đầu tư của Gam\" 760/1170 px",
+    "H3 \"Artisan Park (TP. Mới Bình Dương) – phố \" 760/1170 px",
+    "H2 \"Thiết kế Biophilic – khi thiên nhiên là \" 760/1170 px",
+    "P \"Trong lộ trình kiến tạo của Gamuda Land,\" 760/1170 px",
+    "H2 \"Tại sao nhà đầu tư chọn Gamuda Land năm \" 760/1170 px",
+    "P \"Dựa trên 10 năm kinh nghiệm đồng hành cù\" 760/1170 px",
+    "OL \"Hạ tầng và Cảnh quan luôn hoàn thiện trư\" 740/1170 px",
+    "H2 \"Câu hỏi thường gặp về chủ đầu tư Gamuda \" 760/1170 px",
+    "P \"Trong quá trình tư vấn cho hàng trăm khá\" 760/1170 px",
+    "H2 \"Bài viết liên quan đến các dự án của Gam\" 760/1170 px"
+   ],
+   "c": [
+    "H1 \"Gamuda Land – đẳng cấp kiến tạo đô thị t\" dòng 1 trống 457 px / 1106 (chữ sau 89 px)",
+    "H2 \"Gamuda Land là ai? “Mã gen” của một nhà \" dòng 1 trống 226 px / 760 (chữ sau 82 px)",
+    "H2 \"Bản đồ dự án Gamuda Land năm 2026: những\" dòng 1 trống 159 px / 760 (chữ sau 83 px)",
+    "H2 \"Thiết kế Biophilic – khi thiên nhiên là \" dòng 1 trống 234 px / 760 (chữ sau 95 px)",
+    "H2 \"Tại sao nhà đầu tư chọn Gamuda Land năm \" dòng 1 trống 323 px / 760 (chữ sau 90 px)",
+    "H2 \"Câu hỏi thường gặp về chủ đầu tư Gamuda \" dòng 1 trống 344 px / 760 (chữ sau 40 px)",
+    "H2 \"Bài viết liên quan đến các dự án của Gam\" dòng 1 trống 300 px / 760 (chữ sau 60 px)"
+   ],
+   "d": [],
+   "e": [
+    "\"Persa Place\" lệch 480 px",
+    "\"Spring Ville\" lệch 480 px"
+   ],
+   "f": {
+    "xemThem": 6,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 9,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Chủ đầu tư\"",
+    "P \"Gamuda Land\"",
+    "P \"Nhơn Trạch – Long Thành\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(184, 40, 46)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 11,
+   "khoangLe": 57,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    6,
+    10,
+    14,
+    15,
+    22,
+    25,
+    25.6,
+    30,
+    35,
+    50
+   ]
+  },
+  "1536": {
+   "a": [
+    "A.default-btn-shortcode \"Nhận bảng giá\" lệch 173 px",
+    "H2 \"Dự án Gamuda Land tại Velis Realty\" lệch 205 px",
+    "P \"Làm việc trong lĩnh vực bất động sản cao\" lệch 205 px",
+    "H2 \"Gamuda Land là ai? “Mã gen” của một nhà \" lệch 205 px",
+    "P \"Để hiểu về Gamuda Land, chúng ta cần nhì\" lệch 205 px",
+    "H2 \"Bản đồ dự án Gamuda Land năm 2026: những\" lệch 205 px",
+    "P \"Tính đến năm 2026, bản đồ đầu tư của Gam\" lệch 205 px",
+    "H3 \"Artisan Park (TP. Mới Bình Dương) – phố \" lệch 205 px",
+    "H2 \"Thiết kế Biophilic – khi thiên nhiên là \" lệch 205 px",
+    "P \"Trong lộ trình kiến tạo của Gamuda Land,\" lệch 205 px",
+    "H2 \"Tại sao nhà đầu tư chọn Gamuda Land năm \" lệch 205 px",
+    "P \"Dựa trên 10 năm kinh nghiệm đồng hành cù\" lệch 205 px",
+    "OL \"Hạ tầng và Cảnh quan luôn hoàn thiện trư\" lệch 225 px",
+    "H2 \"Câu hỏi thường gặp về chủ đầu tư Gamuda \" lệch 205 px",
+    "P \"Trong quá trình tư vấn cho hàng trăm khá\" lệch 205 px",
+    "H2 \"Bài viết liên quan đến các dự án của Gam\" lệch 205 px"
+   ],
+   "b": [
+    "OL.breadcrumbs \"Trang chủDự ánGamuda Land\" 263/1106 px",
+    "P \"“Trong suốt hơn 10 năm đồng hành cùng cá\" 760/1106 px",
+    "H2 \"Dự án Gamuda Land tại Velis Realty\" 760/1170 px",
+    "P \"Làm việc trong lĩnh vực bất động sản cao\" 760/1170 px",
+    "H2 \"Gamuda Land là ai? “Mã gen” của một nhà \" 760/1170 px",
+    "P \"Để hiểu về Gamuda Land, chúng ta cần nhì\" 760/1170 px",
+    "H2 \"Bản đồ dự án Gamuda Land năm 2026: những\" 760/1170 px",
+    "P \"Tính đến năm 2026, bản đồ đầu tư của Gam\" 760/1170 px",
+    "H3 \"Artisan Park (TP. Mới Bình Dương) – phố \" 760/1170 px",
+    "H2 \"Thiết kế Biophilic – khi thiên nhiên là \" 760/1170 px",
+    "P \"Trong lộ trình kiến tạo của Gamuda Land,\" 760/1170 px",
+    "H2 \"Tại sao nhà đầu tư chọn Gamuda Land năm \" 760/1170 px",
+    "P \"Dựa trên 10 năm kinh nghiệm đồng hành cù\" 760/1170 px",
+    "OL \"Hạ tầng và Cảnh quan luôn hoàn thiện trư\" 740/1170 px",
+    "H2 \"Câu hỏi thường gặp về chủ đầu tư Gamuda \" 760/1170 px",
+    "P \"Trong quá trình tư vấn cho hàng trăm khá\" 760/1170 px",
+    "H2 \"Bài viết liên quan đến các dự án của Gam\" 760/1170 px"
+   ],
+   "c": [
+    "H1 \"Gamuda Land – đẳng cấp kiến tạo đô thị t\" dòng 1 trống 457 px / 1106 (chữ sau 89 px)",
+    "H2 \"Gamuda Land là ai? “Mã gen” của một nhà \" dòng 1 trống 226 px / 760 (chữ sau 82 px)",
+    "H2 \"Bản đồ dự án Gamuda Land năm 2026: những\" dòng 1 trống 159 px / 760 (chữ sau 83 px)",
+    "H2 \"Thiết kế Biophilic – khi thiên nhiên là \" dòng 1 trống 234 px / 760 (chữ sau 95 px)",
+    "H2 \"Tại sao nhà đầu tư chọn Gamuda Land năm \" dòng 1 trống 323 px / 760 (chữ sau 90 px)",
+    "H2 \"Câu hỏi thường gặp về chủ đầu tư Gamuda \" dòng 1 trống 344 px / 760 (chữ sau 40 px)",
+    "H2 \"Bài viết liên quan đến các dự án của Gam\" dòng 1 trống 300 px / 760 (chữ sau 60 px)"
+   ],
+   "d": [],
+   "e": [
+    "\"Persa Place\" lệch 480 px",
+    "\"Spring Ville\" lệch 480 px"
+   ],
+   "f": {
+    "xemThem": 6,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 9,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Chủ đầu tư\"",
+    "P \"Gamuda Land\"",
+    "P \"Nhơn Trạch – Long Thành\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(184, 40, 46)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 11,
+   "khoangLe": 57,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    6,
+    10,
+    14,
+    15,
+    22,
+    25,
+    25.6,
+    30,
+    35,
+    50
+   ]
+  },
+  "1920": {
+   "a": [
+    "A.default-btn-shortcode \"Nhận bảng giá\" lệch 173 px",
+    "H2 \"Dự án Gamuda Land tại Velis Realty\" lệch 205 px",
+    "P \"Làm việc trong lĩnh vực bất động sản cao\" lệch 205 px",
+    "H2 \"Gamuda Land là ai? “Mã gen” của một nhà \" lệch 205 px",
+    "P \"Để hiểu về Gamuda Land, chúng ta cần nhì\" lệch 205 px",
+    "H2 \"Bản đồ dự án Gamuda Land năm 2026: những\" lệch 205 px",
+    "P \"Tính đến năm 2026, bản đồ đầu tư của Gam\" lệch 205 px",
+    "H3 \"Artisan Park (TP. Mới Bình Dương) – phố \" lệch 205 px",
+    "H2 \"Thiết kế Biophilic – khi thiên nhiên là \" lệch 205 px",
+    "P \"Trong lộ trình kiến tạo của Gamuda Land,\" lệch 205 px",
+    "H2 \"Tại sao nhà đầu tư chọn Gamuda Land năm \" lệch 205 px",
+    "P \"Dựa trên 10 năm kinh nghiệm đồng hành cù\" lệch 205 px",
+    "OL \"Hạ tầng và Cảnh quan luôn hoàn thiện trư\" lệch 225 px",
+    "H2 \"Câu hỏi thường gặp về chủ đầu tư Gamuda \" lệch 205 px",
+    "P \"Trong quá trình tư vấn cho hàng trăm khá\" lệch 205 px",
+    "H2 \"Bài viết liên quan đến các dự án của Gam\" lệch 205 px"
+   ],
+   "b": [
+    "OL.breadcrumbs \"Trang chủDự ánGamuda Land\" 263/1106 px",
+    "P \"“Trong suốt hơn 10 năm đồng hành cùng cá\" 760/1106 px",
+    "H2 \"Dự án Gamuda Land tại Velis Realty\" 760/1170 px",
+    "P \"Làm việc trong lĩnh vực bất động sản cao\" 760/1170 px",
+    "H2 \"Gamuda Land là ai? “Mã gen” của một nhà \" 760/1170 px",
+    "P \"Để hiểu về Gamuda Land, chúng ta cần nhì\" 760/1170 px",
+    "H2 \"Bản đồ dự án Gamuda Land năm 2026: những\" 760/1170 px",
+    "P \"Tính đến năm 2026, bản đồ đầu tư của Gam\" 760/1170 px",
+    "H3 \"Artisan Park (TP. Mới Bình Dương) – phố \" 760/1170 px",
+    "H2 \"Thiết kế Biophilic – khi thiên nhiên là \" 760/1170 px",
+    "P \"Trong lộ trình kiến tạo của Gamuda Land,\" 760/1170 px",
+    "H2 \"Tại sao nhà đầu tư chọn Gamuda Land năm \" 760/1170 px",
+    "P \"Dựa trên 10 năm kinh nghiệm đồng hành cù\" 760/1170 px",
+    "OL \"Hạ tầng và Cảnh quan luôn hoàn thiện trư\" 740/1170 px",
+    "H2 \"Câu hỏi thường gặp về chủ đầu tư Gamuda \" 760/1170 px",
+    "P \"Trong quá trình tư vấn cho hàng trăm khá\" 760/1170 px",
+    "H2 \"Bài viết liên quan đến các dự án của Gam\" 760/1170 px"
+   ],
+   "c": [
+    "H1 \"Gamuda Land – đẳng cấp kiến tạo đô thị t\" dòng 1 trống 457 px / 1106 (chữ sau 89 px)",
+    "H2 \"Gamuda Land là ai? “Mã gen” của một nhà \" dòng 1 trống 226 px / 760 (chữ sau 82 px)",
+    "H2 \"Bản đồ dự án Gamuda Land năm 2026: những\" dòng 1 trống 159 px / 760 (chữ sau 83 px)",
+    "H2 \"Thiết kế Biophilic – khi thiên nhiên là \" dòng 1 trống 234 px / 760 (chữ sau 95 px)",
+    "H2 \"Tại sao nhà đầu tư chọn Gamuda Land năm \" dòng 1 trống 323 px / 760 (chữ sau 90 px)",
+    "H2 \"Câu hỏi thường gặp về chủ đầu tư Gamuda \" dòng 1 trống 344 px / 760 (chữ sau 40 px)",
+    "H2 \"Bài viết liên quan đến các dự án của Gam\" dòng 1 trống 300 px / 760 (chữ sau 60 px)"
+   ],
+   "d": [],
+   "e": [
+    "\"Persa Place\" lệch 480 px",
+    "\"Spring Ville\" lệch 480 px"
+   ],
+   "f": {
+    "xemThem": 6,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 9,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Chủ đầu tư\"",
+    "P \"Gamuda Land\"",
+    "P \"Nhơn Trạch – Long Thành\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(184, 40, 46)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 11,
+   "khoangLe": 57,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    6,
+    10,
+    14,
+    15,
+    22,
+    25,
+    25.6,
+    30,
+    35,
+    50
+   ]
+  }
+ },
+ "the-prive": {
+  "390": {
+   "a": [
+    "UL \"Tọa độ vàng: Liền kề trục đường Song Hàn\" lệch 20 px"
+   ],
+   "b": [
+    "OL.breadcrumbs \"Trang chủDự ánThe Privé\" 234/328 px",
+    "UL \"Tọa độ vàng: Liền kề trục đường Song Hàn\" 338/358 px"
+   ],
+   "c": [
+    "H1 \"Căn hộ The Privé Quận 2\" dòng 1 trống 138 px / 328 (chữ sau 63 px)",
+    "H2 \"Thông tin tổng quan căn hộ The Privé\" dòng 1 trống 99 px / 358 (chữ sau 64 px)",
+    "H2 \"Cập nhật tiến độ thực tế The Privé\" dòng 1 trống 144 px / 358 (chữ sau 34 px)",
+    "H2 \"Vị trí The Privé ở đâu? Vì sao nên mua\" dòng 1 trống 139 px / 358 (chữ sau 20 px)",
+    "H2 \"Mặt bằng căn hộ The Privé có gì đặc biệt\" dòng 1 trống 89 px / 358 (chữ sau 49 px)",
+    "H2 \"Giá bán The Privé bao nhiêu?\" dòng 1 trống 206 px / 358 (chữ sau 49 px)",
+    "H2 \"Tại sao nên mua đầu tư The Privé lúc này\" dòng 1 trống 96 px / 358 (chữ sau 48 px)",
+    "H2 \"Chủ đầu tư của The Privé là ai?\" dòng 1 trống 162 px / 358 (chữ sau 45 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 9,
+    "form": 1
+   },
+   "g": [
+    "P \"Nằm kiêu hãnh trên bán đảo Nam Rạch Chiế\" 93 ký tự/dòng"
+   ],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "chuHoa": 6,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Đất Xanh · Nam Rạch Chiếc\"",
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "22px",
+    "24px",
+    "28px",
+    "36px"
+   ],
+   "mauChu": [
+    "rgb(26, 26, 26)",
+    "rgb(92, 92, 92)",
+    "rgb(184, 40, 46)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 21,
+   "khoangLe": 80,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    6,
+    10,
+    13,
+    14,
+    15,
+    22,
+    25,
+    30,
+    35,
+    50
+   ]
+  },
+  "1366": {
+   "a": [
+    "A.default-btn-shortcode \"Nhận bảng giá\" lệch 173 px",
+    "P \"Sài Gòn đang chứng kiến một cuộc dịch ch\" lệch 205 px",
+    "H2 \"Thông tin tổng quan căn hộ The Privé\" lệch 205 px",
+    "TABLE \"Quy mô\n6,7 ha\n\n\nMật độ xây dựng\n31%\n\n\nMả\" lệch 205 px",
+    "H2 \"Cập nhật tiến độ thực tế The Privé\" lệch 205 px",
+    "P \"Cập nhật đến thời điểm hiện tại, dự án đ\" lệch 205 px",
+    "P \"Dưới đây là 1 số hình ảnh thực tế cập nh\" lệch 205 px",
+    "H2 \"Vị trí The Privé ở đâu? Vì sao nên mua\" lệch 205 px",
+    "P \"The Privé tọa lạc tại khu dân cư Nam Rạc\" lệch 205 px",
+    "UL \"Tọa độ vàng: Liền kề trục đường Song Hàn\" lệch 225 px",
+    "H2 \"Tiện ích The Privé có gì\" lệch 205 px",
+    "P \"Khi đi xem một dự án hạng sang vào năm 2\" lệch 205 px",
+    "H2 \"Mặt bằng căn hộ The Privé có gì đặc biệt\" lệch 205 px",
+    "P \"Một mặt bằng căn hộ tốt không chỉ là việ\" lệch 205 px",
+    "P \"Tại The Privé, sự hợp tác với CPG Consul\" lệch 205 px",
+    "H2 \"Giá bán The Privé bao nhiêu?\" lệch 205 px",
+    "P \"Thị trường Quận 2 (TP. Thủ Đức) lúc này \" lệch 205 px",
+    "P \"Sòng phẳng mà nói, sau nhiều năm “ngủ đô\" lệch 205 px",
+    "H2 \"Tại sao nên mua đầu tư The Privé lúc này\" lệch 205 px",
+    "P \"Khi bản đồ hạ tầng Quận 2 đã lộ diện nhữ\" lệch 205 px",
+    "P \"Dưới góc độ một người thực chiến, tôi xi\" lệch 205 px",
+    "H3 \"1. “Vùng trũng giá” giữa các gã khổng lồ\" lệch 205 px",
+    "H2 \"Vì sao căn hộ The Privé phù hợp với ngườ\" lệch 205 px",
+    "P \"Khi tư vấn cho những khách hàng mua để ở\" lệch 205 px",
+    "H2 \"Chủ đầu tư của The Privé là ai?\" lệch 205 px",
+    "P \"Chủ đầu tư của The Privé là Tập đoàn Đất\" lệch 205 px",
+    "P \"Dưới đây là những lý do anh chị có thể t\" lệch 205 px",
+    "H2 \"Câu hỏi thường gặp\" lệch 205 px"
+   ],
+   "b": [
+    "OL.breadcrumbs \"Trang chủDự ánThe Privé\" 234/1106 px",
+    "P \"Nằm kiêu hãnh trên bán đảo Nam Rạch Chiế\" 760/1106 px",
+    "P \"Nhận bảng hàng độc quyền Tháp 9 – Tòa th\" 760/1106 px",
+    "P.velis-call \"Hoặc gọi 0911 237 979 · Zalo\" 760/1106 px",
+    "P \"Sài Gòn đang chứng kiến một cuộc dịch ch\" 760/1170 px",
+    "H2 \"Thông tin tổng quan căn hộ The Privé\" 760/1170 px",
+    "TABLE \"Quy mô\n6,7 ha\n\n\nMật độ xây dựng\n31%\n\n\nMả\" 760/1170 px",
+    "H2 \"Cập nhật tiến độ thực tế The Privé\" 760/1170 px",
+    "P \"Cập nhật đến thời điểm hiện tại, dự án đ\" 760/1170 px",
+    "P \"Dưới đây là 1 số hình ảnh thực tế cập nh\" 760/1170 px",
+    "H2 \"Vị trí The Privé ở đâu? Vì sao nên mua\" 760/1170 px",
+    "P \"The Privé tọa lạc tại khu dân cư Nam Rạc\" 760/1170 px",
+    "UL \"Tọa độ vàng: Liền kề trục đường Song Hàn\" 740/1170 px",
+    "H2 \"Tiện ích The Privé có gì\" 760/1170 px",
+    "P \"Khi đi xem một dự án hạng sang vào năm 2\" 760/1170 px",
+    "H2 \"Mặt bằng căn hộ The Privé có gì đặc biệt\" 760/1170 px",
+    "P \"Một mặt bằng căn hộ tốt không chỉ là việ\" 760/1170 px",
+    "P \"Tại The Privé, sự hợp tác với CPG Consul\" 760/1170 px",
+    "H2 \"Giá bán The Privé bao nhiêu?\" 760/1170 px",
+    "P \"Thị trường Quận 2 (TP. Thủ Đức) lúc này \" 760/1170 px",
+    "P \"Sòng phẳng mà nói, sau nhiều năm “ngủ đô\" 760/1170 px",
+    "H2 \"Tại sao nên mua đầu tư The Privé lúc này\" 760/1170 px",
+    "P \"Khi bản đồ hạ tầng Quận 2 đã lộ diện nhữ\" 760/1170 px",
+    "P \"Dưới góc độ một người thực chiến, tôi xi\" 760/1170 px",
+    "H3 \"1. “Vùng trũng giá” giữa các gã khổng lồ\" 760/1170 px",
+    "H2 \"Vì sao căn hộ The Privé phù hợp với ngườ\" 760/1170 px",
+    "P \"Khi tư vấn cho những khách hàng mua để ở\" 760/1170 px",
+    "H2 \"Chủ đầu tư của The Privé là ai?\" 760/1170 px",
+    "P \"Chủ đầu tư của The Privé là Tập đoàn Đất\" 760/1170 px",
+    "P \"Dưới đây là những lý do anh chị có thể t\" 760/1170 px",
+    "H2 \"Câu hỏi thường gặp\" 760/1170 px"
+   ],
+   "c": [
+    "H2 \"Mặt bằng căn hộ The Privé có gì đặc biệt\" dòng 1 trống 375 px / 760 (chữ sau 70 px)",
+    "H2 \"Tại sao nên mua đầu tư The Privé lúc này\" dòng 1 trống 385 px / 760 (chữ sau 69 px)",
+    "H2 \"Vì sao căn hộ The Privé phù hợp với ngườ\" dòng 1 trống 335 px / 760 (chữ sau 95 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 8,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 6,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Đất Xanh · Nam Rạch Chiếc\"",
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(184, 40, 46)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 22,
+   "khoangLe": 120,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    15,
+    22,
+    25,
+    25.6,
+    30,
+    35,
+    50
+   ]
+  },
+  "1536": {
+   "a": [
+    "A.default-btn-shortcode \"Nhận bảng giá\" lệch 173 px",
+    "P \"Sài Gòn đang chứng kiến một cuộc dịch ch\" lệch 205 px",
+    "H2 \"Thông tin tổng quan căn hộ The Privé\" lệch 205 px",
+    "TABLE \"Quy mô\n6,7 ha\n\n\nMật độ xây dựng\n31%\n\n\nMả\" lệch 205 px",
+    "H2 \"Cập nhật tiến độ thực tế The Privé\" lệch 205 px",
+    "P \"Cập nhật đến thời điểm hiện tại, dự án đ\" lệch 205 px",
+    "P \"Dưới đây là 1 số hình ảnh thực tế cập nh\" lệch 205 px",
+    "H2 \"Vị trí The Privé ở đâu? Vì sao nên mua\" lệch 205 px",
+    "P \"The Privé tọa lạc tại khu dân cư Nam Rạc\" lệch 205 px",
+    "UL \"Tọa độ vàng: Liền kề trục đường Song Hàn\" lệch 225 px",
+    "H2 \"Tiện ích The Privé có gì\" lệch 205 px",
+    "P \"Khi đi xem một dự án hạng sang vào năm 2\" lệch 205 px",
+    "H2 \"Mặt bằng căn hộ The Privé có gì đặc biệt\" lệch 205 px",
+    "P \"Một mặt bằng căn hộ tốt không chỉ là việ\" lệch 205 px",
+    "P \"Tại The Privé, sự hợp tác với CPG Consul\" lệch 205 px",
+    "H2 \"Giá bán The Privé bao nhiêu?\" lệch 205 px",
+    "P \"Thị trường Quận 2 (TP. Thủ Đức) lúc này \" lệch 205 px",
+    "P \"Sòng phẳng mà nói, sau nhiều năm “ngủ đô\" lệch 205 px",
+    "H2 \"Tại sao nên mua đầu tư The Privé lúc này\" lệch 205 px",
+    "P \"Khi bản đồ hạ tầng Quận 2 đã lộ diện nhữ\" lệch 205 px",
+    "P \"Dưới góc độ một người thực chiến, tôi xi\" lệch 205 px",
+    "H3 \"1. “Vùng trũng giá” giữa các gã khổng lồ\" lệch 205 px",
+    "H2 \"Vì sao căn hộ The Privé phù hợp với ngườ\" lệch 205 px",
+    "P \"Khi tư vấn cho những khách hàng mua để ở\" lệch 205 px",
+    "H2 \"Chủ đầu tư của The Privé là ai?\" lệch 205 px",
+    "P \"Chủ đầu tư của The Privé là Tập đoàn Đất\" lệch 205 px",
+    "P \"Dưới đây là những lý do anh chị có thể t\" lệch 205 px",
+    "H2 \"Câu hỏi thường gặp\" lệch 205 px"
+   ],
+   "b": [
+    "OL.breadcrumbs \"Trang chủDự ánThe Privé\" 234/1106 px",
+    "P \"Nằm kiêu hãnh trên bán đảo Nam Rạch Chiế\" 760/1106 px",
+    "P \"Nhận bảng hàng độc quyền Tháp 9 – Tòa th\" 760/1106 px",
+    "P.velis-call \"Hoặc gọi 0911 237 979 · Zalo\" 760/1106 px",
+    "P \"Sài Gòn đang chứng kiến một cuộc dịch ch\" 760/1170 px",
+    "H2 \"Thông tin tổng quan căn hộ The Privé\" 760/1170 px",
+    "TABLE \"Quy mô\n6,7 ha\n\n\nMật độ xây dựng\n31%\n\n\nMả\" 760/1170 px",
+    "H2 \"Cập nhật tiến độ thực tế The Privé\" 760/1170 px",
+    "P \"Cập nhật đến thời điểm hiện tại, dự án đ\" 760/1170 px",
+    "P \"Dưới đây là 1 số hình ảnh thực tế cập nh\" 760/1170 px",
+    "H2 \"Vị trí The Privé ở đâu? Vì sao nên mua\" 760/1170 px",
+    "P \"The Privé tọa lạc tại khu dân cư Nam Rạc\" 760/1170 px",
+    "UL \"Tọa độ vàng: Liền kề trục đường Song Hàn\" 740/1170 px",
+    "H2 \"Tiện ích The Privé có gì\" 760/1170 px",
+    "P \"Khi đi xem một dự án hạng sang vào năm 2\" 760/1170 px",
+    "H2 \"Mặt bằng căn hộ The Privé có gì đặc biệt\" 760/1170 px",
+    "P \"Một mặt bằng căn hộ tốt không chỉ là việ\" 760/1170 px",
+    "P \"Tại The Privé, sự hợp tác với CPG Consul\" 760/1170 px",
+    "H2 \"Giá bán The Privé bao nhiêu?\" 760/1170 px",
+    "P \"Thị trường Quận 2 (TP. Thủ Đức) lúc này \" 760/1170 px",
+    "P \"Sòng phẳng mà nói, sau nhiều năm “ngủ đô\" 760/1170 px",
+    "H2 \"Tại sao nên mua đầu tư The Privé lúc này\" 760/1170 px",
+    "P \"Khi bản đồ hạ tầng Quận 2 đã lộ diện nhữ\" 760/1170 px",
+    "P \"Dưới góc độ một người thực chiến, tôi xi\" 760/1170 px",
+    "H3 \"1. “Vùng trũng giá” giữa các gã khổng lồ\" 760/1170 px",
+    "H2 \"Vì sao căn hộ The Privé phù hợp với ngườ\" 760/1170 px",
+    "P \"Khi tư vấn cho những khách hàng mua để ở\" 760/1170 px",
+    "H2 \"Chủ đầu tư của The Privé là ai?\" 760/1170 px",
+    "P \"Chủ đầu tư của The Privé là Tập đoàn Đất\" 760/1170 px",
+    "P \"Dưới đây là những lý do anh chị có thể t\" 760/1170 px",
+    "H2 \"Câu hỏi thường gặp\" 760/1170 px"
+   ],
+   "c": [
+    "H2 \"Mặt bằng căn hộ The Privé có gì đặc biệt\" dòng 1 trống 375 px / 760 (chữ sau 70 px)",
+    "H2 \"Tại sao nên mua đầu tư The Privé lúc này\" dòng 1 trống 385 px / 760 (chữ sau 69 px)",
+    "H2 \"Vì sao căn hộ The Privé phù hợp với ngườ\" dòng 1 trống 335 px / 760 (chữ sau 95 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 8,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 6,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Đất Xanh · Nam Rạch Chiếc\"",
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(184, 40, 46)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 22,
+   "khoangLe": 120,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    15,
+    22,
+    25,
+    25.6,
+    30,
+    35,
+    50
+   ]
+  },
+  "1920": {
+   "a": [
+    "A.default-btn-shortcode \"Nhận bảng giá\" lệch 173 px",
+    "P \"Sài Gòn đang chứng kiến một cuộc dịch ch\" lệch 205 px",
+    "H2 \"Thông tin tổng quan căn hộ The Privé\" lệch 205 px",
+    "TABLE \"Quy mô\n6,7 ha\n\n\nMật độ xây dựng\n31%\n\n\nMả\" lệch 205 px",
+    "H2 \"Cập nhật tiến độ thực tế The Privé\" lệch 205 px",
+    "P \"Cập nhật đến thời điểm hiện tại, dự án đ\" lệch 205 px",
+    "P \"Dưới đây là 1 số hình ảnh thực tế cập nh\" lệch 205 px",
+    "H2 \"Vị trí The Privé ở đâu? Vì sao nên mua\" lệch 205 px",
+    "P \"The Privé tọa lạc tại khu dân cư Nam Rạc\" lệch 205 px",
+    "UL \"Tọa độ vàng: Liền kề trục đường Song Hàn\" lệch 225 px",
+    "H2 \"Tiện ích The Privé có gì\" lệch 205 px",
+    "P \"Khi đi xem một dự án hạng sang vào năm 2\" lệch 205 px",
+    "H2 \"Mặt bằng căn hộ The Privé có gì đặc biệt\" lệch 205 px",
+    "P \"Một mặt bằng căn hộ tốt không chỉ là việ\" lệch 205 px",
+    "P \"Tại The Privé, sự hợp tác với CPG Consul\" lệch 205 px",
+    "H2 \"Giá bán The Privé bao nhiêu?\" lệch 205 px",
+    "P \"Thị trường Quận 2 (TP. Thủ Đức) lúc này \" lệch 205 px",
+    "P \"Sòng phẳng mà nói, sau nhiều năm “ngủ đô\" lệch 205 px",
+    "H2 \"Tại sao nên mua đầu tư The Privé lúc này\" lệch 205 px",
+    "P \"Khi bản đồ hạ tầng Quận 2 đã lộ diện nhữ\" lệch 205 px",
+    "P \"Dưới góc độ một người thực chiến, tôi xi\" lệch 205 px",
+    "H3 \"1. “Vùng trũng giá” giữa các gã khổng lồ\" lệch 205 px",
+    "H2 \"Vì sao căn hộ The Privé phù hợp với ngườ\" lệch 205 px",
+    "P \"Khi tư vấn cho những khách hàng mua để ở\" lệch 205 px",
+    "H2 \"Chủ đầu tư của The Privé là ai?\" lệch 205 px",
+    "P \"Chủ đầu tư của The Privé là Tập đoàn Đất\" lệch 205 px",
+    "P \"Dưới đây là những lý do anh chị có thể t\" lệch 205 px",
+    "H2 \"Câu hỏi thường gặp\" lệch 205 px"
+   ],
+   "b": [
+    "OL.breadcrumbs \"Trang chủDự ánThe Privé\" 234/1106 px",
+    "P \"Nằm kiêu hãnh trên bán đảo Nam Rạch Chiế\" 760/1106 px",
+    "P \"Nhận bảng hàng độc quyền Tháp 9 – Tòa th\" 760/1106 px",
+    "P.velis-call \"Hoặc gọi 0911 237 979 · Zalo\" 760/1106 px",
+    "P \"Sài Gòn đang chứng kiến một cuộc dịch ch\" 760/1170 px",
+    "H2 \"Thông tin tổng quan căn hộ The Privé\" 760/1170 px",
+    "TABLE \"Quy mô\n6,7 ha\n\n\nMật độ xây dựng\n31%\n\n\nMả\" 760/1170 px",
+    "H2 \"Cập nhật tiến độ thực tế The Privé\" 760/1170 px",
+    "P \"Cập nhật đến thời điểm hiện tại, dự án đ\" 760/1170 px",
+    "P \"Dưới đây là 1 số hình ảnh thực tế cập nh\" 760/1170 px",
+    "H2 \"Vị trí The Privé ở đâu? Vì sao nên mua\" 760/1170 px",
+    "P \"The Privé tọa lạc tại khu dân cư Nam Rạc\" 760/1170 px",
+    "UL \"Tọa độ vàng: Liền kề trục đường Song Hàn\" 740/1170 px",
+    "H2 \"Tiện ích The Privé có gì\" 760/1170 px",
+    "P \"Khi đi xem một dự án hạng sang vào năm 2\" 760/1170 px",
+    "H2 \"Mặt bằng căn hộ The Privé có gì đặc biệt\" 760/1170 px",
+    "P \"Một mặt bằng căn hộ tốt không chỉ là việ\" 760/1170 px",
+    "P \"Tại The Privé, sự hợp tác với CPG Consul\" 760/1170 px",
+    "H2 \"Giá bán The Privé bao nhiêu?\" 760/1170 px",
+    "P \"Thị trường Quận 2 (TP. Thủ Đức) lúc này \" 760/1170 px",
+    "P \"Sòng phẳng mà nói, sau nhiều năm “ngủ đô\" 760/1170 px",
+    "H2 \"Tại sao nên mua đầu tư The Privé lúc này\" 760/1170 px",
+    "P \"Khi bản đồ hạ tầng Quận 2 đã lộ diện nhữ\" 760/1170 px",
+    "P \"Dưới góc độ một người thực chiến, tôi xi\" 760/1170 px",
+    "H3 \"1. “Vùng trũng giá” giữa các gã khổng lồ\" 760/1170 px",
+    "H2 \"Vì sao căn hộ The Privé phù hợp với ngườ\" 760/1170 px",
+    "P \"Khi tư vấn cho những khách hàng mua để ở\" 760/1170 px",
+    "H2 \"Chủ đầu tư của The Privé là ai?\" 760/1170 px",
+    "P \"Chủ đầu tư của The Privé là Tập đoàn Đất\" 760/1170 px",
+    "P \"Dưới đây là những lý do anh chị có thể t\" 760/1170 px",
+    "H2 \"Câu hỏi thường gặp\" 760/1170 px"
+   ],
+   "c": [
+    "H2 \"Mặt bằng căn hộ The Privé có gì đặc biệt\" dòng 1 trống 375 px / 760 (chữ sau 70 px)",
+    "H2 \"Tại sao nên mua đầu tư The Privé lúc này\" dòng 1 trống 385 px / 760 (chữ sau 69 px)",
+    "H2 \"Vì sao căn hộ The Privé phù hợp với ngườ\" dòng 1 trống 335 px / 760 (chữ sau 95 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 8,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 6,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Đất Xanh · Nam Rạch Chiếc\"",
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(184, 40, 46)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 22,
+   "khoangLe": 120,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    15,
+    22,
+    25,
+    25.6,
+    30,
+    35,
+    50
+   ]
+  }
+ },
+ "spring-ville": {
+  "390": {
+   "a": [
+    "UL \"Quy hoạch chi tiết 1/500 đã được phê duy\" lệch 20 px"
+   ],
+   "b": [
+    "UL \"Quy hoạch chi tiết 1/500 đã được phê duy\" 338/358 px"
+   ],
+   "c": [
+    "H1 \"Spring Ville Gamuda Land\" dòng 1 trống 137 px / 328 (chữ sau 73 px)",
+    "H2 \"Thông tin về dự án Spring Ville\" dòng 1 trống 156 px / 358 (chữ sau 37 px)",
+    "H2 \"Tiện ích nội khu của Spring Ville có gì?\" dòng 1 trống 96 px / 358 (chữ sau 45 px)",
+    "H2 \"Mặt bằng dự án Spring Ville\" dòng 1 trống 193 px / 358 (chữ sau 37 px)",
+    "H2 \"Các loại sản phẩm tại Spring Ville\" dòng 1 trống 127 px / 358 (chữ sau 73 px)",
+    "H2 \"Vì sao Spring Ville phù hợp với người mu\" dòng 1 trống 70 px / 358 (chữ sau 50 px)",
+    "H2 \"Ai nên mua Spring Ville lúc này?\" dòng 1 trống 121 px / 358 (chữ sau 86 px)",
+    "H2 \"Câu hỏi thường gặp tại Spring Ville\" dòng 1 trống 155 px / 358 (chữ sau 99 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 11,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "chuHoa": 7,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Gamuda Land · Nhơn Trạch – Long Thành\"",
+    "A \"Gamuda Land\"",
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "22px",
+    "24px",
+    "28px",
+    "36px"
+   ],
+   "mauChu": [
+    "rgb(26, 26, 26)",
+    "rgb(92, 92, 92)",
+    "rgb(196, 47, 53)",
+    "rgb(255, 255, 255)",
+    "rgb(184, 40, 46)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 17,
+   "khoangLe": 104,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    6,
+    10,
+    13,
+    14,
+    15,
+    22,
+    25,
+    30,
+    35,
+    50
+   ]
+  },
+  "1366": {
+   "a": [
+    "A.default-btn-shortcode \"Nhận bảng giá\" lệch 173 px",
+    "P \"Nhơn Trạch đang bước vào giai đoạn mà ng\" lệch 205 px",
+    "H2 \"Thông tin về dự án Spring Ville\" lệch 205 px",
+    "H2 \"Vị trí dự án Spring Ville ở đâu? Có lợi \" lệch 205 px",
+    "P \"Vị trí là một trong những điểm mạnh dễ n\" lệch 205 px",
+    "H2 \"Tiện ích nội khu của Spring Ville có gì?\" lệch 205 px",
+    "P \"Nếu vị trí quyết định khả năng kết nối, \" lệch 205 px",
+    "H2 \"Mặt bằng dự án Spring Ville\" lệch 205 px",
+    "P \"Khi nhìn một dự án theo góc độ đầu tư ha\" lệch 205 px",
+    "H2 \"Các loại sản phẩm tại Spring Ville\" lệch 205 px",
+    "P \"Một điểm khiến Spring Ville dễ được thị \" lệch 205 px",
+    "H3 \"Nhà phố Spring Ville\" lệch 205 px",
+    "P \"Nhà phố là dòng sản phẩm mang tính đặc t\" lệch 205 px",
+    "P \"Spring Ville hiện được giới thiệu với 42\" lệch 205 px",
+    "P \"Ở Nhơn Trạch, loại sản phẩm này còn có m\" lệch 205 px",
+    "H3 \"Shophouse Spring Ville\" lệch 205 px",
+    "P \"Shophouse lại là dòng sản phẩm có vai tr\" lệch 205 px",
+    "P \"Tại Spring Ville, shophouse được giới th\" lệch 205 px",
+    "P \"Với một khu đô thị đa loại hình, shophou\" lệch 205 px",
+    "H3 \"Căn hộ Spring Ville\" lệch 205 px",
+    "P \"Căn hộ là lớp sản phẩm giúp Spring Ville\" lệch 205 px",
+    "P \"Phần cao tầng với 10 block cao 12 đến 15\" lệch 205 px",
+    "P \"Nếu nhà phố và shophouse là lớp tài sản \" lệch 205 px",
+    "P \"Nhìn tổng thể, ba dòng sản phẩm này khôn\" lệch 205 px",
+    "H2 \"Vì sao Spring Ville phù hợp với người mu\" lệch 205 px",
+    "P \"Với người mua để ở, tôi thường nhìn một \" lệch 205 px",
+    "H2 \"Vì sao Spring Ville được quan tâm ở góc \" lệch 205 px",
+    "P \"Nếu nhìn Spring Ville ở góc độ đầu tư, t\" lệch 205 px",
+    "P \"Dự án nằm trên đường Tôn Đức Thắng, ngay\" lệch 205 px",
+    "H2 \"Chủ đầu tư Gamuda Land có phải điểm cộng\" lệch 205 px",
+    "P \"Tôi cho rằng có, nhưng điểm cộng này chỉ\" lệch 205 px",
+    "H2 \"Ai nên mua Spring Ville lúc này?\" lệch 205 px",
+    "P \"Spring Ville không phải dự án dành cho t\" lệch 205 px",
+    "H2 \"Pháp lý dự án Spring Ville\" lệch 205 px",
+    "P \"Spring Ville Đồng Nai có nền tảng pháp l\" lệch 205 px",
+    "P \"Hồ sơ pháp lý gồm có:\" lệch 205 px",
+    "UL \"Quy hoạch chi tiết 1/500 đã được phê duy\" lệch 225 px",
+    "H2 \"Câu hỏi thường gặp tại Spring Ville\" lệch 205 px"
+   ],
+   "b": [
+    "OL.breadcrumbs \"Trang chủDự ánGamuda LandSpring Ville\" 365/1106 px",
+    "P \"Nhà phố – shophouse – căn hộ\" 760/1106 px",
+    "P.velis-call \"Hoặc gọi 0911 237 979 · Zalo\" 760/1106 px",
+    "P \"Nhơn Trạch đang bước vào giai đoạn mà ng\" 760/1170 px",
+    "H2 \"Thông tin về dự án Spring Ville\" 760/1170 px",
+    "H2 \"Vị trí dự án Spring Ville ở đâu? Có lợi \" 760/1170 px",
+    "P \"Vị trí là một trong những điểm mạnh dễ n\" 760/1170 px",
+    "H2 \"Tiện ích nội khu của Spring Ville có gì?\" 760/1170 px",
+    "P \"Nếu vị trí quyết định khả năng kết nối, \" 760/1170 px",
+    "H2 \"Mặt bằng dự án Spring Ville\" 760/1170 px",
+    "P \"Khi nhìn một dự án theo góc độ đầu tư ha\" 760/1170 px",
+    "H2 \"Các loại sản phẩm tại Spring Ville\" 760/1170 px",
+    "P \"Một điểm khiến Spring Ville dễ được thị \" 760/1170 px",
+    "H3 \"Nhà phố Spring Ville\" 760/1170 px",
+    "P \"Nhà phố là dòng sản phẩm mang tính đặc t\" 760/1170 px",
+    "P \"Spring Ville hiện được giới thiệu với 42\" 760/1170 px",
+    "P \"Ở Nhơn Trạch, loại sản phẩm này còn có m\" 760/1170 px",
+    "H3 \"Shophouse Spring Ville\" 760/1170 px",
+    "P \"Shophouse lại là dòng sản phẩm có vai tr\" 760/1170 px",
+    "P \"Tại Spring Ville, shophouse được giới th\" 760/1170 px",
+    "P \"Với một khu đô thị đa loại hình, shophou\" 760/1170 px",
+    "H3 \"Căn hộ Spring Ville\" 760/1170 px",
+    "P \"Căn hộ là lớp sản phẩm giúp Spring Ville\" 760/1170 px",
+    "P \"Phần cao tầng với 10 block cao 12 đến 15\" 760/1170 px",
+    "P \"Nếu nhà phố và shophouse là lớp tài sản \" 760/1170 px",
+    "P \"Nhìn tổng thể, ba dòng sản phẩm này khôn\" 760/1170 px",
+    "H2 \"Vì sao Spring Ville phù hợp với người mu\" 760/1170 px",
+    "P \"Với người mua để ở, tôi thường nhìn một \" 760/1170 px",
+    "H2 \"Vì sao Spring Ville được quan tâm ở góc \" 760/1170 px",
+    "P \"Nếu nhìn Spring Ville ở góc độ đầu tư, t\" 760/1170 px",
+    "P \"Dự án nằm trên đường Tôn Đức Thắng, ngay\" 760/1170 px",
+    "H2 \"Chủ đầu tư Gamuda Land có phải điểm cộng\" 760/1170 px",
+    "P \"Tôi cho rằng có, nhưng điểm cộng này chỉ\" 760/1170 px",
+    "H2 \"Ai nên mua Spring Ville lúc này?\" 760/1170 px",
+    "P \"Spring Ville không phải dự án dành cho t\" 760/1170 px",
+    "H2 \"Pháp lý dự án Spring Ville\" 760/1170 px",
+    "P \"Spring Ville Đồng Nai có nền tảng pháp l\" 760/1170 px",
+    "P \"Hồ sơ pháp lý gồm có:\" 760/1170 px",
+    "UL \"Quy hoạch chi tiết 1/500 đã được phê duy\" 740/1170 px",
+    "H2 \"Câu hỏi thường gặp tại Spring Ville\" 760/1170 px"
+   ],
+   "c": [
+    "H2 \"Vị trí dự án Spring Ville ở đâu? Có lợi \" dòng 1 trống 330 px / 760 (chữ sau 82 px)",
+    "H2 \"Vì sao Spring Ville phù hợp với người mu\" dòng 1 trống 349 px / 760 (chữ sau 72 px)",
+    "H2 \"Vì sao Spring Ville được quan tâm ở góc \" dòng 1 trống 319 px / 760 (chữ sau 102 px)",
+    "H2 \"Chủ đầu tư Gamuda Land có phải điểm cộng\" dòng 1 trống 237 px / 760 (chữ sau 42 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 11,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 7,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Gamuda Land · Nhơn Trạch – Long Thành\"",
+    "A \"Gamuda Land\"",
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(184, 40, 46)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 18,
+   "khoangLe": 140,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    15,
+    22,
+    25,
+    25.6,
+    30,
+    35,
+    50
+   ]
+  },
+  "1536": {
+   "a": [
+    "A.default-btn-shortcode \"Nhận bảng giá\" lệch 173 px",
+    "P \"Nhơn Trạch đang bước vào giai đoạn mà ng\" lệch 205 px",
+    "H2 \"Thông tin về dự án Spring Ville\" lệch 205 px",
+    "H2 \"Vị trí dự án Spring Ville ở đâu? Có lợi \" lệch 205 px",
+    "P \"Vị trí là một trong những điểm mạnh dễ n\" lệch 205 px",
+    "H2 \"Tiện ích nội khu của Spring Ville có gì?\" lệch 205 px",
+    "P \"Nếu vị trí quyết định khả năng kết nối, \" lệch 205 px",
+    "H2 \"Mặt bằng dự án Spring Ville\" lệch 205 px",
+    "P \"Khi nhìn một dự án theo góc độ đầu tư ha\" lệch 205 px",
+    "H2 \"Các loại sản phẩm tại Spring Ville\" lệch 205 px",
+    "P \"Một điểm khiến Spring Ville dễ được thị \" lệch 205 px",
+    "H3 \"Nhà phố Spring Ville\" lệch 205 px",
+    "P \"Nhà phố là dòng sản phẩm mang tính đặc t\" lệch 205 px",
+    "P \"Spring Ville hiện được giới thiệu với 42\" lệch 205 px",
+    "P \"Ở Nhơn Trạch, loại sản phẩm này còn có m\" lệch 205 px",
+    "H3 \"Shophouse Spring Ville\" lệch 205 px",
+    "P \"Shophouse lại là dòng sản phẩm có vai tr\" lệch 205 px",
+    "P \"Tại Spring Ville, shophouse được giới th\" lệch 205 px",
+    "P \"Với một khu đô thị đa loại hình, shophou\" lệch 205 px",
+    "H3 \"Căn hộ Spring Ville\" lệch 205 px",
+    "P \"Căn hộ là lớp sản phẩm giúp Spring Ville\" lệch 205 px",
+    "P \"Phần cao tầng với 10 block cao 12 đến 15\" lệch 205 px",
+    "P \"Nếu nhà phố và shophouse là lớp tài sản \" lệch 205 px",
+    "P \"Nhìn tổng thể, ba dòng sản phẩm này khôn\" lệch 205 px",
+    "H2 \"Vì sao Spring Ville phù hợp với người mu\" lệch 205 px",
+    "P \"Với người mua để ở, tôi thường nhìn một \" lệch 205 px",
+    "H2 \"Vì sao Spring Ville được quan tâm ở góc \" lệch 205 px",
+    "P \"Nếu nhìn Spring Ville ở góc độ đầu tư, t\" lệch 205 px",
+    "P \"Dự án nằm trên đường Tôn Đức Thắng, ngay\" lệch 205 px",
+    "H2 \"Chủ đầu tư Gamuda Land có phải điểm cộng\" lệch 205 px",
+    "P \"Tôi cho rằng có, nhưng điểm cộng này chỉ\" lệch 205 px",
+    "H2 \"Ai nên mua Spring Ville lúc này?\" lệch 205 px",
+    "P \"Spring Ville không phải dự án dành cho t\" lệch 205 px",
+    "H2 \"Pháp lý dự án Spring Ville\" lệch 205 px",
+    "P \"Spring Ville Đồng Nai có nền tảng pháp l\" lệch 205 px",
+    "P \"Hồ sơ pháp lý gồm có:\" lệch 205 px",
+    "UL \"Quy hoạch chi tiết 1/500 đã được phê duy\" lệch 225 px",
+    "H2 \"Câu hỏi thường gặp tại Spring Ville\" lệch 205 px"
+   ],
+   "b": [
+    "OL.breadcrumbs \"Trang chủDự ánGamuda LandSpring Ville\" 365/1106 px",
+    "P \"Nhà phố – shophouse – căn hộ\" 760/1106 px",
+    "P.velis-call \"Hoặc gọi 0911 237 979 · Zalo\" 760/1106 px",
+    "P \"Nhơn Trạch đang bước vào giai đoạn mà ng\" 760/1170 px",
+    "H2 \"Thông tin về dự án Spring Ville\" 760/1170 px",
+    "H2 \"Vị trí dự án Spring Ville ở đâu? Có lợi \" 760/1170 px",
+    "P \"Vị trí là một trong những điểm mạnh dễ n\" 760/1170 px",
+    "H2 \"Tiện ích nội khu của Spring Ville có gì?\" 760/1170 px",
+    "P \"Nếu vị trí quyết định khả năng kết nối, \" 760/1170 px",
+    "H2 \"Mặt bằng dự án Spring Ville\" 760/1170 px",
+    "P \"Khi nhìn một dự án theo góc độ đầu tư ha\" 760/1170 px",
+    "H2 \"Các loại sản phẩm tại Spring Ville\" 760/1170 px",
+    "P \"Một điểm khiến Spring Ville dễ được thị \" 760/1170 px",
+    "H3 \"Nhà phố Spring Ville\" 760/1170 px",
+    "P \"Nhà phố là dòng sản phẩm mang tính đặc t\" 760/1170 px",
+    "P \"Spring Ville hiện được giới thiệu với 42\" 760/1170 px",
+    "P \"Ở Nhơn Trạch, loại sản phẩm này còn có m\" 760/1170 px",
+    "H3 \"Shophouse Spring Ville\" 760/1170 px",
+    "P \"Shophouse lại là dòng sản phẩm có vai tr\" 760/1170 px",
+    "P \"Tại Spring Ville, shophouse được giới th\" 760/1170 px",
+    "P \"Với một khu đô thị đa loại hình, shophou\" 760/1170 px",
+    "H3 \"Căn hộ Spring Ville\" 760/1170 px",
+    "P \"Căn hộ là lớp sản phẩm giúp Spring Ville\" 760/1170 px",
+    "P \"Phần cao tầng với 10 block cao 12 đến 15\" 760/1170 px",
+    "P \"Nếu nhà phố và shophouse là lớp tài sản \" 760/1170 px",
+    "P \"Nhìn tổng thể, ba dòng sản phẩm này khôn\" 760/1170 px",
+    "H2 \"Vì sao Spring Ville phù hợp với người mu\" 760/1170 px",
+    "P \"Với người mua để ở, tôi thường nhìn một \" 760/1170 px",
+    "H2 \"Vì sao Spring Ville được quan tâm ở góc \" 760/1170 px",
+    "P \"Nếu nhìn Spring Ville ở góc độ đầu tư, t\" 760/1170 px",
+    "P \"Dự án nằm trên đường Tôn Đức Thắng, ngay\" 760/1170 px",
+    "H2 \"Chủ đầu tư Gamuda Land có phải điểm cộng\" 760/1170 px",
+    "P \"Tôi cho rằng có, nhưng điểm cộng này chỉ\" 760/1170 px",
+    "H2 \"Ai nên mua Spring Ville lúc này?\" 760/1170 px",
+    "P \"Spring Ville không phải dự án dành cho t\" 760/1170 px",
+    "H2 \"Pháp lý dự án Spring Ville\" 760/1170 px",
+    "P \"Spring Ville Đồng Nai có nền tảng pháp l\" 760/1170 px",
+    "P \"Hồ sơ pháp lý gồm có:\" 760/1170 px",
+    "UL \"Quy hoạch chi tiết 1/500 đã được phê duy\" 740/1170 px",
+    "H2 \"Câu hỏi thường gặp tại Spring Ville\" 760/1170 px"
+   ],
+   "c": [
+    "H2 \"Vị trí dự án Spring Ville ở đâu? Có lợi \" dòng 1 trống 330 px / 760 (chữ sau 82 px)",
+    "H2 \"Vì sao Spring Ville phù hợp với người mu\" dòng 1 trống 349 px / 760 (chữ sau 72 px)",
+    "H2 \"Vì sao Spring Ville được quan tâm ở góc \" dòng 1 trống 319 px / 760 (chữ sau 102 px)",
+    "H2 \"Chủ đầu tư Gamuda Land có phải điểm cộng\" dòng 1 trống 237 px / 760 (chữ sau 42 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 11,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 7,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Gamuda Land · Nhơn Trạch – Long Thành\"",
+    "A \"Gamuda Land\"",
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(184, 40, 46)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 18,
+   "khoangLe": 140,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    15,
+    22,
+    25,
+    25.6,
+    30,
+    35,
+    50
+   ]
+  },
+  "1920": {
+   "a": [
+    "A.default-btn-shortcode \"Nhận bảng giá\" lệch 173 px",
+    "P \"Nhơn Trạch đang bước vào giai đoạn mà ng\" lệch 205 px",
+    "H2 \"Thông tin về dự án Spring Ville\" lệch 205 px",
+    "H2 \"Vị trí dự án Spring Ville ở đâu? Có lợi \" lệch 205 px",
+    "P \"Vị trí là một trong những điểm mạnh dễ n\" lệch 205 px",
+    "H2 \"Tiện ích nội khu của Spring Ville có gì?\" lệch 205 px",
+    "P \"Nếu vị trí quyết định khả năng kết nối, \" lệch 205 px",
+    "H2 \"Mặt bằng dự án Spring Ville\" lệch 205 px",
+    "P \"Khi nhìn một dự án theo góc độ đầu tư ha\" lệch 205 px",
+    "H2 \"Các loại sản phẩm tại Spring Ville\" lệch 205 px",
+    "P \"Một điểm khiến Spring Ville dễ được thị \" lệch 205 px",
+    "H3 \"Nhà phố Spring Ville\" lệch 205 px",
+    "P \"Nhà phố là dòng sản phẩm mang tính đặc t\" lệch 205 px",
+    "P \"Spring Ville hiện được giới thiệu với 42\" lệch 205 px",
+    "P \"Ở Nhơn Trạch, loại sản phẩm này còn có m\" lệch 205 px",
+    "H3 \"Shophouse Spring Ville\" lệch 205 px",
+    "P \"Shophouse lại là dòng sản phẩm có vai tr\" lệch 205 px",
+    "P \"Tại Spring Ville, shophouse được giới th\" lệch 205 px",
+    "P \"Với một khu đô thị đa loại hình, shophou\" lệch 205 px",
+    "H3 \"Căn hộ Spring Ville\" lệch 205 px",
+    "P \"Căn hộ là lớp sản phẩm giúp Spring Ville\" lệch 205 px",
+    "P \"Phần cao tầng với 10 block cao 12 đến 15\" lệch 205 px",
+    "P \"Nếu nhà phố và shophouse là lớp tài sản \" lệch 205 px",
+    "P \"Nhìn tổng thể, ba dòng sản phẩm này khôn\" lệch 205 px",
+    "H2 \"Vì sao Spring Ville phù hợp với người mu\" lệch 205 px",
+    "P \"Với người mua để ở, tôi thường nhìn một \" lệch 205 px",
+    "H2 \"Vì sao Spring Ville được quan tâm ở góc \" lệch 205 px",
+    "P \"Nếu nhìn Spring Ville ở góc độ đầu tư, t\" lệch 205 px",
+    "P \"Dự án nằm trên đường Tôn Đức Thắng, ngay\" lệch 205 px",
+    "H2 \"Chủ đầu tư Gamuda Land có phải điểm cộng\" lệch 205 px",
+    "P \"Tôi cho rằng có, nhưng điểm cộng này chỉ\" lệch 205 px",
+    "H2 \"Ai nên mua Spring Ville lúc này?\" lệch 205 px",
+    "P \"Spring Ville không phải dự án dành cho t\" lệch 205 px",
+    "H2 \"Pháp lý dự án Spring Ville\" lệch 205 px",
+    "P \"Spring Ville Đồng Nai có nền tảng pháp l\" lệch 205 px",
+    "P \"Hồ sơ pháp lý gồm có:\" lệch 205 px",
+    "UL \"Quy hoạch chi tiết 1/500 đã được phê duy\" lệch 225 px",
+    "H2 \"Câu hỏi thường gặp tại Spring Ville\" lệch 205 px"
+   ],
+   "b": [
+    "OL.breadcrumbs \"Trang chủDự ánGamuda LandSpring Ville\" 365/1106 px",
+    "P \"Nhà phố – shophouse – căn hộ\" 760/1106 px",
+    "P.velis-call \"Hoặc gọi 0911 237 979 · Zalo\" 760/1106 px",
+    "P \"Nhơn Trạch đang bước vào giai đoạn mà ng\" 760/1170 px",
+    "H2 \"Thông tin về dự án Spring Ville\" 760/1170 px",
+    "H2 \"Vị trí dự án Spring Ville ở đâu? Có lợi \" 760/1170 px",
+    "P \"Vị trí là một trong những điểm mạnh dễ n\" 760/1170 px",
+    "H2 \"Tiện ích nội khu của Spring Ville có gì?\" 760/1170 px",
+    "P \"Nếu vị trí quyết định khả năng kết nối, \" 760/1170 px",
+    "H2 \"Mặt bằng dự án Spring Ville\" 760/1170 px",
+    "P \"Khi nhìn một dự án theo góc độ đầu tư ha\" 760/1170 px",
+    "H2 \"Các loại sản phẩm tại Spring Ville\" 760/1170 px",
+    "P \"Một điểm khiến Spring Ville dễ được thị \" 760/1170 px",
+    "H3 \"Nhà phố Spring Ville\" 760/1170 px",
+    "P \"Nhà phố là dòng sản phẩm mang tính đặc t\" 760/1170 px",
+    "P \"Spring Ville hiện được giới thiệu với 42\" 760/1170 px",
+    "P \"Ở Nhơn Trạch, loại sản phẩm này còn có m\" 760/1170 px",
+    "H3 \"Shophouse Spring Ville\" 760/1170 px",
+    "P \"Shophouse lại là dòng sản phẩm có vai tr\" 760/1170 px",
+    "P \"Tại Spring Ville, shophouse được giới th\" 760/1170 px",
+    "P \"Với một khu đô thị đa loại hình, shophou\" 760/1170 px",
+    "H3 \"Căn hộ Spring Ville\" 760/1170 px",
+    "P \"Căn hộ là lớp sản phẩm giúp Spring Ville\" 760/1170 px",
+    "P \"Phần cao tầng với 10 block cao 12 đến 15\" 760/1170 px",
+    "P \"Nếu nhà phố và shophouse là lớp tài sản \" 760/1170 px",
+    "P \"Nhìn tổng thể, ba dòng sản phẩm này khôn\" 760/1170 px",
+    "H2 \"Vì sao Spring Ville phù hợp với người mu\" 760/1170 px",
+    "P \"Với người mua để ở, tôi thường nhìn một \" 760/1170 px",
+    "H2 \"Vì sao Spring Ville được quan tâm ở góc \" 760/1170 px",
+    "P \"Nếu nhìn Spring Ville ở góc độ đầu tư, t\" 760/1170 px",
+    "P \"Dự án nằm trên đường Tôn Đức Thắng, ngay\" 760/1170 px",
+    "H2 \"Chủ đầu tư Gamuda Land có phải điểm cộng\" 760/1170 px",
+    "P \"Tôi cho rằng có, nhưng điểm cộng này chỉ\" 760/1170 px",
+    "H2 \"Ai nên mua Spring Ville lúc này?\" 760/1170 px",
+    "P \"Spring Ville không phải dự án dành cho t\" 760/1170 px",
+    "H2 \"Pháp lý dự án Spring Ville\" 760/1170 px",
+    "P \"Spring Ville Đồng Nai có nền tảng pháp l\" 760/1170 px",
+    "P \"Hồ sơ pháp lý gồm có:\" 760/1170 px",
+    "UL \"Quy hoạch chi tiết 1/500 đã được phê duy\" 740/1170 px",
+    "H2 \"Câu hỏi thường gặp tại Spring Ville\" 760/1170 px"
+   ],
+   "c": [
+    "H2 \"Vị trí dự án Spring Ville ở đâu? Có lợi \" dòng 1 trống 330 px / 760 (chữ sau 82 px)",
+    "H2 \"Vì sao Spring Ville phù hợp với người mu\" dòng 1 trống 349 px / 760 (chữ sau 72 px)",
+    "H2 \"Vì sao Spring Ville được quan tâm ở góc \" dòng 1 trống 319 px / 760 (chữ sau 102 px)",
+    "H2 \"Chủ đầu tư Gamuda Land có phải điểm cộng\" dòng 1 trống 237 px / 760 (chữ sau 42 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 11,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 7,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Gamuda Land · Nhơn Trạch – Long Thành\"",
+    "A \"Gamuda Land\"",
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(184, 40, 46)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 18,
+   "khoangLe": 140,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    15,
+    22,
+    25,
+    25.6,
+    30,
+    35,
+    50
+   ]
+  }
+ },
+ "the-global-city": {
+  "390": {
+   "a": [
+    "UL \"Hạ tầng khớp nối – Kích hoạt dòng khách \" lệch 20 px"
+   ],
+   "b": [
+    "OL.breadcrumbs \"Trang chủDự ánThe Global City\" 276/328 px",
+    "UL \"Hạ tầng khớp nối – Kích hoạt dòng khách \" 338/358 px"
+   ],
+   "c": [
+    "H1 \"Đại đô thị The Global City\" dòng 1 trống 97 px / 328 (chữ sau 63 px)",
+    "H2 \"Thông tin tổng quan The Global City\" dòng 1 trống 99 px / 358 (chữ sau 64 px)",
+    "H2 \"Cập nhật tiến độ thực tế The Global City\" dòng 1 trống 77 px / 358 (chữ sau 61 px)",
+    "H2 \"Vị trí The Global City ở đâu? Vì sao nên\" dòng 1 trống 90 px / 358 (chữ sau 52 px)",
+    "H2 \"Tiện ích The Global City có gì\" dòng 1 trống 197 px / 358 (chữ sau 49 px)",
+    "H2 \"Mặt bằng The Global City bố trí ra sao?\" dòng 1 trống 92 px / 358 (chữ sau 83 px)",
+    "H2 \"Những phân khu cao tầng tại The Global C\" dòng 1 trống 92 px / 358 (chữ sau 44 px)",
+    "H2 \"Tại sao nên mua đầu tư The Global City l\" dòng 1 trống 59 px / 358 (chữ sau 30 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 15,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "chuHoa": 7,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Masterise Homes · Nam Rạch Chiếc\"",
+    "A \"Masterise Homes\"",
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "22px",
+    "24px",
+    "28px",
+    "36px"
+   ],
+   "mauChu": [
+    "rgb(26, 26, 26)",
+    "rgb(92, 92, 92)",
+    "rgb(196, 47, 53)",
+    "rgb(184, 40, 46)",
+    "rgb(255, 255, 255)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 14,
+   "khoangLe": 98,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    6,
+    10,
+    13,
+    14,
+    15,
+    22,
+    25,
+    30,
+    35,
+    50,
+    201.4
+   ]
+  },
+  "1366": {
+   "a": [
+    "A.default-btn-shortcode \"Nhận bảng giá\" lệch 173 px",
+    "P \"The Global City do Masterise Homes phát \" lệch 205 px",
+    "H2 \"Thông tin tổng quan The Global City\" lệch 205 px",
+    "TABLE \"Tên dự án\nThe Global City\n\n\nVị trí\nĐường\" lệch 205 px",
+    "H2 \"Cập nhật tiến độ thực tế The Global City\" lệch 205 px",
+    "P \"Thay vì những lời có cánh trên sa bàn, d\" lệch 205 px",
+    "UL \"Hạ tầng khớp nối – Kích hoạt dòng khách \" lệch 225 px",
+    "P \"Tiến độ công trường không chỉ là gạch và\" lệch 205 px",
+    "H2 \"Vị trí The Global City ở đâu? Vì sao nên\" lệch 205 px",
+    "P \"Sự thật là trong đầu tư bất động sản, gi\" lệch 205 px",
+    "P \"\" lệch 205 px",
+    "P \"\" lệch 205 px",
+    "H2 \"Tiện ích The Global City có gì\" lệch 205 px",
+    "P \"Sự thật là dưới góc độ của một nhà đầu t\" lệch 205 px",
+    "H2 \"Các loại hình sản phẩm tại The Global Ci\" lệch 205 px",
+    "P \"Sự thật là bước vào một đại đô thị quy m\" lệch 205 px",
+    "H3 \"1. Shophouse SOHO (Nhà phố thương mại) –\" lệch 205 px",
+    "H3 \"2. Căn hộ cao cấp (Masteri Grand View, L\" lệch 205 px",
+    "H3 \"3. Biệt thự và Dinh thự ven sông – “Boon\" lệch 205 px",
+    "H2 \"Mặt bằng The Global City bố trí ra sao?\" lệch 205 px",
+    "P \"Sự thật là khi nhìn vào quy hoạch 117ha \" lệch 205 px",
+    "H2 \"Những phân khu cao tầng tại The Global C\" lệch 205 px",
+    "H3 \"1. Masteri Grand View\" lệch 205 px",
+    "H3 \"2. Lumière Midtown\" lệch 205 px",
+    "H3 \"3. Masteri Cosmo Central\" lệch 205 px",
+    "H3 \"4. Masteri Park Place\" lệch 205 px",
+    "H2 \"Tại sao nên mua đầu tư The Global City l\" lệch 205 px",
+    "P \"\" lệch 205 px",
+    "P \"Dưới góc độ của một người làm nghề tư vấ\" lệch 205 px",
+    "H3 \"1. Điểm rơi hạ tầng “Go-Live” – Rủi ro b\" lệch 205 px",
+    "H2 \"Nơi nhiều người muốn vào – ít người muốn\" lệch 205 px",
+    "P \"Sự thật là ở phân khúc bất động sản hạng\" lệch 205 px",
+    "H2 \"Câu hỏi thường gặp\" lệch 205 px"
+   ],
+   "b": [
+    "OL.breadcrumbs \"Trang chủDự ánThe Global City\" 276/1106 px",
+    "P \"The Global City không chỉ thu hút sự chú\" 760/1106 px",
+    "P.velis-call \"Hoặc gọi 0911 237 979 · Zalo\" 760/1106 px",
+    "P \"The Global City do Masterise Homes phát \" 760/1170 px",
+    "H2 \"Thông tin tổng quan The Global City\" 760/1170 px",
+    "TABLE \"Tên dự án\nThe Global City\n\n\nVị trí\nĐường\" 760/1170 px",
+    "H2 \"Cập nhật tiến độ thực tế The Global City\" 760/1170 px",
+    "P \"Thay vì những lời có cánh trên sa bàn, d\" 760/1170 px",
+    "UL \"Hạ tầng khớp nối – Kích hoạt dòng khách \" 740/1170 px",
+    "P \"Tiến độ công trường không chỉ là gạch và\" 760/1170 px",
+    "H2 \"Vị trí The Global City ở đâu? Vì sao nên\" 760/1170 px",
+    "P \"Sự thật là trong đầu tư bất động sản, gi\" 760/1170 px",
+    "P \"\" 760/1170 px",
+    "P \"\" 760/1170 px",
+    "H2 \"Tiện ích The Global City có gì\" 760/1170 px",
+    "P \"Sự thật là dưới góc độ của một nhà đầu t\" 760/1170 px",
+    "H2 \"Các loại hình sản phẩm tại The Global Ci\" 760/1170 px",
+    "P \"Sự thật là bước vào một đại đô thị quy m\" 760/1170 px",
+    "H3 \"1. Shophouse SOHO (Nhà phố thương mại) –\" 760/1170 px",
+    "H3 \"2. Căn hộ cao cấp (Masteri Grand View, L\" 760/1170 px",
+    "H3 \"3. Biệt thự và Dinh thự ven sông – “Boon\" 760/1170 px",
+    "H2 \"Mặt bằng The Global City bố trí ra sao?\" 760/1170 px",
+    "P \"Sự thật là khi nhìn vào quy hoạch 117ha \" 760/1170 px",
+    "H2 \"Những phân khu cao tầng tại The Global C\" 760/1170 px",
+    "H3 \"1. Masteri Grand View\" 760/1170 px",
+    "H3 \"2. Lumière Midtown\" 760/1170 px",
+    "H3 \"3. Masteri Cosmo Central\" 760/1170 px",
+    "H3 \"4. Masteri Park Place\" 760/1170 px",
+    "H2 \"Tại sao nên mua đầu tư The Global City l\" 760/1170 px",
+    "P \"\" 760/1170 px",
+    "P \"Dưới góc độ của một người làm nghề tư vấ\" 760/1170 px",
+    "H3 \"1. Điểm rơi hạ tầng “Go-Live” – Rủi ro b\" 760/1170 px",
+    "H2 \"Nơi nhiều người muốn vào – ít người muốn\" 760/1170 px",
+    "P \"Sự thật là ở phân khúc bất động sản hạng\" 760/1170 px",
+    "H2 \"Câu hỏi thường gặp\" 760/1170 px"
+   ],
+   "c": [
+    "H2 \"Vị trí The Global City ở đâu? Vì sao nên\" dòng 1 trống 377 px / 760 (chữ sau 75 px)",
+    "H2 \"Các loại hình sản phẩm tại The Global Ci\" dòng 1 trống 336 px / 760 (chữ sau 104 px)",
+    "H2 \"Những phân khu cao tầng tại The Global C\" dòng 1 trống 380 px / 760 (chữ sau 63 px)",
+    "H2 \"Tại sao nên mua đầu tư The Global City l\" dòng 1 trống 333 px / 760 (chữ sau 43 px)",
+    "H2 \"Nơi nhiều người muốn vào – ít người muốn\" dòng 1 trống 335 px / 760 (chữ sau 107 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 14,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 7,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Masterise Homes · Nam Rạch Chiếc\"",
+    "A \"Masterise Homes\"",
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(184, 40, 46)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 15,
+   "khoangLe": 112,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    15,
+    22,
+    25,
+    25.6,
+    30,
+    35,
+    50,
+    658.1
+   ]
+  },
+  "1536": {
+   "a": [
+    "A.default-btn-shortcode \"Nhận bảng giá\" lệch 173 px",
+    "P \"The Global City do Masterise Homes phát \" lệch 205 px",
+    "H2 \"Thông tin tổng quan The Global City\" lệch 205 px",
+    "TABLE \"Tên dự án\nThe Global City\n\n\nVị trí\nĐường\" lệch 205 px",
+    "H2 \"Cập nhật tiến độ thực tế The Global City\" lệch 205 px",
+    "P \"Thay vì những lời có cánh trên sa bàn, d\" lệch 205 px",
+    "UL \"Hạ tầng khớp nối – Kích hoạt dòng khách \" lệch 225 px",
+    "P \"Tiến độ công trường không chỉ là gạch và\" lệch 205 px",
+    "H2 \"Vị trí The Global City ở đâu? Vì sao nên\" lệch 205 px",
+    "P \"Sự thật là trong đầu tư bất động sản, gi\" lệch 205 px",
+    "P \"\" lệch 205 px",
+    "P \"\" lệch 205 px",
+    "H2 \"Tiện ích The Global City có gì\" lệch 205 px",
+    "P \"Sự thật là dưới góc độ của một nhà đầu t\" lệch 205 px",
+    "H2 \"Các loại hình sản phẩm tại The Global Ci\" lệch 205 px",
+    "P \"Sự thật là bước vào một đại đô thị quy m\" lệch 205 px",
+    "H3 \"1. Shophouse SOHO (Nhà phố thương mại) –\" lệch 205 px",
+    "H3 \"2. Căn hộ cao cấp (Masteri Grand View, L\" lệch 205 px",
+    "H3 \"3. Biệt thự và Dinh thự ven sông – “Boon\" lệch 205 px",
+    "H2 \"Mặt bằng The Global City bố trí ra sao?\" lệch 205 px",
+    "P \"Sự thật là khi nhìn vào quy hoạch 117ha \" lệch 205 px",
+    "H2 \"Những phân khu cao tầng tại The Global C\" lệch 205 px",
+    "H3 \"1. Masteri Grand View\" lệch 205 px",
+    "H3 \"2. Lumière Midtown\" lệch 205 px",
+    "H3 \"3. Masteri Cosmo Central\" lệch 205 px",
+    "H3 \"4. Masteri Park Place\" lệch 205 px",
+    "H2 \"Tại sao nên mua đầu tư The Global City l\" lệch 205 px",
+    "P \"\" lệch 205 px",
+    "P \"Dưới góc độ của một người làm nghề tư vấ\" lệch 205 px",
+    "H3 \"1. Điểm rơi hạ tầng “Go-Live” – Rủi ro b\" lệch 205 px",
+    "H2 \"Nơi nhiều người muốn vào – ít người muốn\" lệch 205 px",
+    "P \"Sự thật là ở phân khúc bất động sản hạng\" lệch 205 px",
+    "H2 \"Câu hỏi thường gặp\" lệch 205 px"
+   ],
+   "b": [
+    "OL.breadcrumbs \"Trang chủDự ánThe Global City\" 276/1106 px",
+    "P \"The Global City không chỉ thu hút sự chú\" 760/1106 px",
+    "P.velis-call \"Hoặc gọi 0911 237 979 · Zalo\" 760/1106 px",
+    "P \"The Global City do Masterise Homes phát \" 760/1170 px",
+    "H2 \"Thông tin tổng quan The Global City\" 760/1170 px",
+    "TABLE \"Tên dự án\nThe Global City\n\n\nVị trí\nĐường\" 760/1170 px",
+    "H2 \"Cập nhật tiến độ thực tế The Global City\" 760/1170 px",
+    "P \"Thay vì những lời có cánh trên sa bàn, d\" 760/1170 px",
+    "UL \"Hạ tầng khớp nối – Kích hoạt dòng khách \" 740/1170 px",
+    "P \"Tiến độ công trường không chỉ là gạch và\" 760/1170 px",
+    "H2 \"Vị trí The Global City ở đâu? Vì sao nên\" 760/1170 px",
+    "P \"Sự thật là trong đầu tư bất động sản, gi\" 760/1170 px",
+    "P \"\" 760/1170 px",
+    "P \"\" 760/1170 px",
+    "H2 \"Tiện ích The Global City có gì\" 760/1170 px",
+    "P \"Sự thật là dưới góc độ của một nhà đầu t\" 760/1170 px",
+    "H2 \"Các loại hình sản phẩm tại The Global Ci\" 760/1170 px",
+    "P \"Sự thật là bước vào một đại đô thị quy m\" 760/1170 px",
+    "H3 \"1. Shophouse SOHO (Nhà phố thương mại) –\" 760/1170 px",
+    "H3 \"2. Căn hộ cao cấp (Masteri Grand View, L\" 760/1170 px",
+    "H3 \"3. Biệt thự và Dinh thự ven sông – “Boon\" 760/1170 px",
+    "H2 \"Mặt bằng The Global City bố trí ra sao?\" 760/1170 px",
+    "P \"Sự thật là khi nhìn vào quy hoạch 117ha \" 760/1170 px",
+    "H2 \"Những phân khu cao tầng tại The Global C\" 760/1170 px",
+    "H3 \"1. Masteri Grand View\" 760/1170 px",
+    "H3 \"2. Lumière Midtown\" 760/1170 px",
+    "H3 \"3. Masteri Cosmo Central\" 760/1170 px",
+    "H3 \"4. Masteri Park Place\" 760/1170 px",
+    "H2 \"Tại sao nên mua đầu tư The Global City l\" 760/1170 px",
+    "P \"\" 760/1170 px",
+    "P \"Dưới góc độ của một người làm nghề tư vấ\" 760/1170 px",
+    "H3 \"1. Điểm rơi hạ tầng “Go-Live” – Rủi ro b\" 760/1170 px",
+    "H2 \"Nơi nhiều người muốn vào – ít người muốn\" 760/1170 px",
+    "P \"Sự thật là ở phân khúc bất động sản hạng\" 760/1170 px",
+    "H2 \"Câu hỏi thường gặp\" 760/1170 px"
+   ],
+   "c": [
+    "H2 \"Vị trí The Global City ở đâu? Vì sao nên\" dòng 1 trống 377 px / 760 (chữ sau 75 px)",
+    "H2 \"Các loại hình sản phẩm tại The Global Ci\" dòng 1 trống 336 px / 760 (chữ sau 104 px)",
+    "H2 \"Những phân khu cao tầng tại The Global C\" dòng 1 trống 380 px / 760 (chữ sau 63 px)",
+    "H2 \"Tại sao nên mua đầu tư The Global City l\" dòng 1 trống 333 px / 760 (chữ sau 43 px)",
+    "H2 \"Nơi nhiều người muốn vào – ít người muốn\" dòng 1 trống 335 px / 760 (chữ sau 107 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 14,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 7,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Masterise Homes · Nam Rạch Chiếc\"",
+    "A \"Masterise Homes\"",
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(184, 40, 46)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 15,
+   "khoangLe": 112,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    15,
+    22,
+    25,
+    25.6,
+    30,
+    35,
+    50,
+    658.1
+   ]
+  },
+  "1920": {
+   "a": [
+    "A.default-btn-shortcode \"Nhận bảng giá\" lệch 173 px",
+    "P \"The Global City do Masterise Homes phát \" lệch 205 px",
+    "H2 \"Thông tin tổng quan The Global City\" lệch 205 px",
+    "TABLE \"Tên dự án\nThe Global City\n\n\nVị trí\nĐường\" lệch 205 px",
+    "H2 \"Cập nhật tiến độ thực tế The Global City\" lệch 205 px",
+    "P \"Thay vì những lời có cánh trên sa bàn, d\" lệch 205 px",
+    "UL \"Hạ tầng khớp nối – Kích hoạt dòng khách \" lệch 225 px",
+    "P \"Tiến độ công trường không chỉ là gạch và\" lệch 205 px",
+    "H2 \"Vị trí The Global City ở đâu? Vì sao nên\" lệch 205 px",
+    "P \"Sự thật là trong đầu tư bất động sản, gi\" lệch 205 px",
+    "P \"\" lệch 205 px",
+    "P \"\" lệch 205 px",
+    "H2 \"Tiện ích The Global City có gì\" lệch 205 px",
+    "P \"Sự thật là dưới góc độ của một nhà đầu t\" lệch 205 px",
+    "H2 \"Các loại hình sản phẩm tại The Global Ci\" lệch 205 px",
+    "P \"Sự thật là bước vào một đại đô thị quy m\" lệch 205 px",
+    "H3 \"1. Shophouse SOHO (Nhà phố thương mại) –\" lệch 205 px",
+    "H3 \"2. Căn hộ cao cấp (Masteri Grand View, L\" lệch 205 px",
+    "H3 \"3. Biệt thự và Dinh thự ven sông – “Boon\" lệch 205 px",
+    "H2 \"Mặt bằng The Global City bố trí ra sao?\" lệch 205 px",
+    "P \"Sự thật là khi nhìn vào quy hoạch 117ha \" lệch 205 px",
+    "H2 \"Những phân khu cao tầng tại The Global C\" lệch 205 px",
+    "H3 \"1. Masteri Grand View\" lệch 205 px",
+    "H3 \"2. Lumière Midtown\" lệch 205 px",
+    "H3 \"3. Masteri Cosmo Central\" lệch 205 px",
+    "H3 \"4. Masteri Park Place\" lệch 205 px",
+    "H2 \"Tại sao nên mua đầu tư The Global City l\" lệch 205 px",
+    "P \"\" lệch 205 px",
+    "P \"Dưới góc độ của một người làm nghề tư vấ\" lệch 205 px",
+    "H3 \"1. Điểm rơi hạ tầng “Go-Live” – Rủi ro b\" lệch 205 px",
+    "H2 \"Nơi nhiều người muốn vào – ít người muốn\" lệch 205 px",
+    "P \"Sự thật là ở phân khúc bất động sản hạng\" lệch 205 px",
+    "H2 \"Câu hỏi thường gặp\" lệch 205 px"
+   ],
+   "b": [
+    "OL.breadcrumbs \"Trang chủDự ánThe Global City\" 276/1106 px",
+    "P \"The Global City không chỉ thu hút sự chú\" 760/1106 px",
+    "P.velis-call \"Hoặc gọi 0911 237 979 · Zalo\" 760/1106 px",
+    "P \"The Global City do Masterise Homes phát \" 760/1170 px",
+    "H2 \"Thông tin tổng quan The Global City\" 760/1170 px",
+    "TABLE \"Tên dự án\nThe Global City\n\n\nVị trí\nĐường\" 760/1170 px",
+    "H2 \"Cập nhật tiến độ thực tế The Global City\" 760/1170 px",
+    "P \"Thay vì những lời có cánh trên sa bàn, d\" 760/1170 px",
+    "UL \"Hạ tầng khớp nối – Kích hoạt dòng khách \" 740/1170 px",
+    "P \"Tiến độ công trường không chỉ là gạch và\" 760/1170 px",
+    "H2 \"Vị trí The Global City ở đâu? Vì sao nên\" 760/1170 px",
+    "P \"Sự thật là trong đầu tư bất động sản, gi\" 760/1170 px",
+    "P \"\" 760/1170 px",
+    "P \"\" 760/1170 px",
+    "H2 \"Tiện ích The Global City có gì\" 760/1170 px",
+    "P \"Sự thật là dưới góc độ của một nhà đầu t\" 760/1170 px",
+    "H2 \"Các loại hình sản phẩm tại The Global Ci\" 760/1170 px",
+    "P \"Sự thật là bước vào một đại đô thị quy m\" 760/1170 px",
+    "H3 \"1. Shophouse SOHO (Nhà phố thương mại) –\" 760/1170 px",
+    "H3 \"2. Căn hộ cao cấp (Masteri Grand View, L\" 760/1170 px",
+    "H3 \"3. Biệt thự và Dinh thự ven sông – “Boon\" 760/1170 px",
+    "H2 \"Mặt bằng The Global City bố trí ra sao?\" 760/1170 px",
+    "P \"Sự thật là khi nhìn vào quy hoạch 117ha \" 760/1170 px",
+    "H2 \"Những phân khu cao tầng tại The Global C\" 760/1170 px",
+    "H3 \"1. Masteri Grand View\" 760/1170 px",
+    "H3 \"2. Lumière Midtown\" 760/1170 px",
+    "H3 \"3. Masteri Cosmo Central\" 760/1170 px",
+    "H3 \"4. Masteri Park Place\" 760/1170 px",
+    "H2 \"Tại sao nên mua đầu tư The Global City l\" 760/1170 px",
+    "P \"\" 760/1170 px",
+    "P \"Dưới góc độ của một người làm nghề tư vấ\" 760/1170 px",
+    "H3 \"1. Điểm rơi hạ tầng “Go-Live” – Rủi ro b\" 760/1170 px",
+    "H2 \"Nơi nhiều người muốn vào – ít người muốn\" 760/1170 px",
+    "P \"Sự thật là ở phân khúc bất động sản hạng\" 760/1170 px",
+    "H2 \"Câu hỏi thường gặp\" 760/1170 px"
+   ],
+   "c": [
+    "H2 \"Vị trí The Global City ở đâu? Vì sao nên\" dòng 1 trống 377 px / 760 (chữ sau 75 px)",
+    "H2 \"Các loại hình sản phẩm tại The Global Ci\" dòng 1 trống 336 px / 760 (chữ sau 104 px)",
+    "H2 \"Những phân khu cao tầng tại The Global C\" dòng 1 trống 380 px / 760 (chữ sau 63 px)",
+    "H2 \"Tại sao nên mua đầu tư The Global City l\" dòng 1 trống 333 px / 760 (chữ sau 43 px)",
+    "H2 \"Nơi nhiều người muốn vào – ít người muốn\" dòng 1 trống 335 px / 760 (chữ sau 107 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 14,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 7,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Masterise Homes · Nam Rạch Chiếc\"",
+    "A \"Masterise Homes\"",
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(184, 40, 46)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 15,
+   "khoangLe": 112,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    15,
+    22,
+    25,
+    25.6,
+    30,
+    35,
+    50,
+    658.1
+   ]
+  }
+ },
+ "persa-place": {
+  "390": {
+   "a": [],
+   "b": [
+    "OL.breadcrumbs \"Trang chủPhân khuPersa Place\" 273/328 px"
+   ],
+   "c": [
+    "H2 \"Thông tin tổng quan căn hộ Persa Place\" dòng 1 trống 99 px / 358 (chữ sau 64 px)",
+    "H2 \"Giới thiệu căn hộ Persa Place\" dòng 1 trống 174 px / 358 (chữ sau 46 px)",
+    "H2 \"Cập nhật tiến độ thực tế Persa Gamuda\" dòng 1 trống 77 px / 358 (chữ sau 61 px)",
+    "H2 \"Vị trí Persa Gamuda ở đâu? Vì sao nên mu\" dòng 1 trống 76 px / 358 (chữ sau 20 px)",
+    "H2 \"Giá bán Persa Place bao nhiêu?\" dòng 1 trống 183 px / 358 (chữ sau 71 px)",
+    "H2 \"Tại sao nên mua đầu tư Persa Place lúc n\" dòng 1 trống 96 px / 358 (chữ sau 48 px)",
+    "H3.vc_custom_heading \"Di chuyển từ dự án về trung tâm TP.HCM m\" dòng 1 trống 49 px / 318 (chữ sau 34 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 8,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "chuHoa": 7,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Gamuda Land · Nhơn Trạch – Long Thành\"",
+    "A \"Gamuda Land\"",
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "22px",
+    "24px",
+    "28px",
+    "36px"
+   ],
+   "mauChu": [
+    "rgb(26, 26, 26)",
+    "rgb(92, 92, 92)",
+    "rgb(196, 47, 53)",
+    "rgb(184, 40, 46)",
+    "rgb(255, 255, 255)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 21,
+   "khoangLe": 63,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    6,
+    10,
+    13,
+    14,
+    15,
+    22,
+    25,
+    30,
+    35,
+    50
+   ]
+  },
+  "1366": {
+   "a": [
+    "A.default-btn-shortcode \"Nhận bảng giá\" lệch 173 px",
+    "H2 \"Thông tin tổng quan căn hộ Persa Place\" lệch 205 px",
+    "TABLE \"Chủ đầu tư\nGamuda Land (Malaysia) – Bảo \" lệch 205 px",
+    "H2 \"Giới thiệu căn hộ Persa Place\" lệch 205 px",
+    "P \"Nhơn Trạch đã lỡ hẹn với giới đầu tư quá\" lệch 205 px",
+    "H2 \"Cập nhật tiến độ thực tế Persa Gamuda\" lệch 205 px",
+    "P \"Cập nhật đến thời điểm hiện tại, dự án đ\" lệch 205 px",
+    "P \"Dưới đây là 1 số hình ảnh thực tế cập nh\" lệch 205 px",
+    "H2 \"Vị trí Persa Gamuda ở đâu? Vì sao nên mu\" lệch 205 px",
+    "P \"Persa Place nằm ngay mặt tiền đường Tôn \" lệch 205 px",
+    "H2 \"Tiện ích Persa Place có gì\" lệch 205 px",
+    "P \"Sự thật là trong thị trường căn hộ, tiện\" lệch 205 px",
+    "H2 \"Mặt bằng căn hộ Persa Place có gì đặc bi\" lệch 205 px",
+    "P \"Với Persa Place, Gamuda Land đã chứng mi\" lệch 205 px",
+    "P \"\" lệch 205 px",
+    "P \"Dưới đây là 3 điểm “độc bản” trên mặt bằ\" lệch 205 px",
+    "H3 \"1. Mật độ thang máy “Luxury” – Một bước \" lệch 205 px",
+    "H2 \"Giá bán Persa Place bao nhiêu?\" lệch 205 px",
+    "P \"Câu hỏi mà tôi nhận được nhiều nhất từ c\" lệch 205 px",
+    "H3 \"1. Bảng giá dự kiến căn hộ Persa Place N\" lệch 205 px",
+    "H2 \"Tại sao nên mua đầu tư Persa Place lúc n\" lệch 205 px",
+    "P \"Sự thật là trong bất động sản, người thắ\" lệch 205 px",
+    "P \"Tại sao không phải là 2 năm trước hay 2 \" lệch 205 px",
+    "H3 \"1. Đặc quyền F0: Mức giá đợt 1 rẻ nhất &\" lệch 205 px",
+    "H2 \"Vì sao căn hộ Persa Place phù hợp với ng\" lệch 205 px",
+    "P \"Nhơn Trạch năm 2026 đã bước qua thời kỳ \" lệch 205 px",
+    "H2 \"Câu hỏi thường gặp\" lệch 205 px"
+   ],
+   "b": [
+    "OL.breadcrumbs \"Trang chủPhân khuPersa Place\" 273/1106 px",
+    "P \"Trung tâm khu đô thị Springville, mặt ti\" 760/1106 px",
+    "P \"Nhận booking ưu tiên 50 triệu/suất – suấ\" 760/1106 px",
+    "P.velis-call \"Hoặc gọi 0911 237 979 · Zalo\" 760/1106 px",
+    "H2 \"Thông tin tổng quan căn hộ Persa Place\" 760/1170 px",
+    "TABLE \"Chủ đầu tư\nGamuda Land (Malaysia) – Bảo \" 760/1170 px",
+    "H2 \"Giới thiệu căn hộ Persa Place\" 760/1170 px",
+    "P \"Nhơn Trạch đã lỡ hẹn với giới đầu tư quá\" 760/1170 px",
+    "H2 \"Cập nhật tiến độ thực tế Persa Gamuda\" 760/1170 px",
+    "P \"Cập nhật đến thời điểm hiện tại, dự án đ\" 760/1170 px",
+    "P \"Dưới đây là 1 số hình ảnh thực tế cập nh\" 760/1170 px",
+    "H2 \"Vị trí Persa Gamuda ở đâu? Vì sao nên mu\" 760/1170 px",
+    "P \"Persa Place nằm ngay mặt tiền đường Tôn \" 760/1170 px",
+    "H2 \"Tiện ích Persa Place có gì\" 760/1170 px",
+    "P \"Sự thật là trong thị trường căn hộ, tiện\" 760/1170 px",
+    "H2 \"Mặt bằng căn hộ Persa Place có gì đặc bi\" 760/1170 px",
+    "P \"Với Persa Place, Gamuda Land đã chứng mi\" 760/1170 px",
+    "P \"\" 760/1170 px",
+    "P \"Dưới đây là 3 điểm “độc bản” trên mặt bằ\" 760/1170 px",
+    "H3 \"1. Mật độ thang máy “Luxury” – Một bước \" 760/1170 px",
+    "H2 \"Giá bán Persa Place bao nhiêu?\" 760/1170 px",
+    "P \"Câu hỏi mà tôi nhận được nhiều nhất từ c\" 760/1170 px",
+    "H3 \"1. Bảng giá dự kiến căn hộ Persa Place N\" 760/1170 px",
+    "H2 \"Tại sao nên mua đầu tư Persa Place lúc n\" 760/1170 px",
+    "P \"Sự thật là trong bất động sản, người thắ\" 760/1170 px",
+    "P \"Tại sao không phải là 2 năm trước hay 2 \" 760/1170 px",
+    "H3 \"1. Đặc quyền F0: Mức giá đợt 1 rẻ nhất &\" 760/1170 px",
+    "H2 \"Vì sao căn hộ Persa Place phù hợp với ng\" 760/1170 px",
+    "P \"Nhơn Trạch năm 2026 đã bước qua thời kỳ \" 760/1170 px",
+    "H2 \"Câu hỏi thường gặp\" 760/1170 px"
+   ],
+   "c": [
+    "H2 \"Vị trí Persa Gamuda ở đâu? Vì sao nên mu\" dòng 1 trống 358 px / 760 (chữ sau 28 px)",
+    "H2 \"Mặt bằng căn hộ Persa Place có gì đặc bi\" dòng 1 trống 343 px / 760 (chữ sau 101 px)",
+    "H2 \"Tại sao nên mua đầu tư Persa Place lúc n\" dòng 1 trống 385 px / 760 (chữ sau 69 px)",
+    "H2 \"Vì sao căn hộ Persa Place phù hợp với ng\" dòng 1 trống 302 px / 760 (chữ sau 97 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 7,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 7,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Gamuda Land · Nhơn Trạch – Long Thành\"",
+    "A \"Gamuda Land\"",
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(184, 40, 46)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 22,
+   "khoangLe": 118,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    15,
+    22,
+    25,
+    25.6,
+    30,
+    35,
+    50
+   ]
+  },
+  "1536": {
+   "a": [
+    "A.default-btn-shortcode \"Nhận bảng giá\" lệch 173 px",
+    "H2 \"Thông tin tổng quan căn hộ Persa Place\" lệch 205 px",
+    "TABLE \"Chủ đầu tư\nGamuda Land (Malaysia) – Bảo \" lệch 205 px",
+    "H2 \"Giới thiệu căn hộ Persa Place\" lệch 205 px",
+    "P \"Nhơn Trạch đã lỡ hẹn với giới đầu tư quá\" lệch 205 px",
+    "H2 \"Cập nhật tiến độ thực tế Persa Gamuda\" lệch 205 px",
+    "P \"Cập nhật đến thời điểm hiện tại, dự án đ\" lệch 205 px",
+    "P \"Dưới đây là 1 số hình ảnh thực tế cập nh\" lệch 205 px",
+    "H2 \"Vị trí Persa Gamuda ở đâu? Vì sao nên mu\" lệch 205 px",
+    "P \"Persa Place nằm ngay mặt tiền đường Tôn \" lệch 205 px",
+    "H2 \"Tiện ích Persa Place có gì\" lệch 205 px",
+    "P \"Sự thật là trong thị trường căn hộ, tiện\" lệch 205 px",
+    "H2 \"Mặt bằng căn hộ Persa Place có gì đặc bi\" lệch 205 px",
+    "P \"Với Persa Place, Gamuda Land đã chứng mi\" lệch 205 px",
+    "P \"\" lệch 205 px",
+    "P \"Dưới đây là 3 điểm “độc bản” trên mặt bằ\" lệch 205 px",
+    "H3 \"1. Mật độ thang máy “Luxury” – Một bước \" lệch 205 px",
+    "H2 \"Giá bán Persa Place bao nhiêu?\" lệch 205 px",
+    "P \"Câu hỏi mà tôi nhận được nhiều nhất từ c\" lệch 205 px",
+    "H3 \"1. Bảng giá dự kiến căn hộ Persa Place N\" lệch 205 px",
+    "H2 \"Tại sao nên mua đầu tư Persa Place lúc n\" lệch 205 px",
+    "P \"Sự thật là trong bất động sản, người thắ\" lệch 205 px",
+    "P \"Tại sao không phải là 2 năm trước hay 2 \" lệch 205 px",
+    "H3 \"1. Đặc quyền F0: Mức giá đợt 1 rẻ nhất &\" lệch 205 px",
+    "H2 \"Vì sao căn hộ Persa Place phù hợp với ng\" lệch 205 px",
+    "P \"Nhơn Trạch năm 2026 đã bước qua thời kỳ \" lệch 205 px",
+    "H2 \"Câu hỏi thường gặp\" lệch 205 px"
+   ],
+   "b": [
+    "OL.breadcrumbs \"Trang chủPhân khuPersa Place\" 273/1106 px",
+    "P \"Trung tâm khu đô thị Springville, mặt ti\" 760/1106 px",
+    "P \"Nhận booking ưu tiên 50 triệu/suất – suấ\" 760/1106 px",
+    "P.velis-call \"Hoặc gọi 0911 237 979 · Zalo\" 760/1106 px",
+    "H2 \"Thông tin tổng quan căn hộ Persa Place\" 760/1170 px",
+    "TABLE \"Chủ đầu tư\nGamuda Land (Malaysia) – Bảo \" 760/1170 px",
+    "H2 \"Giới thiệu căn hộ Persa Place\" 760/1170 px",
+    "P \"Nhơn Trạch đã lỡ hẹn với giới đầu tư quá\" 760/1170 px",
+    "H2 \"Cập nhật tiến độ thực tế Persa Gamuda\" 760/1170 px",
+    "P \"Cập nhật đến thời điểm hiện tại, dự án đ\" 760/1170 px",
+    "P \"Dưới đây là 1 số hình ảnh thực tế cập nh\" 760/1170 px",
+    "H2 \"Vị trí Persa Gamuda ở đâu? Vì sao nên mu\" 760/1170 px",
+    "P \"Persa Place nằm ngay mặt tiền đường Tôn \" 760/1170 px",
+    "H2 \"Tiện ích Persa Place có gì\" 760/1170 px",
+    "P \"Sự thật là trong thị trường căn hộ, tiện\" 760/1170 px",
+    "H2 \"Mặt bằng căn hộ Persa Place có gì đặc bi\" 760/1170 px",
+    "P \"Với Persa Place, Gamuda Land đã chứng mi\" 760/1170 px",
+    "P \"\" 760/1170 px",
+    "P \"Dưới đây là 3 điểm “độc bản” trên mặt bằ\" 760/1170 px",
+    "H3 \"1. Mật độ thang máy “Luxury” – Một bước \" 760/1170 px",
+    "H2 \"Giá bán Persa Place bao nhiêu?\" 760/1170 px",
+    "P \"Câu hỏi mà tôi nhận được nhiều nhất từ c\" 760/1170 px",
+    "H3 \"1. Bảng giá dự kiến căn hộ Persa Place N\" 760/1170 px",
+    "H2 \"Tại sao nên mua đầu tư Persa Place lúc n\" 760/1170 px",
+    "P \"Sự thật là trong bất động sản, người thắ\" 760/1170 px",
+    "P \"Tại sao không phải là 2 năm trước hay 2 \" 760/1170 px",
+    "H3 \"1. Đặc quyền F0: Mức giá đợt 1 rẻ nhất &\" 760/1170 px",
+    "H2 \"Vì sao căn hộ Persa Place phù hợp với ng\" 760/1170 px",
+    "P \"Nhơn Trạch năm 2026 đã bước qua thời kỳ \" 760/1170 px",
+    "H2 \"Câu hỏi thường gặp\" 760/1170 px"
+   ],
+   "c": [
+    "H2 \"Vị trí Persa Gamuda ở đâu? Vì sao nên mu\" dòng 1 trống 358 px / 760 (chữ sau 28 px)",
+    "H2 \"Mặt bằng căn hộ Persa Place có gì đặc bi\" dòng 1 trống 343 px / 760 (chữ sau 101 px)",
+    "H2 \"Tại sao nên mua đầu tư Persa Place lúc n\" dòng 1 trống 385 px / 760 (chữ sau 69 px)",
+    "H2 \"Vì sao căn hộ Persa Place phù hợp với ng\" dòng 1 trống 302 px / 760 (chữ sau 97 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 7,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 7,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Gamuda Land · Nhơn Trạch – Long Thành\"",
+    "A \"Gamuda Land\"",
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(184, 40, 46)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 22,
+   "khoangLe": 118,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    15,
+    22,
+    25,
+    25.6,
+    30,
+    35,
+    50
+   ]
+  },
+  "1920": {
+   "a": [
+    "A.default-btn-shortcode \"Nhận bảng giá\" lệch 173 px",
+    "H2 \"Thông tin tổng quan căn hộ Persa Place\" lệch 205 px",
+    "TABLE \"Chủ đầu tư\nGamuda Land (Malaysia) – Bảo \" lệch 205 px",
+    "H2 \"Giới thiệu căn hộ Persa Place\" lệch 205 px",
+    "P \"Nhơn Trạch đã lỡ hẹn với giới đầu tư quá\" lệch 205 px",
+    "H2 \"Cập nhật tiến độ thực tế Persa Gamuda\" lệch 205 px",
+    "P \"Cập nhật đến thời điểm hiện tại, dự án đ\" lệch 205 px",
+    "P \"Dưới đây là 1 số hình ảnh thực tế cập nh\" lệch 205 px",
+    "H2 \"Vị trí Persa Gamuda ở đâu? Vì sao nên mu\" lệch 205 px",
+    "P \"Persa Place nằm ngay mặt tiền đường Tôn \" lệch 205 px",
+    "H2 \"Tiện ích Persa Place có gì\" lệch 205 px",
+    "P \"Sự thật là trong thị trường căn hộ, tiện\" lệch 205 px",
+    "H2 \"Mặt bằng căn hộ Persa Place có gì đặc bi\" lệch 205 px",
+    "P \"Với Persa Place, Gamuda Land đã chứng mi\" lệch 205 px",
+    "P \"\" lệch 205 px",
+    "P \"Dưới đây là 3 điểm “độc bản” trên mặt bằ\" lệch 205 px",
+    "H3 \"1. Mật độ thang máy “Luxury” – Một bước \" lệch 205 px",
+    "H2 \"Giá bán Persa Place bao nhiêu?\" lệch 205 px",
+    "P \"Câu hỏi mà tôi nhận được nhiều nhất từ c\" lệch 205 px",
+    "H3 \"1. Bảng giá dự kiến căn hộ Persa Place N\" lệch 205 px",
+    "H2 \"Tại sao nên mua đầu tư Persa Place lúc n\" lệch 205 px",
+    "P \"Sự thật là trong bất động sản, người thắ\" lệch 205 px",
+    "P \"Tại sao không phải là 2 năm trước hay 2 \" lệch 205 px",
+    "H3 \"1. Đặc quyền F0: Mức giá đợt 1 rẻ nhất &\" lệch 205 px",
+    "H2 \"Vì sao căn hộ Persa Place phù hợp với ng\" lệch 205 px",
+    "P \"Nhơn Trạch năm 2026 đã bước qua thời kỳ \" lệch 205 px",
+    "H2 \"Câu hỏi thường gặp\" lệch 205 px"
+   ],
+   "b": [
+    "OL.breadcrumbs \"Trang chủPhân khuPersa Place\" 273/1106 px",
+    "P \"Trung tâm khu đô thị Springville, mặt ti\" 760/1106 px",
+    "P \"Nhận booking ưu tiên 50 triệu/suất – suấ\" 760/1106 px",
+    "P.velis-call \"Hoặc gọi 0911 237 979 · Zalo\" 760/1106 px",
+    "H2 \"Thông tin tổng quan căn hộ Persa Place\" 760/1170 px",
+    "TABLE \"Chủ đầu tư\nGamuda Land (Malaysia) – Bảo \" 760/1170 px",
+    "H2 \"Giới thiệu căn hộ Persa Place\" 760/1170 px",
+    "P \"Nhơn Trạch đã lỡ hẹn với giới đầu tư quá\" 760/1170 px",
+    "H2 \"Cập nhật tiến độ thực tế Persa Gamuda\" 760/1170 px",
+    "P \"Cập nhật đến thời điểm hiện tại, dự án đ\" 760/1170 px",
+    "P \"Dưới đây là 1 số hình ảnh thực tế cập nh\" 760/1170 px",
+    "H2 \"Vị trí Persa Gamuda ở đâu? Vì sao nên mu\" 760/1170 px",
+    "P \"Persa Place nằm ngay mặt tiền đường Tôn \" 760/1170 px",
+    "H2 \"Tiện ích Persa Place có gì\" 760/1170 px",
+    "P \"Sự thật là trong thị trường căn hộ, tiện\" 760/1170 px",
+    "H2 \"Mặt bằng căn hộ Persa Place có gì đặc bi\" 760/1170 px",
+    "P \"Với Persa Place, Gamuda Land đã chứng mi\" 760/1170 px",
+    "P \"\" 760/1170 px",
+    "P \"Dưới đây là 3 điểm “độc bản” trên mặt bằ\" 760/1170 px",
+    "H3 \"1. Mật độ thang máy “Luxury” – Một bước \" 760/1170 px",
+    "H2 \"Giá bán Persa Place bao nhiêu?\" 760/1170 px",
+    "P \"Câu hỏi mà tôi nhận được nhiều nhất từ c\" 760/1170 px",
+    "H3 \"1. Bảng giá dự kiến căn hộ Persa Place N\" 760/1170 px",
+    "H2 \"Tại sao nên mua đầu tư Persa Place lúc n\" 760/1170 px",
+    "P \"Sự thật là trong bất động sản, người thắ\" 760/1170 px",
+    "P \"Tại sao không phải là 2 năm trước hay 2 \" 760/1170 px",
+    "H3 \"1. Đặc quyền F0: Mức giá đợt 1 rẻ nhất &\" 760/1170 px",
+    "H2 \"Vì sao căn hộ Persa Place phù hợp với ng\" 760/1170 px",
+    "P \"Nhơn Trạch năm 2026 đã bước qua thời kỳ \" 760/1170 px",
+    "H2 \"Câu hỏi thường gặp\" 760/1170 px"
+   ],
+   "c": [
+    "H2 \"Vị trí Persa Gamuda ở đâu? Vì sao nên mu\" dòng 1 trống 358 px / 760 (chữ sau 28 px)",
+    "H2 \"Mặt bằng căn hộ Persa Place có gì đặc bi\" dòng 1 trống 343 px / 760 (chữ sau 101 px)",
+    "H2 \"Tại sao nên mua đầu tư Persa Place lúc n\" dòng 1 trống 385 px / 760 (chữ sau 69 px)",
+    "H2 \"Vì sao căn hộ Persa Place phù hợp với ng\" dòng 1 trống 302 px / 760 (chữ sau 97 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 7,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 7,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Gamuda Land · Nhơn Trạch – Long Thành\"",
+    "A \"Gamuda Land\"",
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(184, 40, 46)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 22,
+   "khoangLe": 118,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    15,
+    22,
+    25,
+    25.6,
+    30,
+    35,
+    50
+   ]
+  }
+ },
+ "blog": {
+  "390": {
+   "a": [],
+   "b": [
+    "H2.screen-reader-text \"Danh sách bài viết\" 1/358 px"
+   ],
+   "c": [],
+   "d": [],
+   "e": [
+    "\"Sự dịch chuyển dòng vốn đầu tư\" lệch 22 px",
+    "\"Velis Realty phân phối độc quy\" lệch 22 px",
+    "\"Đánh giá chu kỳ tăng giá bất đ\" lệch 22 px",
+    "\"Lời giải bài toán bảo vệ tài s\" lệch 22 px",
+    "\"Tại sao giới tinh hoa chọn tíc\" lệch 22 px",
+    "\"CĐT Hướng Việt đứng sau thương\" lệch 22 px",
+    "\"Tỷ suất lợi nhuận cho thuê tại\" lệch 22 px",
+    "\"Tại sao nên đầu tư thấp tầng V\" lệch 22 px",
+    "\"Giá trị độc bản biệt thự ven k\" lệch 22 px",
+    "\"Phân tích thiết kế công năng n\" lệch 22 px",
+    "\"Đặc quyền dinh thự sân Golf Vi\" lệch 22 px",
+    "\"Tiềm năng kinh doanh 82 tuyến \" lệch 22 px"
+   ],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "chuHoa": 16,
+   "chuHoaVd": [
+    "A \"Palm City\"",
+    "A \"The Privé\"",
+    "A \"Vinhomes Saigon Park\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "24px",
+    "30px"
+   ],
+   "mauChu": [
+    "rgb(26, 26, 26)",
+    "rgb(196, 47, 53)",
+    "rgb(138, 106, 58)",
+    "rgb(92, 92, 92)",
+    "rgb(255, 255, 255)",
+    "rgb(61, 61, 61)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 8,
+   "khoangLe": 21,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    6,
+    10,
+    14,
+    25,
+    50
+   ]
+  },
+  "1366": {
+   "a": [],
+   "b": [
+    "H2.screen-reader-text \"Danh sách bài viết\" 1/816 px"
+   ],
+   "c": [],
+   "d": [],
+   "e": [
+    "\"Sự dịch chuyển dòng vốn đầu tư\" lệch 25 px",
+    "\"Velis Realty phân phối độc quy\" lệch 25 px",
+    "\"Đánh giá chu kỳ tăng giá bất đ\" lệch 25 px",
+    "\"Lời giải bài toán bảo vệ tài s\" lệch 25 px",
+    "\"Tại sao giới tinh hoa chọn tíc\" lệch 25 px",
+    "\"CĐT Hướng Việt đứng sau thương\" lệch 25 px",
+    "\"Tỷ suất lợi nhuận cho thuê tại\" lệch 25 px",
+    "\"Tại sao nên đầu tư thấp tầng V\" lệch 25 px",
+    "\"Giá trị độc bản biệt thự ven k\" lệch 25 px",
+    "\"Phân tích thiết kế công năng n\" lệch 25 px",
+    "\"Đặc quyền dinh thự sân Golf Vi\" lệch 25 px",
+    "\"Tiềm năng kinh doanh 82 tuyến \" lệch 25 px"
+   ],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": {
+    "trai": 816,
+    "phai": 336,
+    "ranh": 48
+   },
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp\"",
+    "A \"0911 237 979\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "22px",
+    "24px",
+    "28px",
+    "38.248px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(184, 40, 46)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(61, 61, 61)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 9,
+   "khoangLe": 95,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    25,
+    25.6,
+    30,
+    50
+   ]
+  },
+  "1536": {
+   "a": [],
+   "b": [
+    "H2.screen-reader-text \"Danh sách bài viết\" 1/816 px"
+   ],
+   "c": [],
+   "d": [],
+   "e": [
+    "\"Sự dịch chuyển dòng vốn đầu tư\" lệch 25 px",
+    "\"Velis Realty phân phối độc quy\" lệch 25 px",
+    "\"Đánh giá chu kỳ tăng giá bất đ\" lệch 25 px",
+    "\"Lời giải bài toán bảo vệ tài s\" lệch 25 px",
+    "\"Tại sao giới tinh hoa chọn tíc\" lệch 25 px",
+    "\"CĐT Hướng Việt đứng sau thương\" lệch 25 px",
+    "\"Tỷ suất lợi nhuận cho thuê tại\" lệch 25 px",
+    "\"Tại sao nên đầu tư thấp tầng V\" lệch 25 px",
+    "\"Giá trị độc bản biệt thự ven k\" lệch 25 px",
+    "\"Phân tích thiết kế công năng n\" lệch 25 px",
+    "\"Đặc quyền dinh thự sân Golf Vi\" lệch 25 px",
+    "\"Tiềm năng kinh doanh 82 tuyến \" lệch 25 px"
+   ],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": {
+    "trai": 816,
+    "phai": 336,
+    "ranh": 48
+   },
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp\"",
+    "A \"0911 237 979\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "22px",
+    "24px",
+    "28px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(184, 40, 46)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(61, 61, 61)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 9,
+   "khoangLe": 95,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    25,
+    25.6,
+    30,
+    50
+   ]
+  },
+  "1920": {
+   "a": [],
+   "b": [
+    "H2.screen-reader-text \"Danh sách bài viết\" 1/816 px"
+   ],
+   "c": [],
+   "d": [],
+   "e": [
+    "\"Sự dịch chuyển dòng vốn đầu tư\" lệch 25 px",
+    "\"Velis Realty phân phối độc quy\" lệch 25 px",
+    "\"Đánh giá chu kỳ tăng giá bất đ\" lệch 25 px",
+    "\"Lời giải bài toán bảo vệ tài s\" lệch 25 px",
+    "\"Tại sao giới tinh hoa chọn tíc\" lệch 25 px",
+    "\"CĐT Hướng Việt đứng sau thương\" lệch 25 px",
+    "\"Tỷ suất lợi nhuận cho thuê tại\" lệch 25 px",
+    "\"Tại sao nên đầu tư thấp tầng V\" lệch 25 px",
+    "\"Giá trị độc bản biệt thự ven k\" lệch 25 px",
+    "\"Phân tích thiết kế công năng n\" lệch 25 px",
+    "\"Đặc quyền dinh thự sân Golf Vi\" lệch 25 px",
+    "\"Tiềm năng kinh doanh 82 tuyến \" lệch 25 px"
+   ],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": {
+    "trai": 816,
+    "phai": 336,
+    "ranh": 48
+   },
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp\"",
+    "A \"0911 237 979\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "22px",
+    "24px",
+    "28px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(184, 40, 46)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(61, 61, 61)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 9,
+   "khoangLe": 95,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    25,
+    25.6,
+    30,
+    50
+   ]
+  }
+ },
+ "cum-the-prive": {
+  "390": {
+   "a": [],
+   "b": [
+    "H2.screen-reader-text \"Danh sách bài viết\" 1/358 px"
+   ],
+   "c": [],
+   "d": [],
+   "e": [
+    "\"Velis Realty phân phối độc quy\" lệch 22 px",
+    "\"Tỷ suất lợi nhuận cho thuê tại\" lệch 22 px",
+    "\"Tiềm năng cho thuê The Privé\" lệch 22 px",
+    "\"Rủi ro khi đầu tư The Privé và\" lệch 22 px",
+    "\"Lợi nhuận kép từ The Privé\" lệch 22 px",
+    "\"Penthouse & Garden Duplex The \" lệch 22 px",
+    "\"Đầu tư 1PN hay 2PN The Privé đ\" lệch 22 px",
+    "\"Vốn 1 tỷ nên đầu tư The Privé \" lệch 22 px",
+    "\"Tại sao giới siêu giàu chọn Th\" lệch 22 px",
+    "\"Lướt sóng The Privé lợi nhuận \" lệch 22 px",
+    "\"Tại sao nhà đầu tư Hà Nội săn \" lệch 22 px",
+    "\"Chính sách mua sỉ Cloud 9 Towe\" lệch 22 px"
+   ],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "chuHoa": 16,
+   "chuHoaVd": [
+    "A \"The Privé\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "24px",
+    "30px"
+   ],
+   "mauChu": [
+    "rgb(26, 26, 26)",
+    "rgb(138, 106, 58)",
+    "rgb(92, 92, 92)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(61, 61, 61)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 8,
+   "khoangLe": 15,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    6,
+    10,
+    14,
+    25,
+    50
+   ]
+  },
+  "1366": {
+   "a": [],
+   "b": [
+    "H2.screen-reader-text \"Danh sách bài viết\" 1/816 px"
+   ],
+   "c": [],
+   "d": [],
+   "e": [
+    "\"Velis Realty phân phối độc quy\" lệch 25 px",
+    "\"Tỷ suất lợi nhuận cho thuê tại\" lệch 25 px",
+    "\"Tiềm năng cho thuê The Privé\" lệch 25 px",
+    "\"Rủi ro khi đầu tư The Privé và\" lệch 25 px",
+    "\"Lợi nhuận kép từ The Privé\" lệch 25 px",
+    "\"Penthouse & Garden Duplex The \" lệch 25 px",
+    "\"Đầu tư 1PN hay 2PN The Privé đ\" lệch 25 px",
+    "\"Vốn 1 tỷ nên đầu tư The Privé \" lệch 25 px",
+    "\"Tại sao giới siêu giàu chọn Th\" lệch 25 px",
+    "\"Lướt sóng The Privé lợi nhuận \" lệch 25 px",
+    "\"Tại sao nhà đầu tư Hà Nội săn \" lệch 25 px",
+    "\"Chính sách mua sỉ Cloud 9 Towe\" lệch 25 px"
+   ],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": {
+    "trai": 816,
+    "phai": 336,
+    "ranh": 48
+   },
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp\"",
+    "A \"0911 237 979\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "22px",
+    "24px",
+    "28px",
+    "38.248px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(61, 61, 61)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 9,
+   "khoangLe": 89,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    25,
+    25.6,
+    30,
+    50
+   ]
+  },
+  "1536": {
+   "a": [],
+   "b": [
+    "H2.screen-reader-text \"Danh sách bài viết\" 1/816 px"
+   ],
+   "c": [],
+   "d": [],
+   "e": [
+    "\"Velis Realty phân phối độc quy\" lệch 25 px",
+    "\"Tỷ suất lợi nhuận cho thuê tại\" lệch 25 px",
+    "\"Tiềm năng cho thuê The Privé\" lệch 25 px",
+    "\"Rủi ro khi đầu tư The Privé và\" lệch 25 px",
+    "\"Lợi nhuận kép từ The Privé\" lệch 25 px",
+    "\"Penthouse & Garden Duplex The \" lệch 25 px",
+    "\"Đầu tư 1PN hay 2PN The Privé đ\" lệch 25 px",
+    "\"Vốn 1 tỷ nên đầu tư The Privé \" lệch 25 px",
+    "\"Tại sao giới siêu giàu chọn Th\" lệch 25 px",
+    "\"Lướt sóng The Privé lợi nhuận \" lệch 25 px",
+    "\"Tại sao nhà đầu tư Hà Nội săn \" lệch 25 px",
+    "\"Chính sách mua sỉ Cloud 9 Towe\" lệch 25 px"
+   ],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": {
+    "trai": 816,
+    "phai": 336,
+    "ranh": 48
+   },
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp\"",
+    "A \"0911 237 979\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "22px",
+    "24px",
+    "28px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(61, 61, 61)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 9,
+   "khoangLe": 89,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    25,
+    25.6,
+    30,
+    50
+   ]
+  },
+  "1920": {
+   "a": [],
+   "b": [
+    "H2.screen-reader-text \"Danh sách bài viết\" 1/816 px"
+   ],
+   "c": [],
+   "d": [],
+   "e": [
+    "\"Velis Realty phân phối độc quy\" lệch 25 px",
+    "\"Tỷ suất lợi nhuận cho thuê tại\" lệch 25 px",
+    "\"Tiềm năng cho thuê The Privé\" lệch 25 px",
+    "\"Rủi ro khi đầu tư The Privé và\" lệch 25 px",
+    "\"Lợi nhuận kép từ The Privé\" lệch 25 px",
+    "\"Penthouse & Garden Duplex The \" lệch 25 px",
+    "\"Đầu tư 1PN hay 2PN The Privé đ\" lệch 25 px",
+    "\"Vốn 1 tỷ nên đầu tư The Privé \" lệch 25 px",
+    "\"Tại sao giới siêu giàu chọn Th\" lệch 25 px",
+    "\"Lướt sóng The Privé lợi nhuận \" lệch 25 px",
+    "\"Tại sao nhà đầu tư Hà Nội săn \" lệch 25 px",
+    "\"Chính sách mua sỉ Cloud 9 Towe\" lệch 25 px"
+   ],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": {
+    "trai": 816,
+    "phai": 336,
+    "ranh": 48
+   },
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp\"",
+    "A \"0911 237 979\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "22px",
+    "24px",
+    "28px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(61, 61, 61)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 9,
+   "khoangLe": 89,
+   "khoangLeGiaTri": [
+    1,
+    2,
+    5,
+    6,
+    10,
+    14,
+    25,
+    25.6,
+    30,
+    50
+   ]
+  }
+ },
+ "bai-dong-von": {
+  "390": {
+   "a": [],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "19px",
+    "22px",
+    "24px",
+    "28px",
+    "30px"
+   ],
+   "mauChu": [
+    "rgb(26, 26, 26)",
+    "rgb(138, 106, 58)",
+    "rgb(92, 92, 92)",
+    "rgb(196, 47, 53)",
+    "rgb(217, 190, 140)",
+    "rgb(255, 255, 255)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 11,
+   "khoangLe": 49,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    14,
+    15,
+    17,
+    25,
+    30,
+    35,
+    50
+   ]
+  },
+  "1366": {
+   "a": [],
+   "b": [],
+   "c": [
+    "H2 \"Chiến lược phân bổ vốn đón đầu xu hướng\" dòng 1 trống 130 px / 786 (chữ sau 45 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": {
+    "trai": 816,
+    "phai": 336,
+    "ranh": 48
+   },
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 12,
+   "khoangLe": 66,
+   "khoangLeGiaTri": [
+    1,
+    5,
+    6,
+    10,
+    14,
+    15,
+    18,
+    25,
+    30,
+    35,
+    50,
+    55
+   ]
+  },
+  "1536": {
+   "a": [],
+   "b": [],
+   "c": [
+    "H2 \"Chiến lược phân bổ vốn đón đầu xu hướng\" dòng 1 trống 130 px / 786 (chữ sau 45 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": {
+    "trai": 816,
+    "phai": 336,
+    "ranh": 48
+   },
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 12,
+   "khoangLe": 66,
+   "khoangLeGiaTri": [
+    1,
+    5,
+    6,
+    10,
+    14,
+    15,
+    18,
+    25,
+    30,
+    35,
+    50,
+    55
+   ]
+  },
+  "1920": {
+   "a": [],
+   "b": [],
+   "c": [
+    "H2 \"Chiến lược phân bổ vốn đón đầu xu hướng\" dòng 1 trống 130 px / 786 (chữ sau 45 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": {
+    "trai": 816,
+    "phai": 336,
+    "ranh": 48
+   },
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 12,
+   "khoangLe": 66,
+   "khoangLeGiaTri": [
+    1,
+    5,
+    6,
+    10,
+    14,
+    15,
+    18,
+    25,
+    30,
+    35,
+    50,
+    55
+   ]
+  }
+ },
+ "bai-gia-the-prive": {
+  "390": {
+   "a": [
+    "UL \"Giá Net thực tế chỉ còn dao động từ 85 –\" lệch 20 px"
+   ],
+   "b": [
+    "UL \"Giá Net thực tế chỉ còn dao động từ 85 –\" 338/358 px"
+   ],
+   "c": [
+    "H2 \"Cập nhật bảng giá The Privé 2026 theo di\" dòng 1 trống 69 px / 358 (chữ sau 49 px)",
+    "H3 \"Khoảng cách 10 phút và sự chênh lệch 300\" dòng 1 trống 61 px / 358 (chữ sau 28 px)",
+    "H2 \"3 yếu tố bảo chứng cho mức giá 130 triệu\" dòng 1 trống 65 px / 358 (chữ sau 46 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "19px",
+    "22px",
+    "24px",
+    "28px",
+    "30px"
+   ],
+   "mauChu": [
+    "rgb(26, 26, 26)",
+    "rgb(138, 106, 58)",
+    "rgb(92, 92, 92)",
+    "rgb(196, 47, 53)",
+    "rgb(217, 190, 140)",
+    "rgb(255, 255, 255)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 13,
+   "khoangLe": 64,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    14,
+    15,
+    17,
+    25,
+    30,
+    35,
+    50
+   ]
+  },
+  "1366": {
+   "a": [
+    "UL \"Giá Net thực tế chỉ còn dao động từ 85 –\" lệch 20 px"
+   ],
+   "b": [
+    "UL \"Giá Net thực tế chỉ còn dao động từ 85 –\" 766/786 px"
+   ],
+   "c": [
+    "H2 \"3 yếu tố bảo chứng cho mức giá 130 triệu\" dòng 1 trống 139 px / 786 (chữ sau 59 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": {
+    "trai": 816,
+    "phai": 336,
+    "ranh": 48
+   },
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 14,
+   "khoangLe": 73,
+   "khoangLeGiaTri": [
+    1,
+    5,
+    6,
+    10,
+    14,
+    15,
+    18,
+    25,
+    30,
+    35,
+    50,
+    55
+   ]
+  },
+  "1536": {
+   "a": [
+    "UL \"Giá Net thực tế chỉ còn dao động từ 85 –\" lệch 20 px"
+   ],
+   "b": [
+    "UL \"Giá Net thực tế chỉ còn dao động từ 85 –\" 766/786 px"
+   ],
+   "c": [
+    "H2 \"3 yếu tố bảo chứng cho mức giá 130 triệu\" dòng 1 trống 139 px / 786 (chữ sau 59 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": {
+    "trai": 816,
+    "phai": 336,
+    "ranh": 48
+   },
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 14,
+   "khoangLe": 73,
+   "khoangLeGiaTri": [
+    1,
+    5,
+    6,
+    10,
+    14,
+    15,
+    18,
+    25,
+    30,
+    35,
+    50,
+    55
+   ]
+  },
+  "1920": {
+   "a": [
+    "UL \"Giá Net thực tế chỉ còn dao động từ 85 –\" lệch 20 px"
+   ],
+   "b": [
+    "UL \"Giá Net thực tế chỉ còn dao động từ 85 –\" 766/786 px"
+   ],
+   "c": [
+    "H2 \"3 yếu tố bảo chứng cho mức giá 130 triệu\" dòng 1 trống 139 px / 786 (chữ sau 59 px)"
+   ],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": {
+    "trai": 816,
+    "phai": 336,
+    "ranh": 48
+   },
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.ez-toc-title \"Nội dung chính\"",
+    "P.velis-eyebrow \"Tư vấn trực tiếp từ Velis Realty\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "19px",
+    "22px",
+    "24px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(217, 190, 140)",
+    "rgb(216, 210, 200)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 14,
+   "khoangLe": 73,
+   "khoangLeGiaTri": [
+    1,
+    5,
+    6,
+    10,
+    14,
+    15,
+    18,
+    25,
+    30,
+    35,
+    50,
+    55
+   ]
+  }
+ },
+ "gioi-thieu": {
+  "390": {
+   "a": [
+    "UL \"Vinhomes: Hệ sinh thái đô thị thông minh\" lệch 20 px",
+    "UL \"Địa chỉ: 34 Lương Định Của, Phường Bình \" lệch 20 px"
+   ],
+   "b": [
+    "UL \"Vinhomes: Hệ sinh thái đô thị thông minh\" 338/358 px",
+    "UL \"Địa chỉ: 34 Lương Định Của, Phường Bình \" 338/358 px"
+   ],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "chuHoa": 4,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "22px",
+    "24px",
+    "28px",
+    "30px"
+   ],
+   "mauChu": [
+    "rgb(184, 40, 46)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(61, 61, 61)",
+    "rgb(196, 47, 53)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 7,
+   "khoangLe": 31,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    7,
+    10,
+    15,
+    35
+   ]
+  },
+  "1366": {
+   "a": [
+    "UL \"Vinhomes: Hệ sinh thái đô thị thông minh\" lệch 20 px",
+    "UL \"Địa chỉ: 34 Lương Định Của, Phường Bình \" lệch 20 px"
+   ],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [
+    "P \"“Hành trình vươn tới thịnh vượng!” không\" 116 ký tự/dòng",
+    "P \"Velis Realty là đơn vị chuyên tư vấn và \" 98 ký tự/dòng",
+    "P \"Hành trình vươn tới thịnh vượng được dẫn\" 95 ký tự/dòng"
+   ],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp\"",
+    "A \"0911 237 979\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "22px",
+    "24px",
+    "28px",
+    "38.248px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(184, 40, 46)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(61, 61, 61)",
+    "rgb(196, 47, 53)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 8,
+   "khoangLe": 42,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    7,
+    10,
+    15,
+    25.6,
+    35,
+    50
+   ]
+  },
+  "1536": {
+   "a": [
+    "UL \"Vinhomes: Hệ sinh thái đô thị thông minh\" lệch 20 px",
+    "UL \"Địa chỉ: 34 Lương Định Của, Phường Bình \" lệch 20 px"
+   ],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [
+    "P \"“Hành trình vươn tới thịnh vượng!” không\" 116 ký tự/dòng",
+    "P \"Velis Realty là đơn vị chuyên tư vấn và \" 98 ký tự/dòng",
+    "P \"Hành trình vươn tới thịnh vượng được dẫn\" 95 ký tự/dòng"
+   ],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp\"",
+    "A \"0911 237 979\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "22px",
+    "24px",
+    "28px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(184, 40, 46)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(61, 61, 61)",
+    "rgb(196, 47, 53)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 8,
+   "khoangLe": 42,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    7,
+    10,
+    15,
+    25.6,
+    35,
+    50,
+    153
+   ]
+  },
+  "1920": {
+   "a": [
+    "UL \"Vinhomes: Hệ sinh thái đô thị thông minh\" lệch 20 px",
+    "UL \"Địa chỉ: 34 Lương Định Của, Phường Bình \" lệch 20 px"
+   ],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [
+    "P \"“Hành trình vươn tới thịnh vượng!” không\" 116 ký tự/dòng",
+    "P \"Velis Realty là đơn vị chuyên tư vấn và \" 98 ký tự/dòng",
+    "P \"Hành trình vươn tới thịnh vượng được dẫn\" 95 ký tự/dòng"
+   ],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp\"",
+    "A \"0911 237 979\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "22px",
+    "24px",
+    "28px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(184, 40, 46)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(61, 61, 61)",
+    "rgb(196, 47, 53)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 8,
+   "khoangLe": 42,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    7,
+    10,
+    15,
+    25.6,
+    35,
+    50,
+    345
+   ]
+  }
+ },
+ "tuyen-dung": {
+  "390": {
+   "a": [
+    "UL \"Tìm kiếm, tư vấn và chăm sóc khách hàng \" lệch 20 px",
+    "UL \"Thái độ: Chính trực, năng động.\nKỹ năng:\" lệch 20 px",
+    "UL \"Thu nhập: Lương cơ bản + hoa hồng + thưở\" lệch 20 px",
+    "UL \"Tình trạng: Đang tuyển nhiều vị trí – tu\" lệch 20 px"
+   ],
+   "b": [
+    "UL \"Tìm kiếm, tư vấn và chăm sóc khách hàng \" 338/358 px",
+    "UL \"Thái độ: Chính trực, năng động.\nKỹ năng:\" 338/358 px",
+    "UL \"Thu nhập: Lương cơ bản + hoa hồng + thưở\" 338/358 px",
+    "UL \"Tình trạng: Đang tuyển nhiều vị trí – tu\" 338/358 px"
+   ],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "chuHoa": 4,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "24px",
+    "28px",
+    "30px"
+   ],
+   "mauChu": [
+    "rgb(26, 26, 26)",
+    "rgb(184, 40, 46)",
+    "rgb(196, 47, 53)",
+    "rgb(61, 61, 61)",
+    "rgb(185, 185, 185)",
+    "rgb(255, 255, 255)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 7,
+   "khoangLe": 15,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    15
+   ]
+  },
+  "1366": {
+   "a": [
+    "UL \"Tìm kiếm, tư vấn và chăm sóc khách hàng \" lệch 20 px",
+    "UL \"Thái độ: Chính trực, năng động.\nKỹ năng:\" lệch 20 px",
+    "UL \"Thu nhập: Lương cơ bản + hoa hồng + thưở\" lệch 20 px",
+    "UL \"Tình trạng: Đang tuyển nhiều vị trí – tu\" lệch 20 px"
+   ],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [
+    "P \"Velis Realty đang tuyển nhiều vị trí Chu\" 98 ký tự/dòng"
+   ],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp\"",
+    "A \"0911 237 979\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "24px",
+    "28px",
+    "38.248px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(184, 40, 46)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(61, 61, 61)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 8,
+   "khoangLe": 19,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    15,
+    25.6,
+    50
+   ]
+  },
+  "1536": {
+   "a": [
+    "UL \"Tìm kiếm, tư vấn và chăm sóc khách hàng \" lệch 20 px",
+    "UL \"Thái độ: Chính trực, năng động.\nKỹ năng:\" lệch 20 px",
+    "UL \"Thu nhập: Lương cơ bản + hoa hồng + thưở\" lệch 20 px",
+    "UL \"Tình trạng: Đang tuyển nhiều vị trí – tu\" lệch 20 px"
+   ],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [
+    "P \"Velis Realty đang tuyển nhiều vị trí Chu\" 98 ký tự/dòng"
+   ],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp\"",
+    "A \"0911 237 979\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "24px",
+    "28px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(184, 40, 46)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(61, 61, 61)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 8,
+   "khoangLe": 19,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    15,
+    25.6,
+    50
+   ]
+  },
+  "1920": {
+   "a": [
+    "UL \"Tìm kiếm, tư vấn và chăm sóc khách hàng \" lệch 20 px",
+    "UL \"Thái độ: Chính trực, năng động.\nKỹ năng:\" lệch 20 px",
+    "UL \"Thu nhập: Lương cơ bản + hoa hồng + thưở\" lệch 20 px",
+    "UL \"Tình trạng: Đang tuyển nhiều vị trí – tu\" lệch 20 px"
+   ],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [
+    "P \"Velis Realty đang tuyển nhiều vị trí Chu\" 98 ký tự/dòng"
+   ],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp\"",
+    "A \"0911 237 979\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "24px",
+    "28px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(184, 40, 46)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(61, 61, 61)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 8,
+   "khoangLe": 19,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    15,
+    25.6,
+    50
+   ]
+  }
+ },
+ "lien-he": {
+  "390": {
+   "a": [
+    "UL \"Địa chỉ trụ sở: 34 Lương Định Của, Phườn\" lệch 20 px"
+   ],
+   "b": [
+    "UL \"Địa chỉ trụ sở: 34 Lương Định Của, Phườn\" 338/358 px"
+   ],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "chuHoa": 0,
+   "chuHoaVd": [],
+   "coChu": [
+    "13px",
+    "14px",
+    "16px",
+    "17px",
+    "28px",
+    "30px"
+   ],
+   "mauChu": [
+    "rgb(26, 26, 26)",
+    "rgb(196, 47, 53)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)",
+    "rgb(255, 255, 255)"
+   ],
+   "transitionAll": 7,
+   "khoangLe": 13,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    15,
+    35
+   ]
+  },
+  "1366": {
+   "a": [
+    "UL \"Địa chỉ trụ sở: 34 Lương Định Của, Phườn\" lệch 20 px"
+   ],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 0,
+   "chuHoaVd": [],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(184, 40, 46)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 8,
+   "khoangLe": 19,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    15,
+    35,
+    50
+   ]
+  },
+  "1536": {
+   "a": [
+    "UL \"Địa chỉ trụ sở: 34 Lương Định Của, Phườn\" lệch 20 px"
+   ],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 0,
+   "chuHoaVd": [],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(184, 40, 46)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 8,
+   "khoangLe": 19,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    15,
+    35,
+    50
+   ]
+  },
+  "1920": {
+   "a": [
+    "UL \"Địa chỉ trụ sở: 34 Lương Định Của, Phườn\" lệch 20 px"
+   ],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 0,
+   "chuHoaVd": [],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(184, 40, 46)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(185, 185, 185)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 8,
+   "khoangLe": 19,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    15,
+    35,
+    50
+   ]
+  }
+ },
+ "chinh-sach": {
+  "390": {
+   "a": [
+    "UL \"Form biểu mẫu trực tuyến: Biểu mẫu nhận \" lệch 20 px",
+    "UL \"Thông tin định danh & liên lạc: Họ và tê\" lệch 20 px",
+    "UL \"Thực hiện cuộc gọi / gửi tin nhắn tư vấn\" lệch 20 px",
+    "UL \"Mọi hoạt động liên hệ tư vấn (gọi điện, \" lệch 20 px",
+    "UL \"Đã hoàn thành toàn bộ mục đích tư vấn, g\" lệch 20 px",
+    "UL \"Chủ đầu tư & Đơn vị phát triển dự án đối\" lệch 20 px",
+    "OL \"Quyền được biết & Truy cập: Yêu cầu tra \" lệch 20 px",
+    "UL \"Tổ chức: CÔNG TY TNHH VELIS REALTY\n\n\nĐịa\" lệch 20 px"
+   ],
+   "b": [
+    "UL \"Form biểu mẫu trực tuyến: Biểu mẫu nhận \" 338/358 px",
+    "UL \"Thông tin định danh & liên lạc: Họ và tê\" 338/358 px",
+    "UL \"Thực hiện cuộc gọi / gửi tin nhắn tư vấn\" 338/358 px",
+    "UL \"Mọi hoạt động liên hệ tư vấn (gọi điện, \" 338/358 px",
+    "UL \"Đã hoàn thành toàn bộ mục đích tư vấn, g\" 338/358 px",
+    "UL \"Chủ đầu tư & Đơn vị phát triển dự án đối\" 338/358 px",
+    "OL \"Quyền được biết & Truy cập: Yêu cầu tra \" 338/358 px",
+    "UL \"Tổ chức: CÔNG TY TNHH VELIS REALTY\n\n\nĐịa\" 338/358 px"
+   ],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "chuHoa": 4,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "17px",
+    "22px",
+    "24px",
+    "30px",
+    "36px"
+   ],
+   "mauChu": [
+    "rgb(26, 26, 26)",
+    "rgb(196, 47, 53)",
+    "rgb(61, 61, 61)",
+    "rgb(185, 185, 185)",
+    "rgb(255, 255, 255)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 7,
+   "khoangLe": 33,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    15
+   ]
+  },
+  "1366": {
+   "a": [
+    "UL \"Form biểu mẫu trực tuyến: Biểu mẫu nhận \" lệch 20 px",
+    "UL \"Thông tin định danh & liên lạc: Họ và tê\" lệch 20 px",
+    "UL \"Thực hiện cuộc gọi / gửi tin nhắn tư vấn\" lệch 20 px",
+    "UL \"Mọi hoạt động liên hệ tư vấn (gọi điện, \" lệch 20 px",
+    "UL \"Đã hoàn thành toàn bộ mục đích tư vấn, g\" lệch 20 px",
+    "UL \"Chủ đầu tư & Đơn vị phát triển dự án đối\" lệch 20 px",
+    "OL \"Quyền được biết & Truy cập: Yêu cầu tra \" lệch 20 px",
+    "UL \"Tổ chức: CÔNG TY TNHH VELIS REALTY\n\n\nĐịa\" lệch 20 px"
+   ],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [
+    "P \"Chính sách bảo mật này mô tả cách thức V\" 102 ký tự/dòng",
+    "P \"Quyền rút lại sự đồng ý & Yêu cầu xóa dữ\" 111 ký tự/dòng",
+    "P \"Website sử dụng Cookies và các công cụ đ\" 95 ký tự/dòng"
+   ],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp\"",
+    "A \"0911 237 979\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "22px",
+    "24px",
+    "28px",
+    "38.248px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(61, 61, 61)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 8,
+   "khoangLe": 37,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    15,
+    25.6,
+    50
+   ]
+  },
+  "1536": {
+   "a": [
+    "UL \"Form biểu mẫu trực tuyến: Biểu mẫu nhận \" lệch 20 px",
+    "UL \"Thông tin định danh & liên lạc: Họ và tê\" lệch 20 px",
+    "UL \"Thực hiện cuộc gọi / gửi tin nhắn tư vấn\" lệch 20 px",
+    "UL \"Mọi hoạt động liên hệ tư vấn (gọi điện, \" lệch 20 px",
+    "UL \"Đã hoàn thành toàn bộ mục đích tư vấn, g\" lệch 20 px",
+    "UL \"Chủ đầu tư & Đơn vị phát triển dự án đối\" lệch 20 px",
+    "OL \"Quyền được biết & Truy cập: Yêu cầu tra \" lệch 20 px",
+    "UL \"Tổ chức: CÔNG TY TNHH VELIS REALTY\n\n\nĐịa\" lệch 20 px"
+   ],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [
+    "P \"Chính sách bảo mật này mô tả cách thức V\" 102 ký tự/dòng",
+    "P \"Quyền rút lại sự đồng ý & Yêu cầu xóa dữ\" 111 ký tự/dòng",
+    "P \"Website sử dụng Cookies và các công cụ đ\" 95 ký tự/dòng"
+   ],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp\"",
+    "A \"0911 237 979\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "22px",
+    "24px",
+    "28px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(61, 61, 61)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 8,
+   "khoangLe": 37,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    15,
+    25.6,
+    50
+   ]
+  },
+  "1920": {
+   "a": [
+    "UL \"Form biểu mẫu trực tuyến: Biểu mẫu nhận \" lệch 20 px",
+    "UL \"Thông tin định danh & liên lạc: Họ và tê\" lệch 20 px",
+    "UL \"Thực hiện cuộc gọi / gửi tin nhắn tư vấn\" lệch 20 px",
+    "UL \"Mọi hoạt động liên hệ tư vấn (gọi điện, \" lệch 20 px",
+    "UL \"Đã hoàn thành toàn bộ mục đích tư vấn, g\" lệch 20 px",
+    "UL \"Chủ đầu tư & Đơn vị phát triển dự án đối\" lệch 20 px",
+    "OL \"Quyền được biết & Truy cập: Yêu cầu tra \" lệch 20 px",
+    "UL \"Tổ chức: CÔNG TY TNHH VELIS REALTY\n\n\nĐịa\" lệch 20 px"
+   ],
+   "b": [],
+   "c": [],
+   "d": [],
+   "e": [],
+   "f": {
+    "xemThem": 0,
+    "form": 1
+   },
+   "g": [
+    "P \"Chính sách bảo mật này mô tả cách thức V\" 102 ký tự/dòng",
+    "P \"Quyền rút lại sự đồng ý & Yêu cầu xóa dữ\" 111 ký tự/dòng",
+    "P \"Website sử dụng Cookies và các công cụ đ\" 95 ký tự/dòng"
+   ],
+   "h": 0,
+   "overflow": 0,
+   "h1": 1,
+   "cot": null,
+   "chuHoa": 5,
+   "chuHoaVd": [
+    "P.velis-eyebrow \"Tư vấn trực tiếp\"",
+    "A \"0911 237 979\"",
+    "P.widget-title \"Dự án\"",
+    "DIV.widget-title \"Về Velis\"",
+    "P.widget-title \"Kết nối\""
+   ],
+   "coChu": [
+    "13px",
+    "14px",
+    "15px",
+    "16px",
+    "18px",
+    "22px",
+    "24px",
+    "28px",
+    "40px",
+    "56px"
+   ],
+   "mauChu": [
+    "rgb(92, 92, 92)",
+    "rgb(26, 26, 26)",
+    "rgb(255, 255, 255)",
+    "rgb(196, 47, 53)",
+    "rgb(61, 61, 61)",
+    "rgb(185, 185, 185)",
+    "rgb(217, 190, 140)",
+    "rgb(163, 163, 163)"
+   ],
+   "transitionAll": 8,
+   "khoangLe": 37,
+   "khoangLeGiaTri": [
+    1,
+    6,
+    10,
+    15,
+    25.6,
+    50
+   ]
+  }
+ }
+}

@@ -1,0 +1,14 @@
+/* Mockup-only: review switches, "ảnh tạm" tag, sentence-waiting-for-approval tag. Not carried into the theme. */
+.tmp { position: absolute; top: 8px; right: 8px; z-index: 2; padding: 2px 8px; background: #fff; color: var(--ink); font-size: 12px; line-height: 1.5; border-radius: var(--radius); pointer-events: none; }
+.draft { display: inline-block; margin-right: 6px; padding: 0 6px; border: 1px dashed var(--gold-text); color: var(--gold-text); font-size: 12px; line-height: 1.6; } /* [mockup] sentence waiting for approval */
+html[data-tam="0"] .tmp { display: none; }
+.mk { background: var(--sunken); border-top: 1px solid var(--line); padding-block: var(--s6); font-size: var(--fs-caption); }
+.mk__row { display: flex; flex-wrap: wrap; gap: var(--s2); align-items: center; }
+.mk button { min-height: 44px; padding: 0 var(--s4); border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--surface); cursor: pointer; }
+.mk button[aria-pressed="true"] { border-color: var(--ink); font-weight: 600; }
+.mk-float { position: fixed; right: 12px; bottom: calc(var(--cta-h) + 12px); z-index: 70; font-size: var(--fs-caption); }
+.mk-float summary { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid var(--line-strong); border-radius: 50%; background: var(--surface); color: var(--ink); font-weight: 600; list-style: none; box-shadow: var(--shadow-hover); }
+.mk-float summary::-webkit-details-marker { display: none; }
+.mk-float .mk__row { position: absolute; right: 0; bottom: 56px; width: max-content; max-width: calc(100vw - 24px); padding: var(--s2); border: 1px solid var(--line-strong); background: var(--surface); box-shadow: var(--shadow-hover); }
+.mk-float button { min-height: 44px; min-width: 44px; padding: 0 var(--s3); border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--surface); cursor: pointer; }
+.mk-float button[aria-pressed="true"] { border-color: var(--ink); font-weight: 600; }

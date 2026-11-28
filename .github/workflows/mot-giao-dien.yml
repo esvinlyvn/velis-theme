@@ -1,0 +1,34 @@
+# So ảnh mốc giao diện (npm run test:visual, Git LFS ~167 MB) – CHỈ chạy tay (Actions → mot-giao-dien → Run workflow)
+# hoặc trên máy dev, để PR không tải LFS. Staging chỉ đọc; mật khẩu xem staging từ secret STAGING_VIEW_PASSWORD.
+name: mot-giao-dien
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  visual:
+    name: So ảnh mốc (Chromium 30 trang × M1–M5 + WebKit iPhone 14 × 6 trang)
+    runs-on: ubuntu-24.04
+    env:
+      STAGING_VIEW_PASSWORD: ${{ secrets.STAGING_VIEW_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Có secret STAGING_VIEW_PASSWORD
+        run: test -n "$STAGING_VIEW_PASSWORD" || { echo "Thiếu secret STAGING_VIEW_PASSWORD"; exit 1; }
+      - run: npm run test:visual
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: visual-diff
+          path: test-results
+          retention-days: 14

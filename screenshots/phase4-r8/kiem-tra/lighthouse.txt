@@ -1,0 +1,4 @@
+trang-chu  perf 88 a11y 100 bp 100 seo 66 | LCP 2.3 s CLS 0.000 TBT 56 ms | JS 6KB CSS 12KB ảnh 923KB font 3
+du-an      perf 89 a11y 100 bp 100 seo 58 | LCP 2.3 s CLS 0.000 TBT 0 ms | JS 6KB CSS 12KB ảnh 503KB font 3
+phan-khu   perf 94 a11y 100 bp 100 seo 66 | LCP 2.7 s CLS 0.067 TBT 1 ms | JS 6KB CSS 12KB ảnh 527KB font 3
+bai-viet   perf 99 a11y 100 bp 100 seo 58 | LCP 2.0 s CLS 0.000 TBT 10 ms | JS 6KB CSS 12KB ảnh 177KB font 3
