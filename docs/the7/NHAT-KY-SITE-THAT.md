@@ -489,3 +489,10 @@ Kiểm sau khi đưa lên:
 - Không còn "trước đây là Tập đoàn Đất Xanh" (người dùng đã tự gỡ; cache đã xóa).
 - Ảnh ẩn chờ JS 0. Chức năng 8/8. Cửa sổ ảnh 4/4. GA4 5/5. Kiểm hằng ngày ĐẠT.
 - "Mẫu của tôi" trên site thật chưa lưu lại (chỉ staging) – mẫu cũ thêm breadcrumbs mặc định căn giữa nếu dùng.
+
+## 2026-11-28 – "Mẫu của tôi" WPBakery: Velis – Dự án, Velis – Chủ đầu tư
+
+`kiem_site_that()` đạt. 13:55 UTC `node tools/the7_luu_mau.mjs https://velisrealty.vn "<tên>" data/the7/mau-wpbakery/{du-an,chu-dau-tu}.txt --ghi`
+(xóa bản cũ cùng tên → lưu bản mới từ tệp nguồn, gồm `[dt_breadcrumbs alignment="left"]`).
+Danh sách mẫu sau khi lưu: du-an, velis-bai-viet, velis-chu-dau-tu, velis-du-an – mỗi tên Velis đúng 1 mẫu.
+Mẫu "du-an" (có từ site cũ) và "Velis – Bài viết" không đụng.
