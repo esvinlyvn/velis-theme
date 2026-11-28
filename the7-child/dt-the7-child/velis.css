@@ -255,8 +255,9 @@ body .vc_section.velis-home-hero::after { display: none; }
 #page .velis-feats .blog-shortcode .entry-title a::after { content: ""; position: absolute; inset: 0; }
 #page .velis-feats .blog-shortcode .entry-excerpt p { display: none; margin: 0; font-size: 14px; line-height: 20px; color: #FFFFFF; opacity: 0.72; }
 #page .velis-feats .blog-shortcode .entry-excerpt p:nth-child(2) { display: block; }
-@media (max-width: 1247px) { #page .velis-feats .blog-shortcode .dt-css-grid { grid-auto-columns: calc((100% - 24px) / 3); } }
-@media (max-width: 1023px) { #page .velis-feats .blog-shortcode .dt-css-grid { grid-auto-columns: calc((100% - 12px) / 2); } }
+/* ≤ 1247 px (4 thẻ không vừa 1 hàng): .mode-grid thắng quy tắc lưới chung (display:flex; wrap) → dải trượt ngang như DESIGN.md Hero; ≥ 1248 giữ nguyên */
+@media (max-width: 1247px) { #page .velis-feats .blog-shortcode.mode-grid .dt-css-grid { display: grid; justify-content: normal; grid-auto-columns: calc((100% - 24px) / 3); } }
+@media (max-width: 1023px) { #page .velis-feats .blog-shortcode.mode-grid .dt-css-grid { grid-auto-columns: calc((100% - 12px) / 2); } }
 /* Thi thử + tuyển dụng / chủ đầu tư: hộp trắng cùng cao */
 .velis-boxes .wpb_column > .vc_column-inner > .wpb_wrapper { height: 100%; box-sizing: border-box; background: #FFFFFF; border-radius: var(--velis-bo-the); box-shadow: var(--velis-bong); padding: 32px; }
 .velis-section .btn-align-center { margin: 32px 0 48px; }
@@ -422,7 +423,7 @@ body:has(.velis-luoi.velis-bai) .single-related-posts { display: none; }
 @media (max-width: 1199px) { .blog-shortcode[data-h-tablet-columns-num="1"] { --velis-cols: 1; } .blog-shortcode[data-h-tablet-columns-num="2"] { --velis-cols: 2; } .blog-shortcode[data-h-tablet-columns-num="3"] { --velis-cols: 3; } }
 @media (max-width: 991px) { .blog-shortcode[data-v-tablet-columns-num="1"] { --velis-cols: 1; } .blog-shortcode[data-v-tablet-columns-num="2"] { --velis-cols: 2; } }
 @media (max-width: 767px) { .blog-shortcode[data-phone-columns-num="1"] { --velis-cols: 1; } .blog-shortcode[data-phone-columns-num="2"] { --velis-cols: 2; } }
-.iso-container > .wf-cell.iso-item, #page .blog-shortcode .dt-css-grid > .wf-cell { opacity: 1; animation: none; } /* hiện ngay, không chờ JS (FVM hoãn JS) */
+.iso-container > .wf-cell.iso-item, #page .blog-shortcode .dt-css-grid > .wf-cell, #page .jquery-filter article.visible { opacity: 1; animation: none; } /* hiện ngay, không chờ JS: The7 chạy lại fadeInFromNone (opacity 0 / ẩn) trên article.visible khi JS lưới khởi tạo → ảnh LCP vẽ lại muộn (2026-11-28) */
 /* Thẻ dự án (lưới velis-projects): ảnh 4:3 + nhãn "chủ đầu tư · khu vực" + tên + loại + bàn giao; "Xem dự án →" ghim đáy */
 #page .velis-projects .blog-shortcode .dt-css-grid > .wf-cell { display: flex; }
 #page .velis-projects .blog-shortcode article.post { display: flex; flex-direction: column; margin: 0; width: 100%; }
@@ -679,7 +680,7 @@ body.show-overlay-mobile-header .dt-mobile-header { visibility: visible; transit
 	.velis-specs .wpb_text_column { padding-top: 8px; }
 	.velis-home-hero { padding: 96px 0 48px; }
 	body .vc_section.velis-home-hero::before { background: linear-gradient(90deg, rgba(20, 20, 20, 0.86) 0%, rgba(20, 20, 20, 0.74) 100%); }
-	#page .velis-feats .blog-shortcode .dt-css-grid { grid-auto-columns: 85%; }
+	#page .velis-feats .blog-shortcode.mode-grid .dt-css-grid { grid-auto-columns: 85%; }
 	.velis-feats .velis-feats-title { margin-top: 48px; }
 	.velis-stat-num { font-size: 32px; line-height: 40px; }
 	.velis-stats .vc_column_container { margin-bottom: 24px; }

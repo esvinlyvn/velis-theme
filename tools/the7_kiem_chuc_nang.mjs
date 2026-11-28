@@ -1,5 +1,5 @@
 // Kiểm chức năng sau khi đổi CSS (2026-11-27): menu điện thoại mở + menu con, menu thả xuống máy tính khi rê chuột, Hỏi đáp mở/đóng,
-// lọc /du-an/ đổi số thẻ hiện, form CF7 bấm gửi trống hiện lỗi từng ô (CHỈ staging). Cửa sổ ảnh: tools/the7_kiem_anh_popup.mjs.
+// lọc /du-an/ đổi số thẻ hiện, dải trượt điện thoại, cuộn nhanh không ô ảnh trắng, form CF7 bấm gửi trống hiện lỗi từng ô (CHỈ staging). Cửa sổ ảnh: tools/the7_kiem_anh_popup.mjs.
 // Dùng: node tools/the7_kiem_chuc_nang.mjs <base>   (staging: STAGING_VIEW_PASSWORD) – in bảng, thoát 1 nếu có mục trượt.
 import { createRequire } from 'node:module';
 const { chromium } = createRequire(import.meta.url)('playwright');
@@ -19,6 +19,18 @@ if (await nl.count()) { await nl.click(); await p.waitForTimeout(600); const sub
 await p.goto(base + '/can-ho-the-prive/'); await p.waitForTimeout(800);
 const d = p.locator('.velis-hoi-dap__muc').first();
 if (await d.count()) { const h0 = await d.evaluate((e) => e.getBoundingClientRect().height); await d.locator('summary').click(); await p.waitForTimeout(300); const h1 = await d.evaluate((e) => e.getBoundingClientRect().height); ghi('Hỏi đáp mở', h1 > h0 + 10 && await d.evaluate((e) => e.open), `cao ${Math.round(h0)} → ${Math.round(h1)}`); } else ghi('Hỏi đáp mở', false, 'không thấy .velis-hoi-dap__muc');
+// dải trượt điện thoại (dải nổi bật trang chủ velis-feats): cuộn ngang được
+await p.goto(base + '/'); await p.waitForTimeout(1000);
+const dai = await p.evaluate(async () => { const g = document.querySelector('.velis-feats .dt-css-grid'); if (!g) return null; const w0 = g.scrollLeft; g.scrollBy({ left: 300 }); await new Promise((r) => setTimeout(r, 600)); return { rong: g.scrollWidth, khung: g.clientWidth, truoc: w0, sau: g.scrollLeft }; });
+ghi('Dải trượt điện thoại (nổi bật)', dai && dai.rong > dai.khung && dai.sau > dai.truoc, dai ? `rộng ${dai.rong} / khung ${dai.khung}, cuộn ${dai.truoc} → ${Math.round(dai.sau)}` : 'không thấy');
+// cuộn nhanh: mỗi 60 ms nhảy 1 màn; sau mỗi bước 250 ms, ảnh trong khung không được bị ẩn; ảnh loading=lazy đang tải phải hiện trong 1,5 giây
+for (const u of ['/du-an/', '/can-ho-the-prive/']) { await p.goto(base + u); await p.waitForTimeout(800);
+  const trang = await p.evaluate(async () => { const H = document.documentElement.scrollHeight; let xau = 0, dem = 0, cho = 0; for (let y = 0; y < H; y += innerHeight) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 60)); }
+    for (let y = 0; y < H; y += innerHeight * 2) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 250));
+      for (const i of document.images) { const r = i.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight || r.width < 40 || i.closest('.masthead, .dt-mobile-header, #phantom')) continue; dem++; let e = i, an = false; while (e) { const s = getComputedStyle(e); if (+s.opacity < 0.05 || s.visibility === 'hidden') an = true; e = e.parentElement; }
+        if (an) xau++; else if (!i.complete || !i.naturalWidth) { cho++; await new Promise((r) => setTimeout(r, 1500)); if (!i.complete || !i.naturalWidth) xau++; } } }
+    return { dem, xau, cho }; });
+  ghi(`Cuộn nhanh không ô ảnh trắng ${u}`, trang.xau === 0, `${trang.dem} lượt ảnh trong khung, ${trang.xau} bị ẩn / không tải được, ${trang.cho} ảnh lazy đang tải (hiện trong 1,5 giây)`); }
 p = await mo(1366, false);
 await p.goto(base + '/'); await p.waitForTimeout(800);
 const li = p.locator('#primary-menu > li.has-children, .main-nav > li.has-children').first();

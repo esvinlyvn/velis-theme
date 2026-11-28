@@ -747,3 +747,20 @@ Theme con 2.1.9 + tạo cỡ ảnh 230 ảnh (REST post-process). So ảnh vùng
   - CLS 412 / 1366 / 1920 ≤ 0,013.
   - Chức năng 6/6; cửa sổ ảnh 4/4.
 - Lỗi nội dung sẵn có (không do cv): bài /gia-ban-the-prive-quan-2-2026/ có 4 link Easy TOC trỏ id không tồn tại (tiêu đề có ngoặc kép “ ” / tiêu đề trùng số).
+
+## 2026-11-28 – Ảnh hiện ngay, không chờ JS (2.5.3 → 2.5.5)
+
+- Kiểm Theme Options: `general-images_lazy_loading` = 0 (tải chậm ảnh của The7 ĐÃ tắt); HTML ảnh dùng `loading="lazy"` chuẩn WordPress, ảnh đầu `fetchpriority="high"`.
+- Nguyên nhân thật của "ảnh bị ẩn chờ JS":
+  - main.min.css của The7 có `.jquery-filter article.visible { animation: fadeInFromNone .5s }` (khung đầu: opacity 0 + visibility hidden).
+  - JS lưới gắn lại `.visible` lúc khởi tạo → thẻ dự án / lưới bài ẩn rồi hiện lại sau khi JS chạy.
+  - Không có tùy chọn tắt: phần tử đã đặt loading-effect-none mà hiệu ứng vẫn chạy.
+  - Lớp `thumb-lazy-load-show` do JS thêm không ẩn ảnh.
+- 2.5.3: velis.css thêm `#page .jquery-filter article.visible` vào quy tắc sẵn có `{ opacity: 1; animation: none; }`.
+  `tools/the7_kiem_anh_an.mjs` (tắt JS, 15 trang × 2 khổ): site thật 2.5.2 có 23 ảnh bị ẩn → staging 0.
+- 2.5.4–2.5.5: dải "Dự án nổi bật" ở ≤ 1247 px trượt ngang lại như DESIGN.md (trước đó quy tắc lưới chung `display:flex; wrap` đè → 4 thẻ xếp dọc ở điện thoại). ≥ 1248 px giữ nguyên.
+- So ảnh 17 trang × 3 khổ (360 màn hình):
+  - Chỉ khác ở trang chủ 412: dải trượt ngang, trang ngắn hơn khoảng 3 thẻ – có chủ đích.
+  - Giới thiệu 412 khác ở ô bản đồ Google đang tải.
+  - Trang chủ 1366 / 1920: 0 %.
+- CLS 412 / 1366 / 1920 ≤ 0,013. Chức năng 9/9: dải trượt, cuộn nhanh (ảnh lazy hiện trong 1,5 giây), lọc /du-an/, form. Cửa sổ ảnh 4/4.
