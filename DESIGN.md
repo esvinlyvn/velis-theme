@@ -594,6 +594,10 @@ Hai cấp Vùng → Tiểu khu (danh sách ở `docs/KHU-VUC.md`). Thẻ hiện 
 - Không bộ đếm cần JavaScript mới hiện số; không emoji làm icon; không ảnh stock chung chung.
 - Không dùng champagne cho chữ nhỏ trên nền sáng; không dùng màu logo làm màu giao diện.
 - Không thêm thư viện JS (jQuery, slider, animation library).
+- **CSS không được đè lựa chọn căn lề / hiển thị người soạn đặt trong WPBakery** (người dùng chốt 2026-11-28): Button / Single Image alignment, căn chữ Text Block,
+  cỡ ảnh, ẩn / hiện theo thiết bị. Mặc định của Velis (vd. căn trái trong khung đầu trang) đặt ở độ ưu tiên thấp nhất (`:where(...)`, không `!important`,
+  không bộ chọn mạnh hơn lớp căn lề của WPBakery / The7). Ảnh tràn cột dùng lớp riêng (`velis-crop`, `velis-badge`, `velis-hero-bg`), không ép mọi ảnh.
+  Kiểm: `python3 -I tools/the7_kiem_can_le.py --ghi` (staging, tự trả nội dung gốc).
 
 ## Responsive Behavior
 

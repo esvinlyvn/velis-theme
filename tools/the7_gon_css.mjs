@@ -48,8 +48,9 @@ export function rong(s) {
 // lớp TRẠNG THÁI do JS / trình duyệt thêm (mở menu, dính đầu trang, Safari, iOS, form đã gửi…): bỏ khi thử khớp như giả lớp → bộ chọn rộng hơn
 // (vd. ".is-safari .x.act" thử bằng ".x") → giữ được quy tắc của trạng thái mà lần quét không gặp, miễn phần tử gốc có trên site
 const TT = /\.(?:act|active|open|opened|show|shown|visible|on|off|hover|hovered|dt-hovered|is-[\w-]+|loading|loaded|lazy-loaded|animate[\w-]*|start-animation|animation-[\w-]+|sticky-[\w-]+|phantom-[\w-]+|closed|current[\w-]*|selected|disabled|focus[\w-]*|playing|paused|ready|transition[\w-]*|sent|invalid|failed|spam|aborted|submitting|unaccepted|resetting|payment-required|wpcf7-not-valid[\w-]*|mobile-true|mobile-false|touchevents|no-touchevents|ios|android|firefox|edge|old-ie|safari|ie|chrome|menu-open|dt-menu-open|show-mobile-menu|show-overlay|hide-overlay|dt-open[\w-]*|mfp-[\w-]+|pswp--[\w-]+)(?![\w-])/g;
-// cửa sổ ảnh chỉ sinh khi mở → luôn giữ
-export const GIU = /\.(pswp|mfp-)/;
+// luôn giữ: cửa sổ ảnh (chỉ sinh khi mở) + LỚP TÙY CHỌN người soạn chọn trong WPBakery / The7 (căn lề, ẩn hiện theo thiết bị, cột…) – lần quét chỉ thấy
+// lựa chọn đang dùng; bỏ phần còn lại thì đổi lựa chọn trong trình soạn sẽ không có CSS (2026-11-28: btn-align-right / align-left bị lọc mất – DESIGN.md)
+export const GIU = /\.(pswp|mfp-|btn-align-|vc_align_|vc_btn3-(?:left|center|right|inline|align|size|shape|style|color|icon)|align-(?:left|right|center|centre)\b|text-(?:left|right|center)\b|vc_hidden|vc_col-(?:xs|sm|md|lg)-\d+\b(?!-)|vc_txt_align_|vc_separator_align_|vc_icon_element-align-|vc_single_image-|vc_box_|wpb_align|dt-text-|content-align-|title-align-|vc_row-o-|vc_row-flex|vc_column-gap-)/;
 export function loc(css, dung) {
   const viet = (ds) => ds.map((x) => {
     if (x.t === 'raw') return x.s;
@@ -149,7 +150,7 @@ if (lenh === '--test') {
   const css = '@charset "x";/*c{}*/a:hover,.b::before{color:red}@media (max-width:9px){.c>:first-child{x:1}.dd{y:"}"}}@font-face{src:url(f.woff)}@keyframes k{0%{a:1}}.e:not(.f){z:1}.is-ios .q{a:1}:root{--a:1}.g[data-x="a,b"]{b:1}.pswp__bg{c:1}';
   assert(tach(css).length === 10, 'tach'); assert(rong('.is-safari .x.act > a:hover') === '.x > a' && rong('.act > a') === '* > a' || console.log(rong('.act > a')), 'tt'); assert(rong('a:hover') === 'a' && rong('.c>:first-child') === '.c> *' && rong('.e:not(.f, .g)') === '.e' && rong('::selection') === '*', 'rong ' + rong('.c>:first-child'));
   assert(JSON.stringify(tachChon('.g[data-x="a,b"], .h:is(.i,.j)')) === '[".g[data-x=\\"a,b\\"]",".h:is(.i,.j)"]', 'tachChon');
-  const o = loc(css, new Set(['.b', '.c> *', '.q']));
+  const o = loc(css, new Set(['.b', '.c> *', '.q'])); assert(loc('.btn-align-right{text-align:right}.vc_align_right{x:1}.khac{y:1}', new Set()) === '.btn-align-right{text-align:right}.vc_align_right{x:1}', 'GIU tuy chon');
   assert(o === '@charset "x";a:hover,.b::before{color:red}@media (max-width:9px){.c>:first-child{x:1}}@font-face{src:url(f.woff)}@keyframes k{0%{a:1}}.is-ios .q{a:1}:root{--a:1}.pswp__bg{c:1}', 'loc ' + o);
   assert(doiUrl('a{b:url(../i/x.png?v=1)}c{d:url("data:x")}', '/wp-content/themes/t/css/m.css') === 'a{b:url("/wp-content/themes/t/i/x.png?v=1")}c{d:url("data:x")}', 'doiUrl');
   const lb = locBien(':root{--a:1;--b:var(--c);--c:2;--d:3}@media (x){:root{--d:4;--e:5}}', '.x{color:var(--b)} el.style.setProperty("--e",1)');

@@ -68,6 +68,7 @@ CONTENT-PLAN, CHANGES-SUMMARY lấy từ trang riêng tư 20539–20544 của si
 - **CSS gọn (2.5.0):** `gon/<tên miền>/` = bản lọc bỏ quy tắc không khớp phần tử nào của The7 / WPBakery / plugin + biến `css-vars` không dùng;
   `node tools/the7_gon_css.mjs --quet <staging> dung.json` (SITEMAP_BASE=https://velisrealty.vn, ~40 phút) → `--sinh <site> dung.json` cho CẢ 2 tên miền.
   Theme chỉ dùng bản gọn khi md5 tệp nguồn còn khớp (đổi Theme Options / cập nhật plugin → tự về tệp gốc, critical tắt theo) → **sau mỗi lần đổi đó: quét + sinh lại, sinh critical, đóng gói**.
+  Lớp tùy chọn người soạn (căn lề, ẩn hiện, cột) luôn được giữ (GIU) – không lọc theo lần quét (DESIGN.md: CSS không đè lựa chọn WPBakery; kiểm `python3 -I tools/the7_kiem_can_le.py --ghi`).
   Kiểm: `tools/the7_do_css_trang.mjs` (tổng CSS / trang), `tools/the7_so_anh.mjs --chup/--so` (17 trang × 3 khổ, ≤ 0,5 %), `tools/the7_kiem_chuc_nang.mjs`.
 - GA4 (người dùng quyết 2026-11-27, bỏ hộp đồng ý cookie): theme con (`inc/velis-tac-gia-dong-y.php`) tải gtag.js 1 lần khi khách tương tác lần đầu (scroll / pointerdown / keydown / touchstart)
   hoặc 4 giây sau khi tải xong lúc rảnh; KHÔNG chèn gtag ở Header and Footer Scripts / Theme Options (đây là ngoại lệ có chủ đích của dòng "KHÔNG hoãn GA4" ở LiteSpeed). Kiểm `node tools/the7_kiem_ga.mjs <base>`.

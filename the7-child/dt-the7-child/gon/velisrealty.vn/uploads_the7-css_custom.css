@@ -145,6 +145,11 @@ body.page,
   padding: 0 48px 0 48px;
 }#footer .wf-wrap{
   padding: 0 48px 0 48px;
+}.text-normal,
+.dt-accordion-text-normal .wpb_accordion_header > a,
+.icon-with-text-shortcode .dt-text-desc{
+  font-size: var(--the7-base-font-size);
+  line-height: var(--the7-base-line-height);
 }.text-small,
 .dt-accordion-text-small .wpb_accordion_header > a{
   font-size: var(--the7-text-small-font-size);
@@ -2034,6 +2039,23 @@ textarea{
 .enable-bg-rollover .gallery-rollover,
 .enable-bg-rollover.hover-scale figure:after{
   background-color: rgba(17,17,17,0.15);
+}.hover-style-two:not(.effect-layla):not(.effect-bubba):not(.effect-sarah) .rollover-content,
+.buttons-on-img .rollover-content,
+.albums .rollover-thumbnails-on i,
+.dt-albums-shortcode .rollover-thumbnails-on i,
+.rollover-buttons-on i,
+.hover-scale .rollover-project:after,
+.hover-style-two.content-align-bottom .rollover-project:after,
+.portfolio-shortcode.enable-bg-rollover .post-thumbnail-rollover:after,
+.albums-shortcode.enable-bg-rollover .post-thumbnail-rollover:after,
+.enable-bg-rollover.hover-scale article:after{
+  background-color: rgba(184,40,46,0.9);
+}.hover-color-static:not(.effect-layla):not(.effect-bubba):not(.effect-sarah) .rollover-content,
+.accent-gradient .hover-color-static:not(.effect-layla):not(.effect-bubba):not(.effect-sarah) .rollover-content,
+.hover-color-static.hover-scale .rollover-project:after,
+.hover-color-static.hover-style-two.content-align-bottom .rollover-project:after{
+  background-color: rgba(0,0,0,0.65);
+  background-image: none;
 }.wpcf7-validation-errors .wpcf7-not-valid-tip-text,
 .wpcf7-validation-errors .wpcf7-valid-tip-text,
 .wpcf7-mail-sent-ok .wpcf7-not-valid-tip-text,

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Đổi tên chủ đầu tư (2026-11-26, người dùng yêu cầu): Đất Xanh → Bluemarq Group từ 06/05/2026. Chỉ trang dự án (không bài blog).
-Lần nhắc ĐẦU (theo thứ tự trên trang) = "Bluemarq Group (trước đây là Tập đoàn Đất Xanh)", các lần sau = "Bluemarq Group"; tính cả ô lưới
+Mọi lần nhắc = "Bluemarq Group" – KHÔNG ghi "(trước đây là Tập đoàn Đất Xanh)" (người dùng gỡ 2026-11-28); tính cả ô lưới
 "Velis · Thông tin dự án" (tham số mã hóa) và ô Tóm tắt (thẻ dự án: lần nhắc đầu của thẻ). In revision trước + danh sách chỗ đổi.
 Site thật: kiem_site_that() trước. Dùng: python3 -I tools/the7_doi_ten_cdt.py <staging|that> <ID,…> [--ghi]   |   --test
 """
 import json, re, sys, os, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-DAI, NGAN = 'Bluemarq Group (trước đây là Tập đoàn Đất Xanh)', 'Bluemarq Group'
+DAI = NGAN = 'Bluemarq Group'  # không kèm tên cũ (người dùng gỡ 2026-11-28)
 TEN = re.compile(r'(?<!trước đây là )Tập đoàn Đất Xanh(?: \(Dat Xanh Group\))?|(?<!Tập đoàn )Đất Xanh(?: \(Dat Xanh Group\))?')  # bỏ qua tên cũ trong ngoặc của chính tên mới (chạy lại không đổi thêm)
 
 

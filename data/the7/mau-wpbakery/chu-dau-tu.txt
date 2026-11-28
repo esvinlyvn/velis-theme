@@ -1,4 +1,4 @@
-[vc_row el_id="gioi-thieu" el_class="velis-hero" css=".vc_custom_1762900000003{background-color: #FAF7F2 !important;}"][vc_column][dt_breadcrumbs][vc_column_text css=""]
+[vc_row el_id="gioi-thieu" el_class="velis-hero" css=".vc_custom_1762900000003{background-color: #FAF7F2 !important;}"][vc_column][dt_breadcrumbs alignment="left"][vc_column_text css=""]
 <p class="velis-eyebrow">Chủ đầu tư</p>
 <h1>[Tên chủ đầu tư]</h1>
 <p>[2–3 câu giới thiệu chủ đầu tư]</p>

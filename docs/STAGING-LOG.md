@@ -764,3 +764,18 @@ Theme con 2.1.9 + tạo cỡ ảnh 230 ảnh (REST post-process). So ảnh vùng
   - Giới thiệu 412 khác ở ô bản đồ Google đang tải.
   - Trang chủ 1366 / 1920: 0 %.
 - CLS 412 / 1366 / 1920 ≤ 0,013. Chức năng 9/9: dải trượt, cuộn nhanh (ảnh lazy hiện trong 1,5 giây), lọc /du-an/, form. Cửa sổ ảnh 4/4.
+
+## 2026-11-28 – CSS không đè căn lề WPBakery (2.5.6 → 2.5.8)
+
+- velis.css:
+  - `.velis-hero .wpb_wrapper > *` (căn trái + margin-left 0) và căn lề breadcrumbs khung đầu trang → `:where(...)` (độ ưu tiên 0). Khoảng cách breadcrumbs (margin 0 0 16px) giữ ở độ ưu tiên thường.
+  - Bỏ `.wpb_single_image .vc_figure, .vc_single_image-wrapper, img { display:block; width:100% }`: ảnh tràn đã có quy tắc riêng `velis-crop` / `velis-badge` / `velis-hero-bg`; ở 412 không ảnh nào bị giãn.
+- CSS gọn (`tools/the7_gon_css.mjs`): luôn giữ lớp tùy chọn người soạn (btn-align-*, vc_align_*, vc_btn3-*, align-*, text-*, vc_hidden*, vc_col-*-N…).
+  Trước đó `btn-align-left/right`, `dt-breadcrumbs.align-left` bị lọc vì lúc quét không trang nào dùng. Sinh lại 2 tên miền: 286 → 310 KB.
+- `tools/the7_breadcrumb_trai.py --ghi` (staging): `[dt_breadcrumbs]` → `[dt_breadcrumbs alignment="left"]`, giữ giao diện, căn lề đặt trong phần tử.
+  Revision trước khi sửa: 20422 (20474), 19962 (21369), 20067 (21338), 19855 (21339), 19934 (21340), 19773 (21341), 20360 (21342), 19637 (21335), 19625 (21334), 19633 (21333), 19593 (21332).
+  Mẫu "Velis – Dự án" / "Velis – Chủ đầu tư" (`data/the7/mau-wpbakery/`) sửa theo + lưu lại "Mẫu của tôi" (staging).
+- Kiểm `tools/the7_kiem_can_le.py --ghi` (19962, tự trả nội dung gốc): nút trái / giữa / phải × chữ giữa / trái – 4/4 đạt ở 412 + 1366.
+- So ảnh 17 trang × 3 khổ: giống mốc. Chỉ khác ô bản đồ Google trên trang Giới thiệu (nội dung ngoài); 2 trang có breadcrumbs 111/112 màn hình giống, ảnh thiếu là do số màn hình.
+- 19962 (rev trước 21399): gỡ " (trước đây là Tập đoàn Đất Xanh)" ở nhãn khung đầu trang + ô Tóm tắt (thẻ dự án) – khớp site thật (người dùng đã tự gỡ). `tools/the7_doi_ten_cdt.py` không còn chèn tên cũ.
+- Cổng kiểm 2.5.8 (5 lần): ĐẠT 4/4 (staging quy đổi Perf 98, LCP 1,0–1,5 s, TBT 57–78 ms).

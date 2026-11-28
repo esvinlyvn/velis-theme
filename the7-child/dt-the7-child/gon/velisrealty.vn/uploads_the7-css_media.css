@@ -445,6 +445,11 @@
   }.sidebar-right .single-related-posts .items-grid > .related-item,
   .sidebar-left .single-related-posts .items-grid > .related-item{
     width: 100%;
+  }.content-align-center.dt-testimonials-shortcode.layout-6 .testimonial-item,
+  .content-align-center.dt-testimonials-shortcode.layout-5 .testimonial-item{
+    -ms-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
   }}@media screen and (max-width: 778px){.masthead:not(.side-header) .mobile-header-bar,
   .side-header.masthead-mobile-header .mobile-header-bar{
     padding: 0 20px 0 20px;

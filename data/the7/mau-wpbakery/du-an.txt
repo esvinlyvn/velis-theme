@@ -1,4 +1,4 @@
-[vc_row el_class="velis-dau-trang-hang"][vc_column][velis_dau_trang kieu="hang" el_id="gioi-thieu" el_class="velis-hero velis-nen-nga"][dt_breadcrumbs][vc_column_text]
+[vc_row el_class="velis-dau-trang-hang"][vc_column][velis_dau_trang kieu="hang" el_id="gioi-thieu" el_class="velis-hero velis-nen-nga"][dt_breadcrumbs alignment="left"][vc_column_text]
 <p class="velis-eyebrow">[Chủ đầu tư] · [Khu vực thị trường – docs/KHU-VUC.md]</p>
 <h1>[Tên dự án]</h1>
 [/vc_column_text][vc_single_image image="" img_size="full" alignment="center" el_class="velis-crop"][vc_column_text]

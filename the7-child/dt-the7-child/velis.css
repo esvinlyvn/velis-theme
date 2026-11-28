@@ -86,8 +86,10 @@ body .velis-nen-champagne { background-color: var(--velis-nen-champagne); }
 #page .page-title .page-title-breadcrumbs { order: -1; margin: 0 0 8px; }
 .page-title .page-title-head { overflow: visible; }
 .velis-hero { padding-left: 0; padding-right: 0; }
-.velis-hero .wpb_wrapper > * { margin-left: 0; text-align: left; }
-.velis-hero .dt-breadcrumbs-shortcode, .velis-hero .dt-breadcrumbs-shortcode .breadcrumbs { display: flex; justify-content: flex-start; margin: 0 0 16px; text-align: left; }
+/* Mặc định căn trái ở mức THẤP NHẤT (:where = độ ưu tiên 0): lựa chọn căn lề của người soạn trong WPBakery (Button / Single Image alignment, Text Block) luôn thắng – DESIGN.md */
+:where(.velis-hero .wpb_wrapper) > * { margin-left: 0; text-align: left; }
+.velis-hero .dt-breadcrumbs-shortcode, .velis-hero .dt-breadcrumbs-shortcode .breadcrumbs { margin: 0 0 16px; } /* khoảng cách: thiết kế, giữ độ ưu tiên thường */
+:where(.velis-hero .dt-breadcrumbs-shortcode, .velis-hero .dt-breadcrumbs-shortcode .breadcrumbs) { display: flex; justify-content: flex-start; text-align: left; }
 .velis-hero .dt-breadcrumbs-shortcode .breadcrumbs, .velis-hero .dt-breadcrumbs-shortcode .breadcrumbs span { color: var(--velis-chu-phu); }
 .velis-hero h1 { margin-bottom: 24px; }
 .velis-hero .velis-crop { margin: 0 0 24px; }
@@ -150,7 +152,7 @@ body .vc_row.velis-facts > .vc_column_container > .vc_column-inner { padding: 0;
 .velis-badge .vc_single_image-wrapper { display: block; overflow: hidden; }
 .velis-badge img { display: block; width: 100%; transform: scale(1.12); transform-origin: 100% 0; }
 .entry-content img.velis-badge { transform: scale(1.12); transform-origin: 100% 0; clip-path: inset(0 0 10.714% 10.714%); }
-.wpb_single_image .vc_figure, .wpb_single_image .vc_single_image-wrapper, .wpb_single_image img { display: block; width: 100%; }
+/* (bỏ 2026-11-28: ép mọi Single Image rộng 100% + display:block làm mất lựa chọn cỡ / căn lề trong WPBakery; ảnh tràn dùng lớp riêng velis-crop / velis-badge / velis-hero-bg) */
 .post-thumbnail-rollover { overflow: hidden; }
 .post-thumbnail-rollover img { transform: scale(1.12); transform-origin: 100% 0; }
 /* "Xem thêm" (vc_toggle class velis-more): mặc định mở hết; < 1024 JS thu tối đa 2 khối dài (functions.php) */
