@@ -462,3 +462,30 @@ Cổng kiểm (5 lần trung vị): ĐẠT cả 4 trang.
 Kiểm site thật sau khi đưa lên:
 - Ảnh bị ẩn khi chưa chạy JS: 23 → 0 (15 trang × 2 khổ).
 - Chức năng 8/8: dải trượt, cuộn nhanh, lọc /du-an/, menu, Hỏi đáp. Cửa sổ ảnh 4/4. GA4 5/5. Kiểm hằng ngày ĐẠT.
+
+## 2026-11-28 – Theme con 2.5.8: CSS không đè căn lề WPBakery
+
+`kiem_site_that()` đạt (trong `tools/the7_breadcrumb_trai.py that --ghi`). Bản trước để trả lại: `data/the7/goi-2.5.5/`.
+
+| Giờ (UTC) | Thao tác | Kết quả |
+|---|---|---|
+| 09:49 | `[dt_breadcrumbs]` → `[dt_breadcrumbs alignment="left"]` (11 trang) – giữ giao diện, căn lề nằm trong phần tử. Revision trước: 20422 (21233), 19962 (21251), 20067 (21235), 19855 (21236), 19934 (21237), 19773 (21238), 20360 (21239), 19637 (21232), 19625 (21231), 19633 (21230), 19593 (21229) | nội dung kiểm lại đúng từng ký tự |
+| 09:50 | Giao diện → Tải lên `dt-the7-child-2.5.8.zip` (thay 2.5.5) + LiteSpeed Xóa tất cả | 2.5.5 → 2.5.8 |
+
+Cổng kiểm (5 lần trung vị): ĐẠT cả 4 trang.
+
+| Trang | Site thật (2.5.5): Perf / LCP / TBT / CLS / MB | Staging 2.5.8 quy đổi | Kết luận |
+|---|---|---|---|
+| / | 97 / 2.2 s / 65 ms / 0.000 / 1.06 | 98 / 1.4 s / 78 ms / 0.000 / 1.06 | ĐẠT |
+| /du-an/ | 97 / 2.2 s / 68 ms / 0.000 / 1.01 | 98 / 1.5 s / 60 ms / 0.000 / 1.02 | ĐẠT |
+| /can-ho-the-prive/ | 96 / 1.9 s / 58 ms / 0.002 / 0.49 | 98 / 1.2 s / 62 ms / 0.002 / 0.49 | ĐẠT |
+| /gia-ban-the-prive-quan-2-2026/ | 98 / 1.7 s / 61 ms / 0.000 / 0.51 | 98 / 1.0 s / 57 ms / 0.000 / 0.51 | ĐẠT |
+
+Đo lại site thật sau khi đưa lên (5 lần): / 97 / 2,2 s / 58 ms · /du-an/ 96 / 2,3 s / 60 ms · The Privé 98 / 1,9 s / 58 ms · bài 98 / 1,8 s / 54 ms – không kém hơn bản trước.
+
+Kiểm sau khi đưa lên:
+- The Privé: nút "Nhận bảng giá" (button_alignment = Center) giờ hiện căn giữa; trước bị ép trái.
+- Đây là chỗ duy nhất CSS đè lựa chọn người soạn đã đặt trên 130 URL; breadcrumbs 11 trang vẫn trái như cũ.
+- Không còn "trước đây là Tập đoàn Đất Xanh" (người dùng đã tự gỡ; cache đã xóa).
+- Ảnh ẩn chờ JS 0. Chức năng 8/8. Cửa sổ ảnh 4/4. GA4 5/5. Kiểm hằng ngày ĐẠT.
+- "Mẫu của tôi" trên site thật chưa lưu lại (chỉ staging) – mẫu cũ thêm breadcrumbs mặc định căn giữa nếu dùng.
